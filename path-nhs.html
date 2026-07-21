@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bristol NHS Foundation Trust - Audiology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.premium-white-theme {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #333333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 60px 20px 100px 20px;
+    }
+    h1 {
+      color: #ff0f5b;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      border-left: 6px solid #ff0f5b;
+      text-align: left;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #005EB8;
+    }
+    .back-btn-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #333333;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #ff0f5b;
+    }
+    #dev-reset {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: black;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.15;
+      cursor: pointer;
+      z-index: 99999999;
+      padding: 10px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body class="premium-white-theme">
+  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+
+  <div class="container">
+    <h1>Bristol NHS Foundation Trust</h1>
+    
+    <div class="card" style="border-left-color: #005EB8;">
+      <h3>Combined Organization Overview</h3>
+      <p>The Bristol NHS trust has merged and is now officially called Bristol NHS Foundation Trust. Audiology is fully included in this newly formed, combined organization, offering seamless care for hearing and balance across various locations in the region.</p>
+      <p>The merged trust delivers Audiology services across several main sites, including:</p>
+      <ul>
+        <li><strong>St Michael's Hospital</strong> (main adult audiology centre)</li>
+        <li><strong>Brunel Building at Southmead Hospital</strong> (Gate 36, Level 1)</li>
+        <li><strong>Weston General Hospital</strong></li>
+        <li><strong>Various community satellite clinics</strong> (e.g., Cossham, South Bristol Community Hospital)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>St Michael's Hospital</h3>
+      <p><strong>Adult Audiology</strong><br>St Michael's Hospital, St Michael's Hill, Bristol, BS2 8EG</p>
+      <p><strong>Contact:</strong> 0117 342 5854 | Audiology.Dept@uhbw.nhs.uk</p>
+    </div>
+
+    <div class="card">
+      <h3>Southmead Hospital</h3>
+      <p><strong>Adult Audiology</strong><br>Gate 36, Brunel Building, Southmead Hospital, Bristol, BS10 5NB</p>
+    </div>
+
+    <div class="card">
+      <h3>Weston-Super-Mare General Hospital</h3>
+      <p><strong>UHBW Audiology Clinic</strong><br>Grange Road, Weston-super-Mare, BS23 4TQ</p>
+    </div>
+
+    <div class="card">
+      <h3>Community Satellite Locations</h3>
+      <ul>
+        <li><strong>Cossham Hospital:</strong> Lodge Road, Kingswood, Bristol, BS15 1LF</li>
+        <li><strong>Thornbury Hospital:</strong> Eastland Road, Thornbury, Bristol, BS35 1DN</li>
+        <li><strong>Portishead Medical Centre / Clinic:</strong> 1 Stock Way North, Portishead, Bristol, BS20 6NJ</li>
+        <li><strong>Clevedon Hospital:</strong> Old Street, Clevedon, North Somerset, BS21 6BH</li>
+        <li><strong>Stockwood Medical Centre:</strong> Kolynos Close, Stockwood, Bristol, BS14 8JL</li>
+        <li><strong>South Bristol Community Hospital:</strong> Hengrove Promenade, Whitchurch Lane, Bristol, BS14 0DB</li>
+        <li><strong>Domiciliary Visits:</strong> Home visits available for eligible patients.</li>
+      </ul>
+    </div>
+
+    <div class="back-btn-container">
+      <a href="path-yes.html" class="back-btn">&larr; Back to Journey</a>
+    </div>
+  </div>
+</body>
+</html>

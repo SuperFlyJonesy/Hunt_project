@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bristol Hearing Aid Access & Models</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        .group-header { background-color: #f8f9fa; font-weight: bold; }
+        .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cta-button { background: #005EB8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 8px; display: block; margin: 5px; font-weight: bold; text-align: center; }
+        .img-cell { width: 128px; }
+        .img-style { object-fit: cover; border-radius: 0.375rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); width: 8rem; height: auto; }
+    </style>
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
+    
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b; text-align: center;">Bristol Hearing Aid Access & Models</h1>
+
+        <!-- Bristol Access -->
+        <div class="grid-split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;">
+            <div class="page-card" style="border-left-color: #005EB8;">
+                <h2 style="color: #005EB8; margin-top: 0;">NHS Access in Bristol</h2>
+                <p>Provided free as a long-term loan via UHBW Audiology (St Michael’s, Southmead, and satellite clinics). <strong>Lost/damaged device fee: £95.</strong></p>
+            </div>
+            <div class="page-card" style="border-left-color: #388E3C;">
+                <h2 style="color: #388E3C; margin-top: 0;">Private Supply</h2>
+                <p>Local providers include Audika, Hidden Hearing, Boots Hearingcare, The Hearing Care Partnership, and Gordon Morris.</p>
+            </div>
+        </div>
+
+        <!-- Contact & Supplies Banner -->
+        <div class="page-card" style="border-left-color: #ff0f5b; width: 100%;">
+            <h2 style="color: #ff0f5b; margin-top: 0;">Contact UHBW Audiology (St Michael's Hospital)</h2>
+            <p><strong>Phone:</strong> 0117 342 5854 <em>(Note: Phone lines can be very busy)</em></p>
+            <p><strong>Email:</strong> audiology.dept@uhbw.nhs.uk</p>
+            <p><strong>Free Replacement Tubing:</strong> Once you have your hearing aid, you do not need to buy replacement tubes. You can email the audiology department to request new tubes, and they will send them to you for free by post.</p>
+            <p><strong>Battery Supply:</strong> If your hearing aid uses disposable batteries, replacements can also be requested via the NHS.</p>
+        </div>
+
+        <!-- Bristol Device Pathways Table -->
+        <div class="page-card" style="width: 100%;">
+            <h2 style="color: #ff0f5b;">Bristol Device Pathways</h2>
+            <table>
+                <thead><tr><th>Device Type & Model</th><th>Rechargeable?</th><th>Battery Type & Supply</th><th>Image</th></tr></thead>
+                <tbody>
+                    <tr class="group-header"><td colspan="4">Group A: Routine NHS Bristol Current Issue</td></tr>
+                    <tr><td>Behind-the-ear (BTE) - Phonak Bolero Series (General)</td><td>Varies (Rechargeable M-PR models exist, but confirm with audiologist).</td><td>Depends on exact model issued.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20Series.jpg" alt="Behind-the-ear (BTE) Phonak Bolero Series" class="w-24 h-24 object-contain rounded-lg shadow mx-auto"></td></tr>
+                    <tr><td>Behind-the-ear (BTE) - Phonak Bolero M70-M</td><td>No.</td><td>Uses disposable Size 312 Zinc-Air batteries (Brown tab). Available free from NHS.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20M70-M.png" alt="Behind-the-ear (BTE) Phonak Bolero M70-M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Behind-the-ear (BTE) - Phonak Nova M</td><td>Varies by specific model issued.</td><td>Check with audiologist.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Nova%20M.webp" alt="Behind-the-ear (BTE) Phonak Nova M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Behind-the-ear (BTE) - Phonak Naida Series (General)</td><td>Varies (Rechargeable P-PR options exist).</td><td>Depends on exact model issued.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20Series.avif" alt="Behind-the-ear (BTE) Phonak Naida Series" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Behind-the-ear (BTE) - Phonak Naida P-70 UP</td><td>No.</td><td>Uses disposable Size 675 Zinc-Air batteries (Blue tab). Available free from NHS.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20P-70%20UP.webp" alt="Behind-the-ear (BTE) Phonak Naida P-70 UP" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    
+                    <tr class="group-header"><td colspan="4">Group B: UHBW Private Service</td></tr>
+                    <tr><td>In-the-ear (ITE)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/In-the-ear%20(ITE).jpg" alt="ITE example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>In-the-canal (ITC) / Completely-in-canal (CIC)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/In-the-canal%20(ITC)%20%20Completely-in-canal%20(CIC).jpg" alt="ITC/CIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Receiver-in-canal (RIC)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/hearing%20aid.jpg" alt="RIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    
+                    <tr class="group-header"><td colspan="4">Group C: Specialist Implant/Device Pathways & Legacy</td></tr>
+                    <tr><td>Bone conduction hearing device (BCHD)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/BAHA.jpg" alt="BCHD example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Contralateral Routing of Signals (CROS)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/hearing%20aid%20(2).jpg" alt="CROS example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Cochlear Implant</td><td>Specialist</td><td>Implant System</td><td><img src="Audiology%20Images/Cochlear.jpg" alt="Cochlear Implant" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                    <tr><td>Body Worn</td><td>Legacy</td><td>N/A</td><td><img src="Audiology%20Images/Body%20Worn.jpg" alt="Body Worn" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-card" style="width: 100%; text-align: center;">
+            <h2 style="color: #ff0f5b;">Manufacturer Guides</h2>
+            <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3>Phonak Manufacturer Guides</h3>
+                    <a href="https://www.phonak.com/en-int/support/how-to-videos" class="cta-button" target="_blank">Phonak How-to Videos</a>
+                    <a href="https://www.phonak.com/en-int/support" class="cta-button" target="_blank">Phonak Support Hub</a>
+                    <a href="https://www.phonak.com/content/dam/phonak/b2b/Cultures/en_US/products/bolero-marvel/documents/user-guide-bolero-m-phonak.pdf" class="cta-button" target="_blank">Bolero M70-M User Guide</a>
+                    <a href="https://www.youtube.com/watch?v=y749oWq3hJ4" class="cta-button" target="_blank">Bolero M-series Cleaning Video</a>
+                </div>
+                <div>
+                    <h3>UHBW Bristol NHS Guides</h3>
+                    <a href="http://www.uhbristol.nhs.uk/patients-and-visitors/your-hospitals/st-michaels-hospital/what-we-do/audiology/instructional-videos/" class="cta-button" target="_blank">UHBW Instructional Videos</a>
+                    <a href="http://www.uhbristol.nhs.uk/patients-and-visitors/your-hospitals/st-michaels-hospital/what-we-do/audiology/" class="cta-button" target="_blank">UHBW Hearing Aid Info</a>
+                    <a href="https://www.c2hear.org/" class="cta-button" target="_blank">c2Hear Online Videos</a>
+                    <a href="https://www.nhs.uk/conditions/hearing-aids/" class="cta-button" target="_blank">NHS Hearing Aids Overview</a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center w-full py-8 mt-12"><a href="index.html" class="text-lg font-medium hover:underline text-gray-700">← Back to Journey</a></div>
+    </div>
+    <script>
+        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
+    </script>
+</body>
+</html>
