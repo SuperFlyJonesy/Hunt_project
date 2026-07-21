@@ -2,7 +2,14 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; overflow-x: hidden; }
 
-body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden; 
+    font-size: 1.125rem; /* Increased global base font size */
+    line-height: 1.6;
+}
 
 /* Prologue */
 #prologue-lockdown { 
@@ -35,7 +42,7 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
     text-align: center;
     opacity: 0;
     transition: opacity 1s ease;
-    font-size: 26px;
+    font-size: 28px; /* Slightly scaled up */
     font-family: 'Georgia', serif;
     font-style: italic;
     color: #ffffff;
@@ -65,7 +72,7 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
     transform: translateX(-50%);
     z-index: 100000;
     opacity: 0.6;
-    font-size: 12px;
+    font-size: 13px;
     animation: pulse 2.5s infinite ease-in-out;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -90,7 +97,7 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
 #curtain-top { top: 0; }
 #curtain-bottom { bottom: 0; }
 
-/* STENCIL EFFECT (Refined) */
+/* STENCIL EFFECT */
 .video-mask-container {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; 
     z-index: -2; background: #000;
@@ -126,7 +133,7 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
     bottom: 0; 
     left: 0; 
     width: 100%; 
-    padding: 20px 20px 100px 20px; /* FIX 1: Extended space */
+    padding: 30px 25px 120px 25px; 
     box-sizing: border-box; 
     background: linear-gradient(to top, rgba(0,0,0,1) 35%, transparent); 
     text-align: center; 
@@ -137,11 +144,32 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
     justify-content: flex-end;
 }
 
-.official-text { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; color: #eee; }
-.citation-link { color: #fff; text-decoration: none; position: relative; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.3); }
+.official-text { font-size: 1.25rem; line-height: 1.7; margin-bottom: 2rem; color: #eee; }
+.citation-link { color: #fff; text-decoration: none; position: relative; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.4); }
 
-.pathways-container { display: flex; gap: 4rem; justify-content: center; flex-wrap: wrap; }
-.pathway h3 { margin-bottom: 1.2rem; font-weight: 500; color: #ccc; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+.pathways-container { display: flex; gap: 5rem; justify-content: center; flex-wrap: wrap; }
+.pathway h3 { margin-bottom: 1.2rem; font-weight: 500; color: #ccc; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; }
+
+/* TABLE & COLUMN SPACING IMPROVEMENTS */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+table th, 
+table td {
+    padding: 20px 28px; /* Expanded spacing between columns and rows */
+    text-align: left;
+    vertical-align: middle;
+    font-size: 1.1rem;
+}
+
+table th {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
 
 .cta-button {
     padding: 1.2rem 2.8rem;
@@ -184,12 +212,12 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
 .modal-input {
     width: 100%; padding: 20px 24px; margin-bottom: 22px;
     background: #151515; border: 1px solid #222; color: white;
-    border-radius: 14px; font-size: 1.1rem; box-sizing: border-box;
+    border-radius: 14px; font-size: 1.15rem; box-sizing: border-box;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 .modal-input:focus { border-color: #005EB8; outline: none; box-shadow: 0 0 0 4px rgba(0,94,184,0.2); }
 
-.modal-link { color: #00A4EF; text-decoration: none; font-weight: 600; display: block; text-align: center; margin-bottom: 30px; font-size: 1rem; }
+.modal-link { color: #00A4EF; text-decoration: none; font-weight: 600; display: block; text-align: center; margin-bottom: 30px; font-size: 1.1rem; }
 
 /* CINEMATIC OVERLAY */
 .page-transition-overlay {
@@ -200,7 +228,7 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
 .page-transition-overlay.reveal { opacity: 0 !important; }
 
 /* HUB & DASHBOARD */
-.premium-white-theme { background-color: #ffffff; color: #222; font-family: 'Inter', sans-serif; }
+.premium-white-theme { background-color: #ffffff; color: #222; font-family: 'Inter', sans-serif; font-size: 1.125rem; }
 
 .metro-grid {
     display: grid;
@@ -224,5 +252,182 @@ body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow
 .metro-btn:hover { filter: brightness(1.05); }
 .metro-btn:active { transform: translateY(10px); box-shadow: 0 5px 0 rgba(0,0,0,0.15); }
 
-.metro-icon { font-family: 'Material Symbols Outlined'; font-size: 4.5rem; margin-bottom: 15px; }
+.metro-icon { font-family: 'Material Symbols Outlined'; font-size: 9rem; margin-bottom: 15px; }
 .metro-text { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; text-align: center; letter-spacing: 0.5px; }
+
+/* --- TESTIMONIAL TICKER STYLES --- */
+.testimonials-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 0;
+    width: 100%;
+    color: #333;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.testimonials-header {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+}
+
+.testimonials-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #388E3C;
+    letter-spacing: -1px;
+}
+
+.testimonials-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Ticker rows container */
+.tickers-section {
+    width: 100%;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+    background: #fcfcfc;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Soft gradients at the edges to blend the ticker */
+.ticker-container::before,
+.ticker-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.ticker-container::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff 20%, transparent);
+}
+
+.ticker-container::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 20%, transparent);
+}
+
+.ticker-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    will-change: transform;
+    animation: scroll-left-animation 90s linear infinite;
+}
+
+/* Pause scroll on hover */
+.ticker-container:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+/* Ticker cards */
+.ticker-card {
+    flex-shrink: 0;
+    width: 450px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border-left: 6px solid #388E3C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+
+.ticker-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(56, 142, 60, 0.1);
+}
+
+.card-quote-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    color: rgba(56, 142, 60, 0.15);
+    font-family: 'Georgia', serif;
+    margin-top: -15px;
+    margin-bottom: -10px;
+    height: 35px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 20px;
+    white-space: normal;
+}
+
+.card-author {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Info Section below ticker */
+.testimonials-info-section {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-top: 6px solid #388E3C;
+    text-align: left;
+    max-width: 800px;
+    width: calc(100% - 40px);
+    margin: 0 auto 50px auto;
+    box-sizing: border-box;
+}
+
+.testimonials-info-title {
+    color: #388E3C;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.testimonials-info-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Animations */
+@keyframes scroll-left-animation {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
