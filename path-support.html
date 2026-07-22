@@ -31,8 +31,8 @@
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
     
-    <div id="state-intro">
-        <h1 id="intro-text">Experience the reality of hearing loss.</h1>
+    <div id="state-intro" style="cursor: pointer;">
+        <h1 id="intro-text" style="line-height: 1.5; padding: 20px;">Experience the reality of hearing loss.<br><span style="font-size: 1.3rem; display: block; margin-top: 2rem; color: #ff0f5b; font-weight: 800; letter-spacing: 2px;">[ CLICK TO BEGIN ]</span></h1>
     </div>
 
     <div id="state-prologue">
@@ -57,10 +57,16 @@
         </div>
     </div>
 
-    <audio id="bg-noise" src="restaurant-noise.mp3" loop></audio>
+    <audio id="bg-noise" src="Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop></audio>
+
+    <!-- Persistent Premium Volume Control Widget -->
+    <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;">
+    </div>
 
     <script>
-        const rawPhrases = ["People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.", "Struggling to follow conversations around the dinner table when several family members speak at once.", "Feeling left out at family meals because the conversation moves on before you have understood what was said.", "Family members becoming frustrated when they have to repeat themselves.", "Being told “never mind” when you ask what someone said, leaving you feeling excluded.", "Pretending you heard something because asking again feels awkward.", "Laughing along with everyone else even though you did not hear the joke.", "Feeling isolated in a room full of people because you cannot follow the conversation.", "People assuming you are ignoring them when you simply did not hear them.", "Being called rude, distant or unfriendly because you missed someone speaking to you.", "Feeling anxious about meeting new people because you worry you will not understand them.", "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.", "Choosing where to sit based on lighting, noise and whether you can see people’s faces.", "Missing important parts of conversations when someone turns their head away while speaking.", "Struggling when people cover their mouths, mumble or speak while eating.", "Feeling uncomfortable asking someone to remove their hand from their mouth.", "Being told “you heard that!” when you can hear some sounds but not understand every word.", "People not understanding that hearing loss can change depending on background noise and the speaker.", "Hearing a voice but not being able to make out what the person actually said.", "Feeling blamed for communication problems that are not entirely your fault.", "Family members shouting instead of speaking clearly, which can actually make understanding harder.", "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand.", "People treating you as less intelligent because you did not hear something.", "Being spoken about instead of spoken to when you are with someone else.", "Feeling self-conscious about wearing hearing aids.", "Worrying that hearing aids make you look old.", "Hiding hearing loss from colleagues, friends or new partners because of stigma.", "Feeling embarrassed when someone notices your hearing aids.", "Being afraid to admit that your hearing is getting worse.", "Feeling frustrated when people say, “You’ve got hearing aids, so you should be able to hear now.”", "Having to explain repeatedly that hearing aids help but do not restore normal hearing.", "Feeling mentally exhausted after concentrating on conversations all day.", "Needing quiet time after social events because listening takes so much concentration.", "Losing confidence in group conversations because it is hard to know when to speak.", "Accidentally interrupting someone because you did not realise they were still talking.", "Missing the start of a conversation and then struggling to catch up.", "Not knowing who is speaking in a group when you cannot see everyone’s face.", "Missing jokes, sarcasm or tone of voice and misunderstanding what someone means.", "Feeling worried that you have answered a question incorrectly because you misheard it.", "Mishearing names, numbers, dates or addresses and feeling embarrassed about correcting the mistake.", "Finding phone calls stressful because there are no facial expressions or lip movements to help.", "Avoiding making appointments by phone because of fear of misunderstanding important information.", "Feeling anxious when someone says something important from another room.", "Arguments starting because a partner believes you are not listening.", "Being accused of “selective hearing” when you genuinely did not hear something.", "Partners or relatives saying “I’ve told you already” when you may never have heard it the first time.", "Turning the television up and causing tension with other people in the house.", "Relying on subtitles while other people complain that they are distracting.", "Missing doorbells, alarms, timers or someone calling from another room.", "Feeling vulnerable when walking alone because you may not hear bicycles, vehicles or people approaching.", "Struggling in shops when staff speak from behind screens or while looking away.", "Feeling embarrassed at a checkout when you do not understand what the cashier has asked.", "Finding masks difficult because they remove facial expressions and lip-reading cues.", "Feeling excluded when friends choose noisy venues despite knowing about your hearing loss.", "Friends saying “just sit closer” without understanding that distance is only part of the problem.", "People forgetting about your hearing loss because it is an invisible disability.", "Constantly having to remind others how to communicate with you.", "Feeling like you are being “difficult” when asking for subtitles, quieter seating or communication support.", "Missing spontaneous conversations and jokes that happen in passing.", "Feeling that everyone else knows something you missed.", "Withdrawing socially because keeping up with conversations becomes too tiring.", "Losing friendships because socialising starts to feel like hard work.", "Feeling lonely even when surrounded by family and friends.", "Grieving the sounds, music or voices you used to hear more clearly.", "Worrying about hearing loss getting worse in the future.", "Feeling frustrated that other people cannot see how much effort listening takes.", "Being told “at least you’re not completely deaf,” which can minimise the difficulties you face.", "Feeling caught between the hearing and Deaf communities and unsure where you belong."];
+        const rawPhrases = ["People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.", "Struggling to follow conversations around the dinner table when several family members speak at once.", "Feeling left out at family meals because the conversation moves on before you have understood what was said.", "Family members becoming frustrated when they have to repeat themselves.", "Being told “never mind” when you ask what someone said, leaving you feeling excluded.", "Pretending you heard something because asking again feels awkward.", "Laughing along with everyone else even though you did not hear the joke.", "Feeling isolated in a room full of people because you cannot follow the conversation.", "People assuming you are ignoring them when you simply did not hear them.", "Being called rude, distant or unfriendly because you missed someone speaking to you.", "Feeling anxious about meeting new people because you worry you will not understand them.", "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.", "Choosing where to sit based on lighting, noise and whether you can see people’s faces.", "Missing important parts of conversations when someone turns their head away while speaking.", "Struggling when people cover their mouths, mumble or speak while eating.", "Feeling uncomfortable asking someone to remove their hand from their mouth.", "Being told “you heard that!” when you can hear some sounds but not understand every word.", "People not understanding that hearing loss can change depending on background noise and the speaker.", "Hearing a voice but not being able to make out what the person actually said.", "Feeling blamed for communication problems that are not entirely your fault.", "Family members shouting instead of speaking clearly, which can actually make understanding harder.", "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand them.", "Hearing aids amplifying background noises like clattering dishes, making conversations in social settings incredibly difficult.", "Struggling with the sudden, sharp clinking of cutlery or laughter in a busy restaurant.", "Feeling that friends avoid calling or inviting you out because they find communicating with you too difficult.", "Worrying that you are becoming a burden to your family because you need things repeated.", "Experiencing a sense of grief or loss for the ease of effortless, natural conversation.", "Losing the subtle nuances, tone of voice and emotional undertone of what someone is saying.", "Struggling to follow television programs, movies or plays even with subtitles or high volume.", "The sheer physical and mental fatigue of straining to listen and lip-read for hours at time.", "Feeling that people suspect you of 'hearing only what you want to hear'.", "The distinct frustration of missing a joke or story while everyone else is laughing.", "Experiencing communication barriers in public places like banks, shops and post offices.", "Struggling to understand announcements at train stations, airports or on buses.", "The worry and isolation of being unable to hear important safety warnings or alerts.", "Feeling cut off from the small, everyday social interactions that build connections with others.", "People assuming hearing loss is a sign of declining mental ability, rather than a physical barrier."];
         const emotiveKeywords = ["belittling", "frustrated", "excluded", "awkward", "isolated", "exhausting", "difficult", "struggling", "uncomfortable", "blamed", "distrust", "anxious", "stressful", "vulnerable", "embarrassed", "tired", "lonely", "grieving", "hearing aids", "background noise", "restaurants", "subtitles", "ignoring", "misunderstood", "shouting", "speaking", "mumbled", "accents", "conversation", "turns their head", "lip-reading", "facial expressions", "covering mouths", "losing friendships", "friends", "left out", "isolated"];
         const colors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
 
@@ -90,37 +96,88 @@
             const stateContent = document.getElementById('state-content');
             const continueBtn = document.getElementById('continue-btn');
             const audio = document.getElementById('bg-noise');
+            const volumeSlider = document.getElementById('volume-slider');
+            const volumeIcon = document.getElementById('volume-icon');
 
             document.getElementById('dev-reset').addEventListener('click', () => { 
                 localStorage.clear(); 
                 window.location.href = 'index.html'; 
             });
 
-            setTimeout(() => {
-                introText.style.transform = 'scale(1.05)';
+            // Volume Control Logic
+            if (volumeSlider && volumeIcon) {
+                volumeSlider.addEventListener('input', (e) => {
+                    const val = e.target.value;
+                    audio.volume = val;
+                    if (val == 0) {
+                        volumeIcon.textContent = 'volume_off';
+                    } else if (val < 0.3) {
+                        volumeIcon.textContent = 'volume_down';
+                    } else {
+                        volumeIcon.textContent = 'volume_up';
+                    }
+                });
+
+                volumeIcon.addEventListener('click', () => {
+                    if (audio.muted) {
+                        audio.muted = false;
+                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+                    } else {
+                        audio.muted = true;
+                        volumeIcon.textContent = 'volume_off';
+                    }
+                });
+            }
+
+            // Click-to-begin to safely bypass browser autoplay policies
+            let experienceStarted = false;
+            stateIntro.addEventListener('click', () => {
+                if (experienceStarted) return;
+                experienceStarted = true;
+
+                // Play restaurant ambient audio softly and fade in
+                audio.volume = 0;
+                audio.play().then(() => {
+                    let vol = 0;
+                    const fadeAudio = setInterval(() => {
+                        if (vol < 0.15) { // Soft looping volume
+                            vol += 0.02;
+                            audio.volume = vol;
+                            if (volumeSlider) volumeSlider.value = vol;
+                        } else {
+                            clearInterval(fadeAudio);
+                        }
+                    }, 150);
+                }).catch(err => {
+                    console.log("Audio autoplay block bypass failed:", err);
+                });
+
+                introText.style.transform = 'scale(1.1)';
+                stateIntro.style.opacity = '0';
                 setTimeout(() => {
-                    stateIntro.style.opacity = '0';
+                    stateIntro.style.display = 'none';
+                    statePrologue.style.display = 'block';
                     setTimeout(() => {
-                        stateIntro.style.display = 'none';
-                        statePrologue.style.display = 'block';
                         statePrologue.style.opacity = '1';
-                        
-                        audio.volume = 0;
-                        audio.play();
-                        let vol = 0;
-                        const fadeAudio = setInterval(() => {
-                            if (vol < 0.5) { vol += 0.05; audio.volume = vol; }
-                            else clearInterval(fadeAudio);
-                        }, 200);
-                        
                         playPrologueLoop();
-                    }, 1000);
-                }, 2000);
-            }, 500);
+                    }, 50);
+                }, 1000);
+            });
 
             continueBtn.addEventListener('click', () => {
                 statePrologue.style.opacity = '0';
-                audio.pause();
+                // Softly dim background volume but keep it looping softly
+                let vol = audio.volume;
+                const dimAudio = setInterval(() => {
+                    if (vol > 0.06) {
+                        vol -= 0.02;
+                        audio.volume = Math.max(0.06, vol);
+                        if (volumeSlider) volumeSlider.value = audio.volume;
+                    } else {
+                        clearInterval(dimAudio);
+                    }
+                }, 100);
+
                 setTimeout(() => {
                     statePrologue.style.display = 'none';
                     stateContent.style.display = 'block';
