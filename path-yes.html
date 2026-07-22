@@ -14,7 +14,7 @@
     
     <header class="top-nav" style="padding: 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 50px auto 70px auto; display: block;">
-        <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Your Journey</h1>
+        <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Everyone Loss is different</h1>
     </header>
     
     <div class="metro-grid">
@@ -32,10 +32,89 @@
         <a class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">route</span><span class="metro-text">My Journey</span></a>
         <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
         <a class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Venues</span></a>
+        <a class="metro-btn" style="background-color: #f39c12;"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
+        <a class="metro-btn" style="background-color: #9b59b6;"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
+        <a class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">It goes to 11</span></a>
         <a href="index.html" class="metro-btn" style="background-color: #333333;"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
     </div>
     
+    <!-- Persistent Premium Volume Control Widget (White noise) -->
+    <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
+        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #388E3C;">
+    </div>
+
+    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop></audio>
+
     <div class="page-transition-overlay"></div>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const audio = document.getElementById('bg-noise');
+            const volumeSlider = document.getElementById('volume-slider');
+            const volumeIcon = document.getElementById('volume-icon');
+
+            // Default soft volume
+            audio.volume = 0.15;
+
+            // Volume slider event listener
+            if (volumeSlider && volumeIcon) {
+                volumeSlider.addEventListener('input', (e) => {
+                    const val = e.target.value;
+                    audio.volume = val;
+                    if (val == 0) {
+                        volumeIcon.textContent = 'volume_off';
+                    } else if (val < 0.3) {
+                        volumeIcon.textContent = 'volume_down';
+                    } else {
+                        volumeIcon.textContent = 'volume_up';
+                    }
+                    
+                    // If audio was not playing, try to play it on interaction
+                    if (audio.paused) {
+                        playAudio();
+                    }
+                });
+
+                volumeIcon.addEventListener('click', () => {
+                    if (audio.muted) {
+                        audio.muted = false;
+                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+                    } else {
+                        audio.muted = true;
+                        volumeIcon.textContent = 'volume_off';
+                    }
+                });
+            }
+
+            // Function to play audio
+            function playAudio() {
+                audio.play().catch(err => {
+                    console.log("White noise autoplay prevented. Waiting for user interaction...");
+                });
+            }
+
+            // Trigger play on any click on the page or hover/interaction with tiles
+            const triggerPlay = () => {
+                playAudio();
+                // Remove listeners once successfully started
+                document.removeEventListener('click', triggerPlay);
+                document.removeEventListener('touchstart', triggerPlay);
+                const metroGrid = document.querySelector('.metro-grid');
+                if (metroGrid) {
+                    metroGrid.removeEventListener('mouseenter', triggerPlay);
+                }
+            };
+
+            // Hook into common user gestures and tile interactions
+            document.addEventListener('click', triggerPlay);
+            document.addEventListener('touchstart', triggerPlay);
+            
+            const metroGrid = document.querySelector('.metro-grid');
+            if (metroGrid) {
+                metroGrid.addEventListener('mouseenter', triggerPlay);
+            }
+        });
+    </script>
 </body>
 </html>
