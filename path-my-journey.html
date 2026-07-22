@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
+        .content { max-width: 800px; margin: 0 auto; }
+        h1 { color: #F57C00; }
+        .testimonial-card { background: #f8f9fa; border-radius: 20px; padding: 20px; margin-bottom: 20px; border-left: 6px solid #F57C00; }
+        #story-form { background: #eee; padding: 20px; border-radius: 15px; margin-bottom: 30px; }
+        textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 10px; }
+    </style>
+</head>
+<body class="premium-white-theme">
+    <div class="content">
+        <h1>My Journey</h1>
+        
+        <div class="testimonial-card" style="border-left-color: #F57C00; border-right: 6px solid #F57C00; padding: 30px;">
+            <h1 style="color: #F57C00; margin-top: 0;">My Story: Jason Parchment</h1>
+            
+            <h2 style="color: #005EB8;">Early Years & First Operations</h2>
+            <p>I lost my hearing around the age of 30. Looking back, I think it came down to a combination of things: spending too much time in nightclubs and bars listening to heavy music right up close to the speakers, alongside a slight hearing issue I had when I was young that always left me prone to infections.</p>
+            <p>In my late 20s and early 30s, I found out I had a <a href="https://www.nhs.uk/conditions/cholesteatoma/" target="_blank" style="color: #005EB8;">cholesteatoma</a>—a benign tumor that sits behind the eardrum. If it's not removed, it can cause irreparable damage to the inner ear, so I had to undergo operations on both ears.</p>
+            <p>My right ear surgery was done first in Bristol at the Bristol Royal Infirmary (BRI). It was an older type of operation and quite invasive. They performed a mastoidectomy, and I lost about 50% of my hearing on that side. They took out my entire eardrum and performed a skin graft. It left a large cavity behind, making it hard to fit standard hearing aid domes.</p>
+            <p>My left side involved a different type of procedure—micro-operations allowing the mastoid bones to remain somewhat intact. I navigated operations through my 30s, eventually requiring another operation due to an infection, turning that side into a mastoid cavity as well.</p>
+            
+            <h2 style="color: #ff0f5b;">Overcoming Stigma & Finding Help</h2>
+            <p>Because of how everything looked and felt, I flat-out refused any kind of hearing aid until I hit 45. When I moved to Derbyshire, a hospital finally convinced me to try a hearing aid on my right side—a standard one from the NHS.</p>
+            <p>It completely changed my life. For nearly 15 years, I had been struggling to understand people behind me, constantly guessing, making little noises, and developing physical ticks just to mask the difficulty and avoid embarrassment.</p>
+            <p>Overcoming the stigma took a lot of time. At first, I mostly wore it at home, where my partner made a world of difference in helping me adjust. Living with this means that when I take my hearing aids out, my hearing drops off completely—I'm totally deaf.</p>
+            
+            <h2 style="color: #388E3C;">Modern Care & Tech Revolution</h2>
+            <p>When I moved back to Bristol during COVID, I needed a fresh assessment. After almost a year of suffering from clogged ears and infections, I managed to get a referral to St. Michael's Hospital Audiology department.</p>
+            <p>Today, I have two rechargeable Phonak Bolero MPR model hearing aids. They have genuinely changed my life. I can hear properly on both sides, stream music, and answer telephone calls seamlessly.</p>
+            <p>A major highlight was getting involved with Auracast technology. While working for the Centre for Deaf and Hard of Hearing People, I was lucky enough to take part in a public trial at Bristol Temple Meads station. Experiencing crisp audio streamed directly was incredible—it was a true "my God, it actually works" moment.</p>
+            
+            <h2 style="color: #7B1FA2;">Hidden Realities</h2>
+            <p>Living with hearing loss comes with daily challenges that fully hearing people never think about. Restaurants, echoey public places, and meetings can be exhausting. If someone speaks quietly, has a low pitch, covers their mouth, or if there's chatter coming from the next room, it becomes an uphill battle to catch the words.</p>
+            <p>There's a delicate balance to the technology, too. If I turn my hearing aids up to full, I feel like Superman—but it hurts, causes headaches, and quickly becomes uncomfortable.</p>
+            
+            <h2 style="color: #0097A7;">Navigating Identity & The Future</h2>
+            <p>For those of us who lose our hearing later in life, the journey feels much more like a grieving process. I didn’t want to lose my hearing, and I certainly didn’t want my hearing loss to define me. For a long time, I found it very difficult to classify myself as disabled, even though the government and council recognize me as such.</p>
+            <p>I kept my head in the sand and lived in denial for 20 to 25 years. But coming to terms with it over the past couple of years changed everything. My hearing aids don't give me back my original hearing, but they give me a dramatically better life experience. I’ve even started looking at myself as augmented—kind of like a cyborg or a robot!</p>
+            <p>Now, my goal is to use what I've been through to help others. I'm starting right here in Bristol with a hearing loss initiative to support people locally. I want to guide people through the process, help them avoid the years of denial I went through, and show them that while losing your hearing is a heavy thing to process, you don't have to face it alone.</p>
+            
+            <h2 style="color: #f39c12;">A Unique Journey for Everyone</h2>
+            <p>Perhaps you have a similar story. As I always say, everybody's loss is different. There is no one-size-fits-all fix; it is a completely individual experience. We are here to support and help. I hope you find my journey helpful, and I look forward to sharing and connecting with yours.</p>
+        </div>
+        
+        <div id="story-form">
+            <h3>Share Your Story</h3>
+            <input type="text" id="user-first-name" placeholder="First Name (optional)" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc;">
+            <textarea id="user-story" rows="4" placeholder="Your story..."></textarea>
+            <button onclick="submitStory()" style="background: #F57C00; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">Submit Story</button>
+        </div>
+
+        <div id="testimonials-list">
+            <!-- New stories will appear here -->
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold;">&larr; Back to Journey</a>
+        </div>
+    </div>
+
+    <script>
+        function submitStory() {
+            const name = document.getElementById('user-first-name').value || 'Anonymous';
+            const story = document.getElementById('user-story').value;
+            if(!story) return;
+            
+            const list = document.getElementById('testimonials-list');
+            const newStory = document.createElement('div');
+            newStory.className = 'testimonial-card';
+            newStory.innerHTML = `<strong>${name}:</strong> "${story}"`;
+            list.prepend(newStory);
+            
+            document.getElementById('user-story').value = '';
+            document.getElementById('user-first-name').value = '';
+        }
+    </script>
+</body>
+</html>

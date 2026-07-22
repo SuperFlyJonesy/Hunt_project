@@ -150,6 +150,12 @@ body {
 .pathways-container { display: flex; gap: 5rem; justify-content: center; flex-wrap: wrap; }
 .pathway h3 { margin-bottom: 1.2rem; font-weight: 500; color: #ccc; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; }
 
+/* GLOBAL LIST STYLING */
+ul {
+    padding-left: 25px;
+    margin-bottom: 1rem;
+}
+
 /* TABLE & COLUMN SPACING IMPROVEMENTS */
 table {
     width: 100%;
