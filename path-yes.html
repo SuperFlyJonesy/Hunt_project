@@ -28,13 +28,11 @@
         <a href="path-government-help.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">account_balance</span><span class="metro-text">Government Help</span></a>
         <a class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">menu_book</span><span class="metro-text">Resources</span></a>
         <a href="path-tech.html" class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
-        <a class="metro-btn" style="background-color: #455A64;"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Videos</span></a>
         <a class="metro-btn" style="background-color: #D32F2F;"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
         <a href="path-contacts.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">contacts</span><span class="metro-text">Useful Contacts</span></a>
         <a href="path-testimonials.html" class="metro-btn" style="background-color: #388E3C;"><span class="material-symbols-outlined metro-icon">reviews</span><span class="metro-text">Testimonials</span></a>
-        <a class="metro-btn" style="background-color: #388E3C;"><span class="material-symbols-outlined metro-icon">map</span><span class="metro-text">Bristol Maps</span></a>
         <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
-        <a class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
+        <a href="path-accessible-venues.html" class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
         <a href="path-tinnitus.html" class="metro-btn" style="background-color: #f39c12;"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
         <a href="path-hearing-therapists.html" class="metro-btn" style="background-color: #9b59b6;"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
         <a href="path-it-goes-to-11.html" class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">It goes to 11</span></a>
@@ -57,14 +55,34 @@
             const volumeSlider = document.getElementById('volume-slider');
             const volumeIcon = document.getElementById('volume-icon');
 
-            // Default soft volume
-            audio.volume = 0.15;
+            // Load saved settings
+            const savedVolume = localStorage.getItem('bgVolume') || 0.15;
+            const savedMuted = localStorage.getItem('bgMuted') === 'true';
+
+            audio.volume = savedVolume;
+            audio.muted = savedMuted;
+            volumeSlider.value = savedVolume;
+
+            // Set initial icon
+            if (savedMuted) {
+                volumeIcon.textContent = 'volume_off';
+            } else {
+                volumeIcon.textContent = savedVolume < 0.3 ? 'volume_down' : 'volume_up';
+            }
 
             // Volume slider event listener
             if (volumeSlider && volumeIcon) {
                 volumeSlider.addEventListener('input', (e) => {
                     const val = e.target.value;
                     audio.volume = val;
+                    localStorage.setItem('bgVolume', val);
+                    
+                    // Unmute if they adjust the volume
+                    if (audio.muted) {
+                        audio.muted = false;
+                        localStorage.setItem('bgMuted', 'false');
+                    }
+
                     if (val == 0) {
                         volumeIcon.textContent = 'volume_off';
                     } else if (val < 0.3) {
@@ -73,19 +91,19 @@
                         volumeIcon.textContent = 'volume_up';
                     }
                     
-                    // If audio was not playing, try to play it on interaction
                     if (audio.paused) {
                         playAudio();
                     }
                 });
 
                 volumeIcon.addEventListener('click', () => {
+                    audio.muted = !audio.muted;
+                    localStorage.setItem('bgMuted', audio.muted);
+                    
                     if (audio.muted) {
-                        audio.muted = false;
-                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
-                    } else {
-                        audio.muted = true;
                         volumeIcon.textContent = 'volume_off';
+                    } else {
+                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
                     }
                 });
             }
