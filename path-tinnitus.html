@@ -7,10 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #f39c12; }
-        .info-card { background: #f8f9fa; border-radius: 20px; padding: 30px; border-left: 6px solid #f39c12; margin-top: 20px; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; padding: 40px; }
+        .content { max-width: 900px; margin: 0 auto; }
+        h1 { color: #f39c12; font-size: 2.5rem; text-align: center; margin-bottom: 30px; }
+        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #f39c12; margin-bottom: 20px; }
+        .page-card h2 { color: #f39c12; margin-top: 0; }
         
         /* Video links and hover preview styles */
         .video-links-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
@@ -35,28 +36,61 @@
 <body class="premium-white-theme">
     <div class="content">
         <h1>Tinnitus</h1>
-        <div class="info-card">
-            <p>Tinnitus is often associated with hearing loss and balance issues.</p>
-            <p>If you are experiencing tinnitus, an ENT (Ear, Nose, and Throat) specialist can refer you to audiology for further assessment and management.</p>
+        
+        <div class="page-card">
+            <h2>What tinnitus is</h2>
+            <p>Tinnitus is the perception of sound (ringing, buzzing, hissing, humming, whooshing, pulsing, or even music) when there is no corresponding external sound. People may hear it in one ear, both ears, or “in the head”, and it can be continuous or intermittent, changing in loudness and pitch.</p>
+        </div>
+
+        <div class="page-card">
+            <h2>How common it is</h2>
+            <p>Recent RNID analysis suggests more than 7 million adults in the UK—about 1 in 7—have tinnitus. Professional audiology guidance states that around 1 in 8 UK adults live with persistent tinnitus.</p>
+        </div>
+
+        <div class="page-card">
+            <h2>Causes and Impact</h2>
+            <p>Tinnitus is often linked to hearing loss, exposure to loud noise, ear infections, or changes in health. While there is no simple “cure”, many people find it becomes less noticeable over time. When troublesome, it can affect concentration, sleep, and mood.</p>
+        </div>
+
+        <div class="page-card">
+            <h2>Management and Resources</h2>
+            <p>Standard NHS-recommended approaches include addressing underlying issues, sound therapy, and psychological strategies like CBT to change how the brain reacts to the sound.</p>
+            
+            <p style="margin-top: 15px;"><strong>Local Support:</strong> <a href="https://tinnitus.org.uk/support-for-you/service-finder/bristol-tinnitus-support-group/" target="_blank">Bristol Tinnitus Support Group</a></p>
             
             <div class="video-links-container">
                 <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Tinnitus Video 1</a>
+                    <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Tinnitus Info</a>
                     <div class="video-preview-card">
                         <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg')"></div>
                         <div class="preview-title">Tinnitus Info Video</div>
                     </div>
                 </div>
                 <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Tinnitus Video 2</a>
+                    <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Management</a>
                     <div class="video-preview-card">
                         <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg')"></div>
                         <div class="preview-title">Tinnitus Management</div>
                     </div>
                 </div>
+                <div class="video-link-item">
+                    <a href="https://www.youtube.com/watch?v=y4zuVk5STuM" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Video 3</a>
+                    <div class="video-preview-card">
+                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/y4zuVk5STuM/0.jpg')"></div>
+                        <div class="preview-title">Tinnitus Resource 3</div>
+                    </div>
+                </div>
+                <div class="video-link-item">
+                    <a href="https://www.youtube.com/watch?v=MO-D2i13htY" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Video 4</a>
+                    <div class="video-preview-card">
+                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/MO-D2i13htY/0.jpg')"></div>
+                        <div class="preview-title">Tinnitus Resource 4</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div style="margin-top: 30px;">
+
+        <div style="text-align: center; margin-top: 30px;">
             <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold;">&larr; Back to Journey</a>
         </div>
     </div>

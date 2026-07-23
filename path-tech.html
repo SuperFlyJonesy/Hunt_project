@@ -7,11 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #C2185B; }
+        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; padding: 40px; }
+        .content { max-width: 900px; margin: 0 auto; }
+        h1 { color: #C2185B; font-size: 2.5rem; text-align: center; margin-bottom: 30px; }
         .info-card { background: #f8f9fa; border-radius: 20px; padding: 30px; border-left: 6px solid #C2185B; margin-top: 20px; }
         h2 { color: #005EB8; }
+        
+        /* Video links and hover preview styles */
+        .video-links-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .video-link-item { position: relative; }
+        .video-link-anchor {
+            color: #fff; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;
+            letter-spacing: 1px; background: rgba(0,0,0,0.6); padding: 12px 25px; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block;
+        }
+        .video-link-anchor:hover { background: #C2185B; border-color: #C2185B; }
+        .video-preview-card {
+            position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%) translateY(20px);
+            width: 250px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0;
+            pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 1000;
+        }
+        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .preview-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; }
+        .preview-title { padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; }
     </style>
 </head>
 <body class="premium-white-theme">
@@ -22,6 +41,19 @@
             <h2>Auracast & Next-Gen Accessibility</h2>
             <p>Auracast™ broadcast audio is a new Bluetooth® LE Audio standard that allows a single transmitter to broadcast high-quality, low-latency audio to an unlimited number of receivers simultaneously.</p>
             
+            <div class="video-links-container">
+                <div class="video-link-item">
+                    <a href="https://www.youtube.com/watch?v=Y32bQGHATe4" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Watch Auracast Demo</a>
+                    <div class="video-preview-card">
+                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/Y32bQGHATe4/0.jpg')"></div>
+                        <div class="preview-title">Auracast Demo</div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 15px;">
+                <a href="path-auracast-article.html" target="_blank" style="color: #2b6cb0; font-weight: bold; text-decoration: underline;">Read more: Testing Tomorrow's Sound: The Auracast Trial</a>
+            </p>
+
             <h3>Bristol Temple Meads Deployment</h3>
             <p>Bristol Temple Meads is the site of the world's first public rail station trial of Auracast, providing real-time PA announcements, delays, and safety alerts directly to passengers' hearing devices.</p>
             
