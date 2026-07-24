@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Modal Handling
     if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
     if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
-    if(ctaSupport) ctaSupport.addEventListener('click', () => window.location.href = 'path-support.html');
+    if(ctaSupport) ctaSupport.addEventListener('click', () => window.location.href = 'path-experience.html');
 
     // REGISTRATION SUBMISSION LOGIC (PARDON SCREEN)
     window.handleRegistrationSubmission = function() {

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hearing Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        body { background: #000; margin: 0; padding: 0; overflow: hidden; height: 100vh; font-family: 'Inter', sans-serif; }
+        
+        .matrix-glitch-active {
+            animation: matrix-glitch 0.5s linear;
+        }
+        @keyframes matrix-glitch {
+            0% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
+            25% { text-shadow: -2px 0 2px #0f0, 2px 0 2px #f00; transform: translate(-2px, 2px); }
+            50% { text-shadow: 2px 0 2px #0f0, -2px 0 2px #f00; transform: translate(2px, -2px); }
+            100% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
+        }
+
+        #state-intro, #state-prologue { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; transition: opacity 2.0s ease-in-out; }
+        
+        #state-intro { display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 300; background: #000; opacity: 1; }
+        #state-intro h1 { color: #fff; font-family: 'Inter', sans-serif; font-size: 3rem; font-weight: 300; text-align: center; transition: transform 0.3s ease-out; }
+        
+        #state-prologue { z-index: 200; opacity: 0; background: #000; display: none; }
+        
+        .stat { position: absolute; font-size: 26px; font-family: 'Georgia', serif; font-style: italic; color: #ffffff; white-space: nowrap; opacity: 0; transition: opacity 1s ease; }
+        .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
+        .base-text { transition: opacity 1s ease; }
+        
+        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+        #continue-btn, #begin-btn { color: #fff; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite ease-in-out; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding: 20px; }
+    </style>
+</head>
+<body class="premium-white-theme">
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    
+    <div id="state-intro" style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <video src="Contents/Videos/Hearing Loss Initiativegreen.mp4" autoplay loop muted playsinline style="width: 300px; border-radius: 50%; margin-bottom: 2rem;"></video>
+        <h1 id="intro-text" style="line-height: 1.5; padding: 20px; text-align: center;">Experience the reality of hearing loss.</h1>
+        <div id="begin-btn">[ Click to begin ]</div>
+    </div>
+
+    <div id="state-prologue">
+        <div id="continue-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to continue ]</div>
+    </div>
+
+    <audio id="bg-noise" src="Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop></audio>
+
+    <!-- Persistent Premium Volume Control Widget -->
+    <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;">
+    </div>
+
+    <script>
+        const rawPhrases = ["People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.", "Struggling to follow conversations around the dinner table when several family members speak at once.", "Feeling left out at family meals because the conversation moves on before you have understood what was said.", "Family members becoming frustrated when they have to repeat themselves.", "Being told “never mind” when you ask what someone said, leaving you feeling excluded.", "Pretending you heard something because asking again feels awkward.", "Laughing along with everyone else even though you did not hear the joke.", "Feeling isolated in a room full of people because you cannot follow the conversation.", "People assuming you are ignoring them when you simply did not hear them.", "Being called rude, distant or unfriendly because you missed someone speaking to you.", "Feeling anxious about meeting new people because you worry you will not understand them.", "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.", "Choosing where to sit based on lighting, noise and whether you can see people’s faces.", "Missing important parts of conversations when someone turns their head away while speaking.", "Struggling when people cover their mouths, mumble or speak while eating.", "Feeling uncomfortable asking someone to remove their hand from their mouth.", "Being told “you heard that!” when you can hear some sounds but not understand every word.", "People not understanding that hearing loss can change depending on background noise and the speaker.", "Hearing a voice but not being able to make out what the person actually said.", "Feeling blamed for communication problems that are not entirely your fault.", "Family members shouting instead of speaking clearly, which can actually make understanding harder.", "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand them.", "Hearing aids amplifying background noises like clattering dishes, making conversations in social settings incredibly difficult.", "Struggling with the sudden, sharp clinking of cutlery or laughter in a busy restaurant.", "Feeling that friends avoid calling or inviting you out because they find communicating with you too difficult.", "Worrying that you are becoming a burden to your family because you need things repeated.", "Experiencing a sense of grief or loss for the ease of effortless, natural conversation.", "Losing the subtle nuances, tone of voice and emotional undertone of what someone is saying.", "Struggling to follow television programs, movies or plays even with subtitles or high volume.", "The sheer physical and mental fatigue of straining to listen and lip-read for hours at time.", "Feeling that people suspect you of 'hearing only what you want to hear'.", "The distinct frustration of missing a joke or story while everyone else is laughing.", "Experiencing communication barriers in public places like banks, shops and post offices.", "Struggling to understand announcements at train stations, airports or on buses.", "The worry and isolation of being unable to hear important safety warnings or alerts.", "Feeling cut off from the small, everyday social interactions that build connections with others.", "People assuming hearing loss is a sign of declining mental ability, rather than a physical barrier."];
+        const emotiveKeywords = ["belittling", "frustrated", "excluded", "awkward", "isolated", "exhausting", "difficult", "struggling", "uncomfortable", "blamed", "distrust", "anxious", "stressful", "vulnerable", "embarrassed", "tired", "lonely", "grieving", "hearing aids", "background noise", "restaurants", "subtitles", "ignoring", "misunderstood", "shouting", "speaking", "mumbled", "accents", "conversation", "turns their head", "lip-reading", "facial expressions", "covering mouths", "losing friendships", "friends", "left out", "isolated"];
+        const colors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
+
+        function processPhrases(phrases) {
+            return phrases.map(p => {
+                const regex = /(“[^”]+”)|(belittling|frustrated|excluded|awkward|isolated|exhausting|difficult|struggling|uncomfortable|blamed|distrust|anxious|stressful|vulnerable|embarrassed|tired|lonely|grieving|hearing aids|background noise|restaurants|subtitles|ignoring|misunderstood|shouting|speaking|mumbled|accents|conversation|turns their head|lip-reading|facial expressions|covering mouths|losing friendships|friends|left out|isolated)/gi;
+                const parts = [];
+                let lastIdx = 0;
+                let match;
+
+                while ((match = regex.exec(p)) !== null) {
+                    if (match.index > lastIdx) parts.push({ type: 'base', text: p.slice(lastIdx, match.index) });
+                    parts.push({ type: 'highlight', text: match[0] });
+                    lastIdx = regex.lastIndex;
+                }
+                if (lastIdx < p.length) parts.push({ type: 'base', text: p.slice(lastIdx) });
+                return parts;
+            });
+        }
+        
+        const structuredPhrases = processPhrases(rawPhrases);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const stateIntro = document.getElementById('state-intro');
+            const introText = document.getElementById('intro-text');
+            const statePrologue = document.getElementById('state-prologue');
+            const continueBtn = document.getElementById('continue-btn');
+            const audio = document.getElementById('bg-noise');
+            const volumeSlider = document.getElementById('volume-slider');
+            const volumeIcon = document.getElementById('volume-icon');
+
+            document.getElementById('dev-reset').addEventListener('click', () => { 
+                localStorage.clear(); 
+                window.location.href = 'index.html'; 
+            });
+
+            // Volume Control Logic
+            if (volumeSlider && volumeIcon) {
+                volumeSlider.addEventListener('input', (e) => {
+                    const val = e.target.value;
+                    audio.volume = val;
+                    if (val == 0) {
+                        volumeIcon.textContent = 'volume_off';
+                    } else if (val < 0.3) {
+                        volumeIcon.textContent = 'volume_down';
+                    } else {
+                        volumeIcon.textContent = 'volume_up';
+                    }
+                });
+
+                volumeIcon.addEventListener('click', () => {
+                    if (audio.muted) {
+                        audio.muted = false;
+                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+                    } else {
+                        audio.muted = true;
+                        volumeIcon.textContent = 'volume_off';
+                    }
+                });
+            }
+
+            // Click-to-begin to safely bypass browser autoplay policies
+            let experienceStarted = false;
+            stateIntro.addEventListener('click', () => {
+                if (experienceStarted) return;
+                experienceStarted = true;
+                
+                introText.classList.add('matrix-glitch-active');
+
+                // Play restaurant ambient audio softly and fade in
+                audio.volume = 0;
+                audio.play().then(() => {
+                    let vol = 0;
+                    const fadeAudio = setInterval(() => {
+                        if (vol < 0.15) { // Soft looping volume
+                            vol += 0.02;
+                            audio.volume = vol;
+                            if (volumeSlider) volumeSlider.value = vol;
+                        } else {
+                            clearInterval(fadeAudio);
+                        }
+                    }, 150);
+                }).catch(err => {
+                    console.log("Audio autoplay block bypass failed:", err);
+                });
+
+                introText.style.transform = 'scale(1.1)';
+                
+                setTimeout(() => {
+                    stateIntro.style.opacity = '0';
+                    statePrologue.style.display = 'block';
+                    statePrologue.style.opacity = '0'; // Ensure it's hidden initially
+                    
+                    setTimeout(() => {
+                        stateIntro.style.display = 'none';
+                        statePrologue.style.opacity = '1';
+                        playPrologueLoop();
+                    }, 2000); // Wait for the transition
+                }, 500);
+            });
+
+            continueBtn.addEventListener('click', () => {
+                // REDIRECT TO SUPPORT PAGE
+                window.location.href = 'path-support.html';
+            });
+        });
+
+        function playPrologueLoop(index = 0) {
+            const container = document.getElementById('state-prologue');
+            const parts = structuredPhrases[index];
+            const div = document.createElement('div');
+            div.className = 'stat';
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            div.innerHTML = parts.map(part => 
+                part.type === 'highlight' 
+                    ? `<span class="highlight" style="color:${color}">${part.text}</span>` 
+                    : `<span class="base-text">${part.text}</span>`
+            ).join('');
+            
+            container.insertBefore(div, document.getElementById('continue-btn'));
+            
+            setTimeout(() => {
+                if (index === 0) {
+                    div.style.top = '50%';
+                    div.style.left = '50%';
+                    div.style.transform = 'translate(-50%, -50%)';
+                } else {
+                    div.style.transform = 'none';
+                    div.style.top = (Math.random() * 55 + 10) + 'vh';
+                    div.style.left = Math.random() * (window.innerWidth - div.offsetWidth - 80) + 40 + 'px';
+                }
+                
+                div.style.opacity = '1';
+                setTimeout(() => {
+                    div.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
+                }, 3000);
+            }, 50);
+
+            setTimeout(() => playPrologueLoop((index + 1) % structuredPhrases.length), 4500);
+        }
+    </script>
+</body>
+</html>
