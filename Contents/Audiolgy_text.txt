@@ -1,243 +1,61 @@
-University Hospitals Bristol & Weston
-NHS Foundation Trust
+# Understanding Your Hearing Health: A Supportive Guide
 
-NHS Audiology
-and Hearing Aids
-Simon Collins
+Welcome to the Hearing Loss Initiative's guide to understanding audiology services. We know that experiencing changes in your hearing can feel overwhelming, but please know that you are not alone, and there is a supportive community and professional help available to help you navigate this journey.
 
-Who am I?
-• Senior audiologist
-• Worked at UHBW since 2017
-• Congenital bilateral hearing loss
+## Who We Are
 
-• Hearing aid user for 25 years
+At the Heart of our initiative is a team of dedicated professionals committed to ensuring you feel informed, heard, and supported. As part of the NHS Audiology team, we have been working with the community since 2017. Our team includes people with personal experience of hearing loss, so we genuinely understand both the professional perspective and the lived reality of navigating a world with hearing challenges.
 
-Aims
-• What is hearing loss?
-• Hearing aids (parts, Bluetooth/loop button)
+## Our Shared Goal: Staying Connected
 
-• GP referrals to audiology
-• Why/when/what to contact audiology for
-• Audiology departments: locations, best way to contact
+Our goal is simple: to help you stay connected to the conversations, music, and people you love. We want to demystify how hearing loss works, explain how hearing aids can help, and provide you with clear, accessible ways to access professional support when you need it.
 
-How do we hear?
+---
 
-https://youtu.be/flIAxGsV1q0
+## Understanding Hearing Loss
 
-Types of Hearing Loss
-Sensorineural hearing loss
-- Caused by damage to the sensitive hair
-cells inside the inner ear, or damage to
-the auditory nerve
-- Commonly seen as ‘age-related’ hearing
-loss
+Hearing loss is very common, and it is usually a natural part of life as we get older, although it can also be caused by other health conditions, environmental factors, or genetics. There are two main ways hearing is impacted:
 
-Conductive hearing loss
-- Sounds are unable to pass from the outer
-ear to the inner ear
-- Can be caused by a blockage inside the
-middle ear
+*   **Sensorineural hearing loss:** This happens when the delicate hair cells in the inner ear or the auditory nerve are damaged. This is often described as "age-related" hearing loss.
+*   **Conductive hearing loss:** This occurs when sounds are unable to pass from the outer ear through to the inner ear, often due to a temporary blockage.
 
-Diseases & Conditions
-• Mumps
+We understand that hearing loss is not just about volume—it is about clarity. It might feel like you can hear people talking, but struggle to distinguish the words, especially in busy or noisy environments.
 
-•
+## Hearing Aids: A Tool for Independence
 
-Otitis Externa
+Hearing aids are remarkable tools designed to restore clarity and confidence. Modern devices are discreet, powerful, and highly customizable.
 
-• Measles
+### Types of Devices
+*   **BTE (Behind-the-Ear):** A versatile, popular style that sits discreetly behind the ear.
+*   **ITE (In-the-Ear):** Custom-made to fit comfortably within the outer ear.
+*   **ITC (In-the-Canal):** A compact design that sits securely inside the ear canal.
+*   **Specialised Solutions:** For those with profound hearing challenges, other advanced options are available. These are designed to ensure you can continue to participate fully in conversations and daily activities with confidence.
 
-•
+### Caring for Your Hearing Aid
+Keeping your device clean and well-maintained helps ensure it continues to provide the best possible sound quality. It is a simple routine that will soon become second nature:
+*   **Daily Care:** A quick, gentle wipe is all it takes to keep your device clean.
+*   **Maintenance:** Changing batteries, clearing earmoulds, and retubing are all simple tasks that keep your device working perfectly.
 
-Otitis Media
+If you ever feel unsure about how to care for your device, please reach out. We are always here to guide you through the process, step-by-step.
 
-• Rubella
+---
 
-•
+## How to Get Support
 
-Otosclerosis
+You don't need to navigate this alone. Whether you have questions, need a repair, or feel your hearing has changed, our team is here for you.
 
-• Paget’s Disease
+### When to Contact Us
+*   **Changes in Hearing:** If you notice a change, please contact us. We generally recommend a check-up every three years.
+*   **Maintenance Needs:** If your hearing aid is lost, broken, or simply needs a tune-up to stay comfortable, we are here to help.
+*   **Questions & Adjustments:** If the sound isn't quite right or your device feels uncomfortable, let us know. We can make adjustments to get it just right for you.
 
-•
+### How to Reach Us
+We are committed to making our services accessible and easy to use.
 
-Eustachian Tube Dysfunction
+*   **Email:** Audiology.Dept@uhbw.nhs.uk
+*   **Telephone:** 0117 342 5854
+*   **In-Person:** We have several locations across the region, including St Michael’s Hospital and Southmead Hospital.
 
-•
+---
 
-Meniere’s Disease
-
-•
-
-Presbyacusis (age related 75% in >70s)
-
-•
-
-Hyperacusis (sensitivity)
-
-•
-
-Down’s Syndrome
-
-•
-
-OAD (obscure auditory dysfunction)
-
-•
-
-Meningitis
-
-• Usher’s Syndrome
-• Acoustic Neuroma
-• Carcinoma
-• Neurofibromatosis
-• RTA - fractures in the skull
-• Bell’s Palsy
-
-Types of Hearing Loss
-Mild
-- Difficulty hearing speech in more difficult hearing environments
-
-Moderate
-- Difficulty hearing speech when not facing, or speaking loudly and clearly
-
-Severe
-- Difficulty hearing a lot unless lip-reading, or focusing hard
-
-Profound
-- Most sounds unable to be heard, speech unintelligible, aid required
-
-Hearing Aids
-BTE - ‘behind the ear’ hearing
-aids which are the most
-common type of hearing aid
-
-ITE - ‘in the ear’ hearing aids
-that are small enough to sit in the
-ear
-
-They are normally held in the
-ear by an earmould or thintube
-and dome
-
-ITC – ‘in the canal’ hearing aids
-which sit farther into the ear
-
-Body worn hearing aids - not as common
-as other hearing aids, and are more often
-worn by very elderly or dementia patients
-with a profound hearing loss
-They have a microphone and ear receivers
-that are quite far apart, so there is less
-chance of feedback
-
-Hearing Aids
-
-Hearing Aids
-Bone Conducting Aid
-This may be given to patients who have a conductive
-deafness
-
-They do not sit on the ear but behind on the bone
-
-BAHA (Bone
-Anchored
-Hearing Aid)
-A metal stud is
-surgically
-implanted into
-the mastoid
-bone to which a
-bone-conductor
-is attached to
-convert sound
-into vibration
-
-Cochlear Implant
-A device which is surgically implanted
-into the cochlea that destroys the ear but
-supplants the sounds normally heard
-with electrical stimulation of the cochlea
-An external processor also needs to be
-worn to function
-Implanted from 5-6 months old up to 90+
-years old
-
-Our Current Hearing Aid
-Bolero M70-M
-Nadia M-70 SP
-Naida P-70 UP
-
-Thintubes
-
-Earmoulds
-
-Loop (via programme button)
-
-Bluetooth
-
-Bluetooth - Apple
-• iPhone
-• iPad
-• iPod
-
-Bluetooth - Android
-
-Referrals to NHS Audiology
-GP
-- Will look in your ears, ask about hearing + other
-symptoms
-- Tuning fork test, or whisper test
-- May not ask where you’d like to go for a hearing test
-ENT
-- NHS and private ENT can refer to audiology
-- Tinnitus, balance, hearing aids
-
-Locations
-• St Michael’s Hospital
-• Southmead Hospital
-• Weston-Super-Mare General Hospital
-• Cossham Hospital
-• Thornbury
-• Portishead
-• Clevedon Hospital
-• Stockwood
-• South Bristol Community Hospital
-• Domiciliary visits
-
-Contacting Audiology
-• Hearing deterioration - 3 years
-• Broken/lost hearing aid – AQP
-• Maintenance - 6-9 months
-
-• Alterations to hearing aids (sound, comfort etc.)
-
-Contacting Audiology
-Email –
-Audiology.Dept@uhbw.nhs.uk
-Telephone –
-0117 342 5854
-Post Adult Audiology
-St Michael’s Hospital
-St Michael’s Hill
-Bristol
-BS2 8EG
-
-Adult Audiology
-Gate 36, Brunel Building
-Southmead Hospital
-Bristol
-BS10 5NB
-
-Hearing Aid Maintenance
-Knowing how to keep a hearing aid working could be the difference between comfortable
-hearing and social isolation
-Maintenance includes:
-- Changing the batteries
-- Keeping the earmoulds clear
-- Retubing earmoulds
-- Replacing thintubes
-http://www.uhbristol.nhs.uk/patients-and-visitors/your-hospitals/st-michaels-hospital/what-we-do/audiology/instructional-videos/
-How to retube your earmould
-
-
+*Remember: Seeking help is a wonderful, proactive step toward protecting your independence and staying connected to the world around you. We look forward to supporting you on this journey.*
