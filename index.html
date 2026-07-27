@@ -8,12 +8,12 @@
 </head>
 <body>
     <!-- DEV TOOLS -->
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <button id="dev-reset" aria-label="Reset Application State" style="position: absolute; top: 15px; left: 15px; color: white; background: rgba(0, 0, 0, 0.7); border: 1px solid white; border-radius: 4px; opacity: 0.6; cursor: pointer; z-index: 99999999; padding: 8px 12px; font-weight: bold; font-family: sans-serif; transition: opacity 0.2s;">R</button>
     
     <div class="page-transition-overlay"></div>
     
     <!-- LOCKED PROLOGUE ANIMATION (STABLE VERSION) -->
-    <div id="prologue-lockdown" class="prologue" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div id="prologue-lockdown" class="prologue" style="display: flex; flex-direction: column; align-items: center; justify-content: center;" tabindex="0" role="button" aria-label="Introductory statistics. Click or press Enter or Space to continue.">
         <div class="prologue-text">
             <p class="stat"><span class="highlight">1</span><span class="base-text"> in </span><span class="highlight">3</span><span class="base-text"> adults in the UK have hearing loss.</span></p>
             <p class="stat"><span class="base-text">By </span><span class="highlight">2035</span><span class="base-text">, an estimated </span><span class="highlight">14.2</span><span class="base-text"> million people will be affected.</span></p>
@@ -51,6 +51,9 @@
             <video id="bg-video" autoplay loop muted playsinline>
                 <source src="bristol-bg.mp4" type="video/mp4">
             </video>
+            <button id="video-toggle" aria-label="Pause Background Video" title="Pause Background Video">
+                <span class="icon">⏸</span>
+            </button>
         </div>
 
         <div class="mask-overlay">
@@ -87,16 +90,16 @@
     <!-- PREMIUM REGISTRATION MODAL -->
     <div id="registration-modal" class="modal">
         <div class="modal-content">
-            <span id="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: #666; cursor: pointer; transition: color 0.2s;">&times;</span>
+            <button id="close-modal" aria-label="Close Registration Modal" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: #666; cursor: pointer; transition: color 0.2s; background: transparent; border: none; padding: 0; line-height: 1;">&times;</button>
             <h2 style="color: white; font-size: 2rem; margin-top: 0; margin-bottom: 10px; text-align: center;">Join the Community</h2>
             <p style="color: #ccc; text-align: center; margin-bottom: 15px; font-size: 1.1rem;">Add your voice to the Bristol HoH network.</p>
 
             <a href="path-forum.html" class="modal-link">Why do we need this info? Learn about our Patreon Forum &rarr;</a>
 
             <form id="registration-form">
-                <input type="text" id="user-name" class="modal-input" placeholder="Your First Name" required>
-                <input type="email" id="user-email" class="modal-input" placeholder="Your Email Address" required>
-                <input type="text" id="user-postcode" class="modal-input" placeholder="Your Postcode (e.g., BS1 4DJ)" required>
+                <input type="text" id="user-name" class="modal-input" placeholder="Your First Name" aria-label="First Name" required>
+                <input type="email" id="user-email" class="modal-input" placeholder="Your Email Address" aria-label="Email Address" required>
+                <input type="text" id="user-postcode" class="modal-input" placeholder="Your Postcode (e.g., BS1 4DJ)" aria-label="Postcode" required>
 
                 <button type="submit" style="width: 100%; background: #005EB8; color: white; border: none; padding: 20px; font-size: 1.3rem; font-weight: bold; border-radius: 12px; cursor: pointer; transition: background 0.2s ease, transform 0.1s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
                     Join Now

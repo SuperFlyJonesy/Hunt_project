@@ -38,6 +38,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const regForm = document.getElementById('registration-form');
     const quickJoin = document.getElementById('test-quick-join');
     const stencilCount = document.getElementById('stencil-count');
+    const bgVideo = document.getElementById('bg-video');
+    const videoToggle = document.getElementById('video-toggle');
+
+    // Video Play/Pause Logic
+    if (bgVideo && videoToggle) {
+        videoToggle.addEventListener('click', () => {
+            if (bgVideo.paused) {
+                bgVideo.play();
+                videoToggle.innerHTML = '<span class="icon">⏸</span>';
+                videoToggle.setAttribute('aria-label', 'Pause Background Video');
+            } else {
+                bgVideo.pause();
+                videoToggle.innerHTML = '<span class="icon">▶</span>';
+                videoToggle.setAttribute('aria-label', 'Play Background Video');
+            }
+        });
+    }
 
     // Initialize Bristol Count from localStorage
     let currentCount = parseInt(localStorage.getItem('currentCount')) || 62220;
@@ -203,7 +220,7 @@ function initPrologue() {
     }
     
     // Wire up the click-to-continue event to hide the lockdown wrapper
-    prologue.addEventListener('click', () => {
+    const dismissPrologue = () => {
         isPrologueActive = false;
         clearTimeout(loopTimeout);
         prologue.style.display = 'none';
@@ -214,6 +231,14 @@ function initPrologue() {
         if(curtainTop && curtainBottom) {
             curtainTop.style.transform = "translateY(-100%)";
             curtainBottom.style.transform = "translateY(100%)";
+        }
+    };
+
+    prologue.addEventListener('click', dismissPrologue);
+    prologue.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dismissPrologue();
         }
     });
     

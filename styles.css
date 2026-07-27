@@ -106,6 +106,35 @@ body {
     width: 100%; height: 100%; object-fit: cover;
 }
 
+#video-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: 2px solid #fff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#video-toggle:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+#video-toggle:focus {
+    outline: 3px solid #00A4EF;
+    outline-offset: 4px;
+}
+
 .mask-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: #000; 
@@ -191,6 +220,26 @@ table th {
 .btn-yes { background: #005EB8; color: #fff; box-shadow: 0 10px 20px rgba(0,94,184,0.3); }
 .btn-support { background: #ff0f5b; color: #fff; box-shadow: 0 10px 20px rgba(255,15,91,0.3); }
 .cta-button:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.cta-button:focus { 
+    outline: 4px solid #ffffff; 
+    outline-offset: 4px; 
+    box-shadow: 0 0 0 8px rgba(0,94,184,0.4); 
+}
+
+/* GLOBAL FOCUS STATES */
+a:focus, button:focus, [role="button"]:focus {
+    outline: 3px solid #00A4EF;
+    outline-offset: 3px;
+}
+
+/* Disable default outline only when focus is visible via our custom styles */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+:focus-visible {
+    outline: 3px solid #00A4EF;
+    outline-offset: 3px;
+}
 
 /* PREMIUM MODAL */
 .modal {
