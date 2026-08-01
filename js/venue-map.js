@@ -12,9 +12,9 @@ const venues = [
     reviews: "4,120",
     icon: "🎵",
     photos: {
-      main:  "contents/map/bristol-beacon-main.png",
-      thumb2: "contents/map/bristol-beacon-2.png",
-      thumb3: "contents/map/bristol-beacon-3.png"
+      main:  "Contents/Map/bristol-beacon-main.png",
+      thumb2: "Contents/Map/bristol-beacon-2.png",
+      thumb3: "Contents/Map/bristol-beacon-3.png"
     }
   },
   {
@@ -28,9 +28,9 @@ const venues = [
     reviews: "2,352",
     icon: "🎬",
     photos: {
-      main:  "contents/map/watershed-main.png",
-      thumb2: "contents/map/watershed-2.png",
-      thumb3: "contents/map/watershed-3.png"
+      main:  "Contents/Map/watershed-main.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
     }
   },
   {
@@ -44,9 +44,9 @@ const venues = [
     reviews: "5,890",
     icon: "🏛️",
     photos: {
-      main:  "contents/map/mshed-main.png",
-      thumb2: "contents/map/mshed-2.png",
-      thumb3: "contents/map/mshed-3.png"
+      main:  "Contents/Map/mshed-main.png",
+      thumb2: "Contents/Map/mshed-2.png",
+      thumb3: "Contents/Map/mshed-3.png"
     }
   },
   {
@@ -60,9 +60,9 @@ const venues = [
     reviews: "1,500",
     icon: "🎭",
     photos: {
-      main:  "contents/map/bristol-old-vic-main.png",
-      thumb2: "contents/map/bristol-old-vic-2.png",
-      thumb3: "contents/map/bristol-old-vic-3.png"
+      main:  "Contents/Map/bristol-old-vic-main.png",
+      thumb2: "Contents/Map/bristol-old-vic-2.png",
+      thumb3: "Contents/Map/bristol-old-vic-3.png"
     }
   },
   {
@@ -76,9 +76,9 @@ const venues = [
     reviews: "800",
     icon: "🎭",
     photos: {
-      main:  "contents/map/tobacco-factory-main.png",
-      thumb2: "contents/map/tobacco-factory-2.png",
-      thumb3: "contents/map/tobacco-factory-3.png"
+      main:  "Contents/Map/tobacco-factory-main.png",
+      thumb2: "Contents/Map/tobacco-factory-2.png",
+      thumb3: "Contents/Map/tobacco-factory-3.png"
     }
   },
   {
@@ -92,9 +92,9 @@ const venues = [
     reviews: "3,200",
     icon: "✈️",
     photos: {
-      main:  "contents/map/aerospace-bristol-main.png",
-      thumb2: "contents/map/aerospace-bristol-2.png",
-      thumb3: "contents/map/aerospace-bristol-3.png"
+      main:  "Contents/Map/aerospace-bristol-main.png",
+      thumb2: "Contents/Map/aerospace-bristol-2.png",
+      thumb3: "Contents/Map/aerospace-bristol-3.png"
     }
   },
   {
@@ -108,9 +108,9 @@ const venues = [
     reviews: "2,900",
     icon: "🎭",
     photos: {
-      main:  "contents/map/bristol-hippodrome-main.png",
-      thumb2: "contents/map/bristol-hippodrome-2.png",
-      thumb3: "contents/map/bristol-hippodrome-3.png"
+      main:  "Contents/Map/bristol-hippodrome-main.png",
+      thumb2: "Contents/Map/bristol-hippodrome-2.png",
+      thumb3: "Contents/Map/bristol-hippodrome-3.png"
     }
   },
   {
@@ -124,9 +124,9 @@ const venues = [
     reviews: "1,100",
     icon: "🏨",
     photos: {
-      main:  "contents/map/future-inns-main.png",
-      thumb2: "contents/map/future-inns-2.png",
-      thumb3: "contents/map/future-inns-3.png"
+      main:  "Contents/Map/future-inns-main.png",
+      thumb2: "Contents/Map/future-inns-2.png",
+      thumb3: "Contents/Map/future-inns-3.png"
     }
   },
   {
@@ -140,9 +140,9 @@ const venues = [
     reviews: "500",
     icon: "🚆",
     photos: {
-      main:  "contents/map/temple-meads-main.png",
-      thumb2: "contents/map/temple-meads-2.png",
-      thumb3: "contents/map/temple-meads-3.png"
+      main:  "Contents/Map/temple-meads-main.png",
+      thumb2: "Contents/Map/temple-meads-2.png",
+      thumb3: "Contents/Map/temple-meads-3.png"
     }
   }
 ];
@@ -160,7 +160,7 @@ window.initMap = async function () {
   map = new Map(document.getElementById("map"), {
     zoom: 13,
     center: { lat: 51.4545, lng: -2.5879 },
-    mapId: "a5a5d1d5648102f0d543daaa",
+    mapId: "DEMO_MAP_ID",
     colorScheme: "DARK",
     disableDefaultUI: true,
     clickableIcons: false
@@ -193,7 +193,6 @@ function renderMarkers() {
     markerContent.style.display = "flex";
     markerContent.style.flexDirection = "column";
     markerContent.style.alignItems = "center";
-    markerContent.style.transform = "translate(-50%, -100%)";
     markerContent.style.cursor = "pointer";
 
     markerContent.innerHTML = `
@@ -268,9 +267,9 @@ function renderMarkers() {
           </div>
 
           <div class="photo-grid">
-            <img class="photo-main" src="${mainSrc}" alt="${venue.name}">
-            <img src="${thumb2Src}" alt="${venue.name}">
-            <img src="${thumb3Src}" alt="${venue.name}">
+            <img class="photo-main" src="${mainSrc}" onerror="this.onerror=null; this.src='https://placehold.co/300x150/202124/8AB4F8?text=${encodeURIComponent(venue.name)}'" alt="${venue.name}">
+            <img src="${thumb2Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=Photo+2'" alt="${venue.name}">
+            <img src="${thumb3Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=Photo+3'" alt="${venue.name}">
           </div>
 
           <a href="${mapsUrl}" target="_blank" class="open-map-btn">
