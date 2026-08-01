@@ -152,22 +152,27 @@ let activeMarkers = [];
 let AdvancedMarkerElement;
 
 window.initMap = async function () {
-  const { Map } = await google.maps.importLibrary("maps");
-  const markerLib = await google.maps.importLibrary("marker");
-  AdvancedMarkerElement = markerLib.AdvancedMarkerElement;
+  try {
+    const { Map } = await google.maps.importLibrary("maps");
+    const markerLib = await google.maps.importLibrary("marker");
+    AdvancedMarkerElement = markerLib.AdvancedMarkerElement;
 
-  // Centre roughly on central Bristol so all venues are nearby
-  map = new Map(document.getElementById("map"), {
-    zoom: 13,
-    center: { lat: 51.4545, lng: -2.5879 },
-    mapId: "a5a5d1d5648102f0d543daaa",
-    colorScheme: "DARK",
-    disableDefaultUI: true,
-    clickableIcons: false
-  });
+    // Centre roughly on central Bristol so all venues are nearby
+    map = new Map(document.getElementById("map"), {
+      zoom: 13,
+      center: { lat: 51.4545, lng: -2.5879 },
+      mapId: "a5a5d1d5648102f0d543daaa",
+      colorScheme: "DARK",
+      disableDefaultUI: true,
+      clickableIcons: false
+    });
 
-  renderMarkers();
-  setupFilters();
+    renderMarkers();
+    setupFilters();
+  } catch (err) {
+    document.getElementById("map").innerHTML = "<div style='color:red; padding: 20px;'>Map Error: " + err.message + "<br>" + err.stack + "</div>";
+    console.error(err);
+  }
 };
 
 function renderMarkers() {
