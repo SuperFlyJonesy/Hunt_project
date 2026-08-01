@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => overlay.classList.add('reveal'), 150);
     }
 
+    // Handle bfcache (Safari/Mobile back button)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted && overlay) {
+            overlay.classList.add('reveal');
+        }
+    });
+
     // 2. RETURNING USER BYPASS
     const hasVisited = localStorage.getItem('hasVisitedHub');
     const prologue = document.getElementById('prologue-lockdown');
@@ -61,15 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(stencilCount) stencilCount.textContent = currentCount.toLocaleString();
 
     // Modal Handling
-    if(ctaYes) {
-        ctaYes.addEventListener('click', () => {
-            if (localStorage.getItem('hasVisitedHub') === 'true') {
-                window.location.href = 'path-yes.html';
-            } else {
-                modal.classList.add('active');
-            }
-        });
-    }
+    if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
     if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
     if(ctaSupport) ctaSupport.addEventListener('click', () => window.location.href = 'path-experience.html');
 
