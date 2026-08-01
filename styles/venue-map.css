@@ -77,8 +77,8 @@ html, body {
 /* --- Google Maps InfoWindow Dark Overrides --- */
 .gm-style-iw-c {
   background-color: #202124 !important;
-  max-width: 360px !important;
-  width: 340px !important;
+  max-width: 320px !important;
+  width: 320px !important;
   padding: 0 !important;
   border-radius: 16px !important;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7) !important;
@@ -112,8 +112,9 @@ html, body {
 
 .dark-popup h3 {
   margin: 0 0 4px 0;
-  font-size: 1.1rem;
+  font-size: 1.3rem; /* Increased font size */
   font-weight: 600;
+  padding-right: 24px; /* Space for the close button */
 }
 
 .dark-popup p.rating {
@@ -140,6 +141,8 @@ html, body {
   cursor: pointer;
   flex: 1;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .popup-btn:hover {

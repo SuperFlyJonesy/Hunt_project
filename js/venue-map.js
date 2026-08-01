@@ -199,6 +199,7 @@ function renderMarkers() {
     markerContent.style.flexDirection = "column";
     markerContent.style.alignItems = "center";
     markerContent.style.cursor = "pointer";
+    markerContent.style.transform = "translate(0, 50%)"; // Center circular marker
 
     markerContent.innerHTML = `
       <div style="
@@ -260,21 +261,15 @@ function renderMarkers() {
           <p style="margin-bottom: 10px;">${venue.address}</p>
 
           <div class="popup-buttons">
-            <button class="popup-btn" onclick="window.open('${mapsUrl}', '_blank')">
-              Website
-            </button>
-            <button class="popup-btn" onclick="window.open('${mapsUrl}', '_blank')">
-              Directions
-            </button>
-            <button class="popup-btn" onclick="window.open('${mapsUrl}', '_blank')">
-              Share
-            </button>
+            <a href="${mapsUrl}" target="_blank" class="popup-btn">Website</a>
+            <a href="${mapsUrl}" target="_blank" class="popup-btn">Directions</a>
+            <a href="${mapsUrl}" target="_blank" class="popup-btn">Share</a>
           </div>
 
           <div class="photo-grid">
-            <img class="photo-main" src="${mainSrc}" onerror="this.onerror=null; this.src='https://placehold.co/300x150/202124/8AB4F8?text=${encodeURIComponent(venue.name)}'" alt="${venue.name}">
-            <img src="${thumb2Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=Photo+2'" alt="${venue.name}">
-            <img src="${thumb3Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=Photo+3'" alt="${venue.name}">
+            <img class="photo-main" src="${mainSrc}" onerror="this.onerror=null; this.src='https://placehold.co/300x150/202124/8AB4F8?text=Image+Not+Found'" alt="${venue.name}">
+            <img src="${thumb2Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=No+Photo'" alt="${venue.name}">
+            <img src="${thumb3Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=No+Photo'" alt="${venue.name}">
           </div>
 
           <a href="${mapsUrl}" target="_blank" class="open-map-btn">
