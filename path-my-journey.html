@@ -43,12 +43,43 @@
             </div>
         </div>
         
+        <!-- Rotating Community Snippets -->
+        <div style="margin-top: 40px; background: #f8f9fa; padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #e9ecef;">
+            <h3 style="color: #005EB8; margin-top: 0; font-size: 1.3rem;">Community Stories</h3>
+            <div id="rotating-snippet" style="font-size: 1.15rem; color: #555; font-style: italic; min-height: 80px; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s; padding: 0 20px; line-height: 1.5;">
+                "I felt so isolated until I found this community. It changed everything for me." - Sarah, 34
+            </div>
+            <div style="margin-top: 20px;">
+                <a href="path-community-stories.html" style="display: inline-block; background: #005EB8; color: white; padding: 10px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: background 0.2s;">
+                    Share Your Story
+                </a>
+            </div>
+        </div>
 
-        <div style="margin-top: 30px;">
-            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold;">&larr; Back to Journey</a>
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="path-yes.html" style="color: #666; text-decoration: none; font-weight: bold; padding: 10px 20px; border: 1px solid #ccc; border-radius: 20px; transition: all 0.2s;">&larr; Back to Journey</a>
         </div>
     </div>
 
+    <script>
+        const snippets = [
+            '"I felt so isolated until I found this community. It changed everything for me." - Sarah, 34',
+            '"Getting my first hearing aids was scary, but reading these stories gave me courage." - David, 51',
+            '"I didn\'t realize how much I was missing until I finally took the leap." - Emma, 28',
+            '"We are not alone in this journey. The support here is incredible." - Michael, 45',
+            '"Accepting my hearing loss was the hardest part. Now, I wouldn\'t change a thing." - Lisa, 42'
+        ];
+        let currentSnippet = 0;
+        const snippetElement = document.getElementById('rotating-snippet');
 
+        setInterval(() => {
+            snippetElement.style.opacity = 0;
+            setTimeout(() => {
+                currentSnippet = (currentSnippet + 1) % snippets.length;
+                snippetElement.innerText = snippets[currentSnippet];
+                snippetElement.style.opacity = 1;
+            }, 500); // Wait for fade out
+        }, 6000); // Rotate every 6 seconds
+    </script>
 </body>
 </html>
