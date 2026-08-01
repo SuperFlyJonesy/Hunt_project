@@ -10,8 +10,6 @@
         .content { max-width: 800px; margin: 0 auto; }
         h1 { color: #F57C00; }
         .testimonial-card { background: #f8f9fa; border-radius: 20px; padding: 20px; margin-bottom: 20px; border-left: 6px solid #F57C00; }
-        #story-form { background: #eee; padding: 20px; border-radius: 15px; margin-bottom: 30px; }
-        textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 10px; }
     </style>
 </head>
 <body class="premium-white-theme">
@@ -45,37 +43,12 @@
             </div>
         </div>
         
-        <div id="story-form">
-            <h3>Share Your Story</h3>
-            <input type="text" id="user-first-name" placeholder="First Name (optional)" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc;">
-            <textarea id="user-story" rows="4" placeholder="Your story..."></textarea>
-            <button onclick="submitStory()" style="background: #F57C00; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">Submit Story</button>
-        </div>
 
-        <div id="testimonials-list">
-            <!-- New stories will appear here -->
-        </div>
-        
         <div style="margin-top: 30px;">
             <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold;">&larr; Back to Journey</a>
         </div>
     </div>
 
-    <script>
-        function submitStory() {
-            const name = document.getElementById('user-first-name').value || 'Anonymous';
-            const story = document.getElementById('user-story').value;
-            if(!story) return;
-            
-            const list = document.getElementById('testimonials-list');
-            const newStory = document.createElement('div');
-            newStory.className = 'testimonial-card';
-            newStory.innerHTML = <strong> + "$" + {name}:</strong> " + "$" + {story}";
-            list.prepend(newStory);
-            
-            document.getElementById('user-story').value = '';
-            document.getElementById('user-first-name').value = '';
-        }
-    </script>
+
 </body>
 </html>
