@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
+    <script src="animation.js"></script>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
+    <div class="page-transition-overlay"></div>
+
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #ff0f5b;">About Us</h1>
+
+        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
+            Hi, we are Jason and Jo. As former CFD employees and proud members of the Hard of Hearing (HoH) community, we understand firsthand the barriers and isolation that can come with hearing loss. We built this initiative to create a safe, accessible, and supportive space for everyone.
+        </p>
+
+        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
+            Right now, this is a grassroots project. Every donation we receive goes directly into the community. Your support pays for accessible venue hire, ensures everyone gets a free coffee at our meetups, and helps us bring in expert guest speakers. This community-funded model bridges the gap while we work towards securing long-term backing from corporate sponsors and the local council.
+        </p>
+
+        <a href="https://ko-fi.com/" target="_blank" style="background: #29abe0; color: white; padding: 12px 24px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; transition: transform 0.2s ease;">
+            ☕ Support us on Ko-fi
+        </a>
+
+        <!-- Impact Block -->
+        <div style="margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.05); border-radius: 12px;">
+            <h3 style="margin-bottom: 5px;">Community Impact</h3>
+            <p style="font-size: 1.5rem; font-weight: bold; color: #ff0f5b;">We have helped <span id="display-helped">0</span> people so far.</p>
+        </div>
+
+        <!-- Meet the Team -->
+        <div style="margin-top: 60px; width: 100%; max-width: 800px; display: flex; flex-direction: column; gap: 30px;">
+            <h2 style="color: #111; font-size: 2rem; margin-bottom: 10px;">Our Leadership</h2>
+            
+            <div style="background: #ffffff; border-radius: 20px; padding: 30px; display: flex; align-items: center; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left;">
+                <img src="jason-photo.jpg" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #222; font-size: 1.6rem;">Jason Parchment</h3>
+                    <p style="margin: 0 0 12px 0; color: #ff0f5b; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">CEO and Founder</p>
+                    <p style="margin: 0; color: #555; line-height: 1.6; font-size: 1.05rem;">Digital communicator and tech trainer. I lead the vision for our accessible community platforms, ensuring every resource we build creates real-world impact for the HoH community.</p>
+                </div>
+            </div>
+
+            <div style="background: #ffffff; border-radius: 20px; padding: 30px; display: flex; align-items: center; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #005EB8; text-align: left;">
+                <img src="jo-photo.jpg" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+                <div>
+                    <h3 style="margin: 0 0 5px 0; color: #222; font-size: 1.6rem;">Jo Jones</h3>
+                    <p style="margin: 0 0 12px 0; color: #005EB8; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Community Partner & Operations Manager</p>
+                    <p style="margin: 0; color: #555; line-height: 1.6; font-size: 1.05rem;">I manage our outreach and day-to-day operations. My focus is connecting the community with the right events, venues, and support structures to ensure no one feels isolated.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Safely retrieve totalHelped from localStorage and update DOM
+        try {
+            const helpedCount = parseInt(localStorage.getItem('totalHelped')) || 0;
+            const displayEl = document.getElementById('display-helped');
+            if (displayEl) displayEl.innerText = helpedCount;
+        } catch (e) {
+            console.warn("Could not retrieve impact count:", e);
+        }
+    </script>
+    <div style="text-align: center; margin-bottom: 50px;">
+        <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "venue_name": "Bristol Temple Meads Station",
+    "lat": 51.449,
+    "lng": -2.583,
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Auracast",
+      "quiet_zone": false
+    },
+    "physical_accessibility": { "wheelchair_access": true }
+  },
+  {
+    "id": 2,
+    "venue_name": "Bristol Beacon",
+    "lat": 51.454,
+    "lng": -2.597,
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop",
+      "quiet_zone": true
+    },
+    "physical_accessibility": { "wheelchair_access": true }
+  },
+  {
+    "id": 3,
+    "venue_name": "Central Library",
+    "lat": 51.451,
+    "lng": -2.601,
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop",
+      "quiet_zone": true
+    },
+    "physical_accessibility": { "wheelchair_access": true }
+  }
+]

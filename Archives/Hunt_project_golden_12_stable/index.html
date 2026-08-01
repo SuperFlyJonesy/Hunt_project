@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hearing Loss Initiative - Bristol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- DEV TOOLS -->
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    
+    <div class="page-transition-overlay"></div>
+    
+    <!-- LOCKED PROLOGUE ANIMATION (STABLE VERSION) -->
+    <div id="prologue-lockdown" class="prologue">
+        <div class="prologue-text">
+            <p class="stat"><span class="highlight">1</span><span class="base-text"> in </span><span class="highlight">3</span><span class="base-text"> adults in the UK have hearing loss.</span></p>
+            <p class="stat"><span class="base-text">By </span><span class="highlight">2035</span><span class="base-text">, an estimated </span><span class="highlight">14.2</span><span class="base-text"> million people will be affected.</span></p>
+            <p class="stat"><span class="base-text">Hearing loss often leads to </span><span class="highlight">social isolation</span><span class="base-text"> and depression.</span></p>
+            <p class="stat"><span class="highlight">Timely intervention</span><span class="base-text"> dramatically improves quality of life.</span></p>
+            <p class="stat"><span class="base-text">Yet, many suffer in </span><span class="highlight">silence</span><span class="base-text"> for years.</span></p>
+            <p class="stat"><span class="base-text">Around </span><span class="highlight">62,220</span><span class="base-text"> Bristol adults were predicted to live with hearing loss in 2025.</span></p>
+            <p class="stat"><span class="base-text">Roughly </span><span class="highlight">1 in 6</span><span class="base-text"> of Bristol’s adult population has some degree of hearing loss.</span></p>
+            <p class="stat"><span class="base-text">Bristol’s adult hearing-loss population is forecast to rise to </span><span class="highlight">67,555</span><span class="base-text"> by 2035.</span></p>
+            <p class="stat"><span class="base-text">This represents an additional </span><span class="highlight">5,300</span><span class="base-text"> adults over just ten years.</span></p>
+            <p class="stat"><span class="base-text">Around </span><span class="highlight">6,655</span><span class="base-text"> Bristol adults were predicted to have severe hearing loss in 2025.</span></p>
+            <p class="stat"><span class="base-text">Severe hearing loss affects approximately </span><span class="highlight">1 in every 60</span><span class="base-text"> people in Bristol.</span></p>
+            <p class="stat"><span class="base-text">Bristol City Council funds a </span><span class="highlight">specialist equipment</span><span class="base-text"> service for hard-of-hearing residents.</span></p>
+            <p class="stat"><span class="base-text">Locals can access tech including </span><span class="highlight">flashing doorbells</span><span class="base-text"> and amplified telephones.</span></p>
+            <p class="stat"><span class="base-text">Many hard-of-hearing residents also qualify for free </span><span class="highlight">fire-safety equipment</span><span class="base-text">.</span></p>
+            <p class="stat"><span class="base-text">Locals have reported missing healthcare because of </span><span class="highlight">communication barriers</span><span class="base-text">.</span></p>
+            <p class="stat"><span class="base-text">An amplified alert system restored one Bristol man's </span><span class="highlight">independence</span><span class="base-text">.</span></p>
+            <p class="stat"><span class="highlight">Bristol Beacon</span><span class="base-text"> offers captioned performances and an induction hearing loop.</span></p>
+            <p class="stat"><span class="base-text">Bristol Temple Meads is pioneering an </span><span class="highlight">Auracast</span><span class="base-text">-based system for announcements.</span></p>
+            <p class="click-prompt">[ Click to continue ]</p>
+        </div>
+    </div>
+    
+    <div id="curtain-top" class="curtain"></div>
+    <div id="curtain-bottom" class="curtain"></div>
+    
+    <div class="main-container">
+        <header class="top-nav">
+            <img src="HLI Logo White.png" alt="HLI Logo" id="hli-logo" style="height: 50px; position: fixed; top: 15px; left: 50%; transform: translateX(-50%) scale(1.5); transform-origin: center; z-index: 9999999;">
+            <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
+        </header>
+
+        <!-- STENCIL LANDING PAGE -->
+        <div class="video-mask-container">
+            <video id="bg-video" autoplay loop muted playsinline>
+                <source src="bristol-bg.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="mask-overlay">
+            <h1 class="stencil-layer" id="stencil-count">62220</h1>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const stencil = document.getElementById('stencil-count');
+                const helped = parseInt(localStorage.getItem('totalHelped') || 0);
+                stencil.innerText = (62220 - helped).toLocaleString();
+            });
+        </script>
+        <div class="content-layer" id="content-layer">
+            <div id="bottom-action-panel">
+                <div id="intro-block">
+                    <p class="official-text"><em>Estimates from <a href="https://www.bristol.gov.uk/" target="_blank" class="citation-link">Bristol City Council &#8599;</a> and <a href="https://www.ons.gov.uk/" target="_blank" class="citation-link">national statistics &#8599;</a> indicate that 62,220 adults in Bristol currently live with some form of hearing loss.</em></p>
+                    
+                    <div class='pathways-container'>
+                      <div class='pathway'>
+                        <h3>Are you one of the 62,220?</h3>
+                        <button class='cta-button btn-yes' id='cta-yes'>Yes</button>
+                      </div>
+                      <div class='pathway'>
+                        <h3>Friend or family member?</h3>
+                        <button class='cta-button btn-support' id='cta-support'>Offer Support</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREMIUM REGISTRATION MODAL -->
+    <div id="registration-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: #666; cursor: pointer; transition: color 0.2s;">&times;</span>
+            <h2 style="color: white; font-size: 2rem; margin-top: 0; margin-bottom: 10px; text-align: center;">Join the Community</h2>
+            <p style="color: #ccc; text-align: center; margin-bottom: 15px; font-size: 1.1rem;">Add your voice to the Bristol HoH network.</p>
+
+            <a href="path-forum.html" class="modal-link">Why do we need this info? Learn about our Patreon Forum &rarr;</a>
+
+            <form id="registration-form">
+                <input type="text" id="user-name" class="modal-input" placeholder="Your First Name" required>
+                <input type="email" id="user-email" class="modal-input" placeholder="Your Email Address" required>
+                <input type="text" id="user-postcode" class="modal-input" placeholder="Your Postcode (e.g., BS1 4DJ)" required>
+
+                <button type="submit" style="width: 100%; background: #005EB8; color: white; border: none; padding: 20px; font-size: 1.3rem; font-weight: bold; border-radius: 12px; cursor: pointer; transition: background 0.2s ease, transform 0.1s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+                    Join Now
+                </button>
+                <button type="button" id="test-quick-join" style="margin-top: 15px; background: transparent; border: 1px solid #333; color: #666; padding: 8px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">TEST: Quick Join</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

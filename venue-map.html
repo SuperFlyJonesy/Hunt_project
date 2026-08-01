@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bristol Venue Map</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/venue-map.css" />
+</head>
+<body>
+  <header class="map-header">
+    <h1>Bristol Venue Map</h1>
+
+    <div class="header-controls">
+      <a href="path-accessible-venues.html" class="back-link">← Venue List</a>
+
+      <div class="filters">
+        abel>
+          <input type="checkbox" id="filter-induction" checked />
+          <span class="dot induction"></span>
+          Induction Loop
+        </label>
+
+        abel>
+          <input type="checkbox" id="filter-auracast" checked />
+          <span class="dot auracast"></span>
+          Auracast
+        </label>
+
+        abel>
+          <input type="checkbox" id="filter-quiet" checked />
+          <span class="dot quiet"></span>
+          Quiet Zone
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main id="map"></main>
+
+  <!-- Google Maps loader: uses your real API key and calls window.initMap -->
+  <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR126ydv-9UusD-VAHZI9QVwfmugu-rGQ&libraries=marker&callback=initMap">
+  </script>
+
+  <!-- Map logic -->
+  <script src="js/venue-map.js"></script>
+</body>
+</html>

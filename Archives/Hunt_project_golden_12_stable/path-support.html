@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Support Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        body { background: #000; margin: 0; padding: 0; overflow: hidden; height: 100vh; font-family: 'Inter', sans-serif; }
+        
+        #state-intro, #state-prologue, #state-content { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; transition: opacity 1.5s ease-in-out; }
+        
+        /* Intro with cinematic zoom */
+        #state-intro { display: flex; justify-content: center; align-items: center; z-index: 300; background: #000; opacity: 1; }
+        #state-intro h1 { color: #fff; font-family: 'Inter', sans-serif; font-size: 3rem; font-weight: 300; text-align: center; transition: transform 3s ease-out; transform: scale(1); }
+        
+        #state-prologue { z-index: 200; opacity: 0; background: #000; display: none; }
+        #state-content { z-index: 100; opacity: 0; background: #fff; overflow-y: auto; display: none; }
+        
+        .stat { position: absolute; font-size: 26px; font-family: 'Georgia', serif; font-style: italic; color: #ffffff; white-space: nowrap; opacity: 0; transition: opacity 1s ease; }
+        .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
+        .base-text { transition: opacity 1s ease; }
+        
+        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+        #continue-btn { position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250; color: #fff; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite ease-in-out; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+    </style>
+</head>
+<body class="premium-white-theme">
+    <!-- UI Nav Buttons outside state containers -->
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
+    
+    <div id="state-intro">
+        <h1 id="intro-text">Experience the reality of hearing loss.</h1>
+    </div>
+
+    <div id="state-prologue">
+        <div id="continue-btn">[ Click to continue ]</div>
+    </div>
+
+    <div id="state-content">
+        <header class="top-nav" style="padding: 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin-bottom: 70px;">
+            <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Support the Community</h1>
+            <p style="color: #666; font-size: 1.1rem; max-width: 600px; text-align: center; margin-top: 10px;">Resources for friends, families, and businesses wanting to empower the HoH community.</p>
+        </header>
+        <div class="metro-grid">
+            <a class="metro-btn" style="background-color: #D32F2F;"><span class="material-symbols-outlined metro-icon">family_restroom</span><span class="metro-text">Family Guide</span></a>
+            <a class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
+            <a class="metro-btn" style="background-color: #388E3C;"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Volunteer</span></a>
+            <a class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
+            <a class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
+            <a class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
+            <a class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
+            <a href="path-yes.html" class="metro-btn" style="background-color: #455A64;"><span class="material-symbols-outlined metro-icon">arrow_back</span><span class="metro-text">Back Home</span></a>
+        </div>
+    </div>
+
+    <audio id="bg-noise" src="restaurant-noise.mp3" loop></audio>
+
+    <script>
+        const rawPhrases = ["People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.", "Struggling to follow conversations around the dinner table when several family members speak at once.", "Feeling left out at family meals because the conversation moves on before you have understood what was said.", "Family members becoming frustrated when they have to repeat themselves.", "Being told “never mind” when you ask what someone said, leaving you feeling excluded.", "Pretending you heard something because asking again feels awkward.", "Laughing along with everyone else even though you did not hear the joke.", "Feeling isolated in a room full of people because you cannot follow the conversation.", "People assuming you are ignoring them when you simply did not hear them.", "Being called rude, distant or unfriendly because you missed someone speaking to you.", "Feeling anxious about meeting new people because you worry you will not understand them.", "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.", "Choosing where to sit based on lighting, noise and whether you can see people’s faces.", "Missing important parts of conversations when someone turns their head away while speaking.", "Struggling when people cover their mouths, mumble or speak while eating.", "Feeling uncomfortable asking someone to remove their hand from their mouth.", "Being told “you heard that!” when you can hear some sounds but not understand every word.", "People not understanding that hearing loss can change depending on background noise and the speaker.", "Hearing a voice but not being able to make out what the person actually said.", "Feeling blamed for communication problems that are not entirely your fault.", "Family members shouting instead of speaking clearly, which can actually make understanding harder.", "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand.", "People treating you as less intelligent because you did not hear something.", "Being spoken about instead of spoken to when you are with someone else.", "Feeling self-conscious about wearing hearing aids.", "Worrying that hearing aids make you look old.", "Hiding hearing loss from colleagues, friends or new partners because of stigma.", "Feeling embarrassed when someone notices your hearing aids.", "Being afraid to admit that your hearing is getting worse.", "Feeling frustrated when people say, “You’ve got hearing aids, so you should be able to hear now.”", "Having to explain repeatedly that hearing aids help but do not restore normal hearing.", "Feeling mentally exhausted after concentrating on conversations all day.", "Needing quiet time after social events because listening takes so much concentration.", "Losing confidence in group conversations because it is hard to know when to speak.", "Accidentally interrupting someone because you did not realise they were still talking.", "Missing the start of a conversation and then struggling to catch up.", "Not knowing who is speaking in a group when you cannot see everyone’s face.", "Missing jokes, sarcasm or tone of voice and misunderstanding what someone means.", "Feeling worried that you have answered a question incorrectly because you misheard it.", "Mishearing names, numbers, dates or addresses and feeling embarrassed about correcting the mistake.", "Finding phone calls stressful because there are no facial expressions or lip movements to help.", "Avoiding making appointments by phone because of fear of misunderstanding important information.", "Feeling anxious when someone says something important from another room.", "Arguments starting because a partner believes you are not listening.", "Being accused of “selective hearing” when you genuinely did not hear something.", "Partners or relatives saying “I’ve told you already” when you may never have heard it the first time.", "Turning the television up and causing tension with other people in the house.", "Relying on subtitles while other people complain that they are distracting.", "Missing doorbells, alarms, timers or someone calling from another room.", "Feeling vulnerable when walking alone because you may not hear bicycles, vehicles or people approaching.", "Struggling in shops when staff speak from behind screens or while looking away.", "Feeling embarrassed at a checkout when you do not understand what the cashier has asked.", "Finding masks difficult because they remove facial expressions and lip-reading cues.", "Feeling excluded when friends choose noisy venues despite knowing about your hearing loss.", "Friends saying “just sit closer” without understanding that distance is only part of the problem.", "People forgetting about your hearing loss because it is an invisible disability.", "Constantly having to remind others how to communicate with you.", "Feeling like you are being “difficult” when asking for subtitles, quieter seating or communication support.", "Missing spontaneous conversations and jokes that happen in passing.", "Feeling that everyone else knows something you missed.", "Withdrawing socially because keeping up with conversations becomes too tiring.", "Losing friendships because socialising starts to feel like hard work.", "Feeling lonely even when surrounded by family and friends.", "Grieving the sounds, music or voices you used to hear more clearly.", "Worrying about hearing loss getting worse in the future.", "Feeling frustrated that other people cannot see how much effort listening takes.", "Being told “at least you’re not completely deaf,” which can minimise the difficulties you face.", "Feeling caught between the hearing and Deaf communities and unsure where you belong."];
+        const emotiveKeywords = ["belittling", "frustrated", "excluded", "awkward", "isolated", "exhausting", "difficult", "struggling", "uncomfortable", "blamed", "distrust", "anxious", "stressful", "vulnerable", "embarrassed", "tired", "lonely", "grieving", "hearing aids", "background noise", "restaurants", "subtitles", "ignoring", "misunderstood", "shouting", "speaking", "mumbled", "accents", "conversation", "turns their head", "lip-reading", "facial expressions", "covering mouths", "losing friendships", "friends", "left out", "isolated"];
+        const colors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
+
+        function processPhrases(phrases) {
+            return phrases.map(p => {
+                const regex = /(“[^”]+”)|(belittling|frustrated|excluded|awkward|isolated|exhausting|difficult|struggling|uncomfortable|blamed|distrust|anxious|stressful|vulnerable|embarrassed|tired|lonely|grieving|hearing aids|background noise|restaurants|subtitles|ignoring|misunderstood|shouting|speaking|mumbled|accents|conversation|turns their head|lip-reading|facial expressions|covering mouths|losing friendships|friends|left out|isolated)/gi;
+                const parts = [];
+                let lastIdx = 0;
+                let match;
+
+                while ((match = regex.exec(p)) !== null) {
+                    if (match.index > lastIdx) parts.push({ type: 'base', text: p.slice(lastIdx, match.index) });
+                    parts.push({ type: 'highlight', text: match[0] });
+                    lastIdx = regex.lastIndex;
+                }
+                if (lastIdx < p.length) parts.push({ type: 'base', text: p.slice(lastIdx) });
+                return parts;
+            });
+        }
+        
+        const structuredPhrases = processPhrases(rawPhrases);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const stateIntro = document.getElementById('state-intro');
+            const introText = document.getElementById('intro-text');
+            const statePrologue = document.getElementById('state-prologue');
+            const stateContent = document.getElementById('state-content');
+            const continueBtn = document.getElementById('continue-btn');
+            const audio = document.getElementById('bg-noise');
+
+            document.getElementById('dev-reset').addEventListener('click', () => { 
+                localStorage.clear(); 
+                window.location.href = 'index.html'; 
+            });
+
+            setTimeout(() => {
+                introText.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    stateIntro.style.opacity = '0';
+                    setTimeout(() => {
+                        stateIntro.style.display = 'none';
+                        statePrologue.style.display = 'block';
+                        statePrologue.style.opacity = '1';
+                        
+                        audio.volume = 0;
+                        audio.play();
+                        let vol = 0;
+                        const fadeAudio = setInterval(() => {
+                            if (vol < 0.5) { vol += 0.05; audio.volume = vol; }
+                            else clearInterval(fadeAudio);
+                        }, 200);
+                        
+                        playPrologueLoop();
+                    }, 1000);
+                }, 2000);
+            }, 500);
+
+            continueBtn.addEventListener('click', () => {
+                statePrologue.style.opacity = '0';
+                audio.pause();
+                setTimeout(() => {
+                    statePrologue.style.display = 'none';
+                    stateContent.style.display = 'block';
+                    setTimeout(() => stateContent.style.opacity = '1', 50);
+                }, 1000);
+            });
+        });
+
+        function playPrologueLoop(index = 0) {
+            const container = document.getElementById('state-prologue');
+            const parts = structuredPhrases[index];
+            const div = document.createElement('div');
+            div.className = 'stat';
+            
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            div.innerHTML = parts.map(part => 
+                part.type === 'highlight' 
+                    ? `<span class="highlight" style="color:${color}">${part.text}</span>` 
+                    : `<span class="base-text">${part.text}</span>`
+            ).join('');
+            
+            container.insertBefore(div, document.getElementById('continue-btn'));
+            
+            setTimeout(() => {
+                if (index === 0) {
+                    div.style.top = '50%';
+                    div.style.left = '50%';
+                    div.style.transform = 'translate(-50%, -50%)';
+                } else {
+                    div.style.transform = 'none';
+                    div.style.top = (Math.random() * 55 + 10) + 'vh';
+                    div.style.left = Math.random() * (window.innerWidth - div.offsetWidth - 80) + 40 + 'px';
+                }
+                
+                div.style.opacity = '1';
+                setTimeout(() => {
+                    div.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
+                }, 3000);
+            }, 50);
+
+            setTimeout(() => playPrologueLoop((index + 1) % structuredPhrases.length), 4500);
+        }
+    </script>
+</body>
+</html>
