@@ -486,3 +486,89 @@ a:focus, button:focus, [role="button"]:focus {
         transform: translate3d(-50%, 0, 0);
     }
 }
+/* --- Global Mobile Optimization --- */
+@media (max-width: 768px) {
+    /* Base typography adjustments */
+    body { font-size: 1rem; }
+    
+    /* Fix the metro grid buttons overflowing */
+    .metro-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        padding: 20px 10px;
+        gap: 15px;
+    }
+    
+    .metro-btn {
+        padding: 15px;
+        aspect-ratio: auto;
+        min-height: 120px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    
+    .metro-icon {
+        font-size: 4rem;
+        margin-bottom: 0;
+    }
+    
+    .metro-text {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    /* Pathway columns */
+    .pathways-container {
+        gap: 2rem;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    /* Content layers */
+    .content-layer {
+        padding: 20px 15px 80px 15px;
+    }
+
+    /* Modals */
+    .modal-content {
+        padding: 40px 25px;
+        width: 95%;
+    }
+    
+    .cta-button {
+        width: 100%;
+        min-width: 0;
+        padding: 1rem 1.5rem;
+    }
+
+    /* Testimonials layout */
+    .testimonials-header {
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+    .testimonials-title {
+        font-size: 2.2rem;
+    }
+    .ticker-card {
+        width: 85vw; /* shrink from 450px to fit screen */
+        padding: 20px;
+    }
+    .card-text {
+        font-size: 1rem;
+    }
+    .testimonials-info-section {
+        width: 90%;
+        padding: 25px;
+    }
+    
+    /* Tables scrolling horizontally instead of breaking the layout */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    table th, table td {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+}
