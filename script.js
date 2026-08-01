@@ -105,11 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     mainNumber.style.transform = 'translateY(-8vh) scale(1.1)'; // Keep offset
                     setTimeout(() => { mainNumber.style.transform = 'translateY(-8vh) scale(1)'; }, 400);
 
+                    const enteredName = document.getElementById('user-name')?.value?.trim();
+                    const nameGreeting = enteredName ? `, ${enteredName}` : '';
+
                     // FIX 1: Inject Welcome Message (No container/box)
                     actionPanel.innerHTML = `
                         <div style="margin-top: 10vh; text-align: center;">
                             <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
-                            <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network, Jsondo.</p>
+                            <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
                             <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
                         </div>
                     `;
@@ -125,12 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (regForm) {
         regForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            window.handleRegistrationSubmission();
-        });
-    }
-
-    if (quickJoin) {
-        quickJoin.addEventListener('click', () => {
             window.handleRegistrationSubmission();
         });
     }

@@ -97,8 +97,16 @@ html, body {
 
 .gm-ui-hover-effect {
   filter: invert(1) !important;
-  top: 8px !important;
-  right: 8px !important;
+  top: 10px !important;
+  right: 10px !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 50% !important;
+  padding: 4px !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* --- Custom Dark Popup Card --- */
@@ -106,16 +114,16 @@ html, body {
   background-color: #202124;
   color: #ffffff;
   /* Less top padding so title is closer to the X */
-  padding: 10px 16px 16px;
+  padding: 12px 16px 16px;
   width: 100%;
   font-family: inherit;
 }
 
 .dark-popup h3 {
-  margin: 0 0 4px 0;
-  font-size: 1.3rem; /* Increased font size */
-  font-weight: 600;
-  padding-right: 24px; /* Space for the close button */
+  margin: 0 0 6px 0;
+  font-size: 1.5rem; /* Larger venue titles */
+  font-weight: 700;
+  padding-right: 32px; /* Space for the close button */
 }
 
 .dark-popup p.rating {

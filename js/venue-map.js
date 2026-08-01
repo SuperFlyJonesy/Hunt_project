@@ -241,8 +241,11 @@ function renderMarkers() {
       content: markerContent
     });
 
-    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    const searchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       venue.name + " " + venue.address
+    )}`;
+    const dirUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+      venue.lat + "," + venue.lng
     )}`;
 
     const photos   = venue.photos || {};
@@ -261,9 +264,9 @@ function renderMarkers() {
           <p style="margin-bottom: 10px;">${venue.address}</p>
 
           <div class="popup-buttons">
-            <a href="${mapsUrl}" target="_blank" class="popup-btn">Website</a>
-            <a href="${mapsUrl}" target="_blank" class="popup-btn">Directions</a>
-            <a href="${mapsUrl}" target="_blank" class="popup-btn">Share</a>
+            <a href="${searchUrl}" target="_blank" class="popup-btn">Website</a>
+            <a href="${dirUrl}" target="_blank" class="popup-btn">Directions</a>
+            <a href="${searchUrl}" target="_blank" class="popup-btn">Share</a>
           </div>
 
           <div class="photo-grid">
@@ -272,7 +275,7 @@ function renderMarkers() {
             <img src="${thumb3Src}" onerror="this.onerror=null; this.src='https://placehold.co/150x70/202124/8AB4F8?text=No+Photo'" alt="${venue.name}">
           </div>
 
-          <a href="${mapsUrl}" target="_blank" class="open-map-btn">
+          <a href="${searchUrl}" target="_blank" class="open-map-btn">
             Open in Google Maps
           </a>
         </div>
