@@ -61,7 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if(stencilCount) stencilCount.textContent = currentCount.toLocaleString();
 
     // Modal Handling
-    if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
+    if(ctaYes) {
+        ctaYes.addEventListener('click', () => {
+            if (localStorage.getItem('hasVisitedHub') === 'true') {
+                window.location.href = 'path-yes.html';
+            } else {
+                modal.classList.add('active');
+            }
+        });
+    }
     if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
     if(ctaSupport) ctaSupport.addEventListener('click', () => window.location.href = 'path-experience.html');
 
