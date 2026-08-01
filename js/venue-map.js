@@ -160,7 +160,7 @@ window.initMap = async function () {
   map = new Map(document.getElementById("map"), {
     zoom: 13,
     center: { lat: 51.4545, lng: -2.5879 },
-    mapId: "DEMO_MAP_ID",
+    mapId: "a5a5d1d5648102f0d543daaa",
     colorScheme: "DARK",
     disableDefaultUI: true,
     clickableIcons: false
