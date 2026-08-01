@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>The Bear Pit - Hearing Loss Initiative</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
@@ -12,37 +12,103 @@
             grid-template-columns: 300px 1fr 300px;
             gap: 20px;
             padding: 20px;
-            height: 100vh;
+            height: calc(100vh - 100px); /* Leave room for footer */
             background-color: #ffffff;
             color: #222;
         }
-        .social-feed { overflow-y: auto; background: #f4f4f4; padding: 15px; border-radius: 10px; }
-        .calendar-hub { background: #f4f4f4; padding: 15px; border-radius: 10px; }
-        .info-panels { overflow-y: auto; background: #f4f4f4; padding: 15px; border-radius: 10px; }
-        a { color: #005EB8 !important; }
+        @media (max-width: 900px) {
+            .bear-pit-layout {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+        }
+        .social-feed, .calendar-hub, .info-panels { 
+            overflow-y: auto; 
+            background: #f4f4f4; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        /* Calendar Styles */
+        .event-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #ff0f5b;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .event-date {
+            color: #ff0f5b;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .event-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        .event-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .cal-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn-cal {
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-google { background: #4285F4; color: white; }
+        .btn-google:hover { background: #3367d6; }
+        .btn-apple { background: #000000; color: white; }
+        .btn-apple:hover { background: #333333; }
+        
+        a { color: #005EB8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
     <div class="bear-pit-layout">
+        <!-- LEFT: Social Feed -->
         <aside class="social-feed">
-            <h2>Social Media</h2>
-            <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+            <h2 style="margin-top:0;">Social Media</h2>
+            <!-- Elfsight Instagram Feed -->
             <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-2ac85810-78bd-4947-bf3c-7e429d2c94f1" data-elfsight-app-lazy></div>
         </aside>
+
+        <!-- CENTER: Custom Event Calendar -->
         <main class="calendar-hub">
-            <!-- Elfsight Event Calendar | Untitled Event Calendar -->
-            <script src="https://elfsightcdn.com/platform.js" async></script>
-            <div class="elfsight-app-b562d6a8-7675-4c27-9a3c-b0e70efc7131" data-elfsight-app-lazy></div>
+            <h2 style="margin-top:0;">Events Calendar</h2>
+            <div id="events-container">
+                <!-- Events rendered by JS -->
+            </div>
         </main>
+
+        <!-- RIGHT: Tech & Info -->
         <aside class="info-panels">
-            <h2>Tech & Information</h2>
+            <h2 style="margin-top:0;">Tech & Information</h2>
             <h3>Auracast & Next-Gen Accessibility</h3>
             <p>Auracast™ broadcast audio is a new standard built on Bluetooth® LE Audio. Unlike traditional Bluetooth, Auracast allows a single transmitter to broadcast audio to an unlimited number of receivers simultaneously.</p>
             <p>Bristol Temple Meads is serving as the world's first public rail station trial of Auracast, providing real-time safety alerts and announcements directly to hearing aids.</p>
             
             <h3>Our Network</h3>
-            <!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
+            <!-- Elfsight LinkedIn Feed -->
             <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-d7a30b04-6177-483f-9725-37ac9f58242b" data-elfsight-app-lazy></div>
         </aside>
@@ -54,9 +120,109 @@
         <a href="path-support.html" style="text-decoration: none; margin: 0 10px;">&larr; Back to Support Path</a>
     </footer>
 
-    <!-- Load Elfsight script -->
-    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    <!-- Custom Calendar Logic -->
+    <script>
+        // Edit this array to update your calendar!
+        const events = [
+            {
+                title: "Bristol HoH Meetup",
+                date: "2026-08-15",
+                startTime: "18:00",
+                endTime: "20:00",
+                desc: "Join us for our monthly meetup. Share experiences, discuss new tech, and meet others in the community.",
+                location: "The Watershed, Bristol"
+            },
+            {
+                title: "Auracast Demonstration",
+                date: "2026-08-22",
+                startTime: "14:00",
+                endTime: "16:00",
+                desc: "Live demonstration of the new Auracast tech at Temple Meads. Open to all.",
+                location: "Bristol Temple Meads"
+            },
+            {
+                title: "BSL Basics Workshop",
+                date: "2026-09-05",
+                startTime: "10:00",
+                endTime: "12:00",
+                desc: "An introductory workshop on British Sign Language for families and allies.",
+                location: "Bristol Central Library"
+            }
+        ];
+
+        // Format Date Helper (YYYYMMDDTHHMMSSZ)
+        function formatICSDate(dateStr, timeStr) {
+            // Treat as UTC for simplicity in template generation
+            const d = new Date(`${dateStr}T${timeStr}:00Z`);
+            return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        // Generate Google Calendar Link
+        function getGoogleCalLink(event) {
+            const start = formatICSDate(event.date, event.startTime);
+            const end = formatICSDate(event.date, event.endTime);
+            const url = new URL('https://calendar.google.com/calendar/render');
+            url.searchParams.append('action', 'TEMPLATE');
+            url.searchParams.append('text', event.title);
+            url.searchParams.append('dates', `${start}/${end}`);
+            url.searchParams.append('details', event.desc);
+            url.searchParams.append('location', event.location);
+            return url.toString();
+        }
+
+        // Generate and Download ICS File (Apple Calendar)
+        function downloadICS(event) {
+            const start = formatICSDate(event.date, event.startTime);
+            const end = formatICSDate(event.date, event.endTime);
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//HLI Bristol//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:${Date.now()}@hli-bristol.org
+DTSTAMP:${start}
+DTSTART:${start}
+DTEND:${end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.desc}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${event.title.replace(/\s+/g, '_')}.ics`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        const container = document.getElementById('events-container');
+
+        events.forEach((ev, index) => {
+            const d = new Date(`${ev.date}T${ev.startTime}`);
+            const dateStr = d.toLocaleDateString('en-GB', { weekday: 'short', month: 'long', day: 'numeric' });
+            
+            const card = document.createElement('div');
+            card.className = 'event-card';
+            
+            card.innerHTML = `
+                <div class="event-date">${dateStr} &bull; ${ev.startTime} - ${ev.endTime}</div>
+                <h3 class="event-title">${ev.title}</h3>
+                <div class="event-desc">${ev.desc}<br><strong>Location:</strong> ${ev.location}</div>
+                <div class="cal-btns">
+                    <a href="${getGoogleCalLink(ev)}" target="_blank" class="btn-cal btn-google">Add to Google Calendar</a>
+                    <button class="btn-cal btn-apple" id="apple-btn-${index}">Add to Apple (.ics)</button>
+                </div>
+            `;
+            container.appendChild(card);
+
+            document.getElementById(`apple-btn-${index}`).addEventListener('click', () => {
+                downloadICS(ev);
+            });
+        });
+    </script>
 </body>
 </html>
-
-
