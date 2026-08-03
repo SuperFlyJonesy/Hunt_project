@@ -34,7 +34,26 @@
         }
         .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
         .preview-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; }
-        .preview-title { padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; }
+        .grid-split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
+        @media (max-width: 768px) {
+            .grid-split {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+                max-height: 420px;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch;
+                padding-right: 6px;
+                scroll-behavior: smooth;
+            }
+            .grid-split .page-card {
+                margin-bottom: 12px !important;
+                flex-shrink: 0;
+            }
+            .cta-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
     </style>
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
@@ -45,14 +64,21 @@
         <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b; text-align: center;">Hearing Aid Access & Models</h1>
 
         <!-- Bristol Access -->
-        <div class="grid-split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;">
+        <div class="grid-split">
             <div class="page-card" style="border-left-color: #005EB8;">
                 <h2 style="color: #005EB8; margin-top: 0;">NHS Access in Bristol</h2>
                 <p>Provided free as a long-term loan via UHBW Audiology (St Michael’s, Southmead, and satellite clinics). <strong>Lost/damaged device fee: £95.</strong></p>
             </div>
             <div class="page-card" style="border-left-color: #1b5e20;">
-                <h2 style="color: #005EB8; margin-top: 0;">Private Supply</h2>
-                <p>Local providers include Audika, Hidden Hearing, Boots Hearingcare, The Hearing Care Partnership, and Gordon Morris.</p>
+                <h2 style="color: #1b5e20; margin-top: 0; font-size: 1.25rem;">Private Hearing Aid Supply</h2>
+                <p style="font-size: 0.9rem; color: #334155; margin-bottom: 10px;">If you choose to purchase private hearing aids, local providers in Bristol include:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <a href="https://www.specsavers.co.uk/hearing" target="_blank" rel="noopener" class="site-link-btn" style="background: #00843D; color: white; padding: 4px 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px;">Specsavers Hearing &rarr;</a>
+                    <a href="https://www.boots.com/sitesearch?searchTerm=hearing+aid+battery" target="_blank" rel="noopener" class="site-link-btn" style="background: #005EB8; color: white; padding: 4px 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px;">Boots Hearingcare &rarr;</a>
+                    <a href="https://www.hiddenhearing.co.uk/hearing-aids" target="_blank" rel="noopener" class="site-link-btn" style="background: #1e293b; color: white; padding: 4px 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px;">Hidden Hearing &rarr;</a>
+                    <a href="https://www.audika.co.uk/" target="_blank" rel="noopener" class="site-link-btn" style="background: #d97706; color: white; padding: 4px 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px;">Audika &rarr;</a>
+                    <a href="https://www.thcp.co.uk/" target="_blank" rel="noopener" class="site-link-btn" style="background: #475569; color: white; padding: 4px 10px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.78rem; display: inline-flex; align-items: center; gap: 4px;">The Hearing Care Partnership &rarr;</a>
+                </div>
             </div>
         </div>
 
@@ -62,63 +88,344 @@
             <p><strong>Phone:</strong> 0117 342 5854 <em>(Note: Phone lines can be very busy)</em></p>
             <p><strong>Email:</strong> audiology.dept@uhbw.nhs.uk</p>
             <p><strong>Free Replacement Tubing:</strong> Once you have your hearing aid, you do not need to buy replacement tubes. You can email the audiology department to request new tubes, and they will send them to you for free by post.</p>
-            <p><strong>Battery Supply:</strong> If your hearing aid uses disposable batteries, replacements can also be requested via the NHS.</p>
+            <p><strong>Battery Supply:</strong> If your hearing aid uses disposable batteries, replacements can be requested via the NHS. However, if you find it difficult to get batteries from Audiology, you can also purchase them directly from <strong>Boots</strong> or order online via <strong>Amazon</strong> (see our battery guide below).</p>
         </div>
 
-        <!-- Hearing Aid Maintenance -->
-        <div class="page-card" style="border-left-color: #1b5e20; width: 100%;">
-            <h2 style="color: #ff0f5b; margin-top: 0;">Hearing Aid Maintenance</h2>
-            <p>Knowing how to keep a hearing aid working could be the difference between comfortable hearing and social isolation. Maintenance includes:</p>
-            <ul>
-                <li>Changing the batteries</li>
-                <li>Keeping the earmoulds clear</li>
-                <li>Retubing earmoulds</li>
-                <li>Replacing thintubes</li>
-            </ul>
+
+
+        <!-- Audiologist Advice & Device Suitability -->
+        <div class="page-card" style="border-left-color: #005EB8; width: 100%;">
+            <h2 style="color: #005EB8; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">medical_information</span> Important Audiology & Device Suitability Guidance
+            </h2>
+            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                When you visit the audiologist, they will advise you on what hearing aid will be suited for your personal hearing condition. Not all hearing aids will be suitable for you, so you may find that even though you want a small in-ear hearing aid, they may not fit in your ear and they may not be powerful enough to help you hear better.
+            </p>
+            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                Also, when you get your new hearing aid, you may need to ask if you can have the <strong>hearing loop (telecoil) function</strong> turned on. Some hearing aids may not even have this function available.
+            </p>
+            <p style="font-size: 0.95rem; line-height: 1.5; color: #64748b; background: #f8fafc; padding: 14px; border-radius: 10px; border-left: 4px solid #005EB8; margin-top: 15px;">
+                <em>Note: The information below is just to give you knowledge of what is available in Bristol. Some types of rechargeable hearing aids may be low on stock or not available, and not all colours listed will be available.</em>
+            </p>
         </div>
 
         <!-- Bristol Device Pathways Table -->
         <div class="page-card" style="width: 100%;">
             <h2 style="color: #ff0f5b;">Bristol Device Pathways</h2>
-            <table>
-                <thead><tr><th>Device Type & Model</th><th>Rechargeable?</th><th>Battery Type & Supply</th><th>Image</th></tr></thead>
-                <tbody>
-                    <tr class="group-header"><td colspan="4">Group A: Routine NHS Bristol Current Issue</td></tr>
-                    <tr><td>Behind-the-ear (BTE) - Phonak Bolero Series (General)</td><td>Varies (Rechargeable M-PR models exist, but confirm with audiologist).</td><td>Depends on exact model issued.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20Series.jpg" alt="Behind-the-ear (BTE) Phonak Bolero Series" class="w-24 h-24 object-contain rounded-lg shadow mx-auto"></td></tr>
-                    <tr><td>Behind-the-ear (BTE) - Phonak Bolero M70-M</td><td>No.</td><td>Uses disposable Size 312 Zinc-Air batteries (Brown tab). Available free from NHS.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20M70-M.png" alt="Behind-the-ear (BTE) Phonak Bolero M70-M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Behind-the-ear (BTE) - Phonak Nova M</td><td>Varies by specific model issued.</td><td>Check with audiologist.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Nova%20M.webp" alt="Behind-the-ear (BTE) Phonak Nova M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Behind-the-ear (BTE) - Phonak Naida Series (General)</td><td>Varies (Rechargeable P-PR options exist).</td><td>Depends on exact model issued.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20Series.avif" alt="Behind-the-ear (BTE) Phonak Naida Series" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Behind-the-ear (BTE) - Phonak Naida P-70 UP</td><td>No.</td><td>Uses disposable Size 675 Zinc-Air batteries (Blue tab). Available free from NHS.</td><td><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20P-70%20UP.webp" alt="Behind-the-ear (BTE) Phonak Naida P-70 UP" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    
-                    <tr class="group-header"><td colspan="4">Group B: UHBW Private Service</td></tr>
-                    <tr><td>In-the-ear (ITE)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/In-the-ear%20(ITE).jpg" alt="ITE example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>In-the-canal (ITC) / Completely-in-canal (CIC)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/In-the-canal%20(ITC)%20%20Completely-in-canal%20(CIC).jpg" alt="ITC/CIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Receiver-in-canal (RIC)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/RIC.jpg" alt="RIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    
-                    <tr class="group-header"><td colspan="4">Group C: Specialist Implant/Device Pathways & Legacy</td></tr>
-                    <tr><td>Bone conduction hearing device (BCHD)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/BAHA.jpg" alt="BCHD example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Contralateral Routing of Signals (CROS)</td><td>Varies</td><td>Check with audiologist</td><td><img src="Audiology%20Images/CROS.png" alt="CROS example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                    <tr><td>Cochlear Implant</td><td>Specialist</td><td>Implant System</td><td><img src="Audiology%20Images/Cochlear.jpg" alt="Cochlear Implant" class="object-cover rounded-md shadow-sm w-32 h-auto"></td></tr>
-                </tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%; border-radius: 12px; border: 1px solid #e2e8f0; margin: 20px 0; -webkit-overflow-scrolling: touch;">
+                <table style="width: 100%; border-collapse: collapse; min-width: 680px;">
+                    <thead>
+                        <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+                            <th style="padding: 10px 8px; text-align: left; font-weight: 800; color: #1e293b; font-size: 0.825rem; width: 28%;">Device Type & Model</th>
+                            <th style="padding: 10px 8px; text-align: left; font-weight: 800; color: #1e293b; font-size: 0.825rem; width: 26%;">Hearing Aid Colour</th>
+                            <th style="padding: 10px 8px; text-align: left; font-weight: 800; color: #1e293b; font-size: 0.825rem; width: 15%;">Rechargeable?</th>
+                            <th style="padding: 10px 8px; text-align: left; font-weight: 800; color: #1e293b; font-size: 0.825rem; width: 18%;">Battery Type & Supply</th>
+                            <th style="padding: 10px 8px; text-align: center; font-weight: 800; color: #1e293b; font-size: 0.825rem; width: 13%;">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #e2e8f0;"><td colspan="5" style="padding: 10px 12px; font-weight: 800; color: #1e293b; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px;">Group A: Routine NHS Bristol Current Issue</td></tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Behind-the-ear (BTE) - Phonak Bolero Series (General)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Amber Beige, Sandalwood, Chestnut, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies (Rechargeable M-PR models exist, but confirm with audiologist).</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Depends on exact model issued.</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20Series.jpg" alt="Behind-the-ear (BTE) Phonak Bolero Series" class="w-24 h-24 object-contain rounded-lg shadow mx-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Behind-the-ear (BTE) - Phonak Bolero M70-M</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Silver Gray, Graphite Gray, Velvet Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">No.</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Size 312 Zinc-Air (NHS free supply)</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20M70-M.png" alt="Behind-the-ear (BTE) Phonak Bolero M70-M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Behind-the-ear (BTE) - Phonak Nova M</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Silver Gray, Graphite Gray</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies by specific model issued.</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist.</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Nova%20M.webp" alt="Behind-the-ear (BTE) Phonak Nova M" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Behind-the-ear (BTE) - Phonak Naida Series (General)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies (Rechargeable P-PR options exist).</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Depends on exact model issued.</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20Series.avif" alt="Behind-the-ear (BTE) Phonak Naida Series" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Behind-the-ear (BTE) - Phonak Naida P-70 UP</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Silver Gray, Graphite Gray</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">No.</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Size 675 Zinc-Air (NHS free supply)</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20P-70%20UP.webp" alt="Behind-the-ear (BTE) Phonak Naida P-70 UP" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        
+                        <tr style="background-color: #e2e8f0;"><td colspan="5" style="padding: 10px 12px; font-weight: 800; color: #1e293b; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px;">Group B: UHBW Private Service</td></tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">In-the-ear (ITE)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Pink, Beige, Cocoa, Brown, Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/In-the-ear%20(ITE).jpg" alt="ITE example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">In-the-canal (ITC) / Completely-in-canal (CIC)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Pink, Beige, Cocoa, Dark Brown, Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/In-the-canal%20(ITC)%20%20Completely-in-canal%20(CIC).jpg" alt="ITC/CIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Receiver-in-canal (RIC)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/RIC.jpg" alt="RIC example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        
+                        <tr style="background-color: #e2e8f0;"><td colspan="5" style="padding: 10px 12px; font-weight: 800; color: #1e293b; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px;">Group C: Specialist Implant/Device Pathways & Legacy</td></tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Bone conduction hearing device (BCHD)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Silver Gray, Black, Carbon, Sand, Pure Brown</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/BAHA.jpg" alt="BCHD example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Contralateral Routing of Signals (CROS)</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Sand Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Varies</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Check with audiologist</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/CROS.png" alt="CROS example" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 8px; font-weight: 700; color: #1e293b; font-size: 0.8rem;">Cochlear Implant</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Black, White, Silver Gray, Sand, Carbon</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Specialist</td>
+                            <td style="padding: 10px 8px; color: #475569; font-size: 0.8rem;">Implant System</td>
+                            <td style="padding: 10px 8px; text-align: center;"><img src="Audiology%20Images/Cochlear.jpg" alt="Cochlear Implant" class="object-cover rounded-md shadow-sm w-32 h-auto"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- WHY DO HEARING AIDS COST SO MUCH? -->
+        <div class="page-card" style="border-left-color: #7c3aed; width: 100%;">
+            <h2 style="color: #7c3aed; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">payments</span> Why Do Hearing Aids Cost So Much?
+            </h2>
+            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                Private prescription hearing aids can range from <strong>£500 up to £3,500+ per pair</strong>. Many people ask why small ear devices carry such a high price tag compared to consumer electronics like mobile phones or headphones. Here are the 4 main reasons:
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                <div style="background: #f5f3ff; border: 1px solid #ddd6fe; padding: 14px; border-radius: 12px;">
+                    <h4 style="margin: 0 0 6px 0; color: #5b21b6; font-weight: 800;">1. Medical R&D & Miniaturized Chips</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #4c1d95; line-height: 1.5;">Hearing aid manufacturers spend hundreds of millions developing custom microchips that process sound millions of times per second, isolating speech in noisy crowds while consuming tiny battery power.</p>
+                </div>
+                <div style="background: #f5f3ff; border: 1px solid #ddd6fe; padding: 14px; border-radius: 12px;">
+                    <h4 style="margin: 0 0 6px 0; color: #5b21b6; font-weight: 800;">2. Bundled Clinical Care & Aftercare</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #4c1d95; line-height: 1.5;">The price includes years of professional audiologist care: initial diagnostic tests, Real Ear Measurement (REM) fitting, ear canal impressions, routine fine-tuning, and a 3 to 5-year full warranty.</p>
+                </div>
+                <div style="background: #f5f3ff; border: 1px solid #ddd6fe; padding: 14px; border-radius: 12px;">
+                    <h4 style="margin: 0 0 6px 0; color: #5b21b6; font-weight: 800;">3. Custom Ear Canal Fitting</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #4c1d95; line-height: 1.5;">Unlike mass-manufactured earbuds, prescription devices are custom molded and acoustically tuned to match your unique ear canal shape to prevent acoustic feedback whistling.</p>
+                </div>
+                <div style="background: #f5f3ff; border: 1px solid #ddd6fe; padding: 14px; border-radius: 12px;">
+                    <h4 style="margin: 0 0 6px 0; color: #5b21b6; font-weight: 800;">4. Specialized Low Volume Manufacturing</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: #4c1d95; line-height: 1.5;">Smartphones are mass-produced by the tens of millions, spreading R&D costs across huge volumes. Medical hearing aids are produced in much smaller numbers to strict medical regulation standards.</p>
+                </div>
+            </div>
+            <p style="font-size: 0.92rem; color: #64748b; background: #faf5ff; padding: 12px; border-radius: 8px; margin-top: 15px;">
+                <strong>NHS Note:</strong> All routine NHS hearing aids in Bristol are provided <strong>100% free of charge</strong> as a long-term loan through UHBW Audiology!
+            </p>
+        </div>
+
+        <!-- WHY CAN'T YOU JUST USE AIRPODS? -->
+        <div class="page-card" style="border-left-color: #0284c7; width: 100%;">
+            <h2 style="color: #0284c7; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">headphones</span> Why Can't You Just Use the New Apple AirPods?
+            </h2>
+            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                With Apple introducing Over-The-Counter (OTC) Hearing Aid features to AirPods Pro 2, many wonder if consumer earbuds can replace traditional hearing aids. While AirPods can be a great entry point for <strong>mild hearing loss</strong>, they cannot replace prescription medical hearing aids:
+            </p>
+            
+            <ul style="color: #334155; line-height: 1.7; font-size: 0.95rem; margin-bottom: 20px;">
+                <li><strong>Battery Life:</strong> AirPods only last <strong>4 to 6 hours</strong> of continuous hearing mode before requiring recharging. Prescription hearing aids run for <strong>16 to 24+ hours</strong> all day.</li>
+                <li><strong>Hearing Loss Severity:</strong> AirPods are strictly regulated for <em>perceived mild to moderate loss only</em>. They lack power for severe or profound loss or complex high-frequency drops.</li>
+                <li><strong>No Telecoil / Hearing Loop Function:</strong> AirPods do not contain a telecoil receiver to connect to induction loops in churches, theatres, buses, or public venues.</li>
+                <li><strong>Ear Canal Occlusion & Custom Fit:</strong> Universal silicone tips plug the ear canal (causing a boomy "occlusion effect" on your own voice) and can slip out, whereas hearing aids feature micro-vented custom moulds.</li>
+                <li><strong>No Real Ear Measurement (REM):</strong> AirPods rely on a basic self-test on an iPhone. Audiologists use physical probe microphones inside your ear canal to match your unique acoustic resonance.</li>
+                <li><strong>Social & Cultural Etiquette in England:</strong> In England, wearing prominent white AirPods while chatting with someone in the office, shop, or pub can look silly or be perceived as rude and anti-social (as people assume you are listening to music or ignoring them). In contrast, medical hearing aids are discreet and recognized as essential accessibility devices.</li>
+            </ul>
+
+            <!-- Video Preview Card for Dr Cliff -->
+            <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 18px; border-radius: 14px;">
+                <h4 style="margin: 0 0 8px 0; color: #0369a1; font-size: 1.05rem; font-weight: 800;">📺 Audiologist Video Review: AirPods Pro 2 vs Real Hearing Aids</h4>
+                <p style="margin: 0 0 15px 0; color: #0c4a6e; font-size: 0.9rem;">Dr. Cliff Olson, AuD breaks down the exact test results comparing Apple AirPods Pro 2 against prescription hearing aids:</p>
+                
+                <div class="video-links-container" style="margin-top: 0;">
+                    <div class="video-link-item">
+                        <a href="https://www.youtube.com/watch?v=9IklYf8hKKY" target="_blank" rel="noopener noreferrer" class="video-link-anchor" style="background: #0284c7; color: white;">Watch Dr. Cliff Review Video &rarr;</a>
+                        <div class="video-preview-card">
+                            <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/9IklYf8hKKY/0.jpg')"></div>
+                            <div class="preview-title">Apple AirPods Pro 2 Detailed OTC Hearing Aid Review by Dr. Cliff, AuD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Hearing Aid Maintenance -->
+        <div class="page-card" style="border-left-color: #1b5e20; width: 100%;">
+            <h2 style="color: #1b5e20; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">build</span> Hearing Aid Maintenance & Tube Care
+            </h2>
+            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                Knowing how to keep a hearing aid working could be the difference between comfortable hearing and social isolation. Regular maintenance includes:
+            </p>
+            <ul style="color: #334155; line-height: 1.6; margin-bottom: 20px;">
+                <li>Changing the batteries regularly</li>
+                <li>Keeping earmoulds clean and free of earwax</li>
+                <li>Retubing earmoulds every 4–6 months to keep tubing soft and flexible</li>
+                <li>Replacing thin tubes and dome covers</li>
+            </ul>
+
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h4 style="margin: 0; color: #166534; font-size: 1.05rem; font-weight: 800;">Official NHS Cleaning & Retubing Guides</h4>
+                    <p style="margin: 4px 0 0 0; color: #15803d; font-size: 0.9rem;">Learn step-by-step how to clean your hearing aid and change your tubes:</p>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener" class="site-link-btn" style="background: #005EB8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+                        <span class="material-symbols-outlined">open_in_new</span> NHS Hearing Loss & Care Guide &rarr;
+                    </a>
+                    <a href="https://www.uhbw.nhs.uk/p/audiology" target="_blank" rel="noopener" class="site-link-btn" style="background: #1b5e20; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
+                        <span class="material-symbols-outlined">play_circle</span> UHBW NHS Audiology Services &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- HEARING AID BATTERIES GUIDE -->
+        <div class="page-card" style="border-left-color: #F57C00; width: 100%;">
+            <h2 style="color: #F57C00; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">battery_charging_full</span> Hearing Aid Batteries
+            </h2>
+
+            <p style="font-size: 1.05rem; line-height: 1.6; color: #334155;">
+                If you find it difficult to get replacement batteries from Audiology, you can easily purchase compatible zinc-air batteries from high street pharmacies like <strong>Boots</strong> or order them online through <strong>Amazon</strong> with fast home delivery.
+            </p>
+
+            <!-- Affiliate Buy Links Banner -->
+            <div style="background: #fff7ed; border: 1px solid #ffedd5; padding: 18px; border-radius: 14px; margin: 20px 0; display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h4 style="margin: 0; color: #c2410c; font-size: 1.05rem; font-weight: 800;">Need Batteries Quickly?</h4>
+                    <p style="margin: 4px 0 0 0; color: #9a3412; font-size: 0.9rem;">Order online or pick up at your local pharmacy:</p>
+                </div>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                    <a href="https://www.boots.com/sitesearch?searchTerm=hearing+aid+battery" target="_blank" rel="noopener sponsored" class="site-link-btn" style="background: #005EB8; font-size: 0.9rem; padding: 10px 20px; color: white; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined">shopping_bag</span> Buy at Boots &rarr;
+                    </a>
+                    <a href="https://www.amazon.co.uk/s?k=hearing+aid+batteries&tag=hearinglossini-21" target="_blank" rel="noopener sponsored" class="site-link-btn" style="background: #ff9900; color: #111; font-size: 0.9rem; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined">shopping_cart</span> Order on Amazon &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Battery Color Tabs & Sizes Table -->
+            <h3 style="color: #1e293b; font-size: 1.25rem; font-weight: 800; margin-top: 25px; margin-bottom: 12px;">
+                Universal Hearing Aid Battery Sizes & Color Tabs
+            </h3>
+            <p style="color: #475569; font-size: 0.95rem; margin-bottom: 15px;">
+                Hearing aid batteries follow a standardized worldwide color coding system. Match the color tab on your current battery pack:
+            </p>
+
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px;">
+                    <thead>
+                        <tr style="background: #f1f5f9;">
+                            <th style="padding: 10px 14px; text-align: left; font-weight: 800;">Color Tab</th>
+                            <th style="padding: 10px 14px; text-align: left; font-weight: 800;">Size Number</th>
+                            <th style="padding: 10px 14px; text-align: left; font-weight: 800;">Common Uses & Device Models</th>
+                            <th style="padding: 10px 14px; text-align: left; font-weight: 800;">Avg Lifespan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px 14px; vertical-align: middle;">
+                                <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: #854d0e;">
+                                    <span style="display: inline-block; width: 18px; height: 18px; background: #eab308; border-radius: 4px; border: 1px solid #ca8a04;"></span> Yellow
+                                </span>
+                            </td>
+                            <td style="padding: 12px 14px; font-weight: 800; color: #1e293b;">Size 10 (PR70)</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">Small In-The-Ear (ITE), Completely-In-Canal (CIC), and compact Receiver-In-Canal (RIC) aids.</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">3 – 7 Days</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 14px; vertical-align: middle;">
+                                <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: #78350f;">
+                                    <span style="display: inline-block; width: 18px; height: 18px; background: #a16207; border-radius: 4px; border: 1px solid #713f12;"></span> Brown
+                                </span>
+                            </td>
+                            <td style="padding: 12px 14px; font-weight: 800; color: #1e293b;">Size 312 (PR41)</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">Standard RIC aids and mini BTE aids (e.g. NHS Phonak Bolero M70-M). Most popular size.</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">5 – 10 Days</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 14px; vertical-align: middle;">
+                                <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: #c2410c;">
+                                    <span style="display: inline-block; width: 18px; height: 18px; background: #f97316; border-radius: 4px; border: 1px solid #c2410c;"></span> Orange
+                                </span>
+                            </td>
+                            <td style="padding: 12px 14px; font-weight: 800; color: #1e293b;">Size 13 (PR48)</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">Standard Behind-The-Ear (BTE) aids and high-power hearing instruments.</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">6 – 14 Days</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 14px; vertical-align: middle;">
+                                <span style="display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: #1e40af;">
+                                    <span style="display: inline-block; width: 18px; height: 18px; background: #3b82f6; border-radius: 4px; border: 1px solid #1d4ed8;"></span> Blue
+                                </span>
+                            </td>
+                            <td style="padding: 12px 14px; font-weight: 800; color: #1e293b;">Size 675 (PR44)</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">Super-Power BTE aids (e.g. NHS Phonak Naida P-70 UP) and Cochlear Implant sound processors.</td>
+                            <td style="padding: 12px 14px; color: #475569; font-size: 0.925rem;">9 – 20 Days</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: #f8fafc; padding: 14px 18px; border-radius: 12px; border: 1px solid #e2e8f0; font-size: 0.9rem; color: #475569;">
+                <strong>💡 Pro Tip for Zinc-Air Batteries:</strong> After peeling off the sticky color tab, wait <strong>1 to 2 minutes</strong> before placing the battery into your hearing aid. This allows air to activate the zinc chemistry fully for maximum lifespan.
+            </div>
         </div>
 
         <div class="page-card" style="width: 100%; text-align: center;">
-            <h2 style="color: #ff0f5b;">Manufacturer Guides</h2>
-            <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <h2 style="color: #ff0f5b;">Manufacturer Guides & Assistive Technology</h2>
+            <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
                 <div>
-                    <h3>Phonak Manufacturer Guides</h3>
-                    <a href="https://www.phonak.com/en-int/support/how-to-videos" class="cta-button" target="_blank">Phonak How-to Videos</a>
-                    <a href="https://www.phonak.com/en-int/support" class="cta-button" target="_blank">Phonak Support Hub</a>
-                    <a href="https://www.phonak.com/content/dam/phonak/b2b/Cultures/en_US/products/bolero-marvel/documents/user-guide-bolero-m-phonak.pdf" class="cta-button" target="_blank">Bolero M70-M User Guide</a>
-                    <a href="https://www.youtube.com/watch?v=y749oWq3hJ4" class="cta-button" target="_blank">Bolero M-series Cleaning Video</a>
+                    <h3>Phonak Guides</h3>
+                    <a href="https://www.phonak.com/en-uk/support" class="cta-button" target="_blank">Phonak How-to Videos</a>
+                    <a href="https://www.phonak.com/en-uk/support" class="cta-button" target="_blank">Phonak Support Hub</a>
+                    <a href="https://www.phonak.com/content/dam/phonak/b2b/Cultures/en_US/products/bolero-marvel/documents/user-guide-bolero-m-phonak.pdf" class="cta-button" target="_blank">Bolero M70-M Guide</a>
+                    <a href="https://www.youtube.com/watch?v=y749oWq3hJ4" class="cta-button" target="_blank">Bolero Cleaning Video</a>
                 </div>
                 <div>
-                    <h3>UHBW Bristol NHS Guides</h3>
-                    <a href="http://www.uhbristol.nhs.uk/patients-and-visitors/your-hospitals/st-michaels-hospital/what-we-do/audiology/instructional-videos/" class="cta-button" target="_blank">UHBW Instructional Videos</a>
-                    <a href="http://www.uhbristol.nhs.uk/patients-and-visitors/your-hospitals/st-michaels-hospital/what-we-do/audiology/" class="cta-button" target="_blank">UHBW Hearing Aid Info</a>
-                    <a href="https://www.c2hear.org/" class="cta-button" target="_blank">c2Hear Online Videos</a>
-                    <a href="https://www.nhs.uk/conditions/hearing-aids/" class="cta-button" target="_blank">NHS Hearing Aids Overview</a>
+                    <h3>UHBW NHS Guides</h3>
+                    <a href="https://www.uhbw.nhs.uk/p/audiology" class="cta-button" target="_blank">UHBW Video Tutorials</a>
+                    <a href="https://www.uhbw.nhs.uk/p/audiology" class="cta-button" target="_blank">UHBW Hearing Aid Info</a>
+                    <a href="https://c2hearonline.com/" class="cta-button" target="_blank">c2Hear Online Videos</a>
+                    <a href="https://www.nhs.uk/conditions/hearing-loss/" class="cta-button" target="_blank">NHS Hearing Loss Overview</a>
+                </div>
+                <div>
+                    <h3>Assistive Tech & Loops</h3>
+                    <a href="https://www.gordonmorris.co.uk/" class="cta-button" target="_blank" style="background: #0284c7;">Gordon Morris Hearing &rarr;</a>
+                    <a href="https://www.connevans.co.uk/" class="cta-button" target="_blank" style="background: #0d9488;">Connevans Assistive Tech &rarr;</a>
+                    <a href="https://www.gordonmorris.co.uk/" class="cta-button" target="_blank" style="background: #475569;">Hearing Loops & Systems &rarr;</a>
                 </div>
             </div>
         </div>
