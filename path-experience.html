@@ -89,6 +89,8 @@
             const volumeSlider = document.getElementById('volume-slider');
             const volumeIcon = document.getElementById('volume-icon');
 
+            localStorage.setItem('hasVisitedSupport', 'true');
+
             document.getElementById('dev-reset').addEventListener('click', () => { 
                 localStorage.clear(); 
                 window.location.href = 'index.html'; 

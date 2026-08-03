@@ -67,10 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentCount = parseInt(localStorage.getItem('currentCount')) || 62220;
     if(stencilCount) stencilCount.textContent = currentCount.toLocaleString();
 
-    // Modal Handling
+    // Modal & Pathway Handling
     if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
     if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
-    if(ctaSupport) ctaSupport.addEventListener('click', () => window.location.href = 'path-experience.html');
+    if(ctaSupport) {
+        ctaSupport.addEventListener('click', () => {
+            const hasVisitedSupport = localStorage.getItem('hasVisitedSupport');
+            if (hasVisitedSupport === 'true') {
+                window.location.href = 'path-support.html';
+            } else {
+                localStorage.setItem('hasVisitedSupport', 'true');
+                window.location.href = 'path-experience.html';
+            }
+        });
+    }
 
     // REGISTRATION SUBMISSION LOGIC (PARDON SCREEN)
     window.handleRegistrationSubmission = function() {
