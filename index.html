@@ -48,14 +48,21 @@
         </header>
 
         <!-- STENCIL LANDING PAGE -->
-        <div class="video-mask-container">
-            <video id="bg-video" autoplay loop muted playsinline>
-                <source src="bristol-bg.mp4" type="video/mp4">
-            </video>
-            <button id="video-toggle" aria-label="Pause Background Video" title="Pause Background Video">
-                <span class="icon">⏸</span>
-            </button>
-        </div>
+        <a href="https://visitbristol.co.uk/" target="_blank" rel="noopener" aria-label="Visit Bristol website (Video courtesy of Visit Bristol)" style="cursor: pointer;">
+            <div class="video-mask-container" title="Click to visit Visit Bristol website">
+                <video id="bg-video" autoplay loop muted playsinline>
+                    <source src="bristol-bg.mp4" type="video/mp4">
+                </video>
+            </div>
+        </a>
+        <button id="video-toggle" aria-label="Pause Background Video" title="Pause Background Video">
+            <span class="icon">⏸</span>
+        </button>
+
+        <!-- Discrete Visit Bristol Video Disclaimer Badge -->
+        <a href="https://visitbristol.co.uk/" target="_blank" rel="noopener" class="visit-bristol-disclaimer" title="Open Visit Bristol official website">
+            <span class="material-symbols-outlined" style="font-size: 0.95rem;">open_in_new</span> Video courtesy of Visit Bristol &bull; <em>Click to visit website</em>
+        </a>
 
         <div class="mask-overlay">
             <h1 class="stencil-layer" id="stencil-count">62220</h1>

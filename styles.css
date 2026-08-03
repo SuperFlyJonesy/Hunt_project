@@ -135,6 +135,33 @@ body {
     outline-offset: 4px;
 }
 
+/* Discrete Visit Bristol Video Disclaimer Badge */
+.visit-bristol-disclaimer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000;
+    background: rgba(15, 23, 42, 0.75);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+.visit-bristol-disclaimer:hover {
+    background: rgba(0, 94, 184, 0.9);
+    border-color: #005EB8;
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
 .mask-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: #000; 
