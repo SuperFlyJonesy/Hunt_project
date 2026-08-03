@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Bristol Directory & Resources - Hearing Loss Initiative</title>
-    <meta name="description" content="Bristol Deaf and hard-of-hearing local service directory, contact details, drop-in sessions, and downloadable venue checklists.">
+    <meta name="description" content="Bristol Deaf and hard-of-hearing local service directory, contact details, Patreon signup guide, and venue checklists.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -139,6 +139,24 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+        }
+        .download-card-item.patreon-exclusive {
+            border: 2px solid #ff0f5b;
+            background: #fffcfd;
+        }
+        .member-badge {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #ff0f5b;
+            color: #ffffff;
+            font-size: 0.725rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 3px 12px;
+            border-radius: 10px;
         }
         .download-card-item h4 { font-size: 1.1rem; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; }
         .download-card-item p { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin: 0 0 16px 0; }
@@ -160,6 +178,7 @@
             text-align: center;
         }
         .dl-btn.green-btn { background: #1b5e20; }
+        .dl-btn.pink-btn { background: #ff0f5b; }
         .dl-btn:hover { opacity: 0.9; }
 
         @media (max-width: 768px) {
@@ -182,8 +201,66 @@
         <!-- Header Section -->
         <section class="header-section">
             <h1>Bristol Local Directory & Resources</h1>
-            <p>Connect directly with local support organizations, sensory services, family charities, and accessible venue guides across Bristol.</p>
+            <p>Connect directly with local support organizations, sensory services, family charities, and Patreon member guides across Bristol.</p>
         </section>
+
+        <!-- PATREON SIGNUP STEP-BY-STEP GUIDE CARD -->
+        <article id="patreon-signup-guide" class="downloads-container" style="border-left-color: #ff0f5b; background: #fffcfd; border: 1px solid #fce7f3; margin-bottom: 40px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; border-bottom: 2px solid #fbcfe8; padding-bottom: 12px; margin-bottom: 20px;">
+                <h2 style="color: #ff0f5b; margin: 0; font-size: 1.6rem; font-weight: 900; display: flex; align-items: center; gap: 10px;">
+                    <span class="material-symbols-outlined" style="font-size: 2rem;">help_center</span> Step-by-Step: How to Sign Up on Patreon
+                </h2>
+                <a href="path-join-us.html" class="site-link-btn" style="background: #ff0f5b; font-size: 0.9rem; padding: 10px 20px;">
+                    <span class="material-symbols-outlined">volunteer_activism</span> Go to Join Us Page &rarr;
+                </a>
+            </div>
+
+            <p style="color: #334155; font-size: 1.02rem; line-height: 1.6; margin-bottom: 25px;">
+                Becoming a Patreon member (<strong>A Pardon</strong>, <strong>Initiate</strong>, or <strong>A Hunter</strong>) unlocks exclusive perks like our official <strong>Hearing Loss Gold Standard Checklist</strong>, live Bristol HoH Map access, and assistive tech reviews. Follow these 4 simple steps:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #ff0f5b; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">1</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Select Your Tier</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        Go to our <a href="path-join-us.html" style="color: #ff0f5b; font-weight: 700;">Join Us page</a> and click your preferred tier button (<strong>A Pardon £3/mo</strong>, <strong>Initiate £6/mo</strong>, or <strong>A Hunter £12/mo</strong>).
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #005EB8; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">2</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Create Free Account</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        On Patreon's official website, sign in or create a quick free account using your Email, Google, or Apple ID.
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #1b5e20; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">3</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Confirm Secure Checkout</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        Enter your payment details (Visa, Mastercard, PayPal, or Apple Pay) via Patreon's 256-bit encrypted checkout.
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #7B1FA2; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">4</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Unlock Perks Instantly</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        You're all set! You immediately gain access to the <strong>Gold Standard Checklist PDF</strong>, member map updates, and voting rights.
+                    </p>
+                </div>
+            </div>
+        </article>
 
         <!-- SECTION 1: MAIN LOCAL DIRECTORY (ADULT & GENERAL SUPPORT) -->
         <section>
@@ -296,19 +373,23 @@
 
         <!-- SECTION 3: DOWNLOADABLE GUIDES & CHECKLISTS -->
         <section class="downloads-container">
-            <h2 style="color: #005EB8; margin-top: 0; font-size: 1.5rem; font-weight: 800;">Downloadable Community PDF Guides</h2>
-            <p style="color: #64748b; margin-bottom: 20px;">Download or view our free PDF venue checklists and technical articles:</p>
+            <h2 style="color: #005EB8; margin-top: 0; font-size: 1.5rem; font-weight: 800;">Community PDF Guides & Member Checklists</h2>
+            <p style="color: #64748b; margin-bottom: 20px;">Access our free articles or unlock Patreon member-exclusive checklists:</p>
 
             <div class="downloads-grid">
-                <div class="download-card-item">
-                    <h4>Hearing Loss Gold Standard Checklist</h4>
-                    <p>3-point venue accessibility checklist for hearing loops, deaf-aware staff, and quiet acoustic zones.</p>
+                <!-- Resource 1: Gold Standard Checklist (PATREON ONLY EXCLUSIVE) -->
+                <div class="download-card-item patreon-exclusive">
+                    <span class="member-badge">🔒 Patreon Members Only</span>
+                    <h4 style="color: #ff0f5b; margin-top: 8px;">Hearing Loss Gold Standard Checklist</h4>
+                    <p>Official 3-point venue accessibility checklist for hearing loops, deaf-aware staff, and acoustic management. <strong>Patreon member perk.</strong></p>
                     <div class="dl-actions">
-                        <a href="Contents/hearing-loss-gold-standard-checklist.pdf" target="_blank" rel="noopener" class="dl-btn">View Online</a>
-                        <a href="Contents/hearing-loss-gold-standard-checklist.pdf" download class="dl-btn green-btn">Download PDF</a>
+                        <a href="path-join-us.html" class="dl-btn pink-btn">
+                            <span class="material-symbols-outlined">lock</span> Join Patreon to Unlock (From £3/mo)
+                        </a>
                     </div>
                 </div>
 
+                <!-- Resource 2: Auracast Broadcast Audio Article -->
                 <div class="download-card-item">
                     <h4>Auracast Broadcast Audio Article</h4>
                     <p>Technical guide on Bluetooth Auracast public broadcast audio in venues and transit stations.</p>
@@ -318,6 +399,7 @@
                     </div>
                 </div>
 
+                <!-- Resource 3: Audiology & Hearing Loss Summary -->
                 <div class="download-card-item">
                     <h4>Audiology & Hearing Loss Summary</h4>
                     <p>Clinical audiology guide covering audiogram interpretation, NHS aids, and hearing therapy.</p>
