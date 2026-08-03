@@ -6,7 +6,7 @@
     <title>Join Us - Support Hearing Loss Initiative on Patreon</title>
     <meta name="description" content="Become a Patreon member of Hearing Loss Initiative to fund venue accessibility audits, hearing loop checks, staff training, and the live Bristol HoH map.">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #222; margin: 0; padding: 0; }
@@ -308,16 +308,16 @@
                             <li><span class="material-symbols-outlined">check_circle</span> Official Pardon digital badge</li>
                         </ul>
                     </div>
-                    <a href="https://www.patreon.com/" target="_blank" rel="noopener" class="patreon-cta-btn" style="background: #00838F;">
+                    <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener" class="patreon-cta-btn" style="background: #00838F;">
                         <span class="material-symbols-outlined">volunteer_activism</span> Become a Pardon (£3/mo)
                     </a>
                 </div>
 
-                <!-- Tier 2: Initiate (Recommended) -->
+                <!-- Tier 2: An Initiate (Recommended) -->
                 <div class="tier-card recommended">
                     <span class="popular-badge">Most Popular</span>
                     <div>
-                        <div class="tier-name">Initiate</div>
+                        <div class="tier-name">An Initiate</div>
                         <div class="tier-price">£6 <span>/ month</span></div>
                         <div class="tier-desc">Drive real change by helping decide which venues we audit next and testing tech.</div>
                         <ul class="tier-benefits-list">
@@ -328,7 +328,7 @@
                             <li><span class="material-symbols-outlined">check_circle</span> Official Initiate supporter badge</li>
                         </ul>
                     </div>
-                    <a href="https://www.patreon.com/" target="_blank" rel="noopener" class="patreon-cta-btn">
+                    <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener" class="patreon-cta-btn">
                         <span class="material-symbols-outlined">stars</span> Become an Initiate (£6/mo)
                     </a>
                 </div>
@@ -347,12 +347,46 @@
                             <li><span class="material-symbols-outlined">check_circle</span> Quarterly live video call with team leaders</li>
                         </ul>
                     </div>
-                    <a href="https://www.patreon.com/" target="_blank" rel="noopener" class="patreon-cta-btn" style="background: #7B1FA2;">
+                    <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener" class="patreon-cta-btn" style="background: #7B1FA2;">
                         <span class="material-symbols-outlined">workspace_premium</span> Become a Hunter (£12/mo)
                     </a>
                 </div>
             </div>
         </section>
+
+        <!-- PATREON LOCKED / UNLOCKED: WALL OF HONOR & END CREDITS ROLL -->
+        <article class="page-card" style="border-left-color: #005EB8; margin-bottom: 40px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                <h2 style="color: #005EB8; margin: 0; font-size: 1.7rem;">Initiative Wall of Honor & Credits Roll</h2>
+                <span style="background: #ff0f5b; color: white; padding: 4px 12px; border-radius: 12px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px;">🔒 Patreon Member Feature</span>
+            </div>
+            <p style="color: #475569; font-size: 1.02rem; line-height: 1.6; margin-bottom: 20px;">
+                Our cinematic end credits roll honors everyone who has stepped up to support accessibility in Bristol. The <strong>first 10 Patreon members</strong> receive an official Gold Star ⭐ badge next to their name.
+            </p>
+
+            <!-- Locked State Banner with Toggle Preview -->
+            <div id="credits-locked-banner" style="background: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 14px; padding: 22px; text-align: center; margin-bottom: 20px;">
+                <h3 style="color: #005EB8; margin-top: 0; font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span class="material-symbols-outlined">lock</span> Member-Exclusive Wall of Honor
+                </h3>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; max-width: 650px; margin: 0 auto 16px auto;">
+                    Pledging as <strong>A Pardon</strong>, <strong>An Initiate</strong>, or <strong>A Hunter</strong> unlocks full access to our continuous credits roll and community event photo gallery.
+                </p>
+                <button id="toggle-credits-btn" style="background: #005EB8; color: #ffffff; border: none; padding: 12px 26px; border-radius: 25px; font-weight: 800; font-size: 0.95rem; cursor: pointer; transition: all 0.2s ease;">
+                    Preview Supporter Wall & Credits Roll &rarr;
+                </button>
+            </div>
+
+            <!-- UNLOCKED CREDITS ROLL CONTAINER -->
+            <div id="credits-unlocked-container" style="display: none;">
+                <!-- Movie End-Credits Scroll Box -->
+                <div class="credits-roll-box">
+                    <div class="credits-scroll-content" id="credits-scroll-list">
+                        <!-- Populated via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </article>
 
         <!-- Section 3: The Hearing Loss Gold Standard Accreditation -->
         <article class="page-card" style="border-left-color: #ff0f5b;">
@@ -372,14 +406,69 @@
                     <span class="material-symbols-outlined">lock</span> Exclusive Patreon Member Perk:
                 </p>
                 <p style="margin: 6px 0 0 0; color: #475569; font-size: 0.95rem; line-height: 1.5;">
-                    Pledged Patreon members (<strong>A Pardon</strong>, <strong>Initiate</strong>, <strong>A Hunter</strong>) receive full downloadable PDF access to the official Gold Standard Checklist to take directly to local venues.
+                    Pledged Patreon members (<strong>A Pardon</strong>, <strong>An Initiate</strong>, <strong>A Hunter</strong>) receive full downloadable PDF access to the official Gold Standard Checklist to take directly to local venues.
                 </p>
             </div>
             
             <div style="text-align: center; margin-top: 25px;">
-                <a href="https://www.patreon.com/" target="_blank" rel="noopener" class="patreon-cta-btn" style="display: inline-flex; width: auto; padding: 14px 36px;">
+                <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener" class="patreon-cta-btn" style="display: inline-flex; width: auto; padding: 14px 36px;">
                     <span class="material-symbols-outlined">open_in_new</span> Join Us on Patreon Today
                 </a>
+            </div>
+        </article>
+
+        <!-- PATREON SIGNUP STEP-BY-STEP GUIDE CARD -->
+        <article id="patreon-signup-guide" class="page-card" style="border-left-color: #ff0f5b; background: #fffcfd; border: 1px solid #fce7f3; margin-top: 30px; margin-bottom: 35px;">
+            <div style="border-bottom: 2px solid #fbcfe8; padding-bottom: 12px; margin-bottom: 20px;">
+                <h2 style="color: #ff0f5b; margin: 0; font-size: 1.6rem; font-weight: 900; display: flex; align-items: center; gap: 10px;">
+                    <span class="material-symbols-outlined" style="font-size: 2rem;">help_center</span> Step-by-Step: How to Sign Up on Patreon
+                </h2>
+            </div>
+
+            <p style="color: #334155; font-size: 1.02rem; line-height: 1.6; margin-bottom: 25px;">
+                Joining as a Patreon member (<strong>A Pardon £3/mo</strong>, <strong>An Initiate £6/mo</strong>, or <strong>A Hunter £12/mo</strong>) unlocks exclusive perks like our official <strong>Hearing Loss Gold Standard Checklist</strong>, member map updates, and voting rights. Follow these 4 simple steps:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #ff0f5b; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">1</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Select Your Tier</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        Click your preferred tier button above (<strong>A Pardon £3/mo</strong>, <strong>An Initiate £6/mo</strong>, or <strong>A Hunter £12/mo</strong>).
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #005EB8; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">2</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Create Free Account</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        On Patreon's official website, sign in or create a quick free account using your Email, Google, or Apple ID.
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #1b5e20; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">3</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Confirm Secure Checkout</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        Enter your payment details (Visa, Mastercard, PayPal, or Apple Pay) via Patreon's 256-bit encrypted checkout.
+                    </p>
+                </div>
+
+                <div style="background: #ffffff; padding: 20px; border-radius: 14px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #7B1FA2; color: white; border-radius: 50%; font-weight: 900; font-size: 1rem;">4</span>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: #1e293b; font-weight: 800;">Unlock Perks Instantly</h3>
+                    </div>
+                    <p style="margin: 0; font-size: 0.925rem; color: #475569; line-height: 1.55;">
+                        You're all set! You immediately gain access to the <strong>Gold Standard Checklist PDF</strong>, member map updates, and voting rights.
+                    </p>
+                </div>
             </div>
         </article>
 
@@ -443,6 +532,78 @@
                         volumeIcon.textContent = audio.muted ? 'volume_off' : (volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up');
                     }
                 });
+            }
+
+            // Populate Credits Roll & Handle Toggle
+            const toggleBtn = document.getElementById('toggle-credits-btn');
+            const unlockedContainer = document.getElementById('credits-unlocked-container');
+            const creditsList = document.getElementById('credits-scroll-list');
+
+            if (toggleBtn && unlockedContainer) {
+                toggleBtn.addEventListener('click', () => {
+                    if (unlockedContainer.style.display === 'none') {
+                        unlockedContainer.style.display = 'block';
+                        toggleBtn.innerHTML = '🔒 Hide Supporter Wall';
+                        renderCreditsList();
+                    } else {
+                        unlockedContainer.style.display = 'none';
+                        toggleBtn.innerHTML = 'Preview Supporter Wall & Credits Roll &rarr;';
+                    }
+                });
+            }
+
+            function renderCreditsList() {
+                if (!creditsList) return;
+
+                let members = JSON.parse(localStorage.getItem('registeredMembers') || 'null');
+                if (!members || members.length === 0) {
+                    members = [
+                        { name: 'Alexander Wright', tier: 'Patreon Supporter', isFirst10: true },
+                        { name: 'Eleanor Vance', tier: 'Initiate Supporter', isFirst10: true },
+                        { name: 'Marcus Sterling', tier: 'Patreon Supporter', isFirst10: true },
+                        { name: 'Charlotte Bennett', tier: 'Initiate Supporter', isFirst10: true },
+                        { name: 'Dominic Ross', tier: 'Patreon Supporter', isFirst10: true },
+                        { name: 'Beatrice Hughes', tier: 'Initiate Supporter', isFirst10: true },
+                        { name: 'Harrison Forde', tier: 'Patreon Supporter', isFirst10: true },
+                        { name: 'Amelia Thorne', tier: 'Initiate Supporter', isFirst10: true },
+                        { name: 'Gareth Pendelton', tier: 'Patreon Supporter', isFirst10: true },
+                        { name: 'Sophia Montgomery', tier: 'Initiate Supporter', isFirst10: true },
+                        { name: 'Bristol Deaf Community Advocate', tier: 'Community Member', isFirst10: false },
+                        { name: 'West of England Accessibility Supporter', tier: 'Community Member', isFirst10: false }
+                    ];
+                }
+
+                let html = `
+                    <div class="credits-title">Hearing Loss Initiative</div>
+                    <div style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px; letter-spacing: 1px;">Wall of Honor & Patreon Supporters</div>
+                    
+                    <div class="credits-subtitle">First 10 Members (Patreon Stars ⭐)</div>
+                `;
+
+                const posClasses = ['pos-left', 'pos-mid-right', 'pos-center', 'pos-right', 'pos-mid-left'];
+
+                members.forEach((m, idx) => {
+                    const isFirst10 = (idx < 10 || m.isFirst10);
+                    const starHtml = isFirst10 ? '<span class="credits-star-icon">⭐</span>' : '';
+                    const starClass = isFirst10 ? 'star-first10' : '';
+                    const posClass = posClasses[idx % posClasses.length];
+                    const tierText = m.tier ? ` &bull; <em>${m.tier}</em>` : '';
+                    html += `
+                        <div class="credits-name-item ${starClass} ${posClass}">
+                            ${starHtml} ${m.name}${tierText}
+                        </div>
+                    `;
+                });
+
+                html += `
+                    <div class="credits-subtitle" style="margin-top: 30px;">Special Thanks</div>
+                    <div class="credits-name-item pos-left">Centre for Deaf and Hard of Hearing People (CfD)</div>
+                    <div class="credits-name-item pos-right">Bristol City Council Sensory Support</div>
+                    <div class="credits-name-item pos-mid-left">UHBW Audiology (St Michael's Hospital)</div>
+                    <div class="credits-name-item pos-center">All Bristol Hard-of-Hearing Residents & Supporters</div>
+                `;
+
+                creditsList.innerHTML = html;
             }
         });
     </script>

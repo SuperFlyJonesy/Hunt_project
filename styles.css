@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Bebas+Neue&display=swap');
+
 /* Master reset */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; overflow-x: hidden; }
@@ -680,4 +682,139 @@ a:focus, button:focus, [role="button"]:focus {
     border-color: #005EB8;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 94, 184, 0.25);
+}
+
+/* Movie End Credits Scroll & Wall of Honor System */
+.credits-roll-box {
+    position: relative;
+    height: 380px;
+    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #005EB8;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.9), 0 12px 35px rgba(0,0,0,0.25);
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* Cinematic Vignette Fade Overlay at Top & Bottom */
+.credits-roll-box::before,
+.credits-roll-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+    pointer-events: none;
+}
+.credits-roll-box::before {
+    top: 0;
+    background: linear-gradient(to bottom, #020617 0%, rgba(2,6,23,0) 100%);
+}
+.credits-roll-box::after {
+    bottom: 0;
+    background: linear-gradient(to top, #020617 0%, rgba(2,6,23,0) 100%);
+}
+
+.credits-scroll-content {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 35px 0;
+    animation: credits-scroll-anim 24s linear infinite;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+.credits-roll-box:hover .credits-scroll-content {
+    animation-play-state: paused;
+}
+@keyframes credits-scroll-anim {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-160%); }
+}
+
+.credits-title {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #fbbf24;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4), 0 2px 4px rgba(0,0,0,0.8);
+}
+.credits-subtitle {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #ff0f5b;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 15, 91, 0.3);
+}
+.credits-name-item {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #f8fafc;
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+.credits-name-item.star-first10 {
+    color: #fbbf24;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+.credits-star-icon {
+    color: #fbbf24;
+    font-size: 0.7rem;
+    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8));
+}
+
+/* Staggered Horizontal Wall Positioning */
+.credits-name-item.pos-left { justify-content: flex-start; padding-left: 8%; }
+.credits-name-item.pos-right { justify-content: flex-end; padding-right: 8%; }
+.credits-name-item.pos-center { justify-content: center; }
+.credits-name-item.pos-mid-left { justify-content: flex-start; padding-left: 24%; }
+.credits-name-item.pos-mid-right { justify-content: flex-end; padding-right: 24%; }
+
+.event-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+.event-photo-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.25s ease;
+}
+.event-photo-card:hover { transform: translateY(-4px); }
+.event-photo-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+.event-photo-card p {
+    margin: 0;
+    padding: 12px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #334155;
+    text-align: center;
 }

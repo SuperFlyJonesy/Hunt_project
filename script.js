@@ -83,10 +83,22 @@ document.addEventListener("DOMContentLoaded", () => {
             let startCount = parseInt(localStorage.getItem('currentCount') || 62220);
             let finalCount = startCount - 1;
             
-            // FIX 3: Increment Community Impact counter
+            // FIX 3: Increment Community Impact counter & Save Registered Member
             let totalHelped = parseInt(localStorage.getItem('totalHelped') || 0);
             totalHelped++;
             localStorage.setItem('totalHelped', totalHelped);
+
+            const enteredName = document.getElementById('user-name')?.value?.trim() || 'Initiate Supporter';
+            let registeredMembers = JSON.parse(localStorage.getItem('registeredMembers') || '[]');
+            
+            const isFirst10 = registeredMembers.length < 10;
+            registeredMembers.push({
+                name: enteredName,
+                tier: 'Initiate Supporter',
+                date: new Date().toLocaleDateString(),
+                isFirst10: isFirst10
+            });
+            localStorage.setItem('registeredMembers', JSON.stringify(registeredMembers));
 
             // Update Storage
             localStorage.setItem('currentCount', finalCount);
