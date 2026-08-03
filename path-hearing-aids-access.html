@@ -136,7 +136,12 @@
             </div>
         </div>
 
-        <div class="text-center w-full py-8 mt-12"><a href="path-yes.html" class="text-lg font-medium hover:underline text-gray-700">← Back to Journey</a></div>
+        <nav class="back-to-journey-container" aria-label="Back Navigation">
+            <a href="path-yes.html" class="back-to-journey-btn">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey
+            </a>
+        </nav>
     </div>
     <script>
         document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
