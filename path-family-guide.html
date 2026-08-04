@@ -82,7 +82,20 @@
         </div>
     </div>
     <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
+        document.getElementById('dev-reset')?.addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && !href.startsWith('http') && !href.startsWith('#')) {
+                    e.preventDefault();
+                    document.body.style.transition = 'opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease';
+                    document.body.style.opacity = '0';
+                    document.body.style.transform = 'translateY(-10px)';
+                    document.body.style.filter = 'blur(4px)';
+                    setTimeout(() => { window.location.href = href; }, 500);
+                }
+            });
+        });
     </script>
 </body>
 </html>

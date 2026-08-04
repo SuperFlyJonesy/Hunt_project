@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
         .metro-grid .metro-icon { font-size: 10.5rem; }
+        
+        @keyframes seamlessFadeIn {
+            0% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+            100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .top-nav {
+            animation: seamlessFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .metro-grid .metro-btn {
+            opacity: 0;
+            animation: seamlessFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .metro-grid .metro-btn:nth-child(1) { animation-delay: 0.08s; }
+        .metro-grid .metro-btn:nth-child(2) { animation-delay: 0.12s; }
+        .metro-grid .metro-btn:nth-child(3) { animation-delay: 0.16s; }
+        .metro-grid .metro-btn:nth-child(4) { animation-delay: 0.20s; }
+        .metro-grid .metro-btn:nth-child(5) { animation-delay: 0.24s; }
+        .metro-grid .metro-btn:nth-child(6) { animation-delay: 0.28s; }
+        .metro-grid .metro-btn:nth-child(7) { animation-delay: 0.32s; }
+        .metro-grid .metro-btn:nth-child(8) { animation-delay: 0.36s; }
+        .metro-grid .metro-btn:nth-child(9) { animation-delay: 0.40s; }
+        .metro-grid .metro-btn:nth-child(10) { animation-delay: 0.44s; }
     </style>
 </head>
 <body class="premium-white-theme">
@@ -51,8 +76,8 @@
         <a href="index.html" class="metro-btn" style="background-color: #333333;"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
     </div>
     
-    <!-- Persistent Premium Volume Control Widget (White noise) -->
-    <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
+    <!-- Persistent Premium Volume Control Widget (White noise - Stationary on screen) -->
+    <div id="volume-control-container" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 9999999 !important; transform: none !important; filter: none !important; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
         <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
         <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;">
     </div>

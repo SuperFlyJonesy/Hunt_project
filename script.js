@@ -65,20 +65,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize Bristol Count from localStorage
     let currentCount = parseInt(localStorage.getItem('currentCount')) || 62220;
-    if(stencilCount) stencilCount.textContent = currentCount.toLocaleString();
+    if(stencilCount) stencilCount.innerHTML = currentCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
 
     // Modal & Pathway Handling
     if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
     if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
     if(ctaSupport) {
         ctaSupport.addEventListener('click', () => {
-            const hasVisitedSupport = localStorage.getItem('hasVisitedSupport');
-            if (hasVisitedSupport === 'true') {
-                window.location.href = 'path-support.html';
-            } else {
-                localStorage.setItem('hasVisitedSupport', 'true');
-                window.location.href = 'path-experience.html';
+            const actionPanel = document.getElementById('bottom-action-panel');
+            const stencil = document.getElementById('stencil-count');
+            
+            if (actionPanel) {
+                actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+                actionPanel.style.opacity = '0';
+                actionPanel.style.filter = 'blur(6px)';
+                actionPanel.style.transform = 'translateY(-15px)';
             }
+            if (stencil) {
+                stencil.style.transition = 'opacity 0.6s ease';
+                stencil.style.opacity = '0';
+            }
+            document.body.style.transition = 'background-color 0.7s ease';
+            document.body.style.backgroundColor = '#ffffff';
+
+            setTimeout(() => {
+                const hasVisitedSupport = localStorage.getItem('hasVisitedSupport');
+                if (hasVisitedSupport === 'true') {
+                    window.location.href = 'path-support.html';
+                } else {
+                    localStorage.setItem('hasVisitedSupport', 'true');
+                    window.location.href = 'path-experience.html';
+                }
+            }, 600);
         });
     }
 
@@ -117,12 +135,12 @@ document.addEventListener("DOMContentLoaded", () => {
             let ticks = 0;
             const clockInterval = setInterval(() => {
                 let randomTick = startCount - Math.floor(Math.random() * 99);
-                mainNumber.innerText = randomTick.toLocaleString();
+                mainNumber.innerHTML = randomTick.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
                 ticks++;
                 
                 if (ticks >= 24) {
                     clearInterval(clockInterval);
-                    mainNumber.innerText = finalCount.toLocaleString();
+                    mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
                     
                     mainNumber.style.transform = 'translateY(-8vh) scale(1.1)'; // Keep offset
                     setTimeout(() => { mainNumber.style.transform = 'translateY(-8vh) scale(1)'; }, 400);
@@ -140,7 +158,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
                     
                     document.getElementById('btn-continue-hub').addEventListener('click', () => {
-                        window.location.href = 'path-yes.html';
+                        const actionPanel = document.getElementById('bottom-action-panel');
+                        const stencil = document.getElementById('stencil-count');
+                        
+                        if (actionPanel) {
+                            actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+                            actionPanel.style.opacity = '0';
+                            actionPanel.style.filter = 'blur(6px)';
+                            actionPanel.style.transform = 'translateY(-15px)';
+                        }
+                        if (stencil) {
+                            stencil.style.transition = 'opacity 0.6s ease';
+                            stencil.style.opacity = '0';
+                        }
+                        document.body.style.transition = 'background-color 0.7s ease';
+                        document.body.style.backgroundColor = '#ffffff';
+
+                        setTimeout(() => {
+                            window.location.href = 'path-yes.html';
+                        }, 600);
                     });
                 }
             }, 50);
@@ -195,16 +231,10 @@ function initPrologue() {
         const currentStat = stats[currentStatIndex];
         prologue.style.setProperty('--highlight-color', highlightColors[currentStatIndex % highlightColors.length]);
 
-        // 3. Position Logic
-        if (currentStatIndex === 0) {
-            currentStat.style.top = '50%';
-            currentStat.style.left = '50%';
-            currentStat.style.transform = 'translate(-50%, -50%)';
-        } else {
-            currentStat.style.transform = 'none';
-            currentStat.style.top = (Math.random() * 55 + 10) + 'vh';
-            currentStat.style.left = Math.random() * (window.innerWidth - currentStat.offsetWidth - 80) + 40 + 'px';
-        }
+        // 3. Position Logic: Keep text centered horizontally & dropped slightly lower
+        currentStat.style.left = '50%';
+        currentStat.style.top = (currentStatIndex === 0) ? '50%' : '53%';
+        currentStat.style.transform = 'translate(-50%, -50%)';
 
         // 4. Fade in entire current stat
         currentStat.style.opacity = '1';

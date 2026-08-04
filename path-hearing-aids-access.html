@@ -65,9 +65,17 @@
 
         <!-- Bristol Access -->
         <div class="grid-split">
-            <div class="page-card" style="border-left-color: #005EB8;">
-                <h2 style="color: #005EB8; margin-top: 0;">NHS Access in Bristol</h2>
-                <p>Provided free as a long-term loan via UHBW Audiology (St Michael’s, Southmead, and satellite clinics). <strong>Lost/damaged device fee: £95.</strong></p>
+            <div class="page-card" style="border-left-color: #005EB8; position: relative;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+                    <h2 style="color: #005EB8; margin: 0;">NHS Access in Bristol</h2>
+                    <span style="background: #005EB8; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.5px;">FREE FROM NHS</span>
+                </div>
+                <p style="font-size: 1.05rem; line-height: 1.5; color: #1e293b; margin-top: 6px;">
+                    Hearing aids are provided <strong style="color: #005EB8; background: #e0f2fe; padding: 2px 6px; border-radius: 4px;">100% FREE</strong> as a long-term loan via UHBW Audiology (St Michael’s, Southmead, and satellite clinics).
+                </p>
+                <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 0;">
+                    <em>Lost/damaged replacement device fee: £95.</em>
+                </p>
             </div>
             <div class="page-card" style="border-left-color: #1b5e20;">
                 <h2 style="color: #1b5e20; margin-top: 0; font-size: 1.25rem;">Private Hearing Aid Supply</h2>
@@ -85,10 +93,36 @@
         <!-- Contact & Supplies Banner -->
         <div class="page-card" style="border-left-color: #ff0f5b; width: 100%;">
             <h2 style="color: #ff0f5b; margin-top: 0;">Contact UHBW Audiology (St Michael's Hospital)</h2>
-            <p><strong>Phone:</strong> 0117 342 5854 <em>(Note: Phone lines can be very busy)</em></p>
-            <p><strong>Email:</strong> audiology.dept@uhbw.nhs.uk</p>
-            <p><strong>Free Replacement Tubing:</strong> Once you have your hearing aid, you do not need to buy replacement tubes. You can email the audiology department to request new tubes, and they will send them to you for free by post.</p>
-            <p><strong>Battery Supply:</strong> If your hearing aid uses disposable batteries, replacements can be requested via the NHS. However, if you find it difficult to get batteries from Audiology, you can also purchase them directly from <strong>Boots</strong> or order online via <strong>Amazon</strong> (see our battery guide below).</p>
+            <p style="margin-bottom: 8px;"><strong>Phone:</strong> <a href="tel:01173425854" style="color: #334155; text-decoration: none; font-weight: 700;">0117 342 5854</a> <em>(Note: Phone lines can be very busy)</em></p>
+            <p style="margin-bottom: 20px;"><strong>Email:</strong> <a href="mailto:audiology.dept@uhbw.nhs.uk" style="color: #005EB8; font-weight: 700;">audiology.dept@uhbw.nhs.uk</a></p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px;">
+                <!-- Free Replacement Tubing Block -->
+                <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: 14px; border-left: 5px solid #166534;">
+                    <h3 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.4rem;">build</span> Free Replacement Tubing
+                    </h3>
+                    <p style="font-size: 0.92rem; color: #15803d; line-height: 1.5; margin-bottom: 14px;">
+                        Once you have your hearing aid, you do not need to buy replacement tubes. You can email the audiology department to request new tubes, and they will send them to you for free by post.
+                    </p>
+                    <a href="#tubing-care" class="site-link-btn" style="background: #166534; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_downward</span> View Tube Care Info &rarr;
+                    </a>
+                </div>
+
+                <!-- Battery Supply Block -->
+                <div style="background: #fff7ed; border: 1px solid #ffedd5; padding: 18px; border-radius: 14px; border-left: 5px solid #c2410c;">
+                    <h3 style="margin: 0 0 8px 0; color: #c2410c; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.4rem;">battery_charging_full</span> Battery Supply
+                    </h3>
+                    <p style="font-size: 0.92rem; color: #9a3412; line-height: 1.5; margin-bottom: 14px;">
+                        If your hearing aid uses disposable batteries, replacements can be requested via the NHS. If you find it difficult to get batteries from Audiology, you can purchase compatible zinc-air batteries from Boots or Amazon.
+                    </p>
+                    <a href="#battery-guide" class="site-link-btn" style="background: #c2410c; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 700; text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_downward</span> View Battery Guide &rarr;
+                    </a>
+                </div>
+            </div>
         </div>
 
 
@@ -280,7 +314,7 @@
 
 
         <!-- Hearing Aid Maintenance -->
-        <div class="page-card" style="border-left-color: #1b5e20; width: 100%;">
+        <div class="page-card" id="tubing-care" style="border-left-color: #1b5e20; width: 100%;">
             <h2 style="color: #1b5e20; margin-top: 0; display: flex; align-items: center; gap: 10px;">
                 <span class="material-symbols-outlined" style="font-size: 2rem;">build</span> Hearing Aid Maintenance & Tube Care
             </h2>
@@ -317,7 +351,7 @@
         </div>
 
         <!-- HEARING AID BATTERIES GUIDE -->
-        <div class="page-card" style="border-left-color: #F57C00; width: 100%;">
+        <div class="page-card" id="battery-guide" style="border-left-color: #F57C00; width: 100%;">
             <h2 style="color: #F57C00; margin-top: 0; display: flex; align-items: center; gap: 10px;">
                 <span class="material-symbols-outlined" style="font-size: 2rem;">battery_charging_full</span> Hearing Aid Batteries
             </h2>
@@ -332,14 +366,18 @@
                     <h4 style="margin: 0; color: #c2410c; font-size: 1.05rem; font-weight: 800;">Need Batteries Quickly?</h4>
                     <p style="margin: 4px 0 0 0; color: #9a3412; font-size: 0.9rem;">Order online or pick up at your local pharmacy:</p>
                 </div>
-                <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
                     <a href="https://www.boots.com/sitesearch?searchTerm=hearing+aid+battery" target="_blank" rel="noopener sponsored" class="site-link-btn" style="background: #005EB8; font-size: 0.9rem; padding: 10px 20px; color: white; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
                         <span class="material-symbols-outlined">shopping_bag</span> Buy at Boots &rarr;
                     </a>
-                    <a href="https://www.amazon.co.uk/s?k=hearing+aid+batteries&tag=hearinglossini-21" target="_blank" rel="noopener sponsored" class="site-link-btn" style="background: #ff9900; color: #111; font-size: 0.9rem; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
-                        <span class="material-symbols-outlined">shopping_cart</span> Order on Amazon &rarr;
-                    </a>
+                    <a href="https://link.amazon/B0hyJusEt" target="_blank" rel="nofollow sponsored" class="site-link-btn" style="background: #ff9900; color: #111; font-size: 0.9rem; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
+                        <span class="material-symbols-outlined">shopping_cart</span> Order on Amazon (Affiliate Link) &rarr;
+                    </a> <span style="font-size: 0.85rem; color: #555;">(paid link)</span>
                 </div>
+            </div>
+            <div style="font-size: 0.82rem; color: #666; font-style: italic; margin-top: -10px; margin-bottom: 20px; display: flex; align-items: center; gap: 6px;">
+                <span class="material-symbols-outlined" style="font-size: 1.05rem; color: #005EB8;">info</span>
+                <span><em>Affiliate Disclosure: Some links are affiliate links. Purchases made via these links may earn a referral commission for Hearing Loss Initiative at no extra cost to you, directly funding our community services.</em></span>
             </div>
 
             <!-- Battery Color Tabs & Sizes Table -->
@@ -455,6 +493,8 @@
                 Back to Journey
             </a>
         </nav>
+
+        <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">As an Amazon Associate, I earn from qualifying purchases.</p>
     </div>
     <script>
         document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });

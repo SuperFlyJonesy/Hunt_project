@@ -8,7 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { background: #000; margin: 0; padding: 0; overflow: hidden; height: 100vh; font-family: 'Inter', sans-serif; }
+        body { 
+            background: #000; 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden; 
+            height: 100vh; 
+            font-family: 'Inter', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            caret-color: transparent;
+            outline: none;
+        }
         
         .matrix-glitch-active {
             animation: matrix-glitch 0.5s linear;
@@ -22,8 +34,80 @@
 
         #state-intro, #state-prologue { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; transition: opacity 2.0s ease-in-out; }
         
-        #state-intro { display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 300; background: #000; opacity: 1; }
-        #state-intro h1 { color: #fff; font-family: 'Inter', sans-serif; font-size: 3rem; font-weight: 300; text-align: center; transition: transform 0.3s ease-out; }
+        #state-intro { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 300; 
+            background: radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.6) 0%, rgba(0, 0, 0, 0.95) 75%, #000000 100%); 
+            opacity: 1; 
+        }
+
+        .hero-video-portal {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 50px rgba(0, 164, 239, 0.35), 0 0 100px rgba(0, 94, 184, 0.2), inset 0 0 25px rgba(0,0,0,0.8);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: portalPulse 4s infinite ease-in-out;
+            transition: transform 0.4s ease;
+        }
+        .hero-video-portal:hover {
+            transform: scale(1.05);
+        }
+        @keyframes portalPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(0, 164, 239, 0.35), 0 0 100px rgba(0, 94, 184, 0.2); }
+            50% { transform: scale(1.03); box-shadow: 0 0 75px rgba(0, 230, 118, 0.4), 0 0 130px rgba(0, 164, 239, 0.3); }
+        }
+        .hero-video-portal video {
+            width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(0.95);
+        }
+
+        .intro-badge {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        @keyframes gentleHeadlineFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(12px) scale(0.97);
+                filter: blur(8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .cinematic-headline {
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.25;
+            margin: 0;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+            padding: 0 20px;
+            animation: gentleHeadlineFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            will-change: opacity, transform, filter;
+        }
+        .cinematic-headline .accent-glow {
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 25px rgba(0, 164, 239, 0.6);
+        }
         
         #state-prologue { z-index: 200; opacity: 0; background: #000; display: none; }
         
@@ -31,21 +115,74 @@
         .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
         .base-text { transition: opacity 1s ease; }
         
-        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
-        #continue-btn, #begin-btn { color: #fff; opacity: 0.6; font-size: 0.9rem; animation: pulse 2s infinite ease-in-out; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding: 20px; }
+        @keyframes pulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.7; } }
+        #continue-btn, #begin-btn { color: #fff; opacity: 0.6; font-size: 13px; animation: pulse 2.5s infinite ease-in-out; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding: 20px; }
     </style>
 </head>
 <body class="premium-white-theme">
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     
-    <div id="state-intro" style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <video src="Contents/Videos/Hearing Loss Initiativegreen.mp4" autoplay loop muted playsinline style="width: 300px; border-radius: 50%; margin-bottom: 2rem;"></video>
-        <h1 id="intro-text" style="line-height: 1.5; padding: 20px; text-align: center;">Experience the reality of hearing loss.</h1>
-        <div id="begin-btn">[ Click to begin ]</div>
+    <div id="state-intro" style="cursor: pointer;">
+        <h1 id="intro-text" class="cinematic-headline">
+            Experience the reality<br>of <span class="accent-glow">hearing loss</span>.
+        </h1>
+        <div id="begin-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to begin ]</div>
     </div>
 
     <div id="state-prologue">
         <div id="continue-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to continue ]</div>
+    </div>
+
+    <!-- Deep Post-Experience Reflection Screen -->
+    <div id="state-reflection" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 400; background: radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.85) 0%, rgba(0, 0, 0, 0.98) 75%, #000000 100%); display: none; opacity: 0; transition: opacity 1.2s ease-in-out; flex-direction: column; justify-content: center; align-items: center; padding: 30px; box-sizing: border-box; text-align: center;">
+        <style>
+            .reflection-question {
+                color: rgba(255, 255, 255, 0.88);
+                font-family: 'Georgia', serif;
+                font-style: italic;
+                font-size: 1.55rem;
+                margin: 1.4rem 0;
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 1.5s ease, transform 1.5s ease;
+                line-height: 1.6;
+            }
+            .reflection-climax {
+                color: #ffffff;
+                font-family: 'Inter', sans-serif;
+                font-size: 2.3rem;
+                font-weight: 800;
+                margin-top: 3rem;
+                opacity: 0;
+                transform: translateY(15px);
+                transition: opacity 1.8s ease, transform 1.8s ease;
+                text-shadow: 0 0 35px rgba(0, 164, 239, 0.6);
+                letter-spacing: -0.02em;
+                line-height: 1.35;
+            }
+            #final-continue-btn {
+                color: #ffffff;
+                font-size: 13px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                padding: 20px;
+                position: absolute;
+                bottom: 5vh;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 500;
+                opacity: 0;
+                transition: opacity 1.5s ease;
+            }
+        </style>
+        <div class="reflection-content" style="max-width: 850px;">
+            <p class="reflection-question q1">Did you have a problem reading some of the text?</p>
+            <p class="reflection-question q2">Was the background noise annoying?</p>
+            <p class="reflection-question q3">Did you miss some of the statements?</p>
+            <p class="reflection-question q4">Did you start to become overwhelmed?</p>
+            <h2 class="reflection-climax">If only in life we could click to continue.</h2>
+        </div>
+        <div id="final-continue-btn">[ Click to continue ]</div>
     </div>
 
     <audio id="bg-noise" src="Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop></audio>
@@ -162,9 +299,74 @@
             });
 
             continueBtn.addEventListener('click', () => {
-                // REDIRECT TO SUPPORT PAGE
-                window.location.href = 'path-support.html';
+                // TRANSITION TO DEEP REFLECTION STAGE
+                if (statePrologue) {
+                    statePrologue.style.transition = 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1)';
+                    statePrologue.style.opacity = '0';
+                }
+
+                // Soft audio fade out
+                if (audio) {
+                    let vol = audio.volume;
+                    const fadeAudioOut = setInterval(() => {
+                        if (vol > 0.02) {
+                            vol -= 0.02;
+                            audio.volume = vol;
+                            if (volumeSlider) volumeSlider.value = vol;
+                        } else {
+                            audio.pause();
+                            clearInterval(fadeAudioOut);
+                        }
+                    }, 100);
+                }
+
+                setTimeout(() => {
+                    if (statePrologue) statePrologue.style.display = 'none';
+
+                    const reflection = document.getElementById('state-reflection');
+                    if (reflection) {
+                        reflection.style.display = 'flex';
+                        setTimeout(() => { reflection.style.opacity = '1'; }, 50);
+
+                        const q1 = reflection.querySelector('.q1');
+                        const q2 = reflection.querySelector('.q2');
+                        const q3 = reflection.querySelector('.q3');
+                        const q4 = reflection.querySelector('.q4');
+                        const climax = reflection.querySelector('.reflection-climax');
+                        const finalBtn = document.getElementById('final-continue-btn');
+
+                        setTimeout(() => { if (q1) { q1.style.opacity = '1'; q1.style.transform = 'translateY(0)'; } }, 1000);
+                        setTimeout(() => { if (q2) { q2.style.opacity = '1'; q2.style.transform = 'translateY(0)'; } }, 3800);
+                        setTimeout(() => { if (q3) { q3.style.opacity = '1'; q3.style.transform = 'translateY(0)'; } }, 6600);
+                        setTimeout(() => { if (q4) { q4.style.opacity = '1'; q4.style.transform = 'translateY(0)'; } }, 9400);
+                        setTimeout(() => { if (climax) { climax.style.opacity = '1'; climax.style.transform = 'translateY(0)'; } }, 12500);
+                        setTimeout(() => { 
+                            if (finalBtn) { 
+                                finalBtn.style.opacity = '0.6'; 
+                                finalBtn.style.animation = 'pulse 2.5s infinite ease-in-out';
+                            } 
+                        }, 15000);
+                    }
+                }, 1000);
             });
+
+            const finalBtn = document.getElementById('final-continue-btn');
+            if (finalBtn) {
+                finalBtn.addEventListener('click', () => {
+                    const reflection = document.getElementById('state-reflection');
+                    if (reflection) {
+                        reflection.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease';
+                        reflection.style.opacity = '0';
+                        reflection.style.filter = 'blur(10px)';
+                    }
+                    document.body.style.transition = 'background-color 0.8s ease';
+                    document.body.style.backgroundColor = '#ffffff';
+
+                    setTimeout(() => {
+                        window.location.href = 'path-support.html';
+                    }, 750);
+                });
+            }
         });
 
         function playPrologueLoop(index = 0) {

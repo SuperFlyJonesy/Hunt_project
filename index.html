@@ -45,7 +45,7 @@
     <div class="main-container">
         <header class="top-nav">
             <img src="HLI Logo White.png" alt="HLI Logo" id="hli-logo" class="hli-logo-top">
-            <a href="path-about.html" id="btn-support" class="nav-btn-small top-support-btn">Support Us</a>
+            <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small top-support-btn">Support Us</a>
         </header>
 
         <!-- STENCIL LANDING PAGE -->
@@ -73,13 +73,13 @@
             document.addEventListener("DOMContentLoaded", () => {
                 const stencil = document.getElementById('stencil-count');
                 const helped = parseInt(localStorage.getItem('totalHelped') || 0);
-                stencil.innerText = (62220 - helped).toLocaleString();
+                stencil.innerHTML = (62220 - helped).toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
             });
         </script>
         <div class="content-layer" id="content-layer">
             <div id="bottom-action-panel">
                 <div id="intro-block">
-                    <p class="official-text"><em>Estimates from <a href="https://www.bristol.gov.uk/" target="_blank" class="citation-link">Bristol City Council &#8599;</a> and <a href="https://www.ons.gov.uk/" target="_blank" class="citation-link">national statistics &#8599;</a> indicate that 62,220 adults in Bristol currently live with some form of hearing loss.</em></p>
+                    <p class="official-text"><em>Estimates from the <a href="https://www.bristol.gov.uk/jsna" target="_blank" class="citation-link">Bristol City Council JSNA Report &#8599;</a> and <a href="https://rnid.org.uk/about-us/research-and-policy/facts-and-figures/" target="_blank" class="citation-link">National RNID Statistics &#8599;</a> indicate&nbsp;that<br><strong class="stat-num">62<span class="small-comma">,</span>220</strong> adults in <strong style="font-weight: 900; color: #ffffff;">Bristol</strong> currently live with some form of <strong style="font-weight: 900; color: #ffffff;">hearing loss</strong>.</em></p>
                     
                     <div class='pathways-container'>
                       <div class='pathway'>
