@@ -63,9 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Initialize Bristol Count from localStorage
-    let currentCount = parseInt(localStorage.getItem('currentCount')) || 62220;
-    if(stencilCount) stencilCount.innerHTML = currentCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+    // Initialize Bristol Count from localStorage for landing page stencil
+    const totalHelped = parseInt(localStorage.getItem('totalHelped')) || 0;
+    const currentCount = Math.max(0, 62220 - totalHelped);
+    if (stencilCount) {
+        stencilCount.innerHTML = currentCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+    }
 
     // Modal & Pathway Handling
     if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctaSupport.addEventListener('click', () => {
             const actionPanel = document.getElementById('bottom-action-panel');
             const stencil = document.getElementById('stencil-count');
+            const flipWrapper = document.getElementById('flip-clock-wrapper');
             
             if (actionPanel) {
                 actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
@@ -84,6 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (stencil) {
                 stencil.style.transition = 'opacity 0.6s ease';
                 stencil.style.opacity = '0';
+            }
+            if (flipWrapper) {
+                flipWrapper.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                flipWrapper.style.opacity = '0';
+                flipWrapper.style.transform = 'translate(-50%, -60%)';
             }
             document.body.style.transition = 'background-color 0.7s ease';
             document.body.style.backgroundColor = '#ffffff';
@@ -107,14 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const mainNumber = document.getElementById('stencil-count');
         const actionPanel = document.getElementById('bottom-action-panel');
     
-        if (mainNumber && actionPanel) {
-            let startCount = parseInt(localStorage.getItem('currentCount') || 62220);
-            let finalCount = startCount - 1;
-            
-            // FIX 3: Increment Community Impact counter & Save Registered Member
+        if (actionPanel) {
             let totalHelped = parseInt(localStorage.getItem('totalHelped') || 0);
             totalHelped++;
             localStorage.setItem('totalHelped', totalHelped);
+            const finalCount = Math.max(0, 62220 - totalHelped);
+
+            if (mainNumber) {
+                mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+            }
 
             const enteredName = document.getElementById('user-name')?.value?.trim() || 'Initiate Supporter';
             let registeredMembers = JSON.parse(localStorage.getItem('registeredMembers') || '[]');
@@ -127,59 +137,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 isFirst10: isFirst10
             });
             localStorage.setItem('registeredMembers', JSON.stringify(registeredMembers));
-
-            // Update Storage
-            localStorage.setItem('currentCount', finalCount);
             localStorage.setItem('hasVisitedHub', 'true');
 
-            let ticks = 0;
-            const clockInterval = setInterval(() => {
-                let randomTick = startCount - Math.floor(Math.random() * 99);
-                mainNumber.innerHTML = randomTick.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
-                ticks++;
+            const nameGreeting = enteredName ? `, ${enteredName}` : '';
+
+            actionPanel.innerHTML = `
+                <div style="margin-top: 10vh; text-align: center;">
+                    <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
+                    <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
+                    <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
+                </div>
+            `;
+            
+            document.getElementById('btn-continue-hub').addEventListener('click', () => {
+                const actionPanel = document.getElementById('bottom-action-panel');
+                const stencil = document.getElementById('stencil-count');
                 
-                if (ticks >= 24) {
-                    clearInterval(clockInterval);
-                    mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
-                    
-                    mainNumber.style.transform = 'translateY(-8vh) scale(1.1)'; // Keep offset
-                    setTimeout(() => { mainNumber.style.transform = 'translateY(-8vh) scale(1)'; }, 400);
-
-                    const enteredName = document.getElementById('user-name')?.value?.trim();
-                    const nameGreeting = enteredName ? `, ${enteredName}` : '';
-
-                    // FIX 1: Inject Welcome Message (No container/box)
-                    actionPanel.innerHTML = `
-                        <div style="margin-top: 10vh; text-align: center;">
-                            <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
-                            <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
-                            <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
-                        </div>
-                    `;
-                    
-                    document.getElementById('btn-continue-hub').addEventListener('click', () => {
-                        const actionPanel = document.getElementById('bottom-action-panel');
-                        const stencil = document.getElementById('stencil-count');
-                        
-                        if (actionPanel) {
-                            actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
-                            actionPanel.style.opacity = '0';
-                            actionPanel.style.filter = 'blur(6px)';
-                            actionPanel.style.transform = 'translateY(-15px)';
-                        }
-                        if (stencil) {
-                            stencil.style.transition = 'opacity 0.6s ease';
-                            stencil.style.opacity = '0';
-                        }
-                        document.body.style.transition = 'background-color 0.7s ease';
-                        document.body.style.backgroundColor = '#ffffff';
-
-                        setTimeout(() => {
-                            window.location.href = 'path-yes.html';
-                        }, 600);
-                    });
+                if (actionPanel) {
+                    actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+                    actionPanel.style.opacity = '0';
+                    actionPanel.style.filter = 'blur(6px)';
+                    actionPanel.style.transform = 'translateY(-15px)';
                 }
-            }, 50);
+                if (stencil) {
+                    stencil.style.transition = 'opacity 0.6s ease';
+                    stencil.style.opacity = '0';
+                }
+                document.body.style.transition = 'background-color 0.7s ease';
+                document.body.style.backgroundColor = '#ffffff';
+
+                setTimeout(() => {
+                    window.location.href = 'path-yes.html';
+                }, 600);
+            });
         }
     };
 

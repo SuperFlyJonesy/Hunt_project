@@ -45,7 +45,7 @@
     <div class="main-container">
         <header class="top-nav">
             <img src="HLI Logo White.png" alt="HLI Logo" id="hli-logo" class="hli-logo-top">
-            <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small top-support-btn">Support Us</a>
+            <a href="path-about.html" id="btn-support" class="nav-btn-small top-support-btn">Support Us</a>
         </header>
 
         <!-- STENCIL LANDING PAGE -->
@@ -68,14 +68,6 @@
         <div class="mask-overlay">
             <h1 class="stencil-layer" id="stencil-count">62220</h1>
         </div>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const stencil = document.getElementById('stencil-count');
-                const helped = parseInt(localStorage.getItem('totalHelped') || 0);
-                stencil.innerHTML = (62220 - helped).toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
-            });
-        </script>
         <div class="content-layer" id="content-layer">
             <div id="bottom-action-panel">
                 <div id="intro-block">

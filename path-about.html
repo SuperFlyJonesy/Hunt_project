@@ -1,74 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>About Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <title>About Us - Bristol Hearing Loss Initiative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-</head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
-    <script src="animation.js"></script>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
-    <div class="page-transition-overlay"></div>
-
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 20px; color: #ff0f5b;">About Us</h1>
-
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">
-            Hi, we are Jason and Jo. As former CfD employees and proud members of the Hard of Hearing (HoH) community, we understand firsthand the barriers and isolation that can come with hearing loss. We built this initiative to create a safe, accessible, and supportive space for everyone.
-        </p>
-
-        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">
-            Right now, this is a grassroots project. Every donation we receive goes directly into the community. Your support pays for accessible venue hire, ensures everyone gets a free coffee at our meetups, and helps us bring in expert guest speakers. This community-funded model bridges the gap while we work towards securing long-term backing from corporate sponsors and the local council.
-        </p>
-
-
-        <!-- Impact Block -->
-        <div style="margin-top: 40px; padding: 20px; background: rgba(0,0,0,0.05); border-radius: 12px;">
-            <h3 style="margin-bottom: 5px;">Community Impact</h3>
-            <p style="font-size: 1.5rem; font-weight: bold; color: #ff0f5b;">We have helped <span id="display-helped">0</span> people so far.</p>
-        </div>
-
-        <!-- Meet the Team -->
-        <div style="margin-top: 60px; width: 100%; max-width: 800px; display: flex; flex-direction: column; gap: 30px;">
-            <h2 style="color: #111; font-size: 2rem; margin-bottom: 10px;">Our Leadership</h2>
-            
-            <div style="background: #ffffff; border-radius: 20px; padding: 30px; display: flex; align-items: center; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left;">
-                <img src="jason-photo.jpg" alt="Jason Parchment - CEO and Founder" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
-                <div>
-                    <h3 style="margin: 0 0 5px 0; color: #222; font-size: 1.6rem;">Jason Parchment</h3>
-                    <p style="margin: 0 0 12px 0; color: #ff0f5b; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">CEO and Founder</p>
-                    <p style="margin: 0; color: #555; line-height: 1.6; font-size: 1.05rem;">Digital communicator and tech trainer. I lead the vision for our accessible community platforms, ensuring every resource we build creates real-world impact for the HoH community.</p>
-                </div>
-            </div>
-
-            <div style="background: #ffffff; border-radius: 20px; padding: 30px; display: flex; align-items: center; gap: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #005EB8; text-align: left;">
-                <img src="jo-photo.jpg" alt="Jo Jones - Community Partner & Operations Manager" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
-                <div>
-                    <h3 style="margin: 0 0 5px 0; color: #222; font-size: 1.6rem;">Jo Jones</h3>
-                    <p style="margin: 0 0 12px 0; color: #005EB8; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.5px;">Community Partner & Operations Manager</p>
-                    <p style="margin: 0; color: #555; line-height: 1.6; font-size: 1.05rem;">I manage our outreach and day-to-day operations. My focus is connecting the community with the right events, venues, and support structures to ensure no one feels isolated.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        // Safely retrieve totalHelped from localStorage and update DOM
-        try {
-            const helpedCount = parseInt(localStorage.getItem('totalHelped')) || 0;
-            const displayEl = document.getElementById('display-helped');
-            if (displayEl) displayEl.innerText = helpedCount;
-        } catch (e) {
-            console.warn("Could not retrieve impact count:", e);
+    <style>
+        :root {
+            --brand-red: #ff0f5b;
+            --brand-blue: #005EB8;
+            --brand-amber: #f39c12;
+            --brand-green: #1b5e20;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
         }
-    </script>
-    <div style="text-align: center; margin-bottom: 50px;">
-        <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .about-wrapper {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 60px 24px 80px 24px;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 45px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 15, 91, 0.08);
+            color: var(--brand-red);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 15, 91, 0.15);
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -1px;
+            margin: 0 0 16px 0;
+            line-height: 1.15;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--brand-red) 0%, #d90429 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.65;
+            font-weight: 450;
+        }
+
+        /* Impact Showcase Card */
+        .impact-hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 35px 25px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-hero-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--brand-red) 0%, var(--brand-blue) 50%, var(--brand-amber) 100%);
+        }
+
+        .impact-tag {
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--brand-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .impact-tag::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+        }
+
+        /* Grid Layout for Mission & Model */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        .card-modern {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+        }
+
+        .card-modern.border-red {
+            border-top: 5px solid var(--brand-red);
+        }
+
+        .card-modern.border-amber {
+            border-top: 5px solid var(--brand-amber);
+        }
+
+        .card-modern h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 14px 0;
+        }
+
+        .card-modern p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #475569;
+            margin: 0 0 14px 0;
+        }
+
+        .card-modern p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 18px 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 1.02rem;
+            color: #334155;
+            line-height: 1.55;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--brand-amber);
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        /* Leadership Cards */
+        .section-header {
+            text-align: center;
+            margin: 50px 0 30px 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin: 0 0 8px 0;
+        }
+
+        .leadership-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .leader-card-modern {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .leader-card-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+        }
+
+        @media (max-width: 640px) {
+            .leader-card-modern {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .leader-avatar-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .leader-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .avatar-ring-red {
+            border: 3.5px solid var(--brand-red);
+        }
+
+        .avatar-ring-blue {
+            border: 3.5px solid var(--brand-blue);
+        }
+
+        .role-pill {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .pill-red {
+            background: rgba(255, 15, 91, 0.1);
+            color: var(--brand-red);
+        }
+
+        .pill-blue {
+            background: rgba(0, 94, 184, 0.1);
+            color: var(--brand-blue);
+        }
+
+        .leader-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+        }
+
+        .leader-bio {
+            font-size: 1.02rem;
+            color: #475569;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* Footer Nav Link */
+        .back-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+            border-radius: 40px;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .back-link-btn:hover {
+            background: #0f172a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <script src="animation.js"></script>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
+    <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3); transition: transform 0.2s;">Support Us</a>
+    
+    <div class="about-wrapper">
+        
+        <!-- Hero Header -->
+        <div class="hero-section">
+            <div class="hero-badge">Bristol Community Initiative</div>
+            <div style="margin-bottom: 20px;">
+                <img src="HLI logo Black.png" alt="HLI Logo" style="height: 60px; filter: contrast(1.1); transform: scale(1.3); transform-origin: center;">
+            </div>
+            <h1 class="hero-title">About <span>Our Initiative</span></h1>
+            <p class="hero-subtitle">Built by lived experience to create a safe, accessible, and practical support network for hearing loss initiates across Bristol.</p>
+        </div>
+
+        <!-- Community Impact Showcase Card (WITH TICKER INTACT) -->
+        <div class="impact-hero-card">
+            <div class="impact-tag">Community Network Reach</div>
+            
+            <!-- Exact Mechanical Flip Clock Ticker -->
+            <div class="flip-clock-container" id="flip-clock" style="margin: 15px auto 18px auto; justify-content: center;">
+                <div class="flip-digit-card" data-digit="0"><div class="digit-num">0</div></div>
+                <div class="flip-digit-card" data-digit="0"><div class="digit-num">0</div></div>
+                <div class="flip-comma">,</div>
+                <div class="flip-digit-card" data-digit="0"><div class="digit-num">0</div></div>
+                <div class="flip-digit-card" data-digit="0"><div class="digit-num">0</div></div>
+                <div class="flip-digit-card" data-digit="0"><div class="digit-num">0</div></div>
+            </div>
+
+            <p style="font-size: 1.15rem; font-weight: 800; color: var(--brand-red); margin: 0;">
+                Initiates & People Reached Across Bristol
+            </p>
+        </div>
+
+        <!-- Mission & Funding Grid -->
+        <div class="content-grid">
+            
+            <!-- Card 1: Who We Are & Our Mission -->
+            <div class="card-modern border-red">
+                <div class="card-icon-badge badge-red-bg">🤝</div>
+                <h2>Who We Are & Mission</h2>
+                <p>
+                    Hi, we are Jason and Jo. As former CfD employees and hearing loss initiates, we understand firsthand the barriers, frustration, and isolation that can accompany hearing loss.
+                </p>
+                <p>
+                    We built this initiative to create an empowering, practical support network across Bristol—helping people reconnect with work, family, social life, and public spaces with complete confidence.
+                </p>
+            </div>
+
+            <!-- Card 2: Grassroots & Community Funded -->
+            <div class="card-modern border-amber">
+                <div class="card-icon-badge badge-amber-bg">🌱</div>
+                <h2>Grassroots & Community Funded</h2>
+                <p>
+                    This is a community-driven project where every contribution directly enables real-world accessibility:
+                </p>
+                <ul class="feature-list">
+                    <li><strong>Hire accessible venues</strong> with verified hearing loops and acoustic setups.</li>
+                    <li><strong>Provide free refreshments</strong> so everyone gets a warm welcome and a free coffee.</li>
+                    <li><strong>Host expert speakers</strong> and deliver specialist accessibility training for local venues.</li>
+                </ul>
+                <p>
+                    This community-funded model bridges the gap while securing long-term council and corporate backing.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Leadership Section -->
+        <div class="section-header">
+            <h2>Our Leadership</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin: 0;">Guiding the vision and operations for an accessible Bristol.</p>
+        </div>
+
+        <div class="leadership-grid">
+            
+            <!-- Leader 1: Jason Parchment -->
+            <div class="leader-card-modern">
+                <div class="leader-avatar-wrapper">
+                    <img src="jason-photo.jpg" alt="Jason Parchment - CEO and Founder" class="leader-avatar avatar-ring-red">
+                </div>
+                <div>
+                    <span class="role-pill pill-red">CEO & Founder</span>
+                    <h3 class="leader-name">Jason Parchment</h3>
+                    <p class="leader-bio">Digital communicator and tech trainer. I lead the vision for our accessible community platforms, ensuring every resource we build creates real-world impact for hearing loss initiates.</p>
+                </div>
+            </div>
+
+            <!-- Leader 2: Jo Jones -->
+            <div class="leader-card-modern">
+                <div class="leader-avatar-wrapper">
+                    <img src="jo-photo.jpg" alt="Jo Jones - Co-Founder & Operations Manager" class="leader-avatar avatar-ring-blue">
+                </div>
+                <div>
+                    <span class="role-pill pill-blue">Co-Founder & Operations Manager</span>
+                    <h3 class="leader-name">Jo Jones</h3>
+                    <p class="leader-bio">I manage our outreach and day-to-day operations. My focus is connecting the community with the right events, venues, and support structures to ensure no one feels isolated.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="path-yes.html" class="back-link-btn">
+                <span>&larr;</span> Return to Journey Hub
+            </a>
+        </div>
+
     </div>
+
+    <!-- Exact Ticker Controller Script -->
+    <script>
+        function updateFlipClock(value) {
+            const clock = document.getElementById('flip-clock');
+            if (!clock) return;
+
+            const strVal = Math.max(0, Math.min(99999, Math.round(value))).toString().padStart(5, '0');
+            const digitCards = clock.querySelectorAll('.flip-digit-card');
+            
+            for (let i = 0; i < 5; i++) {
+                const char = strVal[i];
+                const card = digitCards[i];
+                if (card) {
+                    const prevChar = card.getAttribute('data-digit');
+                    if (prevChar !== char) {
+                        card.setAttribute('data-digit', char);
+                        const numEl = card.querySelector('.digit-num');
+                        if (numEl) numEl.textContent = char;
+
+                        card.classList.remove('flipping');
+                        void card.offsetWidth;
+                        card.classList.add('flipping');
+                    }
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const rawHelped = parseInt(localStorage.getItem('totalHelped')) || 0;
+            const targetImpact = Math.max(1, rawHelped > 0 ? rawHelped : 5);
+            const startVal = 62220;
+
+            // Display initial 62,220
+            updateFlipClock(startVal);
+
+            // 1. Initial 1200ms start delay (100% slower)
+            setTimeout(() => {
+                // Countdown keyframes starting SLOW then getting FAST down to impact number (00,005)
+                const keyframes = [
+                    62220, 61850, 59200, 52100, 39400, 24800, 12600, 4800, 1200, 320, 85, 24, targetImpact
+                ];
+                const delays = [
+                    1100,  840,   600,   400,   240,   150,   90,    70,   60,   80,  160, 320, 700
+                ];
+
+                let idx = 0;
+                function runCountdownStep() {
+                    if (idx >= keyframes.length) {
+                        updateFlipClock(targetImpact);
+                        return;
+                    }
+
+                    updateFlipClock(keyframes[idx]);
+                    const currentDelay = delays[idx] || 100;
+                    idx++;
+                    setTimeout(runCountdownStep, currentDelay);
+                }
+
+                runCountdownStep();
+            }, 1200);
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
-
-

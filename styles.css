@@ -205,6 +205,126 @@ body {
     color: #005EB8;
 }
 
+/* REVERSE FLIP DIGITAL CLOCK STYLING */
+.flip-clock-wrapper {
+    position: fixed;
+    top: 34%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.flip-clock-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.flip-digit-card {
+    position: relative;
+    width: 60px;
+    height: 86px;
+    background: linear-gradient(180deg, #ffffff 0%, #f2f2f5 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
+    font-size: 4.4rem;
+    line-height: 86px;
+    font-weight: 900;
+    color: #000000;
+    overflow: hidden;
+    perspective: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-digit-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    z-index: 5;
+}
+
+.digit-num {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-comma {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #000000;
+    margin: 0 2px;
+    align-self: flex-end;
+    padding-bottom: 6px;
+}
+
+.flip-clock-label {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+@keyframes cardFlipAnimation {
+    0% { transform: rotateX(0deg); opacity: 1; }
+    50% { transform: rotateX(-90deg); opacity: 0.6; }
+    100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.flip-digit-card.flipping {
+    animation: cardFlipAnimation 0.24s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .flip-clock-container {
+        padding: 10px 14px;
+        gap: 5px;
+    }
+    .flip-digit-card {
+        width: 40px;
+        height: 60px;
+        font-size: 3rem;
+        line-height: 60px;
+        border-radius: 8px;
+    }
+    .flip-comma {
+        font-size: 2.5rem;
+        padding-bottom: 4px;
+    }
+    .flip-clock-label {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}
+
 .mask-overlay {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: #000; 
