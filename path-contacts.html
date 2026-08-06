@@ -1,35 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Contacting Audiology</title>
+    <title>Useful Contacts & Directory - Bristol Hearing Loss Initiative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: #ff0f5b;
+            --brand-blue: #005EB8;
+            --brand-amber: #f39c12;
+            --brand-green: #1b5e20;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .contacts-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px 80px 24px;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 94, 184, 0.08);
+            color: var(--brand-blue);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(0, 94, 184, 0.15);
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin: 0 0 14px 0;
+            line-height: 1.15;
+        }
+
+        .hero-title span {
+            color: var(--brand-blue);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Category Nav Bar */
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .cat-chip {
+            background: #ffffff;
+            color: #334155;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .cat-chip:hover {
+            background: var(--brand-blue);
+            color: #ffffff;
+            border-color: var(--brand-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Category Card Block */
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .category-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 26px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+        }
+
+        .contact-card.border-blue { border-top: 5px solid var(--brand-blue); }
+        .contact-card.border-red { border-top: 5px solid var(--brand-red); }
+        .contact-card.border-green { border-top: 5px solid var(--brand-green); }
+        .contact-card.border-amber { border-top: 5px solid var(--brand-amber); }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+        }
+
+        .info-list {
+            margin: 0 0 18px 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .info-list strong {
+            color: #0f172a;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .btn-blue { background: var(--brand-blue); color: #ffffff; }
+        .btn-blue:hover { background: #004b93; }
+
+        .btn-red { background: var(--brand-red); color: #ffffff; }
+        .btn-red:hover { background: #d90429; }
+
+        .btn-green { background: var(--brand-green); color: #ffffff; }
+        .btn-green:hover { background: #134617; }
+
+        .btn-amber { background: var(--brand-amber); color: #ffffff; }
+        .btn-amber:hover { background: #d6870a; }
+
+        .btn-outline {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #e2e8f0;
+        }
+
+        /* Footer Nav Button */
+        .back-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+            border-radius: 40px;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .back-link-btn:hover {
+            background: #0f172a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+    </style>
 </head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">Contacting Audiology</h1>
+<body>
+    <script src="animation.js"></script>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
+    <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3);">Support Us</a>
+
+    <div class="contacts-wrapper">
         
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%;">
-            <p><strong>Email:</strong> Audiology.Dept@uhbw.nhs.uk</p>
-            <p><strong>Phone:</strong> 0117 342 5854</p>
-            <p>Contact us for repairs, advice, or appointments.</p>
-            <h3>Postal Addresses:</h3>
-            <p><strong>St Michael's Hospital:</strong> Adult Audiology, St Michael’s Hospital, St Michael’s Hill, Bristol, BS2 8EG</p>
-            <p><strong>Southmead Hospital:</strong> Adult Audiology, Gate 36, Brunel Building, Southmead Hospital, Bristol, BS10 5NB</p>
+        <!-- Hero Header -->
+        <div class="hero-section">
+            <div class="hero-badge">Bristol Directory</div>
+            <h1 class="hero-title">Useful Contacts <span>& Links</span></h1>
+            <p class="hero-subtitle">All key Bristol NHS services, support groups, council resources, and page pathways in one easy-to-navigate directory.</p>
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
+        <!-- Category Filter Chips -->
+        <div class="category-nav">
+            <a href="#section-nhs" class="cat-chip">🏥 NHS & Audiology</a>
+            <a href="#section-community" class="cat-chip">🤝 Community & Support</a>
+            <a href="#section-council" class="cat-chip">🏛️ Council & Equipment</a>
+            <a href="#section-mental" class="cat-chip">🧠 Mental Health</a>
+            <a href="#section-work" class="cat-chip">💼 Workplace & Tech</a>
         </div>
+
+        <!-- 1. NHS & AUDIOLOGY SERVICES -->
+        <div class="category-section" id="section-nhs">
+            <div class="category-header">
+                <h2>🏥 NHS & Audiology Services</h2>
+            </div>
+            <div class="contacts-grid">
+                
+                <!-- St Michael's Hospital -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">🏥 St Michael's Hospital Audiology</h3>
+                        <p class="card-desc">UHBW NHS Foundation Trust adult audiology department for hearing tests, hearing aid fittings, and battery repairs.</p>
+                        <ul class="info-list">
+                            <li><strong>Email:</strong> <a href="mailto:Audiology.Dept@uhbw.nhs.uk" style="color: var(--brand-blue);">Audiology.Dept@uhbw.nhs.uk</a></li>
+                            <li><strong>Phone:</strong> <a href="tel:01173425854" style="color: var(--brand-blue);">0117 342 5854</a></li>
+                            <li><strong>Address:</strong> St Michael’s Hill, Bristol, BS2 8EG</li>
+                        </ul>
+                    </div>
+                    <a href="path-contacts.html" class="card-btn btn-blue">View Audiology Contact &rarr;</a>
+                </div>
+
+                <!-- Southmead Hospital -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">🏥 Southmead Hospital Audiology</h3>
+                        <p class="card-desc">North Bristol NHS Trust audiology clinic for appointments, hearing aid servicing, and advice.</p>
+                        <ul class="info-list">
+                            <li><strong>Location:</strong> Gate 36, Brunel Building</li>
+                            <li><strong>Address:</strong> Southmead Hospital, Bristol, BS10 5NB</li>
+                            <li><strong>Services:</strong> NHS Hearing Aids & Repairs</li>
+                        </ul>
+                    </div>
+                    <a href="path-nhs.html" class="card-btn btn-blue">NHS Hearing Guide &rarr;</a>
+                </div>
+
+                <!-- NHS Hearing Aid Access -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">👂 Hearing Aid Access Guide</h3>
+                        <p class="card-desc">Complete step-by-step guide to getting free NHS hearing aids, GP referrals, and battery replacements in Bristol.</p>
+                    </div>
+                    <a href="path-hearing-aids-access.html" class="card-btn btn-outline">Explore Hearing Aid Access &rarr;</a>
+                </div>
+
+                <!-- NHS Hearing Therapists -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">🩺 NHS Hearing Therapists</h3>
+                        <p class="card-desc">Specialist NHS rehabilitation for tinnitus, hearing loss counselling, and communication tactics.</p>
+                    </div>
+                    <a href="path-hearing-therapists.html" class="card-btn btn-outline">View Hearing Therapists &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. COMMUNITY & SUPPORT INITIATIVES -->
+        <div class="category-section" id="section-community">
+            <div class="category-header">
+                <h2>🤝 Community & Support Groups</h2>
+            </div>
+            <div class="contacts-grid">
+
+                <!-- Bristol Hearing Loss Support Group -->
+                <div class="contact-card border-red">
+                    <div>
+                        <h3 class="card-title">🤝 Bristol Hearing Loss Support Group</h3>
+                        <p class="card-desc">Regular community meetups across Bristol providing peer support, free coffee, tech tips, and social connection.</p>
+                    </div>
+                    <a href="path-support-group.html" class="card-btn btn-red">Join Support Group &rarr;</a>
+                </div>
+
+                <!-- Leadership & Initiative -->
+                <div class="contact-card border-red">
+                    <div>
+                        <h3 class="card-title">👥 Initiative Leadership Team</h3>
+                        <p class="card-desc">Founded by Jason Parchment (CEO) & Jo Jones (Co-Founder) to build accessible networks across Bristol.</p>
+                    </div>
+                    <a href="path-about.html" class="card-btn btn-red">Meet Jason & Jo (About Us) &rarr;</a>
+                </div>
+
+                <!-- Community Stories & Testimonials -->
+                <div class="contact-card border-red">
+                    <div>
+                        <h3 class="card-title">💬 Community Stories & Experiences</h3>
+                        <p class="card-desc">Read real stories and lived experiences shared by hearing loss initiates across Bristol.</p>
+                    </div>
+                    <a href="path-testimonials.html" class="card-btn btn-outline">Read Community Stories &rarr;</a>
+                </div>
+
+                <!-- Submit Accessible Venue -->
+                <div class="contact-card border-red">
+                    <div>
+                        <h3 class="card-title">📍 Submit an Accessible Venue</h3>
+                        <p class="card-desc">Know a Bristol venue with great acoustics or working hearing loops? Submit it to our community directory.</p>
+                    </div>
+                    <a href="path-submit-venue.html" class="card-btn btn-outline">Submit Venue &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. COUNCIL & EQUIPMENT SERVICES -->
+        <div class="category-section" id="section-council">
+            <div class="category-header">
+                <h2>🏛️ Council & Equipment Services</h2>
+            </div>
+            <div class="contacts-grid">
+
+                <!-- Bristol City Council Adult Social Care -->
+                <div class="contact-card border-amber">
+                    <div>
+                        <h3 class="card-title">🏛️ Bristol City Council Social Care</h3>
+                        <p class="card-desc">Funds specialist sensory equipment assessments, advice, and Care Act support for hard-of-hearing residents.</p>
+                    </div>
+                    <a href="path-government-help.html" class="card-btn btn-amber">Government & Council Help &rarr;</a>
+                </div>
+
+                <!-- Free Equipment Service -->
+                <div class="contact-card border-amber">
+                    <div>
+                        <h3 class="card-title">🔔 Free Sensory & Safety Equipment</h3>
+                        <p class="card-desc">Qualifying Bristol residents can access free flashing doorbells, amplified phones, and fire-safety alarms.</p>
+                    </div>
+                    <a href="path-resources.html" class="card-btn btn-amber">Full Resources Directory &rarr;</a>
+                </div>
+
+                <!-- Accessible Venues Directory -->
+                <div class="contact-card border-amber">
+                    <div>
+                        <h3 class="card-title">🏢 Accessible Bristol Venues</h3>
+                        <p class="card-desc">Browse local Bristol cafes, theaters, and public buildings verified for acoustic comfort and hearing loops.</p>
+                    </div>
+                    <a href="path-accessible-venues.html" class="card-btn btn-outline">View Accessible Venues &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. MENTAL HEALTH & CRISIS HELP -->
+        <div class="category-section" id="section-mental">
+            <div class="category-header">
+                <h2>🧠 Mental Health & Crisis Support</h2>
+            </div>
+            <div class="contacts-grid">
+
+                <!-- Bristol Mental Health Page -->
+                <div class="contact-card border-green">
+                    <div>
+                        <h3 class="card-title">🧠 Bristol Mental Health Page</h3>
+                        <p class="card-desc">Navigating emotional grief, isolation, and psychological support for hearing loss initiates.</p>
+                    </div>
+                    <a href="path-mental-health.html" class="card-btn btn-green">Mental Health Guide &rarr;</a>
+                </div>
+
+                <!-- Vita Health Bristol -->
+                <div class="contact-card border-green">
+                    <div>
+                        <h3 class="card-title">🏥 Vita Health NHS Talking Therapies</h3>
+                        <p class="card-desc">Free NHS 1-to-1 counselling and CBT for Bristol residents. Self-refer online without GP appointment.</p>
+                    </div>
+                    <a href="https://www.vitahealthgroup.co.uk/nhs-services/nhs-mental-health/bristol-north-somerset-south-gloucestershire/" target="_blank" rel="noopener" class="card-btn btn-green">Visit Vita Health Bristol &#8599;</a>
+                </div>
+
+                <!-- Bristol Mind -->
+                <div class="contact-card border-green">
+                    <div>
+                        <h3 class="card-title">💚 Bristol Mind & Listening Services</h3>
+                        <p class="card-desc">Independent local mental health helpline offering free confidential listening and advocacy in Bristol.</p>
+                    </div>
+                    <a href="https://bristolmind.org.uk/" target="_blank" rel="noopener" class="card-btn btn-outline">Visit Bristol Mind &#8599;</a>
+                </div>
+
+                <!-- 24/7 Crisis Support -->
+                <div class="contact-card border-green" style="background: #fff1f2; border-color: #fecdd3;">
+                    <div>
+                        <h3 class="card-title" style="color: #9f1239;">🚨 24/7 Urgent Crisis Lines</h3>
+                        <ul class="info-list" style="color: #881337;">
+                            <li><strong>NHS Crisis Line:</strong> Call <strong>111</strong> (Option 2)</li>
+                            <li><strong>Samaritans:</strong> Call <strong>116 123</strong> (Free 24/7)</li>
+                            <li><strong>Shout Text Line:</strong> Text <strong>SHOUT to 85258</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 5. WORKPLACE, TECH & ADVICE -->
+        <div class="category-section" id="section-work">
+            <div class="category-header">
+                <h2>💼 Workplace & Assistive Technology</h2>
+            </div>
+            <div class="contacts-grid">
+
+                <!-- Access to Work DWP -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">💼 Workplace Advice & Access to Work</h3>
+                        <p class="card-desc">Government grants for specialized hearing technology, lipreading training, and workplace adaptations.</p>
+                    </div>
+                    <a href="path-workplace-tips.html" class="card-btn btn-blue">Workplace Tips & Grants &rarr;</a>
+                </div>
+
+                <!-- Assistive Technology Guide -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">📱 Assistive Tech & Auracast</h3>
+                        <p class="card-desc">Explore modern Bluetooth LE Audio, Auracast public broadcast systems, and smart listening accessories.</p>
+                    </div>
+                    <a href="path-assistive-technology.html" class="card-btn btn-outline">Explore Assistive Tech &rarr;</a>
+                </div>
+
+                <!-- Job Interviews Guide -->
+                <div class="contact-card border-blue">
+                    <div>
+                        <h3 class="card-title">🎯 Job Interviews & Disclosures</h3>
+                        <p class="card-desc">Practical tips for requesting interview adjustments and confidently communicating hearing needs to employers.</p>
+                    </div>
+                    <a href="path-job-interviews.html" class="card-btn btn-outline">View Job Interview Guide &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="path-yes.html" class="back-link-btn">
+                <span>&larr;</span> Return to Journey Hub
+            </a>
+        </div>
+
     </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
 </body>
 </html>
-
-

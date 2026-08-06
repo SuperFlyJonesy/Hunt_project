@@ -3,43 +3,437 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bristol NHS Foundation Trust - Audiology</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Bristol NHS Foundation Trust - Audiology & Visitor Guide</title>
+  <meta name="description" content="Verified visitor guide for Bristol NHS Foundation Trust Audiology clinics. Includes authentic hospital photos, interactive photo carousels, parking tariffs, RingGo details, step-by-step internal directions, colored zones, food & cafe options, estimated walking distances, and satellite clinic details.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="styles.css">
   <style>
     body.premium-white-theme {
       background-color: #f8f9fa;
       font-family: 'Inter', sans-serif;
-      color: #333333;
+      color: #1e293b;
       margin: 0;
       padding: 0;
+      line-height: 1.65;
     }
     .container {
-      max-width: 800px;
+      max-width: 960px;
       margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+    }
+    .header-section {
       text-align: center;
-      padding: 60px 20px 100px 20px;
+      margin-bottom: 40px;
     }
     h1 {
-      color: #ff0f5b;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+      color: #005EB8;
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 0;
     }
     .card {
       background: #ffffff;
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      border-left: 6px solid #ff0f5b;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #005EB8;
       text-align: left;
     }
-    .card h3 {
+    .card h2, .card h3 {
       margin-top: 0;
-      color: #005EB8;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+    .card h3 {
+      color: #005EB8;
+      font-size: 1.4rem;
+    }
+    .card-icon {
+      color: #005EB8;
+      font-size: 1.8rem;
+    }
+    .hospital-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+    @media (max-width: 680px) {
+      .hospital-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+    .hospital-card {
+      background: #f8fafc;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hospital-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .hospital-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+    .hospital-info {
+      padding: 16px;
+    }
+    .hospital-info h4 {
+      margin: 0 0 6px 0;
+      color: #0f172a;
+      font-size: 1.15rem;
+    }
+    .hospital-info p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #64748b;
+    }
+    .info-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .badge-uhbw {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .badge-nbt {
+      background: #f0fdf4;
+      color: #15803d;
+    }
+
+    /* CAROUSEL COMPONENT STYLES */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      margin: 25px 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+      background: #0f172a;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      width: 100%;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+      position: relative;
+      height: 380px;
+    }
+    @media (max-width: 600px) {
+      .carousel-slide {
+        height: 270px;
+      }
+    }
+    .carousel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 24px;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.75) 70%, transparent 100%);
+      color: #ffffff;
+    }
+    .carousel-caption h4 {
+      margin: 4px 0 2px 0;
+      font-size: 1.25rem;
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .carousel-caption p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #cbd5e1;
+    }
+    .carousel-prev, .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.88);
+      color: #0f172a;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 10;
+    }
+    .carousel-prev:hover, .carousel-next:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+    }
+    .carousel-prev { left: 15px; }
+    .carousel-next { right: 15px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 14px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .dot.active {
+      background: #0284c7;
+      transform: scale(1.3);
+    }
+
+    .zone-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .zone-blue { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+    .zone-green { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+    .zone-yellow { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+
+    .distance-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    .dist-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      color: #334155;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dist-pill strong { color: #0f172a; }
+
+    .step-directions {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #005EB8;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .step-directions ol {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+    .step-directions li {
+      margin-bottom: 8px;
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    .food-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    @media (max-width: 640px) {
+      .food-grid { grid-template-columns: 1fr; }
+    }
+    .food-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .food-card h5 {
+      margin: 0 0 6px 0;
+      color: #0f172a;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .food-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .alert-box {
+      background: #fffbebf5;
+      border: 1px solid #fef3c7;
+      border-left: 5px solid #f59e0b;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+      color: #78350f;
+    }
+    .alert-box strong { color: #92400e; }
+    
+    .caz-box {
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      border-left: 5px solid #2563eb;
+      padding: 18px 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+      color: #1e3a8a;
+    }
+    
+    .tariff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 0.95rem;
+    }
+    .tariff-table th, .tariff-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .tariff-table th {
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+    }
+    .tariff-table tr:hover { background: #f8fafc; }
+
+    .satellite-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 25px 0;
+    }
+    @media (max-width: 720px) {
+      .satellite-grid { grid-template-columns: 1fr; }
+    }
+    .satellite-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 22px;
+      transition: transform 0.2s ease;
+    }
+    .satellite-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+    .satellite-card h4 {
+      margin: 0 0 10px 0;
+      color: #0f172a;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 6px;
+    }
+    .sat-detail {
+      margin-bottom: 8px;
+      font-size: 0.92rem;
+      color: #334155;
+    }
+    .sat-detail strong { color: #0f172a; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .contact-item {
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .contact-item h5 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: #0f172a;
+    }
+    .contact-item p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #475569;
+    }
+    .contact-item a {
+      color: #005EB8;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .external-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .ext-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.2s;
+    }
+    .ext-btn:hover { opacity: 0.9; }
+    .btn-uhbw { background: #005EB8; }
+    .btn-nbt { background: #059669; }
+    .btn-ringgo { background: #d97706; }
+    .btn-caz { background: #4f46e5; }
     #dev-reset {
       position: absolute;
       top: 15px;
@@ -61,67 +455,499 @@
   <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
 
   <div class="container">
-    <h1>Bristol NHS Foundation Trust</h1>
-    
+    <div class="header-section">
+      <h1>Bristol NHS Foundation Trust</h1>
+      <p class="subtitle">Audiology Services, Hospital Visitor Guide, Directions & Satellite Sites</p>
+    </div>
+
+    <!-- Overview & Photos Card -->
     <div class="card" style="border-left-color: #005EB8;">
-      <h3>Combined Organization Overview</h3>
-      <p>The Bristol NHS trust has merged and is now officially called Bristol NHS Foundation Trust. Audiology is fully included in this newly formed, combined organization, offering seamless care for hearing and balance across various locations in the region.</p>
-      <p>The merged trust delivers Audiology services across several main sites, including:</p>
+      <h3><span class="material-symbols-outlined card-icon">local_hospital</span> Combined Organization Overview</h3>
+      <p>The Bristol NHS trust delivers combined NHS Audiology & ENT care across University Hospitals Bristol and Weston NHS Foundation Trust (UHBW) and North Bristol NHS Trust (NBT). Together, they provide seamless hearing assessments, hearing aid fittings, tinnitus therapy, and balance services across Bristol and the West of England.</p>
+      
+      <!-- Authentic Hospital Pictures -->
+      <div class="hospital-gallery">
+        <div class="hospital-card">
+          <img src="st-michaels-hospital.jpg" alt="St Michael's Hospital & UHBW Precinct" class="hospital-img">
+          <div class="hospital-info">
+            <span class="info-badge badge-uhbw">UHBW Trust</span>
+            <h4>St Michael's Hospital</h4>
+            <p>Main Adult Audiology Centre for Central Bristol (St Michael's Hill, BS2 8EG)</p>
+          </div>
+        </div>
+
+        <div class="hospital-card">
+          <img src="Audiology Images/southmead.jpg" alt="Brunel Building at Southmead Hospital" class="hospital-img">
+          <div class="hospital-info">
+            <span class="info-badge badge-nbt">North Bristol NHS Trust</span>
+            <h4>Southmead Hospital</h4>
+            <p>Brunel Building Audiology Clinic (Gate 36, Level 1, BS10 5NB)</p>
+          </div>
+        </div>
+      </div>
+
+      <p><strong>Main Audiology Hubs:</strong></p>
       <ul>
-        <li><strong>St Michael's Hospital</strong> (main adult audiology centre)</li>
-        <li><strong>Brunel Building at Southmead Hospital</strong> (Gate 36, Level 1)</li>
-        <li><strong>Weston General Hospital</strong></li>
-        <li><strong>Various community satellite clinics</strong> (e.g., Cossham, South Bristol Community Hospital)</li>
+        <li><strong>St Michael's Hospital</strong> (UHBW main adult audiology centre – Level C)</li>
+        <li><strong>Brunel Building at Southmead Hospital</strong> (NBT Gate 36, Level 1)</li>
+        <li><strong>Weston General Hospital</strong> (UHBW Main Outpatients Ground Floor)</li>
+        <li><strong>7 Community Satellite Clinics</strong> (Cossham, South Bristol Community Hospital, Clevedon, Thornbury, Portishead, Stockwood, Domiciliary)</li>
       </ul>
     </div>
 
+    <!-- First Time Visitor Advice & Clean Air Zone -->
+    <div class="card" style="border-left-color: #2563eb;">
+      <h3><span class="material-symbols-outlined card-icon">info</span> First-Time Visitor Essentials</h3>
+      
+      <div class="caz-box">
+        <strong>🚗 Bristol Clean Air Zone (CAZ) Notice:</strong><br>
+        St Michael's Hospital and the central hospital precinct sit inside the <strong>Bristol Clean Air Zone</strong>. Non-compliant vehicles are subject to a daily charge when driving to St Michael's Hill. Check your vehicle compliance on the official Bristol City Council CAZ tool before travelling. <em>(Note: Southmead Hospital and Weston General Hospital are outside the central CAZ zone).</em>
+      </div>
+
+      <div class="alert-box">
+        <strong>🦻 Hearing Loop & Accessibility Support:</strong><br>
+        All main Audiology waiting rooms at St Michael's Hospital, Southmead Brunel Building (Gate 36), and Weston General Hospital feature induction hearing loops, clear digital signage, and accessible seating. If you require a BSL interpreter or speech-to-text reporter for your appointment, contact the department in advance.
+      </div>
+
+      <h4>Essential Contact Numbers:</h4>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h5>St Michael's Audiology (UHBW)</h5>
+          <p>Direct Line: <a href="tel:01173425854">0117 342 5854</a></p>
+          <p>Email: <a href="mailto:Audiology.Dept@uhbw.nhs.uk">Audiology.Dept@uhbw.nhs.uk</a></p>
+        </div>
+
+        <div class="contact-item">
+          <h5>UHBW Main Switchboard</h5>
+          <p>Phone: <a href="tel:01179230000">0117 923 0000</a></p>
+          <p>Address: St Michael's Hill, BS2 8EG</p>
+        </div>
+
+        <div class="contact-item">
+          <h5>Southmead Audiology (NBT)</h5>
+          <p>Direct Line: <a href="tel:01174141400">0117 414 1400</a></p>
+          <p>Gate 36, Brunel Building, BS10 5NB</p>
+        </div>
+
+        <div class="contact-item">
+          <h5>Weston General Audiology</h5>
+          <p>Direct Line: <a href="tel:01934647047">01934 647 047</a></p>
+          <p>Grange Road, Uphill, BS23 4TQ</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ST MICHAEL'S DETAILED GUIDE -->
+    <div class="card" style="border-left-color: #d97706;">
+      <h3><span class="material-symbols-outlined card-icon">navigation</span> St Michael's Hospital: Internal Directions, Zone & Food</h3>
+      <p><strong>Address:</strong> St Michael's Hill, Bristol, BS2 8EG (Southwell Street entrance)</p>
+
+      <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-blue">Level C - Blue / Yellow Clinical Zone</span></p>
+
+      <h4>🚶 Estimated Walking Distances:</h4>
+      <div class="distance-pills">
+        <span class="dist-pill"><span class="material-symbols-outlined">directions_walk</span> From Bus Stop (Routes 8/9): <strong>100m (2 mins flat)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">local_parking</span> From Trenchard St Multi-Storey: <strong>450m (6–8 mins uphill)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">train</span> From Bristol Temple Meads Station: <strong>1.8 miles (12 mins on Bus 8/9)</strong></span>
+      </div>
+
+      <h4>🧭 Step-by-Step Internal Directions to Audiology:</h4>
+      <div class="step-directions">
+        <strong>How to find Adult Audiology inside St Michael's Hospital:</strong>
+        <ol>
+          <li><strong>From St Michael's Hill Main Entrance (Level E):</strong> Enter main reception on Level E. Head towards the central lift bank/stairwell and descend 2 floors down to <strong>Level C</strong>.</li>
+          <li><strong>From Southwell Street Courtyard Entrance (Level C):</strong> Enter via the dedicated Level C courtyard entrance (set back from St Michael's Hill near the NIHR Research Facility). This entrance provides step-free, flat access straight into Level C.</li>
+          <li><strong>Follow Zone Signs:</strong> Follow the blue line floor indicator and overhead <em>"Audiology Outpatients / Hearing Aids"</em> signs along the Level C main clinical corridor.</li>
+          <li><strong>Reception & Waiting Room:</strong> Audiology reception desk and waiting room are on your left along the main Level C corridor.</li>
+        </ol>
+      </div>
+
+      <h4>☕ Food & Refreshment Options at St Michael's:</h4>
+      <div class="food-grid">
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">local_cafe</span> Brewnel's Café (Level C Foyer)</h5>
+          <p>Situated directly inside the Level C entrance foyer near Audiology. Serves barista coffee, tea, fresh sandwiches, hot paninis, pastries, and cold drinks.<br><strong>Hours:</strong> Mon–Fri 7:00 am – 6:00 pm | Sat–Sun 9:00 am – 4:00 pm</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">fastfood</span> 24/7 Vending Machines (Level C)</h5>
+          <p>Located in the Level C foyer next to Brewnel's Café. Provides 24-hour access to hot beverages, cold bottled drinks, fresh sandwiches, snacks, and confectionery.</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">storefront</span> Nearby Coffee Shops (St Michael's Hill)</h5>
+          <p>Independent cafes located just 1–2 minutes walk outside the hospital on St Michael's Hill, including <em>Mocha Mocha</em> and <em>Bad Squirrel Café</em>.</p>
+        </div>
+      </div>
+
+      <h4>St Michael's Hospital On-Site Parking Tariffs:</h4>
+      <p><em>Standard tariffs apply 7:00 am – 5:00 pm, Monday to Sunday:</em></p>
+      <table class="tariff-table">
+        <thead>
+          <tr>
+            <th>Duration</th>
+            <th>Tariff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0 to 1 hour</td><td><strong>£3.20</strong></td></tr>
+          <tr><td>1 to 2 hours</td><td><strong>£4.20</strong></td></tr>
+          <tr><td>2 to 4 hours</td><td><strong>£7.30</strong></td></tr>
+          <tr><td>4 to 6 hours</td><td><strong>£9.40</strong></td></tr>
+          <tr><td>6 to 8 hours</td><td><strong>£19.00</strong></td></tr>
+          <tr><td>8 to 24 hours</td><td><strong>£26.50</strong></td></tr>
+          <tr><td>Overnight (5:00 pm – 7:00 am)</td><td><strong>£3.50</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>♿ Blue Badge Holders:</strong> Free parking for up to 4 hours in designated disabled bays. Always display your valid badge and scan it at the payment machine upon arrival.</p>
+
+      <h4>RingGo Cashless Mobile Parking & Street Parking:</h4>
+      <p>On-street Pay & Display parking on St Michael's Hill and the nearby Montague Hill car park use <strong>RingGo</strong>.</p>
+      <ul>
+        <li><strong>RingGo Telephone Pay / Registration:</strong> Call <a href="tel:01173419000" style="color: #d97706; font-weight: bold;">0117 341 9000</a></li>
+        <li><strong>Location Code:</strong> Check physical street signs adjacent to your parking spot for the 4- or 5-digit RingGo zone code.</li>
+      </ul>
+    </div>
+
+    <!-- SOUTHMEAD DETAILED GUIDE -->
+    <div class="card" style="border-left-color: #059669;">
+      <h3><span class="material-symbols-outlined card-icon">explore</span> Southmead Hospital (Brunel Building): Internal Directions, Zone & Food</h3>
+      <p><strong>Address:</strong> Gate 36, Level 1, Brunel Building, Southmead Hospital, Southmead Road, Bristol, BS10 5NB</p>
+
+      <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-green">Level 1 - Lime / Green Zone (Gate 36)</span></p>
+
+      <h4>🚶 Estimated Walking Distances:</h4>
+      <div class="distance-pills">
+        <span class="dist-pill"><span class="material-symbols-outlined">directions_bus</span> From Southmead Bus Station: <strong>100m (2–3 mins flat walk)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">local_parking</span> From Brunel Multi-Storey Car Park: <strong>200m (3–4 mins covered walk)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">time_to_leave</span> From Emergency Car Park: <strong>250m (4 mins flat walk)</strong></span>
+      </div>
+
+      <h4>🧭 Step-by-Step Internal Directions to Gate 36 Audiology:</h4>
+      <div class="step-directions">
+        <strong>How to find Gate 36 Audiology inside the Brunel Building:</strong>
+        <ol>
+          <li><strong>Enter Main Atrium:</strong> Enter through the main entrance of the Brunel Building into the Level 1 central indoor street (Atrium).</li>
+          <li><strong>Walk Along Central Street:</strong> Walk straight ahead along the central glass-roof atrium. Gates are numbered sequentially on overhead banners.</li>
+          <li><strong>Locate Gate 36 Landmark:</strong> Continue past Costa Coffee and M&S. Look for <strong>Gate 36</strong> on your right, situated directly opposite the <em>League of Friends Coffee Shop</em>.</li>
+          <li><strong>Check-in at Reception:</strong> Walk through Gate 36 doors to the Audiology reception desk and patient waiting area.</li>
+        </ol>
+      </div>
+
+      <h4>☕ Food & Refreshment Options in Brunel Building (Level 1 Atrium):</h4>
+      <div class="food-grid">
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">local_cafe</span> League of Friends Coffee Shop</h5>
+          <p>Located on Level 1 directly opposite Gate 36 Audiology. Serves fresh coffee, tea, sandwiches, homemade cakes, and snacks. Proceeds support hospital equipment.</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">shopping_bag</span> M&S Simply Food</h5>
+          <p>Located in the main Level 1 Brunel Atrium. Offers fresh sandwiches, salads, hot pastries, ready meals, fresh fruit, cold drinks, and bakery items.</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">coffee</span> Costa Coffee</h5>
+          <p>Features both a large sit-down branch and a quick express kiosk in the main Level 1 Brunel Atrium for coffee, tea, and baked goods.</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">restaurant</span> Fresh Restaurant / Canteen</h5>
+          <p>Main hospital canteen located on Level 1. Serves hot breakfasts, daily hot lunches, vegetarian options, salad bar, and soups.</p>
+        </div>
+      </div>
+
+      <h4>Brunel Multi-Storey Car Park Tariffs (ANPR System):</h4>
+      <table class="tariff-table">
+        <thead>
+          <tr>
+            <th>Duration</th>
+            <th>Tariff</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0 to 20 minutes (Drop-off / Pick-up)</td><td><strong>FREE</strong></td></tr>
+          <tr><td>20 minutes to 2 hours</td><td><strong>£4.40</strong></td></tr>
+          <tr><td>2 to 4 hours</td><td><strong>£6.60</strong></td></tr>
+          <tr><td>4 to 6 hours</td><td><strong>£8.60</strong></td></tr>
+          <tr><td>6 to 8 hours</td><td><strong>£9.70</strong></td></tr>
+          <tr><td>8 to 24 hours</td><td><strong>£13.20</strong></td></tr>
+          <tr><td>7-Day Weekly Pass</td><td><strong>£35.20</strong></td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Payment Kiosks:</strong> Pay at the automated kiosks inside the Brunel atrium before returning to your car (accepts cards, contactless, and cash).</p>
+      <p><strong>Southmead Parking Office Phone:</strong> <a href="tel:01174143334" style="color: #059669; font-weight: bold;">0117 414 3334</a> (Atrium desk open 6:00 am – 8:30 pm).</p>
+    </div>
+
+    <!-- WESTON GENERAL HOSPITAL ENHANCED CAROUSEL SECTION -->
+    <div class="card" style="border-left-color: #0284c7;">
+      <h3><span class="material-symbols-outlined card-icon">domain</span> Weston General Hospital: Visitor Guide & Facilities</h3>
+      <p><strong>Address:</strong> Grange Road, Uphill, Weston-super-Mare, BS23 4TQ</p>
+      <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-yellow">Ground Floor - Main Outpatients Corridor</span></p>
+
+      <!-- Weston Hospital Photos Interactive Carousel -->
+      <div class="carousel-container" id="weston-carousel">
+        <div class="carousel-track">
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Main entrance outside.jpg" alt="Weston General Hospital Main Entrance Outside" class="carousel-img">
+            <div class="carousel-caption">
+              <span class="info-badge badge-uhbw">Step 1: Arrival</span>
+              <h4>Main Entrance Outside</h4>
+              <p>Grange Road entrance & visitor drop-off zone (Uphill, Weston-super-Mare)</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Main recpetion.jpg" alt="Weston General Main Reception & Foyer" class="carousel-img">
+            <div class="carousel-caption">
+              <span class="info-badge badge-uhbw">Step 2: Foyer</span>
+              <h4>Main Reception & Visitor Foyer</h4>
+              <p>Ground floor entrance area next to Costa Coffee seating</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Corridor to Audiology .jpg" alt="Corridor to Audiology" class="carousel-img">
+            <div class="carousel-caption">
+              <span class="info-badge badge-uhbw">Step 3: Corridor</span>
+              <h4>Main Outpatients Corridor to Audiology</h4>
+              <p>Follow outpatients directional signs straight down the main ground floor wing</p>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Audiology reception.jpg" alt="Audiology Reception" class="carousel-img">
+            <div class="carousel-caption">
+              <span class="info-badge badge-uhbw">Step 4: Reception</span>
+              <h4>Audiology Reception & Waiting Area</h4>
+              <p>Ground floor clinic reception desk and comfortable patient waiting area</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button class="carousel-prev" aria-label="Previous Slide">&lsaquo;</button>
+        <button class="carousel-next" aria-label="Next Slide">&rsaquo;</button>
+
+        <!-- Indicator Dots -->
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+          <span class="dot" data-slide="3"></span>
+        </div>
+      </div>
+
+      <h4>🚶 Estimated Walking Distances:</h4>
+      <div class="distance-pills">
+        <span class="dist-pill"><span class="material-symbols-outlined">directions_bus</span> From Hospital Bus Stop: <strong>20m (1 min flat walk)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">local_parking</span> From Main Pay & Display Car Park: <strong>100m (2 mins flat walk)</strong></span>
+        <span class="dist-pill"><span class="material-symbols-outlined">directions_transit</span> From Weston Train Station: <strong>Free NHS Shuttle Bus directly to hospital grounds</strong></span>
+      </div>
+
+      <h4>🧭 Step-by-Step Internal Directions to Audiology:</h4>
+      <div class="step-directions">
+        <strong>How to find Audiology inside Weston General Hospital:</strong>
+        <ol>
+          <li><strong>Enter Main Entrance:</strong> Enter through the main hospital building entrance off Grange Road onto the ground floor corridor.</li>
+          <li><strong>Pass Costa Coffee:</strong> Walk past the Costa Coffee seating area on your right towards the main Outpatients reception.</li>
+          <li><strong>Follow Outpatients Signs:</strong> Continue straight down the main Outpatients corridor. Overhead directional signs point clearly to <em>"Audiology & Hearing Aids"</em> at the end of the clinical wing.</li>
+          <li><strong>Check-in at Reception:</strong> Audiology reception desk and waiting room are situated on the ground floor at the end of the Outpatients corridor.</li>
+        </ol>
+      </div>
+
+      <h4>☕ Food & Refreshment Options at Weston General:</h4>
+      <div class="food-grid">
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">local_cafe</span> Costa Coffee (Main Entrance)</h5>
+          <p>Situated directly inside the main hospital entrance foyer. Offers hot drinks, specialty coffees, sandwiches, paninis, cakes, and snacks for visitors and outpatients.</p>
+        </div>
+
+        <div class="food-card">
+          <h5><span class="material-symbols-outlined">restaurant</span> Rafters Restaurant (Ground Floor)</h5>
+          <p>Located on the ground floor. Serves hot meals, daily lunch specials, jacket potatoes, fresh salad bar, hot soups, and cold beverages.</p>
+        </div>
+      </div>
+
+      <h4>🚗 Parking & Shuttle Bus Information:</h4>
+      <ul>
+        <li><strong>On-Site Pay & Display Parking:</strong> Large main visitor car park situated directly outside the hospital entrance. Parking cameras record vehicle registrations; ensure payment is made before departure.</li>
+        <li><strong>♿ Blue Badge Parking:</strong> Designated Blue Badge spaces are located close to the main entrance and are free for badge holders.</li>
+        <li><strong>🚌 Free Station Shuttle Bus:</strong> A free circular shuttle bus operates Monday to Friday, linking Weston General Hospital directly with Weston-super-Mare railway station.</li>
+        <li><strong>Public Buses:</strong> Served by First Bus routes 7, 20, U2, and X5 directly to "Hospital Grounds" stop (20 metres from main entrance).</li>
+      </ul>
+
+      <p><strong>📞 Direct Audiology Line:</strong> <a href="tel:01934647047" style="color: #0284c7; font-weight: bold;">01934 647 047</a></p>
+    </div>
+
+    <!-- EXPANDED SATELLITE SITES SECTION -->
+    <div class="card" style="border-left-color: #8b5cf6;">
+      <h3><span class="material-symbols-outlined card-icon">location_city</span> Community NHS Audiology Satellite Sites</h3>
+      <p>To reduce travel for patients across Bristol, South Gloucestershire, and North Somerset, NHS Audiology conducts outpatient hearing tests, hearing aid fittings, and device maintenance at community satellite clinics:</p>
+
+      <div class="satellite-grid">
+        <!-- Site 1: Cossham Hospital -->
+        <div class="satellite-card">
+          <h4>Cossham Hospital (Kingswood)</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> Lodge Road, Kingswood, Bristol, BS15 1LF</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> 54 Pay & Display spaces + 11 Blue Badge disabled bays. Free parking for Blue Badge holders.</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> Bus routes 6, 7, 16, 17, 41 stop at "Cossham Hospital" (1 min walk).</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Adult hearing assessments, hearing aid fittings, retubing & maintenance by appointment.</div>
+          <div class="sat-detail"><strong>☕ Refreshments:</strong> On-site vending machines; short walk to Kingswood High Street shops.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+
+        <!-- Site 2: South Bristol Community Hospital -->
+        <div class="satellite-card">
+          <h4>South Bristol Community Hospital (SBCH)</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> Hengrove Promenade, Whitchurch Lane, Bristol, BS14 0DE</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> ANPR car park (2.1m height limit). Free for Blue Badge holders (validate badge at reception).</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> m1 MetroBus, 75, 76, 90, 36 stop at "Hengrove Park" (50m walk).</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Comprehensive adult audiology, digital aid repairs, battery supply, tinnitus advice.</div>
+          <div class="sat-detail"><strong>☕ Refreshments:</strong> On-site hospital café bar & vending machine facilities.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+
+        <!-- Site 3: Clevedon Hospital -->
+        <div class="satellite-card">
+          <h4>Clevedon Hospital</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> Old Street, Clevedon, North Somerset, BS21 6BH</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> Free patient car park on site.</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> Bus routes X6, X7 stop on Old Street near hospital.</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Satellite outpatient hearing aid clinics, retubing & battery exchange.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+
+        <!-- Site 4: Thornbury Health Centre -->
+        <div class="satellite-card">
+          <h4>Thornbury Health Centre / Hospital</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> Eastland Road, Thornbury, Bristol, BS35 1DN</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> Free patient parking spaces available outside centre.</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> T1 Bus route from Bristol City Centre to Thornbury Health Centre.</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Routine hearing checks, NHS hearing aid servicing, ear care advice.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01174141400">0117 414 1400</a></div>
+        </div>
+
+        <!-- Site 5: Portishead Medical Centre -->
+        <div class="satellite-card">
+          <h4>Portishead Medical Centre</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> 1 Stock Way North, Portishead, Bristol, BS20 6NJ</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> On-site patient parking with disabled bays.</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> Bus route X4 connects Portishead to Bristol.</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Audiology satellite consultations, earmould fittings, maintenance.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+
+        <!-- Site 6: Stockwood Medical Centre -->
+        <div class="satellite-card">
+          <h4>Stockwood Medical Centre</h4>
+          <div class="sat-detail"><strong>📍 Address:</strong> Kolynos Close, Stockwood, Bristol, BS14 8JL</div>
+          <div class="sat-detail"><strong>🚗 Parking:</strong> Free on-site medical centre car park.</div>
+          <div class="sat-detail"><strong>🚌 Public Transport:</strong> Bus route 2 connects Stockwood directly to Central Bristol.</div>
+          <div class="sat-detail"><strong>🩺 Services:</strong> Local community hearing aid repairs & battery replacement.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+
+        <!-- Site 7: Domiciliary Home Visit Service -->
+        <div class="satellite-card" style="grid-column: span 2;">
+          <h4>NHS Domiciliary (Home Visit) Service</h4>
+          <div class="sat-detail"><strong>📍 Coverage:</strong> Full coverage across Bristol, South Gloucestershire & North Somerset.</div>
+          <div class="sat-detail"><strong>🩺 Eligibility:</strong> Available for housebound, frail, or elderly patients unable to attend hospital.</div>
+          <div class="sat-detail"><strong>📝 Referral:</strong> Arranged via GP referral or contacting the central Audiology booking team.</div>
+          <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GP & ENT Referrals -->
     <div class="card" style="border-left-color: #f39c12;">
-      <h3>Referrals to NHS Audiology</h3>
-      <p><strong>GP Referrals:</strong></p>
-      <ul>
-        <li>Will look in your ears, ask about hearing and other symptoms.</li>
-        <li>May perform a tuning fork test or whisper test.</li>
-        <li>Note: They may not ask where you’d like to go for a hearing test.</li>
-      </ul>
-      <p><strong>ENT Referrals:</strong></p>
-      <ul>
-        <li>Both NHS and private ENT can refer directly to audiology.</li>
-        <li>ENT referrals are appropriate for: Tinnitus, balance issues, and hearing aids.</li>
-      </ul>
+      <h3><span class="material-symbols-outlined card-icon">assignment_ind</span> Referrals to NHS Audiology</h3>
+      <p><strong>GP Referrals:</strong> Your GP will inspect your ear canals, assess symptoms, and submit a direct NHS referral to UHBW (St Michael's / Weston General) or North Bristol NHS Trust (Southmead).</p>
+      <p><strong>ENT & Specialist Referrals:</strong> Ear, Nose & Throat (ENT) consultants can refer directly for specialized adult audiology, tinnitus management, or balance therapy.</p>
     </div>
 
-    <div class="card">
-      <h3>St Michael's Hospital</h3>
-      <p><strong>Adult Audiology</strong><br>St Michael's Hospital, St Michael's Hill, Bristol, BS2 8EG</p>
-      <p><strong>Contact:</strong> 0117 342 5854 | Audiology.Dept@uhbw.nhs.uk</p>
+    <!-- Verified Links Section -->
+    <div class="card" style="border-left-color: #64748b;">
+      <h3><span class="material-symbols-outlined card-icon">link</span> Verified Official NHS & Parking Links</h3>
+      <p>Access official trust travel guides, RingGo portal, and Bristol Council tools:</p>
+      
+      <div class="external-btn-group">
+        <a href="https://www.uhbw.nhs.uk/p/patients-and-visitors/travelling-to-our-hospitals" target="_blank" rel="noopener" class="ext-btn btn-uhbw">
+          <span class="material-symbols-outlined">open_in_new</span> UHBW Travel & Parking Guide
+        </a>
+        <a href="https://www.nbt.nhs.uk/our-hospitals/southmead-hospital/travel-parking-southmead-hospital" target="_blank" rel="noopener" class="ext-btn btn-nbt">
+          <span class="material-symbols-outlined">open_in_new</span> Southmead Parking Guide
+        </a>
+        <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener" class="ext-btn btn-ringgo">
+          <span class="material-symbols-outlined">open_in_new</span> RingGo Official Portal
+        </a>
+        <a href="https://www.bristol.gov.uk/residents/streets-travel-zoning/bristol-clean-air-zone" target="_blank" rel="noopener" class="ext-btn btn-caz">
+          <span class="material-symbols-outlined">open_in_new</span> Bristol Clean Air Zone Tool
+        </a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Southmead Hospital</h3>
-      <p><strong>Adult Audiology</strong><br>Gate 36, Brunel Building, Southmead Hospital, Bristol, BS10 5NB</p>
-    </div>
-
-    <div class="card">
-      <h3>Weston-Super-Mare General Hospital</h3>
-      <p><strong>UHBW Audiology Clinic</strong><br>Grange Road, Weston-super-Mare, BS23 4TQ</p>
-    </div>
-
-    <div class="card">
-      <h3>Community Satellite Locations</h3>
-      <ul>
-        <li><strong>Cossham Hospital:</strong> Lodge Road, Kingswood, Bristol, BS15 1LF</li>
-        <li><strong>Thornbury Hospital:</strong> Eastland Road, Thornbury, Bristol, BS35 1DN</li>
-        <li><strong>Portishead Medical Centre / Clinic:</strong> 1 Stock Way North, Portishead, Bristol, BS20 6NJ</li>
-        <li><strong>Clevedon Hospital:</strong> Old Street, Clevedon, North Somerset, BS21 6BH</li>
-        <li><strong>Stockwood Medical Centre:</strong> Kolynos Close, Stockwood, Bristol, BS14 8JL</li>
-        <li><strong>South Bristol Community Hospital:</strong> Hengrove Promenade, Whitchurch Lane, Bristol, BS14 0DB</li>
-        <li><strong>Domiciliary Visits:</strong> Home visits available for eligible patients.</li>
-      </ul>
-    </div>
-
-    <div style="text-align: center; padding: 2rem;">
-      <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
+    <div style="text-align: center; padding: 2rem 0;">
+      <a href="path-yes.html" style="color: #005EB8; text-decoration: none; font-weight: 700; font-size: 1.15rem; display: inline-flex; align-items: center; gap: 6px;">
+        <span class="material-symbols-outlined">arrow_back</span> Back to Journey
+      </a>
     </div>
   </div>
+
+  <!-- INTERACTIVE CAROUSEL SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('weston-carousel');
+      if (!carousel) return;
+
+      const track = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-prev');
+      const nextBtn = carousel.querySelector('.carousel-next');
+      const dots = carousel.querySelectorAll('.dot');
+      
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+      if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goToSlide(i));
+      });
+
+      // Touch Swipe Support for Mobile Devices
+      let startX = 0;
+      let endX = 0;
+
+      carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        if (startX - endX > 40) goToSlide(currentIndex + 1);
+        if (endX - startX > 40) goToSlide(currentIndex - 1);
+      }, { passive: true });
+    });
+  </script>
 </body>
 </html>

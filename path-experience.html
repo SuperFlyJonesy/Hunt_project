@@ -386,15 +386,38 @@
             container.insertBefore(div, document.getElementById('continue-btn'));
             
             setTimeout(() => {
+                const statW = div.offsetWidth || 300;
+                const statH = div.offsetHeight || 80;
+
+                const isMobile = window.innerWidth <= 600;
+                const minMarginX = isMobile ? 15 : 40;
+                const minMarginTop = isMobile ? 60 : 90;
+                const minMarginBottom = isMobile ? 100 : 140;
+
+                const minCenterX = minMarginX + (statW / 2);
+                const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
+
+                const minCenterY = minMarginTop + (statH / 2);
+                const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
+
+                let targetX, targetY;
+
                 if (index === 0) {
-                    div.style.top = '50%';
-                    div.style.left = '50%';
-                    div.style.transform = 'translate(-50%, -50%)';
+                    targetX = window.innerWidth / 2;
+                    targetY = window.innerHeight / 2;
                 } else {
-                    div.style.transform = 'none';
-                    div.style.top = (Math.random() * 55 + 10) + 'vh';
-                    div.style.left = Math.random() * (window.innerWidth - div.offsetWidth - 80) + 40 + 'px';
+                    targetX = (maxCenterX > minCenterX) 
+                        ? minCenterX + Math.random() * (maxCenterX - minCenterX)
+                        : window.innerWidth / 2;
+
+                    targetY = (maxCenterY > minCenterY)
+                        ? minCenterY + Math.random() * (maxCenterY - minCenterY)
+                        : window.innerHeight / 2;
                 }
+
+                div.style.left = `${targetX}px`;
+                div.style.top = `${targetY}px`;
+                div.style.transform = 'translate(-50%, -50%)';
                 
                 div.style.opacity = '1';
                 setTimeout(() => {

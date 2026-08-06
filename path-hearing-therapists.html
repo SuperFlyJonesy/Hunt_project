@@ -1,36 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Hearing Therapists</title>
+    <title>Bristol Hearing Therapists & Rehabilitation Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #9b59b6; }
-        .info-card { background: #f8f9fa; border-radius: 20px; padding: 30px; border-left: 6px solid #9b59b6; margin-top: 20px; }
+        :root {
+            --brand-purple: #9b59b6;
+            --brand-blue: #005EB8;
+            --brand-red: #ff0f5b;
+            --brand-green: #1b5e20;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-wrapper {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: 60px 24px 80px 24px;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(155, 89, 182, 0.1);
+            color: var(--brand-purple);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(155, 89, 182, 0.2);
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin: 0 0 14px 0;
+            line-height: 1.15;
+        }
+
+        .hero-title span {
+            color: var(--brand-purple);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.65;
+        }
+
+        /* What a Hearing Therapist Does Hero Box */
+        .overview-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 45px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+            border-left: 6px solid var(--brand-purple);
+        }
+
+        .overview-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--brand-purple);
+            margin: 0 0 14px 0;
+        }
+
+        .overview-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #475569;
+            margin: 0 0 16px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .service-pill-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.96rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        .service-pill-card strong {
+            color: var(--text-main);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        /* Therapists Directory Grid */
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .therapist-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .therapist-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .therapist-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+        }
+
+        .therapist-card.border-purple { border-top: 5px solid var(--brand-purple); }
+        .therapist-card.border-blue { border-top: 5px solid var(--brand-blue); }
+        .therapist-card.border-green { border-top: 5px solid var(--brand-green); }
+
+        .therapist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .therapist-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 4px 0;
+        }
+
+        .therapist-org {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-nhs {
+            background: rgba(0, 94, 184, 0.1);
+            color: var(--brand-blue);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-community {
+            background: rgba(155, 89, 182, 0.1);
+            color: var(--brand-purple);
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .therapist-desc {
+            font-size: 1.02rem;
+            color: #475569;
+            line-height: 1.65;
+            margin: 0 0 18px 0;
+        }
+
+        .contact-details-box {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 18px 22px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 18px;
+            font-size: 0.96rem;
+        }
+
+        .contact-details-box p {
+            margin: 0 0 8px 0;
+            color: #334155;
+        }
+
+        .contact-details-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-details-box strong {
+            color: #0f172a;
+        }
+
+        .action-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-purple { background: var(--brand-purple); color: #ffffff; }
+        .btn-purple:hover { background: #8844a5; }
+
+        .btn-blue { background: var(--brand-blue); color: #ffffff; }
+        .btn-blue:hover { background: #004b93; }
+
+        .btn-outline { background: #ffffff; color: #0f172a; border: 1px solid #cbd5e1; }
+        .btn-outline:hover { background: #f1f5f9; }
+
+        /* How to Access Guide */
+        .guide-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px;
+            margin-bottom: 45px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        .guide-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 18px 0;
+        }
+
+        .steps-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .step-item {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 22px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--brand-purple);
+            color: #ffffff;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .step-item h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+
+        .step-item p {
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Footer Link */
+        .back-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+            border-radius: 40px;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .back-link-btn:hover {
+            background: #0f172a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
     </style>
 </head>
-<body class="premium-white-theme">
-    <div class="content">
-        <h1>Hearing Therapists</h1>
-        <div class="info-card">
-            <p>Hearing therapists provide essential support for managing the impact of hearing loss on daily life.</p>
-            <p>They can assist with:</p>
-            <ul>
-                <li>Developing communication strategies.</li>
-                <li>Managing the emotional aspects of hearing loss.</li>
-                <li>Providing support for both the individual and their family members.</li>
-            </ul>
+<body>
+    <script src="animation.js"></script>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
+    <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3);">Support Us</a>
+
+    <div class="page-wrapper">
+        
+        <!-- Hero Header -->
+        <div class="hero-section">
+            <div class="hero-badge">Bristol Rehabilitation Directory</div>
+            <h1 class="hero-title">Local Bristol <span>Hearing Therapists</span></h1>
+            <p class="hero-subtitle">Comprehensive directory of specialist NHS Hearing Therapists, audiology rehabilitation teams, and community communication advisers across Bristol.</p>
         </div>
-        <div style="margin-top: 30px;">
-            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold;">&larr; Back to Journey</a>
+
+        <!-- What a Hearing Therapist Does -->
+        <div class="overview-card">
+            <h2>👂 How a Hearing Therapist Helps You</h2>
+            <p>Hearing Therapists specialize in helping adults manage the personal, emotional, and social impact of hearing loss, tinnitus, and auditory processing conditions. Unlike hearing aid dispensers who focus solely on technology, hearing therapists provide holistic rehabilitation and practical coping strategies.</p>
+            
+            <div class="services-grid">
+                <div class="service-pill-card">
+                    <strong>🗣️ Communication Tactics</strong>
+                    Lipreading skills, managing background noise, and requesting accommodations.
+                </div>
+                <div class="service-pill-card">
+                    <strong>🔔 Tinnitus & Hyperacusis</strong>
+                    Sound therapy, relaxation techniques, habituation, and distress reduction.
+                </div>
+                <div class="service-pill-card">
+                    <strong>❤️ Emotional Support</strong>
+                    Navigating hearing loss grief, social anxiety, communication fatigue, and isolation.
+                </div>
+                <div class="service-pill-card">
+                    <strong>📱 Assistive Technology</strong>
+                    Integrating hearing aids with Roger mics, TV streamers, and flashing alerts.
+                </div>
+            </div>
         </div>
+
+        <!-- Local Therapists & Clinics Directory -->
+        <h2 class="section-title">🏥 Bristol Hearing Therapy Clinics & Services</h2>
+
+        <div class="therapist-grid">
+
+            <!-- 1. UHBW NHS Hearing Therapy Service (St Michael's Hospital / BRI) -->
+            <div class="therapist-card border-purple">
+                <div class="therapist-header">
+                    <div>
+                        <h3 class="therapist-name">NHS Adult Hearing Therapy Service</h3>
+                        <div class="therapist-org">University Hospitals Bristol & Weston NHS Trust (UHBW)</div>
+                    </div>
+                    <span class="badge-nhs">Free NHS Service</span>
+                </div>
+                <p class="therapist-desc">
+                    Specialist NHS Hearing Therapists providing 1-to-1 auditory rehabilitation, tinnitus retraining therapy (TRT), hyperacusis management, and lipreading guidance. Serving Bristol Royal Infirmary (BRI) and St Michael's Hospital patients.
+                </p>
+                <div class="contact-details-box">
+                    <p><strong>Phone:</strong> <a href="tel:01173425854" style="color: var(--brand-purple); font-weight: 700;">0117 342 5854</a> (Mon-Fri 8:30am - 4:30pm)</p>
+                    <p><strong>Email:</strong> <a href="mailto:Audiology.Dept@uhbw.nhs.uk" style="color: var(--brand-purple); font-weight: 700;">Audiology.Dept@uhbw.nhs.uk</a></p>
+                    <p><strong>Address:</strong> Level 2, St Michael's Hospital, St Michael's Hill, Bristol, BS2 8EG</p>
+                    <p><strong>Referral:</strong> GP referral or internal NHS Audiologist referral.</p>
+                </div>
+                <div class="action-btns">
+                    <a href="mailto:Audiology.Dept@uhbw.nhs.uk" class="btn-action btn-purple">Email UHBW Hearing Therapy &rarr;</a>
+                    <a href="path-contacts.html" class="btn-action btn-outline">View Audiology Directory &rarr;</a>
+                </div>
+            </div>
+
+            <!-- 2. Southmead Hospital NHS Hearing Rehabilitation (Brunel Building) -->
+            <div class="therapist-card border-blue">
+                <div class="therapist-header">
+                    <div>
+                        <h3 class="therapist-name">Southmead NHS Hearing Rehabilitation & Tinnitus Clinic</h3>
+                        <div class="therapist-org">North Bristol NHS Trust (NBT)</div>
+                    </div>
+                    <span class="badge-nhs">Free NHS Service</span>
+                </div>
+                <p class="therapist-desc">
+                    NHS Audiology & Hearing Therapy clinic delivering comprehensive hearing tactics training, acoustic counseling, and auditory habituation for complex hearing loss and tinnitus distress.
+                </p>
+                <div class="contact-details-box">
+                    <p><strong>Phone:</strong> <a href="tel:01174145150" style="color: var(--brand-blue); font-weight: 700;">0117 414 5150</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:audiology@nbt.nhs.uk" style="color: var(--brand-blue); font-weight: 700;">audiology@nbt.nhs.uk</a></p>
+                    <p><strong>Address:</strong> Gate 36, Brunel Building, Southmead Hospital, Bristol, BS10 5NB</p>
+                    <p><strong>Referral:</strong> Bristol GP or Southmead ENT Audiology referral.</p>
+                </div>
+                <div class="action-btns">
+                    <a href="mailto:audiology@nbt.nhs.uk" class="btn-action btn-blue">Email Southmead Audiology &rarr;</a>
+                    <a href="path-nhs.html" class="btn-action btn-outline">NHS Hearing Guide &rarr;</a>
+                </div>
+            </div>
+
+            </div>
+
+        </div>
+
+        <!-- Step-by-Step Referral Guide -->
+        <div class="guide-card">
+            <h2>📋 How to Access an NHS Hearing Therapist in Bristol</h2>
+            
+            <div class="steps-list">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h3>Contact Your GP or Audiologist</h3>
+                    <p>Request an appointment with your Bristol GP or speak to your NHS Audiologist during your routine hearing aid appointment at St Michael's or Southmead.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h3>Request Hearing Therapy Referral</h3>
+                    <p>Ask specifically for a referral to the <strong>NHS Adult Hearing Therapy Service</strong> for communication tactics, tinnitus distress, or emotional adjustment.</p>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h3>Initial Consultation</h3>
+                    <p>Attend your 1-to-1 therapy session (available in-person, by video, or telephone) to create your personalized communication plan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="path-yes.html" class="back-link-btn">
+                <span>&larr;</span> Return to Journey Hub
+            </a>
+        </div>
+
     </div>
 </body>
 </html>
-
-

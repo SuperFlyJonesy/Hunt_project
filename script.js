@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // REGISTRATION SUBMISSION LOGIC (PARDON SCREEN)
+    // REGISTRATION SUBMISSION LOGIC (PARDON SCREEN WITH ANIMATED COUNTDOWN)
     window.handleRegistrationSubmission = function() {
         if (modal) modal.classList.remove('active');
     
@@ -120,10 +120,27 @@ document.addEventListener("DOMContentLoaded", () => {
             let totalHelped = parseInt(localStorage.getItem('totalHelped') || 0);
             totalHelped++;
             localStorage.setItem('totalHelped', totalHelped);
+            const startVal = Math.max(0, 62220 - (totalHelped - 1));
             const finalCount = Math.max(0, 62220 - totalHelped);
 
+            // Dynamic Random Digit Jumble/Cipher Shuffle Effect for Landing Page Stencil Number
             if (mainNumber) {
-                mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                let ticks = 0;
+                const maxTicks = 24; // ~1.1s duration at 45ms per jumble step
+                const jumbleInterval = setInterval(() => {
+                    ticks++;
+                    if (ticks < maxTicks) {
+                        const randomDigits = Math.floor(10000 + Math.random() * 89999).toString();
+                        const formattedJumble = randomDigits.slice(0, 2) + '<span class="small-comma">,</span>' + randomDigits.slice(2);
+                        mainNumber.innerHTML = formattedJumble;
+                    } else {
+                        clearInterval(jumbleInterval);
+                        mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                        mainNumber.classList.remove('soft-pulse');
+                        void mainNumber.offsetWidth; // Force reflow
+                        mainNumber.classList.add('soft-pulse');
+                    }
+                }, 45);
             }
 
             const enteredName = document.getElementById('user-name')?.value?.trim() || 'Initiate Supporter';
@@ -141,35 +158,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const nameGreeting = enteredName ? `, ${enteredName}` : '';
 
-            actionPanel.innerHTML = `
-                <div style="margin-top: 10vh; text-align: center;">
-                    <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
-                    <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
-                    <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
-                </div>
-            `;
-            
-            document.getElementById('btn-continue-hub').addEventListener('click', () => {
-                const actionPanel = document.getElementById('bottom-action-panel');
-                const stencil = document.getElementById('stencil-count');
+            setTimeout(() => {
+                actionPanel.innerHTML = `
+                    <div style="margin-top: 10vh; text-align: center;">
+                        <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
+                        <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
+                        <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
+                    </div>
+                `;
                 
-                if (actionPanel) {
-                    actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
-                    actionPanel.style.opacity = '0';
-                    actionPanel.style.filter = 'blur(6px)';
-                    actionPanel.style.transform = 'translateY(-15px)';
-                }
-                if (stencil) {
-                    stencil.style.transition = 'opacity 0.6s ease';
-                    stencil.style.opacity = '0';
-                }
-                document.body.style.transition = 'background-color 0.7s ease';
-                document.body.style.backgroundColor = '#ffffff';
+                document.getElementById('btn-continue-hub').addEventListener('click', () => {
+                    const actionPanel = document.getElementById('bottom-action-panel');
+                    const stencil = document.getElementById('stencil-count');
+                    
+                    if (actionPanel) {
+                        actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+                        actionPanel.style.opacity = '0';
+                        actionPanel.style.filter = 'blur(6px)';
+                        actionPanel.style.transform = 'translateY(-15px)';
+                    }
+                    if (stencil) {
+                        stencil.style.transition = 'opacity 0.6s ease';
+                        stencil.style.opacity = '0';
+                    }
+                    document.body.style.transition = 'background-color 0.7s ease';
+                    document.body.style.backgroundColor = '#ffffff';
 
-                setTimeout(() => {
-                    window.location.href = 'path-yes.html';
-                }, 600);
-            });
+                    setTimeout(() => {
+                        window.location.href = 'path-yes.html';
+                    }, 600);
+                });
+            }, 1750);
         }
     };
 
@@ -221,9 +240,38 @@ function initPrologue() {
         const currentStat = stats[currentStatIndex];
         prologue.style.setProperty('--highlight-color', highlightColors[currentStatIndex % highlightColors.length]);
 
-        // 3. Position Logic: Keep text centered horizontally & dropped slightly lower
-        currentStat.style.left = '50%';
-        currentStat.style.top = (currentStatIndex === 0) ? '50%' : '53%';
+        // 3. Position Logic: Bounded random positioning across screen without edge clipping or prompt overlap
+        const statW = currentStat.offsetWidth || 300;
+        const statH = currentStat.offsetHeight || 80;
+
+        const isMobile = window.innerWidth <= 600;
+        const minMarginX = isMobile ? 15 : 40;
+        const minMarginTop = isMobile ? 60 : 90;
+        const minMarginBottom = isMobile ? 100 : 140;
+
+        const minCenterX = minMarginX + (statW / 2);
+        const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
+
+        const minCenterY = minMarginTop + (statH / 2);
+        const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
+
+        let targetX, targetY;
+
+        if (currentStatIndex === 0) {
+            targetX = window.innerWidth / 2;
+            targetY = window.innerHeight / 2;
+        } else {
+            targetX = (maxCenterX > minCenterX) 
+                ? minCenterX + Math.random() * (maxCenterX - minCenterX)
+                : window.innerWidth / 2;
+
+            targetY = (maxCenterY > minCenterY)
+                ? minCenterY + Math.random() * (maxCenterY - minCenterY)
+                : window.innerHeight / 2;
+        }
+
+        currentStat.style.left = `${targetX}px`;
+        currentStat.style.top = `${targetY}px`;
         currentStat.style.transform = 'translate(-50%, -50%)';
 
         // 4. Fade in entire current stat
