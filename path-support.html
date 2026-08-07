@@ -64,19 +64,19 @@
         </header>
         <div class="metro-grid">
             <a href="path-family-guide.html" class="metro-btn" style="background-color: #D32F2F;"><span class="material-symbols-outlined metro-icon">family_restroom</span><span class="metro-text">Family Guide</span></a>
-            <a href="path-workplace-tips.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
-            <a href="path-join-us.html" class="metro-btn" style="background-color: #1b5e20;"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Join Us</span></a>
-            <a href="path-awareness.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
-            <a href="path-join-outreach.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
-            <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
-            <a href="path-training.html" class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
-            <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #E65100;"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
+            <a href="path-workplace-tips.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
+            <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #d97706;"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
+            <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
             <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
-            <a href="path-experience.html" class="metro-btn" style="background-color: #e65100;"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
+            <a href="path-awareness.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
             <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Job Interviews</span></a>
             <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Don't Put in Ears</span></a>
-            <a href="path-yes.html" class="metro-btn" style="background-color: #222;"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiative</span></a>
+            <a href="path-training.html" class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
+            <a href="path-join-outreach.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
+            <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
+            <a href="path-join-us.html" class="metro-btn" style="background-color: #1b5e20;"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Join Us</span></a>
             <a href="path-bear-pit.html" class="metro-btn" style="background-color: #E91E63;"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
+            <a href="path-yes.html" class="metro-btn" style="background-color: #1e293b;"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiate</span></a>
         </div>
     </div>
 
@@ -97,20 +97,13 @@
             const volumeIcon = document.getElementById('volume-icon');
 
             if (audio && volumeSlider && volumeIcon) {
-                // Load saved settings
-                const savedVolume = localStorage.getItem('bgVolume') || 0.15;
-                const savedMuted = localStorage.getItem('bgMuted') === 'true';
-
-                audio.volume = savedVolume;
-                audio.muted = savedMuted;
-                volumeSlider.value = savedVolume;
+                // Default sound to MUTE upon arrival
+                audio.volume = 0.15;
+                audio.muted = true;
+                volumeSlider.value = 0.15;
 
                 // Set initial icon
-                if (savedMuted) {
-                    volumeIcon.textContent = 'volume_off';
-                } else {
-                    volumeIcon.textContent = savedVolume < 0.3 ? 'volume_down' : 'volume_up';
-                }
+                volumeIcon.textContent = 'volume_off';
 
                 // Volume slider listener
                 volumeSlider.addEventListener('input', (e) => {

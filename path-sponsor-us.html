@@ -1,68 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Sponsor Us</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <title>Sponsor Us - Bristol Hearing Loss Initiative</title>
+  <meta name="description" content="Partner with the Bristol Hearing Loss Initiative to fund venue accessibility, hearing loop setups, and community support for hard-of-hearing adults.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.premium-white-theme {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+    }
+    .header-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #005EB8;
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #005EB8;
+      text-align: left;
+    }
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3 {
+      color: #005EB8;
+      font-size: 1.4rem;
+    }
+    .card-icon {
+      color: #005EB8;
+      font-size: 1.8rem;
+    }
+    .info-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .badge-uhbw {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .badge-nbt {
+      background: #f0fdf4;
+      color: #15803d;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: #005EB8;
+      box-shadow: 0 0 0 3px rgba(0, 94, 184, 0.15);
+    }
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .external-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .ext-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .ext-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+    .btn-uhbw { background: #005EB8; }
+    .btn-nbt { background: #059669; }
+    .btn-ringgo { background: #d97706; }
+    .btn-caz { background: #4f46e5; }
+
+    #dev-reset {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: black;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.15;
+      cursor: pointer;
+      z-index: 99999999;
+      padding: 10px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
-    
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">Sponsor Us</h1>
-        
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #ff0f5b;">Partner with the Bristol Hearing Loss Initiative</h2>
-            <p>We’re a grassroots, community‑led project run by people with lived hard of hearing (HoH) experience, building practical support, training and social spaces for Bristol’s hearing loss initiates.</p>
-            <p>By sponsoring us, you help remove real barriers for thousands of local people with hearing loss, while reaching the very audiences your organisation wants to support.</p>
-        </div>
+<body class="premium-white-theme">
+  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #f39c12; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #f39c12;">Why sponsor us</h2>
-            <ul>
-                <li><strong>Local impact, clear outcomes:</strong> Over 62,000 adults in Bristol are estimated to have some form of hearing loss. Your funding directly improves how they connect with work, family, social life and services.</li>
-                <li><strong>Authentic community leadership:</strong> Our initiative is led by former CfD staff and hearing loss initiates, so your support goes straight into solutions designed “with, not for” people with hearing loss.</li>
-                <li><strong>Strong alignment with your mission:</strong> Sponsoring us extends your mission into everyday community spaces, training and outreach.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #2b6df2; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #2b6df2;">What your funding makes possible</h2>
-            <p>Sponsor income is used to:</p>
-            <ul>
-                <li>Hire fully accessible venues in Bristol for HoH meetups, training and outreach events.</li>
-                <li>Keep our community sessions welcoming and low‑stress (for example, free hot drinks, good lighting, captions and assistive listening where available).</li>
-                <li>Bring in expert guest speakers and trainers to deliver workplace and family‑focused hearing loss awareness.</li>
-                <li>Develop digital guides and resources for families, workplaces and organisations across Bristol and the West of England.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #1b5e20; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #005EB8;">Sponsor options</h2>
-            <p>We’ll tailor sponsorship to your organisation, but typical options include:</p>
-            <ul>
-                <li><strong>Community Sponsor:</strong> Fund a block of regular HoH meetups and be recognised as the supporter on our website, materials and in‑room signage.</li>
-                <li><strong>Training Sponsor:</strong> Underwrite our hearing loss training sessions for local workplaces and venues, with co‑branding on slide decks and resources.</li>
-                <li><strong>Access Sponsor:</strong> Fund specific accessibility improvements such as hearing loops/Auracast, captioning, transport support, or bursaries for low‑income attendees.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #9b59b6; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #9b59b6;">Let’s talk about sponsoring the initiative</h2>
-            <p>If you are a hearing technology company, a local business, or a funder, we’d love to talk. Share a few details about your organisation and funding interests, and Jason & Jo will get back to you with a short proposal outlining impact, options and recognition tailored to you.</p>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="path-support.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Support</a>
-        </div>
+  <div class="container">
+    <div class="header-section">
+      <h1>Sponsor Our Initiative</h1>
+      <p class="subtitle">Partner with Bristol's grassroots hearing loss network to fund real-world venue accessibility, hearing loops, and community support</p>
     </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
-    <script src="script.js"></script>
+
+    <!-- Overview -->
+    <div class="card" style="border-left-color: #005EB8;">
+      <span class="info-badge badge-uhbw">Grassroots Corporate Partnership</span>
+      <h2><span class="material-icons card-icon">corporate_fare</span> Partner with the Bristol Hearing Loss Initiative</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        We’re a grassroots, community-led project run by people with lived hard-of-hearing (HoH) experience, building practical support, workplace training, and accessible social spaces across Bristol.
+      </p>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        By sponsoring us, your organization directly removes real barriers for over 62,000 local adults with hearing loss while demonstrating authentic commitment to inclusion and accessibility.
+      </p>
+    </div>
+
+    <!-- What Your Funding Makes Possible -->
+    <div class="card" style="border-left-color: #059669;">
+      <span class="info-badge badge-nbt">Direct Community Impact</span>
+      <h2><span class="material-icons card-icon" style="color: #059669;">volunteer_activism</span> What Your Funding Makes Possible</h2>
+      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px;">
+        <li><strong>Accessible Venue Hires:</strong> Funding meetups in venues equipped with verified hearing loop systems and low-reverberation acoustics.</li>
+        <li><strong>Welcoming Environments:</strong> Providing free hot refreshments, clear lighting, and live captions for all attendees.</li>
+        <li><strong>Workplace & Venue Training:</strong> Delivering accredited hearing loss awareness training for local Bristol businesses and public venues.</li>
+        <li><strong>Digital Guides & Resources:</strong> Publishing verified support materials for employees, employers, and families across the West of England.</li>
+      </ul>
+    </div>
+
+    <!-- Sponsorship Tiers -->
+    <div class="card" style="border-left-color: #d97706;">
+      <span class="info-badge" style="background: #fef3c7; color: #d97706;">Tailored Packages</span>
+      <h2><span class="material-icons card-icon" style="color: #d97706;">workspace_premium</span> Sponsorship Tiers</h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #005EB8; font-size: 1.05rem;">Community Sponsor (£250)</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">Funds a block of regular HoH community meetups with sponsor branding on digital materials and venue signage.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #059669; font-size: 1.05rem;">Training Sponsor (£500)</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">Underwrites workplace accessibility training sessions with co-branding on training slide decks and resources.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #d97706; font-size: 1.05rem;">Access & Loop Sponsor (£1,500)</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">Directly funds hearing loop installations, captioning systems, or transport bursaries for low-income initiates.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #ff0f5b; font-size: 1.05rem;">Strategic Partner (Custom)</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">Bespoke multi-year partnership tailored to your organisation’s ESG and corporate social responsibility goals.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Sponsorship Submission Form -->
+    <div class="card" style="border-left-color: #ff0f5b;">
+      <span class="info-badge" style="background: #ffe4e6; color: #ff0f5b;">Submission Portal</span>
+      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">send</span> Sponsorship Submission Form</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Interested in partnering with us? Fill out the details below and founders <strong>Jason & Jo</strong> will get back to you with a tailored impact proposal.
+      </p>
+
+      <form id="sponsorship-form" style="margin-top: 25px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label for="org-name">Organization / Business Name *</label>
+            <input type="text" id="org-name" class="form-control" placeholder="e.g. Bristol Hearing Care Ltd" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-name">Contact Person Name *</label>
+            <input type="text" id="contact-name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <div class="form-group">
+            <label for="contact-email">Email Address *</label>
+            <input type="email" id="contact-email" class="form-control" placeholder="e.g. sarah@example.co.uk" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone Number</label>
+            <input type="tel" id="contact-phone" class="form-control" placeholder="e.g. 07123 456789">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tier-select">Preferred Sponsorship Package *</label>
+          <select id="tier-select" class="form-control" required>
+            <option value="" disabled selected>Select a Sponsorship Package...</option>
+            <option value="Community Sponsor (£250)">Community Sponsor (£250)</option>
+            <option value="Training Sponsor (£500)">Training & Workplace Sponsor (£500)</option>
+            <option value="Access & Loop Sponsor (£1,500)">Access & Loop Sponsor (£1,500)</option>
+            <option value="Strategic Partner (Custom)">Strategic Partner (Custom Tier)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="sponsor-notes">Sponsorship Goals & Notes</label>
+          <textarea id="sponsor-notes" class="form-control" placeholder="Tell us about your organization and how you'd like to partner with us..."></textarea>
+        </div>
+
+        <button type="submit" class="ext-btn btn-uhbw" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">
+          <span class="material-symbols-outlined">send</span> Submit Sponsorship Application &rarr;
+        </button>
+      </form>
+
+      <!-- Instant Feedback Confirmation Message -->
+      <div id="sponsor-success-msg" style="display: none; background: #dcfce7; border: 1px solid #86efac; color: #166534; padding: 22px; border-radius: 14px; font-weight: 700; margin-top: 20px; text-align: center;">
+        <span class="material-symbols-outlined" style="font-size: 2.2rem; display: block; margin-bottom: 6px;">check_circle</span>
+        Thank you for your submission! Jason & Jo have received your sponsorship request and will respond within 24 hours.
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+      <a href="path-support.html" class="back-to-journey-btn">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Support
+      </a>
+    </nav>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById('sponsorship-form');
+      const successMsg = document.getElementById('sponsor-success-msg');
+
+      if (form && successMsg) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          
+          // Save submission to localStorage
+          const submission = {
+            org: document.getElementById('org-name').value,
+            name: document.getElementById('contact-name').value,
+            email: document.getElementById('contact-email').value,
+            phone: document.getElementById('contact-phone').value,
+            tier: document.getElementById('tier-select').value,
+            notes: document.getElementById('sponsor-notes').value,
+            date: new Date().toISOString()
+          };
+
+          const existingSubmissions = JSON.parse(localStorage.getItem('sponsorshipSubmissions') || '[]');
+          existingSubmissions.push(submission);
+          localStorage.getItem('sponsorshipSubmissions');
+          localStorage.setItem('sponsorshipSubmissions', JSON.stringify(existingSubmissions));
+
+          // Hide form and reveal instant success confirmation
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        });
+      }
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-

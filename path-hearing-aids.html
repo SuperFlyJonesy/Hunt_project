@@ -6,6 +6,7 @@
     <title>Hearing Aids</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
@@ -41,9 +42,12 @@
             <a href="https://www.youtube.com/watch?v=FqS22W3944Q" target="_blank" style="color: #ff0f5b; text-decoration: none; font-weight: bold; font-size: 1.2rem;">What you don't know about hearing aids | Juliëtte Sterkens | TEDxOshkosh</a>
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
-        </div>
+        <nav class="back-to-journey-container" aria-label="Back Navigation">
+            <a href="path-yes.html" class="back-to-journey-btn">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return to Journey Hub
+            </a>
+        </nav>
     </div>
     <script>
         document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });

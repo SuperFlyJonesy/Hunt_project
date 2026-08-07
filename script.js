@@ -3,8 +3,41 @@ document.addEventListener("DOMContentLoaded", () => {
     // Floating Scroll Nav Controls
     initFloatingScrollControls();
 
-    // 1. FADE PAGE IN SAFELY
+    // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
+    function playSoftClickSound() {
+        try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
 
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(360, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(110, ctx.currentTime + 0.022);
+
+            gain.gain.setValueAtTime(0.045, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.025);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.028);
+        } catch (e) {}
+    }
+
+    // Attach soft click listener to all metro tiles and navigation buttons
+    document.querySelectorAll('.metro-btn, .back-to-journey-btn, .ext-btn, #btn-support').forEach(tile => {
+        tile.addEventListener('click', () => {
+            playSoftClickSound();
+        });
+    });
+
+    // 0B. INITIALIZE DEFAULT MUTE & VOLUME TOOLTIP SITE-WIDE
+    initVolumeControlAndTooltip();
+
+    // 1. FADE PAGE IN SAFELY
     const overlay = document.querySelector('.page-transition-overlay');
     if (overlay) {
         setTimeout(() => overlay.classList.add('reveal'), 150);
@@ -346,6 +379,11 @@ function initPrologue() {
 
 // 5. FLOATING SCROLL CONTROLS
 function initFloatingScrollControls() {
+    const path = (window.location.pathname || '').toLowerCase();
+    if (path.endsWith('/index.html') || path.endsWith('index.html') || path.endsWith('/path-experience.html') || path.endsWith('path-experience.html') || path === '/' || path === '') {
+        return;
+    }
+
     if (document.getElementById('floating-scroll-controls')) return;
 
     const container = document.createElement('div');
@@ -372,66 +410,103 @@ function initFloatingScrollControls() {
     container.appendChild(upBtn);
     container.appendChild(downBtn);
 
-    const appendContainer = () => {
-        if (document.body) {
+    const mount = () => {
+        if (document.body && !document.getElementById('floating-scroll-controls')) {
             document.body.appendChild(container);
-            updateScrollVisibility();
         }
     };
 
     if (document.body) {
-        appendContainer();
+        mount();
     } else {
-        document.addEventListener('DOMContentLoaded', appendContainer);
+        document.addEventListener('DOMContentLoaded', mount);
     }
 
-    const updateScrollVisibility = () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        const scrollHeight = Math.max(
-            document.documentElement.scrollHeight,
-            document.body.scrollHeight,
-            document.documentElement.offsetHeight
-        );
-        const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+    function smoothScrollBy(distance) {
+        const startY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        
+        // 1. Try native smooth scrollBy
+        window.scrollBy({ top: distance, behavior: 'smooth' });
 
-        // Hide completely if page has no scrollable content
-        if (scrollHeight <= clientHeight + 20) {
-            container.classList.add('hidden');
-            return;
-        } else {
-            container.classList.remove('hidden');
-        }
+        // 2. Fail-safe animation fallback if native scroll didn't move
+        setTimeout(() => {
+            const currentY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (Math.abs(currentY - startY) < 2) {
+                const targetY = Math.max(0, startY + distance);
+                const duration = 300;
+                const startTime = performance.now();
 
-        // Disable UP if at top
-        if (scrollTop <= 15) {
-            upBtn.classList.add('disabled');
-        } else {
-            upBtn.classList.remove('disabled');
-        }
+                function step(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = progress * (2 - progress);
+                    const newY = startY + (distance * easeProgress);
 
-        // Disable DOWN if at bottom
-        if (scrollTop + clientHeight >= scrollHeight - 15) {
-            downBtn.classList.add('disabled');
-        } else {
-            downBtn.classList.remove('disabled');
-        }
-    };
+                    window.scrollTo(0, newY);
+                    if (document.documentElement) document.documentElement.scrollTop = newY;
+                    if (document.body) document.body.scrollTop = newY;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(step);
+                    }
+                }
+                requestAnimationFrame(step);
+            }
+        }, 50);
+    }
 
     upBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollBy({ top: -Math.max(350, window.innerHeight * 0.75), behavior: 'smooth' });
+        smoothScrollBy(-Math.round(window.innerHeight * 0.7));
     });
 
     downBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        window.scrollBy({ top: Math.max(350, window.innerHeight * 0.75), behavior: 'smooth' });
+        smoothScrollBy(Math.round(window.innerHeight * 0.7));
     });
+}
 
-    window.addEventListener('scroll', updateScrollVisibility, { passive: true });
-    window.addEventListener('resize', updateScrollVisibility, { passive: true });
-    
-    // Checks after page layout load/render
-    setTimeout(updateScrollVisibility, 300);
-    setTimeout(updateScrollVisibility, 1000);
+function initVolumeControlAndTooltip() {
+    const audio = document.getElementById('bg-noise');
+    const container = document.getElementById('volume-control-container');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeIcon = document.getElementById('volume-icon');
+
+    if (!container || !audio) return;
+
+    // Create or locate tooltip element
+    let tooltip = container.querySelector('.volume-tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.className = 'volume-tooltip';
+        container.appendChild(tooltip);
+    }
+
+    // Default to MUTE when arriving on page
+    audio.muted = true;
+    if (volumeIcon) volumeIcon.textContent = 'volume_off';
+
+    function updateTooltipText() {
+        if (!tooltip) return;
+        if (audio.muted || audio.volume === 0) {
+            tooltip.textContent = '🔊 Muted — Soothing White Noise Soundscape';
+        } else {
+            const pct = Math.round(audio.volume * 100);
+            tooltip.textContent = `🔊 Playing: Soothing White Noise Soundscape (${pct}%)`;
+        }
+    }
+
+    updateTooltipText();
+
+    if (volumeSlider) {
+        volumeSlider.addEventListener('input', () => {
+            updateTooltipText();
+        });
+    }
+    if (volumeIcon) {
+        volumeIcon.addEventListener('click', () => {
+            setTimeout(updateTooltipText, 20);
+        });
+    }
 }
 

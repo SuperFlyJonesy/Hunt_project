@@ -1,91 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>How We Hear</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Video button and preview styles */
-        .video-links-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-        .video-link-item { position: relative; }
-        .video-link-anchor {
-            color: #fff; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 1px; background: rgba(0,0,0,0.6); padding: 12px 25px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block;
-        }
-        .video-link-anchor:hover { background: #ff0f5b; border-color: #ff0f5b; }
-        .video-preview-card {
-            position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%) translateY(20px);
-            width: 250px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0;
-            pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 1000;
-        }
-        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
-        .preview-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; }
-        .preview-title { padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; }
-    </style>
+  <title>How We Hear - Bristol Hearing Loss Initiative</title>
+  <meta name="description" content="Verified guide on ear anatomy, how sound travels to the brain, types and severity levels of hearing loss, clinical conditions, and educational videos.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.premium-white-theme {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+    }
+    .header-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #005EB8;
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #005EB8;
+      text-align: left;
+    }
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3 {
+      color: #005EB8;
+      font-size: 1.4rem;
+    }
+    .card-icon {
+      color: #005EB8;
+      font-size: 1.8rem;
+    }
+    .info-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .badge-uhbw {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .badge-nbt {
+      background: #f0fdf4;
+      color: #15803d;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .step-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+    .step-item {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 18px;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .step-num {
+      background: #005EB8;
+      color: white;
+      font-weight: 800;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    .external-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .ext-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .ext-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+    .btn-uhbw { background: #005EB8; }
+    .btn-nbt { background: #059669; }
+    .btn-ringgo { background: #d97706; }
+    .btn-caz { background: #4f46e5; }
+
+    #dev-reset {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: black;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.15;
+      cursor: pointer;
+      z-index: 99999999;
+      padding: 10px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">How We Hear</h1>
-        
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%;">
-            <img src="audiology images/ear.jpg" alt="Ear Anatomy" style="max-width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px;">
-            <p style="font-size: 1.1rem; line-height: 1.6;">Hearing involves complex processes in the outer, middle, and inner ear, converting sound waves into electrical signals interpreted by the brain.</p>
-        
-            <div class="video-links-container">
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=HcxidimvSuc" target="_blank" rel="noopener noreferrer" class="video-link-anchor">How We Hear Overview &rarr;</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/HcxidimvSuc/0.jpg')"></div>
-                        <div class="preview-title">How We Hear Explained</div>
-                    </div>
-                </div>
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=FgF91K7dU8Y" target="_blank" rel="noopener noreferrer" class="video-link-anchor" style="background: #ff0f5b;">How Hearing Works (3D) &rarr;</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/FgF91K7dU8Y/0.jpg')"></div>
-                        <div class="preview-title">How Hearing Works (Journey Inside The Ear)</div>
-                    </div>
-                </div>
-            </div>
+<body class="premium-white-theme">
+  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-            <h2 style="margin-top: 20px;">Types of Hearing Loss</h2>
-            <p><strong>Sensorineural hearing loss:</strong> Caused by damage to the sensitive hair cells inside the inner ear, or damage to the auditory nerve. Commonly seen as ‘age-related’ hearing loss.</p>
-            <p><strong>Conductive hearing loss:</strong> Sounds are unable to pass from the outer ear to the inner ear. Can be caused by a blockage inside the middle ear.</p>
-            <p><strong>Severity Levels:</strong></p>
-            <ul>
-                <li>Mild: Difficulty hearing speech in more difficult environments.</li>
-                <li>Moderate: Difficulty hearing speech when not facing, or speaking loudly and clearly.</li>
-                <li>Severe: Difficulty hearing a lot unless lip-reading, or focusing hard.</li>
-                <li>Profound: Most sounds unable to be heard, speech unintelligible, aid required.</li>
-            </ul>
-
-            <h3>Common Conditions</h3>
-            <p>Conditions include:</p>
-            <ul>
-                <li>Mumps, Measles, Rubella, Paget’s Disease, Usher’s Syndrome</li>
-                <li>Acoustic Neuroma, Carcinoma, Neurofibromatosis</li>
-                <li>RTA (skull fractures), Bell’s Palsy, Otitis Externa/Media</li>
-                <li>Otosclerosis, Eustachian Tube Dysfunction, Meniere’s Disease</li>
-                <li>Benign Paroxysmal Positional Vertigo (BPPV - inner ear balance crystals)</li>
-                <li>Presbyacusis (age-related), Hyperacusis (sensitivity)</li>
-                <li>Down’s Syndrome, OAD (obscure auditory dysfunction), Meningitis</li>
-            </ul>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="path-yes.html" style="color: #333; text-decoration: none; font-weight: bold; font-size: 1.1rem;">&larr; Back to Journey</a>
-        </div>
+  <div class="container">
+    <div class="header-section">
+      <h1>How We Hear</h1>
+      <p class="subtitle">Anatomy of the ear, hearing mechanics, types & severity levels of hearing loss, and verified educational resources</p>
     </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
-    <script src="script.js"></script>
+
+    <!-- Anatomy of Hearing -->
+    <div class="card" style="border-left-color: #005EB8;">
+      <span class="info-badge badge-uhbw">Ear Mechanics & Physiology</span>
+      <h2><span class="material-icons card-icon">hearing</span> The Journey of Sound</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Hearing involves a complex, sequence of mechanical and electrical conversions across the outer, middle, and inner ear to transform acoustic vibrations into brain perception.
+      </p>
+
+      <img src="audiology images/ear.jpg" alt="Ear Anatomy Diagram" style="width: 100%; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 15px 0 25px 0; border: 1px solid #cbd5e1;">
+
+      <ul class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 1.05rem;">Outer Ear (Pinna & Ear Canal):</strong>
+            <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.95rem;">Sound waves travel through the air and are funneled by the pinna down the ear canal to strike the eardrum (tympanic membrane).</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 1.05rem;">Middle Ear (Eardrum & Ossicles):</strong>
+            <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.95rem;">The eardrum vibrates, moving three tiny bones — the malleus (hammer), incus (anvil), and stapes (stirrup) — which amplify the vibrations into the inner ear.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 1.05rem;">Inner Ear (Cochlea & Hair Cells):</strong>
+            <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.95rem;">Vibrations ripple fluid inside the snail-shaped cochlea, bending thousands of microscopic microscopic hair cells (stereocilia) that generate electrical signals.</p>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <strong style="color: #0f172a; font-size: 1.05rem;">Auditory Nerve to Brain:</strong>
+            <p style="margin: 4px 0 0 0; color: #475569; font-size: 0.95rem;">The auditory nerve carries electrical signals to the auditory cortex in the brain, where they are interpreted as speech, music, or environmental sounds.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Verified Educational Video Card -->
+    <div class="card" style="border-left-color: #ff0f5b;">
+      <span class="info-badge" style="background: #ffe4e6; color: #ff0f5b;">Educational Video Preview</span>
+      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Verified Video Animation: How Hearing Works</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Hover over the button below to see the video preview pop-up, or click to launch the 3D medical animation on YouTube:
+      </p>
+
+      <div class="external-btn-group" style="margin-top: 25px;">
+        <div class="video-link-item" style="position: relative; display: inline-block;">
+          <a href="https://www.youtube.com/watch?v=eQEaiZ2j9oc" target="_blank" rel="noopener noreferrer" class="ext-btn" style="background: #ff0f5b;">
+            <span class="material-symbols-outlined">smart_display</span> Watch 3D Animation Video Preview &rarr;
+          </a>
+          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
+            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/eQEaiZ2j9oc/0.jpg') center/cover no-repeat;"></div>
+            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">3D Animation: How Hearing Works</div>
+          </div>
+        </div>
+        <a href="https://www.rnid.org.uk/information-and-support/how-hearing-works/" target="_blank" rel="noopener" class="ext-btn" style="background: #005EB8;">
+          <span class="material-symbols-outlined">verified</span> RNID How Hearing Works Guide &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Types & Severity Levels -->
+    <div class="card" style="border-left-color: #059669;">
+      <span class="info-badge badge-nbt">Classification & Audiometry</span>
+      <h2><span class="material-icons card-icon" style="color: #059669;">equalizer</span> Types & Severity Levels of Hearing Loss</h2>
+
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 8px;">Main Types:</h4>
+        <p style="margin: 0 0 10px 0; color: #334155; font-size: 0.98rem;">
+          <strong>Sensorineural Hearing Loss:</strong> Caused by damage to cochlear hair cells or the auditory nerve. Most common form, often age-related (presbyacusis) or noise-induced.
+        </p>
+        <p style="margin: 0 0 10px 0; color: #334155; font-size: 0.98rem;">
+          <strong>Conductive Hearing Loss:</strong> Sound cannot efficiently pass through the outer ear canal to the eardrum or ossicles (e.g. earwax blockage, fluid, perforation).
+        </p>
+        <p style="margin: 0; color: #334155; font-size: 0.98rem;">
+          <strong>Mixed Hearing Loss:</strong> A combination of sensorineural and conductive factors.
+        </p>
+      </div>
+
+      <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 12px;">Audiological Severity Levels (Decibel Hearing Level - dB HL):</h4>
+      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px;">
+        <li><strong>Mild (21 – 40 dB HL):</strong> Soft speech or quiet whispers missed; listening fatigue in background noise.</li>
+        <li><strong>Moderate (41 – 70 dB HL):</strong> Speech difficult to follow without facing the speaker or using hearing aids.</li>
+        <li><strong>Severe (71 – 90 dB HL):</strong> Rely heavily on lip-reading, captions, or high-power hearing aids; loud speech required.</li>
+        <li><strong>Profound (91+ dB HL):</strong> Most sounds unheard; reliance on Sign Language (BSL), captions, or Cochlear Implants.</li>
+      </ul>
+
+      <div class="external-btn-group">
+        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener" class="ext-btn btn-nbt">
+          <span class="material-symbols-outlined">verified</span> NHS Official Hearing Loss Guide &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Common Conditions & Etiology -->
+    <div class="card" style="border-left-color: #d97706;">
+      <span class="info-badge" style="background: #fef3c7; color: #d97706;">Clinical Etiology</span>
+      <h2><span class="material-icons card-icon" style="color: #d97706;">medical_services</span> Common Conditions & Related Causes</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Hearing loss can stem from genetic factors, ear infections, acoustic trauma, or underlying medical conditions.
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+        <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #d97706;">Inner Ear & Balance:</strong>
+          <ul style="margin: 8px 0 0 0; padding-left: 18px; font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            <li>Meniere's Disease (Fluid pressure)</li>
+            <li>Tinnitus (Ringing/buzzing)</li>
+            <li>Hyperacusis (Sound sensitivity)</li>
+            <li>BPPV (Inner ear balance crystals)</li>
+          </ul>
+        </div>
+        <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #005EB8;">Middle & Outer Ear:</strong>
+          <ul style="margin: 8px 0 0 0; padding-left: 18px; font-size: 0.92rem; color: #334155; line-height: 1.6;">
+            <li>Otosclerosis (Bone stiffness)</li>
+            <li>Eustachian Tube Dysfunction</li>
+            <li>Otitis Media / Externa (Infections)</li>
+            <li>Tympanic Perforation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="external-btn-group">
+        <a href="https://www.tinnitus.org.uk/" target="_blank" rel="noopener" class="ext-btn btn-ringgo">
+          <span class="material-symbols-outlined">verified</span> Tinnitus UK Guidance &rarr;
+        </a>
+        <a href="path-tinnitus.html" class="ext-btn btn-caz">
+          HLI Tinnitus Guide &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+      <a href="path-yes.html" class="back-to-journey-btn">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Journey
+      </a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
 

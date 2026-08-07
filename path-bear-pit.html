@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>The Bear Pit - Hearing Loss Initiative</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <link rel="stylesheet" href="styles.css">
     <style>
         .bear-pit-layout {
@@ -140,11 +141,16 @@
         </aside>
     </div>
 
-    <footer style="text-align: center; padding: 2rem;">
-        <a href="index.html" style="text-decoration: none; margin: 0 10px;">&larr; Back to Home</a>
-        <a href="path-yes.html" style="text-decoration: none; margin: 0 10px;">&larr; Back to Yes Path</a>
-        <a href="path-support.html" style="text-decoration: none; margin: 0 10px;">&larr; Back to Support Path</a>
-    </footer>
+    <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px;">
+        <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff; border-color: #005EB8;">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to Support
+        </a>
+        <a href="path-yes.html" class="back-to-journey-btn">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Back to Journey
+        </a>
+    </nav>
 
     <!-- Custom Calendar Logic -->
     <script>

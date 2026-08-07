@@ -6,12 +6,11 @@
     <title>Hearing-Accessible Venues in Bristol</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; padding: 40px; }
         .support-group-container { max-width: 900px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .group-header h1 { color: #ff0f5b; font-size: 2.5rem; margin-bottom: 10px; }
-        .nav-links { margin-bottom: 20px; }
-        .nav-links a { margin-right: 15px; text-decoration: none; color: #ff0f5b; font-weight: bold; }
         .lead-text { font-size: 1.2rem; color: #666; margin-bottom: 30px; }
         .divider { border: 0; border-top: 1px solid #eee; margin: 30px 0; }
         .group-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -20,13 +19,11 @@
     </style>
 </head>
 <body class="premium-white-theme">
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <a href="path-sponsor-us.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
 
 <section class="support-group-container">
   <header class="group-header">
-    <div class="nav-links">
-        <a href="path-yes.html">&larr; Back to Journey</a>
-        <a href="venue-map.html">View on Map</a>
-    </div>
     <h1>Hearing-Accessible Venues in Bristol</h1>
     <p class="lead-text">
       A curated guide to theatres, museums, and community spaces across Bristol equipped with hearing loops, assistive listening technology, and accessible screenings.
@@ -46,8 +43,18 @@
     <div class="detail-card"><h3>🏨 Future Inns Bristol</h3><p><strong>Address:</strong> Bond Street South, Bristol, BS1 3EN</p></div>
     <div class="detail-card"><h3>🚆 Bristol Temple Meads</h3><p><strong>Address:</strong> Station Approach, Bristol, BS1 6QF</p></div>
   </div>
+
+  <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 40px;">
+      <a href="venue-map.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff; border-color: #005EB8;">
+          <span class="material-symbols-outlined">map</span>
+          View Live Venue Map
+      </a>
+      <a href="path-yes.html" class="back-to-journey-btn">
+          <span class="material-symbols-outlined">arrow_back</span>
+          Back to Journey
+      </a>
+  </nav>
 </section>
     <script src="script.js"></script>
 </body>
 </html>
-
