@@ -1,6 +1,10 @@
 // script.js - GOLDEN VERSION REFINED
 document.addEventListener("DOMContentLoaded", () => {
+    // Floating Scroll Nav Controls
+    initFloatingScrollControls();
+
     // 1. FADE PAGE IN SAFELY
+
     const overlay = document.querySelector('.page-transition-overlay');
     if (overlay) {
         setTimeout(() => overlay.classList.add('reveal'), 150);
@@ -339,3 +343,95 @@ function initPrologue() {
     // Start the loop
     playPrologueLoop();
 }
+
+// 5. FLOATING SCROLL CONTROLS
+function initFloatingScrollControls() {
+    if (document.getElementById('floating-scroll-controls')) return;
+
+    const container = document.createElement('div');
+    container.className = 'floating-scroll-controls';
+    container.id = 'floating-scroll-controls';
+    container.setAttribute('aria-label', 'Page scroll controls');
+
+    const upBtn = document.createElement('button');
+    upBtn.type = 'button';
+    upBtn.className = 'scroll-btn scroll-up';
+    upBtn.id = 'scroll-up-btn';
+    upBtn.setAttribute('aria-label', 'Scroll Up');
+    upBtn.setAttribute('title', 'Scroll Up');
+    upBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+
+    const downBtn = document.createElement('button');
+    downBtn.type = 'button';
+    downBtn.className = 'scroll-btn scroll-down';
+    downBtn.id = 'scroll-down-btn';
+    downBtn.setAttribute('aria-label', 'Scroll Down');
+    downBtn.setAttribute('title', 'Scroll Down');
+    downBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+    container.appendChild(upBtn);
+    container.appendChild(downBtn);
+
+    const appendContainer = () => {
+        if (document.body) {
+            document.body.appendChild(container);
+            updateScrollVisibility();
+        }
+    };
+
+    if (document.body) {
+        appendContainer();
+    } else {
+        document.addEventListener('DOMContentLoaded', appendContainer);
+    }
+
+    const updateScrollVisibility = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const scrollHeight = Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight,
+            document.documentElement.offsetHeight
+        );
+        const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // Hide completely if page has no scrollable content
+        if (scrollHeight <= clientHeight + 20) {
+            container.classList.add('hidden');
+            return;
+        } else {
+            container.classList.remove('hidden');
+        }
+
+        // Disable UP if at top
+        if (scrollTop <= 15) {
+            upBtn.classList.add('disabled');
+        } else {
+            upBtn.classList.remove('disabled');
+        }
+
+        // Disable DOWN if at bottom
+        if (scrollTop + clientHeight >= scrollHeight - 15) {
+            downBtn.classList.add('disabled');
+        } else {
+            downBtn.classList.remove('disabled');
+        }
+    };
+
+    upBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollBy({ top: -Math.max(350, window.innerHeight * 0.75), behavior: 'smooth' });
+    });
+
+    downBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollBy({ top: Math.max(350, window.innerHeight * 0.75), behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', updateScrollVisibility, { passive: true });
+    window.addEventListener('resize', updateScrollVisibility, { passive: true });
+    
+    // Checks after page layout load/render
+    setTimeout(updateScrollVisibility, 300);
+    setTimeout(updateScrollVisibility, 1000);
+}
+
