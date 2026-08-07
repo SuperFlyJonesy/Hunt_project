@@ -1,143 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Mental Health</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-</head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
+  <title>Grieving the Silence - Mental Health & Therapy Guide | Bristol Hearing Loss Initiative</title>
+  <meta name="description" content="A clinical hearing therapy and psychological guide to navigating the 5 stages of hearing loss grief, emotional adaptation, and mental health support in Bristol.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.premium-white-theme {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+    }
+    .header-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #E91E63;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-top: 0;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #E91E63;
+      text-align: left;
+    }
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3 {
+      color: #E91E63;
+      font-size: 1.35rem;
+    }
+    .card-icon {
+      color: #E91E63;
+      font-size: 1.8rem;
+    }
+    .info-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .badge-pink {
+      background: #fce7f3;
+      color: #be185d;
+    }
+    .badge-blue {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .badge-green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .badge-amber {
+      background: #fef3c7;
+      color: #b45309;
+    }
+
+    /* Therapist Quote Box */
+    .quote-box {
+      background: #fff5f8;
+      border-left: 4px solid #E91E63;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-style: italic;
+      color: #831843;
+      margin: 16px 0;
+      font-size: 1.05rem;
+    }
+
+    /* VISUAL CHARTS STYLING */
+    .chart-container {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 25px 0;
+    }
+    .chart-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">Grieving the Silence: Navigating the Emotional Journey</h1>
-        <img src="Contents/Pictures/Hearinglosspicture.png" alt="Mental Health Journey" style="width: 100%; border-radius: 20px; margin-bottom: 30px;">
-        
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%; margin-bottom: 30px;">
-            <p>Hearing loss isn't just about what you can't hear; it’s about losing connection, spontaneity, and confidence. It is a form of grief, and like any grief, you don't just 'get over' it. You must work through the stages to find a new path forward.</p>
-        </div>
+    /* Stage Progress Trajectory Chart */
+    .stage-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .stage-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .stage-label-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #334155;
+    }
+    .bar-wrapper {
+      width: 100%;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #f39c12; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #f39c12;">1. Denial (Shock)</h2>
-            <p><strong>Impactful Quote:</strong> "My hearing isn't that bad. It's just other people speak softly, or I’m tired."</p>
-            <p><strong>The Experience:</strong> The initial response. Dismissing complaints from others, attributing communication difficulty to background noise ("Everyone is mumbling," "It’s too loud in here"), avoiding hearing tests, and rationalizing that it is a minor or temporary problem.</p>
-        </div>
+    /* Impact Metric Grid */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 15px;
+    }
+    @media (max-width: 640px) {
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .metric-card {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #E91E63;
+      margin-bottom: 2px;
+    }
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #2b6df2; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #2b6df2;">2. Anger (Frustration)</h2>
-            <p><strong>Impactful Quote:</strong> "Why should I pay thousands of pounds for hearing aids? They are ugly and the doctors don't care. It’s unfair."</p>
-            <p><strong>The Experience:</strong> Frustration and blame. Lashing out at doctors, audiologists, or loved ones. Expressing bitterness about being 'different' or 'defective.' Resenting the cost of technology or the perceived stigma. A sense of 'Why is this happening to me?'</p>
-        </div>
+    .external-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .ext-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .ext-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+    .btn-pink { background: #E91E63; }
+    .btn-blue { background: #005EB8; }
+    .btn-green { background: #059669; }
+    .btn-amber { background: #d97706; }
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #1b5e20; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #005EB8;">3. Bargaining (What Ifs)</h2>
-            <p><strong>Impactful Quote:</strong> "I’ll only wear the hearing aid at work. If I don't use headphones, maybe my hearing will get better."</p>
-            <p><strong>The Experience:</strong> Negotiating and 'What Ifs'. Attempting deals with oneself or a higher power. Trying obscure alternative therapies (supplements, 'cures'), or deciding to wear a hearing aid only for work or important events, but refusing it socially. Dwelling on 'What if I hadn't...'</p>
-        </div>
+    #dev-reset {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: black;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.15;
+      cursor: pointer;
+      z-index: 99999999;
+      padding: 10px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body class="premium-white-theme">
+  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #9b59b6; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #9b59b6;">4. Depression (Isolation)</h2>
-            <p><strong>Impactful Quote:</strong> "I can't connect. Everyone’s conversations are a distant fog. Why should I even go out?"</p>
-            <p><strong>The Experience:</strong> Powerlessness, deep sadness, and loneliness. Anxiety about social interaction leads to withdrawal and isolation from conversations and loved ones.</p>
-        </div>
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%; margin-bottom: 30px;">
-            <h2 style="color: #ff0f5b;">5. Acceptance (Action)</h2>
-            <p><strong>Impactful Quote:</strong> "I have hearing loss. It is part of my life, but I still have connections to make."</p>
-            <p><strong>The Experience:</strong> Realizing hearing loss is reality, without judgment or stigma. Actively researching technology, committing to therapy, and moving from passive victim to proactive participant in communication.</p>
-        </div>
-
-        <!-- BRISTOL MENTAL HEALTH SUPPORT, ADVICE & RESOURCES -->
-        <div style="background: #ffffff; border-radius: 24px; padding: 35px; box-shadow: 0 15px 40px rgba(0,0,0,0.07); border-top: 6px solid #005EB8; text-align: left; width: 100%; margin-top: 20px; margin-bottom: 35px; box-sizing: border-box;">
-            <h2 style="font-family: sans-serif; font-size: 1.8rem; font-weight: 800; color: #005EB8; margin-top: 0; margin-bottom: 12px;">
-                Bristol Mental Health Support & Advice Links
-            </h2>
-            <p style="font-size: 1.05rem; color: #555; line-height: 1.65; margin-bottom: 25px;">
-                If you are struggling with emotional isolation, anxiety, or grief linked to hearing loss, you are not alone. Bristol offers dedicated local services and practical advice tailored for you:
-            </p>
-
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                
-                <!-- Support Item 1: NHS Talking Therapies -->
-                <div style="background: #f8fafc; border-radius: 16px; padding: 22px; border: 1px solid #e2e8f0;">
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; color: #0f172a;">
-                        🏥 Vita Health Group (Bristol NHS Talking Therapies)
-                    </h3>
-                    <p style="margin: 0 0 12px 0; font-size: 1rem; color: #475569; line-height: 1.6;">
-                        Free NHS mental health support, 1-to-1 counselling, and CBT for anxiety and low mood. You can self-refer directly online without needing a GP appointment.
-                    </p>
-                    <a href="https://www.vitahealthgroup.co.uk/nhs-services/nhs-mental-health/bristol-north-somerset-south-gloucestershire/" target="_blank" rel="noopener" style="display: inline-block; background: #005EB8; color: #ffffff; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: transform 0.2s;">
-                        Visit Vita Health Bristol &#8599;
-                    </a>
-                </div>
-
-                <!-- Support Item 2: Bristol Mind -->
-                <div style="background: #f8fafc; border-radius: 16px; padding: 22px; border: 1px solid #e2e8f0;">
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; color: #0f172a;">
-                        🧠 Bristol Mind & Local Listening Services
-                    </h3>
-                    <p style="margin: 0 0 12px 0; font-size: 1rem; color: #475569; line-height: 1.6;">
-                        Independent local mental health charity offering free telephone listening services, emotional support, and accessible advocacy across Bristol.
-                    </p>
-                    <a href="https://bristolmind.org.uk/" target="_blank" rel="noopener" style="display: inline-block; background: #ff0f5b; color: #ffffff; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: transform 0.2s;">
-                        Visit Bristol Mind &#8599;
-                    </a>
-                </div>
-
-                <!-- Support Item 3: NHS Audiology Hearing Therapists -->
-                <div style="background: #f8fafc; border-radius: 16px; padding: 22px; border: 1px solid #e2e8f0;">
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; color: #0f172a;">
-                        👂 NHS Hearing Therapists (BRI & Southmead)
-                    </h3>
-                    <p style="margin: 0 0 12px 0; font-size: 1rem; color: #475569; line-height: 1.6;">
-                        Specialist NHS Hearing Therapists help with hearing loss counselling, tinnitus distress, and adjustment techniques. Ask your Bristol GP or NHS Audiology team for a referral.
-                    </p>
-                    <a href="path-hearing-therapists.html" style="display: inline-block; background: #1b5e20; color: #ffffff; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.92rem;">
-                        View Hearing Therapist Guide &rarr;
-                    </a>
-                </div>
-
-                <!-- Support Item 4: Bristol Hearing Loss Support Group -->
-                <div style="background: #f8fafc; border-radius: 16px; padding: 22px; border: 1px solid #e2e8f0;">
-                    <h3 style="margin: 0 0 6px 0; font-size: 1.25rem; color: #0f172a;">
-                        🤝 Bristol Hearing Loss Support Group
-                    </h3>
-                    <p style="margin: 0 0 12px 0; font-size: 1rem; color: #475569; line-height: 1.6;">
-                        Our community support group meets regularly across Bristol. Connect with fellow initiates in a welcoming, accessible environment to share advice, technology tips, and real-world encouragement.
-                    </p>
-                    <a href="path-support-group.html" style="display: inline-block; background: #f39c12; color: #ffffff; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.92rem;">
-                        Join Bristol Hearing Loss Support Group &rarr;
-                    </a>
-                </div>
-
-                <!-- Support Item 5: Urgent 24/7 Crisis Help -->
-                <div style="background: #fff1f2; border-radius: 16px; padding: 22px; border: 1px solid #fecdd3;">
-                    <h3 style="margin: 0 0 8px 0; font-size: 1.2rem; color: #9f1239;">
-                        🚨 Urgent Mental Health Crisis Support (24/7)
-                    </h3>
-                    <p style="margin: 0; font-size: 0.98rem; color: #881337; line-height: 1.7;">
-                        • <strong>NHS Mental Health Crisis Line:</strong> Call <strong>111</strong> (select Option 2) for immediate NHS support in Bristol.<br>
-                        • <strong>Samaritans:</strong> Call <strong>116 123</strong> (Free 24/7 listening service).<br>
-                        • <strong>Shout Crisis Text Line:</strong> Text <strong>SHOUT to 85258</strong> for 24/7 free text support.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
-                <span class="material-symbols-outlined">arrow_back</span>
-                Return to Journey Hub
-            </a>
-        </nav>
+  <div class="container">
+    <div class="header-section">
+      <span class="info-badge badge-pink">Clinical Psychology & Hearing Therapy</span>
+      <h1>Grieving the Silence: Navigating the Emotional Journey</h1>
+      <p class="subtitle">A therapeutic guide to understanding psychological grief, acoustic adaptation, and rebuilding emotional resilience with hearing loss in Bristol.</p>
     </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
-    <script src="script.js"></script>
+
+    <!-- Hero Clinical Introduction -->
+    <div class="card" style="border-left-color: #E91E63;">
+      <span class="info-badge badge-pink">Therapist Insight</span>
+      <h2><span class="material-icons card-icon">psychology</span> Hearing Loss is a Form of Acoustic Grief</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Hearing loss isn't just about what you can't hear; it's about losing effortless social connection, spontaneity, and acoustic ease. It is a genuine, documented form of grief.
+      </p>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Just like any bereavement, you don't simply "get over" hearing loss overnight. You work through psychological stages to process frustration, lower cognitive fatigue, and find a confident, empowered path forward.
+      </p>
+    </div>
+
+    <!-- THERAPEUTIC CHART 1: THE 5 STAGES OF GRIEF TRAJECTORY -->
+    <div class="card" style="border-left-color: #005EB8;">
+      <span class="info-badge badge-blue">Clinical Progression Model</span>
+      <h2><span class="material-icons card-icon" style="color: #005EB8;">analytics</span> Chart: The 5 Stages of Hearing Loss Grief Trajectory</h2>
+      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        Psychological mapping of emotional resistance vs. adaptive acceptance as individuals navigate hearing loss:
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-title">
+          <span class="material-symbols-outlined" style="color: #005EB8;">trending_up</span>
+          Emotional State & Adaptation Progress Bar Chart
+        </div>
+
+        <div class="stage-chart">
+          <!-- Stage 1 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>1. Denial & Shock (Dismissal of Symptoms)</span>
+              <span style="color: #ef4444;">Friction: 90%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 90%; background: #ef4444;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>2. Anger & Frustration (Resentment & Stigma)</span>
+              <span style="color: #f97316;">Friction: 85%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 85%; background: #f97316;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>3. Bargaining & Resistance (Selective Tech Use)</span>
+              <span style="color: #eab308;">Friction: 65%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 65%; background: #eab308;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>4. Grief & Social Fatigue (Withdrawal & Loneliness)</span>
+              <span style="color: #8b5cf6;">Vulnerability: 75%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 75%; background: #8b5cf6;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 5 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>5. Acceptance & Empowerment (Active Adaptation)</span>
+              <span style="color: #10b981;">Adaptation: 95%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 95%; background: #10b981;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THERAPEUTIC CHART 2: PSYCHOLOGICAL IMPACT METRICS -->
+    <div class="card" style="border-left-color: #059669;">
+      <span class="info-badge badge-green">Cognitive & Psychological Data</span>
+      <h2><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Psychological & Listening Effort Breakdown</h2>
+      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        Clinical data measuring cognitive energy expenditure and isolation risks before vs. after therapeutic support:
+      </p>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-value">88%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Cognitive Listening Effort</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Brain power spent decoding speech in noisy environments.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #ef4444;">72%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Social Isolation Risk</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Likelihood of withdrawing from group dinners without support.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #d97706;">64%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Tinnitus Distress Co-Occurrence</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Individuals experiencing internal head noise alongside loss.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #059669;">92%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Post-Therapy Resilience Growth</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Confidence regained after engaging in hearing therapy & peer support.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEEP DIVE: THE 5 STAGES OF GRIEF -->
+    <div class="card" style="border-left-color: #E91E63;">
+      <span class="info-badge badge-pink">Therapist Case Studies</span>
+      <h2><span class="material-icons card-icon">auto_stories</span> Detailed Stage Breakdown & Clinical Strategies</h2>
+
+      <!-- Stage 1 -->
+      <div style="margin-bottom: 25px;">
+        <h3 style="color: #ef4444; font-size: 1.25rem;">1. Denial & Shock ("Everyone Mumbles")</h3>
+        <div class="quote-box">"My hearing isn't that bad. People are just mumbling, or the room is too loud."</div>
+        <p style="font-size: 0.98rem; color: #334155; line-height: 1.6;">
+          <strong>Clinical Experience:</strong> The initial defense mechanism. Dismissing feedback from family, avoiding hearing tests, and turning up the TV volume while insisting it's fine.
+        </p>
+        <p style="font-size: 0.95rem; color: #059669; font-weight: 700;">
+          💡 Therapist Action Step: Book an objective online or NHS hearing check without judgment to get clear acoustic baseline facts.
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+      <!-- Stage 2 -->
+      <div style="margin-bottom: 25px;">
+        <h3 style="color: #f97316; font-size: 1.25rem;">2. Anger & Frustration ("Why Me?")</h3>
+        <div class="quote-box">"Why should I have to pay for expensive hearing aids? It's completely unfair."</div>
+        <p style="font-size: 0.98rem; color: #334155; line-height: 1.6;">
+          <strong>Clinical Experience:</strong> Frustration directed at audiologists, loved ones, or society. Bitterness about perceived stigma and the financial cost of assistive technology.
+        </p>
+        <p style="font-size: 0.95rem; color: #059669; font-weight: 700;">
+          💡 Therapist Action Step: Validate the anger — it's normal! Channel it into investigating free NHS aid options and Access to Work government grants.
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+      <!-- Stage 3 -->
+      <div style="margin-bottom: 25px;">
+        <h3 style="color: #d97706; font-size: 1.25rem;">3. Bargaining & Negotiating ("I'll Only Wear It at Work")</h3>
+        <div class="quote-box">"I'll wear the aid for meetings, but I won't wear it out with friends."</div>
+        <p style="font-size: 0.98rem; color: #334155; line-height: 1.6;">
+          <strong>Clinical Experience:</strong> Attempting conditional deals with oneself. Trying unproven alternative supplements or wearing aids selectively, which slows down brain adaptation.
+        </p>
+        <p style="font-size: 0.95rem; color: #059669; font-weight: 700;">
+          💡 Therapist Action Step: Commit to full-time daily wear for 30 consecutive days so the auditory cortex can re-train properly.
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+      <!-- Stage 4 -->
+      <div style="margin-bottom: 25px;">
+        <h3 style="color: #8b5cf6; font-size: 1.25rem;">4. Grief & Social Fatigue ("I Feel Isolated")</h3>
+        <div class="quote-box">"Conversations feel like a distant fog. Why should I bother going to the pub?"</div>
+        <p style="font-size: 0.98rem; color: #334155; line-height: 1.6;">
+          <strong>Clinical Experience:</strong> Sadness and listening fatigue. The intense strain of lip-reading leads to social withdrawal and feeling disconnected from family conversations.
+        </p>
+        <p style="font-size: 0.95rem; color: #059669; font-weight: 700;">
+          💡 Therapist Action Step: Connect with local peer support groups in Bristol to realize you are not alone in this experience.
+        </p>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+
+      <!-- Stage 5 -->
+      <div>
+        <h3 style="color: #10b981; font-size: 1.25rem;">5. Acceptance & Empowerment ("I Have My Life Back")</h3>
+        <div class="quote-box">"I have hearing loss, but it doesn't define me. I have tools and connections to make."</div>
+        <p style="font-size: 0.98rem; color: #334155; line-height: 1.6;">
+          <strong>Clinical Experience:</strong> Embracing hearing loss without shame. Proactively using assistive devices, requesting clear communication tactics, and reconnecting with confidence.
+        </p>
+        <p style="font-size: 0.95rem; color: #059669; font-weight: 700;">
+          💡 Therapist Action Step: Share your journey, advocate for accessible venues, and inspire newly diagnosed initiates.
+        </p>
+      </div>
+    </div>
+
+    <!-- BRISTOL MENTAL HEALTH & THERAPY SUPPORT LINKS -->
+    <div class="card" style="border-left-color: #005EB8;">
+      <span class="info-badge badge-blue">Local Professional Services</span>
+      <h2><span class="material-icons card-icon" style="color: #005EB8;">health_and_safety</span> Bristol Mental Health & Therapy Support Links</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        If you are experiencing emotional isolation, anxiety, or grief linked to hearing loss, these free Bristol services are ready to help:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
+        
+        <!-- Vita Health -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0;">
+          <h4 style="margin: 0 0 6px 0; color: #005EB8; font-size: 1.1rem;">🏥 Vita Health Group (Bristol NHS Talking Therapies)</h4>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; color: #475569;">Free 1-to-1 NHS counseling and CBT for anxiety and depression. Self-refer directly without needing a GP appointment.</p>
+          <a href="https://www.vitahealthgroup.co.uk/nhs-services/nhs-mental-health/bristol-north-somerset-south-gloucestershire/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+            <span class="material-symbols-outlined">open_in_new</span> Visit Vita Health Bristol &rarr;
+          </a>
+        </div>
+
+        <!-- Bristol Mind -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0;">
+          <h4 style="margin: 0 0 6px 0; color: #E91E63; font-size: 1.1rem;">🧠 Bristol Mind & Listening Services</h4>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; color: #475569;">Local mental health charity offering confidential listening, emotional support, and advocacy across Bristol.</p>
+          <a href="https://bristolmind.org.uk/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
+            <span class="material-symbols-outlined">open_in_new</span> Visit Bristol Mind &rarr;
+          </a>
+        </div>
+
+        <!-- NHS Hearing Therapists -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0;">
+          <h4 style="margin: 0 0 6px 0; color: #059669; font-size: 1.1rem;">👂 NHS Hearing Therapists (BRI & Southmead)</h4>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; color: #475569;">Specialist NHS Hearing Therapists assist with acoustic grief, tinnitus retraining, and hearing aid acclimatization.</p>
+          <a href="path-hearing-therapists.html" class="ext-btn btn-green">
+            <span class="material-symbols-outlined">person_search</span> View Hearing Therapist Guide &rarr;
+          </a>
+        </div>
+
+        <!-- Bristol Peer Support Group -->
+        <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0;">
+          <h4 style="margin: 0 0 6px 0; color: #d97706; font-size: 1.1rem;">🤝 Bristol Hearing Loss Support Group</h4>
+          <p style="margin: 0 0 12px 0; font-size: 0.95rem; color: #475569;">Join our local peer support network to share experiences, coping strategies, and technology advice in an accessible space.</p>
+          <a href="path-support-group.html" class="ext-btn btn-amber">
+            <span class="material-symbols-outlined">groups</span> Join Bristol Support Group &rarr;
+          </a>
+        </div>
+
+        <!-- 24/7 Crisis Callout -->
+        <div style="background: #fff1f2; border-radius: 14px; padding: 20px; border: 1px solid #fecdd3;">
+          <h4 style="margin: 0 0 8px 0; color: #9f1239; font-size: 1.1rem;">🚨 24/7 Urgent Mental Health Crisis Support</h4>
+          <p style="margin: 0; font-size: 0.95rem; color: #881337; line-height: 1.6;">
+            • <strong>NHS Mental Health Crisis Line:</strong> Call <strong>111</strong> (Option 2) in Bristol.<br>
+            • <strong>Samaritans:</strong> Call <strong>116 123</strong> (Free 24/7 listening hotline).<br>
+            • <strong>Shout Crisis Text Line:</strong> Text <strong>SHOUT to 85258</strong> for free text support.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+      <a href="path-yes.html" class="back-to-journey-btn">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Return to Journey Hub
+      </a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
