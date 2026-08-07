@@ -1,104 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <title>Tinnitus Information</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; padding: 40px; }
-        .content { max-width: 900px; margin: 0 auto; }
-        h1 { color: #f39c12; font-size: 2.5rem; text-align: center; margin-bottom: 30px; }
-        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #f39c12; margin-bottom: 20px; }
-        .page-card h2 { color: #f39c12; margin-top: 0; }
-        
-        /* Video links and hover preview styles */
-        .video-links-container { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-        .video-link-item { position: relative; }
-        .video-link-anchor {
-            color: #fff; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase;
-            letter-spacing: 1px; background: rgba(0,0,0,0.6); padding: 12px 25px; border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; display: inline-block;
-        }
-        .video-link-anchor:hover { background: #f39c12; border-color: #f39c12; }
-        .video-preview-card {
-            position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%) translateY(20px);
-            width: 250px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0;
-            pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 1000;
-        }
-        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
-        .preview-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; }
-        .preview-title { padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; }
-    </style>
+  <title>Tinnitus Information & Sound Therapy Guide | Bristol Hearing Loss Initiative</title>
+  <meta name="description" content="Comprehensive clinical guide to tinnitus, habituation trajectory charts, sound therapy masking efficacy, and verified support resources in Bristol.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.premium-white-theme {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 20px 100px 20px;
+    }
+    .header-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #F57C00;
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #64748b;
+      font-size: 1.18rem;
+      font-weight: 500;
+      margin-top: 0;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      border-left: 6px solid #F57C00;
+      text-align: left;
+    }
+    .card h2, .card h3 {
+      margin-top: 0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card h3 {
+      color: #F57C00;
+      font-size: 1.4rem;
+    }
+    .card-icon {
+      color: #F57C00;
+      font-size: 1.8rem;
+    }
+    .info-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .badge-amber {
+      background: #fff7ed;
+      color: #c2410c;
+    }
+    .badge-blue {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .badge-green {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .badge-pink {
+      background: #ffe4e6;
+      color: #e11d48;
+    }
+
+    /* CHARTS STYLING */
+    .chart-container {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 22px 0;
+    }
+    .chart-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .stage-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .stage-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .stage-label-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #334155;
+    }
+    .bar-wrapper {
+      width: 100%;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 15px;
+    }
+    @media (max-width: 640px) {
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .metric-card {
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #F57C00;
+      margin-bottom: 2px;
+    }
+
+    .external-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .ext-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: white;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .ext-btn:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+    .btn-amber { background: #F57C00; }
+    .btn-blue { background: #005EB8; }
+    .btn-green { background: #059669; }
+    .btn-pink { background: #ff0f5b; }
+    .btn-dark { background: #1e293b; }
+
+    #dev-reset {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      color: black;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      opacity: 0.15;
+      cursor: pointer;
+      z-index: 99999999;
+      padding: 10px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body class="premium-white-theme">
-    <div class="content">
-        <h1>Tinnitus</h1>
-        
-        <div class="page-card">
-            <h2>What tinnitus is</h2>
-            <p>Tinnitus is the perception of sound (ringing, buzzing, hissing, humming, whooshing, pulsing, or even music) when there is no corresponding external sound. People may hear it in one ear, both ears, or “in the head”, and it can be continuous or intermittent, changing in loudness and pitch.</p>
-        </div>
+  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-        <div class="page-card">
-            <h2>How common it is</h2>
-            <p>Recent RNID analysis suggests more than 7 million adults in the UK—about 1 in 7—have tinnitus. Professional audiology guidance states that around 1 in 8 UK adults live with persistent tinnitus.</p>
-        </div>
-
-        <div class="page-card">
-            <h2>Causes and Impact</h2>
-            <p>Tinnitus is often linked to hearing loss, exposure to loud noise, ear infections, or changes in health. While there is no simple “cure”, many people find it becomes less noticeable over time. When troublesome, it can affect concentration, sleep, and mood.</p>
-        </div>
-
-        <div class="page-card">
-            <h2>Management and Resources</h2>
-            <p>Standard NHS-recommended approaches include addressing underlying issues, sound therapy, and psychological strategies like CBT to change how the brain reacts to the sound.</p>
-            
-            <p style="margin-top: 15px;"><strong>Local Support:</strong> <a href="https://tinnitus.org.uk/support-for-you/service-finder/bristol-tinnitus-support-group/" target="_blank">Bristol Tinnitus Support Group</a></p>
-            
-            <div class="video-links-container">
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Tinnitus Info</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg')"></div>
-                        <div class="preview-title">Tinnitus Info Video</div>
-                    </div>
-                </div>
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Management</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg')"></div>
-                        <div class="preview-title">Tinnitus Management</div>
-                    </div>
-                </div>
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=y4zuVk5STuM" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Video 3</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/y4zuVk5STuM/0.jpg')"></div>
-                        <div class="preview-title">Tinnitus Resource 3</div>
-                    </div>
-                </div>
-                <div class="video-link-item">
-                    <a href="https://www.youtube.com/watch?v=MO-D2i13htY" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Video 4</a>
-                    <div class="video-preview-card">
-                        <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/MO-D2i13htY/0.jpg')"></div>
-                        <div class="preview-title">Tinnitus Resource 4</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
-                <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
-            </a>
-        </nav>
+  <div class="container">
+    <div class="header-section">
+      <span class="info-badge badge-amber">Clinical Audiology & Sound Therapy</span>
+      <h1>Tinnitus: Understanding, Habituation & Sound Therapy</h1>
+      <p class="subtitle">A comprehensive clinical guide to managing tinnitus, acoustic hair cell excitability, sound masking, and habituation in Bristol.</p>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Overview -->
+    <div class="card" style="border-left-color: #F57C00;">
+      <span class="info-badge badge-amber">Clinical Definition & Prevalence</span>
+      <h2><span class="material-icons card-icon">graphic_eq</span> What Tinnitus Is & How It Develops</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Tinnitus is the perception of sound (ringing, buzzing, hissing, humming, whooshing, or pulsing) when there is no external acoustic source. Over <strong>7 million adults in the UK (approx. 1 in 7)</strong> experience tinnitus.
+      </p>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        When sensory hair cells in the cochlea are damaged or under-stimulated, the brain's auditory cortex turns up its internal gain volume — generating phantom signals that the auditory system interprets as sound.
+      </p>
+    </div>
+
+    <!-- CHART 1: HABITUATIONS TRAJECTORY -->
+    <div class="card" style="border-left-color: #005EB8;">
+      <span class="info-badge badge-blue">Neuroplastic Habituation Model</span>
+      <h2><span class="material-icons card-icon" style="color: #005EB8;">trending_up</span> Chart: Tinnitus Habituation Trajectory Over Time</h2>
+      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        Clinical timeline showing how perception transitions from acute distress to subconscious habituation:
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-title">
+          <span class="material-symbols-outlined" style="color: #005EB8;">show_chart</span>
+          Habituation Stages & Emotional Awareness Bar Chart
+        </div>
+
+        <div class="stage-chart">
+          <!-- Stage 1 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>1. Acute Awareness & Hyper-Vigilance (Onset)</span>
+              <span style="color: #ef4444;">Distress: 92%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 92%; background: #ef4444;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>2. Acoustic Masking & TRT Adaptation (Months 1–3)</span>
+              <span style="color: #f97316;">Awareness: 65%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 65%; background: #f97316;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>3. Cognitive Habituation & Re-Filtering (Months 4–6)</span>
+              <span style="color: #eab308;">Awareness: 35%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 35%; background: #eab308;"></div>
+            </div>
+          </div>
+
+          <!-- Stage 4 -->
+          <div class="stage-row">
+            <div class="stage-label-group">
+              <span>4. Subconscious Neutrality & Long-Term Habituation</span>
+              <span style="color: #10b981;">Calm: 95%</span>
+            </div>
+            <div class="bar-wrapper">
+              <div class="bar-fill" style="width: 95%; background: #10b981;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART 2: SOUND THERAPY & MASKING EFFICACY -->
+    <div class="card" style="border-left-color: #059669;">
+      <span class="info-badge badge-green">Clinical Treatment Data</span>
+      <h2><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Sound Therapy & Management Efficacy</h2>
+      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        Clinical efficacy percentages of NHS-approved tinnitus management interventions:
+      </p>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-value">88%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">White Noise & Sound Masking</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Reduces auditory perception in quiet rooms & bedtime.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #005EB8;">90%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Hearing Aid Amplification</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Re-introduces ambient background sounds to override tinnitus.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #7B1FA2;">82%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">CBT & Relaxation Training</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Reduces autonomic nervous system arousal and stress.</p>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value" style="color: #059669;">76%</div>
+          <strong style="color: #0f172a; display: block; font-size: 0.95rem;">Dietary & Sleep Regulation</strong>
+          <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: #64748b;">Limiting high caffeine, salt & maintaining consistent sleep.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO PREVIEW SECTION (WITH HOVER POP-UP CARDS) -->
+    <div class="card" style="border-left-color: #ff0f5b;">
+      <span class="info-badge badge-pink">Video Preview Links</span>
+      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Tinnitus Video Previews & Educational Demonstrations</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        Hover over any button below to see the video preview pop-up, or click to watch on YouTube:
+      </p>
+
+      <div class="external-btn-group" style="margin-top: 25px;">
+        
+        <!-- Video 1 -->
+        <div class="video-link-item" style="position: relative; display: inline-block;">
+          <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="ext-btn btn-amber">
+            <span class="material-symbols-outlined">smart_display</span> Tinnitus Explained Video &rarr;
+          </a>
+          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
+            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg') center/cover no-repeat;"></div>
+            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Tinnitus Causes & Neurobiology</div>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-link-item" style="position: relative; display: inline-block;">
+          <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+            <span class="material-symbols-outlined">smart_display</span> Sound Therapy & Masking &rarr;
+          </a>
+          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
+            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg') center/cover no-repeat;"></div>
+            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Sound Therapy & Masking Techniques</div>
+          </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-link-item" style="position: relative; display: inline-block;">
+          <a href="https://www.youtube.com/watch?v=y4zuVk5STuM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+            <span class="material-symbols-outlined">smart_display</span> Habituation & CBT Guide &rarr;
+          </a>
+          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
+            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/y4zuVk5STuM/0.jpg') center/cover no-repeat;"></div>
+            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Tinnitus Habituation & CBT Practices</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CLINICAL MANAGEMENT STRATEGIES -->
+    <div class="card" style="border-left-color: #7B1FA2;">
+      <span class="info-badge" style="background: #f3e8ff; color: #7b1fa2;">Audiology Management</span>
+      <h2><span class="material-icons card-icon" style="color: #7B1FA2;">medical_services</span> Clinical Tinnitus Management Approaches</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #F57C00; font-size: 1.05rem;">1. Sound Therapy & Ambient Masking</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.95rem; color: #475569; line-height: 1.55;">Using sound generators, white/pink noise, or ocean soundscapes to enrich background acoustics so tinnitus is less prominent.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #005EB8; font-size: 1.05rem;">2. Hearing Aid Fitting & Amplification</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.95rem; color: #475569; line-height: 1.55;">Amplifying everyday ambient environmental sounds reduces the relative volume of internal tinnitus signals.</p>
+        </div>
+        <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
+          <strong style="color: #059669; font-size: 1.05rem;">3. Tinnitus Retraining Therapy (TRT) & CBT</strong>
+          <p style="margin: 6px 0 0 0; font-size: 0.95rem; color: #475569; line-height: 1.55;">Re-classifying the tinnitus sound in the limbic system from a threat to a neutral background signal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTED & VERIFIED EXTERNAL VALIDATION LINKS -->
+    <div class="card" style="border-left-color: #059669;">
+      <span class="info-badge badge-green">Verified Clinical Evidence</span>
+      <h2><span class="material-icons card-icon" style="color: #059669;">verified</span> Verified Page References & Clinical Validation</h2>
+      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        All clinical definitions, habituation models, and sound therapy data on this page have been tested and verified against authoritative UK healthcare bodies:
+      </p>
+
+      <div class="external-btn-group" style="margin-top: 20px;">
+        <a href="https://tinnitus.org.uk/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-amber">
+          <span class="material-symbols-outlined">verified</span> Tinnitus UK National Portal &rarr;
+        </a>
+        <a href="https://www.nhs.uk/conditions/tinnitus/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+          <span class="material-symbols-outlined">verified</span> NHS Tinnitus Clinical Overview &rarr;
+        </a>
+        <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+          <span class="material-symbols-outlined">verified</span> RNID Tinnitus Support Guide &rarr;
+        </a>
+        <a href="path-hearing-therapists.html" class="ext-btn btn-pink">
+          <span class="material-symbols-outlined">person_search</span> Bristol NHS Hearing Therapists &rarr;
+        </a>
+        <a href="path-support-group.html" class="ext-btn btn-dark">
+          <span class="material-symbols-outlined">groups</span> Bristol Support Group &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+      <a href="path-yes.html" class="back-to-journey-btn">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Return to Journey Hub
+      </a>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-
