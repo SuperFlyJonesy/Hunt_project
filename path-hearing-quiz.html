@@ -165,15 +165,15 @@
             resBox.style.display = 'block';
 
             if (yesCount <= 1) {
-                resTitle.textContent = `Score: ${yesCount}/6 — Healthy Hearing Baseline`;
+                resTitle.textContent = `Score: ${yesCount}/6: Healthy Hearing Baseline`;
                 resTitle.style.color = '#15803d';
                 resDesc.textContent = "Your answers indicate little to no noticeable difficulty in everyday listening environments. Keep protecting your ears from loud noise and get a routine check every few years!";
             } else if (yesCount <= 3) {
-                resTitle.textContent = `Score: ${yesCount}/6 — Mild Hearing Loss Indicator`;
+                resTitle.textContent = `Score: ${yesCount}/6: Mild Hearing Loss Indicator`;
                 resTitle.style.color = '#c2410c';
                 resDesc.textContent = "You are noticing some mild difficulty in noisy environments or with high-frequency speech. We recommend scheduling a routine hearing check with your GP or a high street audiologist.";
             } else {
-                resTitle.textContent = `Score: ${yesCount}/6 — Significant Hearing Loss Indicator`;
+                resTitle.textContent = `Score: ${yesCount}/6: Significant Hearing Loss Indicator`;
                 resTitle.style.color = '#b91c1c';
                 resDesc.textContent = "Your answers suggest clear challenges in social conversations and everyday listening. We strongly recommend booking a comprehensive NHS Pure Tone Audiometry hearing test via your GP to receive free digital hearing aids through UHBW Audiology!";
             }
