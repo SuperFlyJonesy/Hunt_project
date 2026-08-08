@@ -139,33 +139,36 @@ html, body {
   flex: 1;
 }
 
-/* --- EXTRA LARGE ROUND VENUE MARKERS WITH BIG EMOJIS (ICON ONLY UNTIL HOVERED) --- */
+/* --- MASSIVE 112px ROUND VENUE MARKERS (EXACTLY CENTERED ON GPS COORDINATES WITH translate(-50%, -50%)) --- */
 .round-icon-marker {
-  width: 56px !important;
-  height: 56px !important;
-  min-width: 56px !important;
-  min-height: 56px !important;
+  width: 112px !important;
+  height: 112px !important;
+  min-width: 112px !important;
+  min-height: 112px !important;
   border-radius: 50% !important;
+  background-color: #202124 !important; /* ALL SAME COLOR INSIDE */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 2.1rem !important;
+  font-size: 4.2rem !important;
   line-height: 1 !important;
   color: #ffffff !important;
   position: relative !important;
   cursor: pointer !important;
   box-sizing: border-box !important;
+  /* CRITICAL FOR PERFECT GPS CENTERING: */
+  transform: translate(-50%, -50%) !important;
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease !important;
 }
 
 .round-icon-marker:hover {
-  transform: scale(1.25) !important;
+  transform: translate(-50%, -50%) scale(1.15) !important;
   z-index: 999999 !important;
 }
 
 .round-icon-marker span.emoji-icon {
   font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif !important;
-  font-size: 2.1rem !important;
+  font-size: 4.2rem !important;
   display: block !important;
   line-height: 1 !important;
 }
@@ -173,14 +176,14 @@ html, body {
 /* Hover Tooltip revealing venue title on mouse hover */
 .round-icon-marker .marker-tooltip {
   position: absolute;
-  bottom: 66px;
+  bottom: 122px;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   background: #000000;
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 16px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 800;
   white-space: nowrap;
   pointer-events: none;
@@ -232,28 +235,31 @@ html, body {
   background: #202124 !important;
 }
 
-/* FIXED CLOSE BUTTON FOR MAP POPUP */
+/* --- CLEAN CRISP GOOGLE MAP POPUP CLOSE BUTTON --- */
 .gm-ui-hover-effect {
-  filter: invert(1) !important;
-  top: 10px !important;
-  right: 10px !important;
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  top: 8px !important;
+  right: 8px !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
   border-radius: 50% !important;
-  padding: 4px !important;
-  width: 30px !important;
-  height: 30px !important;
+  width: 32px !important;
+  height: 32px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  z-index: 999999 !important;
-  cursor: pointer !important;
   opacity: 1 !important;
-  transition: background-color 0.2s ease !important;
+  z-index: 999999 !important;
+  border: none !important;
+  padding: 0 !important;
+  outline: none !important;
+}
+
+.gm-ui-hover-effect span {
+  background-color: #ffffff !important;
+  margin: 0 !important;
 }
 
 .gm-ui-hover-effect:hover {
-  background-color: rgba(255, 15, 91, 0.8) !important;
-  filter: invert(0) !important;
+  background-color: #ff0f5b !important;
 }
 
 /* --- Custom Simple Dark Popup Card --- */
