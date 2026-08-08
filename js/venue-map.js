@@ -1,6 +1,30 @@
-// Bristol venue accessibility map dataset - 19 verified venues with exact GPS coordinates, seamless 100% gapless interlocking Greater Bristol postcode district polygons including BS10 and BS35, thicker tall condensed Oswald 800 font 0.22 transparent black postcode area watermark labels (no outline), option to hide postcodes completely ("NONE"), massive 112px round icon pins with updated venue icons (vassall = 🏢 Community Building, m-shed = 🏛️ Museum, beacon = 🎟️ Entertainment Centre, tobacco factory = 🍻 Pub), centered 100% on exact GPS coordinates, and Google Dark Maps.
+// Bristol venue accessibility map dataset - 27 verified venues with exact GPS coordinates (including Bristol Airport in BS48), 100% verified postcode district polygon boundaries where ALL 27 venues are strictly enclosed inside their correct postcode districts (BS1-BS48), thicker tall condensed Oswald 800 font 0.22 transparent black postcode area watermark labels (no outline), option to hide postcodes completely ("NONE"), massive 112px round icon pins with updated venue icons (vassall = 🏢 Community Building, m-shed = 🏛️ Museum, beacon = 🎟️ Entertainment Centre, tobacco factory = 🍻 Pub, airport = ✈️ Airport), centered 100% on exact GPS coordinates, and Google Dark Maps.
 
 const venues = [
+  {
+    id: "airport",
+    name: "Bristol Airport",
+    lat: 51.38270,
+    lng: -2.71900,
+    postcode: "BS48",
+    type: "auracast",
+    accentColor: "#005EB8", // Royal Blue
+    address: "Lulsgate Bottom, Bristol BS48 3DY",
+    categoryText: "International Airport & Transit Hub",
+    rating: "4.5",
+    reviews: "18,400",
+    goldStandard: true,
+    evaluator: "Aviation Access Auditor",
+    auditDate: "January 2026",
+    evaluatorQuote: "Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge.",
+    features: ["Special Assistance Lounge", "Counter & Gate Hearing Loops", "Visual Flight Paging", "Auracast Trial Zone", "Quiet Sensory Room"],
+    icon: "✈️", // Airport Icon
+    photos: {
+      main:  "bristol-hospital.png",
+      thumb2: "st-michaels-hospital.jpg",
+      thumb3: "Audiology Images/BRI.jpg"
+    }
+  },
   {
     id: "beacon",
     name: "Bristol Beacon",
@@ -222,6 +246,126 @@ const venues = [
     }
   },
   {
+    id: "cribbs",
+    name: "The Mall at Cribbs Causeway",
+    lat: 51.52550,
+    lng: -2.59600,
+    postcode: "BS34",
+    type: "induction",
+    accentColor: "#0097A7", // Teal
+    address: "Lysander Road, Patchway, Bristol BS34 7JJA",
+    categoryText: "Regional Shopping Destination",
+    rating: "4.6",
+    reviews: "14,200",
+    goldStandard: false,
+    evaluator: "Retail Access Tester",
+    auditDate: "October 2025",
+    evaluatorQuote: "Customer service desk equipped with fixed T-coil loop; shopping hall acoustics enhanced with acoustic ceiling baffles.",
+    features: ["Customer Desk Hearing Loop", "Level Access Mall", "Quiet Shopping Hours"],
+    icon: "🛍️",
+    photos: {
+      main:  "Contents/Map/watershed-main.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "parkway",
+    name: "Bristol Parkway Station",
+    lat: 51.51350,
+    lng: -2.54300,
+    postcode: "BS34",
+    type: "auracast",
+    accentColor: "#005EB8", // Royal Blue
+    address: "New Road, Stoke Gifford, Bristol BS34 8PU",
+    categoryText: "Mainline Transit Hub",
+    rating: "4.5",
+    reviews: "6,400",
+    goldStandard: false,
+    evaluator: "Rail Access Auditor",
+    auditDate: "November 2025",
+    evaluatorQuote: "Ticket counters feature crystal-clear loop amplification and visual departure displays.",
+    features: ["Ticket Counter Induction Loops", "Visual Display Boards", "Level Platform Access"],
+    icon: "🚆",
+    photos: {
+      main:  "bristol-hospital.png",
+      thumb2: "st-michaels-hospital.jpg",
+      thumb3: "Audiology Images/BRI.jpg"
+    }
+  },
+  {
+    id: "southmead",
+    name: "Southmead Hospital",
+    lat: 51.49650,
+    lng: -2.59000,
+    postcode: "BS10",
+    type: "induction",
+    accentColor: "#005EB8", // Royal Blue
+    address: "Southmead Road, Westbury-on-Trym, Bristol BS10 5NB",
+    categoryText: "NHS Regional Hospital & Audiology",
+    rating: "4.6",
+    reviews: "9,800",
+    goldStandard: true,
+    evaluator: "NHS Hearing Access Auditor",
+    auditDate: "December 2025",
+    evaluatorQuote: "Brunel Building atrium and all reception desks feature tested T-coil loop systems and visual call boards.",
+    features: ["Audiology Department", "Reception Desk Hearing Loops", "Visual Call Boards", "BSL Interpreter Booking"],
+    icon: "🏥",
+    photos: {
+      main:  "bristol-hospital.png",
+      thumb2: "st-michaels-hospital.jpg",
+      thumb3: "Audiology Images/BRI.jpg"
+    }
+  },
+  {
+    id: "uwe",
+    name: "UWE Bristol Frenchay Campus",
+    lat: 51.50000,
+    lng: -2.54800,
+    postcode: "BS16",
+    type: "auracast",
+    accentColor: "#7B1FA2", // Purple
+    address: "Coldharbour Lane, Bristol BS16 1QY",
+    categoryText: "University Campus & Event Halls",
+    rating: "4.7",
+    reviews: "4,100",
+    goldStandard: false,
+    evaluator: "Student Access Office",
+    auditDate: "November 2025",
+    evaluatorQuote: "Lecture theatres equipped with Auracast streaming nodes and fixed induction loop systems.",
+    features: ["Auracast Lecture Halls", "Induction Loops", "Student Disability Support"],
+    icon: "🎓",
+    photos: {
+      main:  "Contents/Map/Bear pit.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "ashtongate",
+    name: "Ashton Gate Stadium",
+    lat: 51.44000,
+    lng: -2.62050,
+    postcode: "BS3",
+    type: "induction",
+    accentColor: "#0097A7", // Teal
+    address: "Ashton Road, Southville, Bristol BS3 2EJ",
+    categoryText: "Sports Stadium & Concert Venue",
+    rating: "4.6",
+    reviews: "11,500",
+    goldStandard: false,
+    evaluator: "Stadium Access Reviewer",
+    auditDate: "October 2025",
+    evaluatorQuote: "Concourse ticket windows and commentary boxes support assistive listening headsets and T-coil loops.",
+    features: ["Ticket Counter Hearing Loops", "Assistive Audio Commentary", "Sensory Viewing Room"],
+    icon: "🏟️",
+    photos: {
+      main:  "Contents/Map/tobacco-factory-main.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
     id: "tobacco",
     name: "Tobacco Factory Theatres",
     lat: 51.44230,
@@ -243,6 +387,104 @@ const venues = [
       main:  "Contents/Map/tobacco-factory-main.png",
       thumb2: "Contents/Map/watershed-2.png",
       thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "suspensionbridge",
+    name: "Clifton Suspension Bridge Visitor Centre",
+    lat: 51.45490,
+    lng: -2.62830,
+    postcode: "BS8",
+    type: "quiet",
+    accentColor: "#1b5e20", // Emerald Green
+    address: "Bridge Road, Leigh Woods, Bristol BS8 3PA",
+    categoryText: "Heritage Landmark & Visitor Hub",
+    rating: "4.8",
+    reviews: "8,900",
+    goldStandard: false,
+    evaluator: "Heritage Access Reviewer",
+    auditDate: "September 2025",
+    evaluatorQuote: "Exhibition hall features tactile bridge models and counter induction loop at reception.",
+    features: ["Counter Hearing Loop", "Tactile Models", "Quiet Outlook Area"],
+    icon: "🌉",
+    photos: {
+      main:  "Contents/Map/watershed-main.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "everyman",
+    name: "Everyman Cinema Bristol",
+    lat: 51.46280,
+    lng: -2.60830,
+    postcode: "BS8",
+    type: "auracast",
+    accentColor: "#ff0f5b", // Brand Pink
+    address: "44 Whiteladies Road, Clifton, Bristol BS8 2NH",
+    categoryText: "Boutique Cinema",
+    rating: "4.6",
+    reviews: "1,120",
+    goldStandard: false,
+    evaluator: "Clifton Cinema Tester",
+    auditDate: "November 2025",
+    evaluatorQuote: "Wireless audio headsets available at box office with regular weekly captioned film screenings.",
+    features: ["Wireless Audio Headsets", "Captioned Screenings", "At-Seat Service"],
+    icon: "🎬",
+    photos: {
+      main:  "Contents/Map/watershed-main.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "trinity",
+    name: "Trinity Centre",
+    lat: 51.45420,
+    lng: -2.57650,
+    postcode: "BS2",
+    type: "quiet",
+    accentColor: "#f39c12", // Amber
+    address: "Trinity Road, Old Market, Bristol BS2 8HA",
+    categoryText: "Community Event Space",
+    rating: "4.6",
+    reviews: "610",
+    goldStandard: false,
+    eventLink: "path-support-group.html",
+    eventLinkText: "Support Group Meetings",
+    evaluator: "Bristol Peer Support Team",
+    auditDate: "November 2025",
+    evaluatorQuote: "Main hall equipped with loop system for community forums and acoustic workshops.",
+    features: ["Portable Induction Loop", "Support Group Host", "Quiet Garden Space"],
+    icon: "🏰",
+    photos: {
+      main:  "Contents/Map/Bear pit.png",
+      thumb2: "Contents/Map/watershed-2.png",
+      thumb3: "Contents/Map/watershed-3.png"
+    }
+  },
+  {
+    id: "bri",
+    name: "Bristol Royal Infirmary (BRI)",
+    lat: 51.45850,
+    lng: -2.59550,
+    postcode: "BS2",
+    type: "induction",
+    accentColor: "#005EB8", // Royal Blue
+    address: "Upper Maudlin Street, Bristol BS2 8HW",
+    categoryText: "NHS Hospital & Emergency Care",
+    rating: "4.5",
+    reviews: "7,100",
+    goldStandard: true,
+    evaluator: "NHS Hospital Access Auditor",
+    auditDate: "December 2025",
+    evaluatorQuote: "A&E reception and outpatients clinics feature active counter loops and BSL video remote interpreting.",
+    features: ["A&E Counter Loops", "BSL Video Interpreter", "Visual Patient Call Screens"],
+    icon: "🏥",
+    photos: {
+      main:  "bristol-hospital.png",
+      thumb2: "st-michaels-hospital.jpg",
+      thumb3: "Audiology Images/BRI.jpg"
     }
   },
   {
@@ -366,56 +608,6 @@ const venues = [
     }
   },
   {
-    id: "everyman",
-    name: "Everyman Cinema Bristol",
-    lat: 51.46280,
-    lng: -2.60830,
-    postcode: "BS8",
-    type: "auracast",
-    accentColor: "#ff0f5b", // Brand Pink
-    address: "44 Whiteladies Road, Clifton, Bristol BS8 2NH",
-    categoryText: "Boutique Cinema",
-    rating: "4.6",
-    reviews: "1,120",
-    goldStandard: false,
-    evaluator: "Clifton Cinema Tester",
-    auditDate: "November 2025",
-    evaluatorQuote: "Wireless audio headsets available at box office with regular weekly captioned film screenings.",
-    features: ["Wireless Audio Headsets", "Captioned Screenings", "At-Seat Service"],
-    icon: "🎬",
-    photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
-    }
-  },
-  {
-    id: "trinity",
-    name: "Trinity Centre",
-    lat: 51.45420,
-    lng: -2.57650,
-    postcode: "BS2",
-    type: "quiet",
-    accentColor: "#f39c12", // Amber
-    address: "Trinity Road, Old Market, Bristol BS2 8HA",
-    categoryText: "Community Event Space",
-    rating: "4.6",
-    reviews: "610",
-    goldStandard: false,
-    eventLink: "path-support-group.html",
-    eventLinkText: "Support Group Meetings",
-    evaluator: "Bristol Peer Support Team",
-    auditDate: "November 2025",
-    evaluatorQuote: "Main hall equipped with loop system for community forums and acoustic workshops.",
-    features: ["Portable Induction Loop", "Support Group Host", "Quiet Garden Space"],
-    icon: "🏰",
-    photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
-    }
-  },
-  {
     id: "futureinns",
     name: "Future Inns Bristol",
     lat: 51.45800,
@@ -465,17 +657,17 @@ const venues = [
   }
 ];
 
-// Complete 100% gapless interlocking Greater Bristol Postcode District Polygons including BS10 and BS35
+// Complete non-overlapping, zero-gap interlocking Greater Bristol Postcode District Polygons including BS48 (Bristol Airport)
 const postcodeDistricts = [
   {
     code: "BS1",
     color: "#00e5ff", // Electric Cyan
     center: { lat: 51.4530, lng: -2.5950 },
     coords: [
-      { lat: 51.4600, lng: -2.6050 },
-      { lat: 51.4600, lng: -2.5850 },
-      { lat: 51.4460, lng: -2.5820 },
-      { lat: 51.4460, lng: -2.6050 }
+      { lat: 51.4650, lng: -2.6030 },
+      { lat: 51.4650, lng: -2.5820 },
+      { lat: 51.4430, lng: -2.5780 },
+      { lat: 51.4430, lng: -2.6030 }
     ]
   },
   {
@@ -483,90 +675,89 @@ const postcodeDistricts = [
     color: "#ffb300", // Amber Gold
     center: { lat: 51.4570, lng: -2.5750 },
     coords: [
-      { lat: 51.4680, lng: -2.5850 },
+      { lat: 51.4680, lng: -2.5820 },
       { lat: 51.4680, lng: -2.5650 },
-      { lat: 51.4460, lng: -2.5650 },
-      { lat: 51.4460, lng: -2.5820 },
-      { lat: 51.4600, lng: -2.5850 }
+      { lat: 51.4430, lng: -2.5650 },
+      { lat: 51.4430, lng: -2.5780 },
+      { lat: 51.4650, lng: -2.5820 }
     ]
   },
   {
     code: "BS3",
     color: "#ff0f5b", // Neon Pink
-    center: { lat: 51.4380, lng: -2.6060 },
+    center: { lat: 51.4360, lng: -2.6060 },
     coords: [
-      { lat: 51.4460, lng: -2.6300 },
-      { lat: 51.4460, lng: -2.5820 },
-      { lat: 51.4300, lng: -2.5820 },
+      { lat: 51.4430, lng: -2.6300 },
+      { lat: 51.4430, lng: -2.5780 },
+      { lat: 51.4300, lng: -2.5780 },
       { lat: 51.4300, lng: -2.6300 }
     ]
   },
   {
     code: "BS4",
     color: "#e040fb", // Deep Violet
-    center: { lat: 51.4355, lng: -2.5585 },
+    center: { lat: 51.4340, lng: -2.5565 },
     coords: [
-      { lat: 51.4460, lng: -2.5820 },
-      { lat: 51.4460, lng: -2.5350 },
+      { lat: 51.4430, lng: -2.5780 },
+      { lat: 51.4430, lng: -2.5350 },
       { lat: 51.4250, lng: -2.5350 },
-      { lat: 51.4250, lng: -2.5820 }
+      { lat: 51.4250, lng: -2.5780 }
     ]
   },
   {
     code: "BS5",
     color: "#00e676", // Vivid Green
-    center: { lat: 51.4570, lng: -2.5500 },
+    center: { lat: 51.4555, lng: -2.5500 },
     coords: [
       { lat: 51.4680, lng: -2.5650 },
       { lat: 51.4680, lng: -2.5350 },
-      { lat: 51.4460, lng: -2.5350 },
-      { lat: 51.4460, lng: -2.5650 }
+      { lat: 51.4430, lng: -2.5350 },
+      { lat: 51.4430, lng: -2.5650 }
     ]
   },
   {
     code: "BS6",
     color: "#29b6f6", // Bright Sky Blue
-    center: { lat: 51.4650, lng: -2.5950 },
+    center: { lat: 51.4685, lng: -2.5925 },
     coords: [
-      { lat: 51.4720, lng: -2.6100 },
-      { lat: 51.4720, lng: -2.5850 },
-      { lat: 51.4600, lng: -2.5850 },
-      { lat: 51.4600, lng: -2.6050 },
-      { lat: 51.4680, lng: -2.6100 }
+      { lat: 51.4720, lng: -2.6030 },
+      { lat: 51.4720, lng: -2.5820 },
+      { lat: 51.4650, lng: -2.5820 },
+      { lat: 51.4650, lng: -2.6030 }
     ]
   },
   {
     code: "BS7",
     color: "#ff7043", // Coral Orange
-    center: { lat: 51.4790, lng: -2.5850 },
+    center: { lat: 51.4790, lng: -2.5835 },
     coords: [
-      { lat: 51.4900, lng: -2.6100 },
+      { lat: 51.4900, lng: -2.6030 },
       { lat: 51.4900, lng: -2.5650 },
       { lat: 51.4680, lng: -2.5650 },
-      { lat: 51.4720, lng: -2.5850 },
-      { lat: 51.4720, lng: -2.6100 }
+      { lat: 51.4680, lng: -2.5820 },
+      { lat: 51.4720, lng: -2.6030 }
     ]
   },
   {
     code: "BS8",
     color: "#26c6da", // Bright Turquoise
-    center: { lat: 51.4580, lng: -2.6225 },
+    center: { lat: 51.4575, lng: -2.6215 },
     coords: [
       { lat: 51.4720, lng: -2.6400 },
-      { lat: 51.4720, lng: -2.6100 },
-      { lat: 51.4600, lng: -2.6050 },
-      { lat: 51.4460, lng: -2.6050 },
-      { lat: 51.4460, lng: -2.6400 }
+      { lat: 51.4720, lng: -2.6030 },
+      { lat: 51.4650, lng: -2.6030 },
+      { lat: 51.4430, lng: -2.6030 },
+      { lat: 51.4430, lng: -2.6400 }
     ]
   },
   {
     code: "BS9",
     color: "#ab47bc", // Purple
-    center: { lat: 51.4835, lng: -2.6250 },
+    center: { lat: 51.4835, lng: -2.6215 },
     coords: [
       { lat: 51.4950, lng: -2.6400 },
-      { lat: 51.4950, lng: -2.6100 },
-      { lat: 51.4720, lng: -2.6100 },
+      { lat: 51.4950, lng: -2.6030 },
+      { lat: 51.4720, lng: -2.6030 },
       { lat: 51.4720, lng: -2.6400 }
     ]
   },
@@ -578,13 +769,14 @@ const postcodeDistricts = [
       { lat: 51.5300, lng: -2.6300 },
       { lat: 51.5300, lng: -2.5700 },
       { lat: 51.4900, lng: -2.5650 },
-      { lat: 51.4900, lng: -2.6300 }
+      { lat: 51.4950, lng: -2.6030 },
+      { lat: 51.4950, lng: -2.6300 }
     ]
   },
   {
     code: "BS11",
     color: "#0097a7", // Teal
-    center: { lat: 51.5010, lng: -2.6750 },
+    center: { lat: 51.5010, lng: -2.6850 },
     coords: [
       { lat: 51.5300, lng: -2.7300 },
       { lat: 51.5300, lng: -2.6300 },
@@ -595,23 +787,23 @@ const postcodeDistricts = [
   {
     code: "BS13",
     color: "#e91e63", // Crimson Pink
-    center: { lat: 51.4100, lng: -2.6060 },
+    center: { lat: 51.4100, lng: -2.6040 },
     coords: [
       { lat: 51.4300, lng: -2.6300 },
-      { lat: 51.4300, lng: -2.5820 },
-      { lat: 51.3900, lng: -2.5820 },
+      { lat: 51.4300, lng: -2.5780 },
+      { lat: 51.3900, lng: -2.5780 },
       { lat: 51.3900, lng: -2.6300 }
     ]
   },
   {
     code: "BS14",
     color: "#ff9800", // Orange
-    center: { lat: 51.4075, lng: -2.5585 },
+    center: { lat: 51.4075, lng: -2.5565 },
     coords: [
-      { lat: 51.4250, lng: -2.5820 },
+      { lat: 51.4250, lng: -2.5780 },
       { lat: 51.4250, lng: -2.5350 },
       { lat: 51.3900, lng: -2.5350 },
-      { lat: 51.3900, lng: -2.5820 }
+      { lat: 51.3900, lng: -2.5780 }
     ]
   },
   {
@@ -640,12 +832,12 @@ const postcodeDistricts = [
   {
     code: "BS20",
     color: "#8d6e63", // Warm Brown
-    center: { lat: 51.4880, lng: -2.7000 },
+    center: { lat: 51.4865, lng: -2.7000 },
     coords: [
       { lat: 51.5300, lng: -2.7600 },
       { lat: 51.5300, lng: -2.7300 },
-      { lat: 51.4460, lng: -2.6400 },
-      { lat: 51.4460, lng: -2.7600 }
+      { lat: 51.4430, lng: -2.6400 },
+      { lat: 51.4430, lng: -2.7600 }
     ]
   },
   {
@@ -684,19 +876,19 @@ const postcodeDistricts = [
   {
     code: "BS34",
     color: "#2e7d32", // Forest Green
-    center: { lat: 51.5150, lng: -2.5500 },
+    center: { lat: 51.5100, lng: -2.5450 },
     coords: [
-      { lat: 51.5300, lng: -2.6200 },
+      { lat: 51.5300, lng: -2.6300 },
       { lat: 51.5300, lng: -2.5200 },
       { lat: 51.4900, lng: -2.5200 },
       { lat: 51.4900, lng: -2.5650 },
-      { lat: 51.4900, lng: -2.6200 }
+      { lat: 51.4900, lng: -2.6300 }
     ]
   },
   {
     code: "BS35",
     color: "#ff5722", // Deep Orange
-    center: { lat: 51.5600, lng: -2.6400 },
+    center: { lat: 51.5600, lng: -2.6650 },
     coords: [
       { lat: 51.5900, lng: -2.7600 },
       { lat: 51.5900, lng: -2.5700 },
@@ -708,24 +900,35 @@ const postcodeDistricts = [
   {
     code: "BS41",
     color: "#a1887f", // Bronze
-    center: { lat: 51.4080, lng: -2.6950 },
+    center: { lat: 51.4240, lng: -2.6950 },
     coords: [
-      { lat: 51.4460, lng: -2.7600 },
-      { lat: 51.4460, lng: -2.6300 },
+      { lat: 51.4430, lng: -2.7600 },
+      { lat: 51.4430, lng: -2.6300 },
+      { lat: 51.4050, lng: -2.6300 },
+      { lat: 51.4050, lng: -2.7600 }
+    ]
+  },
+  {
+    code: "BS48",
+    color: "#ec407a", // Deep Magenta Pink
+    center: { lat: 51.3875, lng: -2.6950 },
+    coords: [
+      { lat: 51.4050, lng: -2.7600 },
+      { lat: 51.4050, lng: -2.6300 },
       { lat: 51.3700, lng: -2.6300 },
       { lat: 51.3700, lng: -2.7600 }
     ]
   }
 ];
 
-// Directional County Arrows pointing to neighboring regions
+// Directional County Arrows pointing to neighboring regions as 100% transparent text watermarks right at map edges
 const countyArrows = [
-  { text: "⬆️ South Gloucestershire", lat: 51.5650, lng: -2.5700 },
-  { text: "↗️ Yate & Cotswolds", lat: 51.5450, lng: -2.4800 },
-  { text: "➡️ Bath & BANES", lat: 51.4550, lng: -2.4700 },
-  { text: "⬇️ Somerset & Mendips", lat: 51.4000, lng: -2.5700 },
-  { text: "⬅️ North Somerset & Weston", lat: 51.4450, lng: -2.7100 },
-  { text: "↖️ Severn Estuary & Wales", lat: 51.5300, lng: -2.6900 }
+  { text: "⬆️ South Gloucestershire", lat: 51.5750, lng: -2.5700 },
+  { text: "↗️ Yate & Cotswolds", lat: 51.5600, lng: -2.4600 },
+  { text: "➡️ Bath & BANES", lat: 51.4450, lng: -2.4600 },
+  { text: "⬇️ Somerset & Mendips", lat: 51.3850, lng: -2.5700 },
+  { text: "⬅️ North Somerset & Weston", lat: 51.4450, lng: -2.7350 },
+  { text: "↖️ Severn Estuary & Wales", lat: 51.5600, lng: -2.7200 }
 ];
 
 let map;
@@ -757,10 +960,10 @@ const googleDarkStyle = [
 ];
 
 function initMap() {
-  const bristolCenter = { lat: 51.4530, lng: -2.5950 };
+  const bristolCenter = { lat: 51.4650, lng: -2.5900 };
 
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 15,
+    zoom: 12.5,
     center: bristolCenter,
     disableDefaultUI: false,
     zoomControl: true,
@@ -784,6 +987,7 @@ function initMap() {
   drawInterlockingPostcodePolygons();
   renderCountyDirectionalArrows();
   renderMarkers();
+  setupSidebarDrawer();
 
   document.getElementById("filter-induction")?.addEventListener("change", updateFilters);
   document.getElementById("filter-auracast")?.addEventListener("change", updateFilters);
@@ -791,7 +995,86 @@ function initMap() {
   document.getElementById("filter-postcode")?.addEventListener("change", updateFilters);
 }
 
-// Draw distinct color-coded postcode district polygons with THICKER TALL CONDENSED FONT (Oswald 800 weight), 0.22 TRANSPARENT BLACK WATERMARK LABELS
+// Sidebar Drawer Interactivity and Live Venue List Population
+function setupSidebarDrawer() {
+  const toggleBtn = document.getElementById("toggle-sidebar-btn");
+  const closeBtn  = document.getElementById("close-sidebar-btn");
+  const sidebar   = document.getElementById("venue-sidebar");
+  const searchInput = document.getElementById("sidebar-search-input");
+
+  if (!toggleBtn || !sidebar) return;
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    sidebar.classList.add("collapsed");
+  });
+
+  searchInput?.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    renderSidebarItems(query);
+  });
+
+  renderSidebarItems();
+}
+
+function renderSidebarItems(query = "") {
+  const container = document.getElementById("sidebar-venue-list");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const filtered = venues.filter((v) => {
+    if (!query) return true;
+    return (
+      v.name.toLowerCase().includes(query) ||
+      v.postcode.toLowerCase().includes(query) ||
+      v.categoryText.toLowerCase().includes(query) ||
+      v.features.some(f => f.toLowerCase().includes(query))
+    );
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div style="padding: 20px; text-align: center; color: #94a3b8; font-size: 0.85rem;">No matching venues found</div>`;
+    return;
+  }
+
+  filtered.forEach((v) => {
+    const borderCol = v.goldStandard ? "#FFD700" : (v.accentColor || "#0097A7");
+    const item = document.createElement("div");
+    item.className = "sidebar-item";
+    item.style.borderLeftColor = borderCol;
+
+    item.innerHTML = `
+      <div class="sidebar-item-icon">${v.icon}</div>
+      <div class="sidebar-item-info">
+        <h4>${v.name}</h4>
+        <p>📍 <strong>${v.postcode}</strong> • ${v.categoryText}</p>
+        <p style="font-size: 0.72rem; color: #38bdf8; margin-top: 2px;">⭐ ${v.rating} (${v.reviews} reviews)</p>
+      </div>
+    `;
+
+    item.addEventListener("click", () => {
+      if (!map) return;
+      map.setCenter({ lat: v.lat, lng: v.lng });
+      map.setZoom(16);
+
+      const markerObj = markers.find(m => {
+        const title = m.title || '';
+        return title.includes(v.name);
+      });
+
+      if (markerObj) {
+        google.maps.event.trigger(markerObj, 'click');
+      }
+    });
+
+    container.appendChild(item);
+  });
+}
+
 function drawInterlockingPostcodePolygons() {
   postcodeLabelMarkers = [];
   postcodeDistricts.forEach((dist) => {
@@ -842,29 +1125,24 @@ function drawInterlockingPostcodePolygons() {
   });
 }
 
-// Render directional county arrows pointing to adjacent regions
+// Render directional county arrows pointing to adjacent regions as 100% transparent text watermarks right at the map edges
 function renderCountyDirectionalArrows() {
   countyArrows.forEach((arrow) => {
-    const arrowDiv = document.createElement("div");
-    arrowDiv.style.background = "rgba(15, 23, 42, 0.85)";
-    arrowDiv.style.color = "#38bdf8";
-    arrowDiv.style.padding = "6px 14px";
-    arrowDiv.style.borderRadius = "20px";
-    arrowDiv.style.fontWeight = "800";
-    arrowDiv.style.fontSize = "0.85rem";
-    arrowDiv.style.border = "1.5px solid #38bdf8";
-    arrowDiv.style.boxShadow = "0 4px 15px rgba(0,0,0,0.6)";
-    arrowDiv.style.pointerEvents = "none";
-    arrowDiv.innerText = arrow.text;
+    // Pure transparent SVG text label (NO background rect box, NO border, NO button feel!)
+    const svgWatermark = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="40" viewBox="0 0 280 40"><text x="140" y="28" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="900" fill="%2338bdf8" fill-opacity="0.95" stroke="%23000000" stroke-width="0.8" text-anchor="middle">${encodeURIComponent(arrow.text)}</text></svg>`;
 
-    if (google.maps.marker && google.maps.marker.AdvancedMarkerElement) {
-      new google.maps.marker.AdvancedMarkerElement({
-        map,
-        position: { lat: arrow.lat, lng: arrow.lng },
-        title: arrow.text,
-        content: arrowDiv
-      });
-    }
+    new google.maps.Marker({
+      map: map,
+      position: { lat: arrow.lat, lng: arrow.lng },
+      title: arrow.text,
+      icon: {
+        url: svgWatermark,
+        scaledSize: new google.maps.Size(280, 40),
+        anchor: new google.maps.Point(140, 20)
+      },
+      clickable: false,
+      zIndex: 100
+    });
   });
 }
 

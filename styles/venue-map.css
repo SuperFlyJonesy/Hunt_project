@@ -17,51 +17,92 @@ html, body {
   flex-direction: column;
 }
 
-/* Header bar at top - Dark Header */
+/* Header bar at top - Dark Compact Header */
 .map-header {
-  background-color: #000000;
-  border-bottom: 1px solid #333;
+  background-color: #0f172a;
+  border-bottom: 1px solid #334155;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
+  padding: 6px 16px;
+  height: 52px;
   z-index: 1000;
   color: #ffffff;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .map-header h1 {
-  font-size: 1.35rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.3px;
-  display: flex;
+  margin: 0 4px 0 0;
+  white-space: nowrap;
+}
+
+.compact-btn {
+  background: #0097A7;
+  color: #ffffff;
+  padding: 5px 11px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: inline-flex;
   align-items: center;
 }
 
-/* Postcode Area Dropdown Select - Inline Style */
+.compact-btn:hover {
+  background: #00838f;
+}
+
+.compact-btn.patreon {
+  background: #e53935;
+}
+
+.compact-btn.patreon:hover {
+  background: #c62828;
+}
+
+/* Postcode Area Dropdown Select - ALWAYS IN ONE LINE */
 .postcode-select {
-  background: #202124;
+  background: #1e293b;
   color: #ffffff;
-  border: 1px solid #555;
-  padding: 8px 16px;
-  border-radius: 20px;
+  border: 1.5px solid #475569;
+  padding: 5px 10px;
+  border-radius: 16px;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   outline: none;
   cursor: pointer;
+  white-space: nowrap;
+  max-width: 240px;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .postcode-select:hover {
-  background: #303134;
-  border-color: #ff0f5b;
+  background: #334155;
+  border-color: #0097A7;
 }
 
-/* Filters / controls */
+/* Filters / controls - ALWAYS SINGLE ROW */
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 18px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .filters {
@@ -377,4 +418,150 @@ html, body {
     max-width: 90vw !important;
     width: 90vw !important;
   }
+}
+
+/* Floating Venue List Sidebar Panel on Map */
+.venue-sidebar-toggle {
+  position: absolute;
+  top: 75px;
+  left: 16px;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1.5px solid #0097A7;
+  border-radius: 25px;
+  padding: 9px 18px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.venue-sidebar-toggle:hover {
+  background: #0097A7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(0, 151, 167, 0.5);
+}
+
+.venue-sidebar {
+  position: absolute;
+  top: 122px;
+  left: 16px;
+  width: 350px;
+  max-height: calc(100vh - 140px);
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 16px 45px rgba(0,0,0,0.85);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.venue-sidebar.collapsed {
+  transform: translateX(-390px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sidebar-header {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-header h2 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #38bdf8;
+  margin: 0;
+}
+
+.sidebar-search {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-search input {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.sidebar-search input:focus {
+  border-color: #0097A7;
+  box-shadow: 0 0 10px rgba(0, 151, 167, 0.4);
+}
+
+.sidebar-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #0097A7 rgba(15, 23, 42, 0.5);
+}
+
+.sidebar-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-list::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.sidebar-list::-webkit-scrollbar-thumb {
+  background-color: #0097A7;
+  border-radius: 3px;
+}
+
+.sidebar-item {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(30, 41, 59, 0.6);
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-left: 4px solid #0097A7;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-item:hover {
+  background: rgba(51, 65, 85, 0.95);
+  transform: translateX(3px);
+}
+
+.sidebar-item-icon {
+  font-size: 1.5rem;
+  min-width: 32px;
+  text-anchor: middle;
+}
+
+.sidebar-item-info h4 {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.sidebar-item-info p {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 0;
 }

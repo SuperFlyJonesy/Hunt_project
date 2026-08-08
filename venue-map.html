@@ -15,65 +15,78 @@
 </head>
 <body>
   <header class="map-header">
-    <h1><span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.6rem; margin-right: 6px;">map</span> Bristol Venue Map</h1>
+    <div class="header-left">
+      <h1><span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.25rem; margin-right: 4px;">map</span> Greater Bristol Map</h1>
+      <a href="path-accessible-venues.html" class="compact-btn">← Venue Directory</a>
+      <a href="path-join-us.html" class="compact-btn patreon">🔒 Add a Venue (Patreon Only)</a>
+      
+      <!-- Postcode Select -->
+      <select id="filter-postcode" class="postcode-select" aria-label="Filter by Bristol Postcode District">
+        <option value="ALL">📍 Highlight All Postcodes</option>
+        <option value="NONE">🚫 No Postcodes (Hide)</option>
+        <option value="BS1">BS1 - City Centre</option>
+        <option value="BS2">BS2 - St Pauls & Old Market</option>
+        <option value="BS3">BS3 - Southville & Bedminster</option>
+        <option value="BS4">BS4 - Knowle & Brislington</option>
+        <option value="BS5">BS5 - Easton & St George</option>
+        <option value="BS6">BS6 - Redland & Cotham</option>
+        <option value="BS7">BS7 - Bishopston & Horfield</option>
+        <option value="BS8">BS8 - Clifton & Hotwells</option>
+        <option value="BS9">BS9 - Westbury-on-Trym</option>
+        <option value="BS10">BS10 - Southmead & Henbury</option>
+        <option value="BS11">BS11 - Shirehampton & Avonmouth</option>
+        <option value="BS13">BS13 - Hartcliffe & Withywood</option>
+        <option value="BS14">BS14 - Stockwood & Hengrove</option>
+        <option value="BS15">BS15 - Hanham & Kingswood</option>
+        <option value="BS16">BS16 - Fishponds & Vassall</option>
+        <option value="BS20">BS20 - Portishead & Pill</option>
+        <option value="BS30">BS30 - Bitton & Longwell Green</option>
+        <option value="BS31">BS31 - Keynsham & Saltford</option>
+        <option value="BS32">BS32 - Bradley Stoke</option>
+        <option value="BS34">BS34 - Filton & Patchway</option>
+        <option value="BS35">BS35 - Thornbury & Severnside</option>
+        <option value="BS41">BS41 - Long Ashton</option>
+        <option value="BS48">BS48 - Airport & Nailsea</option>
+      </select>
+    </div>
 
-    <div class="header-controls">
-      <!-- Inline Navigation Links & Postcode Selector -->
-      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-        <a href="path-accessible-venues.html" class="back-link nhs-pill-btn">← Venue Directory</a>
-        <a href="path-join-us.html" class="back-link patreon-pill-btn">🔒 Add a Venue (Patreon Only)</a>
-        
-        <!-- Postcode Select -->
-        <select id="filter-postcode" class="postcode-select" aria-label="Filter by Bristol Postcode District">
-          <option value="ALL">📍 Highlight All Greater Bristol Postcodes</option>
-          <option value="NONE">🚫 No Postcodes (Hide Overlay)</option>
-          <option value="BS1">BS1 - City Centre & Harbourside</option>
-          <option value="BS2">BS2 - St Pauls & Old Market</option>
-          <option value="BS3">BS3 - Southville & Bedminster</option>
-          <option value="BS4">BS4 - Knowle & Brislington</option>
-          <option value="BS5">BS5 - Easton & St George</option>
-          <option value="BS6">BS6 - Redland & Cotham</option>
-          <option value="BS7">BS7 - Bishopston & Horfield</option>
-          <option value="BS8">BS8 - Clifton & Hotwells</option>
-          <option value="BS9">BS9 - Westbury-on-Trym</option>
-          <option value="BS10">BS10 - Southmead & Henbury</option>
-          <option value="BS11">BS11 - Shirehampton & Avonmouth</option>
-          <option value="BS13">BS13 - Hartcliffe & Withywood</option>
-          <option value="BS14">BS14 - Stockwood & Hengrove</option>
-          <option value="BS15">BS15 - Hanham & Kingswood</option>
-          <option value="BS16">BS16 - Fishponds & Vassall</option>
-          <option value="BS20">BS20 - Portishead & Pill</option>
-          <option value="BS30">BS30 - Bitton & Longwell Green</option>
-          <option value="BS31">BS31 - Keynsham & Saltford</option>
-          <option value="BS32">BS32 - Bradley Stoke & Almondsbury</option>
-          <option value="BS34">BS34 - Filton & Patchway</option>
-          <option value="BS35">BS35 - Thornbury, Alveston & Severn Beach</option>
-          <option value="BS41">BS41 - Long Ashton & Wraxall</option>
-        </select>
-      </div>
+    <!-- Feature Checkboxes -->
+    <div class="filters">
+      <label>
+        <input type="checkbox" id="filter-induction" checked />
+        <span class="dot induction"></span>
+        Loop
+      </label>
 
-      <!-- Simple Clean Feature Checkboxes without background pill outline -->
-      <div class="filters">
-        <label>
-          <input type="checkbox" id="filter-induction" checked />
-          <span class="dot induction"></span>
-          Induction Loop
-        </label>
+      <label>
+        <input type="checkbox" id="filter-auracast" checked />
+        <span class="dot auracast"></span>
+        Auracast
+      </label>
 
-        <label>
-          <input type="checkbox" id="filter-auracast" checked />
-          <span class="dot auracast"></span>
-          Auracast
-        </label>
-
-        <label>
-          <input type="checkbox" id="filter-quiet" checked />
-          <span class="dot quiet"></span>
-          Quiet Zone
-        </label>
-      </div>
+      <label>
+        <input type="checkbox" id="filter-quiet" checked />
+        <span class="dot quiet"></span>
+        Quiet Zone
+      </label>
     </div>
   </header>
+
+  <!-- Interactive Floating Venue List Sidebar Panel -->
+  <button id="toggle-sidebar-btn" class="venue-sidebar-toggle">
+    <span class="material-symbols-outlined">list</span> 📋 Audited Venues List (27)
+  </button>
+
+  <aside id="venue-sidebar" class="venue-sidebar collapsed">
+    <div class="sidebar-header">
+      <h2>📋 Audited Venues (27)</h2>
+      <button id="close-sidebar-btn" style="background: none; border: none; color: #94a3b8; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    </div>
+    <div class="sidebar-search">
+      <input type="text" id="sidebar-search-input" placeholder="🔍 Search venue, postcode, or feature..." />
+    </div>
+    <div id="sidebar-venue-list" class="sidebar-list"></div>
+  </aside>
 
   <main id="map" style="height: calc(100vh - 65px); width: 100%;"></main>
 
@@ -85,7 +98,7 @@
   </script>
 
   <!-- Map logic -->
-  <script src="js/venue-map.js?v=12"></script>
+  <script src="js/venue-map.js?v=45"></script>
   <script src="script.js?v=1.4"></script>
 </body>
 </html>
