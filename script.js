@@ -513,7 +513,7 @@ function initVolumeControlAndTooltip() {
 
 // 6. SCROLL REVEAL ANIMATION ENGINE
 function initScrollAnimations() {
-    const targets = document.querySelectorAll('.animate-on-scroll, .section-card, .info-card, .hearing-card, .quiz-card, .step-item, .resource-card, .content-card, .metro-btn, .venue-card, .story-card');
+    const targets = document.querySelectorAll('.animate-on-scroll, .card, .section-card, .info-card, .contact-card, .hearing-card, .quiz-card, .step-item, .resource-card, .content-card, .metro-btn, .venue-card, .story-card, .testimonial-card, .faq-card, .feature-card, .stat-card, .header-section, .journey-card');
     if ('IntersectionObserver' in window && targets.length > 0) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

@@ -524,7 +524,8 @@ a:focus, button:focus, [role="button"]:focus {
     aspect-ratio: 1 / 1; padding: 25px; cursor: pointer; position: relative;
     background-image: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.08) 45%, rgba(0,0,0,0.18) 100%);
     box-shadow: inset 0 2px 4px rgba(255,255,255,0.45), inset 0 -3px 6px rgba(0,0,0,0.25), 0 16px 36px rgba(0,0,0,0.16), 0 6px 12px rgba(0,0,0,0.12);          
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, filter 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease, filter 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, filter;
     backdrop-filter: blur(8px);
 }
 
@@ -543,6 +544,7 @@ a:focus, button:focus, [role="button"]:focus {
     font-family: 'Material Symbols Outlined';
     font-size: 9rem;
     margin-bottom: 15px;
+    will-change: transform, filter;
     filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
 }
 
@@ -657,7 +659,8 @@ a[href*="path-how-we-hear"]:hover .metro-icon {
    ========================================== */
 
 .metro-btn .metro-icon {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform, filter;
 }
 
 /* 1. My Journey - Route Glide */
@@ -1769,4 +1772,17 @@ color: white;
     opacity: 1;
     transform: translateY(0);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .metro-btn:hover {
+    transform: none !important;
+  }
+}
+
 
