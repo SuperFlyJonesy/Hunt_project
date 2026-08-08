@@ -597,13 +597,13 @@ a:focus, button:focus, [role="button"]:focus {
 }
 
 /* SOUND WAVE ANIMATION FOR HOW WE HEAR TILE */
-a[href="path-how-we-hear.html"] {
+a[href*="path-how-we-hear"] {
     position: relative;
     overflow: hidden;
 }
 
-a[href="path-how-we-hear.html"]::before,
-a[href="path-how-we-hear.html"]::after {
+a[href*="path-how-we-hear"]::before,
+a[href*="path-how-we-hear"]::after {
     content: '';
     position: absolute;
     top: 40%;
@@ -618,11 +618,11 @@ a[href="path-how-we-hear.html"]::after {
     z-index: 1;
 }
 
-a[href="path-how-we-hear.html"]:hover::before {
+a[href*="path-how-we-hear"]:hover::before {
     animation: soundwaveRipple 1.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
 }
 
-a[href="path-how-we-hear.html"]:hover::after {
+a[href*="path-how-we-hear"]:hover::after {
     animation: soundwaveRipple 1.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite 0.45s;
 }
 
@@ -639,7 +639,7 @@ a[href="path-how-we-hear.html"]:hover::after {
     }
 }
 
-a[href="path-how-we-hear.html"]:hover .metro-icon {
+a[href*="path-how-we-hear"]:hover .metro-icon {
     animation: soundIconPulse 0.4s ease-in-out infinite alternate;
 }
 
@@ -661,7 +661,7 @@ a[href="path-how-we-hear.html"]:hover .metro-icon {
 }
 
 /* 1. My Journey - Route Glide */
-a[href="path-my-journey.html"]:hover .metro-icon {
+a[href*="path-my-journey"]:hover .metro-icon {
     animation: journeyGlide 0.8s ease-in-out infinite alternate;
 }
 @keyframes journeyGlide {
@@ -670,7 +670,7 @@ a[href="path-my-journey.html"]:hover .metro-icon {
 }
 
 /* 2. Hearing Experience - Headphone Bass Beat */
-a[href="path-experience.html"]:hover .metro-icon {
+a[href*="path-experience"]:hover .metro-icon {
     animation: headphoneBeat 0.45s ease-in-out infinite alternate;
 }
 @keyframes headphoneBeat {
@@ -679,7 +679,7 @@ a[href="path-experience.html"]:hover .metro-icon {
 }
 
 /* 3. Hearing Quiz - Question Mark Flip */
-a[href="path-hearing-quiz.html"]:hover .metro-icon {
+a[href*="path-hearing-quiz"]:hover .metro-icon {
     animation: quizFlip 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite alternate;
 }
 @keyframes quizFlip {
@@ -688,7 +688,7 @@ a[href="path-hearing-quiz.html"]:hover .metro-icon {
 }
 
 /* 4. Hearing Tests - Clinical Chart Check */
-a[href="path-hearing-tests.html"]:hover .metro-icon {
+a[href*="path-hearing-tests"]:hover .metro-icon {
     animation: chartCheck 0.6s ease-in-out infinite alternate;
 }
 @keyframes chartCheck {
@@ -697,7 +697,7 @@ a[href="path-hearing-tests.html"]:hover .metro-icon {
 }
 
 /* 5. Hearing Aids - Ear Amplification Pulse */
-a[href="path-hearing-aids-access.html"]:hover .metro-icon {
+a[href*="path-hearing-aids-access"]:hover .metro-icon {
     animation: earAmplify 0.5s ease-in-out infinite alternate;
 }
 @keyframes earAmplify {
@@ -706,7 +706,7 @@ a[href="path-hearing-aids-access.html"]:hover .metro-icon {
 }
 
 /* 6. Bristol NHS Trust - Hospital Heartbeat */
-a[href="path-nhs.html"]:hover .metro-icon {
+a[href*="path-nhs"]:hover .metro-icon {
     animation: hospitalHeartbeat 0.8s ease-in-out infinite;
 }
 @keyframes hospitalHeartbeat {
@@ -719,7 +719,7 @@ a[href="path-nhs.html"]:hover .metro-icon {
 }
 
 /* 7. Government Help - Golden Pillar Lift */
-a[href="path-government-help.html"]:hover .metro-icon {
+a[href*="path-government-help"]:hover .metro-icon {
     animation: govPillarLift 0.6s ease-out forwards;
     filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8));
 }
@@ -729,7 +729,7 @@ a[href="path-government-help.html"]:hover .metro-icon {
 }
 
 /* 8. Hearing Therapists - Search Scan */
-a[href="path-hearing-therapists.html"]:hover .metro-icon {
+a[href*="path-hearing-therapists"]:hover .metro-icon {
     animation: searchScan 1s ease-in-out infinite alternate;
 }
 @keyframes searchScan {
@@ -739,7 +739,7 @@ a[href="path-hearing-therapists.html"]:hover .metro-icon {
 }
 
 /* 9. Mental Health - Brain Mindfulness Breathing */
-a[href="path-mental-health.html"]:hover .metro-icon {
+a[href*="path-mental-health"]:hover .metro-icon {
     animation: brainBreathe 1.2s ease-in-out infinite alternate;
 }
 @keyframes brainBreathe {
@@ -748,7 +748,7 @@ a[href="path-mental-health.html"]:hover .metro-icon {
 }
 
 /* 10. Job Interviews - Badge Swing */
-a[href="path-job-interviews.html"]:hover .metro-icon {
+a[href*="path-job-interviews"]:hover .metro-icon {
     animation: badgeSwing 0.7s ease-in-out infinite alternate;
     transform-origin: top center;
 }
@@ -758,7 +758,7 @@ a[href="path-job-interviews.html"]:hover .metro-icon {
 }
 
 /* 11. Assistive Tech - Digital Device Glow */
-a[href="path-assistive-technology.html"]:hover .metro-icon {
+a[href*="path-assistive-technology"]:hover .metro-icon {
     animation: devicesConnect 0.5s ease-in-out infinite alternate;
 }
 @keyframes devicesConnect {
@@ -767,7 +767,7 @@ a[href="path-assistive-technology.html"]:hover .metro-icon {
 }
 
 /* 12. Tinnitus - Equalizer Jump */
-a[href="path-tinnitus.html"]:hover .metro-icon {
+a[href*="path-tinnitus"]:hover .metro-icon {
     animation: eqBounce 0.35s ease-in-out infinite alternate;
 }
 @keyframes eqBounce {
@@ -776,7 +776,7 @@ a[href="path-tinnitus.html"]:hover .metro-icon {
 }
 
 /* 13. Don't Put in Ears - Warning Shake */
-a[href="path-ear-care.html"]:hover .metro-icon {
+a[href*="path-ear-care"]:hover .metro-icon {
     animation: warningShake 0.3s ease-in-out infinite;
 }
 @keyframes warningShake {
@@ -787,7 +787,7 @@ a[href="path-ear-care.html"]:hover .metro-icon {
 }
 
 /* 14. Future Tech - Flask Bubble */
-a[href="path-tech.html"]:hover .metro-icon {
+a[href*="path-tech"]:hover .metro-icon {
     animation: flaskBubble 0.6s ease-in-out infinite alternate;
 }
 @keyframes flaskBubble {
@@ -796,7 +796,7 @@ a[href="path-tech.html"]:hover .metro-icon {
 }
 
 /* 15. Support Group - Group Gather */
-a[href="path-support-group.html"]:hover .metro-icon {
+a[href*="path-support-group"]:hover .metro-icon {
     animation: groupGather 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 @keyframes groupGather {
@@ -805,7 +805,7 @@ a[href="path-support-group.html"]:hover .metro-icon {
 }
 
 /* 16. Initiate Stories - Story Warmth */
-a[href="path-community-stories.html"]:hover .metro-icon {
+a[href*="path-community-stories"]:hover .metro-icon {
     animation: storyWarmth 0.8s ease-in-out infinite alternate;
 }
 @keyframes storyWarmth {
@@ -814,7 +814,7 @@ a[href="path-community-stories.html"]:hover .metro-icon {
 }
 
 /* 17. Useful Contacts - Address Book Flip */
-a[href="path-contacts.html"]:hover .metro-icon {
+a[href*="path-contacts"]:hover .metro-icon {
     animation: contactsFlip 0.6s ease-in-out infinite alternate;
 }
 @keyframes contactsFlip {
@@ -823,7 +823,7 @@ a[href="path-contacts.html"]:hover .metro-icon {
 }
 
 /* 18. Testimonials - Review Star Pop */
-a[href="path-testimonials.html"]:hover .metro-icon {
+a[href*="path-testimonials"]:hover .metro-icon {
     animation: reviewPop 0.5s ease-in-out infinite alternate;
 }
 @keyframes reviewPop {
@@ -832,7 +832,7 @@ a[href="path-testimonials.html"]:hover .metro-icon {
 }
 
 /* 19. Bristol Venues - Arena Spotlight */
-a[href="path-accessible-venues.html"]:hover .metro-icon {
+a[href*="path-accessible-venues"]:hover .metro-icon {
     animation: venueSpotlight 0.7s ease-in-out infinite alternate;
 }
 @keyframes venueSpotlight {
@@ -841,7 +841,7 @@ a[href="path-accessible-venues.html"]:hover .metro-icon {
 }
 
 /* 20. Resources - Book Open */
-a[href="path-resources.html"]:hover .metro-icon {
+a[href*="path-resources"]:hover .metro-icon {
     animation: bookOpen 0.6s ease-in-out infinite alternate;
 }
 @keyframes bookOpen {
@@ -850,7 +850,7 @@ a[href="path-resources.html"]:hover .metro-icon {
 }
 
 /* 21. Support Branch - Handshake Clasp */
-a[href="path-support.html"]:hover .metro-icon {
+a[href*="path-support"]:hover .metro-icon {
     animation: handshakeClasp 0.5s ease-in-out infinite alternate;
 }
 @keyframes handshakeClasp {
@@ -859,7 +859,7 @@ a[href="path-support.html"]:hover .metro-icon {
 }
 
 /* 22. The Bear Pit - Chat Talk */
-a[href="path-bear-pit.html"]:hover .metro-icon {
+a[href*="path-bear-pit"]:hover .metro-icon {
     animation: chatTalk 0.4s ease-in-out infinite alternate;
 }
 @keyframes chatTalk {
@@ -868,7 +868,7 @@ a[href="path-bear-pit.html"]:hover .metro-icon {
 }
 
 /* 23. It goes to 11 - Crank Volume to 11! */
-a[href="path-it-goes-to-11.html"]:hover .metro-icon {
+a[href*="path-it-goes-to-11"]:hover .metro-icon {
     animation: turnToEleven 0.3s ease-in-out infinite alternate;
 }
 @keyframes turnToEleven {
@@ -877,7 +877,7 @@ a[href="path-it-goes-to-11.html"]:hover .metro-icon {
 }
 
 /* 24. Back Home - Home Bounce */
-a[href="index.html"]:hover .metro-icon {
+a[href*="index"]:hover .metro-icon {
     animation: homeBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
 }
 @keyframes homeBounce {
@@ -886,7 +886,7 @@ a[href="index.html"]:hover .metro-icon {
 }
 
 /* 25. Family Guide - Family Embrace */
-a[href="path-family-guide.html"]:hover .metro-icon {
+a[href*="path-family-guide"]:hover .metro-icon {
     animation: familyEmbrace 0.6s ease-in-out infinite alternate;
 }
 @keyframes familyEmbrace {
@@ -895,7 +895,7 @@ a[href="path-family-guide.html"]:hover .metro-icon {
 }
 
 /* 26. Workplace Tips - Briefcase Snap */
-a[href="path-workplace-tips.html"]:hover .metro-icon {
+a[href*="path-workplace-tips"]:hover .metro-icon {
     animation: briefcaseSnap 0.5s ease-in-out infinite alternate;
 }
 @keyframes briefcaseSnap {
@@ -904,7 +904,7 @@ a[href="path-workplace-tips.html"]:hover .metro-icon {
 }
 
 /* 27. Join Us - Volunteer Hand Offer */
-a[href="path-join-us.html"]:hover .metro-icon {
+a[href*="path-join-us"]:hover .metro-icon {
     animation: handOffer 0.6s ease-in-out infinite alternate;
 }
 @keyframes handOffer {
@@ -913,7 +913,7 @@ a[href="path-join-us.html"]:hover .metro-icon {
 }
 
 /* 28. Awareness - Megaphone Sound Blast */
-a[href="path-awareness.html"]:hover .metro-icon {
+a[href*="path-awareness"]:hover .metro-icon {
     animation: megaphoneBlast 0.4s ease-in-out infinite alternate;
 }
 @keyframes megaphoneBlast {
@@ -922,7 +922,7 @@ a[href="path-awareness.html"]:hover .metro-icon {
 }
 
 /* 29. Join Outreach - Group Add Spin */
-a[href="path-join-outreach.html"]:hover .metro-icon {
+a[href*="path-join-outreach"]:hover .metro-icon {
     animation: groupAddSpin 0.6s ease-in-out infinite alternate;
 }
 @keyframes groupAddSpin {
@@ -931,7 +931,7 @@ a[href="path-join-outreach.html"]:hover .metro-icon {
 }
 
 /* 30. Sponsor Us - Building Corporate Rise */
-a[href="path-sponsor-us.html"]:hover .metro-icon {
+a[href*="path-sponsor-us"]:hover .metro-icon {
     animation: buildingRise 0.6s ease-out infinite alternate;
 }
 @keyframes buildingRise {
@@ -940,7 +940,7 @@ a[href="path-sponsor-us.html"]:hover .metro-icon {
 }
 
 /* 31. Training - Mortarboard Cap Toss */
-a[href="path-training.html"]:hover .metro-icon {
+a[href*="path-training"]:hover .metro-icon {
     animation: capToss 0.6s ease-in-out infinite alternate;
 }
 @keyframes capToss {
