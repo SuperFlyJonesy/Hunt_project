@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Floating Scroll Nav Controls
     initFloatingScrollControls();
+    initScrollAnimations();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -509,4 +510,27 @@ function initVolumeControlAndTooltip() {
         });
     }
 }
+
+// 6. SCROLL REVEAL ANIMATION ENGINE
+function initScrollAnimations() {
+    const targets = document.querySelectorAll('.animate-on-scroll, .section-card, .info-card, .hearing-card, .quiz-card, .step-item, .resource-card, .content-card, .metro-btn, .venue-card, .story-card');
+    if ('IntersectionObserver' in window && targets.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        targets.forEach(el => {
+            el.classList.add('animate-on-scroll');
+            observer.observe(el);
+        });
+    } else {
+        targets.forEach(el => el.classList.add('animated'));
+    }
+}
+
 

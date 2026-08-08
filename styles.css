@@ -1755,5 +1755,18 @@ color: white;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 15px 40px rgba(0,0,0,0.8);
     border: 1px solid #333;
-    z-index: 99999;
 }
+
+/* SCROLL REVEAL ANIMATIONS SITE-WIDE */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
