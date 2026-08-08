@@ -3,22 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bristol Venue Map</title>
+  <title>Bristol Venue Accessibility Map</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/venue-map.css?v=4" />
-    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+  <link rel="stylesheet" href="styles/venue-map.css?v=12" />
+  <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
   <header class="map-header">
-    <h1>Bristol Venue Map</h1>
+    <h1><span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.6rem; margin-right: 6px;">map</span> Bristol Venue Map</h1>
 
     <div class="header-controls">
-      <div style="display: flex; gap: 20px;">
-        <a href="path-accessible-venues.html" class="back-link">← Venue List</a>
-        <a href="path-join-us.html" class="back-link" style="color: #ff424d; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; background: rgba(255, 66, 77, 0.1); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255, 66, 77, 0.25); text-decoration: none;">🔒 Add a Venue (Patreon Only)</a>
+      <!-- Inline Navigation Links & Postcode Selector -->
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+        <a href="path-accessible-venues.html" class="back-link nhs-pill-btn">← Venue Directory</a>
+        <a href="path-join-us.html" class="back-link patreon-pill-btn">🔒 Add a Venue (Patreon Only)</a>
+        
+        <!-- Postcode Select -->
+        <select id="filter-postcode" class="postcode-select" aria-label="Filter by Bristol Postcode District">
+          <option value="ALL">📍 Highlight All Greater Bristol Postcodes</option>
+          <option value="BS1">BS1 - City Centre & Harbourside</option>
+          <option value="BS2">BS2 - St Pauls & Old Market</option>
+          <option value="BS3">BS3 - Southville & Bedminster</option>
+          <option value="BS4">BS4 - Knowle & Brislington</option>
+          <option value="BS5">BS5 - Easton & St George</option>
+          <option value="BS6">BS6 - Redland & Cotham</option>
+          <option value="BS7">BS7 - Bishopston & Horfield</option>
+          <option value="BS8">BS8 - Clifton & Hotwells</option>
+          <option value="BS9">BS9 - Westbury-on-Trym</option>
+          <option value="BS10">BS10 - Southmead & Henbury</option>
+          <option value="BS11">BS11 - Shirehampton & Avonmouth</option>
+          <option value="BS13">BS13 - Hartcliffe & Withywood</option>
+          <option value="BS14">BS14 - Stockwood & Hengrove</option>
+          <option value="BS15">BS15 - Hanham & Kingswood</option>
+          <option value="BS16">BS16 - Fishponds & Vassall</option>
+          <option value="BS20">BS20 - Portishead & Pill</option>
+          <option value="BS30">BS30 - Bitton & Longwell Green</option>
+          <option value="BS31">BS31 - Keynsham & Saltford</option>
+          <option value="BS32">BS32 - Bradley Stoke & Almondsbury</option>
+          <option value="BS34">BS34 - Filton & Patchway</option>
+          <option value="BS41">BS41 - Long Ashton & Wraxall</option>
+        </select>
       </div>
 
+      <!-- Simple Clean Feature Checkboxes without background pill outline -->
       <div class="filters">
         <label>
           <input type="checkbox" id="filter-induction" checked />
@@ -41,17 +73,17 @@
     </div>
   </header>
 
-  <main id="map"></main>
+  <main id="map" style="height: calc(100vh - 65px); width: 100%;"></main>
 
-  <!-- Google Maps loader: uses your real API key and calls window.initMap -->
+  <!-- Google Maps JS API loader -->
   <script
     async
     defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR126ydv-9UusD-VAHZI9QVwfmugu-rGQ&libraries=marker&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR126ydv-9UusD-VAHZI9QVwfmugu-rGQ&callback=initMap">
   </script>
 
   <!-- Map logic -->
-  <script src="js/venue-map.js?v=4"></script>
-    <script src="script.js?v=1.4"></script>
+  <script src="js/venue-map.js?v=12"></script>
+  <script src="script.js?v=1.4"></script>
 </body>
 </html>
