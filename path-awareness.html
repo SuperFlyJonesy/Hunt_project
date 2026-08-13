@@ -1,136 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Practical deaf awareness tips, communication strategies, and advice for friends, family, and colleagues in Bristol.">
     <meta charset="UTF-8">
-    <title>Awareness</title>
+    <title>Deaf Awareness (PACE Framework) - Bristol Hearing Loss Initiative</title>
     <link rel="stylesheet" href="styles.css?v=8.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .pace-badge-list { list-style: none; padding: 0; margin: 15px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .pace-badge-list { grid-template-columns: 1fr; } }
+        .pace-badge-item { background: #fff5f7; border: 1px solid #fecdd3; border-left: 4px solid #ff0f5b; padding: 12px 16px; border-radius: 10px; font-size: 1rem; color: #334155; }
+        .pace-badge-item strong { color: #ff0f5b; font-size: 1.1rem; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
-    
-    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">Awareness</h1>
-        
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%; margin-bottom: 30px;">
-            <div class="accordion-container">
-      <div class="accordion-item active">
-        <button class="accordion-header">
-          <span>PACE – A simple way to support HoH people</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>Jo created PACE as an easy reminder for anyone talking to a hard of hearing (HoH) person:</p>
-            <ul>
-                <li><strong>P</strong> – Patience</li>
-                <li><strong>A</strong> – Attention</li>
-                <li><strong>C</strong> – Clarity</li>
-                <li><strong>E</strong> – Ear contact</li>
-            </ul>
-            <p>These four words capture the key communication tips recommended by deaf-awareness organisations and hearing-loss guides.</p>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">campaign</span>
+                Deaf Awareness (PACE Framework)
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Practical deaf awareness tips, communication strategies, and advice for friends, family, and colleagues in Bristol.
+            </p>
         </div>
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #f39c12; text-align: left; width: 100%; margin-bottom: 30px;">
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>P – Patience</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>Hearing with HoH ears takes more effort. Even simple conversations can be tiring. Patience means:</p>
-            <ul>
-                <li>Giving people time to process what you’ve said before repeating or moving on.</li>
-                <li>Re‑phrasing instead of saying the same words louder and louder.</li>
-                <li>Staying calm when communication breaks down – focusing on fixing the message, not blaming the person.</li>
-            </ul>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: PACE Overview -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">format_quote</span> 1. PACE – A Simple Way to Support HoH People</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        Jo created PACE as an easy reminder for anyone talking to a hard-of-hearing (HoH) person:
+                    </p>
+                    <ul class="pace-badge-list">
+                        <li class="pace-badge-item"><strong>P</strong> – Patience</li>
+                        <li class="pace-badge-item"><strong>A</strong> – Attention</li>
+                        <li class="pace-badge-item"><strong>C</strong> – Clarity</li>
+                        <li class="pace-badge-item"><strong>E</strong> – Ear Contact</li>
+                    </ul>
+                    <p style="font-size: 1rem; color: #475569; line-height: 1.6; margin: 0;">
+                        These four words capture the key communication tips recommended by deaf-awareness organisations and hearing-loss guides.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACCORDION 2: P - Patience -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #f39c12; margin-right: 8px;">hourglass_top</span> 2. P – Patience</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        Hearing with HoH ears takes more effort. Even simple conversations can be tiring. Patience means:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li>Giving people time to process what you’ve said before repeating or moving on.</li>
+                        <li>Re‑phrasing instead of saying the same words louder and louder.</li>
+                        <li>Staying calm when communication breaks down – focusing on fixing the message, not blaming the person.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: A - Attention -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #2b6df2; margin-right: 8px;">visibility</span> 3. A – Attention</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        Most deaf‑aware guidance starts with the same rule: get the person’s attention first. Attention means:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li>Gently waving, saying their name, or tapping their arm or shoulder before you speak.</li>
+                        <li>Waiting until you are in the same room, facing them, instead of shouting from a distance.</li>
+                        <li>Making sure the environment helps – good lighting on your face, less background noise if possible.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: C - Clarity -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">spellcheck</span> 4. C – Clarity</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        Clarity is more important than loudness. Shouting often makes speech harder to understand and more stressful to listen to. Clarity means:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li>Speaking at a natural pace, with clear but not exaggerated lip movements.</li>
+                        <li>Using plain language and short sentences; avoiding jargon and long, tangled explanations.</li>
+                        <li>Repeating once, then re‑phrasing if it still isn’t understood.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: E - Ear contact -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #9b59b6; margin-right: 8px;">hearing</span> 5. E – Ear Contact</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        “Ear contact” is our way of saying: talk to the person in a way their ears and eyes can actually use. With hearing loss, people rely on both sound and visual cues (lipreading, facial expression, gestures). Ear contact means:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li>Facing the person so they can see your mouth and expressions – not talking while looking away, turning your back, or walking off.</li>
+                        <li>Keeping your mouth and face visible (no hands, phones, cups, or masks blocking your lips where possible).</li>
+                        <li>Positioning yourself sensibly – not too far away, and not with bright light or sun directly behind you so your face is in shadow.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACCORDION 6: How to use PACE -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">tips_and_updates</span> 6. How to Use PACE in Daily Life</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        You can encourage people to:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li>Remember PACE before any important conversation – <em>“Patience, Attention, Clarity, Ear contact.”</em></li>
+                        <li>Use PACE at home, at work, in social spaces, and in services like shops, cafés, clinics and schools.</li>
+                        <li>Share PACE with friends, colleagues and family as a simple way to become more deaf aware.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #2b6df2; text-align: left; width: 100%; margin-bottom: 30px;">
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>A – Attention</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>Most deaf‑aware guidance starts with the same rule: get the person’s attention first. Attention means:</p>
-            <ul>
-                <li>Gently waving, saying their name, or tapping their arm or shoulder before you speak.</li>
-                <li>Waiting until you are in the same room, facing them, instead of shouting from a distance.</li>
-                <li>Making sure the environment helps – good lighting on your face, less background noise if possible.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #1b5e20; text-align: left; width: 100%; margin-bottom: 30px;">
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>C – Clarity</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>Clarity is more important than loudness. Shouting often makes speech harder to understand and more stressful to listen to. Clarity means:</p>
-            <ul>
-                <li>Speaking at a natural pace, with clear but not exaggerated lip movements.</li>
-                <li>Using plain language and short sentences; avoiding jargon and long, tangled explanations.</li>
-                <li>Repeating once, then re‑phrasing if it still isn’t understood.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #9b59b6; text-align: left; width: 100%; margin-bottom: 30px;">
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>E – Ear contact</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>“Ear contact” is our way of saying: talk to the person in a way their ears and eyes can actually use. With hearing loss, people rely on both sound and visual cues (lip‑reading, facial expression, gestures). Ear contact means:</p>
-            <ul>
-                <li>Facing the person so they can see your mouth and expressions – not talking while looking away, turning your back, or walking off.</li>
-                <li>Keeping your mouth and face visible (no hands, phones, cups, or masks blocking your lips where possible).</li>
-                <li>Positioning yourself sensibly – not too far away, and not with bright light or sun directly behind you so your face is in shadow.</li>
-            </ul>
-        </div>
-
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%; margin-bottom: 30px;">
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span>How to use PACE</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p>You can encourage people to:</p>
-            <ul>
-                <li>Remember PACE before any important conversation – “Patience, Attention, Clarity, Ear contact.”</li>
-                <li>Use PACE at home, at work, in social spaces, and in services like shops, cafés, clinics and schools.</li>
-                <li>Share PACE with friends, colleagues and family as a simple way to become more deaf aware.</li>
-            </ul>
-        </div>
-      </div>
-    </div><nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-support.html" class="back-to-journey-btn">
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-support.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Support
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
             </a>
         </nav>
-    </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
+    </main>
+
     <script src="script.js?v=3.0"></script>
 </body>
 </html>

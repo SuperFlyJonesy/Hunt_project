@@ -1,387 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family & Friends Guide - Bristol Hearing Loss Initiative</title>
-  <meta name="description" content="Practical advice, communication tactics, video previews, and verified resources for family members and friends supporting a loved one with hearing loss in Bristol.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=8.0">
-  <style>
-    body.premium-white-theme {
-      background-color: #f8f9fa;
-      font-family: 'Inter', sans-serif;
-      color: #1e293b;
-      margin: 0;
-      padding: 0;
-      line-height: 1.65;
-    }
-    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
-    .header-section {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      color: #ff0f5b;
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      color: #64748b;
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 0;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      border-left: 6px solid #ff0f5b;
-      text-align: left;
-    }
-    .card h2, .card h3 {
-      margin-top: 0;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card h3 {
-      color: #ff0f5b;
-      font-size: 1.4rem;
-    }
-    .card-icon {
-      color: #ff0f5b;
-      font-size: 1.8rem;
-    }
-    .info-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-    .badge-red {
-      background: #ffe4e6;
-      color: #e11d48;
-    }
-    .badge-amber {
-      background: #fef3c7;
-      color: #d97706;
-    }
-    .badge-blue {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-
-    .tactic-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 20px;
-    }
-    @media (max-width: 680px) {
-      .tactic-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    .tactic-card {
-      background: #fff5f7;
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #fecdd3;
-    }
-    .tactic-card strong {
-      color: #9f1239;
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.02rem;
-    }
-
-    /* Video Preview Card Styling */
-    .video-preview-card {
-      position: relative;
-      border-radius: 16px;
-      overflow: hidden;
-      margin: 20px 0;
-      box-shadow: 0 10px 25px rgba(255, 15, 91, 0.12);
-      border: 1px solid #fecdd3;
-      background: #1e1b18;
-      cursor: pointer;
-    }
-    .video-thumbnail-img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      display: block;
-      opacity: 0.85;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    .video-preview-card:hover .video-thumbnail-img {
-      transform: scale(1.03);
-      opacity: 0.95;
-    }
-    .video-play-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 68px;
-      height: 68px;
-      background: #ff0f5b;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 24px rgba(255, 15, 91, 0.5);
-      transition: transform 0.25s ease, background 0.25s ease;
-    }
-    .video-preview-card:hover .video-play-overlay {
-      transform: translate(-50%, -50%) scale(1.12);
-      background: #e11d48;
-    }
-    .video-duration-tag {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      background: rgba(15, 23, 42, 0.85);
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 8px;
-      backdrop-filter: blur(4px);
-    }
-    .video-title-tag {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(255, 15, 91, 0.9);
-      color: white;
-      font-size: 0.82rem;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .external-btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .ext-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .ext-btn:hover {
-      opacity: 0.92;
-      transform: translateY(-2px);
-    }
-    .btn-red { background: #ff0f5b; }
-    .btn-amber { background: #d97706; }
-    .btn-blue { background: #005EB8; }
-    .btn-dark { background: #1e293b; }
-
-    #dev-reset {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: black;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      opacity: 0.15;
-      cursor: pointer;
-      z-index: 99999999;
-      padding: 10px;
-      font-weight: bold;
-      font-family: sans-serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family &amp; Friends Guide - Bristol Hearing Loss Initiative</title>
+    <meta name="description" content="Practical advice, communication tactics, video previews, and verified resources for family members and friends supporting a loved one with hearing loss in Bristol.">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .tactic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
+        @media (max-width: 768px) { .tactic-grid { grid-template-columns: 1fr; } }
+        .tactic-card { background: #fff5f7; border-radius: 12px; padding: 16px; border: 1px solid #fecdd3; border-left: 4px solid #ff0f5b; }
+        .tactic-card strong { color: #9f1239; display: block; margin-bottom: 4px; font-size: 1rem; }
+        .tactic-card p { margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.45; }
+        .external-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+        .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.92rem; text-decoration: none; color: white; transition: opacity 0.2s, transform 0.2s; }
+        .ext-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+        .btn-red { background: #ff0f5b; }
+        .btn-amber { background: #d97706; }
+        .btn-blue { background: #005EB8; }
+        .btn-dark { background: #1e293b; }
+        .video-link-item { position: relative; display: inline-block; }
+        .video-preview-card { position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999; }
+        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
-  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-  <main id="main-content" class="container">
-    <div class="header-section">
-      <h1>Family & Friends Guide</h1>
-      <p class="subtitle">Practical communication tactics, video previews, and verified support links to help you empower a loved one with hearing loss</p>
-    </div>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">family_restroom</span>
+                Family &amp; Friends Guide
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Practical communication tactics, video previews, and verified support links to help you empower a loved one with hearing loss.
+            </p>
+        </div>
 
-    <!-- Overview -->
-    <div class="card" style="border-left-color: #ff0f5b;">
-      <span class="info-badge badge-red">Loved Ones & Support Network</span>
-      <div class="accordion-container">
-      <div class="accordion-item active">
-        <button class="accordion-header">
-          <span><span class="material-icons card-icon">family_restroom</span> Supporting a Relative or Friend with Hearing Loss</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Hearing loss does not only affect the individual; it naturally changes how families, partners, children, and close friends interact every day.
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        With a few thoughtful communication adjustments, you can help your loved one stay fully engaged in conversations, family dinners, and social activities without feeling exhausted or isolated.
-      </p>
-    </div>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Overview -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">diversity_1</span> 1. Supporting a Relative or Friend with Hearing Loss</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        Hearing loss does not only affect the individual; it naturally changes how families, partners, children, and close friends interact every day.
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin: 0;">
+                        With a few thoughtful communication adjustments, you can help your loved one stay fully engaged in conversations, family dinners, and social activities without feeling exhausted or isolated.
+                    </p>
+                </div>
+            </div>
 
-    <!-- Communication Tactics Grid -->
-    <div class="card" style="border-left-color: #ff0f5b;">
-      <span class="info-badge badge-red">Essential Communication Habits</span>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span><span class="material-icons card-icon">record_voice_over</span> 6 Simple Habits That Make a Massive Difference</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <div class="tactic-grid">
-        <div class="tactic-card">
-          <strong>1. Get Attention First</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">Say their name or tap their arm gently before speaking so they are looking at you when you begin.</p>
-        </div>
-        <div class="tactic-card">
-          <strong>2. Face Them Directly in Good Light</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">Ensure your face is lit and unobstructed. Avoid speaking from another room or turning away while talking.</p>
-        </div>
-        <div class="tactic-card">
-          <strong>3. Speak Clearly, Don't Shout</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">Shouting distorts voice pitch and lip shapes. Speak at a normal cadence with natural pauses.</p>
-        </div>
-        <div class="tactic-card">
-          <strong>4. Rephrase Instead of Repeating</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">If they miss a phrase, try using different words rather than just repeating the same sentence louder.</p>
-        </div>
-        <div class="tactic-card">
-          <strong>5. Reduce Background Noise</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">Mute the TV, step away from noisy appliances, or pick quiet corners when dining out in public venues.</p>
-        </div>
-        <div class="tactic-card">
-          <strong>6. Respect Listening Fatigue</strong>
-          <p style="margin: 0; font-size: 0.92rem; color: #475569;">Processing sound through hearing loss requires immense mental energy. Allow quiet breaks during long gatherings.</p>
-        </div>
-      </div>
-    </div>
+            <!-- ACCORDION 2: 6 Simple Habits -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">record_voice_over</span> 2. 6 Simple Habits That Make a Massive Difference</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="tactic-grid">
+                        <div class="tactic-card">
+                            <strong>1. Get Attention First</strong>
+                            <p>Say their name or tap their arm gently before speaking so they are looking at you when you begin.</p>
+                        </div>
+                        <div class="tactic-card">
+                            <strong>2. Face Them Directly in Good Light</strong>
+                            <p>Ensure your face is lit and unobstructed. Avoid speaking from another room or turning away while talking.</p>
+                        </div>
+                        <div class="tactic-card">
+                            <strong>3. Speak Clearly, Don't Shout</strong>
+                            <p>Shouting distorts voice pitch and lip shapes. Speak at a normal cadence with natural pauses.</p>
+                        </div>
+                        <div class="tactic-card">
+                            <strong>4. Rephrase Instead of Repeating</strong>
+                            <p>If they miss a phrase, try using different words rather than just repeating the same sentence louder.</p>
+                        </div>
+                        <div class="tactic-card">
+                            <strong>5. Reduce Background Noise</strong>
+                            <p>Mute the TV, step away from noisy appliances, or pick quiet corners when dining out in public venues.</p>
+                        </div>
+                        <div class="tactic-card">
+                            <strong>6. Respect Listening Fatigue</strong>
+                            <p>Processing sound through hearing loss requires immense mental energy. Allow quiet breaks during long gatherings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Video Preview Section -->
-    <div class="card" style="border-left-color: #ff0f5b;">
-      <span class="info-badge badge-red">Video Preview Link</span>
+            <!-- ACCORDION 3: Video Preview -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">smart_display</span> 3. Video Preview: Communication Tactics for Family</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Hover over the button below to see the video preview pop-up, or click to launch the family communication guide on YouTube:
+                    </p>
+
+                    <div class="external-btn-group">
+                        <div class="video-link-item">
+                            <a href="https://www.youtube.com/watch?v=5H-7uR40kgg" target="_blank" rel="noopener noreferrer" class="ext-btn btn-red">
+                                <span class="material-symbols-outlined">play_circle</span> Watch RNID Family Video Preview &rarr;
+                            </a>
+                            <div class="video-preview-card">
+                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/5H-7uR40kgg/0.jpg') center/cover no-repeat;"></div>
+                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">RNID: Communication Tactics for Family</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: Supporting Hearing Aid Users & Home Tweaks -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">home</span> 4. Supporting Hearing Aid Users &amp; Home Tweaks</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Getting used to new hearing aids takes 30 to 60 days of brain adjustment. Here is how family members can help:
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                        <li><strong>Practice in Quiet Rooms First:</strong> Start with one-on-one conversations at home before tackling noisy social events.</li>
+                        <li><strong>Encourage Daily Wear:</strong> Help them wear their aids consistently every day so their brain adapts faster.</li>
+                        <li><strong>Smart Home Assistive Tech:</strong> Consider installing TV streamers, vibrating smoke alarm pads, or flashing doorbells for peace of mind.</li>
+                        <li><strong>Offer Practical Accompaniment:</strong> Offer to attend NHS audiology appointments together to take notes and ask questions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: Verified Website Links -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">open_in_new</span> 5. Verified Website Links for Family Members</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Explore verified national UK resources and downloadable guides tailored for relatives, partners, and carers:
+                    </p>
+
+                    <div class="external-btn-group">
+                        <a href="https://rnid.org.uk/information-and-support/communication-tactics/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-red">
+                            <span class="material-symbols-outlined">menu_book</span> RNID Communication Tactics Guide &rarr;
+                        </a>
+                        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+                            <span class="material-symbols-outlined">local_hospital</span> NHS Hearing Loss Support for Carers &rarr;
+                        </a>
+                        <a href="https://tinnitus.org.uk/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-amber">
+                            <span class="material-symbols-outlined">nature_people</span> Tinnitus UK Family Support Network &rarr;
+                        </a>
+                        <a href="path-support-group.html" class="ext-btn btn-dark">
+                            <span class="material-symbols-outlined">groups</span> Join Bristol HoH Family Support Group &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span><span class="material-icons card-icon">play_circle</span> Video Preview: Communication Tactics for Family</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Hover over the button below to see the video preview pop-up, or click to launch the family communication guide on YouTube:
-      </p>
 
-      <div class="external-btn-group" style="margin-top: 25px;">
-        <div class="video-link-item" style="position: relative; display: inline-block;">
-          <a href="https://www.youtube.com/watch?v=5H-7uR40kgg" target="_blank" rel="noopener noreferrer" class="ext-btn btn-red">
-            <span class="material-symbols-outlined">smart_display</span> Watch RNID Family Video Preview &rarr;
-          </a>
-          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
-            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/5H-7uR40kgg/0.jpg') center/cover no-repeat;"></div>
-            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">RNID: Communication Tactics for Family</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-support.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+        </nav>
+    </main>
 
-    <!-- Supporting Hearing Aid Adaptation & Home Environment -->
-    <div class="card" style="border-left-color: #d97706;">
-      <span class="info-badge badge-amber">Home Environment & Hearing Aids</span>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span><span class="material-icons card-icon" style="color: #d97706;">home</span> Supporting Hearing Aid Users & Home Tweaks</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Getting used to new hearing aids takes 30 to 60 days of brain adjustment. Here is how family members can help:
-      </p>
-      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px;">
-        <li><strong>Practice in Quiet Rooms First:</strong> Start with one-on-one conversations at home before tackling noisy social events.</li>
-        <li><strong>Encourage Daily Wear:</strong> Help them wear their aids consistently every day so their brain adapts faster.</li>
-        <li><strong>Smart Home Assistive Tech:</strong> Consider installing TV streamers, vibrating smoke alarm pads, or flashing doorbells for peace of mind.</li>
-        <li><strong>Offer Practical Accompaniment:</strong> Offer to attend NHS audiology appointments together to take notes and ask questions.</li>
-      </ul>
-    </div>
-
-    <!-- Verified Web Links -->
-    <div class="card" style="border-left-color: #005EB8;">
-      <span class="info-badge badge-blue">Verified External Resources</span>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-header">
-          <span><span class="material-icons card-icon" style="color: #005EB8;">open_in_new</span> Verified Website Links for Family Members</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Explore verified national UK resources and downloadable guides tailored for relatives, partners, and carers:
-      </p>
-
-      <div class="external-btn-group">
-        <a href="https://rnid.org.uk/information-and-support/communication-tactics/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-red">
-          <span class="material-symbols-outlined">menu_book</span> RNID Communication Tactics Guide &rarr;
-        </a>
-        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
-          <span class="material-symbols-outlined">local_hospital</span> NHS Hearing Loss Support for Carers &rarr;
-        </a>
-        <a href="https://tinnitus.org.uk/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-amber">
-          <span class="material-symbols-outlined">nature_people</span> Tinnitus UK Family Support Network &rarr;
-        </a>
-        <a href="path-support-group.html" class="ext-btn btn-dark">
-          <span class="material-symbols-outlined">groups</span> Join Bristol HoH Family Support Group &rarr;
-        </a>
-      </div>
-    </div>
-
-    <!-- Navigation Footer -->
-        </div>
-      </div>
-    </div><nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
-      <a href="path-support.html" class="back-to-journey-btn">
-        <span class="material-symbols-outlined">arrow_back</span>
-        Back to Support
-      </a>
-    </nav>
-  </div>
-
-  <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
