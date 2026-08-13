@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link rel="stylesheet" href="styles.css?v=8.0">
   <style>
     body.premium-white-theme {
       background-color: #f8f9fa;
@@ -18,11 +18,7 @@
       padding: 0;
       line-height: 1.65;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
     .header-section {
       text-align: center;
       margin-bottom: 40px;
@@ -453,18 +449,24 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
 
-  <div class="container">
+  <main id="main-content" class="container">
     <div class="header-section">
       <h1>Bristol NHS Foundation Trust</h1>
       <p class="subtitle">Audiology Services, Hospital Visitor Guide, Directions & Satellite Sites</p>
     </div>
 
     <!-- Overview & Photos Card -->
-    <div class="card" style="border-left-color: #005EB8;">
-      <h3><span class="material-symbols-outlined card-icon">local_hospital</span> Combined Organization Overview</h3>
-      <p>The Bristol NHS trust delivers combined NHS Audiology & ENT care across University Hospitals Bristol and Weston NHS Foundation Trust (UHBW) and North Bristol NHS Trust (NBT). Together, they provide seamless hearing assessments, hearing aid fittings, tinnitus therapy, and balance services across Bristol and the West of England.</p>
+    <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span><span class="material-symbols-outlined card-icon">local_hospital</span> Combined Organisation Overview</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p>The Bristol NHS trust delivers combined NHS Audiology & ENT care across University Hospitals Bristol and Weston NHS Foundation Trust (UHBW) and North Bristol NHS Trust (NBT). Together, they provide seamless hearing assessments, hearing aid fittings, tinnitus therapy, and balance services across Bristol and the West of England.</p>
       
       <!-- Authentic Hospital Pictures -->
       <div class="hospital-gallery">
@@ -478,7 +480,7 @@
         </div>
 
         <div class="hospital-card">
-          <img src="Audiology Images/southmead.jpg" alt="Brunel Building at Southmead Hospital" class="hospital-img">
+          <img src="Audiology Images/southmead.jpg" alt="Brunel Building at Southmead Hospital" class="hospital-img" loading="lazy">
           <div class="hospital-info">
             <span class="info-badge badge-nbt">North Bristol NHS Trust</span>
             <h4>Southmead Hospital</h4>
@@ -693,7 +695,7 @@
         <div class="carousel-track">
           <!-- Slide 1 -->
           <div class="carousel-slide">
-            <img src="Contents/Weston General Hospital/Photos-1-001/Main entrance outside.jpg" alt="Weston General Hospital Main Entrance Outside" class="carousel-img">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Main entrance outside.jpg" alt="Weston General Hospital Main Entrance Outside" class="carousel-img" loading="lazy">
             <div class="carousel-caption">
               <span class="info-badge badge-uhbw">Step 1: Arrival</span>
               <h4>Main Entrance Outside</h4>
@@ -703,7 +705,7 @@
 
           <!-- Slide 2 -->
           <div class="carousel-slide">
-            <img src="Contents/Weston General Hospital/Photos-1-001/Main recpetion.jpg" alt="Weston General Main Reception & Foyer" class="carousel-img">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Main recpetion.jpg" alt="Weston General Main Reception & Foyer" class="carousel-img" loading="lazy">
             <div class="carousel-caption">
               <span class="info-badge badge-uhbw">Step 2: Foyer</span>
               <h4>Main Reception & Visitor Foyer</h4>
@@ -713,7 +715,7 @@
 
           <!-- Slide 3 -->
           <div class="carousel-slide">
-            <img src="Contents/Weston General Hospital/Photos-1-001/Corridor to Audiology .jpg" alt="Corridor to Audiology" class="carousel-img">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Corridor to Audiology .jpg" alt="Corridor to Audiology" class="carousel-img" loading="lazy">
             <div class="carousel-caption">
               <span class="info-badge badge-uhbw">Step 3: Corridor</span>
               <h4>Main Outpatients Corridor to Audiology</h4>
@@ -723,7 +725,7 @@
 
           <!-- Slide 4 -->
           <div class="carousel-slide">
-            <img src="Contents/Weston General Hospital/Photos-1-001/Audiology reception.jpg" alt="Audiology Reception" class="carousel-img">
+            <img src="Contents/Weston General Hospital/Photos-1-001/Audiology reception.jpg" alt="Audiology Reception" class="carousel-img" loading="lazy">
             <div class="carousel-caption">
               <span class="info-badge badge-uhbw">Step 4: Reception</span>
               <h4>Audiology Reception & Waiting Area</h4>
@@ -870,7 +872,7 @@
     <div class="card" style="border-left-color: #f39c12;">
       <h3><span class="material-symbols-outlined card-icon">assignment_ind</span> Referrals to NHS Audiology</h3>
       <p><strong>GP Referrals:</strong> Your GP will inspect your ear canals, assess symptoms, and submit a direct NHS referral to UHBW (St Michael's / Weston General) or North Bristol NHS Trust (Southmead).</p>
-      <p><strong>ENT & Specialist Referrals:</strong> Ear, Nose & Throat (ENT) consultants can refer directly for specialized adult audiology, tinnitus management, or balance therapy.</p>
+      <p><strong>ENT & Specialist Referrals:</strong> Ear, Nose & Throat (ENT) consultants can refer directly for specialised adult audiology, tinnitus management, or balance therapy.</p>
     </div>
 
     <!-- Verified Links Section -->
@@ -891,8 +893,9 @@
         <a href="https://www.bristol.gov.uk/residents/streets-travel-zoning/bristol-clean-air-zone" target="_blank" rel="noopener" class="ext-btn btn-caz">
           <span class="material-symbols-outlined">open_in_new</span> Bristol Clean Air Zone Tool
         </a>
+        </div>
       </div>
-    </div>
+    </div></div>
 
     <nav class="back-to-journey-container" aria-label="Back Navigation">
       <a href="path-yes.html" class="back-to-journey-btn">
@@ -951,6 +954,6 @@
       }, { passive: true });
     });
   </script>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

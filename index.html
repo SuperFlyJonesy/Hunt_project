@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empowering deaf and hard-of-hearing individuals across Bristol. Access venue accessibility guides, NHS audiology paths, and community meetups.">
     <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Hearing Loss Initiative - Bristol</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=7.0">
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
     <a href="#content-layer" class="skip-link">Skip to main content</a>
     <!-- DEV TOOLS -->
-    <button id="dev-reset" aria-label="Reset Application State" style="position: absolute; top: 15px; left: 15px; color: white; background: rgba(0, 0, 0, 0.7); border: 1px solid white; border-radius: 4px; opacity: 0.6; cursor: pointer; z-index: 99999999; padding: 8px 12px; font-weight: bold; font-family: sans-serif; transition: opacity 0.2s;">R</button>
+    <button id="dev-reset" aria-label="Reset Application State" style="position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: white; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 6px; opacity: 0.7; cursor: pointer; z-index: 99999999; padding: 8px 12px; font-weight: bold; font-family: sans-serif; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">R</button>
     
     <div class="page-transition-overlay"></div>
     
@@ -45,8 +49,35 @@
     
     <div class="main-container">
         <header class="top-nav">
+            <div class="top-left-nav">
+                <button id="who-we-are-btn" class="who-we-are-dropdown-btn">Who We Are <span class="caret">▾</span></button>
+                <div id="who-we-are-dropdown-menu" class="who-we-are-dropdown-menu">
+                    <div class="dropdown-tag">OUR THREE PILLARS</div>
+                    <div class="dropdown-pillar">
+                        <div class="dropdown-pillar-header">
+                            <span class="dropdown-pillar-num">1</span>
+                            <span class="dropdown-pillar-title">Who We Are</span>
+                        </div>
+                        <p class="dropdown-pillar-desc">A local Bristol initiative supporting hard-of-hearing residents and their families.</p>
+                    </div>
+                    <div class="dropdown-pillar">
+                        <div class="dropdown-pillar-header">
+                            <span class="dropdown-pillar-num">2</span>
+                            <span class="dropdown-pillar-title">What We're Here For</span>
+                        </div>
+                        <p class="dropdown-pillar-desc">Clear, practical guidance bridging the gap between NHS care, technology, and daily life.</p>
+                    </div>
+                    <div class="dropdown-pillar">
+                        <div class="dropdown-pillar-header">
+                            <span class="dropdown-pillar-num">3</span>
+                            <span class="dropdown-pillar-title">What We Offer</span>
+                        </div>
+                        <p class="dropdown-pillar-desc">Accessible venue guides, NHS pathways, equipment advice, and peer support network.</p>
+                    </div>
+                </div>
+            </div>
             <img src="HLI Logo White.png" alt="HLI Logo" id="hli-logo" class="hli-logo-top">
-            <a href="path-about.html" id="btn-support" class="nav-btn-small top-support-btn">Support Us</a>
+            <a href="path-about.html" id="btn-support" class="nav-btn-small top-support-btn">About Us</a>
         </header>
 
         <!-- STENCIL LANDING PAGE -->
@@ -66,7 +97,7 @@
             Video courtesy of Visit Bristol &#8599;
         </a>
 
-        <div class="mask-overlay">
+        <div id="main-content" class="mask-overlay">
             <h1 class="stencil-layer" id="stencil-count">62220</h1>
         </div>
         <div class="content-layer" id="content-layer">
@@ -105,7 +136,7 @@
             </form>
         </div>
     </div>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
 

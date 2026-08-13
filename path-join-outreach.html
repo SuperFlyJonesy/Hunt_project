@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volunteer with the Hearing Loss Initiative in Bristol to deliver community workshops, audit venues, and support peers.">
     <meta charset="UTF-8">
     <title>Volunteer & Outreach Programme - Bristol Hearing Loss Initiative</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <style>
         :root {
             --brand-red: #ff0f5b;
@@ -273,11 +274,12 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <script src="animation.js"></script>
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
     <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3);">Support Us</a>
 
-    <div class="outreach-wrapper">
+    <div id="main-content" class="outreach-wrapper">
         
         <!-- Hero Header -->
         <div class="hero-section">
@@ -287,11 +289,14 @@
         </div>
 
         <!-- How Volunteers Support Our Group Sessions -->
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 900; color: #0f172a; margin: 0 0 24px 0; text-align: center;">
-            Ways You Can Support Our Programme
-        </h2>
-
-        <div class="roles-grid">
+        <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>Ways You Can Support Our Programme</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <div class="roles-grid">
             
             <div class="role-card border-red">
                 <div class="role-icon">☕</div>
@@ -321,9 +326,16 @@
 
         <!-- Volunteer Direct Email Application Card (NO DATA STORED ON WEBSITE) -->
         <div class="form-card" style="text-align: center;">
-            <div style="font-size: 2.8rem; margin-bottom: 15px;">✉️</div>
-            <h2 style="margin-bottom: 12px;">Apply via Direct Email</h2>
-            <p style="max-width: 640px; margin: 0 auto 30px auto; font-size: 1.08rem; color: #475569; line-height: 1.65;">
+            <div style="font-size: 2.8rem; margin-bottom: 15px;">✉️
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>Apply via Direct Email</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="max-width: 640px; margin: 0 auto 30px auto; font-size: 1.08rem; color: #475569; line-height: 1.65;">
                 We respect your privacy: we do not collect or store any personal contact information on this website. To volunteer or join our Bristol outreach team, simply click below to send us a pre-filled email from your preferred email app.
             </p>
 
@@ -341,6 +353,9 @@
 
     </div>
 
-    <script src="script.js?v=1.4"></script>
+    <scrip
+        </div>
+      </div>
+    </div>t src="script.js?v=3.0"></script>
 </body>
 </html>

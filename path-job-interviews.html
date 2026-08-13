@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empowering advice on navigating job interviews, disclosing hearing loss, and requesting reasonable adjustments at work.">
     <meta charset="UTF-8">
     <title>Job Interviews & Employment Advice - Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -17,21 +18,25 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
     
-    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
+    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
         <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center;">Job Interviews & Workplace Advice</h1>
         <p style="font-size: 1.1rem; color: #475569; text-align: center; max-width: 750px; margin-bottom: 30px;">
             Navigating job applications, disclosure strategies, interview scripts, rights under the Equality Act 2010, corporate cultures, and emotional support in Bristol.
         </p>
 
         <!-- Card 1: Disclosure & Interview Advice -->
-        <div class="page-card" style="border-left-color: #005EB8; width: 100%;">
-            <h2 style="color: #005EB8; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">badge</span> Going for a Job Interview: What Should You Say?
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+        <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span><span class="material-symbols-outlined" style="font-size: 2rem;">badge</span> Going for a Job Interview: What Should You Say?</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
                 Disclosing hearing loss during job applications is your personal choice under UK law. Disclosing early allows you to request <strong>Reasonable Adjustments</strong> so you can demonstrate your true skills without communication barriers.
             </p>
 
@@ -137,8 +142,9 @@
                     <li><span class="material-symbols-outlined" style="color: #be123c;">mail</span> <strong>Email Support:</strong> <a href="mailto:jo@samaritans.org" style="color: #be123c;">jo@samaritans.org</a> (Response within 24 hours)</li>
                     <li><span class="material-symbols-outlined" style="color: #be123c;">location_on</span> <strong>Bristol Branch Address:</strong> 37 St Nicholas Street, Bristol BS1 1TP</li>
                 </ul>
-            </div>
         </div>
+      </div>
+    </div></div>
 
         <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap;">
             <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff;">
@@ -155,6 +161,6 @@
     <script>
         document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
     </script>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

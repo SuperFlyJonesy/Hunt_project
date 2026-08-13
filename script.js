@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Floating Scroll Nav Controls
     initFloatingScrollControls();
     initScrollAnimations();
+    initWhoWeAreDropdown();
+    initAccordions();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -532,5 +534,40 @@ function initScrollAnimations() {
         targets.forEach(el => el.classList.add('animated'));
     }
 }
+
+// 7. TOP LEFT 'WHO WE ARE' DROPDOWN MENU
+function initWhoWeAreDropdown() {
+    const btn = document.getElementById('who-we-are-btn');
+    const menu = document.getElementById('who-we-are-dropdown-menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        btn.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+            btn.classList.remove('active');
+            menu.classList.remove('active');
+        }
+    });
+}
+
+// 8. PROGRESSIVE DISCLOSURE ACCORDIONS
+function initAccordions() {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const item = header.closest('.accordion-item');
+            if (item) {
+                item.classList.toggle('active');
+            }
+        });
+    });
+}
+
+
 
 

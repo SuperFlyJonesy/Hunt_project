@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link rel="stylesheet" href="styles.css?v=8.0">
   <style>
     body.premium-white-theme {
       background-color: #f8f9fa;
@@ -18,11 +18,7 @@
       padding: 0;
       line-height: 1.65;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
     .header-section {
       text-align: center;
       margin-bottom: 40px;
@@ -177,10 +173,11 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
   <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-  <div class="container">
+  <main id="main-content" class="container">
     <div class="header-section">
       <h1>How We Hear</h1>
       <p class="subtitle">Anatomy of the ear, hearing mechanics, types & severity levels of hearing loss, and verified educational resources</p>
@@ -189,8 +186,14 @@
     <!-- Anatomy of Hearing -->
     <div class="card" style="border-left-color: #005EB8;">
       <span class="info-badge badge-uhbw">Ear Mechanics & Physiology</span>
-      <h2><span class="material-icons card-icon">hearing</span> The Journey of Sound</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+      <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon">hearing</span> The Journey of Sound</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Hearing involves a complex, sequence of mechanical and electrical conversions across the outer, middle, and inner ear to transform acoustic vibrations into brain perception.
       </p>
 
@@ -231,8 +234,15 @@
     <!-- Verified Educational Video Card -->
     <div class="card" style="border-left-color: #ff0f5b;">
       <span class="info-badge" style="background: #ffe4e6; color: #ff0f5b;">Educational Video Preview</span>
-      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Verified Video Animation: How Hearing Works</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Verified Video Animation: How Hearing Works</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Hover over the button below to see the video preview pop-up, or click to launch the 3D medical animation on YouTube:
       </p>
 
@@ -255,9 +265,15 @@
     <!-- Types & Severity Levels -->
     <div class="card" style="border-left-color: #059669;">
       <span class="info-badge badge-nbt">Classification & Audiometry</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">equalizer</span> Types & Severity Levels of Hearing Loss</h2>
-
-      <div style="margin-bottom: 25px;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #059669;">equalizer</span> Types & Severity Levels of Hearing Loss</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <div style="margin-bottom: 25px;">
         <h4 style="color: #0f172a; font-size: 1.1rem; margin-bottom: 8px;">Main Types:</h4>
         <p style="margin: 0 0 10px 0; color: #334155; font-size: 0.98rem;">
           <strong>Sensorineural Hearing Loss:</strong> Caused by damage to cochlear hair cells or the auditory nerve. Most common form, often age-related (presbyacusis) or noise-induced.
@@ -288,8 +304,15 @@
     <!-- Common Conditions & Etiology -->
     <div class="card" style="border-left-color: #d97706;">
       <span class="info-badge" style="background: #fef3c7; color: #d97706;">Clinical Etiology</span>
-      <h2><span class="material-icons card-icon" style="color: #d97706;">medical_services</span> Common Conditions & Related Causes</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #d97706;">medical_services</span> Common Conditions & Related Causes</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Hearing loss can stem from genetic factors, ear infections, acoustic trauma, or underlying medical conditions.
       </p>
 
@@ -325,7 +348,9 @@
     </div>
 
     <!-- Navigation Footer -->
-    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+        </div>
+      </div>
+    </div><nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
       <a href="path-yes.html" class="back-to-journey-btn">
         <span class="material-symbols-outlined">arrow_back</span>
         Back to Journey
@@ -333,7 +358,7 @@
     </nav>
   </div>
 
-  <script src="script.js?v=1.4"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>
 

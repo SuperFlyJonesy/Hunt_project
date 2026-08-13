@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Begin your personalized hearing journey to discover tailored resources, hospital maps, and community support in Bristol.">
     <meta charset="UTF-8">
     <title>Your Journey</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=7.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        .metro-grid .metro-icon { font-size: 10.5rem; }
         
         @keyframes seamlessFadeIn {
             0% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
@@ -41,49 +41,66 @@
     <a href="#main-grid" class="skip-link">Skip to main content</a>
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     
-    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">Support Us</a>
+    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
     
-    <header class="top-nav" style="padding: 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <header class="top-nav" style="padding: 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
         <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 50px auto 70px auto; display: block;">
         <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Everyone's Loss is different</h1>
         <p style="color: #666; font-size: 1.1rem; max-width: 600px; text-align: center; margin-top: 10px;">Explore pathways for understanding, support, and managing hearing loss.</p>
     </header>
     
-    <div class="metro-grid" id="main-grid">
-        <!-- Phase 1: Immediate Empathy & Discovery -->
-        <a href="path-my-journey.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">route</span><span class="metro-text">My Journey</span></a>
-        <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
-        <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #00ACC1;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
+    <div class="category-hubs-container" id="main-grid">
+        <!-- HUB 1: FIRST STEPS & ASSESSMENT -->
+        <section class="hub-section">
+            <h2 class="hub-title"><span class="hub-badge" style="background: #F57C00;">1</span> First Steps & Self-Assessment</h2>
+            <div class="hub-grid">
+                <a href="path-my-journey.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">route</span><span class="metro-text">My Journey</span></a>
+                <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #00843D;"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
+                <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #00ACC1;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
+                <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
+            </div>
+        </section>
+
+        <!-- HUB 2: NHS PATHWAYS & CLINICAL CARE -->
+        <section class="hub-section">
+            <h2 class="hub-title"><span class="hub-badge" style="background: #005EB8;">2</span> NHS Pathways & Clinical Care</h2>
+            <div class="hub-grid">
+                <a href="path-nhs.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">local_hospital</span><span class="metro-text">Bristol NHS Foundation Trust</span></a>
+                <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
+                <a href="path-hearing-therapists.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
+                <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
+            </div>
+        </section>
+
+        <!-- HUB 3: TECHNOLOGY & EQUIPMENT -->
+        <section class="hub-section">
+            <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">3</span> Technology & Equipment</h2>
+            <div class="hub-grid">
+                <a href="path-hearing-aids-access.html" class="metro-btn" style="background-color: #D32F2F;"><span class="material-symbols-outlined metro-icon">hearing</span><span class="metro-text">Hearing Aids</span></a>
+                <a href="path-assistive-technology.html" class="metro-btn" style="background-color: #00ACC1;"><span class="material-symbols-outlined metro-icon">devices</span><span class="metro-text">Assistive Tech</span></a>
+                <a href="path-government-help.html" class="metro-btn" style="background-color: #d97706;"><span class="material-symbols-outlined metro-icon">account_balance</span><span class="metro-text">Government Help</span></a>
+                <a href="path-tech.html" class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
+            </div>
+        </section>
+
+        <!-- HUB 4: DAILY LIVING, WORK & COMMUNITY -->
+        <section class="hub-section">
+            <h2 class="hub-title"><span class="hub-badge" style="background: #E91E63;">4</span> Daily Living, Work & Community</h2>
+            <div class="hub-grid">
+                <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Work & Interviews</span></a>
+                <a href="path-mental-health.html" class="metro-btn" style="background-color: #E91E63;"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
+                <a href="path-tinnitus.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
+                <a href="path-accessible-venues.html" class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
+                <a href="path-support-group.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">diversity_3</span><span class="metro-text">Support Groups</span></a>
+                <a href="path-community-stories.html" class="metro-btn" style="background-color: #1b5e20;"><span class="material-symbols-outlined metro-icon">diversity_1</span><span class="metro-text">Initiate Stories</span></a>
+                <a href="path-resources.html" class="metro-btn" style="background-color: #d97706;"><span class="material-symbols-outlined metro-icon">menu_book</span><span class="metro-text">Resources</span></a>
+                <a href="path-contacts.html" class="metro-btn" style="background-color: #00897B;"><span class="material-symbols-outlined metro-icon">contacts</span><span class="metro-text">Useful Contacts</span></a>
+            </div>
+        </section>
         
-        <!-- Phase 2: Self-Assessment & Diagnostic -->
-        <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #00843D;"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
-        <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
-        <a href="path-hearing-aids-access.html" class="metro-btn" style="background-color: #D32F2F;"><span class="material-symbols-outlined metro-icon">hearing</span><span class="metro-text">Hearing Aids</span></a>
-        
-        <!-- Phase 3: Medical, NHS & Financial Support -->
-        <a href="path-nhs.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">local_hospital</span><span class="metro-text">Bristol NHS Foundation Trust</span></a>
-        <a href="path-government-help.html" class="metro-btn" style="background-color: #d97706;"><span class="material-symbols-outlined metro-icon">account_balance</span><span class="metro-text">Government Help</span></a>
-        <a href="path-hearing-therapists.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
-        
-        <!-- Phase 4: Daily Life, Mental Health & Workplace -->
-        <a href="path-mental-health.html" class="metro-btn" style="background-color: #E91E63;"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
-        <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Job Interviews</span></a>
-        <a href="path-assistive-technology.html" class="metro-btn" style="background-color: #00ACC1;"><span class="material-symbols-outlined metro-icon">devices</span><span class="metro-text">Assistive Technology</span></a>
-        <a href="path-tinnitus.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
-        <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Don't Put in Ears</span></a>
-        <a href="path-tech.html" class="metro-btn" style="background-color: #C2185B;"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
-        
-        <!-- Phase 5: Community & Peer Connection -->
-        <a href="path-support-group.html" class="metro-btn" style="background-color: #7B1FA2;"><span class="material-symbols-outlined metro-icon">diversity_3</span><span class="metro-text">Support Group</span></a>
-        <a href="path-community-stories.html" class="metro-btn" style="background-color: #1b5e20;"><span class="material-symbols-outlined metro-icon">diversity_1</span><span class="metro-text">Initiate Stories</span></a>
-        <a href="path-contacts.html" class="metro-btn" style="background-color: #00897B;"><span class="material-symbols-outlined metro-icon">contacts</span><span class="metro-text">Useful Contacts</span></a>
-        <a href="path-testimonials.html" class="metro-btn" style="background-color: #d97706;"><span class="material-symbols-outlined metro-icon">reviews</span><span class="metro-text">Testimonials</span></a>
-        <a href="path-accessible-venues.html" class="metro-btn" style="background-color: #0097A7;"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
-        <a href="path-resources.html" class="metro-btn" style="background-color: #F57C00;"><span class="material-symbols-outlined metro-icon">menu_book</span><span class="metro-text">Resources</span></a>
-        <a href="path-support.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">handshake</span><span class="metro-text">Support Branch</span></a>
-        <a href="path-bear-pit.html" class="metro-btn" style="background-color: #E91E63;"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
-        <a href="path-it-goes-to-11.html" class="metro-btn" style="background-color: #ff0f5b;"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">It goes to 11</span></a>
-        <a href="index.html" class="metro-btn" style="background-color: #1e293b;"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="metro-btn" style="background-color: #1e293b; display: inline-flex; width: 220px; text-decoration: none;"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
+        </div>
     </div>
     
     <!-- Persistent Premium Volume Control Widget (White noise - Stationary on screen) -->

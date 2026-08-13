@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link rel="stylesheet" href="styles.css?v=8.0">
   <style>
     body.premium-white-theme {
       background-color: #f8f9fa;
@@ -18,11 +18,7 @@
       padding: 0;
       line-height: 1.65;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
     .header-section {
       text-align: center;
       margin-bottom: 40px;
@@ -214,10 +210,11 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
   <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-  <div class="container">
+  <main id="main-content" class="container">
     <div class="header-section">
       <span class="info-badge badge-amber">Clinical Audiology & Sound Therapy</span>
       <h1>Tinnitus: Understanding, Habituation & Sound Therapy</h1>
@@ -227,8 +224,14 @@
     <!-- Overview -->
     <div class="card" style="border-left-color: #F57C00;">
       <span class="info-badge badge-amber">Clinical Definition & Prevalence</span>
-      <h2><span class="material-icons card-icon">graphic_eq</span> What Tinnitus Is & How It Develops</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+      <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon">graphic_eq</span> What Tinnitus Is & How It Develops</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Tinnitus is the perception of sound (ringing, buzzing, hissing, humming, whooshing, or pulsing) when there is no external acoustic source. Over <strong>7 million adults in the UK (approx. 1 in 7)</strong> experience tinnitus.
       </p>
       <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
@@ -239,8 +242,15 @@
     <!-- CHART 1: HABITUATIONS TRAJECTORY -->
     <div class="card" style="border-left-color: #005EB8;">
       <span class="info-badge badge-blue">Neuroplastic Habituation Model</span>
-      <h2><span class="material-icons card-icon" style="color: #005EB8;">trending_up</span> Chart: Tinnitus Habituation Trajectory Over Time</h2>
-      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #005EB8;">trending_up</span> Chart: Tinnitus Habituation Trajectory Over Time</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
         Clinical timeline showing how perception transitions from acute distress to subconscious habituation:
       </p>
 
@@ -301,8 +311,15 @@
     <!-- CHART 2: SOUND THERAPY & MASKING EFFICACY -->
     <div class="card" style="border-left-color: #059669;">
       <span class="info-badge badge-green">Clinical Treatment Data</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Sound Therapy & Management Efficacy</h2>
-      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Sound Therapy & Management Efficacy</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
         Clinical efficacy percentages of NHS-approved tinnitus management interventions:
       </p>
 
@@ -336,8 +353,15 @@
     <!-- VIDEO PREVIEW SECTION (WITH HOVER POP-UP CARDS) -->
     <div class="card" style="border-left-color: #ff0f5b;">
       <span class="info-badge badge-pink">Video Preview Links</span>
-      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Tinnitus Video Previews & Educational Demonstrations</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #ff0f5b;">play_circle</span> Tinnitus Video Previews & Educational Demonstrations</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Hover over any button below to see the video preview pop-up, or click to watch on YouTube:
       </p>
 
@@ -382,9 +406,15 @@
     <!-- CLINICAL MANAGEMENT STRATEGIES -->
     <div class="card" style="border-left-color: #7B1FA2;">
       <span class="info-badge" style="background: #f3e8ff; color: #7b1fa2;">Audiology Management</span>
-      <h2><span class="material-icons card-icon" style="color: #7B1FA2;">medical_services</span> Clinical Tinnitus Management Approaches</h2>
-
-      <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #7B1FA2;">medical_services</span> Clinical Tinnitus Management Approaches</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
         <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0;">
           <strong style="color: #F57C00; font-size: 1.05rem;">1. Sound Therapy & Ambient Masking</strong>
           <p style="margin: 6px 0 0 0; font-size: 0.95rem; color: #475569; line-height: 1.55;">Using sound generators, white/pink noise, or ocean soundscapes to enrich background acoustics so tinnitus is less prominent.</p>
@@ -403,8 +433,15 @@
     <!-- TESTED & VERIFIED EXTERNAL VALIDATION LINKS -->
     <div class="card" style="border-left-color: #059669;">
       <span class="info-badge badge-green">Verified Clinical Evidence</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">verified</span> Verified Page References & Clinical Validation</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #059669;">verified</span> Verified Page References & Clinical Validation</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         All clinical definitions, habituation models, and sound therapy data on this page have been tested and verified against authoritative UK healthcare bodies:
       </p>
 
@@ -428,7 +465,9 @@
     </div>
 
     <!-- Navigation Footer -->
-    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+        </div>
+      </div>
+    </div><nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
       <a href="path-yes.html" class="back-to-journey-btn">
         <span class="material-symbols-outlined">arrow_back</span>
         Return to Journey Hub
@@ -436,6 +475,6 @@
     </nav>
   </div>
 
-  <script src="script.js?v=1.4"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>

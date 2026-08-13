@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understand the role of hearing therapists in managing tinnitus, hyperacusis, and auditory rehabilitation.">
     <meta charset="UTF-8">
     <title>Bristol Hearing Therapists & Rehabilitation Directory</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
         :root {
@@ -354,11 +355,12 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <script src="animation.js"></script>
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
     <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3);">Support Us</a>
 
-    <div class="page-wrapper">
+    <div id="main-content" class="page-wrapper">
         
         <!-- Hero Header -->
         <div class="hero-section">
@@ -368,9 +370,14 @@
         </div>
 
         <!-- What a Hearing Therapist Does -->
-        <div class="overview-card">
-            <h2>👂 How a Hearing Therapist Helps You</h2>
-            <p>Hearing Therapists specialize in helping adults manage the personal, emotional, and social impact of hearing loss, tinnitus, and auditory processing conditions. Unlike hearing aid dispensers who focus solely on technology, hearing therapists provide holistic rehabilitation and practical coping strategies.</p>
+        <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>👂 How a Hearing Therapist Helps You</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p>Hearing Therapists specialize in helping adults manage the personal, emotional, and social impact of hearing loss, tinnitus, and auditory processing conditions. Unlike hearing aid dispensers who focus solely on technology, hearing therapists provide holistic rehabilitation and practical coping strategies.</p>
             
             <div class="services-grid">
                 <div class="service-pill-card">
@@ -471,8 +478,9 @@
                     <h3>Initial Consultation</h3>
                     <p>Attend your 1-to-1 therapy session (available in-person, by video, or telephone) to create your personalized communication plan.</p>
                 </div>
-            </div>
         </div>
+      </div>
+    </div></div>
 
         <nav class="back-to-journey-container" aria-label="Back Navigation">
             <a href="path-yes.html" class="back-to-journey-btn">
@@ -482,6 +490,6 @@
         </nav>
 
     </div>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

@@ -1,38 +1,1226 @@
 [
   {
-    "id": 1,
-    "venue_name": "Bristol Temple Meads Station",
-    "lat": 51.449,
-    "lng": -2.583,
+    "id": "airport",
+    "venue_name": "Bristol Airport",
+    "category": "International Airport & Transit Hub",
+    "lat": 51.3827,
+    "lng": -2.719,
+    "postcode": "BS48",
+    "location": {
+      "address_line_1": "Lulsgate Bottom, Bristol BS48 3DY",
+      "city": "Bristol",
+      "postcode": "BS48"
+    },
     "hearing_systems": {
       "has_loop_system": true,
-      "loop_type": "Auracast",
-      "quiet_zone": false
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Special Assistance Lounge",
+        "Counter & Gate Hearing Loops",
+        "Visual Flight Paging",
+        "Auracast Trial Zone",
+        "Quiet Sensory Room"
+      ],
+      "signage_present": true,
+      "last_tested_date": "January 2026",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Bristol Airport Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
     },
-    "physical_accessibility": { "wheelchair_access": true }
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Quiet Sensory Room",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Aviation Access Auditor",
+      "last_audited": "January 2026",
+      "quote": "Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge.",
+      "gold_standard": true
+    }
   },
   {
-    "id": 2,
+    "id": "beacon",
     "venue_name": "Bristol Beacon",
-    "lat": 51.454,
-    "lng": -2.597,
+    "category": "Entertainment & Concert Centre",
+    "lat": 51.45464,
+    "lng": -2.59815,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "Trenchard Street, Bristol BS1 5AR",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
     "hearing_systems": {
       "has_loop_system": true,
-      "loop_type": "Induction Loop",
-      "quiet_zone": true
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Counter Loop",
+        "T-Coil Hall Loop",
+        "Auracast Ready",
+        "BSL Interpreted Shows",
+        "Quiet Relaxation Room"
+      ],
+      "signage_present": true,
+      "last_tested_date": "October 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Bristol Beacon Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
     },
-    "physical_accessibility": { "wheelchair_access": true }
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Quiet Relaxation Room",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Simon T. (BSL User & Hard-of-Hearing Auditor)",
+      "last_audited": "October 2025",
+      "quote": "Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays.",
+      "gold_standard": true
+    }
   },
   {
-    "id": 3,
-    "venue_name": "Central Library",
-    "lat": 51.451,
-    "lng": -2.601,
+    "id": "watershed",
+    "venue_name": "Watershed",
+    "category": "Cinema & Media Centre",
+    "lat": 51.45198,
+    "lng": -2.59808,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "1 Canon's Road, Harbourside, Bristol BS1 5TX",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": false,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Auracast Audio Stream",
+        "DS Subtitled Screenings",
+        "Infrared Hearing System",
+        "Quiet Lounge"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Watershed Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Quiet Lounge",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Jo J. (Initiate Evaluator)",
+      "last_audited": "November 2025",
+      "quote": "Cinemas 1 & 3 stream Auracast direct to hearing aids. Staff offer subtitle headsets without hassle and venue acoustics are superb.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "mshed",
+    "venue_name": "M Shed Museum",
+    "category": "History Museum",
+    "lat": 51.4473,
+    "lng": -2.5986,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "Princes Wharf, Wapping Road, Bristol BS1 4RN",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
     "hearing_systems": {
       "has_loop_system": true,
-      "loop_type": "Induction Loop",
-      "quiet_zone": true
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Reception Induction Loop",
+        "Touch Exhibits",
+        "Visual Fire Alarms",
+        "Acoustic Baffles"
+      ],
+      "signage_present": true,
+      "last_tested_date": "December 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "M Shed Museum Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
     },
-    "physical_accessibility": { "wheelchair_access": true }
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Acoustic Baffles",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Jason P. (Hard-of-Hearing Evaluator)",
+      "last_audited": "December 2025",
+      "quote": "Great acoustic sound baffles in the main gallery space. Reception desk loop tested at 100% signal-to-noise ratio.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "bearpit",
+    "venue_name": "The Bear Pit Community Hub",
+    "category": "Community & Forum Hub",
+    "lat": 51.4589,
+    "lng": -2.5926,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "St James Barton Roundabout, Bristol BS1 3LY",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": false,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Support Group Meeting Host",
+        "Outdoor Gathering Space",
+        "BSL Social Circles",
+        "Community Forum Link"
+      ],
+      "signage_present": true,
+      "last_tested_date": "January 2026",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "The Bear Pit Community Hub Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Bristol Support Group Committee",
+      "last_audited": "January 2026",
+      "quote": "Central open-air gathering spot for monthly Bristol Hard-of-Hearing coffee meets, BSL social circles, and discussion forums.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "vassall",
+    "venue_name": "Vassall Centre (CfD Deaf Hub)",
+    "category": "Community Building & Deaf Hub",
+    "lat": 51.4785,
+    "lng": -2.535,
+    "postcode": "BS16",
+    "location": {
+      "address_line_1": "Gill Avenue, Fishponds, Bristol BS16 2QQ",
+      "city": "Bristol",
+      "postcode": "BS16"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "BSL Native Staff",
+        "Portable & Fixed Loops",
+        "Weekly Equipment Clinic",
+        "Support Group Host"
+      ],
+      "signage_present": true,
+      "last_tested_date": "January 2026",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Vassall Centre (CfD Deaf Hub) Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Centre for Deaf People (CfD) Audit Team",
+      "last_audited": "January 2026",
+      "quote": "Purpose-built accessible hub with BSL fluent staff, equipment test rooms, and weekly drop-in advice clinics.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "stgeorges",
+    "venue_name": "St George's Bristol",
+    "category": "Acoustic Music Hall",
+    "lat": 51.45415,
+    "lng": -2.60155,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "Great George Street, Off Park St, Bristol BS1 5RR",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Perimeter Induction Loop",
+        "Acoustic Baffles",
+        "Accessible Seating Deck"
+      ],
+      "signage_present": true,
+      "last_tested_date": "December 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "St George's Bristol Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Acoustic Baffles",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Acoustic Audit Specialist",
+      "last_audited": "December 2025",
+      "quote": "World-class natural hall acoustics paired with a newly calibrated perimeter induction loop.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "wethecurious",
+    "venue_name": "We The Curious",
+    "category": "Science Centre & Planetarium",
+    "lat": 51.4507,
+    "lng": -2.5996,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "One Millennium Square, Anchor Rd, Bristol BS1 5DB",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Planetarium Audio Loops",
+        "Auracast Audio",
+        "Tactile Science Exhibits",
+        "Visual Emergency Signals"
+      ],
+      "signage_present": true,
+      "last_tested_date": "January 2026",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "We The Curious Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Youth & Family Access Auditor",
+      "last_audited": "January 2026",
+      "quote": "Planetarium dome features direct personal audio loop headsets and full 3D visual subtitle projections.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "oldvic",
+    "venue_name": "Bristol Old Vic",
+    "category": "Theatre",
+    "lat": 51.4521,
+    "lng": -2.5942,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "King Street, Bristol BS1 4ED",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Infrared Hearing System",
+        "Captioned Performances",
+        "Touch Tours",
+        "Deaf-Aware Ushers"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Bristol Old Vic Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Sarah K. (Theatre Access Reviewer)",
+      "last_audited": "November 2025",
+      "quote": "Infrared headset system provides crisp amplified stage dialogue across all seating tiers.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "aerospace",
+    "venue_name": "Aerospace Bristol",
+    "category": "Museum",
+    "lat": 51.52304,
+    "lng": -2.57875,
+    "postcode": "BS34",
+    "location": {
+      "address_line_1": "Hayes Way, Patchway, Bristol BS34 5BZ",
+      "city": "Bristol",
+      "postcode": "BS34"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Captioned Video Displays",
+        "Portable Lanyard Loops",
+        "Quiet Breakout Space"
+      ],
+      "signage_present": true,
+      "last_tested_date": "August 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Aerospace Bristol Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Quiet Breakout Space",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Claire T. (Accessibility Officer)",
+      "last_audited": "August 2025",
+      "quote": "Concorde Hangar presentations are fully captioned on display screens with neck-loop lanyard availability.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "cribbs",
+    "venue_name": "The Mall at Cribbs Causeway",
+    "category": "Regional Shopping Destination",
+    "lat": 51.5255,
+    "lng": -2.596,
+    "postcode": "BS34",
+    "location": {
+      "address_line_1": "Lysander Road, Patchway, Bristol BS34 7JJA",
+      "city": "Bristol",
+      "postcode": "BS34"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Customer Desk Hearing Loop",
+        "Level Access Mall",
+        "Quiet Shopping Hours"
+      ],
+      "signage_present": true,
+      "last_tested_date": "October 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "The Mall at Cribbs Causeway Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Quiet Shopping Hours",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Retail Access Tester",
+      "last_audited": "October 2025",
+      "quote": "Customer service desk equipped with fixed T-coil loop; shopping hall acoustics enhanced with acoustic ceiling baffles.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "parkway",
+    "venue_name": "Bristol Parkway Station",
+    "category": "Mainline Transit Hub",
+    "lat": 51.5135,
+    "lng": -2.543,
+    "postcode": "BS34",
+    "location": {
+      "address_line_1": "New Road, Stoke Gifford, Bristol BS34 8PU",
+      "city": "Bristol",
+      "postcode": "BS34"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Ticket Counter Induction Loops",
+        "Visual Display Boards",
+        "Level Platform Access"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Bristol Parkway Station Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Rail Access Auditor",
+      "last_audited": "November 2025",
+      "quote": "Ticket counters feature crystal-clear loop amplification and visual departure displays.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "southmead",
+    "venue_name": "Southmead Hospital",
+    "category": "NHS Regional Hospital & Audiology",
+    "lat": 51.4965,
+    "lng": -2.59,
+    "postcode": "BS10",
+    "location": {
+      "address_line_1": "Southmead Road, Westbury-on-Trym, Bristol BS10 5NB",
+      "city": "Bristol",
+      "postcode": "BS10"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Audiology Department",
+        "Reception Desk Hearing Loops",
+        "Visual Call Boards",
+        "BSL Interpreter Booking"
+      ],
+      "signage_present": true,
+      "last_tested_date": "December 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Southmead Hospital Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "NHS Hearing Access Auditor",
+      "last_audited": "December 2025",
+      "quote": "Brunel Building atrium and all reception desks feature tested T-coil loop systems and visual call boards.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "uwe",
+    "venue_name": "UWE Bristol Frenchay Campus",
+    "category": "University Campus & Event Halls",
+    "lat": 51.5,
+    "lng": -2.548,
+    "postcode": "BS16",
+    "location": {
+      "address_line_1": "Coldharbour Lane, Bristol BS16 1QY",
+      "city": "Bristol",
+      "postcode": "BS16"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Auracast Lecture Halls",
+        "Induction Loops",
+        "Student Disability Support"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "UWE Bristol Frenchay Campus Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Student Access Office",
+      "last_audited": "November 2025",
+      "quote": "Lecture theatres equipped with Auracast streaming nodes and fixed induction loop systems.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "ashtongate",
+    "venue_name": "Ashton Gate Stadium",
+    "category": "Sports Stadium & Concert Venue",
+    "lat": 51.44,
+    "lng": -2.6205,
+    "postcode": "BS3",
+    "location": {
+      "address_line_1": "Ashton Road, Southville, Bristol BS3 2EJ",
+      "city": "Bristol",
+      "postcode": "BS3"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Ticket Counter Hearing Loops",
+        "Assistive Audio Commentary",
+        "Sensory Viewing Room"
+      ],
+      "signage_present": true,
+      "last_tested_date": "October 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Ashton Gate Stadium Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Stadium Access Reviewer",
+      "last_audited": "October 2025",
+      "quote": "Concourse ticket windows and commentary boxes support assistive listening headsets and T-coil loops.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "tobacco",
+    "venue_name": "Tobacco Factory Theatres",
+    "category": "Pub, Brewery & Theatre",
+    "lat": 51.4423,
+    "lng": -2.6135,
+    "postcode": "BS3",
+    "location": {
+      "address_line_1": "Raleigh Road, Southville, Bristol BS3 1TF",
+      "city": "Bristol",
+      "postcode": "BS3"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "T-Coil Hearing Loop",
+        "Assistive Listening Headsets"
+      ],
+      "signage_present": true,
+      "last_tested_date": "September 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Tobacco Factory Theatres Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Mark D. (Hard-of-Hearing Evaluator)",
+      "last_audited": "September 2025",
+      "quote": "Studio theatre loop tested strong near center seating rows; staff are helpful and welcoming.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "suspensionbridge",
+    "venue_name": "Clifton Suspension Bridge Visitor Centre",
+    "category": "Heritage Landmark & Visitor Hub",
+    "lat": 51.4549,
+    "lng": -2.6283,
+    "postcode": "BS8",
+    "location": {
+      "address_line_1": "Bridge Road, Leigh Woods, Bristol BS8 3PA",
+      "city": "Bristol",
+      "postcode": "BS8"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Counter Hearing Loop",
+        "Tactile Models",
+        "Quiet Outlook Area"
+      ],
+      "signage_present": true,
+      "last_tested_date": "September 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Clifton Suspension Bridge Visitor Centre Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Quiet Outlook Area",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Heritage Access Reviewer",
+      "last_audited": "September 2025",
+      "quote": "Exhibition hall features tactile bridge models and counter induction loop at reception.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "everyman",
+    "venue_name": "Everyman Cinema Bristol",
+    "category": "Boutique Cinema",
+    "lat": 51.4628,
+    "lng": -2.6083,
+    "postcode": "BS8",
+    "location": {
+      "address_line_1": "44 Whiteladies Road, Clifton, Bristol BS8 2NH",
+      "city": "Bristol",
+      "postcode": "BS8"
+    },
+    "hearing_systems": {
+      "has_loop_system": false,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Wireless Audio Headsets",
+        "Captioned Screenings",
+        "At-Seat Service"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Everyman Cinema Bristol Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Clifton Cinema Tester",
+      "last_audited": "November 2025",
+      "quote": "Wireless audio headsets available at box office with regular weekly captioned film screenings.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "trinity",
+    "venue_name": "Trinity Centre",
+    "category": "Community Event Space",
+    "lat": 51.4542,
+    "lng": -2.5765,
+    "postcode": "BS2",
+    "location": {
+      "address_line_1": "Trinity Road, Old Market, Bristol BS2 8HA",
+      "city": "Bristol",
+      "postcode": "BS2"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Portable Induction Loop",
+        "Support Group Host",
+        "Quiet Garden Space"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Trinity Centre Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Quiet Garden Space",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Bristol Peer Support Team",
+      "last_audited": "November 2025",
+      "quote": "Main hall equipped with loop system for community forums and acoustic workshops.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "bri",
+    "venue_name": "Bristol Royal Infirmary (BRI)",
+    "category": "NHS Hospital & Emergency Care",
+    "lat": 51.4585,
+    "lng": -2.5955,
+    "postcode": "BS2",
+    "location": {
+      "address_line_1": "Upper Maudlin Street, Bristol BS2 8HW",
+      "city": "Bristol",
+      "postcode": "BS2"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "A&E Counter Loops",
+        "BSL Video Interpreter",
+        "Visual Patient Call Screens"
+      ],
+      "signage_present": true,
+      "last_tested_date": "December 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Bristol Royal Infirmary (BRI) Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "NHS Hospital Access Auditor",
+      "last_audited": "December 2025",
+      "quote": "A&E reception and outpatients clinics feature active counter loops and BSL video remote interpreting.",
+      "gold_standard": true
+    }
+  },
+  {
+    "id": "hippodrome",
+    "venue_name": "Bristol Hippodrome",
+    "category": "Major Theatre",
+    "lat": 51.4533,
+    "lng": -2.5971,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "St Augustine's Parade, Bristol BS1 4UZ",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": false,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Sennheiser MobileConnect",
+        "BSL Signed Shows",
+        "Captioned Performances"
+      ],
+      "signage_present": true,
+      "last_tested_date": "October 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Bristol Hippodrome Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Tom B. (Audio Access Tester)",
+      "last_audited": "October 2025",
+      "quote": "Sennheiser MobileConnect app streams amplified stage audio over Wi-Fi directly to earbuds or hearing aids.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "arnolfini",
+    "venue_name": "Arnolfini Arts",
+    "category": "Arts Centre",
+    "lat": 51.4498,
+    "lng": -2.5968,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "16 Narrow Quay, Harbourside, Bristol BS1 4QA",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Gallery Counter Loop",
+        "Quiet Reading Library",
+        "Visual Exhibition Guides"
+      ],
+      "signage_present": true,
+      "last_tested_date": "October 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Arnolfini Arts Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Quiet Reading Library",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Harbourside Access Reviewer",
+      "last_audited": "October 2025",
+      "quote": "Exhibition spaces feature low ambient noise floors, high-contrast wall texts, and counter loops.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "spikeisland",
+    "venue_name": "Spike Island Art Centre",
+    "category": "Art Gallery & Studios",
+    "lat": 51.4449,
+    "lng": -2.6052,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "133 Cumberland Road, Bristol BS1 6UX",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Portable Reception Loop",
+        "Quiet Gallery Rooms",
+        "Level Access Entry"
+      ],
+      "signage_present": true,
+      "last_tested_date": "November 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Spike Island Art Centre Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Quiet Gallery Rooms",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Community Arts Evaluator",
+      "last_audited": "November 2025",
+      "quote": "Quiet gallery environment with portable hearing loops available at the front reception.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "cathedral",
+    "venue_name": "Bristol Cathedral",
+    "category": "Cathedral & Historic Venue",
+    "lat": 51.4525,
+    "lng": -2.6006,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "College Green, Bristol BS1 5TJ",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Nave Induction Loop",
+        "Large Print Service Books",
+        "Level Access Side Ramp"
+      ],
+      "signage_present": true,
+      "last_tested_date": "September 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Bristol Cathedral Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Heritage Access Auditor",
+      "last_audited": "September 2025",
+      "quote": "Nave and Choir seating areas feature continuous T-coil loop coverage for services and concerts.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "stnicholas",
+    "venue_name": "St Nicholas Market",
+    "category": "Historic Market",
+    "lat": 51.454,
+    "lng": -2.5935,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "The Exchange, Corn Street, Bristol BS1 1JQ",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": false,
+      "loop_type": "Acoustic / Portable Loop",
+      "coverage_areas": [
+        "Visual Signage Boards",
+        "Open Air Courtyard",
+        "Level Pedestrian Entry"
+      ],
+      "signage_present": true,
+      "last_tested_date": "August 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "St Nicholas Market Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Low",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": true
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "City Walk Auditor",
+      "last_audited": "August 2025",
+      "quote": "The Covered Market Hall features visual stall signs and clear directional boards.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "futureinns",
+    "venue_name": "Future Inns Bristol",
+    "category": "Hotel & Conference",
+    "lat": 51.458,
+    "lng": -2.584,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "Bond Street South, Bristol BS1 3EN",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Induction Loop (T-Coil)",
+      "coverage_areas": [
+        "Reception Desk Induction Loop",
+        "Vibrating Fire Alarm Pagers"
+      ],
+      "signage_present": true,
+      "last_tested_date": "August 2025",
+      "auracast_details": {
+        "is_available": false,
+        "broadcast_name": "Future Inns Bristol Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Hotel Audit Team",
+      "last_audited": "August 2025",
+      "quote": "Guest rooms feature vibrating fire alert pagers and reception loop support.",
+      "gold_standard": false
+    }
+  },
+  {
+    "id": "templemeads",
+    "venue_name": "Bristol Temple Meads Station",
+    "category": "Transit Station",
+    "lat": 51.4497,
+    "lng": -2.5811,
+    "postcode": "BS1",
+    "location": {
+      "address_line_1": "Station Approach, Bristol BS1 6QF",
+      "city": "Bristol",
+      "postcode": "BS1"
+    },
+    "hearing_systems": {
+      "has_loop_system": true,
+      "loop_type": "Auracast / Bluetooth LE Audio",
+      "coverage_areas": [
+        "Customer Info Counter Loop",
+        "High-Contrast Visual Boards",
+        "Auracast Transit Trial"
+      ],
+      "signage_present": true,
+      "last_tested_date": "December 2025",
+      "auracast_details": {
+        "is_available": true,
+        "broadcast_name": "Bristol Temple Meads Station Audio Broadcast",
+        "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
+      }
+    },
+    "acoustic_environment": {
+      "noise_level_rating": "Moderate",
+      "acoustic_treatment": "Standard",
+      "quiet_zones_available": false
+    },
+    "physical_accessibility": {
+      "wheelchair_access": true,
+      "accessible_parking": true,
+      "accessible_toilets": true
+    },
+    "audit_details": {
+      "auditor": "Commuter Group Reviewer",
+      "last_audited": "December 2025",
+      "quote": "Ticket counter induction loops active; main concourse features large high-contrast visual display boards.",
+      "gold_standard": false
+    }
   }
 ]

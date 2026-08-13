@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link rel="stylesheet" href="styles.css?v=8.0">
   <style>
     body.premium-white-theme {
       background-color: #f8f9fa;
@@ -18,11 +18,7 @@
       padding: 0;
       line-height: 1.65;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
+    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
     .header-section {
       text-align: center;
       margin-bottom: 40px;
@@ -230,10 +226,11 @@
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
   <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">Support Us</a>
 
-  <div class="container">
+  <main id="main-content" class="container">
     <div class="header-section">
       <span class="info-badge badge-pink">Clinical Psychology & Hearing Therapy</span>
       <h1>Grieving the Silence: Navigating the Emotional Journey</h1>
@@ -243,8 +240,14 @@
     <!-- Hero Clinical Introduction -->
     <div class="card" style="border-left-color: #E91E63;">
       <span class="info-badge badge-pink">Therapist Insight</span>
-      <h2><span class="material-icons card-icon">psychology</span> Hearing Loss is a Form of Acoustic Grief</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+      <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon">psychology</span> Hearing Loss is a Form of Acoustic Grief</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         Hearing loss isn't just about what you can't hear; it's about losing effortless social connection, spontaneity, and acoustic ease. It is a genuine, documented form of grief.
       </p>
       <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
@@ -255,8 +258,15 @@
     <!-- THERAPEUTIC CHART 1: THE 5 STAGES OF GRIEF TRAJECTORY -->
     <div class="card" style="border-left-color: #005EB8;">
       <span class="info-badge badge-blue">Clinical Progression Model</span>
-      <h2><span class="material-icons card-icon" style="color: #005EB8;">analytics</span> Chart: The 5 Stages of Hearing Loss Grief Trajectory</h2>
-      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #005EB8;">analytics</span> Chart: The 5 Stages of Hearing Loss Grief Trajectory</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
         Psychological mapping of emotional resistance vs. adaptive acceptance as individuals navigate hearing loss:
       </p>
 
@@ -328,8 +338,15 @@
     <!-- THERAPEUTIC CHART 2: PSYCHOLOGICAL IMPACT METRICS -->
     <div class="card" style="border-left-color: #059669;">
       <span class="info-badge badge-green">Cognitive & Psychological Data</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Psychological & Listening Effort Breakdown</h2>
-      <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #059669;">bar_chart</span> Chart: Psychological & Listening Effort Breakdown</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.02rem; color: #334155; line-height: 1.6;">
         Clinical data measuring cognitive energy expenditure and isolation risks before vs. after therapeutic support:
       </p>
 
@@ -363,9 +380,15 @@
     <!-- DEEP DIVE: THE 5 STAGES OF GRIEF -->
     <div class="card" style="border-left-color: #E91E63;">
       <span class="info-badge badge-pink">Therapist Case Studies</span>
-      <h2><span class="material-icons card-icon">auto_stories</span> Detailed Stage Breakdown & Clinical Strategies</h2>
-
-      <!-- Stage 1 -->
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon">auto_stories</span> Detailed Stage Breakdown & Clinical Strategies</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <!-- Stage 1 -->
       <div style="margin-bottom: 25px;">
         <h3 style="color: #ef4444; font-size: 1.25rem;">1. Denial & Shock ("Everyone Mumbles")</h3>
         <div class="quote-box">"My hearing isn't that bad. People are just mumbling, or the room is too loud."</div>
@@ -437,8 +460,15 @@
     <!-- BRISTOL MENTAL HEALTH & THERAPY SUPPORT LINKS -->
     <div class="card" style="border-left-color: #005EB8;">
       <span class="info-badge badge-blue">Local Professional Services</span>
-      <h2><span class="material-icons card-icon" style="color: #005EB8;">health_and_safety</span> Bristol Mental Health & Therapy Support Links</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #005EB8;">health_and_safety</span> Bristol Mental Health & Therapy Support Links</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         If you are experiencing emotional isolation, anxiety, or grief linked to hearing loss, these free Bristol services are ready to help:
       </p>
 
@@ -496,8 +526,15 @@
     <!-- VERIFIED PAGE VALIDATION & CLINICAL REFERENCES CARD -->
     <div class="card" style="border-left-color: #059669;">
       <span class="info-badge badge-green">Verified Clinical Evidence</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">verified</span> Verified Page References & Clinical Validation</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span><span class="material-icons card-icon" style="color: #059669;">verified</span> Verified Page References & Clinical Validation</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
         All psychological models, grief stages, and listening strain metrics presented on this page have been verified against authoritative UK health and audiology bodies:
       </p>
 
@@ -518,7 +555,9 @@
     </div>
 
     <!-- Navigation Footer -->
-    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
+        </div>
+      </div>
+    </div><nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
       <a href="path-yes.html" class="back-to-journey-btn">
         <span class="material-symbols-outlined">arrow_back</span>
         Return to Journey Hub
@@ -526,6 +565,6 @@
     </nav>
   </div>
 
-  <script src="script.js?v=1.4"></script>
+  <script src="script.js?v=3.0"></script>
 </body>
 </html>

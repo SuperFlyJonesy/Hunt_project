@@ -1,199 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Useful Contacts & Directory - Bristol Hearing Loss Initiative</title>
-  <meta name="description" content="All key Bristol NHS services, support groups, council resources, and page pathways in one easy-to-navigate directory.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
-  <style>
-    body.premium-white-theme {
-      background-color: #f8f9fa;
-      font-family: 'Inter', sans-serif;
-      color: #1e293b;
-      margin: 0;
-      padding: 0;
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
-    .header-section {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      color: #005EB8;
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      color: #64748b;
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 0;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Direct phone, textphone, and email contacts for NHS audiology departments, hearing charities, and emergency support.">
+    <meta charset="UTF-8">
+    <title>Useful Contacts & Directory - Bristol Hearing Loss Initiative</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        :root {
+            --brand-red: #ff0f5b;
+            --brand-blue: #005EB8;
+            --brand-amber: #f39c12;
+            --brand-green: #1b5e20;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
 
-    /* Category Nav Bar */
-    .category-nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-    .cat-chip {
-      background: #ffffff;
-      color: #334155;
-      padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      transition: all 0.2s ease;
-    }
-    .cat-chip:hover {
-      background: #005EB8;
-      color: #ffffff;
-      border-color: #005EB8;
-      transform: translateY(-2px);
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .category-section {
-      margin-bottom: 40px;
-    }
-    .category-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e2e8f0;
-    }
-    .category-header h2 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #005EB8;
-      margin: 0;
-    }
+        .contacts-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 24px 80px 24px;
+            box-sizing: border-box;
+        }
 
-    .contacts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-    }
-    .contact-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 26px;
-      border: 1px solid #e2e8f0;
-      border-left: 6px solid #005EB8;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .contact-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
-    }
-    .contact-card.border-red { border-left-color: #ff0f5b; }
-    .contact-card.border-green { border-left-color: #1b5e20; }
-    .contact-card.border-amber { border-left-color: #f39c12; }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 45px;
+        }
 
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin: 0 0 10px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .card-desc {
-      font-size: 0.96rem;
-      color: #475569;
-      line-height: 1.6;
-      margin: 0 0 16px 0;
-    }
-    .info-list {
-      margin: 0 0 18px 0;
-      padding: 0;
-      list-style: none;
-      font-size: 0.92rem;
-      color: #334155;
-    }
-    .info-list li {
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-    .info-list strong {
-      color: #0f172a;
-    }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 94, 184, 0.08);
+            color: var(--brand-blue);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(0, 94, 184, 0.15);
+        }
 
-    .card-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 11px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
-      transition: all 0.2s ease;
-      margin-top: auto;
-      text-align: center;
-    }
-    .btn-blue { background: #005EB8; color: #ffffff; }
-    .btn-blue:hover { background: #004b93; }
-    .btn-red { background: #ff0f5b; color: #ffffff; }
-    .btn-red:hover { background: #d90429; }
-    .btn-green { background: #1b5e20; color: #ffffff; }
-    .btn-green:hover { background: #134617; }
-    .btn-amber { background: #f39c12; color: #ffffff; }
-    .btn-amber:hover { background: #d6870a; }
-    .btn-outline {
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-    }
-    .btn-outline:hover {
-      background: #e2e8f0;
-    }
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin: 0 0 14px 0;
+            line-height: 1.15;
+        }
 
-    @media (max-width: 768px) {
-      .container { padding: 30px 15px 60px 15px; }
-      h1 { font-size: 2.1rem; }
-    }
-  </style>
-  <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+        .hero-title span {
+            color: var(--brand-blue);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Category Nav Bar */
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .cat-chip {
+            background: #ffffff;
+            color: #334155;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            transition: all 0.2s ease;
+        }
+
+        .cat-chip:hover {
+            background: var(--brand-blue);
+            color: #ffffff;
+            border-color: var(--brand-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Category Card Block */
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .category-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .contact-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 26px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+        }
+
+        .contact-card.border-blue { border-top: 5px solid var(--brand-blue); }
+        .contact-card.border-red { border-top: 5px solid var(--brand-red); }
+        .contact-card.border-green { border-top: 5px solid var(--brand-green); }
+        .contact-card.border-amber { border-top: 5px solid var(--brand-amber); }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+        }
+
+        .info-list {
+            margin: 0 0 18px 0;
+            padding: 0;
+            list-style: none;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .info-list strong {
+            color: #0f172a;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .btn-blue { background: var(--brand-blue); color: #ffffff; }
+        .btn-blue:hover { background: #004b93; }
+
+        .btn-red { background: var(--brand-red); color: #ffffff; }
+        .btn-red:hover { background: #d90429; }
+
+        .btn-green { background: var(--brand-green); color: #ffffff; }
+        .btn-green:hover { background: #134617; }
+
+        .btn-amber { background: var(--brand-amber); color: #ffffff; }
+        .btn-amber:hover { background: #d6870a; }
+
+        .btn-outline {
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #e2e8f0;
+        }
+
+        /* Footer Nav Button */
+        .back-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 14px 32px;
+            border-radius: 40px;
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .back-link-btn:hover {
+            background: #0f172a;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
-  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
-  <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <script src="animation.js"></script>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold;">R</button>
+    <a href="path-sponsor-us.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 20px; right: 20px; z-index: 9999999; background: var(--brand-red); color: white; padding: 12px 22px; text-decoration: none; font-weight: 800; border-radius: 30px; font-size: 0.9rem; box-shadow: 0 8px 20px rgba(255, 15, 91, 0.3);">Support Us</a>
 
-  <header class="top-nav" style="padding: 1rem 0; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-    <a href="index.html" aria-label="Go to homepage">
-      <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 40px auto 50px auto; display: block;">
-    </a>
-  </header>
-
-  <main class="container" id="main-content">
-    <div class="header-section">
-      <h1>Useful Contacts & Directory</h1>
-      <p class="subtitle">All key Bristol NHS services, support groups, council resources, and page pathways in one easy-to-navigate directory.</p>
-    </div>
+    <div id="main-content" class="contacts-wrapper">
+        
+        <!-- Hero Header -->
+        <div class="hero-section">
+            <div class="hero-badge">Bristol Directory</div>
+            <h1 class="hero-title">Useful Contacts <span>& Links</span></h1>
+            <p class="hero-subtitle">All key Bristol NHS services, support groups, council resources, and page pathways in one easy-to-navigate directory.</p>
+        </div>
 
         <!-- Category Filter Chips -->
         <div class="category-nav">
@@ -207,8 +280,14 @@
         <!-- 1. NHS & AUDIOLOGY SERVICES -->
         <div class="category-section" id="section-nhs">
             <div class="category-header">
-                <h2>🏥 NHS & Audiology Services</h2>
-            </div>
+                <div class="accordion-container">
+      <div class="accordion-item active">
+        <button class="accordion-header">
+          <span>🏥 NHS & Audiology Services</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          </div>
             <div class="contacts-grid">
                 
                 <!-- St Michael's Hospital -->
@@ -263,8 +342,15 @@
         <!-- 2. COMMUNITY & SUPPORT INITIATIVES -->
         <div class="category-section" id="section-community">
             <div class="category-header">
-                <h2>🤝 Community & Support Groups</h2>
-            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>🤝 Community & Support Groups</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          </div>
             <div class="contacts-grid">
 
                 <!-- Bristol Hearing Loss Support Group -->
@@ -309,8 +395,15 @@
         <!-- 3. COUNCIL & EQUIPMENT SERVICES -->
         <div class="category-section" id="section-council">
             <div class="category-header">
-                <h2>🏛️ Council & Equipment Services</h2>
-            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>🏛️ Council & Equipment Services</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          </div>
             <div class="contacts-grid">
 
                 <!-- Bristol City Council Adult Social Care -->
@@ -335,7 +428,7 @@
                 <div class="contact-card border-amber">
                     <div>
                         <h3 class="card-title">🏢 Accessible Bristol Venues</h3>
-                        <p class="card-desc">Browse local Bristol cafes, theaters, and public buildings verified for acoustic comfort and hearing loops.</p>
+                        <p class="card-desc">Browse local Bristol cafes, theatres, and public buildings verified for acoustic comfort and hearing loops.</p>
                     </div>
                     <a href="path-accessible-venues.html" class="card-btn btn-outline">View Accessible Venues &rarr;</a>
                 </div>
@@ -346,8 +439,15 @@
         <!-- 4. MENTAL HEALTH & CRISIS HELP -->
         <div class="category-section" id="section-mental">
             <div class="category-header">
-                <h2>🧠 Mental Health & Crisis Support</h2>
-            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>🧠 Mental Health & Crisis Support</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          </div>
             <div class="contacts-grid">
 
                 <!-- Bristol Mental Health Page -->
@@ -395,15 +495,22 @@
         <!-- 5. WORKPLACE, TECH & ADVICE -->
         <div class="category-section" id="section-work">
             <div class="category-header">
-                <h2>💼 Workplace & Assistive Technology</h2>
-            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header">
+          <span>💼 Workplace & Assistive Technology</span>
+          <span class="material-symbols-outlined accordion-icon">expand_more</span>
+        </button>
+        <div class="accordion-body">
+          </div>
             <div class="contacts-grid">
 
                 <!-- Access to Work DWP -->
                 <div class="contact-card border-blue">
                     <div>
                         <h3 class="card-title">💼 Workplace Advice & Access to Work</h3>
-                        <p class="card-desc">Government grants for specialized hearing technology, lipreading training, and workplace adaptations.</p>
+                        <p class="card-desc">Government grants for specialised hearing technology, lipreading training, and workplace adaptations.</p>
                     </div>
                     <a href="path-workplace-tips.html" class="card-btn btn-blue">Workplace Tips & Grants &rarr;</a>
                 </div>
@@ -428,15 +535,15 @@
 
             </div>
         </div>
-
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
+      </div>
+    </div><nav class="back-to-journey-container" aria-label="Back Navigation">
             <a href="path-yes.html" class="back-to-journey-btn">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Back to Journey
             </a>
         </nav>
 
-    </main>
-    <script src="script.js?v=1.4"></script>
+    </div>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
