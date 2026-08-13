@@ -43,10 +43,22 @@
     
     <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
     
-    <header class="top-nav" style="padding: 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
-        <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 50px auto 70px auto; display: block;">
+    <header class="top-nav" style="padding: 1.5rem 1rem 1rem 1rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
+        <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
         <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Everyone's Loss is different</h1>
-        <p style="color: #666; font-size: 1.1rem; max-width: 600px; text-align: center; margin-top: 10px;">Explore pathways for understanding, support, and managing hearing loss.</p>
+        <p style="color: #666; font-size: 1.05rem; max-width: 600px; text-align: center; margin-top: 8px;">Explore pathways for understanding, support, and managing hearing loss.</p>
+        
+        <!-- Centered Branded Hub Search Bar -->
+        <div class="hub-search-container">
+            <div class="hub-search-input-wrapper">
+                <input type="text" id="hub-tile-search" class="hub-search-input" placeholder="Search pathways, topics, or services (e.g. NHS, Tinnitus, Venues)..." aria-label="Search pathways and resources">
+                <span class="material-symbols-outlined hub-search-icon">search</span>
+                <button type="button" id="clear-search-btn" class="hub-search-clear" aria-label="Clear search">
+                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span>
+                </button>
+            </div>
+            <div id="search-feedback"></div>
+        </div>
     </header>
     
     <div class="category-hubs-container" id="main-grid">

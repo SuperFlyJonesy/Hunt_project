@@ -16,13 +16,23 @@
         .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
         @media (max-width: 768px) { .grid-2col { grid-template-columns: 1fr; } }
         .info-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; }
-        .external-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+        .external-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; align-items: center; }
         .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; text-decoration: none; color: white; transition: opacity 0.2s, transform 0.2s; }
         .ext-btn:hover { opacity: 0.92; transform: translateY(-2px); }
         .btn-uhbw { background: #005EB8; }
         .btn-nbt { background: #059669; }
         .btn-ringgo { background: #d97706; }
         .btn-caz { background: #4f46e5; }
+        
+        /* Video Card & Embed Styling */
+        .video-embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); background: #000; margin: 18px 0 16px 0; }
+        .video-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-link-item { position: relative; display: inline-block; }
+        .video-preview-card { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 14px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 1000; }
+        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .preview-thumb { width: 100%; height: 145px; background-size: cover; background-position: center; }
+        .preview-title { padding: 10px; font-size: 0.82rem; color: #eee; font-weight: 600; text-align: center; background: #18181b; }
+
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
@@ -108,6 +118,10 @@
                             <a href="https://www.youtube.com/watch?v=eQEaiZ2j9oc" target="_blank" rel="noopener noreferrer" class="ext-btn" style="background: #ff0f5b;">
                                 <span class="material-symbols-outlined">smart_display</span> Watch 3D Animation Video Preview &rarr;
                             </a>
+                            <div class="video-preview-card">
+                                <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/eQEaiZ2j9oc/0.jpg')"></div>
+                                <div class="preview-title">Journey of Sound to the Brain (3D Animation)</div>
+                            </div>
                         </div>
                         <a href="https://www.rnid.org.uk/information-and-support/how-hearing-works/" target="_blank" rel="noopener noreferrer" class="ext-btn" style="background: #005EB8;">
                             <span class="material-symbols-outlined">verified</span> RNID How Hearing Works Guide &rarr;

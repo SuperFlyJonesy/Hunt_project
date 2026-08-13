@@ -18,6 +18,31 @@
         th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
         th { background: #f1f5f9; font-weight: 800; color: #1e293b; font-size: 0.85rem; }
         .group-header { background-color: #e2e8f0; font-weight: 800; color: #1e293b; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Device Card Layout */
+        .device-card-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 15px; }
+        .device-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; display: flex; gap: 20px; align-items: center; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        @media (max-width: 640px) { .device-card { flex-direction: column; align-items: flex-start; gap: 12px; } }
+        .device-card:hover { border-color: #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+        .device-img-box { width: 130px; min-width: 130px; height: 110px; background: #f8fafc; border-radius: 10px; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; padding: 8px; box-sizing: border-box; }
+        @media (max-width: 640px) { .device-img-box { width: 100%; height: 130px; } }
+        .device-img-box img { max-width: 100%; max-height: 95px; width: auto; height: auto; object-fit: contain; display: block; border-radius: 4px; }
+        .device-info { flex: 1; min-width: 0; }
+        .device-badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78rem; font-weight: 800; margin-bottom: 6px; letter-spacing: 0.3px; }
+        .badge-nhs { background: #e0f2fe; color: #0369a1; }
+        .badge-private { background: #fef3c7; color: #92400e; }
+        .badge-spec { background: #f3e8ff; color: #6b21a8; }
+        .device-title { font-size: 1.08rem; font-weight: 800; color: #0f172a; margin: 0 0 6px 0; }
+        .device-meta-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 6px; margin-top: 6px; font-size: 0.88rem; color: #475569; }
+        .device-meta-item strong { color: #1e293b; }
+
+        /* Maintenance Photo Gallery */
+        .maintenance-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+        .maintenance-photo-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .maintenance-photo-img { width: 100%; height: 130px; background: #f8fafc; display: flex; align-items: center; justify-content: center; padding: 10px; box-sizing: border-box; }
+        .maintenance-photo-img img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; border-radius: 4px; }
+        .maintenance-photo-caption { padding: 10px 12px; font-size: 0.88rem; font-weight: 700; color: #1e293b; border-top: 1px solid #e2e8f0; background: #fafafa; text-align: center; }
+
         .video-links-container { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
         .video-link-item { position: relative; }
         .video-link-anchor { color: #fff; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; background: #005EB8; padding: 10px 20px; border-radius: 25px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 6px; }
@@ -146,109 +171,212 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 4: Bristol Device Pathways Table -->
+            <!-- ACCORDION 4: Bristol Device Pathways -->
             <div class="accordion-item">
                 <button class="accordion-header">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7c3aed; margin-right: 8px;">devices</span> 4. Bristol Device Pathways (NHS, Private &amp; Specialist Models)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style="width: 28%;">Device Type &amp; Model</th>
-                                    <th style="width: 26%;">Hearing Aid Colour</th>
-                                    <th style="width: 15%;">Rechargeable?</th>
-                                    <th style="width: 18%;">Battery Type &amp; Supply</th>
-                                    <th style="width: 13%; text-align: center;">Image</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="group-header"><td colspan="5">Group A: Routine NHS Bristol Current Issue</td></tr>
-                                <tr>
-                                    <td><strong>Behind-the-ear (BTE) - Phonak Bolero Series (General)</strong></td>
-                                    <td>Sand Beige, Amber Beige, Sandalwood, Chestnut, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
-                                    <td>Varies (Rechargeable M-PR models exist, but confirm with audiologist).</td>
-                                    <td>Depends on exact model issued.</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20Series.jpg" alt="Phonak Bolero Series" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Behind-the-ear (BTE) - Phonak Bolero M70-M</strong></td>
-                                    <td>Sand Beige, Silver Gray, Graphite Gray, Velvet Black</td>
-                                    <td>No.</td>
-                                    <td>Size 312 Zinc-Air (NHS free supply)</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Bolero%20M70-M.png" alt="Phonak Bolero M70-M" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Behind-the-ear (BTE) - Phonak Nova M</strong></td>
-                                    <td>Sand Beige, Silver Gray, Graphite Gray</td>
-                                    <td>Varies by specific model issued.</td>
-                                    <td>Check with audiologist.</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Nova%20M.webp" alt="Phonak Nova M" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Behind-the-ear (BTE) - Phonak Naida Series (General)</strong></td>
-                                    <td>Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
-                                    <td>Varies (Rechargeable P-PR options exist).</td>
-                                    <td>Depends on exact model issued.</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20Series.avif" alt="Phonak Naida Series" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Behind-the-ear (BTE) - Phonak Naida P-70 UP</strong></td>
-                                    <td>Sand Beige, Silver Gray, Graphite Gray</td>
-                                    <td>No.</td>
-                                    <td>Size 675 Zinc-Air (NHS free supply)</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Behind-the-ear%20(BTE)%20-%20Phonak%20Naida%20P-70%20UP.webp" alt="Phonak Naida P-70 UP" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                
-                                <tr class="group-header"><td colspan="5">Group B: UHBW Private Service</td></tr>
-                                <tr>
-                                    <td><strong>In-the-ear (ITE)</strong></td>
-                                    <td>Pink, Beige, Cocoa, Brown, Black</td>
-                                    <td>Varies</td>
-                                    <td>Check with audiologist</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/In-the-ear%20(ITE).jpg" alt="In-the-ear (ITE)" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>In-the-canal (ITC) / Completely-in-canal (CIC)</strong></td>
-                                    <td>Pink, Beige, Cocoa, Dark Brown, Black</td>
-                                    <td>Varies</td>
-                                    <td>Check with audiologist</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/In-the-canal%20(ITC)%20%20Completely-in-canal%20(CIC).jpg" alt="ITC/CIC" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Receiver-in-canal (RIC)</strong></td>
-                                    <td>Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
-                                    <td>Varies</td>
-                                    <td>Check with audiologist</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/RIC.jpg" alt="Receiver-in-canal (RIC)" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                
-                                <tr class="group-header"><td colspan="5">Group C: Specialist Implant/Device Pathways &amp; Legacy</td></tr>
-                                <tr>
-                                    <td><strong>Bone conduction hearing device (BCHD)</strong></td>
-                                    <td>Silver Gray, Black, Carbon, Sand, Pure Brown</td>
-                                    <td>Varies</td>
-                                    <td>Check with audiologist</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/BAHA.jpg" alt="BCHD" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Contralateral Routing of Signals (CROS)</strong></td>
-                                    <td>Sand Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</td>
-                                    <td>Varies</td>
-                                    <td>Check with audiologist</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/CROS.png" alt="CROS" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Cochlear Implant</strong></td>
-                                    <td>Black, White, Silver Gray, Sand, Carbon</td>
-                                    <td>Specialist</td>
-                                    <td>Implant System</td>
-                                    <td style="text-align: center;"><img src="Audiology%20Images/Cochlear.jpg" alt="Cochlear Implant" style="width: 80px; height: auto; border-radius: 6px;" loading="lazy"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <p style="font-size: 0.98rem; color: #475569; margin-bottom: 15px;">
+                        Explore common models issued by NHS Bristol (UHBW Audiology), private alternatives, and specialist hearing implants:
+                    </p>
+
+                    <!-- Group A: Routine NHS Bristol Current Issue -->
+                    <h3 style="color: #005EB8; font-size: 1.15rem; font-weight: 800; margin: 20px 0 10px 0; border-bottom: 2px solid #e0f2fe; padding-bottom: 6px;">
+                        Group A: Routine NHS Bristol Current Issue
+                    </h3>
+                    <div class="device-card-grid">
+                        
+                        <!-- 1. Bolero Series General -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Behind-the-ear (BTE) - Phonak Bolero Series.jpg" alt="Phonak Bolero Series Behind-the-ear" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-nhs">NHS FREE ISSUE</span>
+                                <h4 class="device-title">Behind-the-ear (BTE) - Phonak Bolero Series (General)</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies (M-PR models exist, confirm with audiologist)</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Depends on exact model issued (NHS free)</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Amber Beige, Sandalwood, Chestnut, Champagne, Silver Gray, Graphite Gray, Velvet Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Bolero M70-M -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Behind-the-ear (BTE) - Phonak Bolero M70-M.png" alt="Phonak Bolero M70-M Behind-the-ear" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-nhs">NHS FREE ISSUE</span>
+                                <h4 class="device-title">Behind-the-ear (BTE) - Phonak Bolero M70-M</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> No (Zinc-Air)</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Size 312 Brown (NHS free supply)</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Silver Gray, Graphite Gray, Velvet Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Phonak Nova M -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Behind-the-ear (BTE) - Phonak Nova M.webp" alt="Phonak Nova M Behind-the-ear" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-nhs">NHS FREE ISSUE</span>
+                                <h4 class="device-title">Behind-the-ear (BTE) - Phonak Nova M</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies by specific model issued</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Check with audiologist (NHS free)</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Silver Gray, Graphite Gray</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Phonak Naida Series -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Behind-the-ear (BTE) - Phonak Naida Series.avif" alt="Phonak Naida Series Behind-the-ear" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-nhs">NHS FREE ISSUE (High Power)</span>
+                                <h4 class="device-title">Behind-the-ear (BTE) - Phonak Naida Series (General)</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies (Rechargeable P-PR options exist)</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Depends on exact model issued (NHS free)</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Phonak Naida P-70 UP -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Behind-the-ear (BTE) - Phonak Naida P-70 UP.webp" alt="Phonak Naida P-70 UP Ultra Power" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-nhs">NHS FREE ISSUE (Ultra Power)</span>
+                                <h4 class="device-title">Behind-the-ear (BTE) - Phonak Naida P-70 UP</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> No (Zinc-Air)</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Size 675 Blue (NHS free supply)</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Silver Gray, Graphite Gray</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group B: UHBW Private Service -->
+                    <h3 style="color: #92400e; font-size: 1.15rem; font-weight: 800; margin: 30px 0 10px 0; border-bottom: 2px solid #fef3c7; padding-bottom: 6px;">
+                        Group B: UHBW Private &amp; Discreet Custom Models
+                    </h3>
+                    <div class="device-card-grid">
+
+                        <!-- 6. In-the-ear (ITE) -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/In-the-ear (ITE).jpg" alt="In-the-ear (ITE) custom hearing aid" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-private">UHBW PRIVATE / CUSTOM</span>
+                                <h4 class="device-title">In-the-ear (ITE) Custom Moulded</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies by manufacturer</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Check with audiologist</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Pink, Beige, Cocoa, Brown, Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. In-the-canal (ITC) / Completely-in-canal (CIC) -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/In-the-canal (ITC)  Completely-in-canal (CIC).jpg" alt="ITC and CIC compact discreet hearing aids" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-private">UHBW PRIVATE / DISCREET</span>
+                                <h4 class="device-title">In-the-canal (ITC) &amp; Completely-in-canal (CIC)</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Size 10 Yellow or Size 312 Brown</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Pink, Beige, Cocoa, Dark Brown, Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Receiver-in-canal (RIC) -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/RIC.jpg" alt="Receiver-in-canal (RIC) hearing aid" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-private">UHBW PRIVATE / NHS HYBRID</span>
+                                <h4 class="device-title">Receiver-in-canal (RIC) Open Fit</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies (Lithium-ion available)</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Size 312 Brown or Rechargeable</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Amber Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group C: Specialist Implant Pathways & Legacy -->
+                    <h3 style="color: #6b21a8; font-size: 1.15rem; font-weight: 800; margin: 30px 0 10px 0; border-bottom: 2px solid #f3e8ff; padding-bottom: 6px;">
+                        Group C: Specialist Implant &amp; Bone Conduction Pathways
+                    </h3>
+                    <div class="device-card-grid">
+
+                        <!-- 9. Bone conduction hearing device (BAHA / BCHD) -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/BAHA.jpg" alt="Bone conduction hearing device BAHA" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-spec">SPECIALIST CLINICAL PATHWAY</span>
+                                <h4 class="device-title">Bone Conduction Hearing Device (BCHD / BAHA)</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Check with audiologist</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Silver Gray, Black, Carbon, Sand, Pure Brown</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10. Contralateral Routing of Signals (CROS) -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/CROS.png" alt="CROS wireless transmitter for single-sided deafness" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-spec">SINGLE-SIDED HEARING PATHWAY</span>
+                                <h4 class="device-title">Contralateral Routing of Signals (CROS / BiCROS)</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Varies</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Check with audiologist</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Sand Beige, Champagne, Silver Gray, Graphite Gray, Velvet Black</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 11. Cochlear Implant -->
+                        <div class="device-card">
+                            <div class="device-img-box">
+                                <img src="audiology images/Cochlear.jpg" alt="Cochlear Implant external sound processor" loading="lazy">
+                            </div>
+                            <div class="device-info">
+                                <span class="device-badge badge-spec">SURGICAL IMPLANT PATHWAY</span>
+                                <h4 class="device-title">Cochlear Implant Sound Processor</h4>
+                                <div class="device-meta-list">
+                                    <div class="device-meta-item"><strong>Rechargeable:</strong> Specialist rechargeable packs</div>
+                                    <div class="device-meta-item"><strong>Battery Supply:</strong> Implant Processor System</div>
+                                    <div class="device-meta-item" style="grid-column: 1 / -1;"><strong>Colours:</strong> Black, White, Silver Gray, Sand, Carbon</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -299,7 +427,8 @@
                     <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 18px; border-radius: 14px; margin-top: 15px;">
                         <h4 style="margin: 0 0 8px 0; color: #0369a1; font-size: 1.05rem; font-weight: 800;">📺 Audiologist Video Review: AirPods Pro 2 vs Real Hearing Aids</h4>
                         <p style="margin: 0 0 15px 0; color: #0c4a6e; font-size: 0.9rem;">Dr. Cliff Olson, AuD breaks down the exact test results comparing Apple AirPods Pro 2 against prescription hearing aids:</p>
-                        <div class="video-links-container" style="margin-top: 0;">
+                        
+                        <div class="video-links-container" style="margin-top: 10px;">
                             <div class="video-link-item">
                                 <a href="https://www.youtube.com/watch?v=9IklYf8hKKY" target="_blank" rel="noopener noreferrer" class="video-link-anchor" style="background: #0284c7;">Watch Dr. Cliff Review Video &rarr;</a>
                                 <div class="video-preview-card">
@@ -329,7 +458,35 @@
                         <li>Replacing thin tubes and dome covers</li>
                     </ul>
 
-                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+                    <!-- Visual Maintenance Gallery -->
+                    <div class="maintenance-gallery">
+                        <div class="maintenance-photo-card">
+                            <div class="maintenance-photo-img">
+                                <img src="audiology images/earmoulds.jpg" alt="Hearing aid earmoulds" loading="lazy">
+                            </div>
+                            <div class="maintenance-photo-caption">Custom Earmoulds</div>
+                        </div>
+                        <div class="maintenance-photo-card">
+                            <div class="maintenance-photo-img">
+                                <img src="audiology images/tubes.png" alt="Hearing aid replacement thin tubes" loading="lazy">
+                            </div>
+                            <div class="maintenance-photo-caption">Replacement Tubing</div>
+                        </div>
+                        <div class="maintenance-photo-card">
+                            <div class="maintenance-photo-img">
+                                <img src="audiology images/domes.jpg" alt="Hearing aid silicone domes and wax guards" loading="lazy">
+                            </div>
+                            <div class="maintenance-photo-caption">Silicone Domes &amp; Guards</div>
+                        </div>
+                        <div class="maintenance-photo-card">
+                            <div class="maintenance-photo-img">
+                                <img src="audiology images/all the hearing aid types.jpg" alt="Comparison of hearing aid styles" loading="lazy">
+                            </div>
+                            <div class="maintenance-photo-caption">All Hearing Aid Styles</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 18px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
                         <div>
                             <h4 style="margin: 0; color: #166534; font-size: 1.05rem; font-weight: 800;">Official NHS Cleaning &amp; Retubing Guides</h4>
                             <p style="margin: 4px 0 0 0; color: #15803d; font-size: 0.9rem;">Learn step-by-step how to clean your hearing aid and change your tubes:</p>
@@ -480,6 +637,7 @@
                         <h4 style="color: #1e293b; margin: 0 0 10px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
                             <span class="material-symbols-outlined" style="color: #ff0f5b;">play_circle</span> What you don't know about hearing aids by Juliëtte Sterkens
                         </h4>
+
                         <div class="video-links-container">
                             <div class="video-link-item">
                                 <a href="https://www.youtube.com/watch?v=0vf1q_HgLpw" target="_blank" rel="noopener noreferrer" class="video-link-anchor">Watch Video &rarr;</a>

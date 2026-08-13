@@ -2349,7 +2349,79 @@ body:not(.premium-white-theme) .accordion-header {
     padding: 12px 20px 20px 20px;
 }
 
+/* Hub Live Search Bar */
+.hub-search-container {
+    max-width: 560px;
+    width: 100%;
+    margin: 22px auto 0 auto;
+    position: relative;
+    box-sizing: border-box;
+}
 
+.hub-search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
+.hub-search-input {
+    width: 100%;
+    padding: 13px 46px 13px 48px;
+    font-size: 0.98rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 1.5px solid #cbd5e1;
+    background: #f8fafc;
+    color: #1e293b;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
 
+.hub-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.hub-search-input:focus {
+    background: #ffffff;
+    border-color: #475569;
+    box-shadow: 0 0 0 3px rgba(71, 85, 105, 0.12);
+}
+
+.hub-search-icon {
+    position: absolute;
+    left: 16px;
+    color: #64748b;
+    font-size: 1.35rem;
+    pointer-events: none;
+    transition: color 0.2s ease;
+}
+
+.hub-search-input-wrapper:focus-within .hub-search-icon {
+    color: #1e293b;
+}
+
+.hub-search-clear {
+    position: absolute;
+    right: 12px;
+    background: #e2e8f0;
+    border: none;
+    color: #475569;
+    cursor: pointer;
+    display: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hub-search-clear:hover {
+    background: #cbd5e1;
+    color: #0f172a;
+}
 

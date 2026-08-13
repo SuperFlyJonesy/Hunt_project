@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollAnimations();
     initWhoWeAreDropdown();
     initAccordions();
+    initHubSearch();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -568,6 +569,154 @@ function initAccordions() {
     });
 }
 
+// 9. HUB LIVE SEARCH FILTER (For path-yes.html and path-support.html)
+function initHubSearch() {
+    const searchInput = document.getElementById('hub-tile-search');
+    if (!searchInput) return;
 
+    const clearBtn = document.getElementById('clear-search-btn');
+    const feedback = document.getElementById('search-feedback');
+    const hubSections = document.querySelectorAll('.hub-section');
 
+    // Comprehensive cross-page topic & keyword dictionary
+    const PAGE_SEARCH_INDEX = {
+        'path-government-help.html': 'pip personal independence payment access to work atw grants funding dwp benefits financial support disabled persons railcard bus pass tax relief work scheme allowance equipment assessment disability living allowance dla attendance allowance universal credit blue badge vat relief',
+        'path-job-interviews.html': 'job interviews work employment workplace adjustments reasonable adjustments equality act 2010 disclosure access to work atw career hiring boss manager discrimination cv interview tips questions candidate employer rights',
+        'path-workplace-tips.html': 'workplace tips colleagues managers employers meetings inclusive office background noise video calls captions on teams zoom google meet meeting room acoustics roger pen microphone access to work reasonable adjustments',
+        'path-hearing-aids-access.html': 'hearing aids nhs hearing aids private hearing aids bolero bolero m70 bolero series nova nova m naida naida series naida p-70 up phonak oticon resound widex signia starkey bte behind the ear ric receiver in canal ite in the ear cic completely in canal itc in the canal baha bchd bone conduction cros bicros cochlear implant airpods airpods pro batteries size 312 size 13 size 10 size 675 zinc-air tubing earmoulds moulds wax guards domes cleaning hearing aids audiologist uhbw repairs replacement fitting hiss bristol st michaels southmead',
+        'path-hearing-aids.html': 'hearing aids bte ite itc body worn earmoulds thintubes cleaning batteries induction loops bolero phonak naida',
+        'path-ear-care.html': 'ear care safety what not to put in ears cotton buds q-tips earwax wax removal microsuction water irrigation syringing olive oil ear drops sodium bicarbonate cleaning ears perforated eardrum ear canal itch itchy blocked ears audiologist ent',
+        'path-assistive-technology.html': 'assistive technology assistive tech phonak roger roger pen roger select roger table mic wireless mic tv connector streamer streamers flashing doorbell vibrating alarm clock vibrating pad bellman symfon minikit fm system bluetooth le audio smart hearing gadgets alexa google loop system',
+        'path-tinnitus.html': 'tinnitus ringing in ears buzzing clicking roaring sound therapy white noise pink noise brown noise masking pillow habituation trt tinnitus retraining therapy cbt cognitive behavioural therapy relaxation noise soothing sounds british tinnitus association',
+        'path-mental-health.html': 'mental health hearing loss grief stages of grief denial anger bargaining depression acceptance listening fatigue isolation anxiety stress counselling talking therapies burnout exhaustion crying emotions loneliness stigma self-esteem',
+        'path-hearing-tests.html': 'hearing tests audiometry pure tone audiometry pta audiogram tympanometry speech in noise speech discrimination bone conduction otoscopy tuning fork decibels db hz pitch volume hospital clinic screening referral ear exam uhbw southmead bri',
+        'path-how-we-hear.html': 'how we hear ear anatomy outer ear middle ear inner ear pinna ear canal tympanic membrane eardrum ossicles malleus incus stapes hammer anvil stirrup cochlea organ of corti hair cells stereocilia auditory nerve sensorineural conductive mixed hearing loss high frequency low frequency decibels hz pitch volume frequency biology',
+        'path-hearing-therapists.html': 'hearing therapists counselling auditory training lipreading lip reading coping strategies communication rehabilitation tinnitus therapy sensory support therapy communication tactics',
+        'path-accessible-venues.html': 'bristol venues accessible venues hearing loop induction loop thekla bristol beacon bristol old vic watershed st georges hippodrome redgrave theatre tobacco factory arnolfini acoustic ratings map directory theatre cinema concerts live music accessibility',
+        'path-support-group.html': 'support groups bristol support group meetups peer support coffee morning elmgrove centre cotham social gathering community meetings talk chat friendship',
+        'path-community-stories.html': 'community stories initiate stories lived experience jason jo simon personal stories testimonials real experiences overcoming hearing loss journeys hope',
+        'path-testimonials.html': 'testimonials reviews feedback what people say community feedback initiate reviews quotes praise',
+        'path-resources.html': 'resources downloads pdf guides checklists patreon signup guide printable cards communication card links leaflets forms',
+        'path-contacts.html': 'useful contacts directory telephone phone numbers emails cfd centre for deaf rnid sensory support nhs audiology bristol contact list emergency helplines chss',
+        'path-tech.html': 'future tech auracast bluetooth le audio gene therapy ai noise reduction smart tech research advancements temple meads station trial innovations regenerative medicine',
+        'path-it-goes-to-11.html': 'it goes to 11 decibels sound safety loudness loud music concerts earplugs hearing protection db chart noise damage prevention volume 85db safe exposure',
+        'path-experience.html': 'hearing experience simulation what hearing loss sounds like simulator listening effort audio demo muffled sounds audio player whitenoise high frequency loss simulation',
+        'path-hearing-quiz.html': 'hearing quiz self assessment am i hard of hearing questionnaire questions score checklist symptoms signs test',
+        'path-my-journey.html': 'my journey first steps roadmap where to begin starting out path guide steps navigation advice',
+        'path-nhs.html': 'bristol nhs foundation trust hospital gp referral southmead hospital bri bristol royal infirmary audiology clinic ent ear nose throat appointments st michaels hospital uhbw nbt',
+        'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
+        'path-awareness.html': 'awareness pace framework patience attention clarity ear contact communication tactics communication tips rules understanding deaf hard of hearing',
+        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason and jo cpd inclusion',
+        'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
+        'path-sponsor-us.html': 'sponsor us corporate sponsor funding corporate partnership community sponsor training sponsor access loop sponsor esg csr 250 500 1500 donation grant',
+        'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
+        'path-bear-pit.html': 'the bear pit community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
+        'path-support.html': 'support branch support hub resources for friends families businesses',
+        'path-yes.html': 'initiate main hub main journey pathways directory'
+    };
+
+    function performSearch() {
+        const query = searchInput.value.trim().toLowerCase();
+
+        if (clearBtn) {
+            clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
+        }
+
+        if (!query) {
+            // Show all sections and tiles
+            hubSections.forEach(section => {
+                section.style.display = '';
+                section.querySelectorAll('.metro-btn').forEach(tile => {
+                    tile.style.display = '';
+                });
+            });
+            if (feedback) feedback.style.display = 'none';
+            return;
+        }
+
+        const queryTerms = query.split(/\s+/).filter(t => t.length > 0);
+        let totalMatches = 0;
+
+        hubSections.forEach(section => {
+            const tiles = section.querySelectorAll('.metro-btn');
+            let sectionMatches = 0;
+
+            tiles.forEach(tile => {
+                const text = (tile.textContent || '').toLowerCase();
+                const rawHref = tile.getAttribute('href') || '';
+                const baseHref = rawHref.split('#')[0].split('?')[0].toLowerCase();
+                const aria = (tile.getAttribute('aria-label') || '').toLowerCase();
+                const indexedKeywords = (PAGE_SEARCH_INDEX[baseHref] || '').toLowerCase();
+
+                const combinedSearchCorpus = `${text} ${baseHref} ${aria} ${indexedKeywords}`;
+
+                // Check if all query terms match the tile or its full page topic keywords
+                const isMatch = queryTerms.every(term => combinedSearchCorpus.includes(term));
+
+                if (isMatch) {
+                    tile.style.display = '';
+                    sectionMatches++;
+                    totalMatches++;
+                } else {
+                    tile.style.display = 'none';
+                }
+            });
+
+            section.style.display = sectionMatches > 0 ? '' : 'none';
+        });
+
+        if (feedback) {
+            feedback.style.display = 'block';
+            if (totalMatches === 0) {
+                feedback.innerHTML = `
+                    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; max-width: 480px; margin: 20px auto 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
+                        <p style="color: #64748b; margin: 0 0 12px 0; font-size: 1rem;">No pathways found matching "<strong>${escapeHtml(query)}</strong>".</p>
+                        <button type="button" id="reset-hub-search-btn" style="background: #1e293b; color: white; border: none; padding: 8px 18px; border-radius: 20px; font-weight: 700; cursor: pointer; font-size: 0.9rem;">Clear Search</button>
+                    </div>
+                `;
+                document.getElementById('reset-hub-search-btn')?.addEventListener('click', () => {
+                    searchInput.value = '';
+                    performSearch();
+                    searchInput.focus();
+                });
+            } else {
+                feedback.innerHTML = `<span style="display: inline-block; background: #f1f5f9; color: #475569; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; border: 1px solid #e2e8f0;">Showing ${totalMatches} matching pathway${totalMatches > 1 ? 's' : ''}</span>`;
+            }
+        }
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    searchInput.addEventListener('input', performSearch);
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Escape') {
+            searchInput.value = '';
+            performSearch();
+        }
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            performSearch();
+            searchInput.focus();
+        });
+    }
+}
+
+// 10. GLOBAL INTERACTIVE VIDEO EMBED LOADER
+function loadInteractiveVideo(containerId, videoId, title) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = `
+        <iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0" 
+                title="${title || 'Video Player'}" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+    `;
+}
 
