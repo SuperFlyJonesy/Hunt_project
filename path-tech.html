@@ -1,447 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Future Tech & Live Hearing Advancements Feed | Bristol Hearing Loss Initiative</title>
-  <meta name="description" content="Live updated video and text feed covering breakthroughs in Auracast Bluetooth LE Audio, gene therapy, AI sound reduction, and neural hearing technology.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
-  <style>
-    body.premium-white-theme {
-      background-color: #f8f9fa;
-      font-family: 'Inter', sans-serif;
-      color: #1e293b;
-      margin: 0;
-      padding: 0;
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
-    .header-section {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-    h1 {
-      color: #C2185B;
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      color: #64748b;
-      font-size: 1.18rem;
-      font-weight: 500;
-      margin-top: 0;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      border-left: 6px solid #C2185B;
-      text-align: left;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .card h2, .card h3 {
-      margin-top: 0;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card h3 {
-      color: #C2185B;
-      font-size: 1.35rem;
-    }
-    .card-icon {
-      color: #C2185B;
-      font-size: 1.8rem;
-    }
-    .info-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-    .badge-pink {
-      background: #fce7f3;
-      color: #be185d;
-    }
-    .badge-blue {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-    .badge-green {
-      background: #dcfce7;
-      color: #15803d;
-    }
-    .badge-amber {
-      background: #fff7ed;
-      color: #c2410c;
-    }
-
-    /* LIVE FEED FILTER BAR */
-    .feed-control-panel {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 22px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-      border: 1px solid #e2e8f0;
-    }
-    .live-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ffe4e6;
-      color: #e11d48;
-      font-size: 0.82rem;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #e11d48;
-      border-radius: 50%;
-      box-shadow: 0 0 0 rgba(225, 29, 72, 0.4);
-      animation: pulse 1.6s infinite;
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
-      70% { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
-    }
-
-    .feed-search-input {
-      width: 100%;
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 1px solid #cbd5e1;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      box-sizing: border-box;
-      margin-bottom: 16px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .feed-search-input:focus {
-      outline: none;
-      border-color: #C2185B;
-      box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.15);
-    }
-
-    .category-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .cat-pill {
-      background: #f1f5f9;
-      color: #475569;
-      border: 1px solid #cbd5e1;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      user-select: none;
-    }
-    .cat-pill.active, .cat-pill:hover {
-      background: #C2185B;
-      color: white;
-      border-color: #C2185B;
-    }
-
-    .meta-tag-line {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.85rem;
-      color: #64748b;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .platform-tag {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      color: #334155;
-      padding: 3px 10px;
-      border-radius: 8px;
-      font-weight: 700;
-    }
-
-    .external-btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .ext-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .ext-btn:hover {
-      opacity: 0.92;
-      transform: translateY(-2px);
-    }
-    .btn-pink { background: #C2185B; }
-    .btn-blue { background: #005EB8; }
-    .btn-green { background: #059669; }
-    .btn-amber { background: #d97706; }
-    .btn-dark { background: #1e293b; }
-
-    #dev-reset {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: black;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      opacity: 0.15;
-      cursor: pointer;
-      z-index: 99999999;
-      padding: 10px;
-      font-weight: bold;
-      font-family: sans-serif;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live updated video and text feed covering breakthroughs in Auracast Bluetooth LE Audio, gene therapy, AI sound reduction, and neural hearing technology.">
+    <meta charset="UTF-8">
+    <title>Future Tech &amp; Live Hearing Advancements Feed - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .info-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .badge-pink { background: #fce7f3; color: #be185d; }
+        .badge-blue { background: #e0f2fe; color: #0369a1; }
+        .badge-green { background: #dcfce7; color: #15803d; }
+        .badge-amber { background: #fff7ed; color: #c2410c; }
+        .feed-control-panel { background: #ffffff; border-radius: 16px; padding: 20px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; }
+        .live-status-pill { display: inline-flex; align-items: center; gap: 8px; background: #ffe4e6; color: #e11d48; font-size: 0.82rem; font-weight: 800; padding: 6px 14px; border-radius: 20px; margin-bottom: 14px; letter-spacing: 0.5px; text-transform: uppercase; }
+        .pulse-dot { width: 8px; height: 8px; background: #e11d48; border-radius: 50%; animation: pulse 1.6s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); } 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); } }
+        .feed-search-input { width: 100%; padding: 12px 18px; border-radius: 12px; border: 1px solid #cbd5e1; font-size: 1rem; font-family: 'Inter', sans-serif; box-sizing: border-box; margin-bottom: 14px; }
+        .feed-search-input:focus { outline: none; border-color: #C2185B; box-shadow: 0 0 0 3px rgba(194, 24, 91, 0.15); }
+        .category-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .cat-pill { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s ease; user-select: none; }
+        .cat-pill.active, .cat-pill:hover { background: #C2185B; color: white; border-color: #C2185B; }
+        .meta-tag-line { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: #64748b; margin-bottom: 12px; flex-wrap: wrap; }
+        .platform-tag { background: #f8fafc; border: 1px solid #cbd5e1; color: #334155; padding: 3px 10px; border-radius: 8px; font-weight: 700; }
+        .ext-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+        .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: white; transition: all 0.2s ease; }
+        .ext-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+        .btn-pink { background: #C2185B; }
+        .btn-blue { background: #005EB8; }
+        .btn-green { background: #059669; }
+        .btn-amber { background: #d97706; }
+        .btn-dark { background: #1e293b; }
+        .video-preview-card { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999; }
+        .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
-  <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">About Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-  <main id="main-content" class="container">
-    <div class="header-section">
-      <span class="info-badge badge-pink">Live Innovation & Research Feed</span>
-      <h1>Future Tech & Hearing Advancements</h1>
-      <p class="subtitle">Video and news updates on hearing tech, gene therapy, AI noise reduction, and public accessibility trials.</p>
-    </div>
-
-    <!-- LIVE FEED CONTROL & SEARCH PANEL -->
-    <div class="feed-control-panel">
-      <div class="live-status-pill">
-        <span class="pulse-dot"></span> LIVE UPDATES • TODAY
-      </div>
-
-      <input type="text" id="feed-search" class="feed-search-input" placeholder="🔍 Search by keyword (e.g. Auracast, gene therapy, AI)..." onkeyup="filterFeedItems()">
-
-      <div class="category-pills" id="category-pills">
-        <div class="cat-pill active" onclick="setCategory('all', this)">🌟 All Updates</div>
-        <div class="cat-pill" onclick="setCategory('auracast', this)">📶 Auracast & LE Audio</div>
-        <div class="cat-pill" onclick="setCategory('gene', this)">🧬 Gene Therapy</div>
-        <div class="cat-pill" onclick="setCategory('ai', this)">🧠 AI Noise Filter</div>
-        <div class="cat-pill" onclick="setCategory('otc', this)">📱 Smart Tech</div>
-      </div>
-    </div>
-
-    <!-- FEED ITEM 1: AURACAST TEMPLE MEADS -->
-    <div class="card feed-card" data-category="auracast" style="border-left-color: #C2185B;">
-      <div class="meta-tag-line">
-        <span class="info-badge badge-pink" style="margin:0;">📶 Auracast & LE Audio</span>
-        <span class="platform-tag">Bluetooth SIG & Network Rail</span>
-        <span>🕒 Updated Today</span>
-      </div>
-      <h2><span class="material-icons card-icon">podcasts</span> Auracast™ Station Trial at Bristol Temple Meads</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Bristol Temple Meads is trialling Auracast™ broadcast audio. This Bluetooth® LE Audio standard sends train announcements directly to hearing aids and earbuds without background station echo.
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Built with the Centre for Deaf and Hard of Hearing People (CfD Bristol), Connected Places Catapult, and Ampetronic.
-      </p>
-
-      <div class="external-btn-group">
-        <!-- 'It Goes to 11' Hover Pop-up Video Preview -->
-        <div class="video-link-item" style="position: relative; display: inline-block;">
-          <a href="https://www.youtube.com/watch?v=Y32bQGHATe4" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
-            <span class="material-symbols-outlined">smart_display</span> Watch Auracast Demo Video &rarr;
-          </a>
-          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
-            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/Y32bQGHATe4/0.jpg') center/cover no-repeat;"></div>
-            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Auracast™ Station Trial Demo</div>
-          </div>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 35px;">
+            <span class="info-badge badge-pink">Live Innovation &amp; Research Feed</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px; color: #C2185B; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">podcasts</span>
+                Future Tech &amp; Hearing Advancements
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Video and news updates on hearing tech, gene therapy, AI noise reduction, and public accessibility trials.
+            </p>
         </div>
 
-        <a href="path-auracast-article.html" class="ext-btn btn-blue">
-          <span class="material-symbols-outlined">article</span> Temple Meads Auracast Trial Details &rarr;
-        </a>
-        <a href="https://www.bluetooth.com/auracast/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
-          <span class="material-symbols-outlined">open_in_new</span> Bluetooth SIG Official Page &rarr;
-        </a>
-      </div>
-    </div>
-
-    <!-- FEED ITEM 2: GENE THERAPY REGENERATION -->
-    <div class="card feed-card" data-category="gene" style="border-left-color: #059669;">
-      <div class="meta-tag-line">
-        <span class="info-badge badge-green" style="margin:0;">🧬 Gene Therapy</span>
-        <span class="platform-tag">Nature Medicine</span>
-        <span>🕒 Verified Study</span>
-      </div>
-      <h2><span class="material-icons card-icon" style="color: #059669;">biotech</span> Inner Ear Hair Cell Gene Therapy Results</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Gene therapy trials published in <em>Nature Medicine</em> show progress in repairing inner ear hair cells. Replacing faulty OTOF genes in clinical trials helped restore natural hearing responses.
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Researchers are expanding trials to test hair cell regeneration for age-related hearing loss.
-      </p>
-
-      <div class="external-btn-group">
-        <!-- 'It Goes to 11' Hover Pop-up Video Preview -->
-        <div class="video-link-item" style="position: relative; display: inline-block;">
-          <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
-            <span class="material-symbols-outlined">smart_display</span> Watch Gene Therapy Video Preview &rarr;
-          </a>
-          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
-            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg') center/cover no-repeat;"></div>
-            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Cochlear Gene Therapy Research</div>
-          </div>
+        <!-- LIVE FEED CONTROL & SEARCH PANEL -->
+        <div class="feed-control-panel">
+            <div class="live-status-pill">
+                <span class="pulse-dot"></span> LIVE UPDATES • TODAY
+            </div>
+            <input type="text" id="feed-search" class="feed-search-input" placeholder="🔍 Search by keyword (e.g. Auracast, gene therapy, AI)..." onkeyup="filterFeedItems()">
+            <div class="category-pills" id="category-pills">
+                <div class="cat-pill active" onclick="setCategory('all', this)">🌟 All Updates</div>
+                <div class="cat-pill" onclick="setCategory('auracast', this)">📶 Auracast &amp; LE Audio</div>
+                <div class="cat-pill" onclick="setCategory('gene', this)">🧬 Gene Therapy</div>
+                <div class="cat-pill" onclick="setCategory('ai', this)">🧠 AI Noise Filter</div>
+                <div class="cat-pill" onclick="setCategory('otc', this)">📱 Smart Tech</div>
+            </div>
         </div>
 
-        <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
-          <span class="material-symbols-outlined">open_in_new</span> RNID Research Guide &rarr;
-        </a>
-      </div>
-    </div>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: AURACAST TEMPLE MEADS -->
+            <div class="accordion-item active feed-card" data-category="auracast">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #C2185B; margin-right: 8px;">podcasts</span> 1. Auracast™ Station Trial at Bristol Temple Meads</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="meta-tag-line">
+                        <span class="info-badge badge-pink" style="margin:0;">📶 Auracast &amp; LE Audio</span>
+                        <span class="platform-tag">Bluetooth SIG &amp; Network Rail</span>
+                        <span>🕒 Updated Today</span>
+                    </div>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Bristol Temple Meads is trialling Auracast™ broadcast audio. This Bluetooth® LE Audio standard sends train announcements directly to hearing aids and earbuds without background station echo.
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Built with the Centre for Deaf and Hard of Hearing People (CfD Bristol), Connected Places Catapult, and Ampetronic.
+                    </p>
 
-    <!-- FEED ITEM 3: AI NOISE CANCELLATION & SPATIAL ISOLATION -->
-    <div class="card feed-card" data-category="ai" style="border-left-color: #005EB8;">
-      <div class="meta-tag-line">
-        <span class="info-badge badge-blue" style="margin:0;">🧠 AI Noise Filter</span>
-        <span class="platform-tag">IEEE Spectrum</span>
-        <span>🕒 2026 Update</span>
-      </div>
-      <h2><span class="material-icons card-icon" style="color: #005EB8;">memory</span> AI Voice Separation in Loud Rooms</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Modern hearing aids use AI chips to separate speech from background noise. The processor isolates the person speaking in front of you while lowering background chatter.
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        This helps improve conversation clarity in busy restaurants and public spaces without muffling voices.
-      </p>
+                    <div class="ext-btn-group">
+                        <div class="video-link-item" style="position: relative; display: inline-block;">
+                            <a href="https://www.youtube.com/watch?v=Y32bQGHATe4" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
+                                <span class="material-symbols-outlined">smart_display</span> Watch Auracast Demo Video &rarr;
+                            </a>
+                            <div class="video-preview-card">
+                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/Y32bQGHATe4/0.jpg') center/cover no-repeat;"></div>
+                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Auracast™ Station Trial Demo</div>
+                            </div>
+                        </div>
 
-      <div class="external-btn-group">
-        <!-- 'It Goes to 11' Hover Pop-up Video Preview -->
-        <div class="video-link-item" style="position: relative; display: inline-block;">
-          <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
-            <span class="material-symbols-outlined">smart_display</span> Watch AI Voice Isolation Demo &rarr;
-          </a>
-          <div class="video-preview-card" style="position: absolute; bottom: 55px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999;">
-            <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg') center/cover no-repeat;"></div>
-            <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">AI Voice Isolation Demo</div>
-          </div>
+                        <a href="path-auracast-article.html" class="ext-btn btn-blue">
+                            <span class="material-symbols-outlined">article</span> Temple Meads Auracast Trial Details &rarr;
+                        </a>
+                        <a href="https://www.bluetooth.com/auracast/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
+                            <span class="material-symbols-outlined">open_in_new</span> Bluetooth SIG Official Page &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 2: GENE THERAPY REGENERATION -->
+            <div class="accordion-item feed-card" data-category="gene">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">biotech</span> 2. Inner Ear Hair Cell Gene Therapy Results</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="meta-tag-line">
+                        <span class="info-badge badge-green" style="margin:0;">🧬 Gene Therapy</span>
+                        <span class="platform-tag">Nature Medicine</span>
+                        <span>🕒 Verified Study</span>
+                    </div>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Gene therapy trials published in <em>Nature Medicine</em> show progress in repairing inner ear hair cells. Replacing faulty OTOF genes in clinical trials helped restore natural hearing responses.
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Researchers are expanding trials to test hair cell regeneration for age-related hearing loss.
+                    </p>
+
+                    <div class="ext-btn-group">
+                        <div class="video-link-item" style="position: relative; display: inline-block;">
+                            <a href="https://www.youtube.com/watch?v=XGq3MXQlRJs" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+                                <span class="material-symbols-outlined">smart_display</span> Watch Gene Therapy Video Preview &rarr;
+                            </a>
+                            <div class="video-preview-card">
+                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg') center/cover no-repeat;"></div>
+                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Cochlear Gene Therapy Research</div>
+                            </div>
+                        </div>
+
+                        <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
+                            <span class="material-symbols-outlined">open_in_new</span> RNID Research Guide &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: AI NOISE CANCELLATION -->
+            <div class="accordion-item feed-card" data-category="ai">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">memory</span> 3. AI Voice Separation in Loud Rooms</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="meta-tag-line">
+                        <span class="info-badge badge-blue" style="margin:0;">🧠 AI Noise Filter</span>
+                        <span class="platform-tag">IEEE Spectrum</span>
+                        <span>🕒 2026 Update</span>
+                    </div>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Modern hearing aids use AI chips to separate speech from background noise. The processor isolates the person speaking in front of you while lowering background chatter.
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        This helps improve conversation clarity in busy restaurants and public spaces without muffling voices.
+                    </p>
+
+                    <div class="ext-btn-group">
+                        <div class="video-link-item" style="position: relative; display: inline-block;">
+                            <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+                                <span class="material-symbols-outlined">smart_display</span> Watch AI Voice Isolation Demo &rarr;
+                            </a>
+                            <div class="video-preview-card">
+                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg') center/cover no-repeat;"></div>
+                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">AI Voice Isolation Demo</div>
+                            </div>
+                        </div>
+
+                        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
+                            <span class="material-symbols-outlined">open_in_new</span> NHS Hearing Tech Page &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: UK CULTURAL VENUES AURACAST -->
+            <div class="accordion-item feed-card" data-category="auracast">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">theater_comedy</span> 4. UK Venues &amp; Theatres Installing Auracast</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="meta-tag-line">
+                        <span class="info-badge badge-amber" style="margin:0;">📶 Public Venues</span>
+                        <span class="platform-tag">UK Theatres &amp; Venues</span>
+                        <span>🕒 UK Adoption</span>
+                    </div>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        UK venues including The National Theatre, Shakespeare's Globe, and Bristol Beacon are installing Auracast broadcast systems.
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Visitors can stream show audio or audio descriptions straight to their hearing aids or phones without picking up a neckloop.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: TESTED & VERIFIED SOURCES -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">verified</span> 5. Official Sources &amp; Validation Links</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Source links and official documentation for all tech updates listed above:
+                    </p>
+                    <div class="ext-btn-group">
+                        <a href="https://www.bluetooth.com/auracast/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
+                            <span class="material-symbols-outlined">verified</span> Bluetooth SIG Auracast Page &rarr;
+                        </a>
+                        <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+                            <span class="material-symbols-outlined">verified</span> RNID Research Portal &rarr;
+                        </a>
+                        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+                            <span class="material-symbols-outlined">verified</span> NHS Hearing Technology &rarr;
+                        </a>
+                        <a href="path-auracast-article.html" class="ext-btn btn-amber">
+                            <span class="material-symbols-outlined">article</span> Auracast Temple Meads Article &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
-          <span class="material-symbols-outlined">open_in_new</span> NHS Hearing Tech Page &rarr;
-        </a>
-      </div>
-    </div>
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+        </nav>
+    </main>
 
-    <!-- FEED ITEM 4: UK CULTURAL VENUES AURACAST ADOPTION -->
-    <div class="card feed-card" data-category="auracast" style="border-left-color: #d97706;">
-      <div class="meta-tag-line">
-        <span class="info-badge badge-amber" style="margin:0;">📶 Public Venues</span>
-        <span class="platform-tag">UK Theatres & Venues</span>
-        <span>🕒 UK Adoption</span>
-      </div>
-      <h2><span class="material-icons card-icon" style="color: #d97706;">theater_comedy</span> UK Venues & Theatres Installing Auracast</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        UK venues including The National Theatre, Shakespeare's Globe, and Bristol Beacon are installing Auracast broadcast systems.
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Visitors can stream show audio or audio descriptions straight to their hearing aids or phones without picking up a neckloop.
-      </p>
-    </div>
+    <script>
+        let activeCategory = 'all';
 
-    <!-- TESTED & VERIFIED EXTERNAL VALIDATION LINKS -->
-    <div class="card" style="border-left-color: #059669;">
-      <span class="info-badge badge-green">Sources</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">verified</span> Official Links & Sources</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Source links and official documentation for all tech updates listed above:
-      </p>
-
-      <div class="external-btn-group" style="margin-top: 20px;">
-        <a href="https://www.bluetooth.com/auracast/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
-          <span class="material-symbols-outlined">verified</span> Bluetooth SIG Auracast Page &rarr;
-        </a>
-        <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
-          <span class="material-symbols-outlined">verified</span> RNID Research Portal &rarr;
-        </a>
-        <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
-          <span class="material-symbols-outlined">verified</span> NHS Hearing Technology &rarr;
-        </a>
-        <a href="path-auracast-article.html" class="ext-btn btn-amber">
-          <span class="material-symbols-outlined">article</span> Auracast Temple Meads Article &rarr;
-        </a>
-      </div>
-    </div>
-
-    <!-- Navigation Footer -->
-    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
-      <a href="path-yes.html" class="back-to-journey-btn">
-        <span class="material-symbols-outlined">arrow_back</span>
-        Return to Journey Hub
-      </a>
-    </nav>
-  </div>
-
-  <script>
-    let activeCategory = 'all';
-
-    function setCategory(cat, el) {
-      activeCategory = cat;
-      document.querySelectorAll('.cat-pill').forEach(pill => pill.classList.remove('active'));
-      if (el) el.classList.add('active');
-      filterFeedItems();
-    }
-
-    function filterFeedItems() {
-      const query = document.getElementById('feed-search').value.toLowerCase();
-      const cards = document.querySelectorAll('.feed-card');
-
-      cards.forEach(card => {
-        const catMatch = activeCategory === 'all' || card.getAttribute('data-category') === activeCategory;
-        const textMatch = card.innerText.toLowerCase().includes(query);
-
-        if (catMatch && textMatch) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
+        function setCategory(cat, el) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-pill').forEach(pill => pill.classList.remove('active'));
+            if (el) el.classList.add('active');
+            filterFeedItems();
         }
-      });
-    }
-  </script>
-  <script src="script.js?v=1.4"></script>
+
+        function filterFeedItems() {
+            const query = document.getElementById('feed-search').value.toLowerCase();
+            const cards = document.querySelectorAll('.feed-card');
+
+            cards.forEach(card => {
+                const catMatch = activeCategory === 'all' || card.getAttribute('data-category') === activeCategory;
+                const textMatch = card.innerText.toLowerCase().includes(query);
+
+                if (catMatch && textMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

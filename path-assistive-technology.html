@@ -5,18 +5,11 @@
     <meta charset="UTF-8">
     <title>Assistive Technology - Community Guide</title>
     <meta name="description" content="Explore assistive technology for hearing loss: Google Live Transcribe, Olli Transcribe, Phonak Roger On microphones, TV sound streamers, Ring doorbells, and smartwatch alerts.">
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #333; margin: 0; padding: 0; }
-        .content { max-width: 940px; margin: 0 auto; padding: 40px 20px; }
-        
-        .header-section { text-align: center; margin-bottom: 35px; }
-        .header-section h1 { color: #005EB8; font-size: 2.5rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
-        .header-section p { color: #666; font-size: 1.15rem; max-width: 750px; margin: 0 auto 15px auto; line-height: 1.6; }
-        
-        /* Discrete Affiliate Disclaimer Under Heading */
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
         .discrete-disclaimer {
             display: inline-flex;
             align-items: center;
@@ -32,37 +25,16 @@
             margin: 10px auto 0 auto;
             line-height: 1.4;
         }
-
-        /* Hearing Aid Tab Page-Card Design */
-        .page-card { 
-            background: #ffffff; 
-            border-radius: 20px; 
-            padding: 30px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
-            border: 1px solid rgba(0,0,0,0.04);
-            margin-bottom: 30px; 
-            width: 100%;
-            box-sizing: border-box;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .page-card:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
-        .page-card h2 { margin-top: 0; font-size: 1.65rem; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
-
-        /* Top 2-Column Split: Image on Left (320px), Top Text on Right */
         .card-top-split {
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 25px;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        .card-top-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        @media (max-width: 768px) {
+            .card-top-split { grid-template-columns: 1fr; gap: 15px; }
         }
-
-        /* Interactive Clickable Image Container */
         .at-card-img-container { 
             position: relative;
             width: 100%; 
@@ -82,7 +54,7 @@
         .at-card-img { 
             width: 100%; 
             max-width: 100%;
-            height: 260px; 
+            height: 220px; 
             display: block; 
             object-fit: contain; 
             border-radius: 8px;
@@ -91,8 +63,6 @@
         .at-card-img-container:hover .at-card-img {
             transform: scale(1.03);
         }
-        
-        /* Click to enlarge overlay badge */
         .zoom-overlay-badge {
             position: absolute;
             bottom: 12px;
@@ -100,61 +70,50 @@
             background: rgba(0, 0, 0, 0.75);
             color: #ffffff;
             backdrop-filter: blur(4px);
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             pointer-events: none;
-            opacity: 0.9;
-            transition: opacity 0.2s, background 0.2s;
         }
-        .at-card-img-container:hover .zoom-overlay-badge {
-            opacity: 1;
-            background: rgba(0, 94, 184, 0.9);
-        }
-        
         .at-card-badge { 
             display: inline-block; 
-            font-size: 0.825rem; 
+            font-size: 0.8rem; 
             font-weight: 800; 
             text-transform: uppercase; 
-            letter-spacing: 1px; 
-            padding: 5px 14px; 
+            letter-spacing: 0.5px; 
+            padding: 4px 12px; 
             border-radius: 20px; 
-            margin-bottom: 10px; 
+            margin-bottom: 8px; 
             width: fit-content;
         }
-
-        /* Item blocks inside cards matching Hearing Aid Access table/list style */
         .item-block {
-            background: #f8f9fa;
+            background: #f8fafc;
             border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 18px;
-            border: 1px solid #e9ecef;
-            transition: border-color 0.2s, background 0.2s;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid #e2e8f0;
         }
+        .item-block:last-child { margin-bottom: 0; }
         .item-block h3 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            color: #222;
+            color: #1e293b;
             margin-top: 0;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .item-block p {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.6;
-            margin-bottom: 14px;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.55;
+            margin-bottom: 12px;
         }
-
-        /* Compact Affiliate Link Rollover Disclosure Tooltip */
         .affiliate-link-wrapper {
             position: relative;
             display: inline-block;
@@ -194,68 +153,20 @@
             opacity: 1;
             transform: translateX(-50%) translateY(0);
         }
-
         .affiliate-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            border-radius: 24px;
-            font-size: 0.9rem;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            min-height: 44px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            color: #ffffff;
         }
-        .affiliate-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
-        .affiliate-btn:focus-visible {
-            outline: 3px solid #005EB8;
-            outline-offset: 3px;
-        }
-
-        /* Site Brand Colors Matching Theme Tokens */
-        /* Category 1: Teal (#00ACC1) */
-        .card-cat-1 { border-left: 6px solid #00ACC1; }
-        .card-cat-1 h2 { color: #00838F; }
-        .card-cat-1 .at-card-badge { background: rgba(0, 172, 193, 0.1); color: #00838F; }
-        .card-cat-1 .item-block { border-left: 4px solid #00ACC1; }
-        .card-cat-1 .affiliate-btn { background: #00ACC1; color: #ffffff; }
-        .card-cat-1 .affiliate-btn:hover { background: #00838F; }
-
-        /* Category 2: Dark Emerald Green (#1b5e20) */
-        .card-cat-2 { border-left: 6px solid #1b5e20; }
-        .card-cat-2 h2 { color: #1b5e20; }
-        .card-cat-2 .at-card-badge { background: rgba(27, 94, 32, 0.1); color: #1b5e20; }
-        .card-cat-2 .item-block { border-left: 4px solid #1b5e20; }
-        .card-cat-2 .affiliate-btn { background: #1b5e20; color: #ffffff; }
-        .card-cat-2 .affiliate-btn:hover { background: #144417; }
-
-        /* Category 3: Brand Accent Pink (#ff0f5b) */
-        .card-cat-3 { border-left: 6px solid #ff0f5b; }
-        .card-cat-3 h2 { color: #ff0f5b; }
-        .card-cat-3 .at-card-badge { background: rgba(255, 15, 91, 0.1); color: #d80047; }
-        .card-cat-3 .item-block { border-left: 4px solid #ff0f5b; }
-        .card-cat-3 .affiliate-btn { background: #ff0f5b; color: #ffffff; }
-        .card-cat-3 .affiliate-btn:hover { background: #d80047; }
-
-        /* Category 4: Brand Purple (#7B1FA2) */
-        .card-cat-4 { border-left: 6px solid #7B1FA2; }
-        .card-cat-4 h2 { color: #4A148C; }
-        .card-cat-4 .at-card-badge { background: rgba(123, 31, 162, 0.1); color: #4A148C; }
-        .card-cat-4 .item-block { border-left: 4px solid #7B1FA2; }
-        .card-cat-4 .affiliate-btn { background: #7B1FA2; color: #ffffff; }
-        .card-cat-4 .affiliate-btn:hover { background: #4A148C; }
-
-        /* Category 5: Brand Warm Amber (#F57C00) */
-        .card-cat-5 { border-left: 6px solid #F57C00; }
-        .card-cat-5 h2 { color: #e65100; }
-        .card-cat-5 .at-card-badge { background: rgba(245, 124, 0, 0.1); color: #e65100; }
-        .card-cat-5 .item-block { border-left: 4px solid #F57C00; }
-        .card-cat-5 .affiliate-btn { background: #F57C00; color: #ffffff; }
-        .card-cat-5 .affiliate-btn:hover { background: #e65100; }
-
-        /* --- LIGHTBOX MODAL FOR IMAGE ZOOM --- */
+        .affiliate-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
         .lightbox-modal {
             position: fixed;
             top: 0;
@@ -272,10 +183,7 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-        .lightbox-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .lightbox-modal.active { opacity: 1; pointer-events: auto; }
         .lightbox-content {
             max-width: 90vw;
             max-height: 88vh;
@@ -285,9 +193,7 @@
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             object-fit: contain;
         }
-        .lightbox-modal.active .lightbox-content {
-            transform: scale(1);
-        }
+        .lightbox-modal.active .lightbox-content { transform: scale(1); }
         .lightbox-close {
             position: absolute;
             top: 24px;
@@ -303,11 +209,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .lightbox-close:hover {
-            background: rgba(255,255,255,0.4);
-            transform: scale(1.1);
         }
         .lightbox-caption {
             position: absolute;
@@ -320,281 +221,307 @@
             border-radius: 20px;
             backdrop-filter: blur(4px);
         }
-
-        @media (max-width: 768px) {
-            .content { padding: 20px 12px; }
-            .header-section h1 { font-size: 2.2rem; }
-            .page-card { padding: 20px; }
-            .card-top-split { grid-template-columns: 1fr; gap: 15px; }
-            .at-card-img { height: 240px; }
-        }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-    <header class="top-nav" style="padding: 1rem 0; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <a href="index.html" aria-label="Go to homepage">
-            <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 40px auto 50px auto; display: block;">
-        </a>
-    </header>
+    <main class="container" id="main-content">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #00838F; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">devices</span>
+                Assistive Technology
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto 15px auto; line-height: 1.6;">
+                Empowering independence and communication through modern speech-to-text apps, smart note-taking, Phonak Roger systems, TV audio streamers, Ring doorbells, and smartwatch notifications.
+            </p>
 
-    <main class="content" id="main-content">
-        <section class="header-section">
-            <h1>Assistive Technology</h1>
-            <p>Empowering independence and communication through modern speech-to-text apps, smart note-taking, Phonak Roger systems, TV audio streamers, Ring doorbells, and smartwatch notifications.</p>
-
-            <!-- Discrete Affiliate Link Disclaimer -->
             <div class="discrete-disclaimer">
                 <span class="material-symbols-outlined" style="font-size: 1.05rem; color: #005EB8; vertical-align: middle;">info</span>
                 <span><em>Affiliate Disclosure: Some links below are affiliate links. Purchases made via these links may earn a small referral commission for Hearing Loss Initiative at no extra cost to you, directly funding our community services.</em></span>
             </div>
-        </section>
+        </div>
 
-        <!-- Section 1: Live Mobile Transcription & Smartwatches (Teal #00ACC1) -->
-        <article class="page-card card-cat-1">
-            <!-- Top Split: Image on Left, Text on Right -->
-            <div class="card-top-split">
-                <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge live captioning image" onclick="openLightbox('Contents/AT/at-live-captioning.png', 'Real-Time Speech-to-Text & Mobile Live Captions')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-live-captioning.png', 'Real-Time Speech-to-Text & Mobile Live Captions')">
-                    <img src="Contents/AT/at-live-captioning.png" alt="Community members using mobile live captioning" class="at-card-img" loading="lazy">
-                    <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
-                </div>
-                <div class="card-top-text">
-                    <span class="at-card-badge">Mobile Apps & Smartwatches</span>
-                    <h2>Real-Time Mobile Captions & Translation</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.6;">Speech translation and live captioning software turn spoken dialogue into real-time text on your smartphone or smartwatch, helping you stay fully engaged at community events and appointments.</p>
-                </div>
-            </div>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
             
-            <!-- Item 1: Google Live Transcribe -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">android</span> Google Live Transcribe (Android)</h3>
-                <p><strong>What it does:</strong> Google's free real-time speech-to-text app for Android. It listens to surrounding speech and displays high-contrast captions on your phone screen in real time. It also detects sound events like doorbells and sirens.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative's free community services.</div>
-                    <a href="https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe&referrer=utm_source%3Dhuntproject" target="_blank" rel="noopener sponsor" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Get Google Live Transcribe (Free on Google Play)
-                    </a>
-                </div>
-            </div>
-
-            <!-- Item 2: Olli Transcribe -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">phone_iphone</span> Olli Transcribe (for iPhone)</h3>
-                <p><strong>What it does:</strong> Tailored specifically for iPhone iOS users, Olli Transcribe uses AI speech recognition to convert fast conversations into crystal-clear live text so you never miss a word.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's community programmes.</div>
-                    <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_bag</span> Get Olli Transcribe on App Store (Affiliate Link)
-                    </a>
-                </div>
-            </div>
-
-            <!-- Item 3: Google Translate -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">g_translate</span> Google Translate (iOS & Android)</h3>
-                <p><strong>What it does:</strong> Translates spoken words instantly into text across over 100 languages. Ideal for travel, medical appointments, or bilingual community events.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Free app link. Supports Hearing Loss Initiative community outreach.</div>
-                    <a href="https://translate.google.com/" target="_blank" rel="noopener sponsor" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Google Translate App (Free)
-                    </a>
-                </div>
-            </div>
-
-            <!-- Item 4: Smartwatch Haptic Alerts -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">watch</span> iPhone (Apple Watch) & Android (Wear OS) Smartwatches</h3>
-                <p><strong>What it does:</strong> Pairs with your phone to deliver discreet, silent wrist vibrations whenever live captions trigger, calls arrive, or sound alerts occur.</p>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
-                    <div class="affiliate-link-wrapper">
-                        <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
-                        <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Apple Watch (Affiliate Link)
-                        </a> (paid link)
+            <!-- ACCORDION 1: Real-Time Mobile Captions & Translation (Teal #00ACC1) -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #00ACC1; margin-right: 8px;">phone_android</span> 1. Real-Time Mobile Captions &amp; Translation</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="card-top-split">
+                        <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge live captioning image" onclick="openLightbox('Contents/AT/at-live-captioning.png', 'Real-Time Speech-to-Text & Mobile Live Captions')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-live-captioning.png', 'Real-Time Speech-to-Text & Mobile Live Captions')">
+                            <img src="Contents/AT/at-live-captioning.png" alt="Community members using mobile live captioning" class="at-card-img" loading="lazy">
+                            <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
+                        </div>
+                        <div>
+                            <span class="at-card-badge" style="background: rgba(0, 172, 193, 0.1); color: #00838F;">Mobile Apps &amp; Smartwatches</span>
+                            <h2 style="font-size: 1.4rem; color: #00838F; margin: 0 0 8px 0;">Real-Time Mobile Captions &amp; Translation</h2>
+                            <p style="margin: 0; color: #475569; line-height: 1.6;">Speech translation and live captioning software turn spoken dialogue into real-time text on your smartphone or smartwatch, helping you stay fully engaged at community events and appointments.</p>
+                        </div>
                     </div>
-                    <div class="affiliate-link-wrapper">
-                        <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
-                        <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Wear OS (Affiliate Link)
-                        </a> (paid link)
+                    
+                    <!-- Item 1: Google Live Transcribe -->
+                    <div class="item-block" style="border-left: 4px solid #00ACC1;">
+                        <h3><span class="material-symbols-outlined">android</span> Google Live Transcribe (Android)</h3>
+                        <p><strong>What it does:</strong> Google's free real-time speech-to-text app for Android. It listens to surrounding speech and displays high-contrast captions on your phone screen in real time. It also detects sound events like doorbells and sirens.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative's free community services.</div>
+                            <a href="https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe&referrer=utm_source%3Dhuntproject" target="_blank" rel="noopener sponsor" class="affiliate-btn" style="background: #00ACC1;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Get Google Live Transcribe (Free on Google Play)
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </article>
 
-        <!-- Section 2: Smart Meeting & Group Transcription (Dark Emerald Green #1b5e20) -->
-        <article class="page-card card-cat-2">
-            <!-- Top Split: Image on Left, Text on Right -->
-            <div class="card-top-split">
-                <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge meeting notes image" onclick="openLightbox('Contents/AT/at-meeting-notes.png', 'Smart AI Meeting & Group Transcribers')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-meeting-notes.png', 'Smart AI Meeting & Group Transcribers')">
-                    <img src="Contents/AT/at-meeting-notes.png" alt="Community group using AI meeting notes" class="at-card-img" loading="lazy">
-                    <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
-                </div>
-                <div class="card-top-text">
-                    <span class="at-card-badge">Productivity & Support Groups</span>
-                    <h2>Smart Meeting & Group Transcribers</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.6;">AI-powered note-taking tools eliminate the stress of missing key spoken details during group discussions, lectures, and support groups by creating automated, searchable transcripts.</p>
-                </div>
-            </div>
-
-            <!-- Item 1: Otter.ai -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">groups</span> Otter.ai Pro</h3>
-                <p><strong>What it does:</strong> AI workspace assistant that records live group meetings, identifies individual speakers, and generates real-time searchable transcripts and summary key points.</p>
-                <a href="https://otter.ai/" target="_blank" rel="noopener" class="affiliate-btn">
-                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Otter.ai (Official Site)
-                </a>
-            </div>
-
-            <!-- Item 2: Olli Transcribe for iPhone -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">description</span> Olli Transcribe iOS Audio Notes</h3>
-                <p><strong>What it does:</strong> Allows iPhone users to capture mobile audio notes during live talks or community sessions and instantly convert them into clean, organised text files.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's free programmes.</div>
-                    <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">phone_iphone</span> Get Olli Transcribe iOS (Affiliate Link)
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <!-- Section 3: Phonak Roger Microphones (Brand Accent Pink #ff0f5b) -->
-        <article class="page-card card-cat-3">
-            <!-- Top Split: Image on Left, Text on Right -->
-            <div class="card-top-split">
-                <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge Phonak Roger microphones image" onclick="openLightbox('Contents/AT/at-wireless-mics.png', 'Phonak Roger Wireless Microphones')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-wireless-mics.png', 'Phonak Roger Wireless Microphones')">
-                    <img src="Contents/AT/at-wireless-mics.png" alt="Friendly conversation with Phonak Roger On" class="at-card-img" loading="lazy">
-                    <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
-                </div>
-                <div class="card-top-text">
-                    <span class="at-card-badge">Direct Wireless Audio</span>
-                    <h2>Phonak Roger Microphones & Systems</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.6;">Phonak Roger technology is designed specifically to help hearing aid and cochlear implant users understand speech in noisy surroundings and over distance.</p>
-                </div>
-            </div>
-
-            <!-- Merged Item: Phonak Roger On, Select & Pen Systems -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">mic</span> Phonak Roger On, Roger Select & Roger Pen Systems</h3>
-                <p><strong>What it does:</strong> Versatile wireless microphones equipped with MultiBeam Technology. Worn neatly on a lapel, clipped to clothing, or placed on a dining/conference table (including disc-shaped Roger Select and pen-style Roger Pen transmitters), they automatically select active speakers and stream crystal-clear audio directly into hearing devices.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative community support.</div>
-                    <a href="https://link.amazon/B0bzdVAGG" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Phonak Roger Systems (Affiliate Link)
-                    </a> (paid link)
-                </div>
-            </div>
-        </article>
-
-        <!-- Section 4: TV Audio & Media Streamers (Brand Purple #7B1FA2) -->
-        <article class="page-card card-cat-4">
-            <!-- Top Split: Image on Left, Text on Right -->
-            <div class="card-top-split">
-                <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge TV audio streamers image" onclick="openLightbox('Contents/AT/at-tv-streamer.png', 'TV Audio Streamers & Personal Listeners')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-tv-streamer.png', 'TV Audio Streamers & Personal Listeners')">
-                    <img src="Contents/AT/at-tv-streamer.png" alt="Couple enjoying TV listening streamer at home" class="at-card-img" loading="lazy">
-                    <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
-                </div>
-                <div class="card-top-text">
-                    <span class="at-card-badge">Home Entertainment</span>
-                    <h2>TV Audio Streamers & Personal Listeners</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.6;">Specialised television transmitters broadcast clear dialogue directly to your hearing aids or personal headsets without turning up room speakers.</p>
-                </div>
-            </div>
-
-            <!-- Item 1: Phonak TV Connector -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">tv</span> Phonak TV Connector</h3>
-                <p><strong>What it does:</strong> An easy plug-and-play transmitter that connects to your TV optical or headphone jack and automatically streams high-definition stereo TV sound directly into Phonak hearing aids with zero lip-sync delay.</p>
-                <div style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: #7B1FA2; background: rgba(123, 31, 162, 0.08); padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">science</span> Patreon members will be testing the best options available for TV connectors.
-                </div>
-            </div>
-
-            <!-- Item 2: Wireless TV Headphones -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">headphones</span> Wireless TV Headsets & Neckloops</h3>
-                <p><strong>What it does:</strong> Personal listening headsets and neckloop receivers that amplify television voices cleanly, allowing you to set your own volume independently while family members listen at standard room volume.</p>
-                <div style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: #7B1FA2; background: rgba(123, 31, 162, 0.08); padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">science</span> Patreon members will be testing the best options available for TV connectors.
-                </div>
-            </div>
-        </article>
-
-        <!-- Section 5: Home Safety, Smartwatches & Ring Doorbell (Warm Amber #F57C00) -->
-        <article class="page-card card-cat-5">
-            <!-- Top Split: Image on Left, Text on Right -->
-            <div class="card-top-split">
-                <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge Ring doorbell and smartwatch garden alert image" onclick="openLightbox('Contents/AT/at-home-alerts.png', 'Ring Doorbell & Smartwatch Garden Notification')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-home-alerts.png', 'Ring Doorbell & Smartwatch Garden Notification')">
-                    <img src="Contents/AT/at-home-alerts.png" alt="Split screen: British postal worker in shorts ringing Ring Doorbell on left, woman in her 40s on her knees in garden tending flower beds checking smartwatch on right" class="at-card-img" loading="lazy">
-                    <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
-                </div>
-                <div class="card-top-text">
-                    <span class="at-card-badge">Home Safety & Smart Alerts</span>
-                    <h2>Ring Doorbell, Smartwatches & Flashing Signals</h2>
-                    <p style="margin: 0; color: #555; line-height: 1.6;">Ensure you never miss visitors, phone calls, or safety alarms at home with smart visual light signals and wrist-vibration notifications.</p>
-                </div>
-            </div>
-
-            <!-- Item 1: Ring Doorbell -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">doorbell</span> Ring Video Doorbell & Flashing LED Chime</h3>
-                <p><strong>What it does:</strong> Smart video doorbell that pairs with flashing indoor LED chimes and smart light bulbs. When a visitor presses the doorbell, bright visual lights flash around your house to alert you instantly.</p>
-                <div class="affiliate-link-wrapper">
-                    <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative at no extra cost.</div>
-                    <a href="https://link.amazon/B0aQawQNg" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Ring Doorbell & Flashing Chime (Affiliate Link)
-                    </a> (paid link)
-                </div>
-            </div>
-
-            <!-- Item 2: Single Smartwatch Wrist Vibrations -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">watch</span> Smartwatch Wrist Alerts (Apple Watch & Wear OS)</h3>
-                <p><strong>What it does:</strong> A single sleek smartwatch worn on your wrist receives instant haptic vibrations when a British postal worker or visitor rings your Ring Doorbell, when an alarm triggers, or when you receive a message while outdoors in the garden.</p>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
-                    <div class="affiliate-link-wrapper">
-                        <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
-                        <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Apple Watch (Affiliate Link)
-                        </a> (paid link)
+                    <!-- Item 2: Olli Transcribe -->
+                    <div class="item-block" style="border-left: 4px solid #00ACC1;">
+                        <h3><span class="material-symbols-outlined">phone_iphone</span> Olli Transcribe (for iPhone)</h3>
+                        <p><strong>What it does:</strong> Tailored specifically for iPhone iOS users, Olli Transcribe uses AI speech recognition to convert fast conversations into crystal-clear live text so you never miss a word.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's community programmes.</div>
+                            <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor" class="affiliate-btn" style="background: #00ACC1;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_bag</span> Get Olli Transcribe on App Store (Affiliate Link)
+                            </a>
+                        </div>
                     </div>
-                    <div class="affiliate-link-wrapper">
-                        <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
-                        <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored" class="affiliate-btn">
-                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Wear OS (Affiliate Link)
-                        </a> (paid link)
+
+                    <!-- Item 3: Google Translate -->
+                    <div class="item-block" style="border-left: 4px solid #00ACC1;">
+                        <h3><span class="material-symbols-outlined">g_translate</span> Google Translate (iOS &amp; Android)</h3>
+                        <p><strong>What it does:</strong> Translates spoken words instantly into text across over 100 languages. Ideal for travel, medical appointments, or bilingual community events.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Free app link. Supports Hearing Loss Initiative community outreach.</div>
+                            <a href="https://translate.google.com/" target="_blank" rel="noopener sponsor" class="affiliate-btn" style="background: #00ACC1;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Google Translate App (Free)
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Smartwatch Haptic Alerts -->
+                    <div class="item-block" style="border-left: 4px solid #00ACC1;">
+                        <h3><span class="material-symbols-outlined">watch</span> iPhone (Apple Watch) &amp; Android (Wear OS) Smartwatches</h3>
+                        <p><strong>What it does:</strong> Pairs with your phone to deliver discreet, silent wrist vibrations whenever live captions trigger, calls arrive, or sound alerts occur.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                            <div class="affiliate-link-wrapper">
+                                <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
+                                <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #00ACC1;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Apple Watch (Affiliate Link)
+                                </a> (paid link)
+                            </div>
+                            <div class="affiliate-link-wrapper">
+                                <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
+                                <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #00ACC1;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Wear OS (Affiliate Link)
+                                </a> (paid link)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Item 3: Devon & Somerset Fire and Rescue Service -->
-            <div class="item-block">
-                <h3><span class="material-symbols-outlined">local_fire_department</span> Devon and Somerset Fire and Rescue Service (Free Home Safety)</h3>
-                <p>The Devon and Somerset Fire and Rescue Service offers free home fire safety assessments and equipment, including standard 10-year smoke alarms, heat alarms, and specialist gear for at-risk residents. You can request a visit or check by calling <strong>0800 05 02 999</strong> (Monday to Friday, 10 am to 4 pm) or by filling out the online request form via the Devon and Somerset Fire Service portal.</p>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
-                    <a href="tel:08000502999" class="affiliate-btn" style="background: #F57C00; color: #ffffff;">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">call</span> Call 0800 05 02 999 (Freephone)
-                    </a>
-                    <a href="https://www.dsfire.gov.uk/safety/home/book-home-safety-visit" target="_blank" rel="noopener" class="affiliate-btn" style="background: #222222; color: #ffffff;">
-                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Book Home Safety Visit (Fire Service Portal)
-                    </a>
+            <!-- ACCORDION 2: Smart Meeting & Group Transcribers (Dark Emerald Green #1b5e20) -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">groups</span> 2. Smart Meeting &amp; Group Transcribers</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="card-top-split">
+                        <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge meeting notes image" onclick="openLightbox('Contents/AT/at-meeting-notes.png', 'Smart AI Meeting & Group Transcribers')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-meeting-notes.png', 'Smart AI Meeting & Group Transcribers')">
+                            <img src="Contents/AT/at-meeting-notes.png" alt="Community group using AI meeting notes" class="at-card-img" loading="lazy">
+                            <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
+                        </div>
+                        <div>
+                            <span class="at-card-badge" style="background: rgba(27, 94, 32, 0.1); color: #1b5e20;">Productivity &amp; Support Groups</span>
+                            <h2 style="font-size: 1.4rem; color: #1b5e20; margin: 0 0 8px 0;">Smart Meeting &amp; Group Transcribers</h2>
+                            <p style="margin: 0; color: #475569; line-height: 1.6;">AI-powered note-taking tools eliminate the stress of missing key spoken details during group discussions, lectures, and support groups by creating automated, searchable transcripts.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 1: Otter.ai -->
+                    <div class="item-block" style="border-left: 4px solid #1b5e20;">
+                        <h3><span class="material-symbols-outlined">groups</span> Otter.ai Pro</h3>
+                        <p><strong>What it does:</strong> AI workspace assistant that records live group meetings, identifies individual speakers, and generates real-time searchable transcripts and summary key points.</p>
+                        <a href="https://otter.ai/" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #1b5e20;">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Otter.ai (Official Site)
+                        </a>
+                    </div>
+
+                    <!-- Item 2: Olli Transcribe for iPhone -->
+                    <div class="item-block" style="border-left: 4px solid #1b5e20;">
+                        <h3><span class="material-symbols-outlined">description</span> Olli Transcribe iOS Audio Notes</h3>
+                        <p><strong>What it does:</strong> Allows iPhone users to capture mobile audio notes during live talks or community sessions and instantly convert them into clean, organised text files.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's free programmes.</div>
+                            <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor" class="affiliate-btn" style="background: #1b5e20;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">phone_iphone</span> Get Olli Transcribe iOS (Affiliate Link)
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </article>
 
-        <!-- Standardized Back to Journey Button -->
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
+            <!-- ACCORDION 3: Phonak Roger Microphones (Brand Accent Pink #ff0f5b) -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">mic</span> 3. Phonak Roger Microphones &amp; Systems</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="card-top-split">
+                        <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge Phonak Roger microphones image" onclick="openLightbox('Contents/AT/at-wireless-mics.png', 'Phonak Roger Wireless Microphones')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-wireless-mics.png', 'Phonak Roger Wireless Microphones')">
+                            <img src="Contents/AT/at-wireless-mics.png" alt="Friendly conversation with Phonak Roger On" class="at-card-img" loading="lazy">
+                            <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
+                        </div>
+                        <div>
+                            <span class="at-card-badge" style="background: rgba(255, 15, 91, 0.1); color: #d80047;">Direct Wireless Audio</span>
+                            <h2 style="font-size: 1.4rem; color: #ff0f5b; margin: 0 0 8px 0;">Phonak Roger Microphones &amp; Systems</h2>
+                            <p style="margin: 0; color: #475569; line-height: 1.6;">Phonak Roger technology is designed specifically to help hearing aid and cochlear implant users understand speech in noisy surroundings and over distance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item: Phonak Roger On, Select & Pen Systems -->
+                    <div class="item-block" style="border-left: 4px solid #ff0f5b;">
+                        <h3><span class="material-symbols-outlined">mic</span> Phonak Roger On, Roger Select &amp; Roger Pen Systems</h3>
+                        <p><strong>What it does:</strong> Versatile wireless microphones equipped with MultiBeam Technology. Worn neatly on a lapel, clipped to clothing, or placed on a dining/conference table (including disc-shaped Roger Select and pen-style Roger Pen transmitters), they automatically select active speakers and stream crystal-clear audio directly into hearing devices.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative community support.</div>
+                            <a href="https://link.amazon/B0bzdVAGG" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #ff0f5b;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Phonak Roger Systems (Affiliate Link)
+                            </a> (paid link)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: TV Audio Streamers & Personal Listeners (Brand Purple #7B1FA2) -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">tv</span> 4. TV Audio Streamers &amp; Personal Listeners</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="card-top-split">
+                        <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge TV audio streamers image" onclick="openLightbox('Contents/AT/at-tv-streamer.png', 'TV Audio Streamers & Personal Listeners')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-tv-streamer.png', 'TV Audio Streamers & Personal Listeners')">
+                            <img src="Contents/AT/at-tv-streamer.png" alt="Couple enjoying TV listening streamer at home" class="at-card-img" loading="lazy">
+                            <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
+                        </div>
+                        <div>
+                            <span class="at-card-badge" style="background: rgba(123, 31, 162, 0.1); color: #4A148C;">Home Entertainment</span>
+                            <h2 style="font-size: 1.4rem; color: #4A148C; margin: 0 0 8px 0;">TV Audio Streamers &amp; Personal Listeners</h2>
+                            <p style="margin: 0; color: #475569; line-height: 1.6;">Specialised television transmitters broadcast clear dialogue directly to your hearing aids or personal headsets without turning up room speakers.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 1: Phonak TV Connector -->
+                    <div class="item-block" style="border-left: 4px solid #7B1FA2;">
+                        <h3><span class="material-symbols-outlined">tv</span> Phonak TV Connector</h3>
+                        <p><strong>What it does:</strong> An easy plug-and-play transmitter that connects to your TV optical or headphone jack and automatically streams high-definition stereo TV sound directly into Phonak hearing aids with zero lip-sync delay.</p>
+                        <div style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: #7B1FA2; background: rgba(123, 31, 162, 0.08); padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">science</span> Patreon members will be testing the best options available for TV connectors.
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Wireless TV Headphones -->
+                    <div class="item-block" style="border-left: 4px solid #7B1FA2;">
+                        <h3><span class="material-symbols-outlined">headphones</span> Wireless TV Headsets &amp; Neckloops</h3>
+                        <p><strong>What it does:</strong> Personal listening headsets and neckloop receivers that amplify television voices cleanly, allowing you to set your own volume independently while family members listen at standard room volume.</p>
+                        <div style="margin-top: 10px; font-size: 0.9rem; font-weight: 600; color: #7B1FA2; background: rgba(123, 31, 162, 0.08); padding: 8px 14px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">science</span> Patreon members will be testing the best options available for TV connectors.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: Home Safety, Smartwatches & Ring Doorbell (Warm Amber #F57C00) -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #F57C00; margin-right: 8px;">doorbell</span> 5. Ring Doorbell, Smartwatches &amp; Flashing Signals</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="card-top-split">
+                        <div class="at-card-img-container" tabindex="0" role="button" aria-label="Click to enlarge Ring doorbell and smartwatch garden alert image" onclick="openLightbox('Contents/AT/at-home-alerts.png', 'Ring Doorbell & Smartwatch Garden Notification')" onkeydown="if(event.key==='Enter'||event.key===' ') openLightbox('Contents/AT/at-home-alerts.png', 'Ring Doorbell & Smartwatch Garden Notification')">
+                            <img src="Contents/AT/at-home-alerts.png" alt="British postal worker ringing Ring Doorbell on left, woman in garden checking smartwatch on right" class="at-card-img" loading="lazy">
+                            <span class="zoom-overlay-badge"><span class="material-symbols-outlined" style="font-size: 1.1rem;">zoom_in</span> Click to Enlarge</span>
+                        </div>
+                        <div>
+                            <span class="at-card-badge" style="background: rgba(245, 124, 0, 0.1); color: #e65100;">Home Safety &amp; Smart Alerts</span>
+                            <h2 style="font-size: 1.4rem; color: #e65100; margin: 0 0 8px 0;">Ring Doorbell, Smartwatches &amp; Flashing Signals</h2>
+                            <p style="margin: 0; color: #475569; line-height: 1.6;">Ensure you never miss visitors, phone calls, or safety alarms at home with smart visual light signals and wrist-vibration notifications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 1: Ring Doorbell -->
+                    <div class="item-block" style="border-left: 4px solid #F57C00;">
+                        <h3><span class="material-symbols-outlined">doorbell</span> Ring Video Doorbell &amp; Flashing LED Chime</h3>
+                        <p><strong>What it does:</strong> Smart video doorbell that pairs with flashing indoor LED chimes and smart light bulbs. When a visitor presses the doorbell, bright visual lights flash around your house to alert you instantly.</p>
+                        <div class="affiliate-link-wrapper">
+                            <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative at no extra cost.</div>
+                            <a href="https://link.amazon/B0aQawQNg" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #F57C00;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Ring Doorbell &amp; Flashing Chime (Affiliate Link)
+                            </a> (paid link)
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Single Smartwatch Wrist Vibrations -->
+                    <div class="item-block" style="border-left: 4px solid #F57C00;">
+                        <h3><span class="material-symbols-outlined">watch</span> Smartwatch Wrist Alerts (Apple Watch &amp; Wear OS)</h3>
+                        <p><strong>What it does:</strong> A single sleek smartwatch worn on your wrist receives instant haptic vibrations when a British postal worker or visitor rings your Ring Doorbell, when an alarm triggers, or when you receive a message while outdoors in the garden.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
+                            <div class="affiliate-link-wrapper">
+                                <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
+                                <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #F57C00;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Apple Watch (Affiliate Link)
+                                </a> (paid link)
+                            </div>
+                            <div class="affiliate-link-wrapper">
+                                <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
+                                <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored" class="affiliate-btn" style="background: #F57C00;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Wear OS (Affiliate Link)
+                                </a> (paid link)
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Devon & Somerset Fire and Rescue Service -->
+                    <div class="item-block" style="border-left: 4px solid #F57C00;">
+                        <h3><span class="material-symbols-outlined">local_fire_department</span> Devon and Somerset Fire and Rescue Service (Free Home Safety)</h3>
+                        <p>The Devon and Somerset Fire and Rescue Service offers free home fire safety assessments and equipment, including standard 10-year smoke alarms, heat alarms, and specialist gear for at-risk residents. You can request a visit or check by calling <strong>0800 05 02 999</strong> (Monday to Friday, 10 am to 4 pm) or by filling out the online request form via the Devon and Somerset Fire Service portal.</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+                            <a href="tel:08000502999" class="affiliate-btn" style="background: #F57C00;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">call</span> Call 0800 05 02 999 (Freephone)
+                            </a>
+                            <a href="https://www.dsfire.gov.uk/safety/home/book-home-safety-visit" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #222222;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Book Home Safety Visit (Fire Service Portal)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
             </a>
         </nav>
 
-        <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">As an Amazon Associate, I earn from qualifying purchases.</p>
+        <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 30px;">As an Amazon Associate, I earn from qualifying purchases.</p>
     </main>
 
     <!-- LIGHTBOX MODAL FOR IMAGE ZOOM -->
@@ -604,16 +531,7 @@
         <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
-    <!-- Volume Control Widget -->
-    <aside id="volume-control-container" aria-label="Audio Controls" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
-        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;" aria-label="Background audio volume">
-    </aside>
-
-    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop></audio>
-    <div class="page-transition-overlay"></div>
-
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
     <script>
         // Lightbox Functions
         function openLightbox(src, caption) {
@@ -636,49 +554,6 @@
             if (e.key === 'Escape') {
                 const modal = document.getElementById('lightbox-modal');
                 if (modal) modal.classList.remove('active');
-            }
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const audio = document.getElementById('bg-noise');
-            const volumeSlider = document.getElementById('volume-slider');
-            const volumeIcon = document.getElementById('volume-icon');
-
-            const savedVolume = localStorage.getItem('bgVolume') || 0.15;
-            const savedMuted = localStorage.getItem('bgMuted') === 'true';
-
-            if (audio) {
-                audio.volume = savedVolume;
-                audio.muted = savedMuted;
-            }
-            if (volumeSlider) volumeSlider.value = savedVolume;
-
-            if (volumeIcon) {
-                volumeIcon.textContent = savedMuted ? 'volume_off' : (savedVolume < 0.3 ? 'volume_down' : 'volume_up');
-            }
-
-            if (volumeSlider && volumeIcon) {
-                volumeSlider.addEventListener('input', (e) => {
-                    const val = e.target.value;
-                    if (audio) {
-                        audio.volume = val;
-                        if (audio.muted) audio.muted = false;
-                    }
-                    localStorage.setItem('bgVolume', val);
-                    localStorage.setItem('bgMuted', 'false');
-
-                    if (val == 0) volumeIcon.textContent = 'volume_off';
-                    else if (val < 0.3) volumeIcon.textContent = 'volume_down';
-                    else volumeIcon.textContent = 'volume_up';
-                });
-
-                volumeIcon.addEventListener('click', () => {
-                    if (audio) {
-                        audio.muted = !audio.muted;
-                        localStorage.setItem('bgMuted', audio.muted);
-                        volumeIcon.textContent = audio.muted ? 'volume_off' : (volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up');
-                    }
-                });
             }
         });
     </script>

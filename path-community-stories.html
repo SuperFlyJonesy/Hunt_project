@@ -1,78 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Inspiring real-life stories from deaf and hard-of-hearing individuals across Bristol sharing their journeys and triumphs.">
     <meta charset="UTF-8">
     <title>Initiate Stories - Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #005EB8; }
-        .testimonial-card { background: #f8f9fa; border-radius: 20px; padding: 30px; margin-bottom: 20px; border-left: 6px solid #005EB8; }
-        #story-form { background: #eee; padding: 35px; border-radius: 15px; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        input, textarea { width: 100%; padding: 15px; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 15px; font-family: inherit; box-sizing: border-box; font-size: 1rem; }
-        .form-hint { font-size: 0.9rem; color: #666; margin-top: -10px; margin-bottom: 15px; display: block; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .testimonial-card { background: #f8fafc; border-radius: 16px; padding: 24px; margin-bottom: 16px; border-left: 6px solid #005EB8; border: 1px solid #e2e8f0; }
+        #story-form { background: #f8fafc; padding: 24px; border-radius: 16px; margin-top: 10px; border: 1px solid #e2e8f0; }
+        input, textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid #cbd5e1; margin-bottom: 12px; font-family: inherit; box-sizing: border-box; font-size: 0.95rem; }
+        input:focus, textarea:focus { outline: none; border-color: #005EB8; box-shadow: 0 0 0 3px rgba(0, 94, 184, 0.15); }
+        .form-hint { font-size: 0.85rem; color: #64748b; margin-top: -8px; margin-bottom: 12px; display: block; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div id="main-content" class="content">
-        <h1>Initiate Stories</h1>
-        <p style="font-size: 1.1rem; line-height: 1.6; color: #444; margin-bottom: 30px;">
-            Hearing loss is a deeply personal journey, but you don't have to walk it alone. 
-            Read stories from our Initiates and members across the Bristol community, or share your own experience to help inspire and support others.
-        </p>
-        
-        <div id="story-form-container">
-            <div id="story-form">
-                <h2 style="margin-top: 0; color: #333;">Share Your Initiate Story Safely</h2>
-                <p style="margin-bottom: 20px; color: #555; line-height: 1.5;">
-                    <strong>Your privacy is our priority.</strong> All stories are submitted securely to our team and held for review before being published. 
-                    You can remain completely anonymous if you prefer.
-                </p>
-                
-                <form id="community-story-form" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="5e8c0ecb-4814-4029-9117-7bcfce550aea">
-                    <input type="hidden" name="subject" value="New Initiate Story Submission - Bristol Hearing Loss Initiative">
-                    <input type="hidden" name="from_name" value="Bristol HLI Website">
-                    <input type="checkbox" name="botcheck" style="display: none;">
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-                    <input type="text" name="name" placeholder="First Name or Pseudonym (Optional)">
-                    <span class="form-hint">Leave blank to remain 100% anonymous.</span>
-                    
-                    <input type="email" name="email" placeholder="Email Address (Optional & Private)">
-                    <span class="form-hint">We will never publish your email. We only use this if we need to contact you privately.</span>
-                    
-                    <textarea name="story" rows="6" placeholder="Tell us about your experience..." required></textarea>
-                    
-                    <button type="submit" id="story-submit-btn" style="background: #005EB8; color: white; border: none; padding: 15px 30px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 10px rgba(0, 94, 184, 0.3);">
-                        Submit Story Securely
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <h2 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 50px;">Stories from our Initiates</h2>
-        
-        <div class="testimonial-card">
-            <h3 style="margin-top: 0; color: #005EB8;">Anonymous</h3>
-            <p style="line-height: 1.6; font-size: 1.05rem; color: #444;">
-                "I denied my hearing loss for years. Getting my first hearing aid at St. Michael's felt like admitting defeat, but it actually gave me my life back. To anyone hesitating: make the appointment. It's worth it."
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">auto_stories</span>
+                Initiate Stories
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Hearing loss is a deeply personal journey, but you don't have to walk it alone. Read stories from our Initiates across the Bristol community, or share your own experience to inspire others.
             </p>
         </div>
-        
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
+
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Stories from our Initiates -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">forum</span> 1. Stories from our Initiates</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="testimonial-card">
+                        <h3 style="margin-top: 0; color: #005EB8; font-size: 1.15rem; margin-bottom: 6px;">Anonymous Initiate</h3>
+                        <p style="line-height: 1.6; font-size: 1rem; color: #334155; margin: 0;">
+                            "I denied my hearing loss for years. Getting my first hearing aid at St. Michael's felt like admitting defeat, but it actually gave me my life back. To anyone hesitating: make the appointment. It's worth it."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 2: Share Your Initiate Story Safely -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">edit_note</span> 2. Share Your Initiate Story Safely</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div id="story-form-container">
+                        <div id="story-form">
+                            <h3 style="margin-top: 0; color: #0f172a; font-size: 1.2rem; margin-bottom: 8px;">Share Your Experience</h3>
+                            <p style="margin-bottom: 16px; color: #475569; line-height: 1.5; font-size: 0.95rem;">
+                                <strong>Your privacy is our priority.</strong> All stories are submitted securely to our team and held for review before being published. You can remain completely anonymous if you prefer.
+                            </p>
+                            
+                            <form id="community-story-form" action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="5e8c0ecb-4814-4029-9117-7bcfce550aea">
+                                <input type="hidden" name="subject" value="New Initiate Story Submission - Bristol Hearing Loss Initiative">
+                                <input type="hidden" name="from_name" value="Bristol HLI Website">
+                                <input type="checkbox" name="botcheck" style="display: none;">
+
+                                <input type="text" name="name" placeholder="First Name or Pseudonym (Optional)">
+                                <span class="form-hint">Leave blank to remain 100% anonymous.</span>
+                                
+                                <input type="email" name="email" placeholder="Email Address (Optional &amp; Private)">
+                                <span class="form-hint">We will never publish your email. We only use this if we need to contact you privately.</span>
+                                
+                                <textarea name="story" rows="5" placeholder="Tell us about your experience..." required></textarea>
+                                
+                                <button type="submit" id="story-submit-btn" style="background: #005EB8; color: white; border: none; padding: 12px 24px; font-size: 1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 8px;">
+                                    <span class="material-symbols-outlined">send</span> Submit Story Securely
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
             </a>
         </nav>
-    </div>
+    </main>
 
     <script>
         const storyForm = document.getElementById('community-story-form');
@@ -93,11 +125,11 @@
                         const formDiv = document.getElementById('story-form-container');
                         if (formDiv) {
                             formDiv.innerHTML = `
-                                <div style="background: #e8f5e9; color: #2e7d32; padding: 30px; border-radius: 15px; border: 1px solid #c8e6c9; text-align: center; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.1);">
-                                    <div style="font-size: 3rem; margin-bottom: 10px;">✓</div>
-                                    <h3 style="margin-top: 0;">Thank You!</h3>
-                                    <p style="font-size: 1.1rem;">Your story has been submitted securely and emailed to our team for review.</p>
-                                    <a href="path-community-stories.html" style="display: inline-block; margin-top: 15px; color: #2e7d32; text-decoration: underline;">Submit another story</a>
+                                <div style="background: #e8f5e9; color: #2e7d32; padding: 24px; border-radius: 14px; border: 1px solid #c8e6c9; text-align: center; margin-top: 10px;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 8px;">✓</div>
+                                    <h3 style="margin-top: 0; font-size: 1.2rem;">Thank You!</h3>
+                                    <p style="font-size: 1rem; margin: 0 0 10px 0;">Your story has been submitted securely and emailed to our team for review.</p>
+                                    <a href="path-community-stories.html" style="color: #2e7d32; font-weight: 700; text-decoration: underline;">Submit another story</a>
                                 </div>
                             `;
                         }
@@ -111,8 +143,6 @@
             });
         }
     </script>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>
-
-

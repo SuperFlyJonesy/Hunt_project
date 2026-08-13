@@ -3,418 +3,233 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Bristol Directory & Resources - Hearing Loss Initiative</title>
+    <title>Bristol Local Directory &amp; Resources - Hearing Loss Initiative</title>
     <meta name="description" content="Bristol Deaf and hard-of-hearing local service directory, contact details, Patreon signup guide, and venue checklists.">
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #fdfdfd; color: #222; margin: 0; padding: 0; }
-        .content { max-width: 980px; margin: 0 auto; padding: 40px 20px; }
-
-        .header-section { text-align: center; margin-bottom: 35px; }
-        .header-section h1 { color: #005EB8; font-size: 2.5rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -1px; }
-        .header-section p { color: #555; font-size: 1.15rem; max-width: 780px; margin: 0 auto; line-height: 1.6; }
-
-        .section-title {
-            color: #005EB8;
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-
-        /* Directory Cards System */
-        .directory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: 24px;
-            margin-bottom: 45px;
-        }
-        .directory-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 28px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            border-left: 6px solid #1b5e20;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .directory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; margin-top: 15px; }
+        @media (max-width: 768px) { .directory-grid { grid-template-columns: 1fr; } }
+        .directory-card { background: #ffffff; border-radius: 18px; padding: 22px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; border-left: 6px solid #005EB8; display: flex; flex-direction: column; justify-content: space-between; }
         .directory-card.pink-accent { border-left-color: #ff0f5b; }
-        .directory-card.blue-accent { border-left-color: #005EB8; }
+        .directory-card.green-accent { border-left-color: #1b5e20; }
         .directory-card.purple-accent { border-left-color: #7B1FA2; }
-        .directory-card.amber-accent { border-left-color: #F57C00; }
-
-        .directory-card h3 { font-size: 1.4rem; font-weight: 800; color: #1e293b; margin: 0 0 10px 0; }
-        .directory-card p { font-size: 1rem; color: #475569; line-height: 1.6; margin-bottom: 18px; }
-
-        .contact-info-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
-        .contact-info-list li {
-            font-size: 0.95rem;
-            color: #334155;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            line-height: 1.5;
-        }
-        .contact-info-list .material-symbols-outlined {
-            font-size: 1.2rem;
-            color: #005EB8;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .contact-info-list a {
-            color: #005EB8;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-        .contact-info-list a:hover { color: #ff0f5b; }
-
-        .site-link-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-decoration: none;
-            color: #ffffff;
-            background: #005EB8;
-            box-shadow: 0 4px 12px rgba(0, 94, 184, 0.2);
-            transition: all 0.2s ease;
-            width: fit-content;
-        }
-        .site-link-btn:hover {
-            background: #ff0f5b;
-            box-shadow: 0 6px 16px rgba(255, 15, 91, 0.3);
-            transform: translateY(-2px);
-        }
-
-        /* Drop-in Box */
-        .dropin-box {
-            background: #f0f7ff;
-            border-radius: 12px;
-            padding: 14px 18px;
-            border: 1px solid #bfdbfe;
-            margin-bottom: 16px;
-        }
-        .dropin-box h4 { margin: 0 0 6px 0; color: #005EB8; font-size: 0.95rem; font-weight: 800; }
-        .dropin-box p { margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.45; }
-
-        /* Downloads Section */
-        .downloads-container {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border: 1px solid #e2e8f0;
-            border-left: 6px solid #1b5e20;
-            margin-bottom: 35px;
-        }
-        .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .download-card-item {
-            background: #f8fafc;
-            border-radius: 14px;
-            padding: 20px;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-        }
-        .download-card-item.patreon-exclusive {
-            border: 2px solid #ff0f5b;
-            background: #fffcfd;
-        }
-        .member-badge {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: #ff0f5b;
-            color: #ffffff;
-            font-size: 0.725rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            padding: 3px 12px;
-            border-radius: 10px;
-        }
-        .download-card-item h4 { font-size: 1.1rem; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; }
-        .download-card-item p { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin: 0 0 16px 0; }
-        
-        .dl-actions { display: flex; gap: 10px; }
-        .dl-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 10px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: white;
-            background: #005EB8;
-            flex: 1;
-            text-align: center;
-        }
+        .directory-card h3 { font-size: 1.25rem; font-weight: 800; color: #1e293b; margin: 0 0 8px 0; }
+        .directory-card p { font-size: 0.95rem; color: #475569; line-height: 1.55; margin-bottom: 14px; }
+        .contact-info-list { list-style: none; padding: 0; margin: 0 0 16px 0; }
+        .contact-info-list li { font-size: 0.9rem; color: #334155; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.45; }
+        .contact-info-list .material-symbols-outlined { font-size: 1.15rem; color: #005EB8; flex-shrink: 0; margin-top: 2px; }
+        .contact-info-list a { color: #005EB8; text-decoration: underline; font-weight: 600; }
+        .site-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; text-decoration: none; color: #ffffff; background: #005EB8; width: fit-content; transition: all 0.2s ease; }
+        .site-link-btn:hover { background: #ff0f5b; transform: translateY(-2px); }
+        .dropin-box { background: #f0f7ff; border-radius: 12px; padding: 12px 16px; border: 1px solid #bfdbfe; margin-bottom: 14px; }
+        .dropin-box h4 { margin: 0 0 4px 0; color: #005EB8; font-size: 0.9rem; font-weight: 800; }
+        .dropin-box p { margin: 0 0 4px 0; font-size: 0.85rem; color: #334155; line-height: 1.4; }
+        .dropin-box p:last-child { margin-bottom: 0; }
+        .downloads-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 15px; }
+        .download-card-item { background: #f8fafc; border-radius: 14px; padding: 18px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+        .download-card-item.patreon-exclusive { border: 2px solid #ff0f5b; background: #fffcfd; }
+        .member-badge { position: absolute; top: -10px; right: 12px; background: #ff0f5b; color: #ffffff; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 10px; border-radius: 10px; }
+        .download-card-item h4 { font-size: 1.05rem; font-weight: 800; color: #1e293b; margin: 0 0 6px 0; }
+        .download-card-item p { font-size: 0.88rem; color: #64748b; line-height: 1.45; margin: 0 0 14px 0; }
+        .dl-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+        .dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 8px 14px; border-radius: 16px; font-size: 0.82rem; font-weight: 700; text-decoration: none; color: white; background: #005EB8; flex: 1; text-align: center; }
         .dl-btn.green-btn { background: #1b5e20; }
         .dl-btn.pink-btn { background: #ff0f5b; }
-        .dl-btn:hover { opacity: 0.9; }
-
-        @media (max-width: 768px) {
-            .content { padding: 20px 14px; }
-            .header-section h1 { font-size: 2rem; }
-            .directory-grid { grid-template-columns: 1fr; }
-        }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 10px; right: 20px; z-index: 999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-    <header class="top-nav" style="padding: 1rem 0; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <a href="index.html" aria-label="Go to homepage">
-            <img src="HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.5); transform-origin: center; margin: 40px auto 50px auto; display: block;">
-        </a>
-    </header>
+    <main class="container" id="main-content">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">folder_open</span>
+                Bristol Local Directory &amp; Resources
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Connect directly with local support organisations, sensory services, family charities, and Patreon member guides across Bristol.
+            </p>
+        </div>
 
-    <main class="content" id="main-content">
-        <!-- Header Section -->
-        <section class="header-section">
-            <h1>Bristol Local Directory & Resources</h1>
-            <p>Connect directly with local support organisations, sensory services, family charities, and Patreon member guides across Bristol.</p>
-        </section>
-
-
-
-        <!-- SECTION 1: MAIN LOCAL DIRECTORY (ADULT & GENERAL SUPPORT) -->
-        <section>
-            <h2 class="section-title">
-                <span class="material-symbols-outlined">domain</span> Adult & Local Community Support
-            </h2>
-
-            <div class="directory-grid">
-                <!-- Org 1: CfD -->
-                <article class="directory-card blue-accent">
-                    <div>
-                        <h3>Centre for Deaf and Hard of Hearing People (CfD)</h3>
-                        <p>A community-based charity providing equipment assessments, resource rooms, BSL support, and weekly community groups in Bristol.</p>
-                        
-                        <ul class="contact-info-list">
-                            <li><span class="material-symbols-outlined">call</span> <strong>Office Phone:</strong> <a href="tel:01179398653">0117 939 8653</a></li>
-                            <li><span class="material-symbols-outlined">devices</span> <strong>Equipment Line:</strong> <a href="tel:03459007830">0345 900 7830</a></li>
-                            <li><span class="material-symbols-outlined">sms</span> <strong>SMS / WhatsApp:</strong> <a href="sms:07545264840">07545 264 840</a></li>
-                            <li><span class="material-symbols-outlined">location_on</span> <strong>Address:</strong> Vassall Centre, Gill Avenue, Bristol BS16 2QQ</li>
-                        </ul>
-                    </div>
-                    <a href="https://cfd.org.uk" target="_blank" rel="noopener" class="site-link-btn">
-                        <span class="material-symbols-outlined">open_in_new</span> Visit cfd.org.uk Website
-                    </a>
-                </article>
-
-                <!-- Org 2: Bristol City Council Sensory Support -->
-                <article class="directory-card pink-accent">
-                    <div>
-                        <h3 style="color: #ff0f5b;">Bristol City Council – Sensory Support (Adults)</h3>
-                        <p>Provides advice, rehabilitation, equipment referrals, and Care Act assessments for Deaf and hard-of-hearing adults across Bristol.</p>
-                        
-                        <div class="dropin-box">
-                            <h4>📅 Weekly Drop-in Sessions:</h4>
-                            <p><strong>Wednesdays (1:30–3:30 pm):</strong> CfD Vassall Centre (BS16 2QQ)</p>
-                            <p><strong>Fridays (1:30–3:30 pm):</strong> Bedminster Library (BS3 4AQ)</p>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Adult & Local Community Support -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">domain</span> 1. Adult &amp; Local Community Support</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="directory-grid">
+                        <!-- Org 1: CfD -->
+                        <div class="directory-card">
+                            <div>
+                                <h3>Centre for Deaf and Hard of Hearing People (CfD)</h3>
+                                <p>A community-based charity providing equipment assessments, resource rooms, BSL support, and weekly community groups in Bristol.</p>
+                                
+                                <ul class="contact-info-list">
+                                    <li><span class="material-symbols-outlined">call</span> <strong>Office Phone:</strong> <a href="tel:01179398653">0117 939 8653</a></li>
+                                    <li><span class="material-symbols-outlined">devices</span> <strong>Equipment Line:</strong> <a href="tel:03459007830">0345 900 7830</a></li>
+                                    <li><span class="material-symbols-outlined">sms</span> <strong>SMS / WhatsApp:</strong> <a href="sms:07545264840">07545 264 840</a></li>
+                                    <li><span class="material-symbols-outlined">location_on</span> <strong>Address:</strong> Vassall Centre, Gill Avenue, Bristol BS16 2QQ</li>
+                                </ul>
+                            </div>
+                            <a href="https://cfd.org.uk" target="_blank" rel="noopener noreferrer" class="site-link-btn">
+                                <span class="material-symbols-outlined">open_in_new</span> Visit cfd.org.uk Website
+                            </a>
                         </div>
 
-                        <ul class="contact-info-list">
-                            <li><span class="material-symbols-outlined">mail</span> <strong>Email:</strong> <a href="mailto:sensory.impairment@bristol.gov.uk">sensory.impairment@bristol.gov.uk</a></li>
-                            <li><span class="material-symbols-outlined">sms</span> <strong>SMS:</strong> <a href="sms:07775646671">07775 646 671</a></li>
-                            <li><span class="material-symbols-outlined">videocam</span> <strong>Video Support:</strong> Zoom appointments available for BSL users</li>
-                        </ul>
-                    </div>
-                    <a href="https://www.bristol.gov.uk/social-care-health/sensory-impairment-service" target="_blank" rel="noopener" class="site-link-btn" style="background: #ff0f5b;">
-                        <span class="material-symbols-outlined">open_in_new</span> Visit Bristol Council Portal
-                    </a>
-                </article>
+                        <!-- Org 2: Bristol City Council Sensory Support -->
+                        <div class="directory-card pink-accent">
+                            <div>
+                                <h3 style="color: #ff0f5b;">Bristol City Council – Sensory Support (Adults)</h3>
+                                <p>Provides advice, rehabilitation, equipment referrals, and Care Act assessments for Deaf and hard-of-hearing adults across Bristol.</p>
+                                
+                                <div class="dropin-box">
+                                    <h4>📅 Weekly Drop-in Sessions:</h4>
+                                    <p><strong>Wednesdays (1:30–3:30 pm):</strong> CfD Vassall Centre (BS16 2QQ)</p>
+                                    <p><strong>Fridays (1:30–3:30 pm):</strong> Bedminster Library (BS3 4AQ)</p>
+                                </div>
 
-                <!-- Org 3: HISS Bristol -->
-                <article class="directory-card green-accent" style="border-left: 5px solid #1b5e20;">
-                    <div>
-                        <h3 style="color: #1b5e20;">Hearing Impaired Support Scheme (HISS Bristol)</h3>
-                        <p>A Bristol registered charity working in partnership with UHBW NHS Audiology. Trained volunteers (many who use hearing aids themselves) provide home visits for elderly or housebound NHS hearing aid users to assist with retubing, cleaning, battery supply, and advice.</p>
-                        
-                        <div class="dropin-box" style="background: #f0fdf4; border-color: #bbf7d0;">
-                            <h4 style="color: #166534;">🏠 Home Visit Maintenance & Referral:</h4>
-                            <p style="color: #15803d;">Provides free home visits for UHBW NHS hearing aid users unable to attend clinic due to mobility, age, or disability.</p>
+                                <ul class="contact-info-list">
+                                    <li><span class="material-symbols-outlined" style="color: #ff0f5b;">mail</span> <strong>Email:</strong> <a href="mailto:sensory.impairment@bristol.gov.uk">sensory.impairment@bristol.gov.uk</a></li>
+                                    <li><span class="material-symbols-outlined" style="color: #ff0f5b;">sms</span> <strong>SMS:</strong> <a href="sms:07775646671">07775 646 671</a></li>
+                                    <li><span class="material-symbols-outlined" style="color: #ff0f5b;">videocam</span> <strong>Video Support:</strong> Zoom appointments available for BSL users</li>
+                                </ul>
+                            </div>
+                            <a href="https://www.bristol.gov.uk/social-care-health/sensory-impairment-service" target="_blank" rel="noopener noreferrer" class="site-link-btn" style="background: #ff0f5b;">
+                                <span class="material-symbols-outlined">open_in_new</span> Visit Bristol Council Portal
+                            </a>
                         </div>
 
-                        <ul class="contact-info-list">
-                            <li><span class="material-symbols-outlined">call</span> <strong>Referral:</strong> Contact UHBW Audiology for HISS referral</li>
-                            <li><span class="material-symbols-outlined">home</span> <strong>Services:</strong> Free Home Tube Replacement, Cleaning & Battery Support</li>
-                        </ul>
-                    </div>
-                    <a href="https://hissbristol.org.uk/" target="_blank" rel="noopener" class="site-link-btn" style="background: #1b5e20;">
-                        <span class="material-symbols-outlined">open_in_new</span> Visit HISS Bristol Website
-                    </a>
-                </article>
-            </div>
-        </section>
+                        <!-- Org 3: HISS Bristol -->
+                        <div class="directory-card green-accent">
+                            <div>
+                                <h3 style="color: #1b5e20;">Hearing Impaired Support Scheme (HISS Bristol)</h3>
+                                <p>A Bristol registered charity working in partnership with UHBW NHS Audiology. Trained volunteers (many who use hearing aids themselves) provide home visits for elderly or housebound NHS hearing aid users to assist with retubing, cleaning, battery supply, and advice.</p>
+                                
+                                <div class="dropin-box" style="background: #f0fdf4; border-color: #bbf7d0;">
+                                    <h4 style="color: #166534;">🏠 Home Visit Maintenance &amp; Referral:</h4>
+                                    <p style="color: #15803d;">Provides free home visits for UHBW NHS hearing aid users unable to attend clinic due to mobility, age, or disability.</p>
+                                </div>
 
-        <!-- SECTION 2: CHILDREN & FAMILIES DIRECTORY -->
-        <section>
-            <h2 class="section-title" style="color: #ff0f5b;">
-                <span class="material-symbols-outlined">family_restroom</span> Children, Youth & Family Resources
-            </h2>
-
-            <div class="directory-grid">
-                <!-- Org 3: Sensory Support Children -->
-                <article class="directory-card purple-accent">
-                    <div>
-                        <h3>Sensory Support Service (Children & Families)</h3>
-                        <p>Education-focused specialist support for children and young people with hearing loss. Host of the <em>Acorns Early Years Group</em> (ages 0–5).</p>
-                        
-                        <ul class="contact-info-list">
-                            <li><span class="material-symbols-outlined">call</span> <strong>Phone:</strong> <a href="tel:01179038441">0117 903 8441</a> / 8442 / 8443</li>
-                            <li><span class="material-symbols-outlined">location_on</span> <strong>Address:</strong> Elmfield House, Greystoke Ave, Westbury-on-Trym, Bristol BS10 6AY</li>
-                        </ul>
-                    </div>
-                    <a href="http://sensorysupportservice.org.uk/" target="_blank" rel="noopener" class="site-link-btn" style="background: #7B1FA2;">
-                        <span class="material-symbols-outlined">open_in_new</span> Visit Sensory Support Website
-                    </a>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- SECTION 3: DOWNLOADABLE GUIDES & CHECKLISTS -->
-        <section class="downloads-container">
-            <h2 style="color: #005EB8; margin-top: 0; font-size: 1.5rem; font-weight: 800;">Community PDF Guides & Member Checklists</h2>
-            <p style="color: #64748b; margin-bottom: 20px;">Access our free articles or unlock Patreon member-exclusive checklists:</p>
-
-            <div class="downloads-grid">
-                <!-- Resource 1: Gold Standard Checklist (PATREON ONLY EXCLUSIVE) -->
-                <div class="download-card-item patreon-exclusive">
-                    <span class="member-badge">🔒 Patreon Members Only</span>
-                    <h4 style="color: #ff0f5b; margin-top: 8px;">Hearing Loss Gold Standard Checklist</h4>
-                    <p>Official 3-point venue accessibility checklist for hearing loops, deaf-aware staff, and acoustic management. <strong>Patreon member perk.</strong></p>
-                    <div class="dl-actions">
-                        <a href="path-join-us.html" class="dl-btn pink-btn">
-                            <span class="material-symbols-outlined">lock</span> Join Patreon to Unlock (From £3/mo)
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Resource 2: Auracast Broadcast Audio Article -->
-                <div class="download-card-item">
-                    <h4>Auracast Broadcast Audio Article</h4>
-                    <p>Technical guide on Bluetooth Auracast public broadcast audio in venues and transit stations.</p>
-                    <div class="dl-actions">
-                        <a href="Contents/auracast_article.pdf" target="_blank" rel="noopener" class="dl-btn">View Online</a>
-                        <a href="Contents/auracast_article.pdf" download class="dl-btn green-btn">Download PDF</a>
-                    </div>
-                </div>
-
-                <!-- Resource 3: Audiology & Hearing Loss Summary -->
-                <div class="download-card-item">
-                    <h4>Audiology & Hearing Loss Summary</h4>
-                    <p>Clinical audiology guide covering audiogram interpretation, NHS aids, and hearing therapy.</p>
-                    <div class="dl-actions">
-                        <a href="Contents/Simon - Audiology and hearing loss.pdf" target="_blank" rel="noopener" class="dl-btn">View Online</a>
-                        <a href="Contents/Simon - Audiology and hearing loss.pdf" download class="dl-btn green-btn">Download PDF</a>
-                    </div>
-                <!-- Resource 4: How to Sign Up on Patreon Guide -->
-                <div class="download-card-item">
-                    <h4>Patreon Signup Step-by-Step Guide</h4>
-                    <p>Visual 4-step walkthrough on how to select a tier, create an account, and complete secure checkout on Patreon.</p>
-                    <div class="dl-actions">
-                        <a href="path-join-us.html#patreon-signup-guide" class="dl-btn">View Guide Online</a>
-                        <a href="Contents/patreon-signup-step-by-step-guide.pdf" download class="dl-btn green-btn">Download PDF</a>
+                                <ul class="contact-info-list">
+                                    <li><span class="material-symbols-outlined" style="color: #1b5e20;">call</span> <strong>Referral:</strong> Contact UHBW Audiology for HISS referral</li>
+                                    <li><span class="material-symbols-outlined" style="color: #1b5e20;">home</span> <strong>Services:</strong> Free Home Tube Replacement, Cleaning &amp; Battery Support</li>
+                                </ul>
+                            </div>
+                            <a href="https://hissbristol.org.uk/" target="_blank" rel="noopener noreferrer" class="site-link-btn" style="background: #1b5e20;">
+                                <span class="material-symbols-outlined">open_in_new</span> Visit HISS Bristol Website
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Standardized Back to Journey Button -->
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
+            <!-- ACCORDION 2: Children, Youth & Family Resources -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">family_restroom</span> 2. Children, Youth &amp; Family Resources</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="directory-grid">
+                        <div class="directory-card purple-accent">
+                            <div>
+                                <h3 style="color: #7B1FA2;">Sensory Support Service (Children &amp; Families)</h3>
+                                <p>Education-focused specialist support for children and young people with hearing loss. Host of the <em>Acorns Early Years Group</em> (ages 0–5).</p>
+                                
+                                <ul class="contact-info-list">
+                                    <li><span class="material-symbols-outlined" style="color: #7B1FA2;">call</span> <strong>Phone:</strong> <a href="tel:01179038441">0117 903 8441</a> / 8442 / 8443</li>
+                                    <li><span class="material-symbols-outlined" style="color: #7B1FA2;">location_on</span> <strong>Address:</strong> Elmfield House, Greystoke Ave, Westbury-on-Trym, Bristol BS10 6AY</li>
+                                </ul>
+                            </div>
+                            <a href="http://sensorysupportservice.org.uk/" target="_blank" rel="noopener noreferrer" class="site-link-btn" style="background: #7B1FA2;">
+                                <span class="material-symbols-outlined">open_in_new</span> Visit Sensory Support Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: Downloadable Guides & Member Checklists -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">download</span> 3. Community PDF Guides &amp; Member Checklists</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="color: #475569; margin: 0 0 16px 0; font-size: 0.95rem;">Access our free articles or unlock Patreon member-exclusive checklists:</p>
+
+                    <div class="downloads-grid">
+                        <!-- Resource 1: Gold Standard Checklist (PATREON ONLY EXCLUSIVE) -->
+                        <div class="download-card-item patreon-exclusive">
+                            <span class="member-badge">🔒 Patreon Members Only</span>
+                            <h4 style="color: #ff0f5b; margin-top: 8px;">Hearing Loss Gold Standard Checklist</h4>
+                            <p>Official 3-point venue accessibility checklist for hearing loops, deaf-aware staff, and acoustic management. <strong>Patreon member perk.</strong></p>
+                            <div class="dl-actions">
+                                <a href="path-join-us.html" class="dl-btn pink-btn">
+                                    <span class="material-symbols-outlined">lock</span> Join Patreon to Unlock (From £3/mo)
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Resource 2: Auracast Broadcast Audio Article -->
+                        <div class="download-card-item">
+                            <h4>Auracast Broadcast Audio Article</h4>
+                            <p>Technical guide on Bluetooth Auracast public broadcast audio in venues and transit stations.</p>
+                            <div class="dl-actions">
+                                <a href="Contents/auracast_article.pdf" target="_blank" rel="noopener noreferrer" class="dl-btn">View Online</a>
+                                <a href="Contents/auracast_article.pdf" download class="dl-btn green-btn">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <!-- Resource 3: Audiology & Hearing Loss Summary -->
+                        <div class="download-card-item">
+                            <h4>Audiology &amp; Hearing Loss Summary</h4>
+                            <p>Clinical audiology guide covering audiogram interpretation, NHS aids, and hearing therapy.</p>
+                            <div class="dl-actions">
+                                <a href="Contents/Simon - Audiology and hearing loss.pdf" target="_blank" rel="noopener noreferrer" class="dl-btn">View Online</a>
+                                <a href="Contents/Simon - Audiology and hearing loss.pdf" download class="dl-btn green-btn">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <!-- Resource 4: How to Sign Up on Patreon Guide -->
+                        <div class="download-card-item">
+                            <h4>Patreon Signup Step-by-Step Guide</h4>
+                            <p>Visual 4-step walkthrough on how to select a tier, create an account, and complete secure checkout on Patreon.</p>
+                            <div class="dl-actions">
+                                <a href="path-join-us.html#patreon-signup-guide" class="dl-btn">View Guide Online</a>
+                                <a href="Contents/patreon-signup-step-by-step-guide.pdf" download class="dl-btn green-btn">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
             </a>
         </nav>
     </main>
 
-    <!-- Volume Control Widget -->
-    <aside id="volume-control-container" aria-label="Audio Controls" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
-        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;" aria-label="Background audio volume">
-    </aside>
-
-    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop></audio>
-    <div class="page-transition-overlay"></div>
-
-    <script src="script.js?v=1.4"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const audio = document.getElementById('bg-noise');
-            const volumeSlider = document.getElementById('volume-slider');
-            const volumeIcon = document.getElementById('volume-icon');
-
-            const savedVolume = localStorage.getItem('bgVolume') || 0.15;
-            const savedMuted = localStorage.getItem('bgMuted') === 'true';
-
-            if (audio) {
-                audio.volume = savedVolume;
-                audio.muted = savedMuted;
-            }
-            if (volumeSlider) volumeSlider.value = savedVolume;
-
-            if (volumeIcon) {
-                volumeIcon.textContent = savedMuted ? 'volume_off' : (savedVolume < 0.3 ? 'volume_down' : 'volume_up');
-            }
-
-            if (volumeSlider && volumeIcon) {
-                volumeSlider.addEventListener('input', (e) => {
-                    const val = e.target.value;
-                    if (audio) {
-                        audio.volume = val;
-                        if (audio.muted) audio.muted = false;
-                    }
-                    localStorage.setItem('bgVolume', val);
-                    localStorage.setItem('bgMuted', 'false');
-
-                    if (val == 0) volumeIcon.textContent = 'volume_off';
-                    else if (val < 0.3) volumeIcon.textContent = 'volume_down';
-                    else volumeIcon.textContent = 'volume_up';
-                });
-
-                volumeIcon.addEventListener('click', () => {
-                    if (audio) {
-                        audio.muted = !audio.muted;
-                        localStorage.setItem('bgMuted', audio.muted);
-                        volumeIcon.textContent = audio.muted ? 'volume_off' : (volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

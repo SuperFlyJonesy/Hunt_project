@@ -4,232 +4,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Step-by-step walkthrough of pure tone audiometry, speech recognition, and tympanometry during an NHS hearing assessment.">
     <meta charset="UTF-8">
-    <title>Clinical Hearing Tests & Audiograms Guide - Hearing Loss Initiative</title>
+    <title>Clinical Hearing Tests &amp; Audiograms Guide - Hearing Loss Initiative</title>
     <link rel="stylesheet" href="styles.css?v=8.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; margin-bottom: 20px; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
         .step-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
         @media (max-width: 768px) { .step-grid { grid-template-columns: 1fr; } }
         .step-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 14px; }
         .symbol-badge { display: inline-block; padding: 4px 10px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; }
+        .info-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; margin-top: 15px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
     
-    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center;">Clinical Hearing Tests & Audiograms Guide</h1>
-        <p style="font-size: 1.1rem; color: #475569; text-align: center; max-width: 750px; margin-bottom: 30px;">
-            Everything you need to know about what happens during an NHS or private audiology appointment, how pure-tone testing works, and how to read your personal audiogram.
-        </p>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">clinical_notes</span>
+                Clinical Hearing Tests &amp; Audiograms Guide
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Everything you need to know about what happens during an NHS or private audiology appointment, how pure-tone testing works, and how to read your personal audiogram.
+            </p>
+        </div>
 
-        <!-- Card 1: What Happens During a Hearing Test -->
+        <!-- Progressive Disclosure Accordion Container -->
         <div class="accordion-container">
-      <div class="accordion-item active">
-        <button class="accordion-header">
-          <span><span class="material-symbols-outlined" style="font-size: 2rem;">clinical_notes</span> What Happens During a Clinical Hearing Test?</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                A professional audiology test is completely painless and usually takes between 30 to 60 minutes. Here are the 5 core steps performed by NHS UHBW audiologists:
-            </p>
+            
+            <!-- ACCORDION 1: What Happens During a Test -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">clinical_notes</span> 1. What Happens During a Clinical Hearing Test?</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        A professional audiology test is completely painless and usually takes between 30 to 60 minutes. Here are the 5 core steps performed by NHS UHBW audiologists:
+                    </p>
 
-            <div class="step-grid">
-                <div class="step-card">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">1. Otoscopy Wax Inspection</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">The audiologist examines inside your ear canal with a lighted otoscope to ensure your ear canals are clear of impacted earwax or infection.</p>
-                </div>
-                <div class="step-card">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">2. Pure-Tone Audiometry (PTA)</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">Seated in a soundproof booth wearing headphones, you press a button whenever you hear tones ranging from low bass (250 Hz) to high treble (8000 Hz).</p>
-                </div>
-                <div class="step-card">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">3. Bone Conduction Testing</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">A small vibrating pad is placed behind your ear bone to send sound directly to your inner ear cochlea, distinguishing nerve loss from middle ear blockages.</p>
-                </div>
-                <div class="step-card">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">4. Speech Recognition Testing</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">You repeat words spoken at comfortable and quiet levels to measure how clearly your brain processes speech in quiet and background noise.</p>
+                    <div class="step-grid">
+                        <div class="step-card">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">1. Otoscopy Wax Inspection</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">The audiologist examines inside your ear canal with a lighted otoscope to ensure your ear canals are clear of impacted earwax or infection.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">2. Pure-Tone Audiometry (PTA)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">Seated in a soundproof booth wearing headphones, you press a button whenever you hear tones ranging from low bass (250 Hz) to high treble (8000 Hz).</p>
+                        </div>
+                        <div class="step-card">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">3. Bone Conduction Testing</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">A small vibrating pad is placed behind your ear bone to send sound directly to your inner ear cochlea, distinguishing nerve loss from middle ear blockages.</p>
+                        </div>
+                        <div class="step-card">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">4. Speech Recognition Testing</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">You repeat words spoken at comfortable and quiet levels to measure how clearly your brain processes speech in quiet and background noise.</p>
+                        </div>
+                    </div>
+
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 16px; border-radius: 14px; margin-top: 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">5. Real Ear Measurement (REM) Calibration</h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
+                            The gold standard of hearing aid fitting! A miniature silicone probe microphone is placed in your ear canal alongside your new hearing aid to calibrate output to your ear canal's exact physical shape.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 16px; border-radius: 14px; margin-top: 18px;">
-                <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">5. Real Ear Measurement (REM) Calibration</h4>
-                <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
-                    The gold standard of hearing aid fitting! A miniature silicone probe microphone is placed in your ear canal alongside your new hearing aid to calibrate output to your ear canal's exact physical shape.
-                </p>
+            <!-- ACCORDION 2: What is an Audiometer -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">graphic_eq</span> 2. What is an Audiometer &amp; How Does It Work?</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        An <strong>audiometer</strong> is the core diagnostic medical instrument used by audiologists during a hearing test to measure your precise hearing acuity across different frequencies and sound levels.
+                    </p>
+
+                    <div class="step-grid" style="margin-top: 15px;">
+                        <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">1. Pure Tone Sound Generator</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Produces pure acoustic sine-wave tones at specific pitch frequencies (from low 125 Hz bass to high 8000 Hz treble).</p>
+                        </div>
+                        <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">2. Precision Volume Attenuator</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Controls sound volume in precise 5 dB increments, from very faint whispers (-10 dB HL) up to loud levels (120 dB HL).</p>
+                        </div>
+                        <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">3. Air &amp; Bone Transducers</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Routes sounds independently to headphones (air conduction) or a vibrating oscillator on the mastoid bone (bone conduction).</p>
+                        </div>
+                        <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">4. Response Button &amp; Plotting</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">When you press the response switch upon hearing a tone, the audiometer records your quietest threshold and plots it onto your audiogram.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="background: #f3e8ff; border-color: #d8b4fe;">
+                        <p style="margin: 0; font-size: 0.92rem; color: #581c87; line-height: 1.5;">
+                            <strong>🔍 Clinical vs Screening Audiometers:</strong> Clinical audiometers used in NHS hospitals (like UHBW Bristol) include <em>narrow-band masking noise</em> to prevent the non-test ear from "helping" hear tones, ensuring 100% accurate results for each individual ear.
+                        </p>
+                    </div>
+                </div>
             </div>
+
+            <!-- ACCORDION 3: How to Read an Audiogram -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #00897B; margin-right: 8px;">analytics</span> 3. How to Read Your Audiogram Graph</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        An audiogram is a graph showing the softest sounds you can hear at different frequencies (pitches).
+                    </p>
+
+                    <div class="grid-2col">
+                        <div style="background: #f0fdfa; border: 1px solid #ccfbf1; padding: 14px; border-radius: 12px;">
+                            <h4 style="margin: 0 0 6px 0; color: #0f766e; font-weight: 800;">Horizontal Axis: Frequency (Hz)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #115e59; line-height: 1.5;">Runs from left to right like a piano keyboard. Low pitches (250 Hz - deep bass) on the left to high pitches (8000 Hz - whistle/birds) on the right.</p>
+                        </div>
+                        <div style="background: #f0fdfa; border: 1px solid #ccfbf1; padding: 14px; border-radius: 12px;">
+                            <h4 style="margin: 0 0 6px 0; color: #0f766e; font-weight: 800;">Vertical Axis: Loudness (dB HL)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #115e59; line-height: 1.5;">Runs from top to bottom. 0 dB (very quiet whisper) at the top down to 120 dB (painfully loud jet engine) at the bottom. Lower marks mean greater loss.</p>
+                        </div>
+                    </div>
+
+                    <h4 style="color: #1e293b; margin-top: 20px; margin-bottom: 10px;">Universal Audiogram Symbols:</h4>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                        <span class="symbol-badge" style="background: #fee2e2; color: #dc2626;">Red Circle (O) = Right Ear</span>
+                        <span class="symbol-badge" style="background: #dbeafe; color: #2563eb;">Blue Cross (X) = Left Ear</span>
+                        <span class="symbol-badge" style="background: #f1f5f9; color: #475569;">Bracket (&lt;) = Bone Conduction</span>
+                    </div>
+
+                    <!-- Severity Levels Table -->
+                    <div style="overflow-x: auto; margin-top: 10px;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: #f1f5f9;">
+                                    <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Hearing Loss Level</th>
+                                    <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Decibel Range (dB HL)</th>
+                                    <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Impact on Speech &amp; Sound</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 10px 12px; font-weight: 700; color: #16a34a; font-size: 0.85rem;">Normal Hearing</td>
+                                    <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">-10 to 20 dB</td>
+                                    <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Hears quiet whispers, clock ticking, and distant speech.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 10px 12px; font-weight: 700; color: #ca8a04; font-size: 0.85rem;">Mild Loss</td>
+                                    <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">20 to 40 dB</td>
+                                    <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Struggles with soft whispers and distant background noise.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 10px 12px; font-weight: 700; color: #ea580c; font-size: 0.85rem;">Moderate Loss</td>
+                                    <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">40 to 70 dB</td>
+                                    <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Difficulty understanding conversational speech without hearing aids.</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0;">
+                                    <td style="padding: 10px 12px; font-weight: 700; color: #dc2626; font-size: 0.85rem;">Severe Loss</td>
+                                    <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">70 to 90 dB</td>
+                                    <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Requires high-power hearing aids to hear loud voices or traffic.</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 12px; font-weight: 700; color: #7f1d1d; font-size: 0.85rem;">Profound Loss</td>
+                                    <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">90+ dB</td>
+                                    <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Relies on tactile vibration, sign language, or Cochlear Implants.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: BPPV Vestibular Assessment -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ea580c; margin-right: 8px;">sync</span> 4. Benign Paroxysmal Positional Vertigo (BPPV) Assessment</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        In addition to hearing tests, NHS Audiology departments (such as UHBW Bristol Vestibular Clinic) test for inner-ear balance disorders like <strong>Benign Paroxysmal Positional Vertigo (BPPV)</strong>.
+                    </p>
+
+                    <div style="background: #fff7ed; border: 1px solid #ffedd5; padding: 18px; border-radius: 14px; margin: 15px 0;">
+                        <h4 style="margin: 0 0 6px 0; color: #c2410c; font-size: 1.05rem; font-weight: 800;">What is BPPV?</h4>
+                        <p style="margin: 0; font-size: 0.95rem; color: #9a3412; line-height: 1.6;">
+                            BPPV occurs when tiny microscopic calcium carbonate crystals (otoconia) break loose from the inner ear balance organ and become trapped inside one of the fluid-filled semicircular canals. Turning your head or rolling over in bed causes the loose crystals to shift, sending false movement signals to your brain and triggering brief episodes of intense spinning dizziness (vertigo).
+                        </p>
+                    </div>
+
+                    <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 10px;">How Audiologists Test &amp; Treat BPPV:</h4>
+                    <div class="step-grid">
+                        <div class="step-card" style="background: #fff7ed; border-color: #fed7aa;">
+                            <h4 style="margin: 0 0 6px 0; color: #c2410c; font-weight: 800;">1. Dix-Hallpike Positional Test</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #9a3412; line-height: 1.5;">The audiologist guides you from sitting to lying flat with your head turned 45 degrees. If BPPV is present, this movement triggers brief involuntary eye flickering (nystagmus) and dizziness, pinpointing which ear canal is affected.</p>
+                        </div>
+                        <div class="step-card" style="background: #fff7ed; border-color: #fed7aa;">
+                            <h4 style="margin: 0 0 6px 0; color: #c2410c; font-weight: 800;">2. Epley Repositioning Manoeuvre</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #9a3412; line-height: 1.5;">Treatment can often happen during your appointment! The audiologist takes your head through a sequence of guided physical rotations to coax the loose crystals back out of the canal, resolving the spinning episodes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: Preparation Tips -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">checklist</span> 5. Preparation Tips Before Your Appointment</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <ul style="color: #334155; line-height: 1.6; font-size: 0.98rem; padding-left: 20px;">
+                        <li><strong>Rest Your Ears:</strong> Avoid loud concerts or power tools for 16 hours prior to testing to avoid temporary threshold shift.</li>
+                        <li><strong>Check for Wax:</strong> Ask your GP surgery or local pharmacy to inspect your ears; earwax must be removed before testing.</li>
+                        <li><strong>List Problem Settings:</strong> Write down specific Bristol venues, work meetings, or noisy family gatherings where hearing is hardest.</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <a href="path-hearing-aids-access.html" style="background: #005EB8; color: white; padding: 12px 24px; text-decoration: none; border-radius: 10px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                            <span class="material-symbols-outlined">hearing</span> View Bristol Hearing Aid Pathways &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Card 1.5: What is an Audiometer? -->
-        <div class="page-card" style="border-left-color: #7B1FA2; width: 100%;">
-            <h2 style="color: #7B1FA2; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">graphic_eq</span> What is an Audiometer & How Does It Work?
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                An <strong>audiometer</strong> is the core diagnostic medical instrument used by audiologists during a hearing test to measure your precise hearing acuity across different frequencies and sound levels.
-            </p>
-
-            <div class="step-grid" style="margin-top: 15px;">
-                <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">1. Pure Tone Sound Generator</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Produces pure acoustic sine-wave tones at specific pitch frequencies (from low 125 Hz bass to high 8000 Hz treble).</p>
-                </div>
-                <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">2. Precision Volume Attenuator</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Controls sound volume in precise 5 dB increments, from very faint whispers (-10 dB HL) up to loud levels (120 dB HL).</p>
-                </div>
-                <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">3. Air & Bone Transducers</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">Routes sounds independently to headphones (air conduction) or a vibrating oscillator on the mastoid bone (bone conduction).</p>
-                </div>
-                <div class="step-card" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">4. Response Button & Plotting</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">When you press the response switch upon hearing a tone, the audiometer records your quietest threshold and plots it onto your audiogram.</p>
-                </div>
-            </div>
-
-            <div style="background: #f3e8ff; border: 1px solid #d8b4fe; padding: 14px; border-radius: 12px; margin-top: 15px;">
-                <p style="margin: 0; font-size: 0.92rem; color: #581c87; line-height: 1.5;">
-                    <strong>🔍 Clinical vs Screening Audiometers:</strong> Clinical audiometers used in NHS hospitals (like UHBW Bristol) include <em>narrow-band masking noise</em> to prevent the non-test ear from "helping" hear tones, ensuring 100% accurate results for each individual ear.
-                </p>
-            </div>
-        </div>
-
-        <!-- Card 2: How to Read an Audiogram -->
-        <div class="page-card" style="border-left-color: #00897B; width: 100%;">
-            <h2 style="color: #00897B; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">graphic_eq</span> How to Read Your Audiogram Graph
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                An audiogram is a graph showing the softest sounds you can hear at different frequencies (pitches).
-            </p>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 15px 0;">
-                <div style="background: #f0fdfa; border: 1px solid #ccfbf1; padding: 14px; border-radius: 12px;">
-                    <h4 style="margin: 0 0 6px 0; color: #0f766e; font-weight: 800;">Horizontal Axis: Frequency (Hz)</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #115e59; line-height: 1.5;">Runs from left to right like a piano keyboard. Low pitches (250 Hz - deep bass) on the left to high pitches (8000 Hz - whistle/birds) on the right.</p>
-                </div>
-                <div style="background: #f0fdfa; border: 1px solid #ccfbf1; padding: 14px; border-radius: 12px;">
-                    <h4 style="margin: 0 0 6px 0; color: #0f766e; font-weight: 800;">Vertical Axis: Loudness (dB HL)</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #115e59; line-height: 1.5;">Runs from top to bottom. 0 dB (very quiet whisper) at the top down to 120 dB (painfully loud jet engine) at the bottom. Lower marks mean greater loss.</p>
-                </div>
-            </div>
-
-            <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 10px;">Universal Audiogram Symbols:</h4>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                <span class="symbol-badge" style="background: #fee2e2; color: #dc2626;">Red Circle (O) = Right Ear</span>
-                <span class="symbol-badge" style="background: #dbeafe; color: #2563eb;">Blue Cross (X) = Left Ear</span>
-                <span class="symbol-badge" style="background: #f1f5f9; color: #475569;">Bracket (<) = Bone Conduction</span>
-            </div>
-
-            <!-- Severity Levels Table -->
-            <div style="overflow-x: auto; margin-top: 20px;">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <thead>
-                        <tr style="background: #f1f5f9;">
-                            <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Hearing Loss Level</th>
-                            <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Decibel Range (dB HL)</th>
-                            <th style="padding: 10px 12px; text-align: left; font-weight: 800; font-size: 0.85rem;">Impact on Speech & Sound</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="padding: 10px 12px; font-weight: 700; color: #16a34a; font-size: 0.85rem;">Normal Hearing</td>
-                            <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">-10 to 20 dB</td>
-                            <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Hears quiet whispers, clock ticking, and distant speech.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 12px; font-weight: 700; color: #ca8a04; font-size: 0.85rem;">Mild Loss</td>
-                            <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">20 to 40 dB</td>
-                            <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Struggles with soft whispers and distant background noise.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 12px; font-weight: 700; color: #ea580c; font-size: 0.85rem;">Moderate Loss</td>
-                            <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">40 to 70 dB</td>
-                            <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Difficulty understanding conversational speech without hearing aids.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 12px; font-weight: 700; color: #dc2626; font-size: 0.85rem;">Severe Loss</td>
-                            <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">70 to 90 dB</td>
-                            <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Requires high-power hearing aids to hear loud voices or traffic.</td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px 12px; font-weight: 700; color: #7f1d1d; font-size: 0.85rem;">Profound Loss</td>
-                            <td style="padding: 10px 12px; color: #334155; font-size: 0.85rem;">90+ dB</td>
-                            <td style="padding: 10px 12px; color: #475569; font-size: 0.85rem;">Relies on tactile vibration, sign language, or Cochlear Implants.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Card: Benign Paroxysmal Positional Vertigo (BPPV) & Vestibular Testing -->
-        <div class="page-card" style="border-left-color: #ea580c; width: 100%;">
-            <h2 style="color: #ea580c; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">sync</span> Benign Paroxysmal Positional Vertigo (BPPV) Assessment
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                In addition to hearing tests, NHS Audiology departments (such as UHBW Bristol Vestibular Clinic) test for inner-ear balance disorders like <strong>Benign Paroxysmal Positional Vertigo (BPPV)</strong>.
-            </p>
-
-            <div style="background: #fff7ed; border: 1px solid #ffedd5; padding: 18px; border-radius: 14px; margin: 15px 0;">
-                <h4 style="margin: 0 0 6px 0; color: #c2410c; font-size: 1.05rem; font-weight: 800;">What is BPPV?</h4>
-                <p style="margin: 0; font-size: 0.95rem; color: #9a3412; line-height: 1.6;">
-                    BPPV occurs when tiny microscopic calcium carbonate crystals (otoconia) break loose from the inner ear balance organ and become trapped inside one of the fluid-filled semicircular canals. Turning your head or rolling over in bed causes the loose crystals to shift, sending false movement signals to your brain and triggering brief episodes of intense spinning dizziness (vertigo).
-                </p>
-            </div>
-
-            <h4 style="color: #1e293b; margin-top: 15px; margin-bottom: 10px;">How Audiologists Test & Treat BPPV:</h4>
-            <div class="step-grid">
-                <div class="step-card" style="background: #fff7ed; border-color: #fed7aa;">
-                    <h4 style="margin: 0 0 6px 0; color: #c2410c; font-weight: 800;">1. Dix-Hallpike Positional Test</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #9a3412; line-height: 1.5;">The audiologist guides you from sitting to lying flat with your head turned 45 degrees. If BPPV is present, this movement triggers brief involuntary eye flickering (nystagmus) and dizziness, pinpointing which ear canal is affected.</p>
-                </div>
-                <div class="step-card" style="background: #fff7ed; border-color: #fed7aa;">
-                    <h4 style="margin: 0 0 6px 0; color: #c2410c; font-weight: 800;">2. Epley Repositioning Maneuver</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #9a3412; line-height: 1.5;">Treatment can often happen during your appointment! The audiologist takes your head through a sequence of guided physical rotations to coax the loose crystals back out of the canal, resolving the spinning episodes.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3: Preparation Tips -->
-        <div class="page-card" style="border-left-color: #1b5e20; width: 100%;">
-            <h2 style="color: #1b5e20; margin-top: 0;">Preparation Tips Before Your Appointment</h2>
-            <ul style="color: #334155; line-height: 1.6; font-size: 0.95rem;">
-                <li><strong>Rest Your Ears:</strong> Avoid loud concerts or power tools for 16 hours prior to testing to avoid temporary threshold shift.</li>
-                <li><strong>Check for Wax:</strong> Ask your GP surgery or local pharmacy to inspect your ears; earwax must be removed before testing.</li>
-                <li><strong>List Problem Settings:</strong> Write down specific Bristol venues, work meetings, or noisy family gatherings where hearing is hardest.</li>
-            </ul>
-            <div style="margin-top: 20px;">
-                <a href="path-hearing-aids-access.html" class="site-link-btn" style="background: #005EB8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem;">
-                    <span class="material-symbols-outlined">hearing</span> View Bristol Hearing Aid Pathways &rarr;
-                </a>
-        </div>
-      </div>
-    </div></div>
-
-        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff;">
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Support
+                Back to Journey Hub
             </a>
-            <a href="path-yes.html" class="back-to-journey-btn">
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
+                Back to Support Hub
             </a>
         </nav>
-    </div>
+    </main>
 
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
     <script src="script.js?v=3.0"></script>
 </body>
 </html>

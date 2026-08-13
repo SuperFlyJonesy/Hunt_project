@@ -1,229 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UK Government Financial & Hearing Support - Bristol Hearing Loss Initiative</title>
-  <meta name="description" content="Verified financial grants, Access to Work, PIP descriptors, 0% VAT relief, and Equality Act rights for hard-of-hearing individuals across the UK.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-  <link rel="stylesheet" href="styles.css?v=1.4">
-  <style>
-    body.premium-white-theme {
-      background-color: #f8f9fa;
-      font-family: 'Inter', sans-serif;
-      color: #1e293b;
-      margin: 0;
-      padding: 0;
-      line-height: 1.65;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 50px 20px 100px 20px;
-    }
-    .header-section {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    h1 {
-      color: #005EB8;
-      font-size: 2.6rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      color: #64748b;
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-top: 0;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border: 1px solid #e2e8f0;
-      border-left: 6px solid #005EB8;
-      text-align: left;
-    }
-    .card h2, .card h3 {
-      margin-top: 0;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card h3 {
-      color: #005EB8;
-      font-size: 1.4rem;
-    }
-    .card-icon {
-      color: #005EB8;
-      font-size: 1.8rem;
-    }
-    .info-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-    .badge-uhbw {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-    .badge-nbt {
-      background: #f0fdf4;
-      color: #15803d;
-    }
-
-    .external-btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .ext-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-decoration: none;
-      color: white;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .ext-btn:hover {
-      opacity: 0.92;
-      transform: translateY(-2px);
-    }
-    .btn-uhbw { background: #005EB8; }
-    .btn-nbt { background: #059669; }
-    .btn-ringgo { background: #d97706; }
-    .btn-caz { background: #4f46e5; }
-
-    #dev-reset {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: black;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      opacity: 0.15;
-      cursor: pointer;
-      z-index: 99999999;
-      padding: 10px;
-      font-weight: bold;
-      font-family: sans-serif;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Verified financial grants, Access to Work, PIP descriptors, 0% VAT relief, and Equality Act rights for hard-of-hearing individuals across the UK.">
+    <meta charset="UTF-8">
+    <title>UK Government Help &amp; Funding - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .info-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
+        .badge-dwp { background: #e0f2fe; color: #0369a1; }
+        .badge-pip { background: #ffe4e6; color: #ff0f5b; }
+        .badge-tax { background: #f0fdf4; color: #15803d; }
+        .badge-community { background: #fef3c7; color: #d97706; }
+        .ext-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+        .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: white; transition: all 0.2s ease; }
+        .ext-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+        .btn-blue { background: #005EB8; }
+        .btn-pink { background: #ff0f5b; }
+        .btn-green { background: #059669; }
+        .btn-purple { background: #4f46e5; }
+        .btn-amber { background: #d97706; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-  <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
-  <main id="main-content" class="container">
-    <div class="header-section">
-      <h1>UK Government Help & Funding</h1>
-      <p class="subtitle">Verified financial grants, tax relief schemes, and legal rights for hard-of-hearing adults across the UK</p>
-    </div>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">account_balance</span>
+                UK Government Help &amp; Funding
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Verified financial grants, tax relief schemes, PIP descriptors, and legal rights for hard-of-hearing adults across the UK.
+            </p>
+        </div>
 
-    <!-- Access to Work -->
-    <div class="card" style="border-left-color: #005EB8;">
-      <span class="info-badge badge-uhbw">DWP Grant Worth Up To £69,260/Yr</span>
-      <h2><span class="material-icons card-icon">work</span> Access to Work (AtW) Scheme</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Access to Work is a publicly funded DWP grant scheme designed to pay for specialist equipment, software, hearing technology, and communication support for hard-of-hearing workers in employment or self-employment.
-      </p>
-      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; margin-bottom: 20px;">
-        <li><strong>Specialist Hearing Aids:</strong> Funding towards advanced Bluetooth hearing technology beyond standard NHS provision.</li>
-        <li><strong>Remote Microphones & Roger Pens:</strong> Stream audio directly from meetings into your aids.</li>
-        <li><strong>Live Captions & BSL Interpreters:</strong> Coverage for live speech-to-text reporting and sign language support.</li>
-      </ul>
-      <div class="external-btn-group">
-        <a href="https://www.gov.uk/access-to-work" target="_blank" rel="noopener" class="ext-btn btn-uhbw">
-          <span class="material-symbols-outlined">verified</span> GOV.UK Access to Work Application Portal &rarr;
-        </a>
-      </div>
-    </div>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Access to Work (AtW) Scheme -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">work</span> 1. Access to Work (AtW) Scheme</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <span class="info-badge badge-dwp">DWP Grant Worth Up To £69,260/Yr</span>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-top: 4px;">
+                        Access to Work is a publicly funded DWP grant scheme designed to pay for specialist equipment, software, hearing technology, and communication support for hard-of-hearing workers in employment or self-employment.
+                    </p>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; margin-bottom: 20px; padding-left: 20px;">
+                        <li><strong>Specialist Hearing Aids:</strong> Funding towards advanced Bluetooth hearing technology beyond standard NHS provision.</li>
+                        <li><strong>Remote Microphones &amp; Roger Pens:</strong> Stream audio directly from meetings into your aids.</li>
+                        <li><strong>Live Captions &amp; BSL Interpreters:</strong> Coverage for live speech-to-text reporting and sign language support.</li>
+                    </ul>
+                    <div class="ext-btn-group">
+                        <a href="https://www.gov.uk/access-to-work" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">
+                            <span class="material-symbols-outlined">verified</span> GOV.UK Access to Work Application Portal &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Personal Independence Payment -->
-    <div class="card" style="border-left-color: #ff0f5b;">
-      <span class="info-badge" style="background: #ffe4e6; color: #ff0f5b;">Non-Means-Tested Benefit</span>
-      <h2><span class="material-icons card-icon" style="color: #ff0f5b;">savings</span> Personal Independence Payment (PIP)</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Personal Independence Payment (PIP) helps with extra living costs if you have a long-term hearing impairment, tinnitus, or vestibular condition. It is tax-free and not affected by income or savings.
-      </p>
-      <h4 style="font-size: 1.1rem; color: #ff0f5b; margin-top: 15px; margin-bottom: 10px;">Key Descriptors for Hearing Loss:</h4>
-      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; margin-bottom: 20px;">
-        <li><strong>Communicating Verbally (Descriptor 7):</strong> Points awarded based on needing hearing aids, lip-reading, or communication support to hear and understand speech.</li>
-        <li><strong>Reading & Understanding Signs (Descriptor 8):</strong> Points for needing assistance with complex written or visual information.</li>
-        <li><strong>Engaging Face-to-Face (Descriptor 9):</strong> Points awarded if hearing loss causes severe social anxiety, isolation, or fatigue.</li>
-      </ul>
-      <div class="external-btn-group">
-        <a href="https://rnid.org.uk/information-and-support/benefits-and-money/pip-and-adp/" target="_blank" rel="noopener" class="ext-btn" style="background: #ff0f5b;">
-          <span class="material-symbols-outlined">verified</span> RNID Detailed PIP Guidance & Descriptors &rarr;
-        </a>
-      </div>
-    </div>
+            <!-- ACCORDION 2: Personal Independence Payment (PIP) -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">savings</span> 2. Personal Independence Payment (PIP)</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <span class="info-badge badge-pip">Non-Means-Tested Benefit</span>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-top: 4px;">
+                        Personal Independence Payment (PIP) helps with extra living costs if you have a long-term hearing impairment, tinnitus, or vestibular condition. It is tax-free and not affected by income or savings.
+                    </p>
+                    <h4 style="font-size: 1.1rem; color: #ff0f5b; margin-top: 15px; margin-bottom: 10px;">Key Descriptors for Hearing Loss:</h4>
+                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; margin-bottom: 20px; padding-left: 20px;">
+                        <li><strong>Communicating Verbally (Descriptor 7):</strong> Points awarded based on needing hearing aids, lipreading, or communication support to hear and understand speech.</li>
+                        <li><strong>Reading &amp; Understanding Signs (Descriptor 8):</strong> Points for needing assistance with complex written or visual information.</li>
+                        <li><strong>Engaging Face-to-Face (Descriptor 9):</strong> Points awarded if hearing loss causes severe social anxiety, isolation, or fatigue.</li>
+                    </ul>
+                    <div class="ext-btn-group">
+                        <a href="https://rnid.org.uk/information-and-support/benefits-and-money/pip-and-adp/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
+                            <span class="material-symbols-outlined">verified</span> RNID Detailed PIP Guidance &amp; Descriptors &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- 0% VAT Relief & Equality Act -->
-    <div class="card" style="border-left-color: #059669;">
-      <span class="info-badge badge-nbt">Tax Relief & Workplace Rights</span>
-      <h2><span class="material-icons card-icon" style="color: #059669;">gavel</span> 0% VAT Relief & Equality Act 2010</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        UK VAT law allows individuals with long-term hearing loss to purchase qualifying medical devices (such as private hearing aids, TV streamers, vibrating alarms, and amplified phones) zero-rated for VAT (saving 20%).
-      </p>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Under the <strong>Equality Act 2010</strong>, UK employers and public venues are legally obligated to make reasonable adjustments for hard-of-hearing individuals, including installing hearing loops, captioning meetings, and providing accessible interview formats.
-      </p>
-      <div class="external-btn-group">
-        <a href="https://www.gov.uk/guidance/reliefs-from-vat-for-disabled-and-older-people-notice-7017" target="_blank" rel="noopener" class="ext-btn btn-nbt">
-          <span class="material-symbols-outlined">verified</span> GOV.UK VAT Relief Notice 701/7 &rarr;
-        </a>
-        <a href="path-job-interviews.html" class="ext-btn btn-caz">
-          Workplace Rights & Interviews &rarr;
-        </a>
-      </div>
-    </div>
+            <!-- ACCORDION 3: 0% VAT Relief & Equality Act 2010 -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">gavel</span> 3. 0% VAT Relief &amp; Equality Act 2010</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <span class="info-badge badge-tax">Tax Relief &amp; Workplace Rights</span>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-top: 4px;">
+                        UK VAT law allows individuals with long-term hearing loss to purchase qualifying medical devices (such as private hearing aids, TV streamers, vibrating alarms, and amplified phones) zero-rated for VAT (saving 20%).
+                    </p>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
+                        Under the <strong>Equality Act 2010</strong>, UK employers and public venues are legally obligated to make reasonable adjustments for hard-of-hearing individuals, including installing hearing loops, captioning meetings, and providing accessible interview formats.
+                    </p>
+                    <div class="ext-btn-group">
+                        <a href="https://www.gov.uk/guidance/reliefs-from-vat-for-disabled-and-older-people-notice-7017" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+                            <span class="material-symbols-outlined">verified</span> GOV.UK VAT Relief Notice 701/7 &rarr;
+                        </a>
+                        <a href="path-job-interviews.html" class="ext-btn btn-purple">
+                            Workplace Rights &amp; Interviews &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Initiate Community Network Support -->
-    <div class="card" style="border-left-color: #d97706; background: linear-gradient(135deg, #ffffff 0%, #fffdf5 100%);">
-      <span class="info-badge" style="background: #fef3c7; color: #d97706;">Grassroots Initiate Network</span>
-      <h2><span class="material-icons card-icon" style="color: #d97706;">groups</span> Support Our Initiate Community</h2>
-      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-        Our community initiatives, peer support, and free form-filling guidance for Access to Work & PIP applications are supported directly by our Patreon members and grassroots volunteers.
-      </p>
-      <div class="external-btn-group">
-        <a href="path-join-us.html" class="ext-btn btn-ringgo">
-          Join Patreon & Community &rarr;
-        </a>
-        <a href="path-community-stories.html" class="ext-btn btn-uhbw">
-          Read Initiate Lived Stories &rarr;
-        </a>
-      </div>
-    </div>
+            <!-- ACCORDION 4: Support Our Initiate Community -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">groups</span> 4. Support Our Initiate Community</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <span class="info-badge badge-community">Grassroots Initiate Network</span>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-top: 4px;">
+                        Our community initiatives, peer support, and free form-filling guidance for Access to Work &amp; PIP applications are supported directly by our Patreon members and grassroots volunteers.
+                    </p>
+                    <div class="ext-btn-group">
+                        <a href="path-join-us.html" class="ext-btn btn-amber">
+                            Join Patreon &amp; Community &rarr;
+                        </a>
+                        <a href="path-community-stories.html" class="ext-btn btn-blue">
+                            Read Initiate Lived Stories &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Navigation Footer -->
-    <nav class="back-to-journey-container" aria-label="Back Navigation" style="margin-top: 40px;">
-      <a href="path-yes.html" class="back-to-journey-btn">
-        <span class="material-symbols-outlined">arrow_back</span>
-        Back to Journey
-      </a>
-    </nav>
-  </div>
+        </div>
 
-  <script src="script.js?v=1.4"></script>
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+        </nav>
+    </main>
+
+    <script src="script.js?v=3.0"></script>
 </body>
 </html>

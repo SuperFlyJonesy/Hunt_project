@@ -4,163 +4,183 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Empowering advice on navigating job interviews, disclosing hearing loss, and requesting reasonable adjustments at work.">
     <meta charset="UTF-8">
-    <title>Job Interviews & Employment Advice - Hearing Loss Initiative</title>
+    <title>Job Interviews &amp; Workplace Advice - Hearing Loss Initiative</title>
     <link rel="stylesheet" href="styles.css?v=8.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; margin-bottom: 20px; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
         .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
         @media (max-width: 768px) { .grid-2col { grid-template-columns: 1fr; } }
         .info-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; }
-        .script-quote { background: #eff6ff; border-left: 4px solid #005EB8; padding: 14px 18px; border-radius: 10px; font-style: italic; color: #1e3a8a; margin: 10px 0; }
+        .script-quote { background: #eff6ff; border-left: 4px solid #005EB8; padding: 14px 18px; border-radius: 10px; font-style: italic; color: #1e3a8a; margin: 12px 0; }
+        .contact-info-list { list-style: none; padding: 0; margin: 0; }
+        .contact-info-list li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.95rem; }
+        .contact-info-list li:last-child { margin-bottom: 0; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
     
-    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center;">Job Interviews & Workplace Advice</h1>
-        <p style="font-size: 1.1rem; color: #475569; text-align: center; max-width: 750px; margin-bottom: 30px;">
-            Navigating job applications, disclosure strategies, interview scripts, rights under the Equality Act 2010, corporate cultures, and emotional support in Bristol.
-        </p>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">work</span>
+                Job Interviews &amp; Workplace Advice
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Navigating job applications, disclosure strategies, interview scripts, rights under the Equality Act 2010, corporate cultures, and emotional support in Bristol.
+            </p>
+        </div>
 
-        <!-- Card 1: Disclosure & Interview Advice -->
+        <!-- Progressive Disclosure Accordion Container -->
         <div class="accordion-container">
-      <div class="accordion-item active">
-        <button class="accordion-header">
-          <span><span class="material-symbols-outlined" style="font-size: 2rem;">badge</span> Going for a Job Interview: What Should You Say?</span>
-          <span class="material-symbols-outlined accordion-icon">expand_more</span>
-        </button>
-        <div class="accordion-body">
-          <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                Disclosing hearing loss during job applications is your personal choice under UK law. Disclosing early allows you to request <strong>Reasonable Adjustments</strong> so you can demonstrate your true skills without communication barriers.
-            </p>
-
-            <h3 style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">When & How to Disclose:</h3>
-            <div class="grid-2col">
-                <div class="info-box">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">1. Pre-Interview Adjustment Request</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">When invited to interview, email HR to request specific setups: a quiet room away from noisy open-plan corridors, written interview questions, live video call captions, or a BSL/Speech-to-Text reporter.</p>
-                </div>
-                <div class="info-box">
-                    <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">2. At the Start of the Interview</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">Be positive and proactive. Frame your hearing tactics as strong self-awareness, active listening skills, and clarity-driven communication.</p>
-                </div>
-            </div>
-
-            <h3 style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">Sample Disclosure Scripts You Can Use:</h3>
             
-            <div class="script-quote">
-                <strong>💬 In-Person Interview Script:</strong><br>
-                "Before we begin, I'd like to let you know I have a mild/moderate hearing loss. I lip-read alongside hearing aids, so I communicate best when we face each other in a well-lit space and speak one at a time. If I ask you to rephrase a question, it's just to make sure I catch every detail!"
-            </div>
+            <!-- ACCORDION 1: Going for a Job Interview -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">badge</span> 1. Going for a Job Interview: What Should You Say?</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Disclosing hearing loss during job applications is your personal choice under UK law. Disclosing early allows you to request <strong>Reasonable Adjustments</strong> so you can demonstrate your true skills without communication barriers.
+                    </p>
 
-            <div class="script-quote" style="border-left-color: #0284c7; background: #f0f9ff; color: #0369a1;">
-                <strong>💬 Video Call (MS Teams / Zoom) Script:</strong><br>
-                "I use live automatic captions during video calls due to my hearing loss. If audio stutters, I may ask you to type key points or questions into the meeting chat box."
-            </div>
-        </div>
+                    <h3 style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">When &amp; How to Disclose:</h3>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">1. Pre-Interview Adjustment Request</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">When invited to interview, email HR to request specific setups: a quiet room away from noisy open-plan corridors, written interview questions, live video call captions, or a BSL/Speech-to-Text reporter.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">2. At the Start of the Interview</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #475569; line-height: 1.5;">Be positive and proactive. Frame your hearing tactics as strong self-awareness, active listening skills, and clarity-driven communication.</p>
+                        </div>
+                    </div>
 
-        <!-- Card 2: Equality Act 2010 & Access to Work -->
-        <div class="page-card" style="border-left-color: #1b5e20; width: 100%;">
-            <h2 style="color: #1b5e20; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">gavel</span> Legal Rights: Equality Act 2010 & Access to Work
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                In the UK, hearing loss is protected as a disability under the <strong>Equality Act 2010</strong>. Employers are legally forbidden from discriminating against job candidates or employees based on hearing loss.
-            </p>
+                    <h3 style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">Sample Disclosure Scripts You Can Use:</h3>
+                    
+                    <div class="script-quote">
+                        <strong>💬 In-Person Interview Script:</strong><br>
+                        "Before we begin, I'd like to let you know I have a mild/moderate hearing loss. I lipread alongside hearing aids, so I communicate best when we face each other in a well-lit space and speak one at a time. If I ask you to rephrase a question, it's just to make sure I catch every detail!"
+                    </div>
 
-            <div class="grid-2col">
-                <div class="info-box" style="background: #f0fdf4; border-color: #bbf7d0;">
-                    <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">Duty of Reasonable Adjustments</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
-                        Employers MUST make adjustments to recruitment and workplace environments. This includes providing assistive listening systems, adapted phones, quiet desk positioning, or modified duties.
-                    </p>
-                </div>
-                <div class="info-box" style="background: #f0fdf4; border-color: #bbf7d0;">
-                    <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">Access to Work Grant (100% Funded)</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
-                        A UK government scheme that pays for assistive workplace technology (such as Phonak Roger wireless microphones, captioning software, BSL interpreters, and staff Deaf Awareness training) <strong>at zero cost to small businesses</strong>!
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Card 3: Big Companies vs Small Companies Culture -->
-        <div class="page-card" style="border-left-color: #7B1FA2; width: 100%;">
-            <h2 style="color: #7B1FA2; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">corporate_fare</span> Big Companies vs Small Companies Workplace Culture
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                Navigating hearing loss varies significantly depending on company size and organizational structure:
-            </p>
-
-            <div class="grid-2col">
-                <div class="info-box" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">🏢 Large Corporations & Public Sector (NHS, Councils)</h4>
-                    <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
-                        <strong>Pros:</strong> Formal HR departments, Diversity & Inclusion (D&I) policies, Disability Confident badges, established Access to Work processes.
-                    </p>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
-                        <strong>Challenges:</strong> Bureaucratic approval chains; large noisy open-plan offices and big conference rooms require strict meeting moderation.
-                    </p>
-                </div>
-                <div class="info-box" style="background: #faf5ff; border-color: #e9d5ff;">
-                    <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">🏪 Small Businesses & Startups</h4>
-                    <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
-                        <strong>Pros:</strong> Direct access to decision-makers, rapid custom desk setups, intimate team communication, high flexibility.
-                    </p>
-                    <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
-                        <strong>Challenges:</strong> HR may be informal or unfamiliar with Equality Act funding. Politely inform them that Access to Work covers funding costs!
-                    </p>
+                    <div class="script-quote" style="border-left-color: #0284c7; background: #f0f9ff; color: #0369a1;">
+                        <strong>💬 Video Call (MS Teams / Zoom) Script:</strong><br>
+                        "I use live automatic captions during video calls due to my hearing loss. If audio stutters, I may ask you to type key points or questions into the meeting chat box."
+                    </div>
                 </div>
             </div>
+
+            <!-- ACCORDION 2: Equality Act 2010 & Access to Work -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">gavel</span> 2. Legal Rights: Equality Act 2010 &amp; Access to Work</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        In the UK, hearing loss is protected as a disability under the <strong>Equality Act 2010</strong>. Employers are legally forbidden from discriminating against job candidates or employees based on hearing loss.
+                    </p>
+
+                    <div class="grid-2col">
+                        <div class="info-box" style="background: #f0fdf4; border-color: #bbf7d0;">
+                            <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">Duty of Reasonable Adjustments</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
+                                Employers MUST make adjustments to recruitment and workplace environments. This includes providing assistive listening systems, adapted phones, quiet desk positioning, or modified duties.
+                            </p>
+                        </div>
+                        <div class="info-box" style="background: #f0fdf4; border-color: #bbf7d0;">
+                            <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">Access to Work Grant (100% Funded)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
+                                A UK government scheme that pays for assistive workplace technology (such as Phonak Roger wireless microphones, captioning software, BSL interpreters, and staff Deaf Awareness training) <strong>at zero cost to small businesses</strong>!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: Big Companies vs Small Companies Culture -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">corporate_fare</span> 3. Big Companies vs Small Companies Workplace Culture</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Navigating hearing loss varies significantly depending on company size and organisational structure:
+                    </p>
+
+                    <div class="grid-2col">
+                        <div class="info-box" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">🏢 Large Corporations &amp; Public Sector (NHS, Councils)</h4>
+                            <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
+                                <strong>Pros:</strong> Formal HR departments, Diversity &amp; Inclusion (D&amp;I) policies, Disability Confident badges, established Access to Work processes.
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
+                                <strong>Challenges:</strong> Bureaucratic approval chains; large noisy open-plan offices and big conference rooms require strict meeting moderation.
+                            </p>
+                        </div>
+                        <div class="info-box" style="background: #faf5ff; border-color: #e9d5ff;">
+                            <h4 style="margin: 0 0 6px 0; color: #6b21a8; font-weight: 800;">🏪 Small Businesses &amp; Startups</h4>
+                            <p style="margin: 0 0 8px 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
+                                <strong>Pros:</strong> Direct access to decision-makers, rapid custom desk setups, intimate team communication, high flexibility.
+                            </p>
+                            <p style="margin: 0; font-size: 0.9rem; color: #581c87; line-height: 1.5;">
+                                <strong>Challenges:</strong> HR may be informal or unfamiliar with Equality Act funding. Politely inform them that Access to Work covers funding costs!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: Emotional Support: Bristol Samaritans -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">favorite</span> 4. Emotional Support: Bristol Samaritans</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Job searching, interview rejection stress, or feeling misunderstood at work can take a heavy toll on your mental wellbeing. You do not have to face communication anxiety alone.
+                    </p>
+
+                    <div style="background: #fff1f2; border: 1px solid #fecdd3; padding: 20px; border-radius: 14px; margin-top: 15px;">
+                        <h3 style="margin: 0 0 10px 0; color: #be123c; font-size: 1.15rem; font-weight: 800;">💚 Bristol Samaritans (24/7 Confidential Helpline)</h3>
+                        <p style="margin: 0 0 12px 0; color: #9f1239; font-size: 0.95rem; line-height: 1.6;">
+                            Free, confidential emotional support for anyone struggling to cope or feeling overwhelmed by interview anxiety or workplace isolation.
+                        </p>
+
+                        <ul class="contact-info-list">
+                            <li><span class="material-symbols-outlined" style="color: #be123c;">call</span> <strong>Free National Helpline:</strong> <a href="tel:116123" style="color: #be123c; font-weight: 800; font-size: 1.05rem;">116 123</a> (Free from any phone, 24/7)</li>
+                            <li><span class="material-symbols-outlined" style="color: #be123c;">phone_in_talk</span> <strong>Bristol Branch Local Line:</strong> <a href="tel:03300945717" style="color: #be123c;">0330 094 5717</a></li>
+                            <li><span class="material-symbols-outlined" style="color: #be123c;">mail</span> <strong>Email Support:</strong> <a href="mailto:jo@samaritans.org" style="color: #be123c;">jo@samaritans.org</a> (Response within 24 hours)</li>
+                            <li><span class="material-symbols-outlined" style="color: #be123c;">location_on</span> <strong>Bristol Branch Address:</strong> 37 St Nicholas Street, Bristol BS1 1TP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Card 4: Bristol Samaritans Support -->
-        <div class="page-card" style="border-left-color: #ff0f5b; width: 100%;">
-            <h2 style="color: #ff0f5b; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">favorite</span> Emotional Support: Bristol Samaritans
-            </h2>
-            <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                Job searching, interview rejection stress, or feeling misunderstood at work can take a heavy toll on your mental wellbeing. You do not have to face communication anxiety alone.
-            </p>
-
-            <div style="background: #fff1f2; border: 1px solid #fecdd3; padding: 20px; border-radius: 14px; margin-top: 15px;">
-                <h3 style="margin: 0 0 10px 0; color: #be123c; font-size: 1.15rem; font-weight: 800;">💚 Bristol Samaritans (24/7 Confidential Helpline)</h3>
-                <p style="margin: 0 0 12px 0; color: #9f1239; font-size: 0.95rem; line-height: 1.6;">
-                    Free, confidential emotional support for anyone struggling to cope or feeling overwhelmed by interview anxiety or workplace isolation.
-                </p>
-
-                <ul class="contact-info-list" style="margin: 0;">
-                    <li><span class="material-symbols-outlined" style="color: #be123c;">call</span> <strong>Free National Helpline:</strong> <a href="tel:116123" style="color: #be123c; font-weight: 800; font-size: 1.1rem;">116 123</a> (Free from any phone, 24/7)</li>
-                    <li><span class="material-symbols-outlined" style="color: #be123c;">phone_in_talk</span> <strong>Bristol Branch Local Line:</strong> <a href="tel:03300945717" style="color: #be123c;">0330 094 5717</a></li>
-                    <li><span class="material-symbols-outlined" style="color: #be123c;">mail</span> <strong>Email Support:</strong> <a href="mailto:jo@samaritans.org" style="color: #be123c;">jo@samaritans.org</a> (Response within 24 hours)</li>
-                    <li><span class="material-symbols-outlined" style="color: #be123c;">location_on</span> <strong>Bristol Branch Address:</strong> 37 St Nicholas Street, Bristol BS1 1TP</li>
-                </ul>
-        </div>
-      </div>
-    </div></div>
-
-        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff;">
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Support
+                Back to Journey Hub
             </a>
-            <a href="path-yes.html" class="back-to-journey-btn">
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
-                Back to Journey
+                Back to Support Hub
             </a>
         </nav>
-    </div>
+    </main>
 
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
     <script src="script.js?v=3.0"></script>
 </body>
 </html>
