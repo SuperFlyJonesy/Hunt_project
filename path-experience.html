@@ -2,436 +2,760 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An interactive sensory simulator demonstrating the lived experience of frequency loss, tinnitus, and background noise.">
-    <meta charset="UTF-8">
-    <title>Hearing Experience</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <style>
-        body { 
-            background: #000; 
-            margin: 0; 
-            padding: 0; 
-            overflow: hidden; 
-            height: 100vh; 
-            font-family: 'Inter', sans-serif;
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            caret-color: transparent;
-            outline: none;
-        }
-        
-        .matrix-glitch-active {
-            animation: matrix-glitch 0.5s linear;
-        }
-        @keyframes matrix-glitch {
-            0% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
-            25% { text-shadow: -2px 0 2px #0f0, 2px 0 2px #f00; transform: translate(-2px, 2px); }
-            50% { text-shadow: 2px 0 2px #0f0, -2px 0 2px #f00; transform: translate(2px, -2px); }
-            100% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
-        }
+  <meta name="description" content="An interactive sensory simulator demonstrating the lived experience of frequency loss, tinnitus, and background noise.">
+  <meta charset="UTF-8">
+  <title>Hearing Experience | Bristol Hearing Loss Initiative</title>
+  <link rel="stylesheet" href="styles.css?v=1.4">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+  <style>
+    body { 
+      background: #000; 
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden; 
+      height: 100vh; 
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      caret-color: transparent;
+      outline: none;
+    }
+    
+    .matrix-glitch-active {
+      animation: matrix-glitch 0.5s linear;
+    }
+    @keyframes matrix-glitch {
+      0% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
+      25% { text-shadow: -2px 0 2px #0f0, 2px 0 2px #f00; transform: translate(-2px, 2px); }
+      50% { text-shadow: 2px 0 2px #0f0, -2px 0 2px #f00; transform: translate(2px, -2px); }
+      100% { text-shadow: 0 0 5px #0f0; transform: translate(0); }
+    }
 
-        #state-intro, #state-prologue { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; transition: opacity 2.0s ease-in-out; }
-        
-        #state-intro { 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            z-index: 300; 
-            background: radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.6) 0%, rgba(0, 0, 0, 0.95) 75%, #000000 100%); 
-            opacity: 1; 
-        }
+    #state-intro, #state-prologue { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100vw; 
+      height: 100vh; 
+      transition: opacity 1.8s ease-in-out; 
+    }
+    
+    #state-intro { 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
+      z-index: 300; 
+      background: radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.6) 0%, rgba(0, 0, 0, 0.95) 75%, #000000 100%); 
+      opacity: 1; 
+    }
 
-        .hero-video-portal {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 50px rgba(0, 164, 239, 0.35), 0 0 100px rgba(0, 94, 184, 0.2), inset 0 0 25px rgba(0,0,0,0.8);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            animation: portalPulse 4s infinite ease-in-out;
-            transition: transform 0.4s ease;
-        }
-        .hero-video-portal:hover {
-            transform: scale(1.05);
-        }
-        @keyframes portalPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(0, 164, 239, 0.35), 0 0 100px rgba(0, 94, 184, 0.2); }
-            50% { transform: scale(1.03); box-shadow: 0 0 75px rgba(0, 230, 118, 0.4), 0 0 130px rgba(0, 164, 239, 0.3); }
-        }
-        .hero-video-portal video {
-            width: 100%; height: 100%; object-fit: cover; filter: contrast(1.1) brightness(0.95);
-        }
+    @keyframes gentleHeadlineFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(12px) scale(0.97);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
 
-        .intro-badge {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.55);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
+    .cinematic-headline {
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      text-align: center;
+      line-height: 1.25;
+      margin: 0;
+      letter-spacing: -0.02em;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+      padding: 0 20px;
+      animation: gentleHeadlineFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: opacity, transform, filter;
+    }
+    .cinematic-headline .accent-glow {
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(0, 164, 239, 0.6);
+    }
+    
+    #state-prologue { 
+      z-index: 200; 
+      opacity: 0; 
+      background: #000; 
+      display: none; 
+    }
+    
+    .stat { 
+      position: absolute; 
+      font-size: clamp(18px, 3.5vw, 26px); 
+      font-family: 'Georgia', serif; 
+      font-style: italic; 
+      color: #ffffff; 
+      white-space: nowrap; 
+      opacity: 0; 
+      transition: opacity 1s ease; 
+    }
+    .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
+    .base-text { transition: opacity 1s ease; }
+    
+    @keyframes pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.85; } }
+    #continue-btn, #begin-btn { 
+      color: #fff; 
+      opacity: 0.6; 
+      font-size: 13px; 
+      animation: pulse 2.5s infinite ease-in-out; 
+      letter-spacing: 2px; 
+      text-transform: uppercase; 
+      cursor: pointer; 
+      padding: 20px; 
+      font-weight: 700;
+    }
 
-        @keyframes gentleHeadlineFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(12px) scale(0.97);
-                filter: blur(8px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-                filter: blur(0);
-            }
-        }
+    /* STATE 3: FULLSCREEN HEARING EXPO VIDEO REEL */
+    #state-expo-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 400;
+      background: #000000;
+      display: none;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      overflow: hidden;
+      cursor: pointer;
+    }
 
-        .cinematic-headline {
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            font-size: 3.2rem;
-            font-weight: 300;
-            text-align: center;
-            line-height: 1.25;
-            margin: 0;
-            letter-spacing: -0.02em;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-            padding: 0 20px;
-            animation: gentleHeadlineFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            will-change: opacity, transform, filter;
-        }
-        .cinematic-headline .accent-glow {
-            font-weight: 800;
-            color: #ffffff;
-            text-shadow: 0 0 25px rgba(0, 164, 239, 0.6);
-        }
-        
-        #state-prologue { z-index: 200; opacity: 0; background: #000; display: none; }
-        
-        .stat { position: absolute; font-size: 26px; font-family: 'Georgia', serif; font-style: italic; color: #ffffff; white-space: nowrap; opacity: 0; transition: opacity 1s ease; }
-        .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
-        .base-text { transition: opacity 1s ease; }
-        
-        @keyframes pulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.7; } }
-        #continue-btn, #begin-btn { color: #fff; opacity: 0.6; font-size: 13px; animation: pulse 2.5s infinite ease-in-out; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; padding: 20px; }
-    </style>
-    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    .fullscreen-video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #expo-video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Video Transition Fade Overlay: in from black -> out into white */
+    #video-fade-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000000;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 100;
+      transition: opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+    }
+
+    /* Minimalist Unobtrusive Controls (Top Right) */
+    .top-controls {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .glass-btn {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      opacity: 0.45;
+      transition: all 0.3s ease;
+    }
+
+    .glass-btn:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.65);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .audio-btn {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    @keyframes pulsePrompt {
+      0%, 100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.95; transform: translateX(-50%) scale(1.03); }
+    }
+
+    @keyframes pulsePromptEnd {
+      0%, 100% { 
+        opacity: 0.85; 
+        transform: translateX(-50%) scale(1); 
+        box-shadow: 0 0 20px rgba(0, 164, 239, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6); 
+      }
+      50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.06); 
+        box-shadow: 0 0 35px rgba(0, 164, 239, 0.8), 0 4px 30px rgba(0, 0, 0, 0.8); 
+      }
+    }
+
+    .click-continue-prompt {
+      position: fixed;
+      bottom: 5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      animation: pulsePrompt 2.5s infinite ease-in-out;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .click-continue-prompt.active-end {
+      font-size: 14px;
+      padding: 14px 28px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border-radius: 35px;
+      backdrop-filter: blur(12px);
+      animation: pulsePromptEnd 1.8s infinite ease-in-out;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    /* Subtle bottom progress bar */
+    .bottom-progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 50;
+    }
+
+    .bottom-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: rgba(255, 255, 255, 0.6);
+      transition: width 0.1s linear;
+    }
+
+    /* Mobile Landscape Auto-Orientation */
+    @media (max-width: 900px) and (orientation: portrait) {
+      #state-expo-video .fullscreen-video-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vh;
+        height: 100vw;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+        overflow: hidden;
+      }
+
+      #state-expo-video #expo-video {
+        width: 100vh;
+        height: 100vw;
+        object-fit: cover;
+      }
+
+      #state-expo-video .top-controls {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        transform: rotate(90deg);
+        transform-origin: top right;
+      }
+
+      #state-expo-video .bottom-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vh;
+        height: 3px;
+        transform: rotate(90deg);
+        transform-origin: top left;
+      }
+
+      #state-expo-video .click-continue-prompt {
+        left: 5vh;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%) rotate(90deg);
+        transform-origin: center center;
+      }
+    }
+
+    @media (orientation: landscape) {
+      #state-expo-video .fullscreen-video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        transform: none;
+      }
+
+      #state-expo-video #expo-video {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+    }
+  </style>
 </head>
 <body class="premium-white-theme">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+  
+  <!-- STAGE 1: INTRO PROMPT -->
+  <div id="state-intro" style="cursor: pointer;">
+    <h1 id="intro-text" class="cinematic-headline">
+      Experience the reality<br>of <span class="accent-glow">hearing loss</span>.
+    </h1>
+    <div id="begin-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to begin ]</div>
+  </div>
+
+  <!-- STAGE 2: PROLOGUE TEXT SENSORY SIMULATOR -->
+  <div id="state-prologue">
+    <div id="continue-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to continue ]</div>
+  </div>
+
+  <!-- STAGE 3: HEARING EXPO FULLSCREEN VIDEO (REPLACING OLD STATIC END SCREEN) -->
+  <div id="state-expo-video">
+    <div class="fullscreen-video-container">
+      <video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/expo-reel-poster.jpg">
+        <source src="Contents/expo-reel.webm" type="video/webm">
+        <source src="Contents/expo-reel.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Fade Overlay for Video -->
+    <div id="video-fade-overlay"></div>
+
+    <!-- Video Controls -->
+    <div class="top-controls">
+      <button id="btn-video-audio" class="glass-btn audio-btn" aria-label="Mute or Unmute Video Audio" title="Toggle Sound">
+        <span id="video-audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
+      </button>
+      <button id="btn-video-skip" class="glass-btn" aria-label="Skip to Support Hub">
+        Skip &rarr;
+      </button>
+    </div>
+
+    <!-- Click to continue prompt -->
+    <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
+
+    <!-- Bottom progress line -->
+    <div class="bottom-progress">
+      <div id="video-progress-fill" class="bottom-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Restaurant Ambiance Audio for Stage 2 Simulator -->
+  <audio id="bg-noise" src="Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop></audio>
+
+  <!-- Persistent Volume Control Widget for Audio Simulator -->
+  <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+    <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;">
+  </div>
+
+  <script>
+    const rawPhrases = [
+      "People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.",
+      "Struggling to follow conversations around the dinner table when several family members speak at once.",
+      "Feeling left out at family meals because the conversation moves on before you have understood what was said.",
+      "Family members becoming frustrated when they have to repeat themselves.",
+      "Being told “never mind” when you ask what someone said, leaving you feeling excluded.",
+      "Pretending you heard something because asking again feels awkward.",
+      "Laughing along with everyone else even though you did not hear the joke.",
+      "Feeling isolated in a room full of people because you cannot follow the conversation.",
+      "People assuming you are ignoring them when you simply did not hear them.",
+      "Being called rude, distant or unfriendly because you missed someone speaking to you.",
+      "Feeling anxious about meeting new people because you worry you will not understand them.",
+      "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.",
+      "Choosing where to sit based on lighting, noise and whether you can see people’s faces.",
+      "Missing important parts of conversations when someone turns their head away while speaking.",
+      "Struggling when people cover their mouths, mumble or speak while eating.",
+      "Feeling uncomfortable asking someone to remove their hand from their mouth.",
+      "Being told “you heard that!” when you can hear some sounds but not understand every word.",
+      "People not understanding that hearing loss can change depending on background noise and the speaker.",
+      "Hearing a voice but not being able to make out what the person actually said.",
+      "Feeling blamed for communication problems that are not entirely your fault.",
+      "Family members shouting instead of speaking clearly, which can actually make understanding harder.",
+      "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand them.",
+      "Hearing aids amplifying background noises like clattering dishes, making conversations in social settings incredibly difficult.",
+      "Struggling with the sudden, sharp clinking of cutlery or laughter in a busy restaurant.",
+      "Feeling that friends avoid calling or inviting you out because they find communicating with you too difficult.",
+      "Worrying that you are becoming a burden to your family because you need things repeated.",
+      "Experiencing a sense of grief or loss for the ease of effortless, natural conversation.",
+      "Losing the subtle nuances, tone of voice and emotional undertone of what someone is saying.",
+      "Struggling to follow television programs, movies or plays even with subtitles or high volume.",
+      "The sheer physical and mental fatigue of straining to listen and lip-read for hours at time.",
+      "Feeling that people suspect you of 'hearing only what you want to hear'.",
+      "The distinct frustration of missing a joke or story while everyone else is laughing.",
+      "Experiencing communication barriers in public places like banks, shops and post offices.",
+      "Struggling to understand announcements at train stations, airports or on buses.",
+      "The worry and isolation of being unable to hear important safety warnings or alerts.",
+      "Feeling cut off from the small, everyday social interactions that build connections with others.",
+      "People assuming hearing loss is a sign of declining mental ability, rather than a physical barrier."
+    ];
     
-    <div id="state-intro" style="cursor: pointer;">
-        <h1 id="intro-text" class="cinematic-headline">
-            Experience the reality<br>of <span class="accent-glow">hearing loss</span>.
-        </h1>
-        <div id="begin-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to begin ]</div>
-    </div>
+    const colors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
 
-    <div id="state-prologue">
-        <div id="continue-btn" style="position: absolute; bottom: 5vh; left: 50%; transform: translateX(-50%); z-index: 250;">[ Click to continue ]</div>
-    </div>
+    function processPhrases(phrases) {
+      return phrases.map(p => {
+        const regex = /(“[^”]+”)|(belittling|frustrated|excluded|awkward|isolated|exhausting|difficult|struggling|uncomfortable|blamed|distrust|anxious|stressful|vulnerable|embarrassed|tired|lonely|grieving|hearing aids|background noise|restaurants|subtitles|ignoring|misunderstood|shouting|speaking|mumbled|accents|conversation|turns their head|lip-reading|facial expressions|covering mouths|losing friendships|friends|left out|isolated)/gi;
+        const parts = [];
+        let lastIdx = 0;
+        let match;
 
-    <!-- Deep Post-Experience Reflection Screen -->
-    <div id="state-reflection" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 400; background: radial-gradient(circle at 50% 45%, rgba(15, 23, 42, 0.85) 0%, rgba(0, 0, 0, 0.98) 75%, #000000 100%); display: none; opacity: 0; transition: opacity 1.2s ease-in-out; flex-direction: column; justify-content: center; align-items: center; padding: 30px; box-sizing: border-box; text-align: center;">
-        <style>
-            .reflection-question {
-                color: rgba(255, 255, 255, 0.88);
-                font-family: 'Georgia', serif;
-                font-style: italic;
-                font-size: 1.55rem;
-                margin: 1.4rem 0;
-                opacity: 0;
-                transform: translateY(12px);
-                transition: opacity 1.5s ease, transform 1.5s ease;
-                line-height: 1.6;
-            }
-            .reflection-climax {
-                color: #ffffff;
-                font-family: 'Inter', sans-serif;
-                font-size: 2.3rem;
-                font-weight: 800;
-                margin-top: 3rem;
-                opacity: 0;
-                transform: translateY(15px);
-                transition: opacity 1.8s ease, transform 1.8s ease;
-                text-shadow: 0 0 35px rgba(0, 164, 239, 0.6);
-                letter-spacing: -0.02em;
-                line-height: 1.35;
-            }
-            #final-continue-btn {
-                color: #ffffff;
-                font-size: 13px;
-                letter-spacing: 2px;
-                text-transform: uppercase;
-                padding: 20px;
-                position: absolute;
-                bottom: 5vh;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 500;
-                opacity: 0;
-                transition: opacity 1.5s ease;
-            }
-        </style>
-        <div class="reflection-content" style="max-width: 850px;">
-            <p class="reflection-question q1">Did you have a problem reading some of the text?</p>
-            <p class="reflection-question q2">Was the background noise annoying?</p>
-            <p class="reflection-question q3">Did you miss some of the statements?</p>
-            <p class="reflection-question q4">Did you start to become overwhelmed?</p>
-            <h2 class="reflection-climax">If only in life we could click to continue.</h2>
-        </div>
-        <div id="final-continue-btn">[ Click to continue ]</div>
-    </div>
-
-    <audio id="bg-noise" src="Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop></audio>
-
-    <!-- Persistent Premium Volume Control Widget -->
-    <div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
-        <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;">
-    </div>
-
-    <script>
-        const rawPhrases = ["People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.", "Struggling to follow conversations around the dinner table when several family members speak at once.", "Feeling left out at family meals because the conversation moves on before you have understood what was said.", "Family members becoming frustrated when they have to repeat themselves.", "Being told “never mind” when you ask what someone said, leaving you feeling excluded.", "Pretending you heard something because asking again feels awkward.", "Laughing along with everyone else even though you did not hear the joke.", "Feeling isolated in a room full of people because you cannot follow the conversation.", "People assuming you are ignoring them when you simply did not hear them.", "Being called rude, distant or unfriendly because you missed someone speaking to you.", "Feeling anxious about meeting new people because you worry you will not understand them.", "Avoiding restaurants, pubs and cafés because background noise makes conversation exhausting.", "Choosing where to sit based on lighting, noise and whether you can see people’s faces.", "Missing important parts of conversations when someone turns their head away while speaking.", "Struggling when people cover their mouths, mumble or speak while eating.", "Feeling uncomfortable asking someone to remove their hand from their mouth.", "Being told “you heard that!” when you can hear some sounds but not understand every word.", "People not understanding that hearing loss can change depending on background noise and the speaker.", "Hearing a voice but not being able to make out what the person actually said.", "Feeling blamed for communication problems that are not entirely your fault.", "Family members shouting instead of speaking clearly, which can actually make understanding harder.", "People speaking exaggeratedly slowly because they assume hearing loss means you cannot understand them.", "Hearing aids amplifying background noises like clattering dishes, making conversations in social settings incredibly difficult.", "Struggling with the sudden, sharp clinking of cutlery or laughter in a busy restaurant.", "Feeling that friends avoid calling or inviting you out because they find communicating with you too difficult.", "Worrying that you are becoming a burden to your family because you need things repeated.", "Experiencing a sense of grief or loss for the ease of effortless, natural conversation.", "Losing the subtle nuances, tone of voice and emotional undertone of what someone is saying.", "Struggling to follow television programs, movies or plays even with subtitles or high volume.", "The sheer physical and mental fatigue of straining to listen and lip-read for hours at time.", "Feeling that people suspect you of 'hearing only what you want to hear'.", "The distinct frustration of missing a joke or story while everyone else is laughing.", "Experiencing communication barriers in public places like banks, shops and post offices.", "Struggling to understand announcements at train stations, airports or on buses.", "The worry and isolation of being unable to hear important safety warnings or alerts.", "Feeling cut off from the small, everyday social interactions that build connections with others.", "People assuming hearing loss is a sign of declining mental ability, rather than a physical barrier."];
-        const emotiveKeywords = ["belittling", "frustrated", "excluded", "awkward", "isolated", "exhausting", "difficult", "struggling", "uncomfortable", "blamed", "distrust", "anxious", "stressful", "vulnerable", "embarrassed", "tired", "lonely", "grieving", "hearing aids", "background noise", "restaurants", "subtitles", "ignoring", "misunderstood", "shouting", "speaking", "mumbled", "accents", "conversation", "turns their head", "lip-reading", "facial expressions", "covering mouths", "losing friendships", "friends", "left out", "isolated"];
-        const colors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
-
-        function processPhrases(phrases) {
-            return phrases.map(p => {
-                const regex = /(“[^”]+”)|(belittling|frustrated|excluded|awkward|isolated|exhausting|difficult|struggling|uncomfortable|blamed|distrust|anxious|stressful|vulnerable|embarrassed|tired|lonely|grieving|hearing aids|background noise|restaurants|subtitles|ignoring|misunderstood|shouting|speaking|mumbled|accents|conversation|turns their head|lip-reading|facial expressions|covering mouths|losing friendships|friends|left out|isolated)/gi;
-                const parts = [];
-                let lastIdx = 0;
-                let match;
-
-                while ((match = regex.exec(p)) !== null) {
-                    if (match.index > lastIdx) parts.push({ type: 'base', text: p.slice(lastIdx, match.index) });
-                    parts.push({ type: 'highlight', text: match[0] });
-                    lastIdx = regex.lastIndex;
-                }
-                if (lastIdx < p.length) parts.push({ type: 'base', text: p.slice(lastIdx) });
-                return parts;
-            });
+        while ((match = regex.exec(p)) !== null) {
+          if (match.index > lastIdx) parts.push({ type: 'base', text: p.slice(lastIdx, match.index) });
+          parts.push({ type: 'highlight', text: match[0] });
+          lastIdx = regex.lastIndex;
         }
-        
-        const structuredPhrases = processPhrases(rawPhrases);
+        if (lastIdx < p.length) parts.push({ type: 'base', text: p.slice(lastIdx) });
+        return parts;
+      });
+    }
+    
+    const structuredPhrases = processPhrases(rawPhrases);
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const stateIntro = document.getElementById('state-intro');
-            const introText = document.getElementById('intro-text');
-            const statePrologue = document.getElementById('state-prologue');
-            const continueBtn = document.getElementById('continue-btn');
-            const audio = document.getElementById('bg-noise');
-            const volumeSlider = document.getElementById('volume-slider');
-            const volumeIcon = document.getElementById('volume-icon');
+    document.addEventListener("DOMContentLoaded", () => {
+      const stateIntro = document.getElementById('state-intro');
+      const introText = document.getElementById('intro-text');
+      const statePrologue = document.getElementById('state-prologue');
+      const continueBtn = document.getElementById('continue-btn');
+      const audio = document.getElementById('bg-noise');
+      const volumeSlider = document.getElementById('volume-slider');
+      const volumeIcon = document.getElementById('volume-icon');
+      const volumeControl = document.getElementById('volume-control-container');
 
-            localStorage.setItem('hasVisitedSupport', 'true');
+      // Video elements for Stage 3
+      const stateExpoVideo = document.getElementById('state-expo-video');
+      const expoVideo = document.getElementById('expo-video');
+      const videoFadeOverlay = document.getElementById('video-fade-overlay');
+      const btnVideoSkip = document.getElementById('btn-video-skip');
+      const btnVideoAudio = document.getElementById('btn-video-audio');
+      const videoAudioIcon = document.getElementById('video-audio-icon');
+      const videoProgressFill = document.getElementById('video-progress-fill');
 
-            document.getElementById('dev-reset').addEventListener('click', () => { 
-                localStorage.clear(); 
-                window.location.href = 'index.html'; 
-            });
+      localStorage.setItem('hasVisitedSupport', 'true');
 
-            // Volume Control Logic
-            if (volumeSlider && volumeIcon) {
-                volumeSlider.addEventListener('input', (e) => {
-                    const val = e.target.value;
-                    audio.volume = val;
-                    if (val == 0) {
-                        volumeIcon.textContent = 'volume_off';
-                    } else if (val < 0.3) {
-                        volumeIcon.textContent = 'volume_down';
-                    } else {
-                        volumeIcon.textContent = 'volume_up';
-                    }
-                });
+      document.getElementById('dev-reset').addEventListener('click', () => { 
+        localStorage.clear(); 
+        window.location.href = 'index.html'; 
+      });
 
-                volumeIcon.addEventListener('click', () => {
-                    if (audio.muted) {
-                        audio.muted = false;
-                        volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
-                    } else {
-                        audio.muted = true;
-                        volumeIcon.textContent = 'volume_off';
-                    }
-                });
-            }
-
-            // Click-to-begin to safely bypass browser autoplay policies
-            let experienceStarted = false;
-            stateIntro.addEventListener('click', () => {
-                if (experienceStarted) return;
-                experienceStarted = true;
-                
-                introText.classList.add('matrix-glitch-active');
-
-                // Play restaurant ambient audio softly and fade in
-                audio.volume = 0;
-                audio.play().then(() => {
-                    let vol = 0;
-                    const fadeAudio = setInterval(() => {
-                        if (vol < 0.15) { // Soft looping volume
-                            vol += 0.02;
-                            audio.volume = vol;
-                            if (volumeSlider) volumeSlider.value = vol;
-                        } else {
-                            clearInterval(fadeAudio);
-                        }
-                    }, 150);
-                }).catch(err => {
-                    console.log("Audio autoplay block bypass failed:", err);
-                });
-
-                introText.style.transform = 'scale(1.1)';
-                
-                setTimeout(() => {
-                    stateIntro.style.opacity = '0';
-                    statePrologue.style.display = 'block';
-                    statePrologue.style.opacity = '0'; // Ensure it's hidden initially
-                    
-                    setTimeout(() => {
-                        stateIntro.style.display = 'none';
-                        statePrologue.style.opacity = '1';
-                        playPrologueLoop();
-                    }, 2000); // Wait for the transition
-                }, 500);
-            });
-
-            continueBtn.addEventListener('click', () => {
-                // TRANSITION TO DEEP REFLECTION STAGE
-                if (statePrologue) {
-                    statePrologue.style.transition = 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1)';
-                    statePrologue.style.opacity = '0';
-                }
-
-                // Soft audio fade out
-                if (audio) {
-                    let vol = audio.volume;
-                    const fadeAudioOut = setInterval(() => {
-                        if (vol > 0.02) {
-                            vol -= 0.02;
-                            audio.volume = vol;
-                            if (volumeSlider) volumeSlider.value = vol;
-                        } else {
-                            audio.pause();
-                            clearInterval(fadeAudioOut);
-                        }
-                    }, 100);
-                }
-
-                setTimeout(() => {
-                    if (statePrologue) statePrologue.style.display = 'none';
-
-                    const reflection = document.getElementById('state-reflection');
-                    if (reflection) {
-                        reflection.style.display = 'flex';
-                        setTimeout(() => { reflection.style.opacity = '1'; }, 50);
-
-                        const q1 = reflection.querySelector('.q1');
-                        const q2 = reflection.querySelector('.q2');
-                        const q3 = reflection.querySelector('.q3');
-                        const q4 = reflection.querySelector('.q4');
-                        const climax = reflection.querySelector('.reflection-climax');
-                        const finalBtn = document.getElementById('final-continue-btn');
-
-                        setTimeout(() => { if (q1) { q1.style.opacity = '1'; q1.style.transform = 'translateY(0)'; } }, 1000);
-                        setTimeout(() => { if (q2) { q2.style.opacity = '1'; q2.style.transform = 'translateY(0)'; } }, 3800);
-                        setTimeout(() => { if (q3) { q3.style.opacity = '1'; q3.style.transform = 'translateY(0)'; } }, 6600);
-                        setTimeout(() => { if (q4) { q4.style.opacity = '1'; q4.style.transform = 'translateY(0)'; } }, 9400);
-                        setTimeout(() => { if (climax) { climax.style.opacity = '1'; climax.style.transform = 'translateY(0)'; } }, 12500);
-                        setTimeout(() => { 
-                            if (finalBtn) { 
-                                finalBtn.style.opacity = '0.6'; 
-                                finalBtn.style.animation = 'pulse 2.5s infinite ease-in-out';
-                            } 
-                        }, 15000);
-                    }
-                }, 1000);
-            });
-
-            const finalBtn = document.getElementById('final-continue-btn');
-            if (finalBtn) {
-                finalBtn.addEventListener('click', () => {
-                    const reflection = document.getElementById('state-reflection');
-                    if (reflection) {
-                        reflection.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s ease';
-                        reflection.style.opacity = '0';
-                        reflection.style.filter = 'blur(10px)';
-                    }
-                    document.body.style.transition = 'background-color 0.8s ease';
-                    document.body.style.backgroundColor = '#ffffff';
-
-                    setTimeout(() => {
-                        window.location.href = 'path-support.html';
-                    }, 750);
-                });
-            }
+      // Volume Control Logic for Restaurant Audio
+      if (volumeSlider && volumeIcon) {
+        volumeSlider.addEventListener('input', (e) => {
+          const val = e.target.value;
+          audio.volume = val;
+          if (val == 0) {
+            volumeIcon.textContent = 'volume_off';
+          } else if (val < 0.3) {
+            volumeIcon.textContent = 'volume_down';
+          } else {
+            volumeIcon.textContent = 'volume_up';
+          }
         });
 
-        function playPrologueLoop(index = 0) {
-            const container = document.getElementById('state-prologue');
-            const parts = structuredPhrases[index];
-            const div = document.createElement('div');
-            div.className = 'stat';
-            
-            const color = colors[Math.floor(Math.random() * colors.length)];
-            
-            div.innerHTML = parts.map(part => 
-                part.type === 'highlight' 
-                    ? `<span class="highlight" style="color:${color}">${part.text}</span>` 
-                    : `<span class="base-text">${part.text}</span>`
-            ).join('');
-            
-            container.insertBefore(div, document.getElementById('continue-btn'));
-            
-            setTimeout(() => {
-                const statW = div.offsetWidth || 300;
-                const statH = div.offsetHeight || 80;
+        volumeIcon.addEventListener('click', () => {
+          if (audio.muted) {
+            audio.muted = false;
+            volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+          } else {
+            audio.muted = true;
+            volumeIcon.textContent = 'volume_off';
+          }
+        });
+      }
 
-                const isMobile = window.innerWidth <= 600;
-                const minMarginX = isMobile ? 15 : 40;
-                const minMarginTop = isMobile ? 60 : 90;
-                const minMarginBottom = isMobile ? 100 : 140;
+      // STAGE 1 -> STAGE 2: Click to begin sensory simulator
+      let experienceStarted = false;
+      stateIntro.addEventListener('click', () => {
+        if (experienceStarted) return;
+        experienceStarted = true;
+        
+        introText.classList.add('matrix-glitch-active');
 
-                const minCenterX = minMarginX + (statW / 2);
-                const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
+        // Play restaurant ambient audio softly and fade in
+        audio.volume = 0;
+        audio.play().then(() => {
+          let vol = 0;
+          const fadeAudio = setInterval(() => {
+            if (vol < 0.15) {
+              vol += 0.02;
+              audio.volume = vol;
+              if (volumeSlider) volumeSlider.value = vol;
+            } else {
+              clearInterval(fadeAudio);
+            }
+          }, 150);
+        }).catch(err => {
+          console.log("Audio autoplay block bypass failed:", err);
+        });
 
-                const minCenterY = minMarginTop + (statH / 2);
-                const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
+        introText.style.transform = 'scale(1.1)';
+        
+        setTimeout(() => {
+          stateIntro.style.opacity = '0';
+          statePrologue.style.display = 'block';
+          statePrologue.style.opacity = '0';
+          
+          setTimeout(() => {
+            stateIntro.style.display = 'none';
+            statePrologue.style.opacity = '1';
+            playPrologueLoop();
+          }, 1800);
+        }, 500);
+      });
 
-                let targetX, targetY;
+      // STAGE 2 -> STAGE 3: Transition from text simulator to Hearing Expo Video
+      let videoTransitioningOut = false;
 
-                if (index === 0) {
-                    targetX = window.innerWidth / 2;
-                    targetY = window.innerHeight / 2;
-                } else {
-                    targetX = (maxCenterX > minCenterX) 
-                        ? minCenterX + Math.random() * (maxCenterX - minCenterX)
-                        : window.innerWidth / 2;
+      function transitionToSupportHub(isManual = false) {
+        if (videoTransitioningOut) return;
+        videoTransitioningOut = true;
 
-                    targetY = (maxCenterY > minCenterY)
-                        ? minCenterY + Math.random() * (maxCenterY - minCenterY)
-                        : window.innerHeight / 2;
-                }
-
-                div.style.left = `${targetX}px`;
-                div.style.top = `${targetY}px`;
-                div.style.transform = 'translate(-50%, -50%)';
-                
-                div.style.opacity = '1';
-                setTimeout(() => {
-                    div.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
-                }, 3000);
-            }, 50);
-
-            setTimeout(() => playPrologueLoop((index + 1) % structuredPhrases.length), 4500);
+        if (videoFadeOverlay) {
+          videoFadeOverlay.style.transition = "opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease";
+          videoFadeOverlay.style.backgroundColor = "#ffffff";
+          videoFadeOverlay.style.opacity = "1";
         }
-    </script>
-    <script src="script.js?v=3.0"></script>
+
+        if (isManual && expoVideo && !expoVideo.paused) {
+          const fadeAudio = setInterval(() => {
+            if (expoVideo.volume > 0.08) {
+              expoVideo.volume -= 0.08;
+            } else {
+              expoVideo.volume = 0;
+              clearInterval(fadeAudio);
+            }
+          }, 40);
+        }
+
+        setTimeout(() => {
+          localStorage.setItem("hasVisitedSupportReel", "true");
+          window.location.href = "path-support.html";
+        }, 1000);
+      }
+
+      continueBtn.addEventListener('click', () => {
+        // Fade out text simulator and restaurant audio
+        if (statePrologue) {
+          statePrologue.style.transition = 'opacity 1s cubic-bezier(0.4, 0, 0.2, 1)';
+          statePrologue.style.opacity = '0';
+        }
+        if (volumeControl) volumeControl.style.display = 'none';
+
+        if (audio) {
+          let vol = audio.volume;
+          const fadeAudioOut = setInterval(() => {
+            if (vol > 0.02) {
+              vol -= 0.02;
+              audio.volume = vol;
+            } else {
+              audio.pause();
+              clearInterval(fadeAudioOut);
+            }
+          }, 80);
+        }
+
+        // Show Hearing Expo video screen, fade in from black, and play video
+        setTimeout(() => {
+          if (statePrologue) statePrologue.style.display = 'none';
+
+          if (stateExpoVideo) {
+            stateExpoVideo.style.display = 'block';
+            stateExpoVideo.style.opacity = '1';
+          }
+
+          if (videoFadeOverlay) {
+            videoFadeOverlay.style.backgroundColor = "#000000";
+            videoFadeOverlay.style.opacity = "1";
+            requestAnimationFrame(() => {
+              videoFadeOverlay.style.opacity = "0";
+            });
+          }
+
+          if (expoVideo) {
+            expoVideo.loop = false;
+            const playPromise = expoVideo.play();
+            if (playPromise !== undefined) {
+              playPromise.then(() => {}).catch(() => {
+                expoVideo.muted = true;
+                if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
+                expoVideo.play();
+              });
+            }
+
+            function showEndClickPrompt() {
+              const prompt = document.querySelector('#state-expo-video .click-continue-prompt');
+              if (prompt) {
+                prompt.classList.add('active-end');
+                prompt.textContent = "[ Click to continue ]";
+              }
+            }
+
+            expoVideo.addEventListener("timeupdate", () => {
+              const cur = expoVideo.currentTime;
+              const dur = expoVideo.duration || 10.0;
+              const pct = Math.min(100, (cur / dur) * 100);
+              if (videoProgressFill) videoProgressFill.style.width = pct + "%";
+
+              if (dur > 0 && cur >= (dur - 0.08)) {
+                expoVideo.pause();
+                showEndClickPrompt();
+              }
+            });
+
+            expoVideo.addEventListener("ended", () => {
+              showEndClickPrompt();
+            });
+          }
+        }, 1000);
+      });
+
+      // Video Controls & Click to Continue for Stage 3
+      if (btnVideoAudio) {
+        btnVideoAudio.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (!expoVideo) return;
+          expoVideo.muted = !expoVideo.muted;
+          if (expoVideo.muted) {
+            if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
+          } else {
+            if (videoAudioIcon) videoAudioIcon.textContent = "volume_up";
+            expoVideo.volume = 1.0;
+          }
+        });
+      }
+
+      if (btnVideoSkip) {
+        btnVideoSkip.addEventListener("click", (e) => {
+          e.stopPropagation();
+          transitionToSupportHub(true);
+        });
+      }
+
+      // Tap/click anywhere during video to fade to white & continue
+      stateExpoVideo.addEventListener("click", (e) => {
+        if (!e.target.closest("#btn-video-audio")) {
+          transitionToSupportHub(true);
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (stateExpoVideo && stateExpoVideo.style.display === "block") {
+          if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+            transitionToSupportHub(true);
+          }
+        }
+      });
+    });
+
+    function playPrologueLoop(index = 0) {
+      const container = document.getElementById('state-prologue');
+      if (!container || container.style.display === 'none') return;
+
+      const parts = structuredPhrases[index];
+      const div = document.createElement('div');
+      div.className = 'stat';
+      
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      
+      div.innerHTML = parts.map(part => 
+        part.type === 'highlight' 
+          ? `<span class="highlight" style="color:${color}">${part.text}</span>` 
+          : `<span class="base-text">${part.text}</span>`
+      ).join('');
+      
+      container.insertBefore(div, document.getElementById('continue-btn'));
+      
+      setTimeout(() => {
+        const statW = div.offsetWidth || 300;
+        const statH = div.offsetHeight || 80;
+
+        const isMobile = window.innerWidth <= 600;
+        const minMarginX = isMobile ? 15 : 40;
+        const minMarginTop = isMobile ? 60 : 90;
+        const minMarginBottom = isMobile ? 100 : 140;
+
+        const minCenterX = minMarginX + (statW / 2);
+        const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
+
+        const minCenterY = minMarginTop + (statH / 2);
+        const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
+
+        let targetX, targetY;
+
+        if (index === 0) {
+          targetX = window.innerWidth / 2;
+          targetY = window.innerHeight / 2;
+        } else {
+          targetX = (maxCenterX > minCenterX) 
+            ? minCenterX + Math.random() * (maxCenterX - minCenterX)
+            : window.innerWidth / 2;
+
+          targetY = (maxCenterY > minCenterY)
+            ? minCenterY + Math.random() * (maxCenterY - minCenterY)
+            : window.innerHeight / 2;
+        }
+
+        div.style.left = `${targetX}px`;
+        div.style.top = `${targetY}px`;
+        div.style.transform = 'translate(-50%, -50%)';
+        
+        div.style.opacity = '1';
+        setTimeout(() => {
+          div.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
+        }, 3000);
+      }, 50);
+
+      setTimeout(() => playPrologueLoop((index + 1) % structuredPhrases.length), 4500);
+    }
+  </script>
 </body>
 </html>
-

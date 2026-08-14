@@ -139,13 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.backgroundColor = '#ffffff';
 
             setTimeout(() => {
-                const hasVisitedSupport = localStorage.getItem('hasVisitedSupport');
-                if (hasVisitedSupport === 'true') {
-                    window.location.href = 'path-support.html';
-                } else {
-                    localStorage.setItem('hasVisitedSupport', 'true');
-                    window.location.href = 'path-experience.html';
-                }
+                window.location.href = 'path-experience.html';
             }, 600);
         });
     }

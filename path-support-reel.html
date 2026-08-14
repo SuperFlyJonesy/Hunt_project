@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bristol Community Showcase — Bristol Hearing Loss Initiative">
+  <meta name="description" content="Hearing Expo — Bristol Hearing Loss Initiative Support Pathway">
   <meta charset="UTF-8">
-  <title>Community | Bristol Hearing Loss Initiative</title>
+  <title>Hearing Expo | Bristol Hearing Loss Initiative</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
   <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
   <style>
@@ -22,6 +22,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       user-select: none;
       -webkit-user-select: none;
+      cursor: pointer;
     }
 
     /* Pure Full-Screen Video Background */
@@ -38,7 +39,7 @@
       justify-content: center;
     }
 
-    #community-video {
+    #expo-video {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
@@ -56,7 +57,7 @@
       opacity: 1;
       pointer-events: none;
       z-index: 100;
-      transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), background-color 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
     }
 
     /* Minimalist Unobtrusive Controls (Top Right) */
@@ -103,6 +104,54 @@
       border-radius: 50%;
     }
 
+    /* Click to Continue Bottom Prompt */
+    @keyframes pulsePrompt {
+      0%, 100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.95; transform: translateX(-50%) scale(1.03); }
+    }
+
+    @keyframes pulsePromptEnd {
+      0%, 100% { 
+        opacity: 0.85; 
+        transform: translateX(-50%) scale(1); 
+        box-shadow: 0 0 20px rgba(0, 164, 239, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6); 
+      }
+      50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.06); 
+        box-shadow: 0 0 35px rgba(0, 164, 239, 0.8), 0 4px 30px rgba(0, 0, 0, 0.8); 
+      }
+    }
+
+    .click-continue-prompt {
+      position: fixed;
+      bottom: 5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      animation: pulsePrompt 2.5s infinite ease-in-out;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .click-continue-prompt.active-end {
+      font-size: 14px;
+      padding: 14px 28px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border-radius: 35px;
+      backdrop-filter: blur(12px);
+      animation: pulsePromptEnd 1.8s infinite ease-in-out;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
     /* Subtle bottom progress bar */
     .bottom-progress {
       position: fixed;
@@ -121,7 +170,7 @@
       transition: width 0.1s linear;
     }
 
-    /* Mobile Landscape Auto-Orientation: Rotates to widescreen landscape when held in portrait */
+    /* Mobile Landscape Auto-Orientation */
     @media (max-width: 900px) and (orientation: portrait) {
       .fullscreen-video-container {
         position: fixed;
@@ -134,7 +183,7 @@
         overflow: hidden;
       }
 
-      #community-video {
+      #expo-video {
         width: 100vh;
         height: 100vw;
         object-fit: cover;
@@ -157,9 +206,16 @@
         transform: rotate(90deg);
         transform-origin: top left;
       }
+
+      .click-continue-prompt {
+        left: 5vh;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%) rotate(90deg);
+        transform-origin: center center;
+      }
     }
 
-    /* Natural Landscape (Device rotated horizontally or desktop) */
     @media (orientation: landscape) {
       .fullscreen-video-container {
         position: fixed;
@@ -170,7 +226,7 @@
         transform: none;
       }
 
-      #community-video {
+      #expo-video {
         width: 100vw;
         height: 100vh;
         object-fit: cover;
@@ -180,11 +236,11 @@
 </head>
 <body>
 
-  <!-- Fullscreen Video Canvas (No Text Overlays) -->
+  <!-- Fullscreen Video Canvas -->
   <div class="fullscreen-video-container">
-    <video id="community-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/community-reel-poster.jpg" autoplay>
-      <source src="Contents/community-reel.webm" type="video/webm">
-      <source src="Contents/community-reel.mp4" type="video/mp4">
+    <video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/expo-reel-poster.jpg" autoplay>
+      <source src="Contents/expo-reel.webm" type="video/webm">
+      <source src="Contents/expo-reel.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -196,10 +252,13 @@
     <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
       <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
     </button>
-    <button id="btn-skip" class="glass-btn" aria-label="Skip to Journey Hub">
+    <button id="btn-skip" class="glass-btn" aria-label="Skip to Support Hub">
       Skip &rarr;
     </button>
   </div>
+
+  <!-- Click to Continue Prompt -->
+  <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
 
   <!-- Subtle Minimal Bottom Progress Line -->
   <div class="bottom-progress">
@@ -208,7 +267,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const video = document.getElementById("community-video");
+      const video = document.getElementById("expo-video");
       const overlay = document.getElementById("fade-overlay");
       const skipBtn = document.getElementById("btn-skip");
       const audioBtn = document.getElementById("btn-audio-toggle");
@@ -228,13 +287,13 @@
         }
       }
 
-      // 2. Smooth Fade Out Into White and Navigate to path-yes.html
+      // 2. Smooth Fade Out Into White and Navigate to path-support.html
       function transitionToWhite(isManual = false) {
         if (isTransitioningOut) return;
         isTransitioningOut = true;
 
         if (overlay) {
-          overlay.style.transition = "opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease";
+          overlay.style.transition = "opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease";
           overlay.style.backgroundColor = "#ffffff";
           overlay.style.opacity = "1";
         }
@@ -252,17 +311,15 @@
         }
 
         setTimeout(() => {
-          localStorage.setItem("hasVisitedCommunityReel", "true");
-          window.location.href = "path-yes.html";
-        }, 1200);
+          localStorage.setItem("hasVisitedSupportReel", "true");
+          window.location.href = "path-support.html";
+        }, 1000);
       }
 
       // Attempt Screen Orientation lock to landscape on supported mobile devices
       try {
         if (screen.orientation && screen.orientation.lock) {
-          screen.orientation.lock("landscape").catch(() => {
-            // Smoothly falls back to CSS 90deg orientation rotation
-          });
+          screen.orientation.lock("landscape").catch(() => {});
         }
       } catch (err) {}
 
@@ -284,25 +341,31 @@
           });
         }
 
-        // Progress bar tracking & auto-trigger fade to white at completion
+        function showEndClickPrompt() {
+          const prompt = document.querySelector('.click-continue-prompt');
+          if (prompt) {
+            prompt.classList.add('active-end');
+            prompt.textContent = "[ Click to continue ]";
+          }
+        }
+
+        // Progress bar tracking & trigger click prompt at completion
         video.addEventListener("timeupdate", () => {
           const cur = video.currentTime;
           const dur = video.duration || 10.0;
           const pct = Math.min(100, (cur / dur) * 100);
           if (progressFill) progressFill.style.width = pct + "%";
 
-          // If reached the end of the video, pause and fade to white
-          if (dur > 0 && cur >= (dur - 0.1) && !isTransitioningOut) {
+          // If reached the end of the video, pause and prompt click
+          if (dur > 0 && cur >= (dur - 0.08)) {
             video.pause();
-            transitionToWhite(false);
+            showEndClickPrompt();
           }
         });
 
-        // Trigger fade out into white when video ends
+        // Trigger prompt when video ends
         video.addEventListener("ended", () => {
-          if (!isTransitioningOut) {
-            transitionToWhite(false);
-          }
+          showEndClickPrompt();
         });
 
         // Audio Mute/Unmute Toggle
@@ -328,14 +391,14 @@
         });
       }
 
-      // Allow tap/click anywhere to skip
+      // Click anywhere to continue
       document.body.addEventListener("click", (e) => {
         if (!e.target.closest("#btn-audio-toggle")) {
           transitionToWhite(true);
         }
       });
 
-      // Keyboard support: Escape or Space to skip/continue
+      // Keyboard support: Escape, Space, or Enter to continue
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
           transitionToWhite(true);
