@@ -44,7 +44,8 @@
       "last_audited": "January 2026",
       "quote": "Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/airport.jpg"
   },
   {
     "id": "beacon",
@@ -91,7 +92,8 @@
       "last_audited": "October 2025",
       "quote": "Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/beacon.jpg"
   },
   {
     "id": "watershed",
@@ -137,7 +139,8 @@
       "last_audited": "November 2025",
       "quote": "Cinemas 1 & 3 stream Auracast direct to hearing aids. Staff offer subtitle headsets without hassle and venue acoustics are superb.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/watershed.jpg"
   },
   {
     "id": "mshed",
@@ -183,7 +186,8 @@
       "last_audited": "December 2025",
       "quote": "Great acoustic sound baffles in the main gallery space. Reception desk loop tested at 100% signal-to-noise ratio.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/mshed.jpg"
   },
   {
     "id": "bearpit",
@@ -229,7 +233,8 @@
       "last_audited": "January 2026",
       "quote": "Central open-air gathering spot for monthly Bristol Hard-of-Hearing coffee meets, BSL social circles, and discussion forums.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/bearpit.jpg"
   },
   {
     "id": "vassall",
@@ -275,7 +280,8 @@
       "last_audited": "January 2026",
       "quote": "Purpose-built accessible hub with BSL fluent staff, equipment test rooms, and weekly drop-in advice clinics.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/vassall.jpg"
   },
   {
     "id": "stgeorges",
@@ -320,7 +326,8 @@
       "last_audited": "December 2025",
       "quote": "World-class natural hall acoustics paired with a newly calibrated perimeter induction loop.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/stgeorges.jpg"
   },
   {
     "id": "wethecurious",
@@ -366,7 +373,8 @@
       "last_audited": "January 2026",
       "quote": "Planetarium dome features direct personal audio loop headsets and full 3D visual subtitle projections.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/wethecurious.jpg"
   },
   {
     "id": "oldvic",
@@ -412,7 +420,8 @@
       "last_audited": "November 2025",
       "quote": "Infrared headset system provides crisp amplified stage dialogue across all seating tiers.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/oldvic.jpg"
   },
   {
     "id": "aerospace",
@@ -457,7 +466,8 @@
       "last_audited": "August 2025",
       "quote": "Concorde Hangar presentations are fully captioned on display screens with neck-loop lanyard availability.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/aerospace.jpg"
   },
   {
     "id": "cribbs",
@@ -502,7 +512,8 @@
       "last_audited": "October 2025",
       "quote": "Customer service desk equipped with fixed T-coil loop; shopping hall acoustics enhanced with acoustic ceiling baffles.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/cribbs.jpg"
   },
   {
     "id": "parkway",
@@ -547,7 +558,8 @@
       "last_audited": "November 2025",
       "quote": "Ticket counters feature crystal-clear loop amplification and visual departure displays.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/parkway.jpg"
   },
   {
     "id": "southmead",
@@ -593,7 +605,8 @@
       "last_audited": "December 2025",
       "quote": "Brunel Building atrium and all reception desks feature tested T-coil loop systems and visual call boards.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/southmead.jpg"
   },
   {
     "id": "uwe",
@@ -638,7 +651,8 @@
       "last_audited": "November 2025",
       "quote": "Lecture theatres equipped with Auracast streaming nodes and fixed induction loop systems.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/uwe.png"
   },
   {
     "id": "ashtongate",
@@ -683,7 +697,8 @@
       "last_audited": "October 2025",
       "quote": "Concourse ticket windows and commentary boxes support assistive listening headsets and T-coil loops.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/ashtongate.jpg"
   },
   {
     "id": "tobacco",
@@ -727,7 +742,8 @@
       "last_audited": "September 2025",
       "quote": "Studio theatre loop tested strong near center seating rows; staff are helpful and welcoming.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/tobacco.jpg"
   },
   {
     "id": "suspensionbridge",
@@ -772,7 +788,8 @@
       "last_audited": "September 2025",
       "quote": "Exhibition hall features tactile bridge models and counter induction loop at reception.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/suspensionbridge.jpg"
   },
   {
     "id": "everyman",
@@ -817,7 +834,8 @@
       "last_audited": "November 2025",
       "quote": "Wireless audio headsets available at box office with regular weekly captioned film screenings.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/everyman.jpg"
   },
   {
     "id": "trinity",
@@ -862,7 +880,8 @@
       "last_audited": "November 2025",
       "quote": "Main hall equipped with loop system for community forums and acoustic workshops.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/trinity.jpg"
   },
   {
     "id": "bri",
@@ -907,7 +926,8 @@
       "last_audited": "December 2025",
       "quote": "A&E reception and outpatients clinics feature active counter loops and BSL video remote interpreting.",
       "gold_standard": true
-    }
+    },
+    "image": "Contents/Venues/bri.jpg"
   },
   {
     "id": "hippodrome",
@@ -952,7 +972,8 @@
       "last_audited": "October 2025",
       "quote": "Sennheiser MobileConnect app streams amplified stage audio over Wi-Fi directly to earbuds or hearing aids.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/hippodrome.jpg"
   },
   {
     "id": "arnolfini",
@@ -997,7 +1018,8 @@
       "last_audited": "October 2025",
       "quote": "Exhibition spaces feature low ambient noise floors, high-contrast wall texts, and counter loops.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/arnolfini.jpg"
   },
   {
     "id": "spikeisland",
@@ -1042,7 +1064,8 @@
       "last_audited": "November 2025",
       "quote": "Quiet gallery environment with portable hearing loops available at the front reception.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/spikeisland.jpg"
   },
   {
     "id": "cathedral",
@@ -1087,7 +1110,8 @@
       "last_audited": "September 2025",
       "quote": "Nave and Choir seating areas feature continuous T-coil loop coverage for services and concerts.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/cathedral.jpg"
   },
   {
     "id": "stnicholas",
@@ -1132,7 +1156,8 @@
       "last_audited": "August 2025",
       "quote": "The Covered Market Hall features visual stall signs and clear directional boards.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/stnicholas.jpg"
   },
   {
     "id": "futureinns",
@@ -1176,7 +1201,8 @@
       "last_audited": "August 2025",
       "quote": "Guest rooms feature vibrating fire alert pagers and reception loop support.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/futureinns.jpg"
   },
   {
     "id": "templemeads",
@@ -1221,6 +1247,7 @@
       "last_audited": "December 2025",
       "quote": "Ticket counter induction loops active; main concourse features large high-contrast visual display boards.",
       "gold_standard": false
-    }
+    },
+    "image": "Contents/Venues/templemeads.jpg"
   }
 ]

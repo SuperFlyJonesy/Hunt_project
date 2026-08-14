@@ -20,9 +20,7 @@ const venues = [
     features: ["Special Assistance Lounge", "Counter & Gate Hearing Loops", "Visual Flight Paging", "Auracast Trial Zone", "Quiet Sensory Room"],
     icon: "✈️", // Airport Icon
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/airport.jpg"
     }
   },
   {
@@ -44,9 +42,7 @@ const venues = [
     features: ["Counter Loop", "T-Coil Hall Loop", "Auracast Ready", "BSL Interpreted Shows", "Quiet Relaxation Room"],
     icon: "🎟️", // Entertainment Centre Icon
     photos: {
-      main:  "Contents/Map/bristol-beacon-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/beacon.jpg"
     }
   },
   {
@@ -68,9 +64,7 @@ const venues = [
     features: ["Auracast Audio Stream", "DS Subtitled Screenings", "Infrared Hearing System", "Quiet Lounge"],
     icon: "🍿",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/watershed.jpg"
     }
   },
   {
@@ -92,9 +86,7 @@ const venues = [
     features: ["Reception Induction Loop", "Touch Exhibits", "Visual Fire Alarms", "Acoustic Baffles"],
     icon: "🏛️", // Museum Icon
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/mshed.jpg"
     }
   },
   {
@@ -118,9 +110,7 @@ const venues = [
     features: ["Support Group Meeting Host", "Outdoor Gathering Space", "BSL Social Circles", "Community Forum Link"],
     icon: "🐻",
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/bearpit.jpg"
     }
   },
   {
@@ -144,9 +134,7 @@ const venues = [
     features: ["BSL Native Staff", "Portable & Fixed Loops", "Weekly Equipment Clinic", "Support Group Host"],
     icon: "🏢", // Community Building Icon
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/vassall.jpg"
     }
   },
   {
@@ -168,9 +156,7 @@ const venues = [
     features: ["Perimeter Induction Loop", "Acoustic Baffles", "Accessible Seating Deck"],
     icon: "🎻",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/stgeorges.jpg"
     }
   },
   {
@@ -192,9 +178,7 @@ const venues = [
     features: ["Planetarium Audio Loops", "Auracast Audio", "Tactile Science Exhibits", "Visual Emergency Signals"],
     icon: "🪐",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/wethecurious.jpg"
     }
   },
   {
@@ -216,9 +200,7 @@ const venues = [
     features: ["Infrared Hearing System", "Captioned Performances", "Touch Tours", "Deaf-Aware Ushers"],
     icon: "🎭",
     photos: {
-      main:  "Contents/Map/bristol-old-vic-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/oldvic.jpg"
     }
   },
   {
@@ -240,9 +222,7 @@ const venues = [
     features: ["Captioned Video Displays", "Portable Lanyard Loops", "Quiet Breakout Space"],
     icon: "🛩️",
     photos: {
-      main:  "Contents/Map/aerospace-bristol-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/aerospace.jpg"
     }
   },
   {
@@ -264,9 +244,7 @@ const venues = [
     features: ["Customer Desk Hearing Loop", "Level Access Mall", "Quiet Shopping Hours"],
     icon: "🛍️",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/cribbs.jpg"
     }
   },
   {
@@ -288,9 +266,7 @@ const venues = [
     features: ["Ticket Counter Induction Loops", "Visual Display Boards", "Level Platform Access"],
     icon: "🚆",
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/parkway.jpg"
     }
   },
   {
@@ -312,9 +288,7 @@ const venues = [
     features: ["Audiology Department", "Reception Desk Hearing Loops", "Visual Call Boards", "BSL Interpreter Booking"],
     icon: "🏥",
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/southmead.jpg"
     }
   },
   {
@@ -336,9 +310,7 @@ const venues = [
     features: ["Auracast Lecture Halls", "Induction Loops", "Student Disability Support"],
     icon: "🎓",
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/uwe.png"
     }
   },
   {
@@ -360,9 +332,7 @@ const venues = [
     features: ["Ticket Counter Hearing Loops", "Assistive Audio Commentary", "Sensory Viewing Room"],
     icon: "🏟️",
     photos: {
-      main:  "Contents/Map/tobacco-factory-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/ashtongate.jpg"
     }
   },
   {
@@ -384,9 +354,7 @@ const venues = [
     features: ["T-Coil Hearing Loop", "Assistive Listening Headsets"],
     icon: "🍻", // Pub / Brewery Icon
     photos: {
-      main:  "Contents/Map/tobacco-factory-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/tobacco.jpg"
     }
   },
   {
@@ -408,9 +376,7 @@ const venues = [
     features: ["Counter Hearing Loop", "Tactile Models", "Quiet Outlook Area"],
     icon: "🌉",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/suspensionbridge.jpg"
     }
   },
   {
@@ -432,9 +398,7 @@ const venues = [
     features: ["Wireless Audio Headsets", "Captioned Screenings", "At-Seat Service"],
     icon: "🎬",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/everyman.jpg"
     }
   },
   {
@@ -458,9 +422,7 @@ const venues = [
     features: ["Portable Induction Loop", "Support Group Host", "Quiet Garden Space"],
     icon: "🏰",
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/trinity.jpg"
     }
   },
   {
@@ -482,9 +444,7 @@ const venues = [
     features: ["A&E Counter Loops", "BSL Video Interpreter", "Visual Patient Call Screens"],
     icon: "🏥",
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/bri.jpg"
     }
   },
   {
@@ -506,9 +466,7 @@ const venues = [
     features: ["Sennheiser MobileConnect", "BSL Signed Shows", "Captioned Performances"],
     icon: "🎟️",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/hippodrome.jpg"
     }
   },
   {
@@ -530,9 +488,7 @@ const venues = [
     features: ["Gallery Counter Loop", "Quiet Reading Library", "Visual Exhibition Guides"],
     icon: "🖼️",
     photos: {
-      main:  "Contents/Map/watershed-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/arnolfini.jpg"
     }
   },
   {
@@ -554,9 +510,7 @@ const venues = [
     features: ["Portable Reception Loop", "Quiet Gallery Rooms", "Level Access Entry"],
     icon: "🎨",
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/spikeisland.jpg"
     }
   },
   {
@@ -578,9 +532,7 @@ const venues = [
     features: ["Nave Induction Loop", "Large Print Service Books", "Level Access Side Ramp"],
     icon: "⛪",
     photos: {
-      main:  "Contents/Map/bristol-beacon-main.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/cathedral.jpg"
     }
   },
   {
@@ -602,9 +554,7 @@ const venues = [
     features: ["Visual Signage Boards", "Open Air Courtyard", "Level Pedestrian Entry"],
     icon: "🛍️",
     photos: {
-      main:  "Contents/Map/Bear pit.png",
-      thumb2: "Contents/Map/watershed-2.png",
-      thumb3: "Contents/Map/watershed-3.png"
+      main:  "Contents/Venues/stnicholas.jpg"
     }
   },
   {
@@ -626,9 +576,7 @@ const venues = [
     features: ["Reception Desk Induction Loop", "Vibrating Fire Alarm Pagers"],
     icon: "🏨",
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/futureinns.jpg"
     }
   },
   {
@@ -650,9 +598,7 @@ const venues = [
     features: ["Customer Info Counter Loop", "High-Contrast Visual Boards", "Auracast Transit Trial"],
     icon: "🚆",
     photos: {
-      main:  "bristol-hospital.png",
-      thumb2: "st-michaels-hospital.jpg",
-      thumb3: "Audiology Images/BRI.jpg"
+      main:  "Contents/Venues/templemeads.jpg"
     }
   }
 ];
@@ -960,9 +906,12 @@ const googleDarkStyle = [
 ];
 
 function initMap() {
+  const mapElement = document.getElementById("map");
+  if (!mapElement) return;
+
   const bristolCenter = { lat: 51.4650, lng: -2.5900 };
 
-  map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(mapElement, {
     zoom: 12.5,
     center: bristolCenter,
     disableDefaultUI: false,
@@ -988,6 +937,15 @@ function initMap() {
   renderCountyDirectionalArrows();
   renderMarkers();
   setupSidebarDrawer();
+
+  // Smoothly dismiss loading overlay as soon as tiles render
+  google.maps.event.addListenerOnce(map, "idle", () => {
+    const loader = document.getElementById("map-loader");
+    if (loader) {
+      loader.classList.add("hidden");
+      setTimeout(() => loader.remove(), 400);
+    }
+  });
 
   document.getElementById("filter-induction")?.addEventListener("change", updateFilters);
   document.getElementById("filter-auracast")?.addEventListener("change", updateFilters);
@@ -1091,29 +1049,12 @@ function drawInterlockingPostcodePolygons() {
     });
     polygonObjects[dist.code] = polygon;
 
-    // THICKER TALL CONDENSED FONT (Oswald / Impact, font-weight="800"), fill-opacity="0.22"
-    const labelSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="360" height="200" viewBox="0 0 360 200"><text x="180" y="145" font-family="Oswald, Impact, %27Arial Narrow%27, sans-serif" font-size="140" font-weight="800" fill="%23000000" fill-opacity="0.22" stroke="none" text-anchor="middle">${dist.code}</text></svg>`;
-
-    const labelMarker = new google.maps.Marker({
-      map: map,
-      position: dist.center,
-      title: `${dist.code} Postcode District`,
-      icon: {
-        url: labelSvg,
-        scaledSize: new google.maps.Size(360, 200),
-        anchor: new google.maps.Point(180, 100)
-      },
-      clickable: false,
-      zIndex: 50
-    });
-    postcodeLabelMarkers.push(labelMarker);
-
-    // HTML Element marker fallback
-    const labelDiv = document.createElement("div");
-    labelDiv.className = "postcode-area-label";
-    labelDiv.innerText = dist.code;
-
+    // Single label marker per district (prefer AdvancedMarkerElement if available, else SVG fallback)
     if (google.maps.marker && google.maps.marker.AdvancedMarkerElement) {
+      const labelDiv = document.createElement("div");
+      labelDiv.className = "postcode-area-label";
+      labelDiv.innerText = dist.code;
+
       const advLabelMarker = new google.maps.marker.AdvancedMarkerElement({
         map,
         position: dist.center,
@@ -1121,6 +1062,22 @@ function drawInterlockingPostcodePolygons() {
         content: labelDiv
       });
       postcodeLabelMarkers.push(advLabelMarker);
+    } else {
+      const labelSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="360" height="200" viewBox="0 0 360 200"><text x="180" y="145" font-family="Oswald, Impact, %27Arial Narrow%27, sans-serif" font-size="140" font-weight="800" fill="%23000000" fill-opacity="0.22" stroke="none" text-anchor="middle">${dist.code}</text></svg>`;
+
+      const labelMarker = new google.maps.Marker({
+        map: map,
+        position: dist.center,
+        title: `${dist.code} Postcode District`,
+        icon: {
+          url: labelSvg,
+          scaledSize: new google.maps.Size(360, 200),
+          anchor: new google.maps.Point(180, 100)
+        },
+        clickable: false,
+        zIndex: 50
+      });
+      postcodeLabelMarkers.push(labelMarker);
     }
   });
 }
@@ -1128,7 +1085,6 @@ function drawInterlockingPostcodePolygons() {
 // Render directional county arrows pointing to adjacent regions as 100% transparent text watermarks right at the map edges
 function renderCountyDirectionalArrows() {
   countyArrows.forEach((arrow) => {
-    // Pure transparent SVG text label (NO background rect box, NO border, NO button feel!)
     const svgWatermark = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="280" height="40" viewBox="0 0 280 40"><text x="140" y="28" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="900" fill="%2338bdf8" fill-opacity="0.95" stroke="%23000000" stroke-width="0.8" text-anchor="middle">${encodeURIComponent(arrow.text)}</text></svg>`;
 
     new google.maps.Marker({
@@ -1156,23 +1112,19 @@ function renderMarkers() {
 
   // Dynamic Postcode Area Highlighting & Complete Hiding when 'NONE' is selected
   if (selectedPostcode === "NONE") {
-    // Hide all polygon shapes
     Object.keys(polygonObjects).forEach((code) => {
       polygonObjects[code].setMap(null);
     });
-    // Hide all postcode watermark text markers
     postcodeLabelMarkers.forEach((m) => {
       if (m.setMap) m.setMap(null);
       else m.map = null;
     });
   } else {
-    // Show postcode watermark text markers
     postcodeLabelMarkers.forEach((m) => {
       if (m.setMap) m.setMap(map);
       else m.map = map;
     });
 
-    // Show & highlight polygon shapes
     Object.keys(polygonObjects).forEach((code) => {
       const poly = polygonObjects[code];
       poly.setMap(map);
@@ -1195,15 +1147,13 @@ function renderMarkers() {
     if (v.type === "quiet"     && !showQuiet)     return;
     if (selectedPostcode !== "ALL" && selectedPostcode !== "NONE" && v.postcode !== selectedPostcode) return;
 
-    // ALL SAME COLOR INSIDE (#202124), ONLY BORDER DIFFERENT (Gold for certified, feature/category accent color for others)
     const pinBorderColor = v.goldStandard 
       ? "#FFD700" 
       : (v.accentColor || (v.type === "auracast" ? "#ff0f5b" : (v.type === "quiet" ? "#1b5e20" : "#0097A7")));
 
-    // MASSIVE ROUND VENUE PIN (112px x 112px WITH UPGRADED EMOJI ICON & EXACT GPS CENTERING ALIGNMENT)
     const pinElement = document.createElement("div");
     pinElement.className = "round-icon-marker";
-    pinElement.style.backgroundColor = "#202124"; // ALL SAME DARK COLOR INSIDE
+    pinElement.style.backgroundColor = "#202124";
     pinElement.style.border = v.goldStandard 
       ? "5px solid #FFD700" 
       : `4px solid ${pinBorderColor}`;
@@ -1211,7 +1161,6 @@ function renderMarkers() {
       ? "0 0 24px rgba(255, 215, 0, 0.95), 0 8px 24px rgba(0,0,0,0.8)" 
       : `0 0 16px ${pinBorderColor}99, 0 8px 20px rgba(0,0,0,0.7)`;
 
-    // Pin HTML: Twice as big emoji inside circle + hover title tooltip
     pinElement.innerHTML = `
       <span class="emoji-icon">${v.icon}</span>
       <div class="marker-tooltip">${v.name} (${v.postcode})</div>
@@ -1226,7 +1175,6 @@ function renderMarkers() {
         content: pinElement
       });
     } else {
-      // Fallback SVG circle marker with 112px size, 56px emoji font, and exact (56, 56) center anchor
       const pinSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="50" fill="%23202124" stroke="${v.goldStandard ? '%23FFD700' : encodeURIComponent(pinBorderColor)}" stroke-width="${v.goldStandard ? '6' : '4'}"/><text x="56" y="72" font-size="56" text-anchor="middle">${encodeURIComponent(v.icon)}</text></svg>`;
       marker = new google.maps.Marker({
         map,
@@ -1249,17 +1197,15 @@ function renderMarkers() {
     const thumb2 = v.photos?.thumb2 || "Contents/Map/watershed-2.png";
     const thumb3 = v.photos?.thumb3 || "Contents/Map/watershed-3.png";
 
-    // CLEAN SIMPLE POPUP LINKED DIRECTLY TO GOOGLE MAPS & VENUE CARD
+    // Popup with lazy decoded images
     const contentString = `
       <div class="dark-popup" style="border-left: 5px solid ${pinBorderColor};">
         ${goldBadgeHtml}
         <h3>${v.name}</h3>
         <p class="rating">⭐ ${v.rating} (${v.reviews} reviews) • ${v.categoryText} • <strong>${v.postcode}</strong></p>
         
-        <div class="photo-grid">
-          <img src="${mainPhoto}" alt="${v.name}" class="photo-main" />
-          <img src="${thumb2}" alt="${v.name} photo 2" />
-          <img src="${thumb3}" alt="${v.name} photo 3" />
+        <div class="popup-hero-image" style="width: 100%; height: 135px; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #333;">
+          <img src="${mainPhoto}" alt="${v.name}" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" />
         </div>
 
         <p style="font-size: 0.85rem; color: #bdc1c6; margin-bottom: 10px;">📍 ${v.address}</p>
@@ -1306,3 +1252,12 @@ function updateFilters() {
 }
 
 window.initMap = initMap;
+
+// If Google Maps API is already loaded/cached, initialize immediately
+if (window.google && window.google.maps && window.google.maps.Map && !map) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMap);
+  } else {
+    initMap();
+  }
+}

@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore an interactive map of 27 verified venues across Bristol featuring Induction Loops, Auracast, and acoustic ratings.">
-  <title>Bristol Venue Accessibility Map</title>
+  <meta name="description" content="Explore an interactive map of verified venues across Bristol featuring Induction Loops, Auracast, and acoustic ratings.">
+  <title>Bristol Venue Accessibility Map - Hearing Loss Initiative</title>
+
+  <!-- Performance Preconnects -->
+  <link rel="preconnect" href="https://maps.googleapis.com">
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/venue-map.css?v=12" />
+  <link rel="stylesheet" href="styles/venue-map.css?v=13" />
   <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="map-header">
     <div class="header-left">
       <h1><span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.25rem; margin-right: 4px;">map</span> Greater Bristol Map</h1>
@@ -76,12 +81,12 @@
 
   <!-- Interactive Floating Venue List Sidebar Panel -->
   <button id="toggle-sidebar-btn" class="venue-sidebar-toggle">
-    <span class="material-symbols-outlined">list</span> 📋 Audited Venues List (27)
+    <span class="material-symbols-outlined">list</span> 📋 Audited Venues List
   </button>
 
   <aside id="venue-sidebar" class="venue-sidebar collapsed">
     <div class="sidebar-header">
-      <h2>📋 Audited Venues (27)</h2>
+      <h2>📋 Audited Venues</h2>
       <button id="close-sidebar-btn" style="background: none; border: none; color: #94a3b8; font-size: 1.4rem; cursor: pointer;">&times;</button>
     </div>
     <div class="sidebar-search">
@@ -90,7 +95,15 @@
     <div id="sidebar-venue-list" class="sidebar-list"></div>
   </aside>
 
-  <main id="map" style="height: calc(100vh - 65px); width: 100%;"></main>
+  <main id="map" style="position: relative; height: calc(100vh - 52px); width: 100%;">
+    <div id="map-loader" class="map-loader">
+      <div class="map-loader-spinner"></div>
+      <div class="map-loader-text">Loading Greater Bristol Map...</div>
+    </div>
+  </main>
+
+  <!-- Map logic loaded before API callback -->
+  <script src="js/venue-map.js?v=46"></script>
 
   <!-- Google Maps JS API loader -->
   <script
@@ -98,9 +111,5 @@
     defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR126ydv-9UusD-VAHZI9QVwfmugu-rGQ&callback=initMap">
   </script>
-
-  <!-- Map logic -->
-  <script src="js/venue-map.js?v=45"></script>
-  <script src="script.js?v=1.4"></script>
 </body>
 </html>
