@@ -5,88 +5,149 @@
     <meta charset="UTF-8">
     <title>Testing Tomorrow's Sound: The Auracast Trial at Bristol Temple Meads - Hearing Loss Initiative</title>
     <meta name="description" content="Read the report on the groundbreaking Auracast Bluetooth broadcast trial for hearing accessibility at Bristol Temple Meads station.">
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=8.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            background-color: #f0f4f8;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        }
-        .header-banner {
-            background-color: #1a365d;
-            color: #ffffff;
-            padding: 25px 20px;
-            margin: -40px -40px 20px -40px;
-            text-align: center;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-        }
-        .header-banner h1 { margin: 0; font-size: 22pt; font-weight: 700; color: #ffffff; }
-        .subtitle { font-size: 12pt; font-style: italic; margin-top: 5px; opacity: 0.9; color: #e2e8f0; }
-        h2 {
-            color: #2b6cb0;
-            font-size: 15pt;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            border-left: 4px solid #ed8936;
-            padding-left: 10px;
-        }
-        .highlight-box {
-            background-color: #f8f9fa;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .highlight-box p { margin: 0; font-style: italic; color: #4a5568; }
-        .back-link { display: inline-block; margin-top: 30px; text-decoration: none; color: #005EB8; font-weight: bold; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    
     <main id="main-content" class="container">
-        <div class="header-banner">
-            <h1>Testing Tomorrow’s Sound</h1>
-            <div class="subtitle">The Auracast Trial at Bristol Temple Meads</div>
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #0284c7; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">cell_tower</span>
+                Testing Tomorrow’s Sound: The Auracast Trial
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                How Bristol hard-of-hearing advocates partnered with transport operators and manufacturers to pioneer Bluetooth LE Audio at Bristol Temple Meads.
+            </p>
         </div>
 
-        <p><strong>September 2025</strong> marked a major milestone for accessibility in our city, and I had the privilege of being right at the centre of it. The session was expertly run by Jonathan Hoskin, Business Development Manager at Ampetronic Listen Technologies.</p>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: The Landmark Trial -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #0284c7; margin-right: 8px;">train</span> 1. The Landmark Temple Meads Trial (September 2025)</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: #334155;">
+                        September 2025 marked a watershed milestone for accessibility in Bristol. In partnership with the <strong>Severnside Community Rail Partnership</strong> and Jonathan Hoskin of <em>Ampetronic Listen Technologies</em>, a delegation from the Centre for Deaf and Hard of Hearing People tested a revolutionary assistive listening technology: <strong>Auracast™ broadcast audio</strong>.
+                    </p>
+                    <div style="margin: 15px 0; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                        <img src="Contents/Venues/templemeads.jpg" alt="Bristol Temple Meads Historic Station" style="width: 100%; height: 220px; object-fit: cover; display: block;" loading="lazy">
+                        <div style="padding: 12px 18px; background: #f8fafc;">
+                            <span class="info-badge" style="background: #e0f2fe; color: #0369a1;">Pioneering UK Trial Site</span>
+                            <h4 style="margin: 4px 0; color: #0f172a; font-size: 1.05rem;">Bristol Temple Meads: Transforming Transport Accessibility</h4>
+                            <p style="margin: 0; font-size: 0.88rem; color: #64748b;">Testing cutting-edge Bluetooth Auracast broadcasts over station platforms.</p>
+                        </div>
+                    </div>
+                    <div class="good-box">
+                        <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">The Challenge: Cavernous Railway Station Acoustics</h4>
+                        <p style="margin: 0; font-size: 0.95rem; color: #15803d; line-height: 1.6;">
+                            Bristol Temple Meads is renowned for historic Victorian arches and massive echo reflections. Traditional PA announcements turn into a muddy roar for hearing aid wearers. Auracast bypassed the echo entirely by streaming pristine digital audio directly into trial receivers!
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <p>In partnership with Severnside Community Rail Partnership, I helped organise a visit to Bristol Temple Meads for a group from Centre for Deaf and Hard of Hearing People. Our mission? To test a groundbreaking new assistive listening technology called <strong>Auracast</strong>.</p>
+            <!-- ACCORDION 2: Sourcing Hardware -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">devices_other</span> 2. Sourcing Hardware & NHS Collaboration</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Securing Auracast hardware before mainstream market release required strategic community initiative:
+                    </p>
+                    <div style="text-align: center; margin: 15px 0;">
+                        <img src="Audiology Images/bluetooth.jpg" alt="Bluetooth LE Audio and Hearing Aid Streamers" style="max-width: 100%; height: auto; max-height: 180px; object-fit: contain; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;" loading="lazy">
+                    </div>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">NHS St Michael's Link</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Sarah Swift, Head of Audiology at St Michael's Hill, connected our initiative directly with David from Danalogic (GN ReSound).</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">Trial Earsets & Smartphone</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Danalogic loaned trial Bluetooth LE Audio hearing aids, and Ampetronic provided an Auracast broadcast transmitter and smartphone assistant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <p>I knew that giving people with hearing loss the chance to experience this system firsthand in a challenging, echo-heavy environment like a busy train station would be an incredible opportunity. But getting the right hardware to test the system took a bit of behind-the-scenes manoeuvring.</p>
+            <!-- ACCORDION 3: Why Auracast Beats Induction Loops -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ea580c; margin-right: 8px;">compare_arrows</span> 3. Auracast vs Traditional Induction Loops</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid-2col">
+                        <div class="scary-box" style="margin: 0; background: #fff7ed; border-color: #fed7aa;">
+                            <h4 style="margin: 0 0 8px 0; color: #9a3412; font-size: 1.05rem;">Traditional T-Loops (Telecoil)</h4>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; color: #9a3412; line-height: 1.5;">
+                                <li>Vulnerable to electrical 50Hz hum from lights and power lines.</li>
+                                <li>Requires expensive copper wiring under floors and carpets.</li>
+                                <li>Mono audio only with variable signal strength depending on head tilt.</li>
+                            </ul>
+                        </div>
+                        <div class="good-box" style="margin: 0;">
+                            <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">Next-Gen Auracast™ LE Audio</h4>
+                            <ul style="margin: 0; padding-left: 18px; font-size: 0.9rem; color: #15803d; line-height: 1.5;">
+                                <li>Crystal-clear digital stereo audio with zero electromagnetic buzzing.</li>
+                                <li>Unlimited simultaneous listeners with zero latency.</li>
+                                <li>Works on hearing aids, cochlear implants, AirPods, and standard Bluetooth earbuds!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <h2>Sourcing the Right Tech</h2>
-        <p>Before the trip, I reached out to Sarah Swift, the Head of Audiology at St Michael’s Hill. I was looking into upgrading my own hearing aids and wanted to know if I could get a pair equipped with this new Auracast technology through the NHS.</p>
+            <!-- ACCORDION 4: Future Vision for Bristol -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #16a34a; margin-right: 8px;">rocket_launch</span> 4. Bristol Accessibility Expansion Roadmap</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        The success of the Temple Meads trial has established Bristol as a flagship proving ground for broadcast accessibility:
+                    </p>
+                    <div class="info-box" style="border-left: 4px solid #16a34a;">
+                        <h4 style="margin: 0 0 6px 0; color: #166534; font-weight: 800;">Target Public Venues Across Bristol</h4>
+                        <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">
+                            We are actively collaborating with Bristol Beacon, Bristol Hippodrome, Ashton Gate Stadium, and Council public enquiry desks to support the transition to universal Auracast broadcasts over the next 24 months.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-        <p>At the time, the technology was still in its infancy. Major providers like Phonak hadn't yet rolled out Auracast capabilities, and it certainly wasn't available on the NHS in the Bristol area. However, Sarah connected me with David from Danalogic, a manufacturer looking to implement Bluetooth LE Audio in their future models.</p>
-
-        <p>David generously loaned me a pair of trial hearing aids. Along with an Auracast-enabled smartphone from Jonathan Hoskin to act as an audio assistant, I was finally geared up to test the system in action.</p>
-
-        <div class="highlight-box">
-            <p>"Experiencing announcements streamed straight into hearing aids without reverberation was an eye-opener for all of us."</p>
         </div>
 
-        <h2>The Trial Experience</h2>
-        <p>The feedback from our group was overwhelmingly positive. Bristol Temple Meads has cavernous acoustics that make standard public address announcements difficult to decipher for hearing aid users. Auracast delivered pristine clarity directly to individual devices.</p>
-
-        <p>We are excited to continue working alongside regional transport hubs, audiology clinicians, and community partners to accelerate the adoption of Auracast across Bristol and beyond.</p>
-
-        <a href="path-tech.html" class="back-link">&larr; Back to Future Tech</a>
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-tech.html" class="back-to-journey-btn" style="background: #0284c7; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">science</span>
+                Return to Future Tech Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return to Journey Hub
+            </a>
+        </nav>
     </main>
+
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>

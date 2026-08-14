@@ -1,39 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Join our welcoming online discussion forum to share experiences, ask questions, and support peers with hearing loss.">
-  <title>Our Patreon Forum</title>
+    <title>Private Community Forum - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body style="background: #000; margin: 0; padding: 0;">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-<div id="main-content" class="page-transition-overlay"></div>
-<div class="top-nav" style="position: absolute; top: 20px; left: 20px; width: calc(100% - 40px); z-index: 9999;">
-    <a href="index.html" style="color: white; text-decoration: none; font-weight: bold; font-family: sans-serif;">&#8592; Back</a>
-</div>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #f97316; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">forum</span>
+                Private Community & Support Forum
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                A safe, verified, and troll-free space for hard-of-hearing adults, caregivers, and allies across Bristol to connect and share advice.
+            </p>
+        </div>
 
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 40px 20px; max-width: 700px; margin: 0 auto; color: white; font-family: sans-serif;">
-    <span class="material-symbols-outlined" style="font-size: 4rem; color: #F76B1C; margin-bottom: 20px;">forum</span>
-    <h1 style="font-size: 2.8rem; margin-bottom: 20px; color: #ffffff;">Our Patreon Forum</h1>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Why Patreon -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #f97316; margin-right: 8px;">verified_user</span> 1. A Safe, Moderated, and Supportive Environment</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: #334155;">
+                        To protect our members from spam, aggressive advertising, and online harassment, we maintain our private discussion community through Patreon.
+                    </p>
+                    <div class="good-box">
+                        <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">Community Core Values:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #15803d; font-size: 0.95rem; line-height: 1.6;">
+                            <li><strong>Zero Judgement:</strong> Share hearing challenges, awkward social moments, and emotional hurdles in complete confidence.</li>
+                            <li><strong>Peer-Led Guidance:</strong> Real insights on NHS models, audiologist experiences, and assistive gadgets from people who live it daily.</li>
+                            <li><strong>Privacy First:</strong> Your conversations and medical details are never sold, scraped, or indexed by search engines.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 25px; color: #ddd;">
-        To ensure our community remains a completely safe, troll-free, and supportive space, we host our private discussions on Patreon. 
-    </p>
+            <!-- ACCORDION 2: Name & Postcode Reason -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">pin_drop</span> 2. Why We Ask for Your Name & Postcode</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        When registering for private forum invites or local meetups, we ask for your name and broad Bristol postcode. Here is exactly why:
+                    </p>
+                    <div class="grid-2col">
+                        <div class="info-box" style="border-left: 4px solid #005EB8;">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">📍 Localised Meetup Booking</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Knowing where members live allows us to book accessible quiet coffee venues close to where our community is clustered (e.g. Bedminster, Easton, Clifton, Southmead).</p>
+                        </div>
+                        <div class="info-box" style="border-left: 4px solid #F57C00;">
+                            <h4 style="margin: 0 0 6px 0; color: #c2410c; font-weight: 800;">📊 Securing NHS & Council Funding</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Aggregated geographic data helps us prove demographic need to Bristol City Council and NHS health boards to secure grants for loop systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; text-align: left;">
-        <h3 style="color: #00A4EF; margin-top: 0;">Why do we ask for your Name and Postcode?</h3>
-        <ul style="line-height: 1.6; color: #ccc; padding-left: 20px;">
-            <li style="margin-bottom: 10px;"><strong>Your Name & Email:</strong> Used exclusively to verify your identity and send your private invite link to the Patreon forum.</li>
-            <li><strong>Your Postcode:</strong> Helps us map where our community is located. This allows us to book venues for coffee meetups exactly where they are needed most, and provides crucial data to help secure NHS and Council funding for specific Bristol postcodes.</li>
-        </ul>
-    </div>
+            <!-- ACCORDION 3: What You Get -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">featured_play_list</span> 3. What’s Included in the Community Hub</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🎙️ Monthly Supporter Q&A</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Direct access to guest audiologists, acoustics engineers, and community organizers.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🔍 Early Venue Audits</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Vote on which Bristol pubs, restaurants, and cinemas our team should audit for accessibility next.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" style="background: #F76B1C; color: white; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; transition: transform 0.2s ease;">
-        View our Patreon Page
-    </a>
-</div>
-    <script src="script.js?v=1.4"></script>
+            <!-- ACCORDION 4: Join Now -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #FF424D; margin-right: 8px;">login</span> 4. Access the Community & Join Us</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 28px; border-radius: 16px; text-align: center; border: 1px solid rgba(255,66,77,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <span class="material-symbols-outlined" style="font-size: 2.8rem; color: #FF424D; margin-bottom: 8px;">groups</span>
+                        <h3 style="color: #ffffff; font-size: 1.4rem; margin: 0 0 10px 0;">Join the Bristol Hearing Loss Initiative Patreon</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.5;">
+                            Support our volunteer work, receive your private forum access, and join our monthly in-person and digital community circles.
+                        </p>
+                        <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #FF424D; color: white; text-decoration: none; padding: 14px 32px; font-size: 1.05rem; font-weight: 800; border-radius: 30px; box-shadow: 0 4px 15px rgba(255, 66, 77, 0.4); transition: transform 0.2s;">
+                            Open Patreon Community Page &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">diversity_3</span>
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return to Journey Hub
+            </a>
+        </nav>
+    </main>
+
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>

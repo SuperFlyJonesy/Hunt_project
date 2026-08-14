@@ -1,73 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jason Parchment shares his personal journey through sudden hearing loss, overcoming stigma, and founding the Initiative.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jason Parchment shares his personal journey through sudden hearing loss, overcoming stigma, and founding the Hearing Loss Initiative.">
     <meta charset="UTF-8">
-    <title>My Journey</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <title>My Journey: Jason Parchment - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; padding: 40px; }
-        .content { max-width: 800px; margin: 0 auto; }
-        h1 { color: #F57C00; }
-        .testimonial-card { background: #f8f9fa; border-radius: 20px; padding: 20px; margin-bottom: 20px; border-left: 6px solid #F57C00; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div id="main-content" class="content">
-        <h1>My Journey</h1>
-        
-        <div class="testimonial-card" style="border-left-color: #F57C00; border-right: 6px solid #F57C00; padding: 30px;">
-            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-bottom: 15px;">
-                <h2 style="color: #F57C00; margin: 0; font-size: 1.8rem; font-weight: 800;">My Story: Jason Parchment</h2>
-                <span style="background: #FF424D; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; display: inline-flex; align-items: center; gap: 6px;">
-                    🔒 Patreon Exclusive
-                </span>
-            </div>
-            
-            <h2 style="color: #005EB8; margin-top: 10px;">Early Years & The Beginning</h2>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #444;">
-                "I lost my hearing around the age of 30. Looking back, I think it came down to a combination of things: spending too much time in nightclubs listening to heavy music close to speakers, alongside a slight hearing issue when I was young. For nearly 15 years, I struggled in silence, guessing conversations and living in denial before finding help that changed my life..."
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #f57c00; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">route</span>
+                My Journey: Jason Parchment
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                From 15 years of silent struggle in Bristol to overcoming stigma, discovering assistive listening tech, and founding the Hearing Loss Initiative.
             </p>
-
-            <!-- PATREON LOCK CALLOUT -->
-            <div style="background: linear-gradient(135deg, #141518 0%, #222328 100%); color: white; padding: 30px; border-radius: 16px; text-align: center; margin-top: 30px; border: 1px solid #FF424D; box-shadow: 0 10px 30px rgba(255, 66, 77, 0.15); position: relative; overflow: hidden;">
-                <div style="position: absolute; top: -10px; right: -10px; font-size: 5rem; opacity: 0.05; user-select: none;">🔒</div>
-                <div style="font-size: 2.5rem; margin-bottom: 10px;">🔒</div>
-                <h3 style="color: #FF424D; font-size: 1.5rem; margin: 0 0 10px 0;">Unlock the Full Story on Patreon</h3>
-                <p style="color: #ccc; font-size: 1rem; max-width: 550px; margin: 0 auto 20px auto; line-height: 1.5;">
-                    Read Jason's complete journey through surgeries, overcoming stigma, modern tech, and his identity transformation, plus exclusive monthly supporter updates.
-                </p>
-                <a href="path-join-us.html" style="display: inline-block; background: #FF424D; color: white; text-decoration: none; padding: 14px 32px; font-size: 1.1rem; font-weight: 800; border-radius: 30px; box-shadow: 0 4px 15px rgba(255, 66, 77, 0.4); transition: transform 0.2s, background 0.2s;">
-                    Unlock Full Story on Patreon &rarr;
-                </a>
-            </div>
-        </div>
-        
-        <!-- Rotating Community Snippets -->
-        <div style="margin-top: 40px; background: #f8f9fa; padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #e9ecef;">
-            <h3 style="color: #005EB8; margin-top: 0; font-size: 1.3rem;">Initiate Stories</h3>
-            <div id="rotating-snippet" style="font-size: 1.15rem; color: #555; font-style: italic; min-height: 80px; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s; padding: 0 20px; line-height: 1.5;">
-                "I felt so isolated until I found this community. It changed everything for me." - Sarah, 34
-            </div>
-            <div style="margin-top: 20px;">
-                <a href="path-community-stories.html" style="display: inline-block; background: #005EB8; color: white; padding: 10px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: background 0.2s;">
-                    Share Your Story
-                </a>
-            </div>
         </div>
 
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Early Years -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #f57c00; margin-right: 8px;">nightlife</span> 1. Early Years & The Hidden Onset</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div style="display: flex; gap: 20px; align-items: center; margin: 15px 0; background: #fff7ed; border: 1px solid #fed7aa; padding: 18px; border-radius: 14px; flex-wrap: wrap;">
+                        <img src="jason-photo.jpg" alt="Jason Parchment - Founder" style="width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid #f57c00; box-shadow: 0 4px 15px rgba(245, 124, 0, 0.2);">
+                        <div style="flex: 1; min-width: 240px;">
+                            <h4 style="margin: 0 0 4px 0; color: #9a3412; font-size: 1.15rem;">Jason Parchment</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #7c2d12; line-height: 1.5;">Founder, Bristol Hearing Loss Initiative & Community Advocate</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 1.05rem; line-height: 1.6; color: #334155;">
+                        "I lost my hearing around the age of 30. Looking back, I think it came down to a combination of things: spending too much time in nightclubs standing right next to heavy sound systems, paired with a mild undiagnosed hearing vulnerability from when I was young."
+                    </p>
+                    <div class="info-box" style="border-left: 4px solid #f57c00;">
+                        <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.6;">
+                            <strong>The Slow Creep:</strong> Hearing loss rarely happens like switching off a light. It fades gradually—first consonants like <em>s, f, th</em> drop away, then noisy rooms become a wall of incomprehensible sound.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 2: 15 Years of Denial -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ea580c; margin-right: 8px;">psychology_alt</span> 2. 15 Years in the Shadows: Guessing & Denial</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        For nearly fifteen years, I struggled in complete silence. In social settings and work meetings, I learned to master the art of the <em>'nod and smile'</em>—pretending I caught every word while my brain was running at 200% capacity trying to piece syllables together.
+                    </p>
+
+                    <div class="scary-box">
+                        <h3 style="margin: 0 0 8px 0; color: #991b1b; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-outlined">sentiment_very_dissatisfied</span> The Hidden Cost of Listening Fatigue:
+                        </h3>
+                        <p style="margin: 0; font-size: 0.95rem; color: #7f1d1d; line-height: 1.6;">
+                            Living in denial creates profound cognitive exhaustion. By the end of every working day, the constant lip-reading, context guessing, and acoustic strain left me utterly depleted and withdrawing from friends and family.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: The Turning Point -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">hearing</span> 3. The Turning Point: NHS Care & Assistive Tech</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Stepping into the Audiology department at St Michael's Hospital in Bristol was terrifying at first. Admitting you need help feels daunting, but getting properly diagnosed and fitted with digital hearing aids gave me my life back.
+                    </p>
+
+                    <div style="margin: 20px 0; border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+                        <img src="Contents/Venues/templemeads.jpg" alt="Bristol Temple Meads Station" style="width: 100%; height: 220px; object-fit: cover; display: block;" loading="lazy">
+                        <div style="padding: 14px 18px; background: #f8fafc;">
+                            <span class="info-badge" style="background: #0284c7; color: white;">Pioneering Field Trial</span>
+                            <h4 style="margin: 4px 0; color: #0f172a; font-size: 1.05rem;">Bristol Temple Meads Station: Auracast Experience</h4>
+                            <p style="margin: 0; font-size: 0.88rem; color: #64748b;">Testing cutting-edge direct broadcast audio on station platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="good-box">
+                        <h3 style="margin: 0 0 8px 0; color: #166534; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-outlined">check_circle</span> Reconnecting With the World:
+                        </h3>
+                        <ul style="margin: 0; padding-left: 20px; color: #15803d; font-size: 0.95rem; line-height: 1.6;">
+                            <li><strong>Speech Clarity Restored:</strong> Hearing individual voices in restaurants without straining.</li>
+                            <li><strong>Environmental Sounds:</strong> Birds singing, rain on the window, and footsteps.</li>
+                            <li><strong>Pioneering Tech:</strong> Participating in Bristol's first public Auracast broadcast trial at Temple Meads station!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: Founding the Initiative -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">diversity_3</span> 4. Founding the Hearing Loss Initiative</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Over 62,220 adults in Bristol live with significant hearing loss, yet so many suffer in isolation. I founded the Hearing Loss Initiative to build the bridge that was missing: connecting clinical NHS pathways with real-world accessibility, community coffee meetups, and venue ratings.
+                    </p>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">📍 Bristol Venue Auditing</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Auditing local venues, cafes, and theatres for loop systems, acoustics, and staff awareness.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">☕ Peer Support Circles</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Creating warm, relaxed spaces where people can share practical tips without feeling judged.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: Patreon & Initiate Community -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #FF424D; margin-right: 8px;">lock</span> 5. Exclusive Memoir & Community Stories</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 28px; border-radius: 16px; text-align: center; border: 1px solid rgba(255,66,77,0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <span class="material-symbols-outlined" style="font-size: 2.8rem; color: #FF424D; margin-bottom: 8px;">lock_open</span>
+                        <h3 style="color: #ffffff; font-size: 1.4rem; margin: 0 0 10px 0;">Read the Complete Uncut Memoir</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem; max-width: 600px; margin: 0 auto 20px auto; line-height: 1.5;">
+                            Dive deep into Jason's chapters covering surgery decisions, relationships, identity transformation, and monthly supporter Q&As on Patreon.
+                        </p>
+                        <a href="path-join-us.html" style="display: inline-flex; align-items: center; gap: 8px; background: #FF424D; color: white; text-decoration: none; padding: 12px 28px; font-size: 1rem; font-weight: 800; border-radius: 30px; box-shadow: 0 4px 15px rgba(255, 66, 77, 0.4); transition: transform 0.2s;">
+                            Unlock Full Story on Patreon &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Rotating Community Snippets -->
+                    <div style="margin-top: 25px; background: #f8fafc; padding: 22px; border-radius: 16px; text-align: center; border: 1px solid #e2e8f0;">
+                        <h4 style="color: #005EB8; margin: 0 0 10px 0; font-size: 1.1rem;">Initiate Voice</h4>
+                        <div id="rotating-snippet" style="font-size: 1.05rem; color: #475569; font-style: italic; min-height: 50px; display: flex; align-items: center; justify-content: center; transition: opacity 0.5s; padding: 0 10px; line-height: 1.5;">
+                            "I felt so isolated until I found this community. It changed everything for me." - Sarah, 34
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Return to Journey Hub
             </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">diversity_3</span>
+                Visit Support Hub
+            </a>
         </nav>
-    </div>
+    </main>
 
     <script>
         const snippets = [
@@ -80,17 +190,17 @@
         let currentSnippet = 0;
         const snippetElement = document.getElementById('rotating-snippet');
 
-        setInterval(() => {
-            snippetElement.style.opacity = 0;
-            setTimeout(() => {
-                currentSnippet = (currentSnippet + 1) % snippets.length;
-                snippetElement.innerText = snippets[currentSnippet];
-                snippetElement.style.opacity = 1;
-            }, 500); // Wait for fade out
-        }, 6000); // Rotate every 6 seconds
+        if (snippetElement) {
+            setInterval(() => {
+                snippetElement.style.opacity = 0;
+                setTimeout(() => {
+                    currentSnippet = (currentSnippet + 1) % snippets.length;
+                    snippetElement.innerText = snippets[currentSnippet];
+                    snippetElement.style.opacity = 1;
+                }, 500);
+            }, 6000);
+        }
     </script>
-    <script src="script.js?v=1.4"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>
-
-

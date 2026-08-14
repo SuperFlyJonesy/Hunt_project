@@ -1,70 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore different hearing aid styles (BTE, RIC, ITE, CIC) to find the right fit for your hearing loss and lifestyle.">
     <meta charset="UTF-8">
-    <title>Hearing Aids</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+    <title>Hearing Aids Guide - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
-<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: sans-serif;">
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s;">About Us</a>
-    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 100px 20px; max-width: 800px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 30px; color: #ff0f5b;">Hearing Aids</h1>
-        
-        <div style="background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; text-align: left; width: 100%;">
-            <p style="margin-bottom: 20px;">Choosing and learning to use a hearing aid is a positive step toward staying connected to the people and sounds you love. Here is a brief guide to the different types available.</p>
-            
-            <h2>Types of Hearing Aids</h2>
-            <img src="audiology images/all the hearing aid types.jpg" alt="A selection of modern hearing aids" style="max-width: 100%; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px;" loading="lazy">
-            <ul style="margin-bottom: 20px;">
-                <li><strong>BTE (Behind-the-Ear):</strong> A versatile, popular style that sits discreetly behind the ear.</li>
-                <li><strong>ITE (In-the-Ear):</strong> Custom-made to fit comfortably within the outer ear.</li>
-                <li><strong>ITC (In-the-Canal):</strong> A compact design that sits securely inside the ear canal.</li>
-                <li><strong>Body Worn:</strong> A powerful solution designed for those with significant hearing challenges. It helps ensure speech is clear and comfortable to hear.</li>
-            </ul>
-
-            <h2>Caring for Your Device</h2>
-            <p style="margin-bottom: 15px;">Taking a few moments to care for your hearing aid helps ensure it continues to provide you with the best possible sound quality.</p>
-            <img src="audiology images/earmoulds.jpg" alt="Earmoulds" style="max-width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px;" loading="lazy">
-            <img src="audiology images/tubes.png" alt="Thintubes" style="max-width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 20px;" loading="lazy">
-            <ul style="margin-bottom: 20px;">
-                <li><strong>Daily Cleaning:</strong> A quick wipe keeps your device clean and working well.</li>
-                <li><strong>Regular Checks:</strong> Simply changing batteries and checking tubes keeps things running smoothly.</li>
-                <li><strong>Getting Help:</strong> If you're unsure about cleaning or retubing, your audiologist is always happy to guide you through it.</li>
-                <li><strong>Using Induction Loops:</strong> Many hearing aids have a special programme setting, often called a 'T-setting', that helps you hear more clearly in public spaces with an induction loop system.</li>
-            </ul>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #d32f2f; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">hearing</span>
+                Hearing Aids Guide & Styles
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Choosing and learning to use a hearing aid is a positive step toward staying connected. Discover device styles, maintenance essentials, and expert talks.
+            </p>
         </div>
 
-        <div style="margin-top: 40px; width: 100%; text-align: center;">
-            <div class="video-link-item" style="position: relative; display: inline-block;">
-                <a href="https://www.youtube.com/watch?v=0vf1q_HgLpw" target="_blank" rel="noopener noreferrer" style="background: #ff0f5b; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="material-symbols-outlined">smart_display</span> Watch TEDx Talk by Juliëtte Sterkens &rarr;
-                </a>
-                <div class="video-preview-card">
-                    <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/0vf1q_HgLpw/0.jpg') center/cover no-repeat;"></div>
-                    <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">What You Don't Know About Hearing Aids</div>
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Types of Hearing Aids -->
+            <div class="accordion-item active">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d32f2f; margin-right: 8px;">category</span> 1. Types of Modern Hearing Aids</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Modern hearing aids come in a variety of styles tailored to your specific hearing prescription, ear shape, and personal preferences:
+                    </p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <img src="Audiology Images/all the hearing aid types.jpg" alt="A selection of modern hearing aids" style="max-width: 100%; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);" loading="lazy">
+                    </div>
+                    <div class="grid-2col">
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">BTE (Behind-the-Ear)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">A versatile and popular style that sits discreetly behind the ear, delivering sound through a slim tube or custom mould.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">RIC (Receiver-in-Canal)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Extremely popular; places the speaker directly in the canal for natural acoustics and zero occlusion.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">ITE & ITC (In-the-Ear / Canal)</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Custom-moulded to fit snug within your outer ear or canal for discreet daily use.</p>
+                        </div>
+                        <div class="info-box">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">CROS & BiCROS</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Transfers sound wirelessly from an unaidable ear over to your better-hearing ear, eliminating blind spots.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- ACCORDION 2: Device Care & Maintenance -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">build</span> 2. Caring for Your Device & Maintenance</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Taking a few moments to care for your hearing aid ensures crisp sound quality and prevents feedback whistling:
+                    </p>
+                    <div class="grid-2col" style="margin: 15px 0;">
+                        <div style="text-align: center;">
+                            <img src="Audiology Images/earmoulds.jpg" alt="Earmoulds" style="max-width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06);" loading="lazy">
+                            <p style="margin: 8px 0 0 0; font-size: 0.85rem; font-weight: 700; color: #475569;">Earmould Retubing (Every 4–6 Months)</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="Audiology Images/tubes.png" alt="Thintubes" style="max-width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06);" loading="lazy">
+                            <p style="margin: 8px 0 0 0; font-size: 0.85rem; font-weight: 700; color: #475569;">Thin Tube & Dome Cleaning</p>
+                        </div>
+                    </div>
+                    <div class="good-box">
+                        <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">Daily Care Checklist:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #15803d; font-size: 0.95rem; line-height: 1.6;">
+                            <li><strong>Daily Wipe:</strong> Wipe moulds and domes with a dry microfiber cloth; never use boiling water or harsh chemicals.</li>
+                            <li><strong>Battery Hygiene:</strong> Open battery doors overnight to let moisture evaporate and extend battery life.</li>
+                            <li><strong>T-Loop Programme:</strong> Use your telecoil ('T') setting in banks, theatres, and churches equipped with hearing loop systems.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: TEDx Video Talk -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #e11d48; margin-right: 8px;">play_circle</span> 3. TEDx Talk: What You Don't Know About Hearing Aids</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Watch audiologist Juliëtte Sterkens' inspiring TEDx presentation uncovering how hearing aids work, overcoming misconceptions, and demanding public accessibility:
+                    </p>
+                    
+                    <!-- UNCLIPPED RESPONSIVE VIDEO EMBED -->
+                    <div class="responsive-video-container">
+                        <iframe src="https://www.youtube-nocookie.com/embed/0vf1q_HgLpw" title="What You Don't Know About Hearing Aids - Juliëtte Sterkens TEDx" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: Bristol NHS & Access Guide -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7b1fa2; margin-right: 8px;">explore</span> 4. Bristol NHS vs Private Device Roadmap</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="info-box" style="border-left: 4px solid #7b1fa2;">
+                        <h4 style="margin: 0 0 8px 0; color: #7b1fa2; font-size: 1.05rem;">Looking for Specific NHS Models & Fitting Protocols?</h4>
+                        <p style="margin: 0 0 15px 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">
+                            Explore our comprehensive interactive guide covering Bristol NHS models (Phonak Bolero M70, Nathos Nova, Naída), free battery supply postal services, and private options.
+                        </p>
+                        <a href="path-hearing-aids-access.html" style="display: inline-flex; align-items: center; gap: 8px; background: #7b1fa2; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 700;">
+                            <span class="material-symbols-outlined">menu_book</span> Open Full Bristol Hearing Aids Roadmap &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <nav class="back-to-journey-container" aria-label="Back Navigation">
-            <a href="path-yes.html" class="back-to-journey-btn">
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Return to Journey Hub
             </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">diversity_3</span>
+                Visit Support Hub
+            </a>
         </nav>
-    </div>
-    <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-    </script>
-    <script src="script.js?v=1.4"></script>
+    </main>
+
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>
-
-

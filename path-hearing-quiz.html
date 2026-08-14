@@ -5,11 +5,12 @@
     <meta name="description" content="Take our quick self-assessment hearing quiz to identify early signs of hearing changes and explore next steps.">
     <meta charset="UTF-8">
     <title>Interactive Hearing Health Quiz - Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #ff0f5b; margin-bottom: 20px; }
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .page-card { background: #ffffff; border-radius: 20px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-left: 6px solid #00843D; margin-bottom: 20px; }
         .quiz-question { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin-bottom: 18px; }
         .quiz-question h3 { margin: 0 0 12px 0; color: #1e293b; font-size: 1.1rem; font-weight: 800; }
         .option-group { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -21,24 +22,30 @@
         .quiz-btn.selected-yes { background: #dcfce7; border-color: #16a34a; color: #15803d; }
         .quiz-btn.selected-no { background: #f1f5f9; border-color: #64748b; color: #475569; }
         .result-card { display: none; background: #eff6ff; border: 2px solid #3b82f6; border-radius: 16px; padding: 24px; margin-top: 25px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
     
-    <div id="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; padding: 100px 20px; max-width: 900px; margin: 0 auto; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center;">Interactive Hearing Health Quiz</h1>
-        <p style="font-size: 1.1rem; color: #475569; text-align: center; max-width: 700px; margin-bottom: 30px;">
-            Unsure if you or a family member might have hearing loss? Complete this quick 6-question self-assessment to evaluate your day-to-day listening experience and discover your best next steps.
-        </p>
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #00843D; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">quiz</span>
+                Interactive Hearing Health Quiz
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Unsure if you or a loved one might have hearing loss? Complete this quick 6-question self-assessment to evaluate your day-to-day listening experience and discover your best next steps.
+            </p>
+        </div>
 
         <!-- Quiz Container Card -->
-        <div class="page-card" style="border-left-color: #E65100; width: 100%;">
-            <h2 style="color: #E65100; margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                <span class="material-symbols-outlined" style="font-size: 2rem;">quiz</span> Self-Assessment Questionnaire
+        <div class="page-card" style="border-left-color: #00843D; width: 100%; box-sizing: border-box;">
+            <h2 style="color: #00843D; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">task_alt</span> Self-Assessment Questionnaire
             </h2>
 
             <form id="hearing-quiz-form">
@@ -134,11 +141,9 @@
                 Back to Journey
             </a>
         </nav>
-    </div>
+    </main>
 
     <script>
-        document.getElementById('dev-reset').addEventListener('click', () => { localStorage.clear(); window.location.href = 'index.html'; });
-
         const answers = {};
         document.querySelectorAll('.quiz-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -184,6 +189,6 @@
             resBox.scrollIntoView({ behavior: 'smooth' });
         });
     </script>
-    <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>

@@ -25,22 +25,21 @@
     }
 
     /* Pure Full-Screen Video Background */
-    .fullscreen-video-container {
-      position: fixed;
+    .video-stage {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
-      background: #000000;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     #community-video {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -61,7 +60,7 @@
 
     /* Minimalist Unobtrusive Controls (Top Right) */
     .top-controls {
-      position: fixed;
+      position: absolute;
       top: 24px;
       right: 28px;
       z-index: 50;
@@ -105,7 +104,7 @@
 
     /* Subtle bottom progress bar */
     .bottom-progress {
-      position: fixed;
+      position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -123,88 +122,45 @@
 
     /* Mobile Landscape Auto-Orientation: Rotates to widescreen landscape when held in portrait */
     @media (max-width: 900px) and (orientation: portrait) {
-      .fullscreen-video-container {
-        position: fixed;
+      .video-stage {
+        position: absolute;
         top: 50%;
         left: 50%;
         width: 100vh;
         height: 100vw;
         transform: translate(-50%, -50%) rotate(90deg);
         transform-origin: center center;
-        overflow: hidden;
-      }
-
-      #community-video {
-        width: 100vh;
-        height: 100vw;
-        object-fit: cover;
-      }
-
-      .top-controls {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: rotate(90deg);
-        transform-origin: top right;
-      }
-
-      .bottom-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vh;
-        height: 3px;
-        transform: rotate(90deg);
-        transform-origin: top left;
-      }
-    }
-
-    /* Natural Landscape (Device rotated horizontally or desktop) */
-    @media (orientation: landscape) {
-      .fullscreen-video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: none;
-      }
-
-      #community-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fullscreen Video Canvas (No Text Overlays) -->
-  <div class="fullscreen-video-container">
+  <!-- Fullscreen Video Stage -->
+  <div class="video-stage">
     <video id="community-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/community-reel-poster.jpg" autoplay>
       <source src="Contents/community-reel.webm" type="video/webm">
       <source src="Contents/community-reel.mp4" type="video/mp4">
     </video>
+
+    <!-- Minimalist Controls inside rotated stage -->
+    <div class="top-controls">
+      <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
+        <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
+      </button>
+      <button id="btn-skip" class="glass-btn" aria-label="Skip to Journey Hub">
+        Skip &rarr;
+      </button>
+    </div>
+
+    <!-- Subtle Minimal Bottom Progress Line inside rotated stage -->
+    <div class="bottom-progress">
+      <div id="progress-fill" class="bottom-progress-fill"></div>
+    </div>
   </div>
 
   <!-- Fade Overlay: In from Black -> Out into White -->
   <div id="fade-overlay"></div>
-
-  <!-- Minimalist Controls -->
-  <div class="top-controls">
-    <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
-      <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
-    </button>
-    <button id="btn-skip" class="glass-btn" aria-label="Skip to Journey Hub">
-      Skip &rarr;
-    </button>
-  </div>
-
-  <!-- Subtle Minimal Bottom Progress Line -->
-  <div class="bottom-progress">
-    <div id="progress-fill" class="bottom-progress-fill"></div>
-  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {

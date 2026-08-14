@@ -10,18 +10,26 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
   <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
   <style>
-    body { 
-      background: #000; 
+    html, body { 
+      background: #000000 !important; 
+      background-color: #000000 !important; 
       margin: 0; 
       padding: 0; 
-      overflow: hidden; 
+      overflow: hidden !important; 
+      width: 100vw;
       height: 100vh; 
+      height: 100dvh;
       font-family: 'Inter', sans-serif;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
       caret-color: transparent;
       outline: none;
+      overscroll-behavior: none !important;
+      touch-action: none !important;
+      position: fixed;
+      top: 0;
+      left: 0;
     }
     
     .matrix-glitch-active {
@@ -35,11 +43,15 @@
     }
 
     #state-intro, #state-prologue { 
-      position: absolute; 
+      position: fixed; 
       top: 0; 
       left: 0; 
       width: 100vw; 
       height: 100vh; 
+      height: 100dvh;
+      overflow: hidden;
+      overscroll-behavior: none;
+      touch-action: none;
       transition: opacity 1.8s ease-in-out; 
     }
     
@@ -69,7 +81,7 @@
     .cinematic-headline {
       color: #ffffff;
       font-family: 'Inter', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
       font-weight: 300;
       text-align: center;
       line-height: 1.25;
@@ -89,19 +101,29 @@
     #state-prologue { 
       z-index: 200; 
       opacity: 0; 
-      background: #000; 
+      background: #000000; 
       display: none; 
+      overflow: hidden;
     }
     
     .stat { 
       position: absolute; 
-      font-size: clamp(18px, 3.5vw, 26px); 
+      font-size: clamp(16px, 4vw, 24px); 
       font-family: 'Georgia', serif; 
       font-style: italic; 
       color: #ffffff; 
-      white-space: nowrap; 
+      white-space: normal; 
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      text-align: center;
+      line-height: 1.45;
+      width: max-content;
+      max-width: 86vw;
+      padding: 8px 14px;
+      box-sizing: border-box;
       opacity: 0; 
       transition: opacity 1s ease; 
+      pointer-events: none;
     }
     .highlight { font-weight: bold; padding: 0 5px; transition: opacity 1s ease; }
     .base-text { transition: opacity 1s ease; }
@@ -121,11 +143,12 @@
 
     /* STATE 3: FULLSCREEN HEARING EXPO VIDEO REEL */
     #state-expo-video {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
+      height: 100dvh;
       z-index: 400;
       background: #000000;
       display: none;
@@ -135,22 +158,21 @@
       cursor: pointer;
     }
 
-    .fullscreen-video-container {
-      position: fixed;
+    .video-stage {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
-      background: #000000;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     #expo-video {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -171,7 +193,7 @@
 
     /* Minimalist Unobtrusive Controls (Top Right) */
     .top-controls {
-      position: fixed;
+      position: absolute;
       top: 24px;
       right: 28px;
       z-index: 50;
@@ -232,8 +254,8 @@
     }
 
     .click-continue-prompt {
-      position: fixed;
-      bottom: 5vh;
+      position: absolute;
+      bottom: 36px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
@@ -246,6 +268,7 @@
       animation: pulsePrompt 2.5s infinite ease-in-out;
       pointer-events: none;
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
     }
 
     .click-continue-prompt.active-end {
@@ -262,7 +285,7 @@
 
     /* Subtle bottom progress bar */
     .bottom-progress {
-      position: fixed;
+      position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -280,69 +303,19 @@
 
     /* Mobile Landscape Auto-Orientation */
     @media (max-width: 900px) and (orientation: portrait) {
-      #state-expo-video .fullscreen-video-container {
-        position: fixed;
+      .video-stage {
+        position: absolute;
         top: 50%;
         left: 50%;
         width: 100vh;
         height: 100vw;
         transform: translate(-50%, -50%) rotate(90deg);
         transform-origin: center center;
-        overflow: hidden;
-      }
-
-      #state-expo-video #expo-video {
-        width: 100vh;
-        height: 100vw;
-        object-fit: cover;
-      }
-
-      #state-expo-video .top-controls {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: rotate(90deg);
-        transform-origin: top right;
-      }
-
-      #state-expo-video .bottom-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vh;
-        height: 3px;
-        transform: rotate(90deg);
-        transform-origin: top left;
-      }
-
-      #state-expo-video .click-continue-prompt {
-        left: 5vh;
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%) rotate(90deg);
-        transform-origin: center center;
-      }
-    }
-
-    @media (orientation: landscape) {
-      #state-expo-video .fullscreen-video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: none;
-      }
-
-      #state-expo-video #expo-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
       }
     }
   </style>
 </head>
-<body class="premium-white-theme">
+<body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
   
@@ -361,33 +334,33 @@
 
   <!-- STAGE 3: HEARING EXPO FULLSCREEN VIDEO (REPLACING OLD STATIC END SCREEN) -->
   <div id="state-expo-video">
-    <div class="fullscreen-video-container">
+    <div class="video-stage">
       <video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/expo-reel-poster.jpg">
         <source src="Contents/expo-reel.webm" type="video/webm">
         <source src="Contents/expo-reel.mp4" type="video/mp4">
       </video>
+
+      <!-- Video Controls inside rotated stage -->
+      <div class="top-controls">
+        <button id="btn-video-audio" class="glass-btn audio-btn" aria-label="Mute or Unmute Video Audio" title="Toggle Sound">
+          <span id="video-audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
+        </button>
+        <button id="btn-video-skip" class="glass-btn" aria-label="Skip to Support Hub">
+          Skip &rarr;
+        </button>
+      </div>
+
+      <!-- Click to continue prompt inside rotated stage -->
+      <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
+
+      <!-- Bottom progress line inside rotated stage -->
+      <div class="bottom-progress">
+        <div id="video-progress-fill" class="bottom-progress-fill"></div>
+      </div>
     </div>
 
     <!-- Fade Overlay for Video -->
     <div id="video-fade-overlay"></div>
-
-    <!-- Video Controls -->
-    <div class="top-controls">
-      <button id="btn-video-audio" class="glass-btn audio-btn" aria-label="Mute or Unmute Video Audio" title="Toggle Sound">
-        <span id="video-audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
-      </button>
-      <button id="btn-video-skip" class="glass-btn" aria-label="Skip to Support Hub">
-        Skip &rarr;
-      </button>
-    </div>
-
-    <!-- Click to continue prompt -->
-    <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
-
-    <!-- Bottom progress line -->
-    <div class="bottom-progress">
-      <div id="video-progress-fill" class="bottom-progress-fill"></div>
-    </div>
   </div>
 
   <!-- Restaurant Ambiance Audio for Stage 2 Simulator -->
@@ -700,6 +673,12 @@
       const container = document.getElementById('state-prologue');
       if (!container || container.style.display === 'none') return;
 
+      // Keep screen clean by removing older stats (max 3 at once)
+      const oldStats = container.querySelectorAll('.stat');
+      if (oldStats.length > 3) {
+        oldStats[0].remove();
+      }
+
       const parts = structuredPhrases[index];
       const div = document.createElement('div');
       div.className = 'stat';
@@ -715,33 +694,35 @@
       container.insertBefore(div, document.getElementById('continue-btn'));
       
       setTimeout(() => {
-        const statW = div.offsetWidth || 300;
-        const statH = div.offsetHeight || 80;
+        const statW = div.offsetWidth || 280;
+        const statH = div.offsetHeight || 60;
 
-        const isMobile = window.innerWidth <= 600;
-        const minMarginX = isMobile ? 15 : 40;
+        const screenW = window.innerWidth;
+        const screenH = window.innerHeight;
+        const isMobile = screenW <= 600;
+
+        const minMarginX = isMobile ? 16 : 40;
         const minMarginTop = isMobile ? 60 : 90;
-        const minMarginBottom = isMobile ? 100 : 140;
+        const minMarginBottom = isMobile ? 120 : 140;
 
         const minCenterX = minMarginX + (statW / 2);
-        const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
+        const maxCenterX = screenW - minMarginX - (statW / 2);
 
         const minCenterY = minMarginTop + (statH / 2);
-        const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
+        const maxCenterY = screenH - minMarginBottom - (statH / 2);
 
         let targetX, targetY;
 
-        if (index === 0) {
-          targetX = window.innerWidth / 2;
-          targetY = window.innerHeight / 2;
+        if (index === 0 || maxCenterX <= minCenterX) {
+          targetX = screenW / 2;
         } else {
-          targetX = (maxCenterX > minCenterX) 
-            ? minCenterX + Math.random() * (maxCenterX - minCenterX)
-            : window.innerWidth / 2;
+          targetX = minCenterX + Math.random() * (maxCenterX - minCenterX);
+        }
 
-          targetY = (maxCenterY > minCenterY)
-            ? minCenterY + Math.random() * (maxCenterY - minCenterY)
-            : window.innerHeight / 2;
+        if (maxCenterY <= minCenterY) {
+          targetY = screenH / 2;
+        } else {
+          targetY = minCenterY + Math.random() * (maxCenterY - minCenterY);
         }
 
         div.style.left = `${targetX}px`;

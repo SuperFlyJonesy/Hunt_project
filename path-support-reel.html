@@ -26,22 +26,21 @@
     }
 
     /* Pure Full-Screen Video Background */
-    .fullscreen-video-container {
-      position: fixed;
+    .video-stage {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 1;
-      background: #000000;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
     #expo-video {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
@@ -62,7 +61,7 @@
 
     /* Minimalist Unobtrusive Controls (Top Right) */
     .top-controls {
-      position: fixed;
+      position: absolute;
       top: 24px;
       right: 28px;
       z-index: 50;
@@ -124,8 +123,8 @@
     }
 
     .click-continue-prompt {
-      position: fixed;
-      bottom: 5vh;
+      position: absolute;
+      bottom: 36px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
@@ -138,6 +137,7 @@
       animation: pulsePrompt 2.5s infinite ease-in-out;
       pointer-events: none;
       transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
     }
 
     .click-continue-prompt.active-end {
@@ -154,7 +154,7 @@
 
     /* Subtle bottom progress bar */
     .bottom-progress {
-      position: fixed;
+      position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -172,98 +172,48 @@
 
     /* Mobile Landscape Auto-Orientation */
     @media (max-width: 900px) and (orientation: portrait) {
-      .fullscreen-video-container {
-        position: fixed;
+      .video-stage {
+        position: absolute;
         top: 50%;
         left: 50%;
         width: 100vh;
         height: 100vw;
         transform: translate(-50%, -50%) rotate(90deg);
         transform-origin: center center;
-        overflow: hidden;
-      }
-
-      #expo-video {
-        width: 100vh;
-        height: 100vw;
-        object-fit: cover;
-      }
-
-      .top-controls {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: rotate(90deg);
-        transform-origin: top right;
-      }
-
-      .bottom-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vh;
-        height: 3px;
-        transform: rotate(90deg);
-        transform-origin: top left;
-      }
-
-      .click-continue-prompt {
-        left: 5vh;
-        top: 50%;
-        bottom: auto;
-        transform: translateY(-50%) rotate(90deg);
-        transform-origin: center center;
-      }
-    }
-
-    @media (orientation: landscape) {
-      .fullscreen-video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        transform: none;
-      }
-
-      #expo-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fullscreen Video Canvas -->
-  <div class="fullscreen-video-container">
+  <!-- Fullscreen Video Stage -->
+  <div class="video-stage">
     <video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/expo-reel-poster.jpg" autoplay>
       <source src="Contents/expo-reel.webm" type="video/webm">
       <source src="Contents/expo-reel.mp4" type="video/mp4">
     </video>
+
+    <!-- Minimalist Controls inside rotated stage -->
+    <div class="top-controls">
+      <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
+        <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
+      </button>
+      <button id="btn-skip" class="glass-btn" aria-label="Skip to Support Hub">
+        Skip &rarr;
+      </button>
+    </div>
+
+    <!-- Click to Continue Prompt inside rotated stage -->
+    <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
+
+    <!-- Subtle Minimal Bottom Progress Line inside rotated stage -->
+    <div class="bottom-progress">
+      <div id="progress-fill" class="bottom-progress-fill"></div>
+    </div>
   </div>
 
   <!-- Fade Overlay: In from Black -> Out into White -->
   <div id="fade-overlay"></div>
-
-  <!-- Minimalist Controls -->
-  <div class="top-controls">
-    <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
-      <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
-    </button>
-    <button id="btn-skip" class="glass-btn" aria-label="Skip to Support Hub">
-      Skip &rarr;
-    </button>
-  </div>
-
-  <!-- Click to Continue Prompt -->
-  <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
-
-  <!-- Subtle Minimal Bottom Progress Line -->
-  <div class="bottom-progress">
-    <div id="progress-fill" class="bottom-progress-fill"></div>
-  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
