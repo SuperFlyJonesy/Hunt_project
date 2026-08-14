@@ -2425,3 +2425,32 @@ body:not(.premium-white-theme) .accordion-header {
     color: #0f172a;
 }
 
+/* Hub Header Subtitle: Single line on desktop, split on mobile */
+.hub-subtitle {
+    color: #64748b;
+    font-size: 1.05rem;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.mobile-break {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hub-subtitle {
+        white-space: normal;
+        font-size: 0.98rem;
+        max-width: 92%;
+        padding: 0 10px;
+    }
+    .mobile-break {
+        display: block;
+    }
+}
+

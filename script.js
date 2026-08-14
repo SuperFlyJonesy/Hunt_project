@@ -156,8 +156,23 @@ document.addEventListener("DOMContentLoaded", () => {
     
         const mainNumber = document.getElementById('stencil-count');
         const actionPanel = document.getElementById('bottom-action-panel');
+        const introBlock = document.getElementById('intro-block');
+        const ctaYes = document.getElementById('cta-yes');
+        const ctaSupport = document.getElementById('cta-support');
     
         if (actionPanel) {
+            // Immediately lock down and fade out initial prompt & buttons to prevent confusion or double-clicking
+            if (ctaYes) ctaYes.disabled = true;
+            if (ctaSupport) ctaSupport.disabled = true;
+            actionPanel.style.pointerEvents = 'none';
+
+            if (introBlock) {
+                introBlock.style.transition = 'opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease';
+                introBlock.style.opacity = '0';
+                introBlock.style.filter = 'blur(4px)';
+                introBlock.style.transform = 'translateY(10px)';
+            }
+
             let totalHelped = parseInt(localStorage.getItem('totalHelped') || 0);
             totalHelped++;
             localStorage.setItem('totalHelped', totalHelped);
@@ -167,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Dynamic Random Digit Jumble/Cipher Shuffle Effect for Landing Page Stencil Number
             if (mainNumber) {
                 let ticks = 0;
-                const maxTicks = 24; // ~1.1s duration at 45ms per jumble step
+                const maxTicks = 20; // ~900ms duration at 45ms per jumble step
                 const jumbleInterval = setInterval(() => {
                     ticks++;
                     if (ticks < maxTicks) {
@@ -201,35 +216,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
                 actionPanel.innerHTML = `
-                    <div style="margin-top: 10vh; text-align: center;">
-                        <h2 style="color: #ffffff; font-size: 3rem; margin: 0 0 15px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
-                        <p style="color: #ccc; font-size: 1.5rem; margin-bottom: 50px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
-                        <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 25px 80px; font-size: 1.6rem; border-radius: 18px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s;">Continue &rarr;</button>
+                    <div id="welcome-confirmation" style="margin-top: 6vh; text-align: center; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.45s ease;">
+                        <h2 style="color: #ffffff; font-size: clamp(1.8rem, 4.5vw, 3rem); margin: 0 0 14px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
+                        <p style="color: #cbd5e1; font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin-bottom: 36px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
+                        <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 22px 70px; font-size: 1.5rem; border-radius: 16px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s, background-color 0.2s; pointer-events: auto;">Continue &rarr;</button>
                     </div>
                 `;
-                
-                document.getElementById('btn-continue-hub').addEventListener('click', () => {
-                    const actionPanel = document.getElementById('bottom-action-panel');
-                    const stencil = document.getElementById('stencil-count');
-                    
-                    if (actionPanel) {
-                        actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
-                        actionPanel.style.opacity = '0';
-                        actionPanel.style.filter = 'blur(6px)';
-                        actionPanel.style.transform = 'translateY(-15px)';
-                    }
-                    if (stencil) {
-                        stencil.style.transition = 'opacity 0.6s ease';
-                        stencil.style.opacity = '0';
-                    }
-                    document.body.style.transition = 'background-color 0.7s ease';
-                    document.body.style.backgroundColor = '#ffffff';
+                actionPanel.style.pointerEvents = 'auto';
 
-                    setTimeout(() => {
-                        window.location.href = 'path-yes.html';
-                    }, 600);
+                requestAnimationFrame(() => {
+                    const confirmation = document.getElementById('welcome-confirmation');
+                    if (confirmation) {
+                        confirmation.style.opacity = '1';
+                        confirmation.style.transform = 'translateY(0)';
+                    }
                 });
-            }, 1750);
+                
+                const continueBtn = document.getElementById('btn-continue-hub');
+                if (continueBtn) {
+                    continueBtn.addEventListener('click', () => {
+                        const actionPanel = document.getElementById('bottom-action-panel');
+                        const stencil = document.getElementById('stencil-count');
+                        
+                        if (actionPanel) {
+                            actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+                            actionPanel.style.opacity = '0';
+                            actionPanel.style.filter = 'blur(6px)';
+                            actionPanel.style.transform = 'translateY(-15px)';
+                        }
+                        if (stencil) {
+                            stencil.style.transition = 'opacity 0.6s ease';
+                            stencil.style.opacity = '0';
+                        }
+                        document.body.style.transition = 'background-color 0.7s ease';
+                        document.body.style.backgroundColor = '#ffffff';
+
+                        setTimeout(() => {
+                            window.location.href = 'path-community-reel.html';
+                        }, 600);
+                    });
+                }
+            }, 950);
         }
     };
 
