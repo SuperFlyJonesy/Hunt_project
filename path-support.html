@@ -5,7 +5,7 @@
     <meta name="description" content="Support and practical advice directory for hearing aid maintenance, communication strategies, and emotional wellbeing.">
     <meta charset="UTF-8">
     <title>Support the initiative</title>
-    <link rel="stylesheet" href="styles.css?v=10.0">
+    <link rel="stylesheet" href="styles.css?v=11.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -35,26 +35,24 @@
             position: fixed;
             z-index: 99999999;
             pointer-events: none;
-            background: #0f172a;
-            color: #f8fafc;
-            font-size: 0.72rem;
-            font-weight: 600;
-            line-height: 1.35;
+            background: #005EB8;
+            color: #ffffff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            line-height: 1.25;
             letter-spacing: 0.15px;
-            padding: 6px 12px;
-            border-radius: 8px;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            max-width: 220px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            box-shadow: 0 6px 16px rgba(0, 94, 184, 0.35), 0 2px 5px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 160px;
             text-align: center;
             white-space: normal;
             word-break: normal;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(4px);
-            transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s;
+            transform: translateY(3px);
+            transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
         }
 
         #hli-tile-tooltip.show {
@@ -69,16 +67,16 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            border-width: 5px 5px 0 5px;
+            border-width: 4px 4px 0 4px;
             border-style: solid;
-            border-color: #0f172a transparent transparent transparent;
+            border-color: #005EB8 transparent transparent transparent;
         }
 
         #hli-tile-tooltip.flip-bottom::after {
             top: auto;
             bottom: 100%;
-            border-width: 0 5px 5px 5px;
-            border-color: transparent transparent #0f172a transparent;
+            border-width: 0 4px 4px 4px;
+            border-color: transparent transparent #005EB8 transparent;
         }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
@@ -112,10 +110,10 @@
         <section class="hub-section">
             <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">1</span> Family, Workplace & Employment</h2>
             <div class="hub-grid">
-                <a href="path-family-guide.html" class="metro-btn" style="background-color: #D32F2F;" data-tooltip="Practical advice for family &amp; friends to connect better"><span class="material-symbols-outlined metro-icon">family_restroom</span><span class="metro-text">Family Guide</span></a>
-                <a href="path-workplace-tips.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="Deaf-aware meeting etiquette &amp; employer guidelines"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
-                <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="Reasonable adjustments &amp; interview preparation tips"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Job Interviews</span></a>
-                <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #d97706;" data-tooltip="Quick self-assessment quiz on hearing loss signs"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
+                <a href="path-family-guide.html" class="metro-btn" style="background-color: #D32F2F;" data-tooltip="Tips for family &amp; friends"><span class="material-symbols-outlined metro-icon">family_restroom</span><span class="metro-text">Family Guide</span></a>
+                <a href="path-workplace-tips.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="Deaf-aware workplace tips"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
+                <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="Interview adjustments"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Job Interviews</span></a>
+                <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #d97706;" data-tooltip="Check hearing signs"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
             </div>
         </section>
 
@@ -126,13 +124,13 @@
                 <!-- SAVED FOR LATER: Audiology Guidance Tile
                 <a href="path-audiology.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
                 -->
-                <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;" data-tooltip="Understanding audiograms, NHS tests &amp; probe calibration"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
-                <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;" data-tooltip="Safe ear hygiene, wax microsuction &amp; ear health"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
+                <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;" data-tooltip="Audiograms &amp; tests guide"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
+                <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;" data-tooltip="Earwax &amp; ear safety"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
                 <!-- SAVED FOR LATER: Hearing Expo Tile
                 <a href="path-support-reel.html" class="metro-btn" style="background-color: #0284c7;"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Hearing Expo</span></a>
                 -->
-                <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;" data-tooltip="Interactive audio simulation of hearing loss frequencies"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
-                <a href="path-awareness.html" class="metro-btn" style="background-color: #F57C00;" data-tooltip="Deaf awareness tips, lipreading &amp; communication advice"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
+                <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;" data-tooltip="Audio loss simulator"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
+                <a href="path-awareness.html" class="metro-btn" style="background-color: #F57C00;" data-tooltip="Deaf awareness advice"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
             </div>
         </section>
 
@@ -140,10 +138,10 @@
         <section class="hub-section">
             <h2 class="hub-title"><span class="hub-badge" style="background: #7B1FA2;">3</span> Volunteer, Outreach & Sponsorship</h2>
             <div class="hub-grid">
-                <a href="path-training.html" class="metro-btn" style="background-color: #C2185B;" data-tooltip="Deaf awareness training modules for teams &amp; staff"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
-                <a href="path-join-outreach.html" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Volunteer with our Bristol outreach &amp; event team"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
-                <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0097A7;" data-tooltip="Corporate partnership &amp; sponsorship opportunities"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
-                <a href="path-join-us.html" class="metro-btn" style="background-color: #1b5e20;" data-tooltip="Patreon membership tiers, supporter perks &amp; community"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Join Us</span></a>
+                <a href="path-training.html" class="metro-btn" style="background-color: #C2185B;" data-tooltip="Staff awareness training"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
+                <a href="path-join-outreach.html" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Volunteer in Bristol"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
+                <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0097A7;" data-tooltip="Partner &amp; sponsor us"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
+                <a href="path-join-us.html" class="metro-btn" style="background-color: #1b5e20;" data-tooltip="Patreon supporter tiers"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Join Us</span></a>
             </div>
         </section>
 
@@ -151,13 +149,13 @@
         <section class="hub-section">
             <h2 class="hub-title"><span class="hub-badge" style="background: #E91E63;">4</span> Community & Discussion Hubs</h2>
             <div class="hub-grid">
-                <a href="path-bear-pit.html" class="metro-btn" style="background-color: #E91E63;" data-tooltip="Bristol central forum, outdoor meetups &amp; discussions"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
-                <a href="path-yes.html" class="metro-btn" style="background-color: #1e293b;" data-tooltip="Switch to the full hard-of-hearing journey &amp; NHS hub"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiate Main Hub</span></a>
+                <a href="path-bear-pit.html" class="metro-btn" style="background-color: #E91E63;" data-tooltip="Bristol community forum"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
+                <a href="path-yes.html" class="metro-btn" style="background-color: #1e293b;" data-tooltip="Full journey &amp; NHS hub"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiate Main Hub</span></a>
             </div>
         </section>
         
         <div style="text-align: center; margin-top: 20px;">
-            <a href="index.html" class="metro-btn" style="background-color: #1e293b; display: inline-flex; width: 220px; text-decoration: none;" data-tooltip="Return to the welcome screen and statistics"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
+            <a href="index.html" class="metro-btn" style="background-color: #1e293b; display: inline-flex; width: 220px; text-decoration: none;" data-tooltip="Return to home"><span class="material-symbols-outlined metro-icon">home</span><span class="metro-text">Back Home</span></a>
         </div>
     </div>
     
@@ -171,7 +169,7 @@
 
     <div class="page-transition-overlay"></div>
 
-    <script src="script.js?v=10.0"></script>
+    <script src="script.js?v=11.0"></script>
     <script>
         localStorage.setItem('hasVisitedSupport', 'true');
 

@@ -16,13 +16,13 @@ This document stores the exact HTML markup, styling, and grid locations for the 
 #### A. Journey Hub (`path-yes.html`)
 - **Section:** `HUB 2: NHS PATHWAYS & CLINICAL CARE`
 ```html
-<a href="path-audiology.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="NHS audiology clinical pathways, appointments & guidance"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
+<a href="path-audiology.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="NHS audiology clinics"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
 ```
 
 #### B. Support Hub (`path-support.html`)
 - **Section:** `HUB 2: CLINICAL CARE, TESTS & EAR SAFETY`
 ```html
-<a href="path-audiology.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="NHS audiology clinical pathways, appointments & guidance"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
+<a href="path-audiology.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="NHS audiology clinics"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
 ```
 
 ---
@@ -40,7 +40,7 @@ This document stores the exact HTML markup, styling, and grid locations for the 
 #### Support Hub (`path-support.html`)
 - **Section:** `HUB 2: CLINICAL CARE, TESTS & EAR SAFETY`
 ```html
-<a href="path-support-reel.html" class="metro-btn" style="background-color: #0284c7;" data-tooltip="Watch the Bristol Hearing Expo highlights & tech showcase"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Hearing Expo</span></a>
+<a href="path-support-reel.html" class="metro-btn" style="background-color: #0284c7;" data-tooltip="Bristol Expo highlights"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Hearing Expo</span></a>
 ```
 
 ---
@@ -58,5 +58,5 @@ This document stores the exact HTML markup, styling, and grid locations for the 
 #### Journey Hub (`path-yes.html`)
 - **Section:** `HUB 4: DAILY LIVING, WORK & COMMUNITY`
 ```html
-<a href="path-community-reel.html" class="metro-btn" style="background-color: #0284c7;" data-tooltip="Watch local community stories & initiate experiences"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Community Reel</span></a>
+<a href="path-community-reel.html" class="metro-btn" style="background-color: #0284c7;" data-tooltip="Community video reel"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Community Reel</span></a>
 ```
