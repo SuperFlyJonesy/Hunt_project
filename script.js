@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initWhoWeAreDropdown();
     initAccordions();
     initHubSearch();
+    initOnSiteVideoPlayer();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -615,7 +616,7 @@ function initHubSearch() {
         'path-hearing-therapists.html': 'hearing therapists counselling auditory training lipreading lip reading coping strategies communication rehabilitation tinnitus therapy sensory support therapy communication tactics',
         'path-accessible-venues.html': 'bristol venues accessible venues hearing loop induction loop thekla bristol beacon bristol old vic watershed st georges hippodrome redgrave theatre tobacco factory arnolfini acoustic ratings map directory theatre cinema concerts live music accessibility',
         'path-support-group.html': 'support groups bristol support group meetups peer support coffee morning elmgrove centre cotham social gathering community meetings talk chat friendship',
-        'path-community-stories.html': 'community stories initiate stories lived experience jason jo simon personal stories testimonials real experiences overcoming hearing loss journeys hope',
+        'path-community-stories.html': 'community stories initiate stories lived experience jason member initiate simon personal stories testimonials real experiences overcoming hearing loss journeys hope',
         'path-testimonials.html': 'testimonials reviews feedback what people say community feedback initiate reviews quotes praise',
         'path-resources.html': 'resources downloads pdf guides checklists patreon signup guide printable cards communication card links leaflets forms',
         'path-contacts.html': 'useful contacts directory telephone phone numbers emails cfd centre for deaf rnid sensory support nhs audiology bristol contact list emergency helplines chss',
@@ -627,7 +628,7 @@ function initHubSearch() {
         'path-nhs.html': 'bristol nhs foundation trust hospital gp referral southmead hospital bri bristol royal infirmary audiology clinic ent ear nose throat appointments st michaels hospital uhbw nbt',
         'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
         'path-awareness.html': 'awareness pace framework patience attention clarity ear contact communication tactics communication tips rules understanding deaf hard of hearing',
-        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason and jo cpd inclusion',
+        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason member initiate cpd inclusion',
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
         'path-sponsor-us.html': 'sponsor us corporate sponsor funding corporate partnership community sponsor training sponsor access loop sponsor esg csr 250 500 1500 donation grant',
         'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
@@ -727,7 +728,78 @@ function initHubSearch() {
     }
 }
 
-// 10. GLOBAL INTERACTIVE VIDEO EMBED LOADER
+// 10. GLOBAL INTERACTIVE VIDEO EMBED LOADER & ON-SITE MODAL ENGINE
+function extractYouTubeId(url) {
+    if (!url) return null;
+    const regExp = /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/;
+    const match = url.match(regExp);
+    return (match && match[1]) ? match[1] : null;
+}
+
+function openVideoModal(videoId, videoTitle) {
+    if (!videoId) return;
+    let modal = document.getElementById('hli-video-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'hli-video-modal';
+        modal.className = 'hli-video-modal-backdrop';
+        modal.innerHTML = `
+            <div class="hli-video-modal-card" role="dialog" aria-modal="true" aria-labelledby="hli-video-modal-title">
+                <div class="hli-video-modal-header">
+                    <h3 id="hli-video-modal-title" class="hli-video-modal-title">
+                        <span class="material-symbols-outlined" style="color: #ff0f5b;">play_circle</span>
+                        <span id="hli-video-modal-title-text">Video Player</span>
+                    </h3>
+                    <button id="hli-video-modal-close-btn" class="hli-video-modal-close-btn" aria-label="Close Video">
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span> Close
+                    </button>
+                </div>
+                <div class="hli-video-modal-body" id="hli-video-modal-body"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeVideoModal();
+        });
+
+        const closeBtn = modal.querySelector('#hli-video-modal-close-btn');
+        if (closeBtn) closeBtn.addEventListener('click', closeVideoModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeVideoModal();
+            }
+        });
+    }
+
+    const titleEl = modal.querySelector('#hli-video-modal-title-text');
+    if (titleEl) titleEl.textContent = videoTitle || 'Initiative Video Player';
+
+    const bodyEl = modal.querySelector('#hli-video-modal-body');
+    if (bodyEl) {
+        bodyEl.innerHTML = `
+            <iframe src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1" 
+                    title="${videoTitle || 'Initiative Video'}" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen 
+                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        `;
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    const modal = document.getElementById('hli-video-modal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    const bodyEl = modal.querySelector('#hli-video-modal-body');
+    if (bodyEl) bodyEl.innerHTML = '';
+    document.body.style.overflow = '';
+}
+
 function loadInteractiveVideo(containerId, videoId, title) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -740,4 +812,34 @@ function loadInteractiveVideo(containerId, videoId, title) {
                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
     `;
 }
+
+function initOnSiteVideoPlayer() {
+    // Intercept any anchor link or preview item targeting YouTube
+    document.querySelectorAll('a[href*="youtube.com"], a[href*="youtu.be"], .video-link-item, [data-video-id]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            let targetHref = el.getAttribute('href');
+            let videoId = el.getAttribute('data-video-id');
+            let videoTitle = el.getAttribute('data-video-title') || el.innerText.trim();
+
+            if (!videoId && targetHref) {
+                videoId = extractYouTubeId(targetHref);
+            }
+
+            if (!videoId) {
+                const childLink = el.querySelector('a[href*="youtube.com"], a[href*="youtu.be"]');
+                if (childLink) {
+                    videoId = extractYouTubeId(childLink.getAttribute('href'));
+                    if (!videoTitle) videoTitle = childLink.innerText.trim();
+                }
+            }
+
+            if (videoId) {
+                e.preventDefault();
+                e.stopPropagation();
+                openVideoModal(videoId, videoTitle || 'Video Player');
+            }
+        });
+    });
+}
+
 

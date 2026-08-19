@@ -13,7 +13,7 @@ const venues = [
     categoryText: "International Airport & Transit Hub",
     rating: "4.5",
     reviews: "18,400",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Aviation Access Auditor",
     auditDate: "January 2026",
     evaluatorQuote: "Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge.",
@@ -35,7 +35,7 @@ const venues = [
     categoryText: "Entertainment & Concert Centre",
     rating: "4.8",
     reviews: "4,120",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Simon T. (BSL User & Hard-of-Hearing Auditor)",
     auditDate: "October 2025",
     evaluatorQuote: "Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays.",
@@ -57,8 +57,8 @@ const venues = [
     categoryText: "Cinema & Media Centre",
     rating: "4.7",
     reviews: "2,352",
-    goldStandard: true,
-    evaluator: "Jo J. (Initiate Evaluator)",
+    goldStandard: false,
+    evaluator: "Member Initiate (Evaluator)",
     auditDate: "November 2025",
     evaluatorQuote: "Cinemas 1 & 3 stream Auracast direct to hearing aids. Staff offer subtitle headsets without hassle and venue acoustics are superb.",
     features: ["Auracast Audio Stream", "DS Subtitled Screenings", "Infrared Hearing System", "Quiet Lounge"],
@@ -79,7 +79,7 @@ const venues = [
     categoryText: "History Museum",
     rating: "4.7",
     reviews: "5,890",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Jason P. (Hard-of-Hearing Evaluator)",
     auditDate: "December 2025",
     evaluatorQuote: "Great acoustic sound baffles in the main gallery space. Reception desk loop tested at 100% signal-to-noise ratio.",
@@ -101,7 +101,7 @@ const venues = [
     categoryText: "Community & Forum Hub",
     rating: "4.9",
     reviews: "340",
-    goldStandard: true,
+    goldStandard: false,
     eventLink: "path-bear-pit.html",
     eventLinkText: "View Bear Pit Calendar & Forum",
     evaluator: "Bristol Support Group Committee",
@@ -125,9 +125,9 @@ const venues = [
     categoryText: "Community Building & Deaf Hub",
     rating: "5.0",
     reviews: "820",
-    goldStandard: true,
+    goldStandard: false,
     eventLink: "path-support-group.html",
-    eventLinkText: "View Support Group Schedule",
+    eventLinkText: "View Support Group Schedule (Coming Soon)",
     evaluator: "Centre for Deaf People (CfD) Audit Team",
     auditDate: "January 2026",
     evaluatorQuote: "Purpose-built accessible hub with BSL fluent staff, equipment test rooms, and weekly drop-in advice clinics.",
@@ -149,7 +149,7 @@ const venues = [
     categoryText: "Acoustic Music Hall",
     rating: "4.8",
     reviews: "1,840",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Acoustic Audit Specialist",
     auditDate: "December 2025",
     evaluatorQuote: "World-class natural hall acoustics paired with a newly calibrated perimeter induction loop.",
@@ -171,7 +171,7 @@ const venues = [
     categoryText: "Science Centre & Planetarium",
     rating: "4.7",
     reviews: "6,500",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Youth & Family Access Auditor",
     auditDate: "January 2026",
     evaluatorQuote: "Planetarium dome features direct personal audio loop headsets and full 3D visual subtitle projections.",
@@ -193,7 +193,7 @@ const venues = [
     categoryText: "Theatre",
     rating: "4.8",
     reviews: "1,500",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Sarah K. (Theatre Access Reviewer)",
     auditDate: "November 2025",
     evaluatorQuote: "Infrared headset system provides crisp amplified stage dialogue across all seating tiers.",
@@ -215,7 +215,7 @@ const venues = [
     categoryText: "Museum",
     rating: "4.7",
     reviews: "3,200",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "Claire T. (Accessibility Officer)",
     auditDate: "August 2025",
     evaluatorQuote: "Concorde Hangar presentations are fully captioned on display screens with neck-loop lanyard availability.",
@@ -233,7 +233,7 @@ const venues = [
     postcode: "BS34",
     type: "induction",
     accentColor: "#0097A7", // Teal
-    address: "Lysander Road, Patchway, Bristol BS34 7JJA",
+    address: "Lysander Road, Patchway, Bristol BS34 7GG",
     categoryText: "Regional Shopping Destination",
     rating: "4.6",
     reviews: "14,200",
@@ -281,7 +281,7 @@ const venues = [
     categoryText: "NHS Regional Hospital & Audiology",
     rating: "4.6",
     reviews: "9,800",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "NHS Hearing Access Auditor",
     auditDate: "December 2025",
     evaluatorQuote: "Brunel Building atrium and all reception desks feature tested T-coil loop systems and visual call boards.",
@@ -415,7 +415,7 @@ const venues = [
     reviews: "610",
     goldStandard: false,
     eventLink: "path-support-group.html",
-    eventLinkText: "Support Group Meetings",
+    eventLinkText: "Support Group Meetings (Coming Soon)",
     evaluator: "Bristol Peer Support Team",
     auditDate: "November 2025",
     evaluatorQuote: "Main hall equipped with loop system for community forums and acoustic workshops.",
@@ -437,7 +437,7 @@ const venues = [
     categoryText: "NHS Hospital & Emergency Care",
     rating: "4.5",
     reviews: "7,100",
-    goldStandard: true,
+    goldStandard: false,
     evaluator: "NHS Hospital Access Auditor",
     auditDate: "December 2025",
     evaluatorQuote: "A&E reception and outpatients clinics feature active counter loops and BSL video remote interpreting.",
@@ -1000,7 +1000,7 @@ function renderSidebarItems(query = "") {
   }
 
   filtered.forEach((v) => {
-    const borderCol = v.goldStandard ? "#FFD700" : (v.accentColor || "#0097A7");
+    const borderCol = v.accentColor || "#0097A7";
     const item = document.createElement("div");
     item.className = "sidebar-item";
     item.style.borderLeftColor = borderCol;
@@ -1147,19 +1147,13 @@ function renderMarkers() {
     if (v.type === "quiet"     && !showQuiet)     return;
     if (selectedPostcode !== "ALL" && selectedPostcode !== "NONE" && v.postcode !== selectedPostcode) return;
 
-    const pinBorderColor = v.goldStandard 
-      ? "#FFD700" 
-      : (v.accentColor || (v.type === "auracast" ? "#ff0f5b" : (v.type === "quiet" ? "#1b5e20" : "#0097A7")));
+    const pinBorderColor = v.accentColor || (v.type === "auracast" ? "#ff0f5b" : (v.type === "quiet" ? "#1b5e20" : "#0097A7"));
 
     const pinElement = document.createElement("div");
     pinElement.className = "round-icon-marker";
     pinElement.style.backgroundColor = "#202124";
-    pinElement.style.border = v.goldStandard 
-      ? "5px solid #FFD700" 
-      : `4px solid ${pinBorderColor}`;
-    pinElement.style.boxShadow = v.goldStandard 
-      ? "0 0 24px rgba(255, 215, 0, 0.95), 0 8px 24px rgba(0,0,0,0.8)" 
-      : `0 0 16px ${pinBorderColor}99, 0 8px 20px rgba(0,0,0,0.7)`;
+    pinElement.style.border = `4px solid ${pinBorderColor}`;
+    pinElement.style.boxShadow = `0 0 16px ${pinBorderColor}99, 0 8px 20px rgba(0,0,0,0.7)`;
 
     pinElement.innerHTML = `
       <span class="emoji-icon">${v.icon}</span>
@@ -1175,7 +1169,7 @@ function renderMarkers() {
         content: pinElement
       });
     } else {
-      const pinSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="50" fill="%23202124" stroke="${v.goldStandard ? '%23FFD700' : encodeURIComponent(pinBorderColor)}" stroke-width="${v.goldStandard ? '6' : '4'}"/><text x="56" y="72" font-size="56" text-anchor="middle">${encodeURIComponent(v.icon)}</text></svg>`;
+      const pinSvg = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112"><circle cx="56" cy="56" r="50" fill="%23202124" stroke="${encodeURIComponent(pinBorderColor)}" stroke-width="4"/><text x="56" y="72" font-size="56" text-anchor="middle">${encodeURIComponent(v.icon)}</text></svg>`;
       marker = new google.maps.Marker({
         map,
         position: { lat: v.lat, lng: v.lng },
@@ -1188,19 +1182,17 @@ function renderMarkers() {
       });
     }
 
-    const goldBadgeHtml = v.goldStandard 
-      ? `<div style="background: rgba(255, 248, 225, 0.15); color: #ffd700; font-size: 0.725rem; font-weight: 800; padding: 4px 10px; border-radius: 10px; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 8px; border: 1.5px solid #FFD700;">Gold Standard Certified</div>` 
-      : '';
+    const statusBadgeHtml = `<div style="background: rgba(241, 245, 249, 0.15); color: #94a3b8; font-size: 0.725rem; font-weight: 700; padding: 3px 8px; border-radius: 8px; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.15);">ℹ️ Unverified Assessment</div>`;
     
     const venueCardLink = `path-accessible-venues.html#venue-${v.id}`;
-    const mainPhoto = v.photos?.main || "Contents/Map/watershed-main.png";
-    const thumb2 = v.photos?.thumb2 || "Contents/Map/watershed-2.png";
-    const thumb3 = v.photos?.thumb3 || "Contents/Map/watershed-3.png";
+    const mainPhoto = v.photos?.main || "Contents/Venues/watershed-main.png";
+    const thumb2 = v.photos?.thumb2 || "Contents/Venues/watershed-2.png";
+    const thumb3 = v.photos?.thumb3 || "Contents/Venues/watershed-3.png";
 
     // Popup with lazy decoded images
     const contentString = `
       <div class="dark-popup" style="border-left: 5px solid ${pinBorderColor};">
-        ${goldBadgeHtml}
+        ${statusBadgeHtml}
         <h3>${v.name}</h3>
         <p class="rating">⭐ ${v.rating} (${v.reviews} reviews) • ${v.categoryText} • <strong>${v.postcode}</strong></p>
         

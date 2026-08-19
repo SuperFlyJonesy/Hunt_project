@@ -101,13 +101,13 @@
                 </button>
                 <div class="accordion-body">
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
-                        Navigating a city when you aren't sure if a venue has working hearing loops or staff trained in hearing loss communication can be exhausting. Your Patreon contributions directly fund on-the-ground venue assessments across Bristol:
+                        Navigating a city when you aren't sure if a venue has working hearing loops or staff trained in hearing loss communication can be exhausting. Your Patreon contributions directly fund on-the-ground venue assessments (coming soon) across Bristol:
                     </p>
                     <div class="gold-checklist">
                         <strong style="color: #1b5e20; font-size: 1rem;">What Your Pledge Directly Funds:</strong>
                         <ul>
-                            <li><strong>On-Site Venue Audits:</strong> Visiting local bars, cafés, restaurants, and venues to test noise levels, lighting, and hearing loops.</li>
-                            <li><strong>Staff Training &amp; Awareness:</strong> Educating venue staff on clear communication and awareness (using the PACE framework: Patience, Attention, Clarity, Ear Contact).</li>
+                            <li><strong>On-Site Venue Audits &amp; Assessments (Coming Soon):</strong> Visiting local bars, cafés, restaurants, and venues to test noise levels, lighting, and hearing loops.</li>
+                            <li><strong>Staff Training &amp; Awareness (Coming Soon):</strong> Educating venue staff on clear communication and awareness (using the PACE framework: Patience, Attention, Clarity, Ear Contact).</li>
                             <li><strong>The Accessible Venues Directory:</strong> Maintaining our comprehensive directory and map so anyone can check venue loop facilities and acoustic ratings before leaving home.</li>
                             <li><strong>Assistive Tech Reviews:</strong> Testing new speech-to-text apps, TV sound streamers, and Phonak Roger systems with community input.</li>
                         </ul>
@@ -123,16 +123,34 @@
                 </button>
                 <div class="accordion-body">
                     <div class="tiers-grid">
+                        <!-- Tier 0: Supporter (Free) -->
+                        <div class="tier-card" style="border-top: 6px solid #005EB8;">
+                            <div>
+                                <div class="tier-name">Supporter</div>
+                                <div class="tier-price" style="color: #005EB8;">Free <span>/ £0</span></div>
+                                <div class="tier-desc">Stay informed with direct access to public Bristol hearing loss information and guides.</div>
+                                <ul class="tier-benefits-list">
+                                    <li><span class="material-symbols-outlined" style="color: #005EB8;">check_circle</span> Unlimited access to Bristol Accessible Venues directory &amp; map</li>
+                                    <li><span class="material-symbols-outlined" style="color: #005EB8;">check_circle</span> Free digital guides, clinic directions, &amp; NHS pathway roadmaps</li>
+                                    <li><span class="material-symbols-outlined" style="color: #005EB8;">check_circle</span> Public community announcements &amp; meetup dates</li>
+                                    <li><span class="material-symbols-outlined" style="color: #005EB8;">check_circle</span> Follow and support our grassroots initiative</li>
+                                </ul>
+                            </div>
+                            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-cta-btn" style="background: #005EB8;">
+                                <span class="material-symbols-outlined">favorite</span> Join Free Supporter
+                            </a>
+                        </div>
+
                         <!-- Tier 1: A Pardon -->
                         <div class="tier-card tier-teal">
                             <div>
                                 <div class="tier-name">A Pardon</div>
                                 <div class="tier-price" style="color: #00838F;">£3 <span>/ month</span></div>
-                                <div class="tier-desc">Perfect for individuals who want to stay informed and support local Bristol accessibility.</div>
+                                <div class="tier-desc">Perfect for individuals who want to directly fund local Bristol venue audits.</div>
                                 <ul class="tier-benefits-list">
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Unlimited access to the Accessible Venues directory and map</li>
+                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> <strong>Everything in Supporter (Free)</strong></li>
                                     <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Early access to community venue review vlogs</li>
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Official Pardon digital badge</li>
+                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Official Pardon digital badge &amp; name on Supporter Wall</li>
                                 </ul>
                             </div>
                             <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-cta-btn" style="background: #00838F;">
@@ -193,7 +211,7 @@
 
                     <div id="credits-locked-banner" style="background: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 14px; padding: 20px; text-align: center;">
                         <p style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin: 0 0 12px 0;">
-                            Pledging as <strong>A Pardon</strong>, <strong>An Initiate</strong>, or <strong>A Hunter</strong> unlocks full access to our continuous credits roll.
+                            Pledging as a <strong>Supporter</strong>, <strong>Pardon</strong>, <strong>Initiate</strong>, or <strong>Hunter</strong> joins our community network.
                         </p>
                         <button id="toggle-credits-btn" style="background: #005EB8; color: #ffffff; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 0.92rem; cursor: pointer;">
                             Preview Supporter Wall &amp; Credits Roll &rarr;
@@ -275,8 +293,8 @@
                             creditsList.innerHTML = `
                                 <div class="credits-title">BRISTOL HEARING LOSS INITIATIVE</div>
                                 <div class="credits-subtitle">HONOUR ROLL OF SUPPORTERS</div>
-                                <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Jason Parchment (Founder)</div>
-                                <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Jo Jones (Co-Founder)</div>
+                                <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Jason (Founder)</div>
+                                <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Member Initiate</div>
                                 <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Simon Hunt</div>
                                 <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Sarah Swift</div>
                                 <div class="credits-name-item star-first10"><span class="credits-star-icon">⭐</span> Andrea Hunt</div>

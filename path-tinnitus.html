@@ -71,7 +71,7 @@
                         Tinnitus is the perception of sound (ringing, buzzing, hissing, humming, whooshing, or pulsing) when there is no external acoustic source. Over <strong>7 million adults in the UK (approx. 1 in 7)</strong> experience tinnitus.
                     </p>
                     <div style="text-align: center; margin: 15px 0;">
-                        <img src="Audiology Images/ear2.jpg" alt="Inner Ear Cochlea and Auditory Hair Cells Diagram" style="max-width: 100%; height: auto; max-height: 220px; object-fit: contain; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;" loading="lazy">
+                        <img src="Contents/Audiology Images/ear2.jpg" alt="Inner Ear Cochlea and Auditory Hair Cells Diagram" style="max-width: 100%; height: auto; max-height: 220px; object-fit: contain; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;" loading="lazy">
                     </div>
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
                         When sensory hair cells in the cochlea are damaged or under-stimulated, the brain's auditory cortex turns up its internal gain volume, generating phantom signals that the auditory system interprets as sound.
@@ -188,21 +188,24 @@
                 </button>
                 <div class="accordion-body">
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6;">
-                        Watch clinical educational presentations and sound therapy demonstrations:
+                        Watch clinical educational presentations and sound therapy demonstrations directly on-site:
                     </p>
 
                     <!-- DIRECT RESPONSIVE UNCLIPPED VIDEO EMBED -->
-                    <div class="responsive-video-container">
+                    <div id="tinnitus-video-stage" class="responsive-video-container">
                         <iframe src="https://www.youtube-nocookie.com/embed/XGq3MXQlRJs" title="Tinnitus Causes & Neurobiology Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
 
-                    <div class="ext-btn-group" style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px;">
-                        <a href="https://www.youtube.com/watch?v=JKY-hohg8wM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue" style="display: inline-flex; align-items: center; gap: 8px; color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 700;">
-                            <span class="material-symbols-outlined">smart_display</span> Sound Therapy &amp; Masking Techniques &rarr;
-                        </a>
-                        <a href="https://www.youtube.com/watch?v=y4zuVk5STuM" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green" style="display: inline-flex; align-items: center; gap: 8px; color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 700;">
-                            <span class="material-symbols-outlined">smart_display</span> Habituation &amp; CBT Guide &rarr;
-                        </a>
+                    <div class="ext-btn-group" style="margin-top: 18px; display: flex; flex-wrap: wrap; gap: 12px;">
+                        <button onclick="loadInteractiveVideo('tinnitus-video-stage', 'XGq3MXQlRJs', 'Tinnitus Causes & Neurobiology')" class="ext-btn btn-pink" style="display: inline-flex; align-items: center; gap: 8px; color: white; padding: 10px 18px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; background: #ff0f5b;">
+                            <span class="material-symbols-outlined">play_circle</span> 1. Neurobiology &amp; Causes
+                        </button>
+                        <button onclick="loadInteractiveVideo('tinnitus-video-stage', 'JKY-hohg8wM', 'Sound Therapy & Masking Techniques')" class="ext-btn btn-blue" style="display: inline-flex; align-items: center; gap: 8px; color: white; padding: 10px 18px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; background: #005EB8;">
+                            <span class="material-symbols-outlined">play_circle</span> 2. Sound Therapy &amp; Masking
+                        </button>
+                        <button onclick="loadInteractiveVideo('tinnitus-video-stage', 'y4zuVk5STuM', 'Habituation & CBT Guide')" class="ext-btn btn-green" style="display: inline-flex; align-items: center; gap: 8px; color: white; padding: 10px 18px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; background: #059669;">
+                            <span class="material-symbols-outlined">play_circle</span> 3. Habituation &amp; CBT Guide
+                        </button>
                     </div>
                 </div>
             </div>
@@ -255,7 +258,7 @@
                             <span class="material-symbols-outlined">person_search</span> Bristol NHS Hearing Therapists &rarr;
                         </a>
                         <a href="path-support-group.html" class="ext-btn btn-dark">
-                            <span class="material-symbols-outlined">groups</span> Bristol Support Group &rarr;
+                            <span class="material-symbols-outlined">groups</span> Bristol Support Group (Coming Soon) &rarr;
                         </a>
                     </div>
                 </div>

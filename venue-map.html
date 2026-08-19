@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore an interactive map of verified venues across Bristol featuring Induction Loops, Auracast, and acoustic ratings.">
+  <meta name="description" content="Explore an interactive map of community-reported accessible venues across Bristol featuring Induction Loops, Auracast, and acoustic ratings.">
   <title>Bristol Venue Accessibility Map - Hearing Loss Initiative</title>
 
   <!-- Performance Preconnects -->
@@ -25,7 +25,7 @@
     <div class="header-left">
       <h1><span class="material-symbols-outlined" style="vertical-align: middle; font-size: 1.25rem; margin-right: 4px;">map</span> Greater Bristol Map</h1>
       <a href="path-accessible-venues.html" class="compact-btn">← Venue Directory</a>
-      <a href="path-join-us.html" class="compact-btn patreon">🔒 Add a Venue (Patreon Only)</a>
+      <a href="path-join-us.html" class="compact-btn patreon">🔒 Add a Venue (Patreon Only - Coming Soon)</a>
       
       <!-- Postcode Select -->
       <select id="filter-postcode" class="postcode-select" aria-label="Filter by Bristol Postcode District">
@@ -81,12 +81,12 @@
 
   <!-- Interactive Floating Venue List Sidebar Panel -->
   <button id="toggle-sidebar-btn" class="venue-sidebar-toggle">
-    <span class="material-symbols-outlined">list</span> 📋 Audited Venues List
+    <span class="material-symbols-outlined">list</span> 📋 Community Venues List
   </button>
 
   <aside id="venue-sidebar" class="venue-sidebar collapsed">
     <div class="sidebar-header">
-      <h2>📋 Audited Venues</h2>
+      <h2>📋 Community Venues (Unverified)</h2>
       <button id="close-sidebar-btn" style="background: none; border: none; color: #94a3b8; font-size: 1.4rem; cursor: pointer;">&times;</button>
     </div>
     <div class="sidebar-search">

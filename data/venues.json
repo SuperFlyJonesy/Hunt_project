@@ -43,7 +43,7 @@
       "auditor": "Aviation Access Auditor",
       "last_audited": "January 2026",
       "quote": "Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/airport.jpg"
   },
@@ -91,7 +91,7 @@
       "auditor": "Simon T. (BSL User & Hard-of-Hearing Auditor)",
       "last_audited": "October 2025",
       "quote": "Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/beacon.jpg"
   },
@@ -135,10 +135,10 @@
       "accessible_toilets": true
     },
     "audit_details": {
-      "auditor": "Jo J. (Initiate Evaluator)",
+      "auditor": "Member Initiate (Evaluator)",
       "last_audited": "November 2025",
       "quote": "Cinemas 1 & 3 stream Auracast direct to hearing aids. Staff offer subtitle headsets without hassle and venue acoustics are superb.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/watershed.jpg"
   },
@@ -185,7 +185,7 @@
       "auditor": "Jason P. (Hard-of-Hearing Evaluator)",
       "last_audited": "December 2025",
       "quote": "Great acoustic sound baffles in the main gallery space. Reception desk loop tested at 100% signal-to-noise ratio.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/mshed.jpg"
   },
@@ -232,7 +232,7 @@
       "auditor": "Bristol Support Group Committee",
       "last_audited": "January 2026",
       "quote": "Central open-air gathering spot for monthly Bristol Hard-of-Hearing coffee meets, BSL social circles, and discussion forums.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/bearpit.jpg"
   },
@@ -279,7 +279,7 @@
       "auditor": "Centre for Deaf People (CfD) Audit Team",
       "last_audited": "January 2026",
       "quote": "Purpose-built accessible hub with BSL fluent staff, equipment test rooms, and weekly drop-in advice clinics.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/vassall.jpg"
   },
@@ -325,7 +325,7 @@
       "auditor": "Acoustic Audit Specialist",
       "last_audited": "December 2025",
       "quote": "World-class natural hall acoustics paired with a newly calibrated perimeter induction loop.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/stgeorges.jpg"
   },
@@ -372,7 +372,7 @@
       "auditor": "Youth & Family Access Auditor",
       "last_audited": "January 2026",
       "quote": "Planetarium dome features direct personal audio loop headsets and full 3D visual subtitle projections.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/wethecurious.jpg"
   },
@@ -419,7 +419,7 @@
       "auditor": "Sarah K. (Theatre Access Reviewer)",
       "last_audited": "November 2025",
       "quote": "Infrared headset system provides crisp amplified stage dialogue across all seating tiers.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/oldvic.jpg"
   },
@@ -465,7 +465,7 @@
       "auditor": "Claire T. (Accessibility Officer)",
       "last_audited": "August 2025",
       "quote": "Concorde Hangar presentations are fully captioned on display screens with neck-loop lanyard availability.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/aerospace.jpg"
   },
@@ -477,7 +477,7 @@
     "lng": -2.596,
     "postcode": "BS34",
     "location": {
-      "address_line_1": "Lysander Road, Patchway, Bristol BS34 7JJA",
+      "address_line_1": "Lysander Road, Patchway, Bristol BS34 7GG",
       "city": "Bristol",
       "postcode": "BS34"
     },
@@ -604,7 +604,7 @@
       "auditor": "NHS Hearing Access Auditor",
       "last_audited": "December 2025",
       "quote": "Brunel Building atrium and all reception desks feature tested T-coil loop systems and visual call boards.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/southmead.jpg"
   },
@@ -925,7 +925,7 @@
       "auditor": "NHS Hospital Access Auditor",
       "last_audited": "December 2025",
       "quote": "A&E reception and outpatients clinics feature active counter loops and BSL video remote interpreting.",
-      "gold_standard": true
+      "gold_standard": false
     },
     "image": "Contents/Venues/bri.jpg"
   },

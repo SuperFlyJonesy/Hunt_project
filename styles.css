@@ -2603,3 +2603,271 @@ body:not(.premium-white-theme) .accordion-header {
     }
 }
 
+/* ==========================================================================
+   Patreon Page Locking & Coming Soon Badges
+   ========================================================================== */
+
+.metro-corner-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(15, 23, 42, 0.88);
+    color: #ffd166;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 5px 11px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid rgba(255, 209, 102, 0.45);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    z-index: 3;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .metro-corner-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+}
+
+.patreon-lock-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 34px 26px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 66, 77, 0.35);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+    margin: 25px 0 35px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.patreon-lock-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, #ff0f5b, #ff424d, #f59e0b);
+}
+
+.patreon-lock-icon {
+    font-size: 2.8rem;
+    color: #ff424d;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: lockPulse 2s infinite ease-in-out;
+}
+
+@keyframes lockPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.patreon-lock-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.patreon-lock-desc {
+    color: #cbd5e1;
+    font-size: 0.98rem;
+    max-width: 640px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+}
+
+.patreon-lock-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ff424d;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 14px 30px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(255, 66, 77, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.patreon-lock-btn:hover {
+    transform: translateY(-2px);
+    background: #ff2a38;
+    box-shadow: 0 8px 24px rgba(255, 66, 77, 0.55);
+}
+
+.patreon-lock-sublink {
+    display: block;
+    margin-top: 14px;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.patreon-lock-sublink:hover {
+    color: #ffffff;
+}
+
+.coming-soon-badge {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fda4af;
+    font-weight: 800;
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    vertical-align: middle;
+}
+
+.coming-soon-badge.amber {
+    background: #fffbeb;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+.coming-soon-badge.purple {
+    background: #faf5ff;
+    color: #7e22ce;
+    border-color: #e9d5ff;
+}
+
+.coming-soon-badge.blue {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+}
+
+.coming-soon-badge.green {
+    background: #f0fdf4;
+    color: #15803d;
+    border-color: #bbf7d0;
+}
+
+/* ==========================================================================
+   GLOBAL ON-SITE VIDEO MODAL PLAYER (HIGH PERFORMANCE & ZERO CLIP)
+   ========================================================================== */
+.hli-video-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.hli-video-modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hli-video-modal-card {
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.hli-video-modal-backdrop.active .hli-video-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+.hli-video-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #1e293b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hli-video-modal-title {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 15px;
+}
+
+.hli-video-modal-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s ease, transform 0.1s ease;
+    flex-shrink: 0;
+}
+
+.hli-video-modal-close-btn:hover {
+    background: #ff0f5b;
+    transform: scale(1.03);
+}
+
+.hli-video-modal-body {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+}
+
+.hli-video-modal-body iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+
