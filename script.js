@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initAccordions();
     initHubSearch();
     initOnSiteVideoPlayer();
+    initTileTooltips();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -841,5 +842,69 @@ function initOnSiteVideoPlayer() {
         });
     });
 }
+
+// 12. UNIVERSAL TILE ROLLOVER TOOLTIPS
+function initTileTooltips() {
+    let tooltip = document.getElementById('hli-tile-tooltip');
+    if (!tooltip) {
+        tooltip = document.createElement('div');
+        tooltip.id = 'hli-tile-tooltip';
+        tooltip.setAttribute('role', 'tooltip');
+        tooltip.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(tooltip);
+    }
+
+    const showTooltip = (el) => {
+        const text = el.getAttribute('data-tooltip');
+        if (!text) return;
+
+        tooltip.textContent = text;
+        tooltip.classList.add('show');
+        tooltip.setAttribute('aria-hidden', 'false');
+
+        const rect = el.getBoundingClientRect();
+        const tooltipRect = tooltip.getBoundingClientRect();
+
+        // Position centered above the tile
+        let top = rect.top - tooltipRect.height - 10;
+        let left = rect.left + (rect.width / 2) - (tooltipRect.width / 2);
+
+        // If too close to viewport top, flip below the tile
+        if (top < 8) {
+            top = rect.bottom + 10;
+            tooltip.classList.add('flip-bottom');
+        } else {
+            tooltip.classList.remove('flip-bottom');
+        }
+
+        // Screen edge bounds
+        if (left < 8) left = 8;
+        if (left + tooltipRect.width > window.innerWidth - 8) {
+            left = window.innerWidth - tooltipRect.width - 8;
+        }
+
+        tooltip.style.top = `${Math.round(top)}px`;
+        tooltip.style.left = `${Math.round(left)}px`;
+    };
+
+    const hideTooltip = () => {
+        if (tooltip) {
+            tooltip.classList.remove('show');
+            tooltip.setAttribute('aria-hidden', 'true');
+        }
+    };
+
+    // Attach listeners to all elements with data-tooltip
+    document.querySelectorAll('[data-tooltip]').forEach(el => {
+        el.addEventListener('mouseenter', () => showTooltip(el));
+        el.addEventListener('mouseleave', hideTooltip);
+        el.addEventListener('focus', () => showTooltip(el));
+        el.addEventListener('blur', hideTooltip);
+    });
+
+    window.addEventListener('scroll', hideTooltip, { passive: true });
+    window.addEventListener('resize', hideTooltip, { passive: true });
+}
+
 
 
