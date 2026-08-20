@@ -2979,5 +2979,267 @@ body:not(.premium-white-theme) .accordion-header {
     border: none;
 }
 
+/* ==========================================================================
+   INPUT VALIDATION & UNACCEPTABLE NAME ALERTS
+   ========================================================================== */
+.modal-input.input-error {
+    border-color: #ff334b !important;
+    background: rgba(255, 51, 75, 0.08) !important;
+    box-shadow: 0 0 0 4px rgba(255, 51, 75, 0.25) !important;
+    animation: hliInputShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
 
+@keyframes hliInputShake {
+    10%, 90% { transform: translate3d(-2px, 0, 0); }
+    20%, 80% { transform: translate3d(3px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
 
+.name-validation-alert {
+    background: rgba(255, 51, 75, 0.14);
+    border: 1px solid rgba(255, 51, 75, 0.45);
+    color: #ff6b7e;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.35;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(255, 51, 75, 0.15);
+    animation: seamlessFadeIn 0.25s ease forwards;
+}
+
+/* ==========================================================================
+   FOUNDER & PRODUCT LEAD ADMIN CONTROL MODAL
+   ========================================================================== */
+.founder-admin-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.founder-admin-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.founder-admin-card {
+    background: #0b1329;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    padding: 32px 28px;
+    max-width: 680px;
+    width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
+    color: #f8fafc;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+    transform: scale(0.95);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.founder-admin-modal.active .founder-admin-card {
+    transform: scale(1);
+}
+
+.founder-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.founder-admin-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.founder-admin-close {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.founder-admin-close:hover {
+    color: #ffffff;
+}
+
+.founder-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.founder-stat-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+}
+
+.founder-stat-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+    margin-bottom: 6px;
+}
+
+.founder-stat-value {
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: #00A4EF;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.founder-control-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.founder-input {
+    width: 100%;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.founder-input:focus {
+    border-color: #005EB8;
+    outline: none;
+}
+
+.founder-btn-small {
+    background: #005EB8;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.founder-btn-small:hover {
+    background: #0077e6;
+}
+
+.founder-table-wrapper {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    max-height: 180px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.founder-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.founder-table th {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 700;
+    color: #cbd5e1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.founder-table td {
+    padding: 8px 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
+}
+
+.founder-table tr:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.founder-actions-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.founder-btn-primary {
+    background: #005EB8;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.founder-btn-primary:hover {
+    background: #0077e6;
+}
+
+.founder-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.founder-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+}

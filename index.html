@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>Hearing Loss Initiative - Bristol</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=11.0">
+    <link rel="stylesheet" href="styles.css?v=12.0">
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
@@ -122,22 +122,28 @@
     </div>
 
     <!-- WELCOME / JOIN MODAL -->
-    <div id="registration-modal" class="modal">
+    <div id="registration-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content">
             <button id="close-modal" aria-label="Close Registration Modal" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: #666; cursor: pointer; transition: color 0.2s; background: transparent; border: none; padding: 0; line-height: 1;">&times;</button>
-            <h2 style="color: white; font-size: 2rem; margin-top: 0; margin-bottom: 10px; text-align: center;">Join the Initiative</h2>
-            <p style="color: #ccc; text-align: center; margin-bottom: 25px; font-size: 1.1rem;">Connect with the Bristol Hearing Loss Initiates Network.</p>
+            <h2 id="modal-title" style="color: white; font-size: 2rem; margin-top: 0; margin-bottom: 10px; text-align: center;">Join the Initiative</h2>
+            <p style="color: #ccc; text-align: center; margin-bottom: 22px; font-size: 1.05rem;">Connect with the Bristol Hearing Loss Initiates Network.</p>
 
-            <form id="registration-form">
-                <input type="text" id="user-name" class="modal-input" placeholder="Your First Name (Optional)" aria-label="First Name" style="margin-bottom: 20px;">
+            <form id="registration-form" novalidate>
+                <div style="margin-bottom: 4px; text-align: left;">
+                    <input type="text" id="user-name" class="modal-input" placeholder="Your First Name" aria-label="First Name" maxlength="40" autocomplete="off" style="margin-bottom: 0;">
+                </div>
+                <div id="name-validation-msg" class="name-validation-alert" style="display: none;"></div>
 
-                <button type="submit" style="width: 100%; background: #005EB8; color: white; border: none; padding: 20px; font-size: 1.3rem; font-weight: bold; border-radius: 12px; cursor: pointer; transition: background 0.2s ease, transform 0.1s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
-                    Enter Bristol Network &rarr;
+                <button type="submit" id="btn-submit-name" style="width: 100%; background: #005EB8; color: white; border: none; padding: 18px; font-size: 1.2rem; font-weight: 800; border-radius: 12px; cursor: pointer; transition: background 0.2s ease, transform 0.1s ease; box-shadow: 0 8px 20px rgba(0,94,184,0.4); margin-top: 12px; margin-bottom: 10px;">
+                    Log Name &amp; Join Initiative &rarr;
+                </button>
+                <button type="button" id="btn-bypass-guest" style="width: 100%; background: transparent; color: #94a3b8; border: 1px solid rgba(255,255,255,0.18); padding: 12px; font-size: 0.95rem; font-weight: 600; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
+                    Browse as Guest (Skip) &rarr;
                 </button>
             </form>
         </div>
     </div>
-    <script src="script.js?v=11.0"></script>
+    <script src="script.js?v=12.0"></script>
 </body>
 </html>
 

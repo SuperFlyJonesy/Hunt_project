@@ -21,7 +21,7 @@
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
     <main id="main-content" class="container">

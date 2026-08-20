@@ -1,4 +1,153 @@
 // script.js - GOLDEN VERSION REFINED
+
+// ==========================================================================
+// 0. PERSISTENT ANALYTICS & VISIT TRACKING (PRESERVED ACROSS RESETS)
+// ==========================================================================
+function logSiteVisit() {
+    try {
+        const sessionKey = 'hli_visit_session_' + new Date().toISOString().slice(0, 10);
+        let totalVisits = parseInt(localStorage.getItem('hli_total_visits') || '0', 10);
+        
+        if (isNaN(totalVisits) || totalVisits <= 0) {
+            totalVisits = 1;
+        } else if (!sessionStorage.getItem(sessionKey)) {
+            totalVisits++;
+        }
+        
+        localStorage.setItem('hli_total_visits', totalVisits.toString());
+        sessionStorage.setItem(sessionKey, 'active');
+    } catch (e) {}
+}
+
+// Log visit immediately
+logSiteVisit();
+
+// SAFE RESET APP SESSION (Preserves Cumulative Site Analytics & Founder Records)
+window.resetAppSession = function() {
+    try {
+        const preserved = {
+            totalVisits: localStorage.getItem('hli_total_visits'),
+            registeredCount: localStorage.getItem('hli_registered_count'),
+            totalHelped: localStorage.getItem('totalHelped'),
+            registeredMembers: localStorage.getItem('registeredMembers'),
+            hliMembers: localStorage.getItem('hli_registered_members'),
+            founderOffset: localStorage.getItem('hli_founder_offset'),
+            founderOverrideVisits: localStorage.getItem('hli_founder_override_visits')
+        };
+
+        localStorage.clear();
+        sessionStorage.clear();
+
+        if (preserved.totalVisits !== null) localStorage.setItem('hli_total_visits', preserved.totalVisits);
+        if (preserved.registeredCount !== null) localStorage.setItem('hli_registered_count', preserved.registeredCount);
+        if (preserved.totalHelped !== null) localStorage.setItem('totalHelped', preserved.totalHelped);
+        if (preserved.registeredMembers !== null) localStorage.setItem('registeredMembers', preserved.registeredMembers);
+        if (preserved.hliMembers !== null) localStorage.setItem('hli_registered_members', preserved.hliMembers);
+        if (preserved.founderOffset !== null) localStorage.setItem('hli_founder_offset', preserved.founderOffset);
+        if (preserved.founderOverrideVisits !== null) localStorage.setItem('hli_founder_override_visits', preserved.founderOverrideVisits);
+    } catch (e) {}
+
+    window.location.href = 'index.html';
+};
+
+// ==========================================================================
+// 0A. UNACCEPTABLE & RUDE NAMES FILTER
+// ==========================================================================
+const UNACCEPTABLE_NAMES = [
+    // Swear Words & Vulgarities
+    'fuck', 'fucker', 'fucking', 'fuckoff', 'motherfucker', 'fuk', 'fck',
+    'shit', 'shite', 'bullshit', 'sh!t',
+    'bitch', 'bitches', 'bitching', 'b!tch',
+    'cunt', 'cunts', 'c*nt',
+    'dick', 'dickhead', 'dicks', 'd1ck',
+    'cock', 'cocks', 'cocksucker',
+    'pussy', 'pussies', 'p*ssy',
+    'ass', 'asshole', 'arse', 'arsehole', 'a$$',
+    'bastard', 'bastards', 'twat', 'twats', 'wanker', 'wankers', 'wank', 'prick', 'pricks', 'bollocks', 'tosser', 'bellend',
+    'slut', 'sluts', 'whore', 'whores', 'skank', 'dipshit', 'jackass',
+    
+    // Slurs & Hate Speech
+    'nigger', 'nigga', 'n1gger', 'negro',
+    'faggot', 'fag', 'fags', 'dyke', 'tranny', 'shemale',
+    'retard', 'retarded', 'spastic', 'spaz', 'mongoloid',
+    'chink', 'gook', 'paki', 'kike', 'yid', 'gypsy',
+    'nazi', 'hitler', 'adolf', 'kkk', 'jihad', 'terrorist', 'isis', 'taliban',
+    
+    // Sexual Terms & Explicit Content
+    'penis', 'vagina', 'dildo', 'boobs', 'tits', 'titties', 'clit', 'porn', 'porno',
+    'horny', 'orgasm', 'semen', 'cum', 'cumshot', 'jizz', 'blowjob', 'handjob', 'anal', 'masturbate', 'pedophile', 'pedo', 'paedo', 'rapist', 'rape',
+    
+    // Spam, Trolling & Mocking Placeholders
+    'test', 'tester', 'testing', 'testuser', 'fake', 'fakeuser', 'nobody', 'noone', 'anonymous', 'anon',
+    'null', 'undefined', 'asdf', 'qwerty', 'zxcv', 'admin', 'administrator', 'root', 'user', 'guest',
+    'dummy', 'bot', 'scam', 'spam', 'idiot', 'moron', 'stupid', 'dumb', 'loser', 'clown', 'trash', 'garbage', 'poop', 'pee', 'fart', 'killer', 'murderer', 'suicide'
+];
+
+function validateInitiateName(rawName) {
+    if (!rawName || typeof rawName !== 'string') {
+        return { valid: false, message: 'Please enter your first name.' };
+    }
+
+    const trimmed = rawName.trim();
+    if (trimmed.length < 2) {
+        return { valid: false, message: 'Please enter a name with at least 2 letters.' };
+    }
+
+    if (trimmed.length > 40) {
+        return { valid: false, message: 'Please enter a name under 40 characters.' };
+    }
+
+    // Only letters, spaces, hyphens, apostrophes (supports international characters)
+    const validLettersRegex = /^[a-zA-Z\u00C0-\u024F\s'-]+$/;
+    if (!validLettersRegex.test(trimmed)) {
+        return { valid: false, message: 'Please use letters only (no numbers or special symbols).' };
+    }
+
+    // Leetspeak and symbol normalization
+    const normalized = trimmed.toLowerCase()
+        .replace(/0/g, 'o')
+        .replace(/1/g, 'i')
+        .replace(/3/g, 'e')
+        .replace(/4/g, 'a')
+        .replace(/5/g, 's')
+        .replace(/7/g, 't')
+        .replace(/8/g, 'b')
+        .replace(/@/g, 'a')
+        .replace(/\$/g, 's')
+        .replace(/!/g, 'i')
+        .replace(/[\s\-_'"`.*+]/g, '');
+
+    // Check for repetitive spam (e.g. "aaaaa", "zzzz")
+    if (/^(.)\1{3,}$/.test(normalized)) {
+        return { valid: false, message: 'Please enter a real first name.' };
+    }
+
+    for (const badWord of UNACCEPTABLE_NAMES) {
+        const cleanBad = badWord.toLowerCase().replace(/[\s\-_'"`.*+!$@0-9]/g, '');
+        if (cleanBad.length >= 3 && (normalized === cleanBad || normalized.includes(cleanBad))) {
+            return { valid: false, message: '⚠️ That name is unacceptable. Please enter a respectful first name.' };
+        }
+        if (cleanBad.length < 3 && normalized === cleanBad) {
+            return { valid: false, message: '⚠️ That name is unacceptable. Please enter a respectful first name.' };
+        }
+    }
+
+    return { valid: true, sanitizedName: trimmed };
+}
+
+function getBristolAnalytics() {
+    const totalVisits = parseInt(localStorage.getItem('hli_total_visits') || '1', 10);
+    const registeredCount = parseInt(localStorage.getItem('hli_registered_count') || localStorage.getItem('totalHelped') || '0', 10);
+    const founderOffset = parseInt(localStorage.getItem('hli_founder_offset') || '0', 10);
+    const remainingCount = Math.max(0, 62220 - registeredCount - founderOffset);
+    return { totalVisits, registeredCount, founderOffset, remainingCount };
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Floating Scroll Nav Controls
     initFloatingScrollControls();
@@ -8,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initHubSearch();
     initOnSiteVideoPlayer();
     initTileTooltips();
+    initFounderAdminControls();
 
     // 0. SYNTHETIC SOFT CLICK SOUND FOR TILE NAVIGATION (Subtle, warm, whisper-quiet tap)
     function playSoftClickSound() {
@@ -72,11 +222,11 @@ document.addEventListener("DOMContentLoaded", () => {
         initPrologue();
     }
 
-    // 3. DEV RESET LOGIC
+    // 3. SAFE DEV RESET LISTENER
     document.addEventListener('click', (e) => { 
-        if(e.target.id === 'dev-reset') { 
-            localStorage.clear(); 
-            window.location.href = 'index.html'; 
+        if(e.target && e.target.id === 'dev-reset') { 
+            e.preventDefault();
+            window.resetAppSession(); 
         } 
     });
 
@@ -86,7 +236,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById('registration-modal');
     const closeModal = document.getElementById('close-modal');
     const regForm = document.getElementById('registration-form');
-    const quickJoin = document.getElementById('test-quick-join');
+    const userNameInput = document.getElementById('user-name');
+    const nameValMsg = document.getElementById('name-validation-msg');
+    const bypassGuestBtn = document.getElementById('btn-bypass-guest');
     const stencilCount = document.getElementById('stencil-count');
     const bgVideo = document.getElementById('bg-video');
     const videoToggle = document.getElementById('video-toggle');
@@ -106,60 +258,57 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Initialize Bristol Count from localStorage for landing page stencil
-    const totalHelped = parseInt(localStorage.getItem('totalHelped')) || 0;
-    const currentCount = Math.max(0, 62220 - totalHelped);
+    // Initialize Bristol Count from persistent analytics for landing page stencil
     if (stencilCount) {
-        stencilCount.innerHTML = currentCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+        const stats = getBristolAnalytics();
+        stencilCount.innerHTML = stats.remainingCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
     }
 
     // Modal & Pathway Handling
-    if(ctaYes) ctaYes.addEventListener('click', () => modal.classList.add('active'));
-    if(closeModal) closeModal.addEventListener('click', () => modal.classList.remove('active'));
-    if(ctaSupport) {
-        ctaSupport.addEventListener('click', () => {
-            const actionPanel = document.getElementById('bottom-action-panel');
-            const stencil = document.getElementById('stencil-count');
-            const flipWrapper = document.getElementById('flip-clock-wrapper');
-            
-            if (actionPanel) {
-                actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
-                actionPanel.style.opacity = '0';
-                actionPanel.style.filter = 'blur(6px)';
-                actionPanel.style.transform = 'translateY(-15px)';
+    if(ctaYes) {
+        ctaYes.addEventListener('click', () => {
+            if (modal) {
+                modal.classList.add('active');
+                if (nameValMsg) { nameValMsg.style.display = 'none'; nameValMsg.textContent = ''; }
+                if (userNameInput) {
+                    userNameInput.classList.remove('input-error');
+                    setTimeout(() => userNameInput.focus(), 150);
+                }
             }
-            if (stencil) {
-                stencil.style.transition = 'opacity 0.6s ease';
-                stencil.style.opacity = '0';
-            }
-            if (flipWrapper) {
-                flipWrapper.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                flipWrapper.style.opacity = '0';
-                flipWrapper.style.transform = 'translate(-50%, -60%)';
-            }
-            document.body.style.transition = 'background-color 0.7s ease';
-            document.body.style.backgroundColor = '#ffffff';
-
-            setTimeout(() => {
-                window.location.href = 'path-experience.html';
-            }, 600);
         });
     }
 
-    // REGISTRATION SUBMISSION LOGIC (PARDON SCREEN WITH ANIMATED COUNTDOWN)
-    window.handleRegistrationSubmission = function() {
-        if (modal) modal.classList.remove('active');
-    
+    if(closeModal) {
+        closeModal.addEventListener('click', () => {
+            if (modal) modal.classList.remove('active');
+        });
+    }
+
+    if (bypassGuestBtn) {
+        bypassGuestBtn.addEventListener('click', () => {
+            window.handleBypassRegistration();
+        });
+    }
+
+    if(ctaSupport) {
+        ctaSupport.addEventListener('click', () => {
+            transitionToPage('path-experience.html');
+        });
+    }
+
+    // REGISTRATION SUBMISSION LOGIC (Only decrements on valid name submission)
+    window.handleRegistrationSubmission = function(submittedName) {
         const mainNumber = document.getElementById('stencil-count');
         const actionPanel = document.getElementById('bottom-action-panel');
         const introBlock = document.getElementById('intro-block');
-        const ctaYes = document.getElementById('cta-yes');
-        const ctaSupport = document.getElementById('cta-support');
-    
+        const ctaYesBtn = document.getElementById('cta-yes');
+        const ctaSupportBtn = document.getElementById('cta-support');
+
+        if (modal) modal.classList.remove('active');
+
         if (actionPanel) {
-            // Immediately lock down and fade out initial prompt & buttons to prevent confusion or double-clicking
-            if (ctaYes) ctaYes.disabled = true;
-            if (ctaSupport) ctaSupport.disabled = true;
+            if (ctaYesBtn) ctaYesBtn.disabled = true;
+            if (ctaSupportBtn) ctaSupportBtn.disabled = true;
             actionPanel.style.pointerEvents = 'none';
 
             if (introBlock) {
@@ -169,11 +318,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 introBlock.style.transform = 'translateY(10px)';
             }
 
-            let totalHelped = parseInt(localStorage.getItem('totalHelped') || 0);
-            totalHelped++;
-            localStorage.setItem('totalHelped', totalHelped);
-            const startVal = Math.max(0, 62220 - (totalHelped - 1));
-            const finalCount = Math.max(0, 62220 - totalHelped);
+            // Increment registered count only now that a name is successfully logged
+            let stats = getBristolAnalytics();
+            let newRegistered = stats.registeredCount + 1;
+            localStorage.setItem('hli_registered_count', newRegistered.toString());
+            localStorage.setItem('totalHelped', newRegistered.toString());
+            const finalCount = Math.max(0, 62220 - newRegistered - stats.founderOffset);
 
             // Dynamic Random Digit Jumble/Cipher Shuffle Effect for Landing Page Stencil Number
             if (mainNumber) {
@@ -195,16 +345,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 45);
             }
 
-            const enteredName = document.getElementById('user-name')?.value?.trim() || 'Initiate Supporter';
-            let registeredMembers = JSON.parse(localStorage.getItem('registeredMembers') || '[]');
-            
+            const enteredName = submittedName || 'Initiate Member';
+            let registeredMembers = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
             const isFirst10 = registeredMembers.length < 10;
             registeredMembers.push({
                 name: enteredName,
                 tier: 'Initiate Supporter',
-                date: new Date().toLocaleDateString(),
+                date: new Date().toLocaleDateString('en-GB'),
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                 isFirst10: isFirst10
             });
+            localStorage.setItem('hli_registered_members', JSON.stringify(registeredMembers));
             localStorage.setItem('registeredMembers', JSON.stringify(registeredMembers));
             localStorage.setItem('hasVisitedHub', 'true');
 
@@ -231,35 +382,78 @@ document.addEventListener("DOMContentLoaded", () => {
                 const continueBtn = document.getElementById('btn-continue-hub');
                 if (continueBtn) {
                     continueBtn.addEventListener('click', () => {
-                        const actionPanel = document.getElementById('bottom-action-panel');
-                        const stencil = document.getElementById('stencil-count');
-                        
-                        if (actionPanel) {
-                            actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
-                            actionPanel.style.opacity = '0';
-                            actionPanel.style.filter = 'blur(6px)';
-                            actionPanel.style.transform = 'translateY(-15px)';
-                        }
-                        if (stencil) {
-                            stencil.style.transition = 'opacity 0.6s ease';
-                            stencil.style.opacity = '0';
-                        }
-                        document.body.style.transition = 'background-color 0.7s ease';
-                        document.body.style.backgroundColor = '#ffffff';
-
-                        setTimeout(() => {
-                            window.location.href = 'path-community-reel.html';
-                        }, 600);
+                        transitionToPage('path-yes.html');
                     });
                 }
             }, 950);
         }
     };
 
-    if (regForm) {
+    // BYPASS REGISTRATION (Browsing as guest / skip - does NOT decrement the counter)
+    window.handleBypassRegistration = function() {
+        if (modal) modal.classList.remove('active');
+        localStorage.setItem('hasVisitedHub', 'true');
+        transitionToPage('path-yes.html');
+    };
+
+    function transitionToPage(targetUrl) {
+        const actionPanel = document.getElementById('bottom-action-panel');
+        const stencil = document.getElementById('stencil-count');
+        const flipWrapper = document.getElementById('flip-clock-wrapper');
+        
+        if (actionPanel) {
+            actionPanel.style.transition = 'opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease';
+            actionPanel.style.opacity = '0';
+            actionPanel.style.filter = 'blur(6px)';
+            actionPanel.style.transform = 'translateY(-15px)';
+        }
+        if (stencil) {
+            stencil.style.transition = 'opacity 0.6s ease';
+            stencil.style.opacity = '0';
+        }
+        if (flipWrapper) {
+            flipWrapper.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            flipWrapper.style.opacity = '0';
+            flipWrapper.style.transform = 'translate(-50%, -60%)';
+        }
+        document.body.style.transition = 'background-color 0.7s ease';
+        document.body.style.backgroundColor = '#ffffff';
+
+        setTimeout(() => {
+            window.location.href = targetUrl;
+        }, 600);
+    }
+
+    if (regForm && userNameInput) {
         regForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            window.handleRegistrationSubmission();
+            const rawVal = userNameInput.value;
+            const validation = validateInitiateName(rawVal);
+
+            if (!validation.valid) {
+                if (nameValMsg) {
+                    nameValMsg.textContent = validation.message;
+                    nameValMsg.style.display = 'flex';
+                }
+                userNameInput.classList.remove('input-error');
+                void userNameInput.offsetWidth; // Force reflow
+                userNameInput.classList.add('input-error');
+                userNameInput.focus();
+                return;
+            }
+
+            if (nameValMsg) {
+                nameValMsg.style.display = 'none';
+            }
+            userNameInput.classList.remove('input-error');
+            window.handleRegistrationSubmission(validation.sanitizedName);
+        });
+
+        userNameInput.addEventListener('input', () => {
+            if (userNameInput.classList.contains('input-error')) {
+                userNameInput.classList.remove('input-error');
+                if (nameValMsg) nameValMsg.style.display = 'none';
+            }
         });
     }
 
@@ -275,6 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
 
 function initPrologue() {
     const prologue = document.getElementById('prologue-lockdown');
@@ -906,5 +1101,295 @@ function initTileTooltips() {
     window.addEventListener('resize', hideTooltip, { passive: true });
 }
 
+// 13. FOUNDER & PRODUCT LEAD ADMIN CONTROLS (JASON)
+function initFounderAdminControls() {
+    // Inject Founder Modal if not already present
+    if (!document.getElementById('hli-founder-modal')) {
+        const modalHtml = `
+        <div id="hli-founder-modal" class="founder-admin-modal" role="dialog" aria-labelledby="founder-title">
+            <div class="founder-admin-card">
+                <div class="founder-admin-header">
+                    <h3 id="founder-title" class="founder-admin-title">🛡️ Founder &amp; Product Lead Admin</h3>
+                    <button type="button" class="founder-admin-close" id="founder-modal-close" aria-label="Close Admin">&times;</button>
+                </div>
+                
+                <div id="founder-pin-gate" style="text-align: center; padding: 20px 0;">
+                    <p style="color: #cbd5e1; margin-bottom: 15px; font-size: 0.95rem;">Enter Founder PIN to access live site records and adjustment controls:</p>
+                    <input type="password" id="founder-pin-input" class="founder-input" placeholder="Enter PIN" style="max-width: 220px; margin: 0 auto 15px auto; text-align: center; letter-spacing: 4px; font-size: 1.2rem;">
+                    <div>
+                        <button type="button" id="founder-pin-btn" class="founder-btn-primary">Unlock Controls</button>
+                    </div>
+                    <div id="founder-pin-error" style="color: #ff4d4d; font-size: 0.85rem; margin-top: 10px; display: none;">⚠️ Incorrect PIN.</div>
+                </div>
 
+                <div id="founder-admin-content" style="display: none;">
+                    <div class="founder-stat-grid">
+                        <div class="founder-stat-box">
+                            <div class="founder-stat-label">Total Site Visits</div>
+                            <div class="founder-stat-value" id="admin-disp-visits">0</div>
+                            <div class="founder-control-row">
+                                <input type="number" id="admin-input-visits" class="founder-input" min="0">
+                                <button type="button" id="admin-btn-save-visits" class="founder-btn-small">Set</button>
+                            </div>
+                        </div>
 
+                        <div class="founder-stat-box">
+                            <div class="founder-stat-label">Names Logged</div>
+                            <div class="founder-stat-value" id="admin-disp-registered">0</div>
+                            <div class="founder-control-row">
+                                <input type="number" id="admin-input-registered" class="founder-input" min="0">
+                                <button type="button" id="admin-btn-save-registered" class="founder-btn-small">Set</button>
+                            </div>
+                        </div>
+
+                        <div class="founder-stat-box">
+                            <div class="founder-stat-label">Remaining Bristol Count</div>
+                            <div class="founder-stat-value" id="admin-disp-remaining">62,220</div>
+                            <div class="founder-control-row">
+                                <input type="number" id="admin-input-offset" class="founder-input" placeholder="Offset (+/-)">
+                                <button type="button" id="admin-btn-save-offset" class="founder-btn-small">Adjust</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 0.9rem; font-weight: 700; color: #cbd5e1;">Logged Initiates Registry:</span>
+                        <button type="button" id="admin-btn-export" class="founder-btn-small" style="background: #1b5e20;">📥 Export JSON</button>
+                    </div>
+
+                    <div class="founder-table-wrapper">
+                        <table class="founder-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="founder-members-tbody">
+                                <tr><td colspan="4" style="text-align: center; color: #94a3b8;">No names logged yet.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="founder-actions-bar">
+                        <button type="button" id="admin-btn-reset-session" class="founder-btn-secondary">🔄 Reset Session Flow (Preserves Analytics)</button>
+                        <button type="button" id="admin-btn-close" class="founder-btn-primary">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+
+    const modal = document.getElementById('hli-founder-modal');
+    const closeBtn = document.getElementById('founder-modal-close');
+    const doneBtn = document.getElementById('admin-btn-close');
+    const pinGate = document.getElementById('founder-pin-gate');
+    const adminContent = document.getElementById('founder-admin-content');
+    const pinInput = document.getElementById('founder-pin-input');
+    const pinBtn = document.getElementById('founder-pin-btn');
+    const pinError = document.getElementById('founder-pin-error');
+
+    function refreshAdminValues() {
+        const stats = getBristolAnalytics();
+        const dispVisits = document.getElementById('admin-disp-visits');
+        const dispReg = document.getElementById('admin-disp-registered');
+        const dispRem = document.getElementById('admin-disp-remaining');
+        const inputVisits = document.getElementById('admin-input-visits');
+        const inputReg = document.getElementById('admin-input-registered');
+        const inputOffset = document.getElementById('admin-input-offset');
+        const tbody = document.getElementById('founder-members-tbody');
+
+        if (dispVisits) dispVisits.textContent = stats.totalVisits.toLocaleString();
+        if (dispReg) dispReg.textContent = stats.registeredCount.toLocaleString();
+        if (dispRem) dispRem.textContent = stats.remainingCount.toLocaleString();
+
+        if (inputVisits) inputVisits.value = stats.totalVisits;
+        if (inputReg) inputReg.value = stats.registeredCount;
+        if (inputOffset) inputOffset.value = stats.founderOffset;
+
+        const members = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
+        if (tbody) {
+            if (members.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #94a3b8;">No names logged yet.</td></tr>';
+            } else {
+                tbody.innerHTML = members.map((m, idx) => `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td style="font-weight: 700; color: #ffffff;">${escapeHtml(m.name)}</td>
+                        <td>${m.date || 'N/A'}</td>
+                        <td>${m.time || ''}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+    }
+
+    function openFounderModal() {
+        if (modal) {
+            modal.classList.add('active');
+            if (sessionStorage.getItem('hli_founder_unlocked') === 'true') {
+                if (pinGate) pinGate.style.display = 'none';
+                if (adminContent) adminContent.style.display = 'block';
+                refreshAdminValues();
+            } else {
+                if (pinGate) pinGate.style.display = 'block';
+                if (adminContent) adminContent.style.display = 'none';
+                if (pinInput) { pinInput.value = ''; pinInput.focus(); }
+            }
+        }
+    }
+
+    function closeFounderModal() {
+        if (modal) modal.classList.remove('active');
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeFounderModal);
+    if (doneBtn) doneBtn.addEventListener('click', closeFounderModal);
+
+    if (pinBtn && pinInput) {
+        const verifyPin = () => {
+            if (pinInput.value.trim() === '1608') {
+                sessionStorage.setItem('hli_founder_unlocked', 'true');
+                if (pinError) pinError.style.display = 'none';
+                if (pinGate) pinGate.style.display = 'none';
+                if (adminContent) adminContent.style.display = 'block';
+                refreshAdminValues();
+            } else {
+                if (pinError) pinError.style.display = 'block';
+                pinInput.focus();
+            }
+        };
+        pinBtn.addEventListener('click', verifyPin);
+        pinInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') verifyPin(); });
+    }
+
+    // Save Controls
+    const saveVisitsBtn = document.getElementById('admin-btn-save-visits');
+    if (saveVisitsBtn) {
+        saveVisitsBtn.addEventListener('click', () => {
+            const val = parseInt(document.getElementById('admin-input-visits')?.value || '0', 10);
+            if (!isNaN(val) && val >= 0) {
+                localStorage.setItem('hli_total_visits', val.toString());
+                refreshAdminValues();
+                alert('Total visits record updated to ' + val);
+            }
+        });
+    }
+
+    const saveRegBtn = document.getElementById('admin-btn-save-registered');
+    if (saveRegBtn) {
+        saveRegBtn.addEventListener('click', () => {
+            const val = parseInt(document.getElementById('admin-input-registered')?.value || '0', 10);
+            if (!isNaN(val) && val >= 0) {
+                localStorage.setItem('hli_registered_count', val.toString());
+                localStorage.setItem('totalHelped', val.toString());
+                refreshAdminValues();
+                const stencil = document.getElementById('stencil-count');
+                if (stencil) {
+                    const stats = getBristolAnalytics();
+                    stencil.innerHTML = stats.remainingCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                }
+                alert('Registered count updated to ' + val);
+            }
+        });
+    }
+
+    const saveOffsetBtn = document.getElementById('admin-btn-save-offset');
+    if (saveOffsetBtn) {
+        saveOffsetBtn.addEventListener('click', () => {
+            const val = parseInt(document.getElementById('admin-input-offset')?.value || '0', 10);
+            if (!isNaN(val)) {
+                localStorage.setItem('hli_founder_offset', val.toString());
+                refreshAdminValues();
+                const stencil = document.getElementById('stencil-count');
+                if (stencil) {
+                    const stats = getBristolAnalytics();
+                    stencil.innerHTML = stats.remainingCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                }
+                alert('Offset adjusted to ' + val);
+            }
+        });
+    }
+
+    const exportBtn = document.getElementById('admin-btn-export');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+            const stats = getBristolAnalytics();
+            const members = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
+            const exportData = {
+                initiative: 'Hearing Loss Initiative - Bristol',
+                exportDate: new Date().toISOString(),
+                stats: stats,
+                members: members
+            };
+            const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `hli_records_${new Date().toISOString().slice(0, 10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    }
+
+    const resetSessionBtn = document.getElementById('admin-btn-reset-session');
+    if (resetSessionBtn) {
+        resetSessionBtn.addEventListener('click', () => {
+            if (confirm('Reset your current session test flow while preserving total visits and member records?')) {
+                window.resetAppSession();
+            }
+        });
+    }
+
+    // Keyboard trigger: Ctrl+Shift+A or Cmd+Shift+A
+    window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+            e.preventDefault();
+            openFounderModal();
+        }
+    });
+
+    // Triple click trigger on top logos
+    let logoClicks = 0;
+    let logoTimer;
+    document.querySelectorAll('#hli-logo, .hli-logo-top, .top-nav img').forEach(logo => {
+        logo.addEventListener('click', () => {
+            logoClicks++;
+            clearTimeout(logoTimer);
+            if (logoClicks >= 3) {
+                logoClicks = 0;
+                openFounderModal();
+            } else {
+                logoTimer = setTimeout(() => { logoClicks = 0; }, 1200);
+            }
+        });
+    });
+
+    // Global helper APIs
+    window.hliAdmin = openFounderModal;
+    window.hliFounder = {
+        panel: openFounderModal,
+        getStats: getBristolAnalytics,
+        setVisits: (n) => {
+            localStorage.setItem('hli_total_visits', parseInt(n, 10).toString());
+            refreshAdminValues();
+            console.log('HLI Visits set to:', n);
+        },
+        setRegistered: (n) => {
+            localStorage.setItem('hli_registered_count', parseInt(n, 10).toString());
+            localStorage.setItem('totalHelped', parseInt(n, 10).toString());
+            refreshAdminValues();
+            console.log('HLI Registered count set to:', n);
+        },
+        setOffset: (n) => {
+            localStorage.setItem('hli_founder_offset', parseInt(n, 10).toString());
+            refreshAdminValues();
+            console.log('HLI Offset set to:', n);
+        },
+        getMembers: () => JSON.parse(localStorage.getItem('hli_registered_members') || '[]')
+    };
+}

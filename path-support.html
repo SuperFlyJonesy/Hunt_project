@@ -5,7 +5,7 @@
     <meta name="description" content="Support and practical advice directory for hearing aid maintenance, communication strategies, and emotional wellbeing.">
     <meta charset="UTF-8">
     <title>Support the initiative</title>
-    <link rel="stylesheet" href="styles.css?v=11.0">
+    <link rel="stylesheet" href="styles.css?v=12.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -83,7 +83,7 @@
 </head>
 <body class="premium-white-theme">
     <a href="#main-grid" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" onclick="localStorage.clear(); window.location.href='index.html';">R</button>
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
     
     <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
     
@@ -169,7 +169,7 @@
 
     <div class="page-transition-overlay"></div>
 
-    <script src="script.js?v=11.0"></script>
+    <script src="script.js?v=12.0"></script>
     <script>
         localStorage.setItem('hasVisitedSupport', 'true');
 
