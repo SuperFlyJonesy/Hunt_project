@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Read testimonials from individuals, clinicians, and families whose lives have been transformed by community support.">
+    <meta name="description"
+        content="Read testimonials from individuals, clinicians, and families whose lives have been transformed by community support.">
     <meta charset="UTF-8">
     <title>Community Testimonials (Coming Soon) - Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="styles.css?v=12.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
-        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 50px 20px 100px 20px;
+        }
+
+        #dev-reset {
+            position: fixed;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: black;
+            background: transparent;
+            border: none;
+            opacity: 0.15;
+            cursor: pointer;
+            z-index: 99999999;
+            padding: 10px;
+            font-weight: bold;
+        }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
+
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
-    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
-    
+    <button id="dev-reset"
+        onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    <a href="path-about.html" id="btn-support"
+        style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About
+        Us</a>
+
     <main id="main-content" class="container">
         <div class="header-section" style="text-align: center; margin-bottom: 25px;">
             <div style="margin-bottom: 12px;">
-                <span class="coming-soon-badge green"><span class="material-symbols-outlined" style="font-size: 1rem;">schedule</span> Coming Soon</span>
+                <span class="coming-soon-badge green"><span class="material-symbols-outlined"
+                        style="font-size: 1rem;">schedule</span> Coming Soon</span>
                 <span class="coming-soon-badge purple" style="margin-left: 6px;">🔒 Patreon Early Reviews</span>
             </div>
-            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #388e3c; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+            <h1
+                style="font-size: 2.5rem; margin-bottom: 15px; color: #388e3c; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
                 <span class="material-symbols-outlined" style="font-size: 3rem;">reviews</span>
                 Community Testimonials
             </h1>
-            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
-                Real experiences and stories shared by hard-of-hearing residents across Bristol, showing the power of connection, comfort, and assistive technology.
+            <p
+                style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Real experiences and stories shared by hard of hearing residents across Bristol, showing the power of
+                connection, comfort, and assistive technology.
             </p>
         </div>
 
@@ -39,101 +68,59 @@
             <span class="material-symbols-outlined patreon-lock-icon">lock</span>
             <h2 class="patreon-lock-title">Patreon Community Reviews &amp; Tech Testimonials</h2>
             <p class="patreon-lock-desc">
-                Verified testimonials and audio feedback from on-the-ground assistive technology testers are launching soon. Patreon initiates can submit community reviews and participate in monthly equipment roundtable discussions.
+                Verified testimonials and audio feedback from on-the-ground assistive technology testers are launching
+                soon. Patreon initiates can submit community reviews and participate in monthly equipment roundtable
+                discussions.
             </p>
-            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-lock-btn">
+            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer"
+                class="patreon-lock-btn">
                 <span class="material-symbols-outlined">reviews</span> Join Patreon &amp; Share Feedback &rarr;
             </a>
             <a href="path-join-us.html" class="patreon-lock-sublink">Learn more about Patreon member perks</a>
         </div>
 
-        <!-- TICKERS SECTION (FULL WIDTH - SINGLE ROW) -->
-        <div class="tickers-section" style="margin-bottom: 35px;">
-            <div class="ticker-container">
-                <div class="ticker-track">
-                    <!-- Original Set (1 to 14) -->
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">I don't look at a hearing aid like a set of glasses; it's more like a pair of shoes. They can be the most expensive and advanced, but if they don't fit well and aren't comfortable, then you won't wear them.</p>
-                        <p class="card-author">&mdash; Sarah Swift</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">My God, it actually works! &mdash; experiencing Auracast for the first time at Bristol Temple Meads Station.</p>
-                        <p class="card-author">&mdash; Jason (Founder)</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">It's the first time I heard the announcement at a train station in my life.</p>
-                        <p class="card-author">&mdash; Andrea Hunt</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">Just having someone to talk to over coffee who understands what it's like is so comforting.</p>
-                        <p class="card-author">&mdash; Anonymous</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">Meeting up through the local hearing support group changed everything for me. You finally realize you aren't the only one who spends all evening nodding along when you haven't actually caught a word.</p>
-                        <p class="card-author">&mdash; Marcus Vance</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">Getting the RIC style fitted properly took away that awful occluded feeling. It feels like a natural part of me now rather than an intrusive plastic gadget in my ear.</p>
-                        <p class="card-author">&mdash; Chloe Bennett</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">Standing on a busy platform and hearing the gate change announcement crystal clear through my streamer without straining? Absolute game changer for travel.</p>
-                        <p class="card-author">&mdash; Liam Davies</p>
-                    </div>
-
-                    <!-- Duplicated Set for Seamless Looping -->
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">I don't look at a hearing aid like a set of glasses; it's more like a pair of shoes. They can be the most expensive and advanced, but if they don't fit well and aren't comfortable, then you won't wear them.</p>
-                        <p class="card-author">&mdash; Sarah Swift</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">My God, it actually works! &mdash; experiencing Auracast for the first time at Bristol Temple Meads Station.</p>
-                        <p class="card-author">&mdash; Jason (Founder)</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">It's the first time I heard the announcement at a train station in my life.</p>
-                        <p class="card-author">&mdash; Andrea Hunt</p>
-                    </div>
-                    <div class="ticker-card">
-                        <div class="card-quote-icon">&ldquo;</div>
-                        <p class="card-text">Just having someone to talk to over coffee who understands what it's like is so comforting.</p>
-                        <p class="card-author">&mdash; Anonymous</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Progressive Disclosure Accordion Container -->
-        <div class="accordion-container">
-            
+        <div class="accordion-container" style="margin-top: 30px;">
+
             <!-- ACCORDION 1: Technology & Auracast -->
             <div class="accordion-item active">
                 <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #0284c7; margin-right: 8px;">cell_tower</span> 1. Life with Modern Assistive Tech & Auracast</span>
+                    <span><span class="material-symbols-outlined"
+                            style="vertical-align: middle; color: #0284c7; margin-right: 8px;">cell_tower</span> 1. Life
+                        with Modern Assistive Tech &amp; Auracast</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
-                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                        From Bluetooth streaming to next-generation Auracast public broadcasts, technology has fundamentally changed how we navigate Bristol.
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155; margin-bottom: 16px;">
+                        From Bluetooth streaming to next generation Auracast public broadcasts, technology has
+                        fundamentally changed how we navigate Bristol.
                     </p>
-                    <div class="grid-2col">
-                        <div class="info-box" style="border-left: 4px solid #0284c7;">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #0369a1;">"My God, it actually works!"</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Experiencing Auracast for the very first time inside Bristol Temple Meads—hearing announcements crystal clear over echo—was unforgettable." &mdash; <em>Jason (Founder)</em></p>
-                        </div>
-                        <div class="info-box" style="border-left: 4px solid #0284c7;">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #0369a1;">"The First Station Announcement I Ever Heard"</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"It's the first time in my life I didn't have to rely on squinting at departure boards or asking strangers for gate changes." &mdash; <em>Andrea Hunt</em></p>
+
+                    <div class="info-box" style="border-left: 4px solid #0284c7; margin-bottom: 16px;">
+                        <p style="margin: 0 0 6px 0; font-weight: 800; color: #0369a1; font-size: 1.05rem;">"My God, it
+                            actually works!"</p>
+                        <p style="margin: 0 0 6px 0; font-size: 0.95rem; color: #334155; line-height: 1.55;">
+                            "Experiencing Auracast for the very first time inside Bristol Temple Meads, hearing
+                            announcements crystal clear over the echo, was unforgettable."</p>
+                        <p style="margin: 0; font-size: 0.9rem; font-weight: 700; color: #0284c7;">&mdash; Jason
+                            (Founder)</p>
+                    </div>
+
+                    <!-- Featured Prominent Quote: A Close Friend -->
+                    <div
+                        style="background: #f0f9ff; border: 2px solid #0284c7; border-radius: 14px; padding: 22px; margin-top: 16px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.12);">
+                        <div style="display: flex; align-items: flex-start; gap: 14px;">
+                            <span class="material-symbols-outlined"
+                                style="font-size: 2.2rem; color: #0284c7; flex-shrink: 0;">campaign</span>
+                            <div>
+                                <p
+                                    style="margin: 0 0 8px 0; font-size: 1.15rem; font-weight: 700; color: #0c4a6e; line-height: 1.5;">
+                                    "It's the first time I heard the announcement at a train station in my life."
+                                </p>
+                                <p style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #0369a1;">
+                                    &mdash; A Close Friend
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,89 +129,119 @@
             <!-- ACCORDION 2: Device Comfort & Fitting -->
             <div class="accordion-item">
                 <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">hearing</span> 2. Comfort, Fit & Overcoming Stigma</span>
+                    <span><span class="material-symbols-outlined"
+                            style="vertical-align: middle; color: #d97706; margin-right: 8px;">hearing</span> 2.
+                        Comfort, Fit &amp; Overcoming Stigma</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <div class="good-box">
-                        <h3 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
-                            <span class="material-symbols-outlined">favorite</span> Shoes, Not Glasses: The Gold Standard Philosophy
+                        <h3
+                            style="margin: 0 0 8px 0; color: #166534; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                            <span class="material-symbols-outlined">favorite</span> Shoes, Not Glasses: The Gold
+                            Standard Philosophy
                         </h3>
-                        <p style="margin: 0; font-size: 0.95rem; color: #15803d; line-height: 1.6;">
-                            "I don't look at a hearing aid like a set of glasses; it's more like a pair of shoes. They can be the most expensive and advanced in the world, but if they don't fit well and aren't comfortable, then you won't wear them." &mdash; <strong>Sarah Swift, Audiologist</strong>
+                        <p style="margin: 0 0 10px 0; font-size: 0.98rem; color: #15803d; line-height: 1.6;">
+                            "I don't look at a hearing aid like a set of glasses; it is more like a pair of shoes. They
+                            can be the most expensive and advanced in the world, but if they don't fit well and aren't
+                            comfortable, then you won't wear them."
+                        </p>
+                        <p style="margin: 0; font-size: 0.95rem; font-weight: 700; color: #166534;">
+                            &mdash; Sarah Swift, Head of Audiology
                         </p>
                     </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 3: Peer Support Meetups -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined"
+                            style="vertical-align: middle; color: #e11d48; margin-right: 8px;">diversity_3</span> 3.
+                        Peer Support Meetups</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155; margin-bottom: 16px;">
+                        Connecting with others who live with hearing loss removes social isolation. Our regular Bristol
+                        peer support meetups offer a relaxed, friendly space to share practical tips, discuss
+                        communication strategies, and connect over tea and coffee.
+                    </p>
                     <div class="grid-2col">
-                        <div class="info-box">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #0f172a;">Chloe Bennett</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Getting the RIC style fitted properly took away that awful occluded feeling. It feels like a natural part of me now rather than an intrusive plastic gadget."</p>
+                        <div class="info-box" style="border-left: 4px solid #e11d48;">
+                            <h4 style="margin: 0 0 6px 0; color: #9f1239; font-weight: 800;">☕ Relaxed Group Meetups
+                            </h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Informal
+                                community sessions where you can talk openly about daily listening challenges without
+                                judgment.</p>
                         </div>
-                        <div class="info-box">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #0f172a;">David Miller</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"For years I couldn't hear a single word from anyone on my left side in a pub. The CROS system finally bridges that gap and brings me back to the table."</p>
+                        <div class="info-box" style="border-left: 4px solid #e11d48;">
+                            <h4 style="margin: 0 0 6px 0; color: #9f1239; font-weight: 800;">💬 Shared Practical
+                                Experience</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Learn how others
+                                manage noisy environments, workplace discussions, and social settings across Bristol.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ACCORDION 3: Community & Mental Health -->
+            <!-- ACCORDION 4: NHS Care Navigation -->
             <div class="accordion-item">
                 <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #e11d48; margin-right: 8px;">diversity_3</span> 3. Peer Connection: Ending Social Isolation</span>
+                    <span><span class="material-symbols-outlined"
+                            style="vertical-align: middle; color: #005EB8; margin-right: 8px;">local_hospital</span> 4.
+                        NHS Care Navigation</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155; margin-bottom: 16px;">
+                        Navigating audiology services in Bristol does not have to be complicated. We guide you through
+                        GP referrals, hospital clinic pathways, and routine maintenance support available through the
+                        NHS.
+                    </p>
+                    <div class="grid-2col">
+                        <div class="info-box" style="border-left: 4px solid #005EB8;">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">🏥 Referral &amp;
+                                Assessment Pathways</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Guidance on
+                                getting an initial NHS hearing assessment and understanding clinic choices in the
+                                Bristol area.</p>
+                        </div>
+                        <div class="info-box" style="border-left: 4px solid #005EB8;">
+                            <h4 style="margin: 0 0 6px 0; color: #005EB8; font-weight: 800;">🔧 Ongoing Supplies &amp;
+                                Repairs</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">How to order
+                                replacement tubing, batteries, and dome supplies directly through NHS audiology repair
+                                services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: Share Your Experience with the Initiative -->
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    <span><span class="material-symbols-outlined"
+                            style="vertical-align: middle; color: #16a34a; margin-right: 8px;">edit_note</span> 5. Share
+                        Your Experience with the Initiative</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                        Hearing loss can feel like a solitary road, but over 62,220 adults in Bristol navigate similar paths every single day.
+                        Your story has the power to inspire someone who is still struggling in silence or hesitating to
+                        get their hearing tested.
                     </p>
-                    <div class="grid-2col">
-                        <div class="info-box" style="border-left: 4px solid #e11d48;">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #9f1239;">Marcus Vance</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Meeting up through the local hearing support group changed everything for me. You finally realize you aren't the only one who spends all evening nodding along."</p>
-                        </div>
-                        <div class="info-box" style="border-left: 4px solid #e11d48;">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #9f1239;">Elena Rostova</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Hearing loss is an exhausting invisible hurdle until someone sits down with a cup of tea and just gets how tiring it is."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ACCORDION 4: NHS Pathways & Daily Support -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">local_hospital</span> 4. Bristol NHS Care & Easy Maintenance</span>
-                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
-                </button>
-                <div class="accordion-body">
-                    <div class="grid-2col">
-                        <div class="info-box">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #005EB8;">Fiona Gallagher</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Trying to figure out device pathways on your own is overwhelming. Having a clear step-by-step roadmap made sorting my options stress-free."</p>
-                        </div>
-                        <div class="info-box">
-                            <p style="margin: 0 0 6px 0; font-weight: 800; color: #005EB8;">Arthur Pendelton</p>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">"Knowing I can request replacement tubing easily by post from St Michael's removes the daily anxiety of a cracked line failing on me."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ACCORDION 5: Share Your Story -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #16a34a; margin-right: 8px;">edit_note</span> 5. Share Your Experience with the Initiative</span>
-                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
-                </button>
-                <div class="accordion-body">
-                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
-                        Your story has the power to inspire someone who is still struggling in silence or hesitating to get their hearing tested.
-                    </p>
-                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 14px; text-align: center; margin-top: 15px;">
-                        <h4 style="margin: 0 0 10px 0; color: #166534; font-size: 1.15rem;">Have a story or tip to share?</h4>
-                        <p style="margin: 0 0 18px 0; color: #15803d; font-size: 0.95rem;">Join our monthly community circles or send your feedback to our outreach team.</p>
-                        <a href="path-community-stories.html" style="display: inline-flex; align-items: center; gap: 8px; background: #16a34a; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
-                            <span class="material-symbols-outlined">send</span> Read More Stories &amp; Submit (Coming Soon)
+                    <div
+                        style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 14px; text-align: center; margin-top: 15px;">
+                        <h4 style="margin: 0 0 10px 0; color: #166534; font-size: 1.15rem;">Have a story or tip to
+                            share?</h4>
+                        <p style="margin: 0 0 18px 0; color: #15803d; font-size: 0.95rem;">Join our monthly community
+                            circles or send your feedback to our outreach team.</p>
+                        <a href="path-community-stories.html"
+                            style="display: inline-flex; align-items: center; gap: 8px; background: #16a34a; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                            <span class="material-symbols-outlined">send</span> Read More Stories &amp; Submit (Coming
+                            Soon)
                         </a>
                     </div>
                 </div>
@@ -233,18 +250,22 @@
         </div>
 
         <!-- Navigation Footer -->
-        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
-            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+        <nav class="back-to-journey-container" aria-label="Back Navigation"
+            style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn"
+                style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Return to Journey Hub
             </a>
-            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+            <a href="path-support.html" class="back-to-journey-btn"
+                style="background: #005EB8; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">diversity_3</span>
                 Visit Support Hub
             </a>
         </nav>
     </main>
 
-    <script src="script.js?v=8.0"></script>
+    <script src="script.js?v=12.0"></script>
 </body>
+
 </html>
