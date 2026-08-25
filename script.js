@@ -801,8 +801,8 @@ function initHubSearch() {
         'path-government-help.html': 'pip personal independence payment access to work atw grants funding dwp benefits financial support disabled persons railcard bus pass tax relief work scheme allowance equipment assessment disability living allowance dla attendance allowance universal credit blue badge vat relief',
         'path-job-interviews.html': 'job interviews work employment workplace adjustments reasonable adjustments equality act 2010 disclosure access to work atw career hiring boss manager discrimination cv interview tips questions candidate employer rights',
         'path-workplace-tips.html': 'workplace tips colleagues managers employers meetings inclusive office background noise video calls captions on teams zoom google meet meeting room acoustics roger pen microphone access to work reasonable adjustments',
-        'path-hearing-aids-access.html': 'hearing aids nhs hearing aids private hearing aids bolero bolero m70 bolero series nova nova m naida naida series naida p-70 up phonak oticon resound widex signia starkey bte behind the ear ric receiver in canal ite in the ear cic completely in canal itc in the canal baha bchd bone conduction cros bicros cochlear implant airpods airpods pro batteries size 312 size 13 size 10 size 675 zinc-air tubing earmoulds moulds wax guards domes cleaning hearing aids audiologist uhbw repairs replacement fitting hiss bristol st michaels southmead',
-        'path-hearing-aids.html': 'hearing aids bte ite itc body worn earmoulds thintubes cleaning batteries induction loops bolero phonak naida',
+        'path-hearing-aids-access.html': 'hearing aids nhs hearing aids private hearing aids bolero bolero m70 bolero series nova nova m naida naida series naida p-70 up phonak oticon resound widex signia starkey bte behind the ear ric receiver in canal ite in the ear cic completely in canal itc in the canal baha bchd bone conduction cros bicros cochlear implant airpods airpods pro batteries size 312 size 13 size 10 size 675 zinc-air tubing earmoulds moulds wax guards domes cleaning hearing aids audiologist uhbw repairs replacement fitting hiss bristol st michaels southmead postal batteries order batteries online batteries by post replacement tubes postal order uhbw form',
+        'path-hearing-aids.html': 'hearing aids bte ite itc body worn earmoulds thintubes cleaning batteries induction loops bolero phonak naida postal batteries order tubes online uhbw postal form',
         'path-ear-care.html': 'ear care safety what not to put in ears cotton buds q-tips earwax wax removal microsuction water irrigation syringing olive oil ear drops sodium bicarbonate cleaning ears perforated eardrum ear canal itch itchy blocked ears audiologist ent',
         'path-assistive-technology.html': 'assistive technology assistive tech phonak roger roger pen roger select roger table mic wireless mic tv connector streamer streamers flashing doorbell vibrating alarm clock vibrating pad bellman symfon minikit fm system bluetooth le audio smart hearing gadgets alexa google loop system',
         'path-tinnitus.html': 'tinnitus ringing in ears buzzing clicking roaring sound therapy white noise pink noise brown noise masking pillow habituation trt tinnitus retraining therapy cbt cognitive behavioural therapy relaxation noise soothing sounds british tinnitus association',
@@ -823,8 +823,9 @@ function initHubSearch() {
         'path-my-journey.html': 'my journey first steps roadmap where to begin starting out path guide steps navigation advice',
         'path-nhs.html': 'bristol nhs foundation trust hospital gp referral southmead hospital bri bristol royal infirmary audiology clinic ent ear nose throat appointments st michaels hospital uhbw nbt',
         'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
-        'path-awareness.html': 'awareness pace framework patience attention clarity ear contact communication tactics communication tips rules understanding deaf hard of hearing',
-        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason member initiate cpd inclusion',
+        'path-awareness.html': 'awareness pace framework patience attention clarity eye contact communication tactics communication tips rules understanding hard of hearing elearning demo',
+        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason member initiate cpd inclusion elearning packages interactive modules pace patience attention clarity eye contact',
+        'path-elearning.html': 'elearning e-learning demo interactive training module course presentation slides pace patience attention clarity eye contact staff training frontline awareness digital learning genially',
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
         'path-sponsor-us.html': 'sponsor us corporate sponsor funding corporate partnership community sponsor training sponsor access loop sponsor esg csr 250 500 1500 donation grant',
         'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
@@ -1173,8 +1174,11 @@ function initFounderAdminControls() {
                         </table>
                     </div>
 
-                    <div class="founder-actions-bar">
-                        <button type="button" id="admin-btn-reset-session" class="founder-btn-secondary">🔄 Reset Session Flow (Preserves Analytics)</button>
+                    <div class="founder-actions-bar" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                        <button type="button" id="admin-btn-reset-session" class="founder-btn-secondary">🔄 Reset Session Flow</button>
+                        <a href="path-branding.html" class="founder-btn-primary" style="background: #7B1FA2; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 10px; font-weight: 700; color: white;">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">palette</span> 🎨 Brand &amp; Hex Palette Portal &rarr;
+                        </a>
                         <button type="button" id="admin-btn-close" class="founder-btn-primary">Done</button>
                     </div>
                 </div>

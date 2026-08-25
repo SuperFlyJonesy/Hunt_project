@@ -15,6 +15,11 @@
         .delivery-card { background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; border-left: 4px solid #005EB8; }
         .delivery-card strong { color: #005EB8; display: block; margin-bottom: 4px; font-size: 1rem; }
         .delivery-card p { margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.45; }
+        .sponsor-callout-card { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border: 2px solid #005EB8; border-radius: 18px; padding: 30px; margin-bottom: 35px; box-shadow: 0 8px 30px rgba(0, 94, 184, 0.08); text-align: center; }
+        .sponsor-callout-btn { background: #005EB8; color: #ffffff; padding: 12px 26px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(0, 94, 184, 0.25); transition: all 0.2s ease; }
+        .sponsor-callout-btn:hover { background: #004b93; transform: translateY(-2px); }
+        .sponsor-contact-btn { background: #ffffff; color: #005EB8; border: 1.5px solid #005EB8; padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
+        .sponsor-contact-btn:hover { background: #f0f7ff; transform: translateY(-2px); }
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
@@ -26,9 +31,9 @@
 
     <main id="main-content" class="container">
         <div class="header-section" style="text-align: center; margin-bottom: 25px;">
-            <div style="margin-bottom: 12px;">
-                <span class="coming-soon-badge"><span class="material-symbols-outlined" style="font-size: 1rem;">schedule</span> Coming Soon</span>
-                <span class="coming-soon-badge purple" style="margin-left: 6px;">🔒 Patreon Early Access</span>
+            <div style="margin-bottom: 12px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                <span class="coming-soon-badge green" style="background: #dcfce7; color: #166534; border: 1.5px solid #86efac; font-weight: 800;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">check_circle</span> E-Learning Packages Available Now</span>
+                <span class="coming-soon-badge" style="background: #e0f2fe; color: #005EB8; border: 1.5px solid #bae6fd; font-weight: 700;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">schedule</span> In-Person Workshops In Development</span>
             </div>
             <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #C2185B; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
                 <span class="material-symbols-outlined" style="font-size: 3rem;">school</span>
@@ -39,17 +44,34 @@
             </p>
         </div>
 
-        <!-- Patreon Lock & Early Access Card -->
-        <div class="patreon-lock-card">
-            <span class="material-symbols-outlined patreon-lock-icon">lock</span>
-            <h2 class="patreon-lock-title">Patreon Member Exclusive &amp; Priority Booking</h2>
-            <p class="patreon-lock-desc">
-                Our workplace and venue training workshops are currently in pilot development and launching soon. Patreon initiates and corporate sponsors receive priority booking access, custom syllabus consultations, and exclusive workshop materials.
+        <!-- Business & Sponsor Partnership & E-Learning Call Out -->
+        <div class="sponsor-callout-card">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #e0f2fe; border-radius: 50%; color: #005EB8; margin-bottom: 16px;">
+                <span class="material-symbols-outlined" style="font-size: 2.2rem;">laptop_chromebook</span>
+            </div>
+            <div style="margin-bottom: 12px;">
+                <span style="background: #dcfce7; color: #166534; border: 1px solid #86efac; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
+                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">check_circle</span> E-Learning Packages Available Now
+                </span>
+            </div>
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">Digital E-Learning Ready Today &bull; Partner With Us to Launch In-Person Workshops</h2>
+            <p style="font-size: 1.05rem; color: #334155; line-height: 1.65; max-width: 720px; margin: 0 auto 20px auto;">
+                Our self-paced <strong>E-Learning Packages are available now</strong> for Bristol employers, managers, and frontline teams to start digital training immediately. We are also actively partnering with local businesses, organisations, and community sponsors to fund and pilot our live in-person workshop rollouts.
             </p>
-            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-lock-btn">
-                <span class="material-symbols-outlined">verified</span> Join Patreon for Early Access &rarr;
-            </a>
-            <a href="path-join-us.html" class="patreon-lock-sublink">Learn more about Patreon member perks</a>
+            <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                <a href="path-elearning.html" class="sponsor-callout-btn" style="background: #166534; border: 2px solid #15803d; box-shadow: 0 4px 15px rgba(22, 101, 52, 0.25);">
+                    <span class="material-symbols-outlined">play_circle</span> ▶ Try E-Learning Interactive Demo &rarr;
+                </a>
+                <a href="path-sponsor-us.html" class="sponsor-callout-btn">
+                    <span class="material-symbols-outlined">corporate_fare</span> Partner / Sponsor Live Workshops &rarr;
+                </a>
+                <a href="path-contacts.html" class="sponsor-contact-btn">
+                    <span class="material-symbols-outlined">mail</span> Enquire About Team Packages
+                </a>
+            </div>
+            <p style="font-size: 0.88rem; color: #64748b; margin: 16px 0 0 0;">
+                Looking for digital staff onboarding or interested in sponsoring an in-person pilot workshop? We'd love to partner with you.
+            </p>
         </div>
 
         <!-- Progressive Disclosure Accordion Container -->
@@ -66,7 +88,7 @@
                         Give your staff the confidence to communicate with people who have hearing loss – whether they’re colleagues, customers, patients, students or visitors.
                     </p>
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin: 0;">
-                        Our Hearing Loss Initiative training is built and delivered by Jason and our specialist member initiates, drawing on years of community work at Bristol’s Centre for Deaf and Hard of Hearing People and lived HoH experience.
+                        Our Hearing Loss Initiative training is built and delivered by Jason and our specialist team, drawing on years of community advocacy and lived hard-of-hearing experience.
                     </p>
                 </div>
             </div>
@@ -81,7 +103,7 @@
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">A practical, plain‑English session that shows your team how to:</p>
                     <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin-bottom: 14px;">
                         <li>Spot early signs that a customer or colleague might have hearing loss.</li>
-                        <li>Use the PACE communication framework (Patience, Attention, Clarity, Ear Contact) effortlessly.</li>
+                        <li>Use the PACE communication framework (Patience, Attention, Clarity, Eye Contact) effortlessly.</li>
                         <li>Run meetings, interviews, and events that don't exhaust or exclude hard-of-hearing colleagues.</li>
                         <li>Understand assistive technology (Roger On mics, TV streamers, live captioning, and Auracast).</li>
                     </ul>
@@ -99,11 +121,15 @@
                         Our sessions center around the PACE principles – simple, memorable habits that transform workplace communication:
                     </p>
                     <ul class="pace-list" style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px;">
-                        <li><strong>P – Patience:</strong> Give people time to process sound and speech without rushing or interrupting.</li>
-                        <li><strong>A – Attention:</strong> Ensure you have the person’s attention and face them directly before speaking.</li>
-                        <li><strong>C – Clarity:</strong> Speak clearly at a natural pace; rephrase instead of just repeating louder.</li>
-                        <li><strong>E – Ear Contact:</strong> Keep hands, cups, and documents away from your face to enable natural lipreading cues.</li>
+                        <li><strong>P – Patience:</strong> You may be asked to repeat yourself, possibly numerous times. Please be patient. Rephrase if necessary.</li>
+                        <li><strong>A – Attention:</strong> Pay close attention to the environment and the individual. Ask if you need to adjust the surroundings to reduce background noise or improve lighting. Confirm they caught key details without putting them on the spot. Keep alternative methods in mind. Options like written notes, live smartphone captions, or basic signing exist as useful backup tools when verbal communication breaks down.</li>
+                        <li><strong>C – Clarity:</strong> Clear speech is essential! Avoid shouting, speaking clearly is key.</li>
+                        <li><strong>E – Eye Contact:</strong> Face the person so that they can read your lips and facial expressions. Most hard-of-hearing (HoH) people do this unconsciously.</li>
                     </ul>
+                    <div style="text-align: center; margin: 24px 0 10px 0;">
+                        <img src="Contents/Branding Images/HLI Flyer2.jpg" alt="PACE Communication Framework Pocket Flyer" style="max-width: 100%; max-height: 440px; width: auto; height: auto; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;" loading="lazy">
+                        <p style="font-size: 0.88rem; color: #64748b; margin-top: 8px;">Physical PACE pocket cards and desk handouts are provided to all workshop attendees.</p>
+                    </div>
                 </div>
             </div>
 
@@ -130,18 +156,27 @@
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
-                    <div class="delivery-grid">
-                        <div class="delivery-card">
-                            <strong>💻 Online Live Sessions</strong>
-                            <p>Perfect for teams spread across different sites or working from home. Delivered via Teams, Zoom, or Google Meet.</p>
+                    <div class="delivery-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                        <div class="delivery-card" style="border-left-color: #166534; background: #f0fdf4;">
+                            <strong style="color: #166534; display: flex; align-items: center; gap: 6px;">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">check_circle</span> 💻 E-Learning Packages (Available Now)
+                            </strong>
+                            <p style="margin-bottom: 10px;">Self-paced digital learning modules and printable PACE reference guides ready for your team to start immediately today.</p>
+                            <a href="path-elearning.html" style="display: inline-flex; align-items: center; gap: 4px; background: #166534; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none;">
+                                <span class="material-symbols-outlined" style="font-size: 1rem;">play_circle</span> Try Live Interactive Demo &rarr;
+                            </a>
                         </div>
-                        <div class="delivery-card" style="border-left-color: #1b5e20;">
-                            <strong style="color: #1b5e20;">🏢 On-Site Training in Bristol</strong>
-                            <p>Our team and member initiates visit your workplace or venue in the Bristol area. We tailor examples to your setting (front desk, shop floor, clinic, office).</p>
+                        <div class="delivery-card">
+                            <strong>🖥️ Online Live Interactive Webinars</strong>
+                            <p>Perfect for teams spread across different sites or working remotely. Delivered via Teams, Zoom, or Google Meet.</p>
+                        </div>
+                        <div class="delivery-card" style="border-left-color: #005EB8;">
+                            <strong style="color: #005EB8;">🏢 On-Site Workshops in Bristol</strong>
+                            <p>Our team visits your workplace or venue in the Bristol area. We tailor examples to your specific setting (front desk, clinic, office).</p>
                         </div>
                     </div>
                     <p style="font-size: 0.95rem; color: #475569; margin-top: 14px; margin-bottom: 0;">
-                        Typical session length is 60–90 minutes, and we can run repeated sessions to cover different teams or shifts.
+                        Workshops are typically 60–90 minutes with interactive exercises, and we can run repeated sessions to cover different teams or shift patterns.
                     </p>
                 </div>
             </div>
@@ -159,9 +194,16 @@
                         <li>HR, wellbeing and EDI leads who want to strengthen disability inclusion.</li>
                         <li>Any staff member who simply wants to be more confident and respectful when communicating with people who have hearing loss.</li>
                     </ul>
-                    <p style="font-size: 0.95rem; color: #005EB8; font-weight: 600; margin: 0;">
+                    <p style="font-size: 0.95rem; color: #005EB8; font-weight: 600; margin: 0 0 16px 0;">
                         You don’t need any prior knowledge. We assume nothing and start from the basics.
                     </p>
+                    <div style="background: #f0f7ff; border: 1.5px dashed #005EB8; padding: 20px; border-radius: 14px; text-align: center; margin-top: 15px;">
+                        <h4 style="margin: 0 0 6px 0; color: #005EB8; font-size: 1.05rem;">Interested in Sponsoring or Piloting a Workshop?</h4>
+                        <p style="margin: 0 0 14px 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">We are actively looking for Bristol organisations to help sponsor and pilot our inaugural rollout of workplace training sessions.</p>
+                        <a href="path-sponsor-us.html" style="background: #005EB8; color: #ffffff; padding: 10px 22px; border-radius: 20px; font-weight: 700; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
+                            <span class="material-symbols-outlined">corporate_fare</span> Enquire About Sponsoring a Pilot Workshop &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
 
