@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book professional hearing loss communication and accessibility training workshops for Bristol businesses and staff.">
+    <meta name="description" content="Book professional hearing loss communication and accessibility training workshops or access digital e-learning for Bristol businesses and staff.">
     <meta charset="UTF-8">
-    <title>Workplace Training Workshops (Coming Soon) - Bristol Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <title>Workplace Training & E-Learning - Bristol Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=9.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -15,14 +15,31 @@
         .delivery-card { background: #f8fafc; border-radius: 12px; padding: 16px; border: 1px solid #e2e8f0; border-left: 4px solid #005EB8; }
         .delivery-card strong { color: #005EB8; display: block; margin-bottom: 4px; font-size: 1rem; }
         .delivery-card p { margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.45; }
-        .sponsor-callout-card { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); border: 2px solid #005EB8; border-radius: 18px; padding: 30px; margin-bottom: 35px; box-shadow: 0 8px 30px rgba(0, 94, 184, 0.08); text-align: center; }
-        .sponsor-callout-btn { background: #005EB8; color: #ffffff; padding: 12px 26px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(0, 94, 184, 0.25); transition: all 0.2s ease; }
-        .sponsor-callout-btn:hover { background: #004b93; transform: translateY(-2px); }
+        .sponsor-callout-card { background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border: 2px solid #16a34a; border-radius: 18px; padding: 30px; margin-bottom: 35px; box-shadow: 0 8px 30px rgba(22, 163, 74, 0.08); text-align: center; }
+        .sponsor-callout-btn { background: #16a34a; color: #ffffff; padding: 12px 26px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25); transition: all 0.2s ease; }
+        .sponsor-callout-btn:hover { background: #15803d; transform: translateY(-2px); }
         .sponsor-contact-btn { background: #ffffff; color: #005EB8; border: 1.5px solid #005EB8; padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 0.98rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease; }
         .sponsor-contact-btn:hover { background: #f0f7ff; transform: translateY(-2px); }
+        .business-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+        .case-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; }
+        .case-card h5 { margin: 0 0 6px 0; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+        .case-card p { margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.5; }
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Workplace Training & E-Learning - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Book professional hearing loss communication and accessibility training workshops or access digital e-learning for Bristol businesses and staff.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-training.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Workplace Training & E-Learning - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Book professional hearing loss communication and accessibility training workshops or access digital e-learning for Bristol businesses and staff.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -30,140 +47,130 @@
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
     <main id="main-content" class="container">
+        <!-- Header Section -->
         <div class="header-section" style="text-align: center; margin-bottom: 25px;">
             <div style="margin-bottom: 12px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
-                <span class="coming-soon-badge green" style="background: #dcfce7; color: #166534; border: 1.5px solid #86efac; font-weight: 800;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">check_circle</span> E-Learning Packages Available Now</span>
-                <span class="coming-soon-badge" style="background: #e0f2fe; color: #005EB8; border: 1.5px solid #bae6fd; font-weight: 700;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">schedule</span> In-Person Workshops In Development</span>
+                <span class="coming-soon-badge green" style="background: #dcfce7; color: #1B5E20; border: 1.5px solid #86efac; font-weight: 800;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">check_circle</span> Digital E-Learning Available Now</span>
+                <span class="coming-soon-badge" style="background: #e0f2fe; color: #005EB8; border: 1.5px solid #bae6fd; font-weight: 700;"><span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">co_present</span> In-Person &amp; Webinar Workshops</span>
             </div>
-            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #C2185B; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #FF0F5B; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
                 <span class="material-symbols-outlined" style="font-size: 3rem;">school</span>
-                Workplace Training Workshops
+                Workplace Training &amp; E-Learning
             </h1>
             <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
-                Give your staff the confidence to communicate with people who have hearing loss – whether colleagues, customers, patients, students, or visitors.
+                Give your team the skills and confidence to communicate seamlessly with people who have hearing loss — whether colleagues, customers, patients, or visitors.
             </p>
         </div>
 
-        <!-- Business & Sponsor Partnership & E-Learning Call Out -->
+        <!-- Business Action & E-Learning Hero Card -->
         <div class="sponsor-callout-card">
-            <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #e0f2fe; border-radius: 50%; color: #005EB8; margin-bottom: 16px;">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: #dcfce7; border-radius: 50%; color: #16a34a; margin-bottom: 16px;">
                 <span class="material-symbols-outlined" style="font-size: 2.2rem;">laptop_chromebook</span>
             </div>
-            <div style="margin-bottom: 12px;">
-                <span style="background: #dcfce7; color: #166534; border: 1px solid #86efac; padding: 4px 14px; border-radius: 20px; font-weight: 800; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px;">
-                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">check_circle</span> E-Learning Packages Available Now
-                </span>
-            </div>
-            <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">Digital E-Learning Ready Today &bull; Partner With Us to Launch In-Person Workshops</h2>
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0 0 10px 0;">Interactive E-Learning Ready Today &bull; Book Workshops for Your Team</h2>
             <p style="font-size: 1.05rem; color: #334155; line-height: 1.65; max-width: 720px; margin: 0 auto 20px auto;">
-                Our self-paced <strong>E-Learning Packages are available now</strong> for Bristol employers, managers, and frontline teams to start digital training immediately. We are also actively partnering with local businesses, organisations, and community sponsors to fund and pilot our live in-person workshop rollouts.
+                Our self-paced <strong>E-Learning Packages</strong> are ready for Bristol employers and frontline teams to start digital training immediately. We also deliver tailored live webinars and interactive on-site workshops across the Bristol area.
             </p>
             <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-                <a href="path-elearning.html" class="sponsor-callout-btn" style="background: #166534; border: 2px solid #15803d; box-shadow: 0 4px 15px rgba(22, 101, 52, 0.25);">
-                    <span class="material-symbols-outlined">play_circle</span> ▶ Try E-Learning Interactive Demo &rarr;
+                <a href="path-elearning.html" class="sponsor-callout-btn">
+                    <span class="material-symbols-outlined">play_circle</span> ▶ Launch Interactive E-Learning Demo &rarr;
                 </a>
-                <a href="path-sponsor-us.html" class="sponsor-callout-btn">
-                    <span class="material-symbols-outlined">corporate_fare</span> Partner / Sponsor Live Workshops &rarr;
+                <a href="mailto:info@hearinglossinitiative.org.uk?subject=Workplace%20Training%20Enquiry%20-%20[Organisation%20Name]&body=Hi%20Jason%2C%0A%0AWe%20are%20interested%20in%20Hearing%20Loss%20Initiative%20training%20%2F%20e-learning%20for%20our%20team.%0A%0AOrganisation%20Name%3A%20%0ATeam%20Size%3A%20%0APreferred%20Format%20(E-Learning%20%2F%20Webinar%20%2F%20In-Person)%3A%20%0A%0ABest%20regards%2C" class="sponsor-contact-btn" style="background: #005EB8; color: white; border: none;">
+                    <span class="material-symbols-outlined">mail</span> Enquire for Your Team (1-Click Email)
                 </a>
-                <a href="path-contacts.html" class="sponsor-contact-btn">
-                    <span class="material-symbols-outlined">mail</span> Enquire About Team Packages
+                <a href="path-sponsor-us.html" class="sponsor-contact-btn">
+                    <span class="material-symbols-outlined">corporate_fare</span> Sponsor a Pilot Workshop &rarr;
                 </a>
             </div>
-            <p style="font-size: 0.88rem; color: #64748b; margin: 16px 0 0 0;">
-                Looking for digital staff onboarding or interested in sponsoring an in-person pilot workshop? We'd love to partner with you.
-            </p>
         </div>
 
         <!-- Progressive Disclosure Accordion Container -->
         <div class="accordion-container">
             
-            <!-- ACCORDION 1: Overview -->
+            <!-- ACCORDION 1: Overview & What it Covers (Merged & Streamlined) -->
             <div class="accordion-item active">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #C2185B; margin-right: 8px;">verified</span> 1. Hearing Loss Training for Bristol Workplaces</span>
+                <button class="accordion-header" aria-expanded="true">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #FF0F5B; margin-right: 8px;">verified</span> 1. Overview &amp; What This Training Covers</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
-                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
-                        Give your staff the confidence to communicate with people who have hearing loss – whether they’re colleagues, customers, patients, students or visitors.
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 14px;">
+                        Built and delivered by Jason and our specialist team, our sessions draw on authentic lived hard-of-hearing experience to deliver practical, plain-English training that shows your team how to:
                     </p>
-                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin: 0;">
-                        Our Hearing Loss Initiative training is built and delivered by Jason and our specialist team, drawing on years of community advocacy and lived hard-of-hearing experience.
-                    </p>
-                </div>
-            </div>
-
-            <!-- ACCORDION 2: What this training is -->
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #f39c12; margin-right: 8px;">checklist</span> 2. What This Training Covers</span>
-                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
-                </button>
-                <div class="accordion-body">
-                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">A practical, plain‑English session that shows your team how to:</p>
                     <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin-bottom: 14px;">
-                        <li>Spot early signs that a customer or colleague might have hearing loss.</li>
-                        <li>Use the PACE communication framework (Patience, Attention, Clarity, Eye Contact) effortlessly.</li>
-                        <li>Run meetings, interviews, and events that don't exhaust or exclude hard-of-hearing colleagues.</li>
-                        <li>Understand assistive technology (Roger On mics, TV streamers, live captioning, and Auracast).</li>
+                        <li><strong>Spot Early Signs:</strong> Recognize when a customer, patient, or colleague is struggling to hear without putting them on the spot.</li>
+                        <li><strong>Apply the PACE Framework:</strong> Use Patience, Attention, Clarity, and Eye Contact to make everyday interactions effortless.</li>
+                        <li><strong>Run Inclusive Meetings:</strong> Structure in-person and video meetings (Teams, Zoom) to eliminate listening fatigue and communication barriers.</li>
+                        <li><strong>Understand Assistive Tech:</strong> Learn how hearing loops, Roger microphones, live captions, and Auracast empower hard-of-hearing staff.</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- ACCORDION 3: PACE Framework preview -->
+            <!-- ACCORDION 2: PACE Framework in Action -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #e74c3c; margin-right: 8px;">format_quote</span> 3. The PACE Framework in Action</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #D97706; margin-right: 8px;">format_quote</span> 2. The PACE Framework in Action</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
-                        Our sessions center around the PACE principles – simple, memorable habits that transform workplace communication:
+                        Our training centers around the PACE principles — simple, memorable habits that transform workplace communication:
                     </p>
                     <ul class="pace-list" style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px;">
-                        <li><strong>P – Patience:</strong> You may be asked to repeat yourself, possibly numerous times. Please be patient. Rephrase if necessary.</li>
-                        <li><strong>A – Attention:</strong> Pay close attention to the environment and the individual. Ask if you need to adjust the surroundings to reduce background noise or improve lighting. Confirm they caught key details without putting them on the spot. Keep alternative methods in mind. Options like written notes, live smartphone captions, or basic signing exist as useful backup tools when verbal communication breaks down.</li>
-                        <li><strong>C – Clarity:</strong> Clear speech is essential! Avoid shouting, speaking clearly is key.</li>
-                        <li><strong>E – Eye Contact:</strong> Face the person so that they can read your lips and facial expressions. Most hard-of-hearing (HoH) people do this unconsciously.</li>
+                        <li><strong>P – Patience:</strong> You may be asked to repeat yourself, possibly numerous times. Please be patient and rephrase key words if needed.</li>
+                        <li><strong>A – Attention:</strong> Pay close attention to the acoustic environment. Reduce background noise, improve lighting, and use written notes or live captions as natural backup tools.</li>
+                        <li><strong>C – Clarity:</strong> Clear speech at a steady pace is essential. Avoid shouting, which distorts facial expressions and lip patterns.</li>
+                        <li><strong>E – Eye Contact:</strong> Always face the person so they can read lips and facial cues. Most hard-of-hearing people rely on visual speech reading unconsciously.</li>
                     </ul>
                     <div style="text-align: center; margin: 24px 0 10px 0;">
                         <img src="Contents/Branding Images/HLI Flyer2.jpg" alt="PACE Communication Framework Pocket Flyer" style="max-width: 100%; max-height: 440px; width: auto; height: auto; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;" loading="lazy">
-                        <p style="font-size: 0.88rem; color: #64748b; margin-top: 8px;">Physical PACE pocket cards and desk handouts are provided to all workshop attendees.</p>
+                        <p style="font-size: 0.88rem; color: #64748b; margin-top: 8px;">Physical PACE pocket cards and digital desk guides are provided to all workshop attendees.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- ACCORDION 4: Business benefits -->
+            <!-- ACCORDION 3: Business Benefits (Card Grid) -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #27ae60; margin-right: 8px;">trending_up</span> 4. Why Invest in Hearing Loss Training?</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1B5E20; margin-right: 8px;">trending_up</span> 3. Why Invest in Hearing Loss Training? (The Business Case)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
-                    <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin-bottom: 14px;">
-                        <li><strong>1 in 5 adults</strong> has hearing loss – including valuable employees and loyal customers.</li>
-                        <li>Reduces costly workplace misunderstandings, frustration, and communication fatigue.</li>
-                        <li>Fulfills Equality Act 2010 accessibility duties and demonstrates genuine inclusive culture.</li>
-                        <li>Improves customer service ratings and accessibility reputation across Bristol.</li>
-                    </ul>
+                    <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                        With <strong>1 in 5 adults</strong> affected by hearing loss, deaf-aware training delivers measurable business and workplace returns:
+                    </p>
+                    <div class="business-case-grid">
+                        <div class="case-card" style="border-left: 4px solid #005EB8;">
+                            <h5 style="color: #005EB8;"><span class="material-symbols-outlined">gavel</span> Legal &amp; Compliance</h5>
+                            <p>Fulfill your Equality Act 2010 duties regarding reasonable adjustments and demonstrate genuine disability confidence to your stakeholders.</p>
+                        </div>
+                        <div class="case-card" style="border-left: 4px solid #16a34a;">
+                            <h5 style="color: #16a34a;"><span class="material-symbols-outlined">psychology</span> Staff Retention &amp; Wellbeing</h5>
+                            <p>Prevent severe listening fatigue, burnout, and anxiety among existing employees who may conceal their hearing loss at work.</p>
+                        </div>
+                        <div class="case-card" style="border-left: 4px solid #d97706;">
+                            <h5 style="color: #d97706;"><span class="material-symbols-outlined">storefront</span> Customer Loyalty &amp; Footfall</h5>
+                            <p>Accessible frontline customer service drives repeat visits, positive reviews, and brand loyalty across Bristol's growing senior and deaf community.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- ACCORDION 5: Delivery formats -->
+            <!-- ACCORDION 4: Delivery Formats -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #9b59b6; margin-right: 8px;">co_present</span> 5. How Training is Delivered</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">co_present</span> 4. How Training is Delivered</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <div class="delivery-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-                        <div class="delivery-card" style="border-left-color: #166534; background: #f0fdf4;">
-                            <strong style="color: #166534; display: flex; align-items: center; gap: 6px;">
-                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">check_circle</span> 💻 E-Learning Packages (Available Now)
+                        <div class="delivery-card" style="border-left-color: #16a34a; background: #f0fdf4;">
+                            <strong style="color: #16a34a; display: flex; align-items: center; gap: 6px;">
+                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">check_circle</span> 💻 E-Learning Packages (Live Now)
                             </strong>
                             <p style="margin-bottom: 10px;">Self-paced digital learning modules and printable PACE reference guides ready for your team to start immediately today.</p>
-                            <a href="path-elearning.html" style="display: inline-flex; align-items: center; gap: 4px; background: #166534; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none;">
-                                <span class="material-symbols-outlined" style="font-size: 1rem;">play_circle</span> Try Live Interactive Demo &rarr;
+                            <a href="path-elearning.html" style="display: inline-flex; align-items: center; gap: 4px; background: #16a34a; color: white; padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none;">
+                                <span class="material-symbols-outlined" style="font-size: 1rem;">play_circle</span> Launch Interactive Demo &rarr;
                             </a>
                         </div>
                         <div class="delivery-card">
@@ -172,37 +179,42 @@
                         </div>
                         <div class="delivery-card" style="border-left-color: #005EB8;">
                             <strong style="color: #005EB8;">🏢 On-Site Workshops in Bristol</strong>
-                            <p>Our team visits your workplace or venue in the Bristol area. We tailor examples to your specific setting (front desk, clinic, office).</p>
+                            <p>Our team visits your workplace or venue in the Bristol area. We tailor practical exercises to your specific operational setting.</p>
                         </div>
                     </div>
                     <p style="font-size: 0.95rem; color: #475569; margin-top: 14px; margin-bottom: 0;">
-                        Workshops are typically 60–90 minutes with interactive exercises, and we can run repeated sessions to cover different teams or shift patterns.
+                        Live workshops are typically 60–90 minutes with interactive exercises, and we can run repeated sessions to accommodate shift patterns.
                     </p>
                 </div>
             </div>
 
-            <!-- ACCORDION 6: Who it's for -->
+            <!-- ACCORDION 5: Who it's for & Booking -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">groups</span> 6. Who This Training is For</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">groups</span> 5. Who This Training is For &amp; How to Book</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin-bottom: 14px;">
-                        <li>Customer‑facing staff (retail, hospitality, reception, box office, front‑of‑house).</li>
-                        <li>Managers and team leaders who run meetings, briefings and 1‑to‑1s.</li>
-                        <li>HR, wellbeing and EDI leads who want to strengthen disability inclusion.</li>
-                        <li>Any staff member who simply wants to be more confident and respectful when communicating with people who have hearing loss.</li>
+                        <li><strong>Customer-facing staff:</strong> Retail, hospitality, reception, healthcare, box office, and front-of-house teams.</li>
+                        <li><strong>Managers and team leaders:</strong> Anyone running 1-to-1s, appraisals, group meetings, and briefings.</li>
+                        <li><strong>HR, Wellbeing and EDI leads:</strong> Teams wanting to strengthen disability inclusion and meet compliance targets.</li>
+                        <li><strong>All employees:</strong> Anyone seeking to be more confident and respectful when communicating with hard-of-hearing colleagues.</li>
                     </ul>
-                    <p style="font-size: 0.95rem; color: #005EB8; font-weight: 600; margin: 0 0 16px 0;">
-                        You don’t need any prior knowledge. We assume nothing and start from the basics.
-                    </p>
-                    <div style="background: #f0f7ff; border: 1.5px dashed #005EB8; padding: 20px; border-radius: 14px; text-align: center; margin-top: 15px;">
-                        <h4 style="margin: 0 0 6px 0; color: #005EB8; font-size: 1.05rem;">Interested in Sponsoring or Piloting a Workshop?</h4>
-                        <p style="margin: 0 0 14px 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">We are actively looking for Bristol organisations to help sponsor and pilot our inaugural rollout of workplace training sessions.</p>
-                        <a href="path-sponsor-us.html" style="background: #005EB8; color: #ffffff; padding: 10px 22px; border-radius: 20px; font-weight: 700; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
-                            <span class="material-symbols-outlined">corporate_fare</span> Enquire About Sponsoring a Pilot Workshop &rarr;
-                        </a>
+                    
+                    <div style="background: #f0f7ff; border: 1.5px solid #005EB8; padding: 22px; border-radius: 14px; text-align: center; margin-top: 20px;">
+                        <h4 style="margin: 0 0 6px 0; color: #005EB8; font-size: 1.15rem; font-weight: 800;">Ready to Train Your Team?</h4>
+                        <p style="margin: 0 0 16px 0; font-size: 0.95rem; color: #334155; line-height: 1.5;">
+                            Contact us to discuss group e-learning licenses, bespoke webinars, or on-site Bristol workshops tailored to your organization.
+                        </p>
+                        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                            <a href="mailto:info@hearinglossinitiative.org.uk?subject=Workplace%20Training%20Enquiry%20-%20[Organisation%20Name]&body=Hi%20Jason%2C%0A%0AWe%20are%20interested%20in%20Hearing%20Loss%20Initiative%20training%20%2F%20e-learning%20for%20our%20team.%0A%0AOrganisation%20Name%3A%20%0ATeam%20Size%3A%20%0APreferred%20Format%20(E-Learning%20%2F%20Webinar%20%2F%20In-Person)%3A%20%0A%0ABest%20regards%2C" style="background: #005EB8; color: #ffffff; padding: 12px 24px; border-radius: 10px; font-weight: 800; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px;">
+                                <span class="material-symbols-outlined">mail</span> Send Team Enquiry (Direct Email) &rarr;
+                            </a>
+                            <a href="path-sponsor-us.html" style="background: #ffffff; color: #005EB8; border: 1.5px solid #005EB8; padding: 12px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px;">
+                                <span class="material-symbols-outlined">corporate_fare</span> Sponsor a Pilot Session
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,8 +232,11 @@
                 Back to Journey Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
-    <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=9.0"></script>
 </body>
 </html>

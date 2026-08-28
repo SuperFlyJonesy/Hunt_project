@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Bristol Hearing Loss Initiative</title>
+    <meta name="description" content="The page or pathway you are looking for cannot be found. Return to the Bristol Hearing Loss Initiative Journey Hub or Support Hub.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="styles.css?v=9.0">
+    <style>
+        .container { max-width: 760px; margin: 0 auto; padding: 60px 20px 100px 20px; text-align: center; }
+        .error-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            margin: 30px 0;
+        }
+        .error-code {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #FF0F5B;
+            line-height: 1;
+            margin: 0 0 10px 0;
+        }
+        .error-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0 0 14px 0;
+        }
+        .error-desc {
+            font-size: 1.05rem;
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 25px 0;
+        }
+        .nav-button-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+        .btn-journey { background: #1e293b; color: #ffffff; }
+        .btn-support { background: #005EB8; color: #ffffff; }
+        .btn-home { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="404 - Page Not Found | Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="The page or pathway you are looking for cannot be found. Return to the Bristol Hearing Loss Initiative Journey Hub or Support Hub.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/404.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="404 - Page Not Found | Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="The page or pathway you are looking for cannot be found. Return to the Bristol Hearing Loss Initiative Journey Hub or Support Hub.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+
+    <main id="main-content" class="container">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="Contents/Branding Images/HLI logo Black.png" alt="Bristol Hearing Loss Initiative Logo" style="height: 54px; width: auto;" loading="lazy">
+        </div>
+
+        <div class="error-card">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Pathway Not Found</h1>
+            <p class="error-desc">
+                We couldn't find the page or resource you were looking for. It may have been moved, renamed, or merged into one of our updated guidance hubs.
+            </p>
+
+            <div class="nav-button-group">
+                <a href="path-yes.html" class="nav-btn btn-journey">
+                    <span class="material-symbols-outlined">explore</span>
+                    Return to Journey Hub
+                </a>
+                <a href="path-support.html" class="nav-btn btn-support">
+                    <span class="material-symbols-outlined">diversity_3</span>
+                    Visit Support Hub
+                </a>
+                <a href="index.html" class="nav-btn btn-home">
+                    <span class="material-symbols-outlined">home</span>
+                    Home Page
+                </a>
+            </div>
+        </div>
+
+        <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <script src="script.js?v=9.0"></script>
+</body>
+</html>

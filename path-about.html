@@ -14,7 +14,7 @@
         .info-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
         .badge-blue { background: #e0f2fe; color: #005EB8; }
         .badge-pink { background: #ffe4e6; color: #ff0f5b; }
-        .badge-green { background: #dcfce7; color: #15803d; }
+        .badge-green { background: #dcfce7; color: #1B5E20; }
         .badge-amber { background: #fef3c7; color: #d97706; }
         .badge-purple { background: #f3e8ff; color: #7e22ce; }
         
@@ -38,7 +38,7 @@
         .team-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); border-color: #cbd5e1; }
         .team-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .avatar-founder { border: 3px solid #005EB8; }
-        .avatar-audit { border: 3px solid #0097A7; }
+        .avatar-audit { border: 3px solid #0891B2; }
         .avatar-community { border: 3px solid #7B1FA2; }
         .avatar-clinical { border: 3px solid #059669; }
         
@@ -56,19 +56,88 @@
         .btn-blue { background: #005EB8; }
         .btn-pink { background: #ff0f5b; }
 
-        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+        /* Top-Left Clickable Logo */
+        #hli-logo.about-logo-top {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            height: 48px;
+            width: auto;
+            z-index: 9999999;
+            cursor: pointer;
+            filter: contrast(1.1);
+            transition: transform 0.2s ease;
+        }
+        #hli-logo.about-logo-top:hover {
+            transform: scale(1.06);
+        }
+
+        /* Center-Left Dev Reset Button */
+        #dev-reset { 
+            position: fixed; 
+            top: 50%; 
+            left: 12px; 
+            transform: translateY(-50%); 
+            color: #000000; 
+            background: transparent; 
+            border: none; 
+            opacity: 0.18; 
+            cursor: pointer; 
+            z-index: 99999999; 
+            padding: 8px 10px; 
+            font-weight: 800; 
+            font-family: sans-serif;
+            font-size: 1rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        #dev-reset:hover {
+            opacity: 0.85;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            #hli-logo.about-logo-top {
+                height: 36px;
+                top: 12px;
+                left: 12px;
+            }
+            #dev-reset {
+                left: 6px;
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+        }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="About Us - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Learn about the Bristol Hearing Loss Initiative, founded by Jason to empower hard-of-hearing adults through lived experience, advocacy, community team support, and accessible venues.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Learn about the Bristol Hearing Loss Initiative, founded by Jason to empower hard-of-hearing adults through lived experience, advocacy, community team support, and accessible venues.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    
+    <!-- Top-Left Clickable Logo -->
+    <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative (Founder Admin)">
+    
+    <!-- Center-Left Developer Reset -->
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}" title="Dev Reset">R</button>
+    
+    <!-- Top-Right Support Us Button -->
     <a href="path-sponsor-us.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
 
     <main id="main-content" class="container">
         <!-- Header Section -->
-        <div class="header-section" style="text-align: center; margin-bottom: 30px;">
-            <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="hli-logo-top" style="height: 55px; filter: contrast(1.1); transform: scale(1.3); transform-origin: center; margin-bottom: 20px; cursor: pointer;" title="Bristol Hearing Loss Initiative">
+        <div class="header-section" style="text-align: center; margin-bottom: 30px; margin-top: 15px;">
             <h1 style="font-size: 2.5rem; margin-bottom: 12px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
                 <span class="material-symbols-outlined" style="font-size: 3rem;">groups</span>
                 About Our Initiative
@@ -178,10 +247,10 @@
 
                 <!-- Acoustic & Venue Audit Working Group -->
                 <div class="team-card">
-                    <div style="width: 100px; height: 100px; border-radius: 50%; background: #e0f7fa; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #0097A7; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <span class="material-symbols-outlined" style="font-size: 3rem; color: #00838F;">volume_up</span>
+                    <div style="width: 100px; height: 100px; border-radius: 50%; background: #e0f7fa; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #0891B2; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                        <span class="material-symbols-outlined" style="font-size: 3rem; color: #0891B2;">volume_up</span>
                     </div>
-                    <span class="role-tag" style="background: #e0f7fa; color: #00838F;">Acoustic &amp; Venue Team</span>
+                    <span class="role-tag" style="background: #e0f7fa; color: #0891B2;">Acoustic &amp; Venue Team</span>
                     <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Venue Assessment Team</h3>
                     <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
                         Volunteer acoustic assessors, hearing loop technicians, and sound testers conducting on-site decibel reviews and loop verifications for Bristol venues.
@@ -205,7 +274,7 @@
                     <div style="width: 100px; height: 100px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #059669; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
                         <span class="material-symbols-outlined" style="font-size: 3rem; color: #059669;">verified_user</span>
                     </div>
-                    <span class="role-tag" style="background: #dcfce7; color: #15803d;">Clinical &amp; Advisory</span>
+                    <span class="role-tag" style="background: #dcfce7; color: #1B5E20;">Clinical &amp; Advisory</span>
                     <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Advisory &amp; Clinical Network</h3>
                     <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
                         NHS audiology liaisons, speech-to-text advocates, and accessibility specialists ensuring all medical guidance, PACE standards, and references remain clinically sound.
@@ -252,10 +321,10 @@
                     <div style="font-size: 0.9rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; margin-bottom: 4px;">Direct Founder Contact</div>
                     <div style="font-size: 1.15rem; color: #ffffff; font-weight: 800; display: flex; align-items: center; gap: 8px;">
                         <span class="material-symbols-outlined" style="color: #38bdf8;">mail</span>
-                        jason@hearinglossinitiative.co.uk
+                        info@hearinglossinitiative.org.uk
                     </div>
                 </div>
-                <a href="mailto:jason@hearinglossinitiative.co.uk?subject=Connecting%20to%20help%20evolve%20the%20Hearing%20Loss%20Initiative" class="btn-action" style="background: #005EB8; padding: 14px 28px; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,94,184,0.4);">
+                <a href="mailto:info@hearinglossinitiative.org.uk?subject=Connecting%20to%20help%20evolve%20the%20Hearing%20Loss%20Initiative" class="btn-action" style="background: #005EB8; padding: 14px 28px; font-size: 1rem; box-shadow: 0 4px 15px rgba(0,94,184,0.4);">
                     <span class="material-symbols-outlined">send</span> Email Jason (Founder) &rarr;
                 </a>
             </div>
@@ -264,14 +333,14 @@
         <!-- 5. GRASSROOTS IMPACT & SPONSORSHIP SECTION -->
         <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 18px; padding: 28px; margin-bottom: 35px;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                <span class="material-symbols-outlined" style="color: #166534; font-size: 1.8rem;">volunteer_activism</span>
-                <h3 style="margin: 0; color: #166534; font-size: 1.25rem;">How Funding Empowers Bristol</h3>
+                <span class="material-symbols-outlined" style="color: #1B5E20; font-size: 1.8rem;">volunteer_activism</span>
+                <h3 style="margin: 0; color: #1B5E20; font-size: 1.25rem;">How Funding Empowers Bristol</h3>
             </div>
             
-            <p style="font-size: 1.02rem; color: #15803d; line-height: 1.6; margin-bottom: 14px;">
+            <p style="font-size: 1.02rem; color: #1B5E20; line-height: 1.6; margin-bottom: 14px;">
                 Every sponsorship and Patreon subscription directly unlocks real-world accessibility across our community:
             </p>
-            <ul style="margin: 0 0 20px 0; padding-left: 22px; color: #166534; font-size: 0.95rem; line-height: 1.7;">
+            <ul style="margin: 0 0 20px 0; padding-left: 22px; color: #1B5E20; font-size: 0.95rem; line-height: 1.7;">
                 <li><strong>Accessible Venue Hires:</strong> Securing spaces with verified induction loops and low reverberation.</li>
                 <li><strong>Free Hot Refreshments:</strong> Ensuring a warm, inclusive welcome at our social support groups (coming soon).</li>
                 <li><strong>Workplace Training:</strong> Delivering accredited hearing loss communication training for local Bristol teams (coming soon).</li>
@@ -298,6 +367,9 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <!-- Mechanical Flip Clock Ticker Controller Script -->

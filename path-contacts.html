@@ -14,7 +14,7 @@
         .contact-card { background: #ffffff; border-radius: 16px; padding: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; border-top: 5px solid #005EB8; }
         .contact-card.border-red { border-top-color: #ff0f5b; }
         .contact-card.border-green { border-top-color: #1b5e20; }
-        .contact-card.border-amber { border-top-color: #F57C00; }
+        .contact-card.border-amber { border-top-color: #D97706; }
         .card-title { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px; }
         .card-desc { font-size: 0.92rem; color: #475569; line-height: 1.5; margin: 0 0 14px 0; }
         .info-list { margin: 0 0 14px 0; padding: 0; list-style: none; font-size: 0.88rem; color: #334155; }
@@ -26,13 +26,26 @@
         .btn-red:hover { background: #d90429; }
         .btn-green { background: #1b5e20; color: #ffffff; }
         .btn-green:hover { background: #134617; }
-        .btn-amber { background: #F57C00; color: #ffffff; }
+        .btn-amber { background: #D97706; color: #ffffff; }
         .btn-amber:hover { background: #d6870a; }
         .btn-outline { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
         .btn-outline:hover { background: #e2e8f0; }
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Useful Contacts &amp; Directory - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Direct phone, textphone, and email contacts for NHS audiology departments, hearing charities, and emergency support.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-contacts.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Useful Contacts &amp; Directory - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Direct phone, textphone, and email contacts for NHS audiology departments, hearing charities, and emergency support.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -55,7 +68,7 @@
             
             <!-- ACCORDION 1: NHS & Audiology Services -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">local_hospital</span> 1. NHS &amp; Audiology Services</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -75,7 +88,7 @@
                                 </ul>
                             </div>
                             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
-                                <a href="https://www.uhbw.nhs.uk/form/68E8B983DF9F63200F5B027275EE9611" target="_blank" rel="noopener noreferrer" class="card-btn btn-blue" style="background: #166534; display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                <a href="https://www.uhbw.nhs.uk/form/68E8B983DF9F63200F5B027275EE9611" target="_blank" rel="noopener noreferrer" class="card-btn btn-blue" style="background: #1B5E20; display: flex; align-items: center; justify-content: center; gap: 6px;">
                                     <span class="material-symbols-outlined" style="font-size: 1.1rem;">local_shipping</span> Order Batteries &amp; Tubes Online &rarr;
                                 </a>
                                 <a href="path-nhs.html" class="card-btn btn-outline" style="text-align: center;">View Full Audiology Guide &rarr;</a>
@@ -120,7 +133,7 @@
 
             <!-- ACCORDION 2: Community & Support Groups -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">groups</span> 2. Community &amp; Support Groups</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -170,8 +183,8 @@
 
             <!-- ACCORDION 3: Council & Equipment Services -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #F57C00; margin-right: 8px;">account_balance</span> 3. Council &amp; Equipment Services</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #D97706; margin-right: 8px;">account_balance</span> 3. Council &amp; Equipment Services</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -208,7 +221,7 @@
 
             <!-- ACCORDION 4: Mental Health & Crisis Support -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">psychology</span> 4. Mental Health &amp; Crisis Support</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -258,7 +271,7 @@
 
             <!-- ACCORDION 5: Workplace & Assistive Technology -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">work</span> 5. Workplace &amp; Assistive Technology</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -307,6 +320,9 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=3.0"></script>

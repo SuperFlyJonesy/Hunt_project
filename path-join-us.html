@@ -17,7 +17,7 @@
         .onboard-step-card p { font-size: 0.88rem; color: #475569; margin: 0; line-height: 1.45; }
         .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 15px; }
         .tier-card { background: #ffffff; border-radius: 18px; padding: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 2px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
-        .tier-card.tier-teal { border-top: 6px solid #00ACC1; }
+        .tier-card.tier-teal { border-top: 6px solid #0891B2; }
         .tier-card.recommended { border: 2px solid #ff0f5b; border-top: 6px solid #ff0f5b; background: #fffcfd; }
         .tier-card.tier-purple { border-top: 6px solid #7B1FA2; }
         .popular-badge { position: absolute; top: -12px; right: 16px; background: #ff0f5b; color: #ffffff; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 10px; }
@@ -36,6 +36,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Join Us - Support Hearing Loss Initiative on Patreon">
+    <meta property="og:description" content="Join our Patreon community to directly fund our free evening support group in Bristol, room hire, guest speakers, tea and coffee, and venue accessibility audits.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-join-us.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join Us - Support Hearing Loss Initiative on Patreon">
+    <meta name="twitter:description" content="Join our Patreon community to directly fund our free evening support group in Bristol, room hire, guest speakers, tea and coffee, and venue accessibility audits.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -58,7 +71,7 @@
             
             <!-- ACCORDION 1: 3 Step Signup & Safety Guarantee -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">verified_user</span> 1. Simple 3 Step Signup &amp; Patreon Safety</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -95,7 +108,7 @@
 
             <!-- ACCORDION 2: Why We Need Support -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">stars</span> 2. Why We Need Your Support</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -117,7 +130,7 @@
 
             <!-- ACCORDION 3: Membership Tiers & Pricing -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">sell</span> 3. Membership Tiers &amp; Value Stack</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -145,16 +158,16 @@
                         <div class="tier-card tier-teal">
                             <div>
                                 <div class="tier-name">Pardon</div>
-                                <div class="tier-price" style="color: #00838F;">£3 <span>/ month</span></div>
+                                <div class="tier-price" style="color: #0891B2;">£3 <span>/ month</span></div>
                                 <div class="tier-desc">The digital tip jar. Backers fund the tea and coffee and get their name on our Supporter Wall.</div>
                                 <ul class="tier-benefits-list">
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> <strong>Everything in Supporter (Free)</strong></li>
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Funds the tea and coffee for everyone at our support group</li>
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Your name featured on our cinematic Wall of Honour</li>
-                                    <li><span class="material-symbols-outlined" style="color: #00ACC1;">check_circle</span> Official Pardon digital badge &amp; member gratitude</li>
+                                    <li><span class="material-symbols-outlined" style="color: #0891B2;">check_circle</span> <strong>Everything in Supporter (Free)</strong></li>
+                                    <li><span class="material-symbols-outlined" style="color: #0891B2;">check_circle</span> Funds the tea and coffee for everyone at our support group</li>
+                                    <li><span class="material-symbols-outlined" style="color: #0891B2;">check_circle</span> Your name featured on our cinematic Wall of Honour</li>
+                                    <li><span class="material-symbols-outlined" style="color: #0891B2;">check_circle</span> Official Pardon digital badge &amp; member gratitude</li>
                                 </ul>
                             </div>
-                            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-cta-btn" style="background: #00838F;">
+                            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="patreon-cta-btn" style="background: #0891B2;">
                                 <span class="material-symbols-outlined">volunteer_activism</span> Join Pardon (£3/mo)
                             </a>
                         </div>
@@ -201,7 +214,7 @@
 
             <!-- ACCORDION 4: Wall of Honour & Credits Roll -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">military_tech</span> 4. Initiative Wall of Honour &amp; Credits Roll</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -231,7 +244,7 @@
 
             <!-- ACCORDION 5: Gold Standard Venue Accreditation -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">verified</span> 5. Gold Standard Venue Accreditation</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -278,6 +291,9 @@
                 Back to Journey Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=12.0"></script>

@@ -13,7 +13,7 @@
         .info-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
         .badge-dwp { background: #e0f2fe; color: #0369a1; }
         .badge-pip { background: #ffe4e6; color: #ff0f5b; }
-        .badge-tax { background: #f0fdf4; color: #15803d; }
+        .badge-tax { background: #f0fdf4; color: #1B5E20; }
         .badge-community { background: #fef3c7; color: #d97706; }
         .ext-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
         .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: white; transition: all 0.2s ease; }
@@ -26,6 +26,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="UK Government Help &amp; Funding - Hearing Loss Initiative">
+    <meta property="og:description" content="Verified financial grants, Access to Work, PIP descriptors, 0% VAT relief, and Equality Act rights for hard-of-hearing individuals across the UK.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-government-help.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UK Government Help &amp; Funding - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Verified financial grants, Access to Work, PIP descriptors, 0% VAT relief, and Equality Act rights for hard-of-hearing individuals across the UK.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -48,7 +61,7 @@
             
             <!-- ACCORDION 1: Access to Work (AtW) Scheme -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">work</span> 1. Access to Work (AtW) Scheme</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -72,7 +85,7 @@
 
             <!-- ACCORDION 2: Personal Independence Payment (PIP) -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">savings</span> 2. Personal Independence Payment (PIP)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -97,7 +110,7 @@
 
             <!-- ACCORDION 3: 0% VAT Relief & Equality Act 2010 -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">gavel</span> 3. 0% VAT Relief &amp; Equality Act 2010</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -122,7 +135,7 @@
 
             <!-- ACCORDION 4: Support Our Initiate Community -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">groups</span> 4. Support Our Initiate Community</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -155,6 +168,9 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=3.0"></script>

@@ -41,6 +41,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Bristol Local Directory &amp; Resources - Hearing Loss Initiative">
+    <meta property="og:description" content="Bristol Deaf and hard-of-hearing local service directory, contact details, Patreon signup guide, and venue checklists.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-resources.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bristol Local Directory &amp; Resources - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Bristol Deaf and hard-of-hearing local service directory, contact details, Patreon signup guide, and venue checklists.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -63,7 +76,7 @@
             
             <!-- ACCORDION 1: Adult & Local Community Support -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">domain</span> 1. Adult &amp; Local Community Support</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -117,8 +130,8 @@
                                 <p>A Bristol registered charity working in partnership with UHBW NHS Audiology. Trained volunteers (many who use hearing aids themselves) provide home visits for elderly or housebound NHS hearing aid users to assist with retubing, cleaning, battery supply, and advice.</p>
                                 
                                 <div class="dropin-box" style="background: #f0fdf4; border-color: #bbf7d0;">
-                                    <h4 style="color: #166534;">🏠 Home Visit Maintenance &amp; Referral:</h4>
-                                    <p style="color: #15803d;">Provides free home visits for UHBW NHS hearing aid users unable to attend clinic due to mobility, age, or disability.</p>
+                                    <h4 style="color: #1B5E20;">🏠 Home Visit Maintenance &amp; Referral:</h4>
+                                    <p style="color: #1B5E20;">Provides free home visits for UHBW NHS hearing aid users unable to attend clinic due to mobility, age, or disability.</p>
                                 </div>
 
                                 <ul class="contact-info-list">
@@ -138,8 +151,8 @@
                                 <p>Official online request form for patients issued NHS hearing aids by University Hospitals Bristol and Weston NHS Trust (UHBW). Request replacement batteries, mould tubing, thin tubes, domes, and cleaning wires sent directly to your home.</p>
                                 
                                 <div class="dropin-box" style="background: #f0fdf4; border-color: #bbf7d0;">
-                                    <h4 style="color: #166534;">📦 Postal Delivery Details:</h4>
-                                    <p style="color: #15803d;"><strong>Free 2nd Class Delivery:</strong> Aimed within 2 weeks of request. Supplies include P13 (Orange), 312 (Brown), 675 (Blue) batteries, mould tubing, and slim tubes/domes.</p>
+                                    <h4 style="color: #1B5E20;">📦 Postal Delivery Details:</h4>
+                                    <p style="color: #1B5E20;"><strong>Free 2nd Class Delivery:</strong> Aimed within 2 weeks of request. Supplies include P13 (Orange), 312 (Brown), 675 (Blue) batteries, mould tubing, and slim tubes/domes.</p>
                                 </div>
 
                                 <ul class="contact-info-list">
@@ -158,7 +171,7 @@
 
             <!-- ACCORDION 2: Children, Youth & Family Resources -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">family_restroom</span> 2. Children, Youth &amp; Family Resources</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -174,7 +187,7 @@
                                     <li><span class="material-symbols-outlined" style="color: #7B1FA2;">location_on</span> <strong>Address:</strong> Elmfield House, Greystoke Ave, Westbury-on-Trym, Bristol BS10 6AY</li>
                                 </ul>
                             </div>
-                            <a href="http://sensorysupportservice.org.uk/" target="_blank" rel="noopener noreferrer" class="site-link-btn" style="background: #7B1FA2;">
+                            <a href="https://sensorysupportservice.org.uk/" target="_blank" rel="noopener noreferrer" class="site-link-btn" style="background: #7B1FA2;">
                                 <span class="material-symbols-outlined">open_in_new</span> Visit Sensory Support Website
                             </a>
                         </div>
@@ -184,7 +197,7 @@
 
             <!-- ACCORDION 3: Downloadable Guides & Member Checklists -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">download</span> 3. Community PDF Guides &amp; Member Checklists</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -252,14 +265,33 @@
                         </div>
 
                         <!-- Resource 6: Interactive PACE E-Learning Demo -->
-                        <div class="download-card-item" style="border-left: 4px solid #166534; background: #f0fdf4;">
-                            <div style="text-align: center; margin: 10px 0 10px 0; color: #166534;">
+                        <div class="download-card-item" style="border-left: 4px solid #1B5E20; background: #f0fdf4;">
+                            <div style="text-align: center; margin: 10px 0 10px 0; color: #1B5E20;">
                                 <span class="material-symbols-outlined" style="font-size: 3.5rem;">laptop_chromebook</span>
                             </div>
-                            <h4 style="color: #166534;">Interactive PACE E-Learning Demo</h4>
+                            <h4 style="color: #1B5E20;">Interactive PACE E-Learning Demo</h4>
                             <p>Interactive digital learning module covering hearing loss awareness, lived experience, and the 4 PACE principles.</p>
                             <div class="dl-actions">
                                 <a href="path-elearning.html" class="dl-btn green-btn" style="width: 100%; text-align: center;">▶ Launch Interactive Demo</a>
+                            </div>
+                        </div>
+
+                        <!-- Resource 7: Printable "I Lipread" Communication Wallet Card -->
+                        <div class="download-card-item" style="border-left: 4px solid #005EB8; background: #f8fafc;">
+                            <div style="border: 2px dashed #005EB8; border-radius: 12px; padding: 14px; background: #ffffff; text-align: center; margin-bottom: 12px;">
+                                <span style="background: #005EB8; color: white; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Bristol Community Card</span>
+                                <h4 style="margin: 8px 0 4px 0; color: #0f172a; font-size: 1.05rem; font-weight: 900;">I Am Hard of Hearing / Deaf</h4>
+                                <p style="margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.4;">
+                                    Please face me when speaking.<br>
+                                    Speak clearly &bull; Don't shout &bull; Be patient.
+                                </p>
+                            </div>
+                            <h4 style="color: #005EB8;">Printable Communication Wallet Card</h4>
+                            <p>Show staff on First Bus routes, shop counters, and GP reception desks to prompt face-to-face communication.</p>
+                            <div class="dl-actions">
+                                <button type="button" onclick="window.print()" class="dl-btn" style="background: #005EB8; color: white; width: 100%; cursor: pointer; border: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">print</span> Print Wallet Card
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -279,6 +311,9 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=3.0"></script>

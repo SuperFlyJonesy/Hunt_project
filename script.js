@@ -1397,3 +1397,43 @@ function initFounderAdminControls() {
         getMembers: () => JSON.parse(localStorage.getItem('hli_registered_members') || '[]')
     };
 }
+
+// ==========================================================================
+// FLOATING "BACK TO TOP" BUTTON COMPONENT
+// ==========================================================================
+function initBackToTopButton() {
+    if (document.getElementById("hli-back-to-top")) return;
+    const path = window.location.pathname.toLowerCase();
+    if (path.endsWith("index.html") || path === "/" || path.endsWith("venue-map.html")) return;
+
+    const btn = document.createElement("button");
+    btn.id = "hli-back-to-top";
+    btn.className = "hli-back-to-top-btn";
+    btn.setAttribute("aria-label", "Back to top of page");
+    btn.setAttribute("title", "Back to top");
+    btn.innerHTML = "<span class="material-symbols-outlined" style="font-size: 1.4rem; line-height: 1;">arrow_upward</span>";
+
+    btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    document.body.appendChild(btn);
+
+    const toggleBtnVisibility = () => {
+        if (window.scrollY > 380) {
+            btn.classList.add("visible");
+        } else {
+            btn.classList.remove("visible");
+        }
+    };
+
+    window.addEventListener("scroll", toggleBtnVisibility, { passive: true });
+    toggleBtnVisibility();
+}
+
+// Auto-initialize Back to Top
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBackToTopButton);
+} else {
+    initBackToTopButton();
+}

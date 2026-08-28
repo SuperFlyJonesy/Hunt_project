@@ -1,0 +1,12 @@
+# robots.txt for Bristol Hearing Loss Initiative
+# https://hearinglossinitiative.org.uk
+
+User-agent: *
+Allow: /
+
+# Exclude sensitive parameters or dev overrides
+Disallow: /*?key=*
+Disallow: /*?pin=*
+Disallow: /*?admin=*
+
+Sitemap: https://hearinglossinitiative.org.uk/sitemap.xml

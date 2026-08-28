@@ -47,7 +47,7 @@ html, body {
 }
 
 .compact-btn {
-  background: #0097A7;
+  background: #0891B2;
   color: #ffffff;
   padding: 5px 11px;
   border-radius: 16px;
@@ -61,7 +61,7 @@ html, body {
 }
 
 .compact-btn:hover {
-  background: #00838f;
+  background: #0891B2;
 }
 
 .compact-btn.patreon {
@@ -91,7 +91,7 @@ html, body {
 
 .postcode-select:hover {
   background: #334155;
-  border-color: #0097A7;
+  border-color: #0891B2;
 }
 
 /* Filters / controls - ALWAYS SINGLE ROW */
@@ -137,7 +137,7 @@ html, body {
 }
 
 .dot.induction { background-color: #4285F4; }
-.dot.auracast  { background-color: #E91E63; }
+.dot.auracast  { background-color: #FF0F5B; }
 .dot.quiet     { background-color: #34A853; }
 
 .nhs-pill-btn {
@@ -427,7 +427,7 @@ html, body {
   background: rgba(15, 23, 42, 0.94);
   backdrop-filter: blur(12px);
   color: #ffffff;
-  border: 1.5px solid #0097A7;
+  border: 1.5px solid #0891B2;
   border-radius: 25px;
   padding: 9px 18px;
   font-weight: 800;
@@ -441,7 +441,7 @@ html, body {
 }
 
 .venue-sidebar-toggle:hover {
-  background: #0097A7;
+  background: #0891B2;
   transform: translateY(-2px);
   box-shadow: 0 10px 35px rgba(0, 151, 167, 0.5);
 }
@@ -502,7 +502,7 @@ html, body {
 }
 
 .sidebar-search input:focus {
-  border-color: #0097A7;
+  border-color: #0891B2;
   box-shadow: 0 0 10px rgba(0, 151, 167, 0.4);
 }
 
@@ -511,7 +511,7 @@ html, body {
   overflow-y: auto;
   padding: 10px;
   scrollbar-width: thin;
-  scrollbar-color: #0097A7 rgba(15, 23, 42, 0.5);
+  scrollbar-color: #0891B2 rgba(15, 23, 42, 0.5);
 }
 
 .sidebar-list::-webkit-scrollbar {
@@ -523,7 +523,7 @@ html, body {
 }
 
 .sidebar-list::-webkit-scrollbar-thumb {
-  background-color: #0097A7;
+  background-color: #0891B2;
   border-radius: 3px;
 }
 
@@ -533,7 +533,7 @@ html, body {
   background: rgba(30, 41, 59, 0.6);
   margin-bottom: 8px;
   cursor: pointer;
-  border-left: 4px solid #0097A7;
+  border-left: 4px solid #0891B2;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -590,7 +590,7 @@ html, body {
   width: 48px;
   height: 48px;
   border: 4px solid rgba(0, 151, 167, 0.2);
-  border-top-color: #0097A7;
+  border-top-color: #0891B2;
   border-radius: 50%;
   animation: mapSpin 0.8s linear infinite;
   margin-bottom: 16px;

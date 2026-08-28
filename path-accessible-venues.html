@@ -18,8 +18,22 @@
     #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
   </style>
   <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Hearing-Accessible Venues in Bristol | Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Discover hearing accessible venues across Bristol featuring Induction Loops, Bluetooth Auracast, and low-noise acoustic environments.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-accessible-venues.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hearing-Accessible Venues in Bristol | Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Discover hearing accessible venues across Bristol featuring Induction Loops, Bluetooth Auracast, and low-noise acoustic environments.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
     <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
 
@@ -40,20 +54,20 @@
             
             <!-- ACCORDION 1: Theatres, Entertainment & Cinema Venues (7) -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">theater_comedy</span> 1. Theatres, Entertainment & Cinema Venues (7)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <div class="group-details-grid">
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/beacon.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🎟️ Bristol Beacon (BS1)<span style="background: #f1f5f9; color: #475569; font-weight: 700; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; margin-left: 8px; text-transform: uppercase; border: 1px solid #cbd5e1;">Unverified Assessment</span></h3>
                 <p><strong>Category:</strong> Entertainment & Concert Centre | <strong>Rating:</strong> ⭐ 4.8/5</p>
                 <p><strong>Address:</strong> Trenchard Street, Bristol BS1 5AR</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Counter Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">T-Coil Hall Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Auracast Ready</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">BSL Interpreted Shows</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Quiet Relaxation Room</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"Beacon Hall T-coil signal is pristine with a -12dB background noise floor. Staff are Deaf-Awareness trained with visual paging displays."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #ff0f5b;">
                 
@@ -64,14 +78,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Auracast Audio Stream</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">DS Subtitled Screenings</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Infrared Hearing System</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Quiet Lounge</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #ff0f5b;">"Cinemas 1 & 3 stream Auracast direct to hearing aids. Staff offer subtitle headsets without hassle and venue acoustics are superb."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/stgeorges.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🎻 St George's Bristol (BS1)<span style="background: #f1f5f9; color: #475569; font-weight: 700; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; margin-left: 8px; text-transform: uppercase; border: 1px solid #cbd5e1;">Unverified Assessment</span></h3>
                 <p><strong>Category:</strong> Acoustic Music Hall | <strong>Rating:</strong> ⭐ 4.8/5</p>
                 <p><strong>Address:</strong> Great George Street, Off Park St, Bristol BS1 5RR</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Perimeter Induction Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Acoustic Baffles</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Accessible Seating Deck</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"World-class natural hall acoustics paired with a newly calibrated perimeter induction loop."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"World-class natural hall acoustics paired with a newly calibrated perimeter induction loop."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #ff0f5b;">
                 
@@ -91,14 +105,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Infrared Hearing System</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Captioned Performances</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Touch Tours</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Deaf-Aware Ushers</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #005EB8;">"Infrared headset system provides crisp amplified stage dialogue across all seating tiers."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/tobacco.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🍻 Tobacco Factory Theatres (BS3)</h3>
                 <p><strong>Category:</strong> Pub, Brewery & Theatre | <strong>Rating:</strong> ⭐ 4.6/5</p>
                 <p><strong>Address:</strong> Raleigh Road, Southville, Bristol BS3 1TF</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">T-Coil Hearing Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Assistive Listening Headsets</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"Studio theatre loop tested strong near centre seating rows; staff are helpful and welcoming."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"Studio theatre loop tested strong near centre seating rows; staff are helpful and welcoming."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #ff0f5b;">
                 
@@ -115,7 +129,7 @@
 
             <!-- ACCORDION 2: Museums, Heritage & Landmarks (5) -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">museum</span> 2. Museums, Heritage & Landmarks (4)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -163,7 +177,7 @@
 
             <!-- ACCORDION 3: Community Hubs, Shopping, Transit & Sports (8) -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">directions_bus</span> 3. Community Hubs, Shopping, Transit & Sports (8)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -178,14 +192,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Special Assistance Lounge</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Counter & Gate Hearing Loops</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Visual Flight Paging</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Auracast Trial Zone</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Quiet Sensory Room</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #005EB8;">"Departure lounges and check-in desks feature high-clarity induction loops, visual flight paging displays, and a dedicated quiet sensory lounge."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #f39c12;">
+            <div class="detail-card" style="border-left: 4px solid #D97706;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/bearpit.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🐻 The Bear Pit Community Hub (BS1)<span style="background: #f1f5f9; color: #475569; font-weight: 700; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; margin-left: 8px; text-transform: uppercase; border: 1px solid #cbd5e1;">Unverified Assessment</span></h3>
                 <p><strong>Category:</strong> Community & Forum Hub | <strong>Rating:</strong> ⭐ 4.9/5</p>
                 <p><strong>Address:</strong> St James Barton Roundabout, Bristol BS1 3LY</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Support Group Meeting Host</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Outdoor Gathering Space</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">BSL Social Circles</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Community Forum Link</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #f39c12;">"Central open-air gathering spot for monthly Bristol Hard-of-Hearing coffee meets, BSL social circles, and discussion forums."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #D97706;">"Central open-air gathering spot for monthly Bristol Hard-of-Hearing coffee meets, BSL social circles, and discussion forums."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #7B1FA2;">
                 
@@ -196,14 +210,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">BSL Native Staff</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Portable & Fixed Loops</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Weekly Equipment Clinic</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Support Group Host</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #7B1FA2;">"Purpose-built accessible hub with BSL fluent staff, equipment test rooms, and weekly drop-in advice clinics."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/cribbs.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🛍️ The Mall at Cribbs Causeway (BS34)</h3>
                 <p><strong>Category:</strong> Regional Shopping Destination | <strong>Rating:</strong> ⭐ 4.6/5</p>
                 <p><strong>Address:</strong> Lysander Road, Patchway, Bristol BS34 7GG</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Customer Desk Hearing Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Level Access Mall</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Quiet Shopping Hours</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"Customer service desk equipped with fixed T-coil loop; shopping hall acoustics enhanced with acoustic ceiling baffles."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"Customer service desk equipped with fixed T-coil loop; shopping hall acoustics enhanced with acoustic ceiling baffles."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #005EB8;">
                 
@@ -223,23 +237,23 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Auracast Lecture Halls</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Induction Loops</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Student Disability Support</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #7B1FA2;">"Lecture theatres equipped with Auracast streaming nodes and fixed induction loop systems."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/ashtongate.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🏟️ Ashton Gate Stadium (BS3)</h3>
                 <p><strong>Category:</strong> Sports Stadium & Concert Venue | <strong>Rating:</strong> ⭐ 4.6/5</p>
                 <p><strong>Address:</strong> Ashton Road, Southville, Bristol BS3 2EJ</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Ticket Counter Hearing Loops</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Assistive Audio Commentary</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Sensory Viewing Room</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"Concourse ticket windows and commentary boxes support assistive listening headsets and T-coil loops."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"Concourse ticket windows and commentary boxes support assistive listening headsets and T-coil loops."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #f39c12;">
+            <div class="detail-card" style="border-left: 4px solid #D97706;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/trinity.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🏰 Trinity Centre (BS2)</h3>
                 <p><strong>Category:</strong> Community Event Space | <strong>Rating:</strong> ⭐ 4.6/5</p>
                 <p><strong>Address:</strong> Trinity Road, Old Market, Bristol BS2 8HA</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Portable Induction Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Support Group Host</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Quiet Garden Space</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #f39c12;">"Main hall equipped with loop system for community forums and acoustic workshops."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #D97706;">"Main hall equipped with loop system for community forums and acoustic workshops."</p>
             </div>
                     </div>
                 </div>
@@ -247,7 +261,7 @@
 
             <!-- ACCORDION 4: NHS Hospitals & Audiology Clinics (7) -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">local_hospital</span> 4. NHS Hospitals, Audiology & Civic Spaces (8)</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -298,14 +312,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Nave Induction Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Large Print Service Books</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Level Access Side Ramp</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #005EB8;">"Nave and Choir seating areas feature continuous T-coil loop coverage for services and concerts."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #f39c12;">
+            <div class="detail-card" style="border-left: 4px solid #D97706;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/stnicholas.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🛍️ St Nicholas Market (BS1)</h3>
                 <p><strong>Category:</strong> Historic Market | <strong>Rating:</strong> ⭐ 4.6/5</p>
                 <p><strong>Address:</strong> The Exchange, Corn Street, Bristol BS1 1JQ</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Visual Signage Boards</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Open Air Courtyard</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Level Pedestrian Entry</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #f39c12;">"The Covered Market Hall features visual stall signs and clear directional boards."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #D97706;">"The Covered Market Hall features visual stall signs and clear directional boards."</p>
             </div>
             <div class="detail-card" style="border-left: 4px solid #005EB8;">
                 
@@ -316,14 +330,14 @@
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Reception Desk Induction Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Vibrating Fire Alarm Pagers</span></div>
                 <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #005EB8;">"Guest rooms feature vibrating fire alert pagers and reception loop support."</p>
             </div>
-            <div class="detail-card" style="border-left: 4px solid #0097A7;">
+            <div class="detail-card" style="border-left: 4px solid #0891B2;">
                 
                 <div style="height: 140px; width: 100%; overflow: hidden; background: #e2e8f0; border-radius: 10px; margin-bottom: 12px;"><img src="Contents/Venues/templemeads.jpg" alt="Venue photo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" /></div>
                 <h3>🚆 Bristol Temple Meads Station (BS1)</h3>
                 <p><strong>Category:</strong> Transit Station | <strong>Rating:</strong> ⭐ 4.5/5</p>
                 <p><strong>Address:</strong> Station Approach, Bristol BS1 6QF</p>
                 <div style="margin-top: 8px;"><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Customer Info Counter Loop</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">High-Contrast Visual Boards</span><span style="background: #e0f2fe; color: #0369a1; font-weight: 700; font-size: 0.78rem; padding: 3px 8px; border-radius: 12px; margin-right: 6px; margin-bottom: 6px; display: inline-block;">Auracast Transit Trial</span></div>
-                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0097A7;">"Ticket counter induction loops active; main concourse features large high-contrast visual display boards."</p>
+                <p style="margin: 8px 0 0 0; font-size: 0.85rem; color: #475569; font-style: italic; background: #ffffff; padding: 8px 12px; border-radius: 8px; border-left: 3px solid #0891B2;">"Ticket counter induction loops active; main concourse features large high-contrast visual display boards."</p>
             </div>
                     </div>
                 </div>
@@ -356,6 +370,9 @@
                 Return to Journey Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=3.0"></script>

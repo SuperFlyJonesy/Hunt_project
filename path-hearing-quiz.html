@@ -19,12 +19,25 @@
             font-weight: 800; cursor: pointer; transition: all 0.2s ease; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px;
         }
         .quiz-btn:hover { border-color: #005EB8; color: #005EB8; background: #eff6ff; }
-        .quiz-btn.selected-yes { background: #dcfce7; border-color: #16a34a; color: #15803d; }
+        .quiz-btn.selected-yes { background: #dcfce7; border-color: #16a34a; color: #1B5E20; }
         .quiz-btn.selected-no { background: #f1f5f9; border-color: #64748b; color: #475569; }
         .result-card { display: none; background: #eff6ff; border: 2px solid #3b82f6; border-radius: 16px; padding: 24px; margin-top: 25px; }
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Interactive Hearing Health Quiz - Hearing Loss Initiative">
+    <meta property="og:description" content="Take our quick self-assessment hearing quiz to identify early signs of hearing changes and explore next steps.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-hearing-quiz.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interactive Hearing Health Quiz - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Take our quick self-assessment hearing quiz to identify early signs of hearing changes and explore next steps.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -141,6 +154,10 @@
                 Back to Journey
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <p class="hli-medical-note"><strong>Medical Note:</strong> Educational guidance only — not a clinical diagnosis. Consult a qualified GP or Audiologist for personal advice.</p>
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script>
@@ -174,11 +191,11 @@
 
             if (yesCount <= 1) {
                 resTitle.textContent = `Score: ${yesCount}/6: Healthy Hearing Baseline`;
-                resTitle.style.color = '#15803d';
+                resTitle.style.color = '#1B5E20';
                 resDesc.textContent = "Your answers indicate little to no noticeable difficulty in everyday listening environments. Keep protecting your ears from loud noise and get a routine check every few years!";
             } else if (yesCount <= 3) {
                 resTitle.textContent = `Score: ${yesCount}/6: Mild Hearing Loss Indicator`;
-                resTitle.style.color = '#c2410c';
+                resTitle.style.color = '#D97706';
                 resDesc.textContent = "You are noticing some mild difficulty in noisy environments or with high-frequency speech. We recommend scheduling a routine hearing check with your GP or a high street audiologist.";
             } else {
                 resTitle.textContent = `Score: ${yesCount}/6: Significant Hearing Loss Indicator`;

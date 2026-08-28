@@ -36,6 +36,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="How We Hear: The Science of Hearing - Hearing Loss Initiative">
+    <meta property="og:description" content="Discover the anatomy of the ear and the science of how sound waves transform into neurological signals.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-how-we-hear.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How We Hear: The Science of Hearing - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Discover the anatomy of the ear and the science of how sound waves transform into neurological signals.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -58,7 +71,7 @@
             
             <!-- ACCORDION 1: Anatomy & Journey of Sound -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="true">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">hearing</span> 1. The Journey of Sound &amp; Ear Mechanics</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -67,7 +80,7 @@
                         Hearing involves a complex sequence of mechanical and electrical conversions across the outer, middle, and inner ear to transform acoustic vibrations into brain perception.
                     </p>
 
-                    <img src="Contents/Audiology Images/ear.jpg" alt="Ear Anatomy Diagram" style="width: 100%; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 15px 0 25px 0; border: 1px solid #cbd5e1;">
+                    <img loading="lazy" src="Contents/Audiology Images/ear.jpg" alt="Ear Anatomy Diagram" style="width: 100%; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin: 15px 0 25px 0; border: 1px solid #cbd5e1;">
 
                     <ul class="step-list">
                         <li class="step-item">
@@ -104,7 +117,7 @@
 
             <!-- ACCORDION 2: Educational Video & Guides -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">play_circle</span> 2. Educational Video &amp; RNID Guide</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -128,24 +141,32 @@
 
             <!-- ACCORDION 3: Types & Severity Levels -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">equalizer</span> 3. Types &amp; Severity Levels of Hearing Loss</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <div style="margin-bottom: 25px;">
                         <h3 style="color: #0f172a; font-size: 1.15rem; margin: 0 0 10px 0;">Main Types of Hearing Loss:</h3>
-                        <div class="info-box" style="margin-bottom: 12px;">
-                            <strong style="color: #0f172a; font-size: 1rem;">Sensorineural Hearing Loss:</strong>
-                            <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">Caused by damage to cochlear hair cells or the auditory nerve. Most common form, often age-related (presbyacusis) or noise-induced.</p>
+                        <div class="grid-2col" style="margin-bottom: 15px;">
+                            <div class="info-box" style="border-left: 4px solid #005EB8;">
+                                <strong style="color: #005EB8; font-size: 1.05rem; display: block; margin-bottom: 4px;">Sensorineural Hearing Loss:</strong>
+                                <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">
+                                    Caused by damage to delicate cochlear hair cells inside the inner ear or the auditory nerve. This is the most common form of hearing loss, often age-related (presbyacusis) or noise-induced. While permanent, it is effectively managed and treated with modern digital NHS hearing aids and cochlear implants.
+                                </p>
+                            </div>
+                            <div class="info-box" style="border-left: 4px solid #D97706;">
+                                <strong style="color: #D97706; font-size: 1.05rem; display: block; margin-bottom: 4px;">Conductive Hearing Loss:</strong>
+                                <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">
+                                    Occurs when sound vibrations cannot pass efficiently through the outer ear canal, eardrum, or middle ear ossicles (e.g. earwax compaction, middle ear fluid/glue ear, eardrum perforation, or otosclerosis). Conductive hearing loss is frequently treatable medically or surgically.
+                                </p>
+                            </div>
                         </div>
-                        <div class="info-box" style="margin-bottom: 12px;">
-                            <strong style="color: #0f172a; font-size: 1rem;">Conductive Hearing Loss:</strong>
-                            <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">Sound cannot efficiently pass through the outer ear canal to the eardrum or ossicles (e.g. earwax blockage, fluid, perforation).</p>
-                        </div>
-                        <div class="info-box">
-                            <strong style="color: #0f172a; font-size: 1rem;">Mixed Hearing Loss:</strong>
-                            <p style="margin: 4px 0 0 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">A combination of sensorineural and conductive factors.</p>
+                        <div class="info-box" style="border-left: 4px solid #7B1FA2;">
+                            <strong style="color: #7B1FA2; font-size: 1.05rem; display: block; margin-bottom: 4px;">Mixed Hearing Loss:</strong>
+                            <p style="margin: 0; color: #334155; font-size: 0.95rem; line-height: 1.5;">
+                                A combination of both sensorineural and conductive hearing loss in the same ear (for example, age-related sensorineural loss with temporary conductive fluid or earwax blockage).
+                            </p>
                         </div>
                     </div>
 
@@ -171,7 +192,7 @@
 
             <!-- ACCORDION 4: Clinical Etiology & Related Conditions -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">medical_services</span> 4. Common Conditions &amp; Related Causes</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -225,8 +246,12 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <p class="hli-medical-note"><strong>Medical Note:</strong> Educational guidance only — not a clinical diagnosis. Consult a qualified GP or Audiologist for personal advice.</p>
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
-    <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=9.0"></script>
 </body>
 </html>

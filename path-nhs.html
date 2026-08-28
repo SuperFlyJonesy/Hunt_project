@@ -7,7 +7,7 @@
     <meta name="description" content="Verified visitor guide for Bristol NHS Foundation Trust Audiology clinics. Includes authentic hospital photos, interactive photo carousels, parking tariffs, RingGo details, step-by-step internal directions, colored zones, food & cafe options, estimated walking distances, and satellite clinic details.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="styles.css?v=9.0">
     <style>
         .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
         .hospital-gallery {
@@ -59,7 +59,10 @@
             margin-bottom: 8px;
         }
         .badge-uhbw { background: #e0f2fe; color: #0369a1; }
-        .badge-nbt { background: #f0fdf4; color: #15803d; }
+        .badge-nbt { background: #f0fdf4; color: #1B5E20; }
+        .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 15px; }
+        @media (max-width: 768px) { .grid-2col { grid-template-columns: 1fr; } }
+        .good-box { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 18px; margin: 15px 0; }
 
         /* CAROUSEL COMPONENT STYLES */
         .carousel-container {
@@ -167,7 +170,7 @@
             letter-spacing: 0.5px;
         }
         .zone-blue { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
-        .zone-green { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+        .zone-green { background: #dcfce7; color: #1B5E20; border: 1px solid #86efac; }
         .zone-yellow { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
 
         .distance-pills {
@@ -369,6 +372,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Bristol NHS Foundation Trust - Audiology & Visitor Guide">
+    <meta property="og:description" content="Verified visitor guide for Bristol NHS Foundation Trust Audiology clinics. Includes authentic hospital photos, interactive photo carousels, parking tariffs, RingGo details, step-by-step internal directions, colored zones, food & cafe options, estimated walking distances, and satellite clinic details.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-nhs.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bristol NHS Foundation Trust - Audiology & Visitor Guide">
+    <meta name="twitter:description" content="Verified visitor guide for Bristol NHS Foundation Trust Audiology clinics. Includes authentic hospital photos, interactive photo carousels, parking tariffs, RingGo details, step-by-step internal directions, colored zones, food & cafe options, estimated walking distances, and satellite clinic details.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -389,10 +405,10 @@
         <!-- Progressive Disclosure Accordion Container -->
         <div class="accordion-container">
             
-            <!-- ACCORDION 1: Overview & Photos -->
+            <!-- ACCORDION 1: Combined Trust Overview & Hospital Hubs (Original Format with Photos) -->
             <div class="accordion-item active">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">hub</span> 1. Combined Trust Overview & Hospital Hubs</span>
+                <button class="accordion-header" aria-expanded="true">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">hub</span> 1. Combined Trust Overview &amp; Hospital Hubs</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -403,7 +419,7 @@
                     <!-- Hospital Photos Gallery -->
                     <div class="hospital-gallery">
                         <div class="hospital-card">
-                            <img src="Contents/Venues/st-michaels-hospital.jpg" alt="St Michael's Hospital & UHBW Precinct" class="hospital-img">
+                            <img loading="lazy" src="Contents/Venues/st-michaels-hospital.jpg" alt="St Michael's Hospital &amp; UHBW Precinct" class="hospital-img">
                             <div class="hospital-info">
                                 <span class="info-badge badge-uhbw">UHBW Trust</span>
                                 <h4>St Michael's Hospital</h4>
@@ -421,8 +437,8 @@
                         </div>
                     </div>
 
-                    <div class="info-box" style="border-left: 4px solid #005EB8;">
-                        <h4 style="margin: 0 0 8px 0; color: #005EB8; font-size: 1.05rem;">Main Audiology Centres:</h4>
+                    <div class="info-box" style="border-left: 4px solid #005EB8; background: #f8fafc; padding: 18px; border-radius: 12px;">
+                        <h4 style="margin: 0 0 8px 0; color: #005EB8; font-size: 1.05rem;">Main Audiology Centres &amp; Satellites:</h4>
                         <ul style="margin: 0; padding-left: 20px; color: #334155; font-size: 0.95rem; line-height: 1.6;">
                             <li><strong>St Michael's Hospital:</strong> UHBW main adult audiology centre (Level C).</li>
                             <li><strong>Brunel Building at Southmead Hospital:</strong> NBT Gate 36 (Level 1).</li>
@@ -433,10 +449,10 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 2: First-Time Visitor Essentials & CAZ -->
+            <!-- ACCORDION 2: First-Time Visitor Essentials, Barriers & CAZ -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #2563eb; margin-right: 8px;">info</span> 2. First-Time Visitor Essentials & Clean Air Zone</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #2563eb; margin-right: 8px;">info</span> 2. First-Time Visitor Essentials, Barriers &amp; Clean Air Zone</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -446,7 +462,7 @@
                     </div>
 
                     <div class="alert-box">
-                        <strong>🦻 Hearing Loop & Accessibility Support:</strong><br>
+                        <strong>🦻 Hearing Loop &amp; Accessibility Support:</strong><br>
                         All main Audiology waiting rooms at St Michael's Hospital, Southmead Brunel Building (Gate 36), and Weston General Hospital feature induction hearing loops, clear digital signage, and accessible seating. If you require a BSL interpreter or speech-to-text reporter for your appointment, contact the department in advance.
                     </div>
 
@@ -476,15 +492,109 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 3: St Michael's Hospital Guide -->
+            <!-- ACCORDION 3: 3-Year Retest & Emergency Red Flags (Merged from Audiology Pathway) -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">navigation</span> 3. St Michael's Hospital: Directions, Zone & Parking</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">schedule</span> 3. NHS 3-Year Reassessment Rule &amp; Emergency Red Flags</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        Under Bristol NHS protocols, your hearing prescription should be formally reviewed every 3 years, or sooner if you experience noticeable changes:
+                    </p>
+                    <div class="good-box">
+                        <h4 style="margin: 0 0 8px 0; color: #1B5E20; font-size: 1.05rem;">When to Contact Audiology Directly:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #1B5E20; font-size: 0.95rem; line-height: 1.6;">
+                            <li><strong>3 Years Since Last Test:</strong> You can contact the hospital audiology department directly for a retest without needing a new GP referral.</li>
+                            <li><strong>Sudden Hearing Drop (Red Flag):</strong> Sudden loss occurring within 72 hours requires immediate same-day ENT evaluation to preserve hearing.</li>
+                            <li><strong>Device Malfunction:</strong> Physical repair, buzzing, or mould refitting appointments can be booked directly.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bristol Emergency ENT & Text-Access Callout -->
+                    <div style="background: #fef2f2; border: 1.5px solid #ef4444; border-radius: 14px; padding: 18px; margin-top: 15px;">
+                        <h4 style="margin: 0 0 6px 0; color: #b91c1c; font-size: 1.05rem; display: flex; align-items: center; gap: 6px;">
+                            <span class="material-symbols-outlined" style="font-size: 1.25rem;">emergency</span> Urgent Bristol Hospital Intake:
+                        </h4>
+                        <p style="margin: 0 0 10px 0; font-size: 0.92rem; color: #7f1d1d; line-height: 1.5;">
+                            For sudden hearing drops, attend <strong>St Michael's Hospital ENT Clinic</strong> (Southwell St, BS2 8EG), <strong>Bristol Royal Infirmary (BRI) A&amp;E</strong> (BS2 8HW), or <strong>Southmead Hospital A&amp;E</strong> (BS10 5NB).
+                        </p>
+                        <div style="background: #ffffff; border: 1px solid #fecaca; border-radius: 10px; padding: 10px 14px; font-size: 0.88rem; color: #991b1b;">
+                            <strong>📱 Deaf/Non-Voice Emergency:</strong> Text <strong>999</strong> (register via <a href="https://www.emergencysms.net" target="_blank" rel="noopener noreferrer" style="color: #b91c1c; font-weight: 700; text-decoration: underline;">EmergencySMS</a> by texting 'register' to 999) or use the <a href="https://www.relayuk.bt.com" target="_blank" rel="noopener noreferrer" style="color: #b91c1c; font-weight: 700; text-decoration: underline;">Relay UK App</a> (dial <strong>18001 111</strong>).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 4: Free Postal Batteries & Consumables (Merged from Audiology Pathway) -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #00897B; margin-right: 8px;">battery_charging_full</span> 4. Free Batteries, Tubes &amp; Domes (Postal &amp; Drop-in)</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <p style="font-size: 1.02rem; line-height: 1.6; color: #334155;">
+                        NHS hearing aid batteries and replacement tubing are provided completely free of charge to registered patients:
+                    </p>
+
+                    <!-- UHBW Online Postal Order Highlight Box -->
+                    <div style="background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 2px solid #005EB8; padding: 20px; border-radius: 14px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0, 94, 184, 0.08);">
+                        <span style="background: #005EB8; color: white; font-size: 0.75rem; font-weight: 800; padding: 2px 10px; border-radius: 10px; text-transform: uppercase;">New Online Postal Service</span>
+                        <h4 style="margin: 6px 0 4px 0; color: #0f172a; font-size: 1.15rem; font-weight: 800;">Order Free NHS Batteries, Tubes &amp; Domes Online</h4>
+                        <p style="margin: 0 0 10px 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">
+                            Patients registered with the Adult Audiology service at <strong>University Hospitals Bristol and Weston NHS Trust (UHBW)</strong> can request replacement consumables directly through the official UHBW online form.
+                        </p>
+                        <div class="grid-2col" style="margin: 10px 0; gap: 10px;">
+                            <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-size: 0.88rem; color: #334155;">
+                                <strong>📦 Available to Order:</strong>
+                                <ul style="margin: 4px 0 0 0; padding-left: 18px; line-height: 1.4;">
+                                    <li>Batteries: P13 (Orange), 312 (Brown), 675 (Blue)</li>
+                                    <li>Earmould replacement tubing</li>
+                                    <li>Thin/slim tubes &amp; silicone domes</li>
+                                    <li>Cleaning wires</li>
+                                </ul>
+                            </div>
+                            <div style="background: white; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font-size: 0.88rem; color: #334155;">
+                                <strong>⏱️ Delivery &amp; Advice:</strong>
+                                <ul style="margin: 4px 0 0 0; padding-left: 18px; line-height: 1.4;">
+                                    <li>Posted via Royal Mail 2nd Class within <strong>2 weeks</strong>.</li>
+                                    <li>Hearing aid batteries are an expensive NHS resource; please only request when running low.</li>
+                                    <li>Requires name, DOB, address &amp; NHS/T number.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="https://www.uhbw.nhs.uk/form/68E8B983DF9F63200F5B027275EE9611" target="_blank" rel="noopener noreferrer" style="background: #005EB8; color: white; padding: 10px 20px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
+                                <span class="material-symbols-outlined" style="font-size: 1.1rem;">local_shipping</span> Open UHBW Online Postal Form &rarr;
+                            </a>
+                            <a href="path-hearing-aids-access.html" style="background: #f8fafc; color: #0f172a; border: 1px solid #cbd5e1; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px;">
+                                View Full Hearing Aids Roadmap &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="grid-2col">
+                        <div class="info-box" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 12px;">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">📮 Traditional Postal Battery Service</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">You can also send your yellow NHS Battery Record Book along with a stamped addressed envelope to your clinic to receive fresh battery packs by post.</p>
+                        </div>
+                        <div class="info-box" style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 12px;">
+                            <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🔧 Drop-in Volunteer Clinics</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.5;">Local volunteer drop-ins across Bristol offer free tubing changes and cleaning support without waiting for hospital appointments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 5: St Michael's Hospital Guide -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">navigation</span> 5. St Michael's Hospital: Directions, Zone &amp; Parking</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <p><strong>Address:</strong> St Michael's Hill, Bristol, BS2 8EG (Southwell Street entrance)</p>
-                    <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-blue">Level C - Blue / Yellow Clinical Zone</span></p>
+                    <p><strong>Colored Zone &amp; Floor:</strong> <span class="zone-tag zone-blue">Level C - Blue / Yellow Clinical Zone</span></p>
 
                     <h4 style="margin-top: 15px; margin-bottom: 6px;">🚶 Estimated Walking Distances:</h4>
                     <div class="distance-pills">
@@ -499,11 +609,11 @@
                             <li><strong>From St Michael's Hill Main Entrance (Level E):</strong> Enter main reception on Level E. Head towards the central lift bank/stairwell and descend 2 floors down to <strong>Level C</strong>.</li>
                             <li><strong>From Southwell Street Courtyard Entrance (Level C):</strong> Enter via the dedicated Level C courtyard entrance (set back from St Michael's Hill near the NIHR Research Facility). This entrance provides step-free, flat access straight into Level C.</li>
                             <li><strong>Follow Zone Signs:</strong> Follow the blue line floor indicator and overhead <em>"Audiology Outpatients / Hearing Aids"</em> signs along the Level C main clinical corridor.</li>
-                            <li><strong>Reception & Waiting Room:</strong> Audiology reception desk and waiting room are on your left along the main Level C corridor.</li>
+                            <li><strong>Reception &amp; Waiting Room:</strong> Audiology reception desk and waiting room are on your left along the main Level C corridor.</li>
                         </ol>
                     </div>
 
-                    <h4 style="margin-top: 20px; margin-bottom: 10px;">☕ Food & Refreshment Options at St Michael's:</h4>
+                    <h4 style="margin-top: 20px; margin-bottom: 10px;">☕ Food &amp; Refreshment Options at St Michael's:</h4>
                     <div class="food-grid">
                         <div class="food-card">
                             <h5><span class="material-symbols-outlined">local_cafe</span> Brewnel's Café (Level C Foyer)</h5>
@@ -537,8 +647,8 @@
                     </table>
                     <p><strong>♿ Blue Badge Holders:</strong> Free parking for up to 4 hours in designated disabled bays. Always display your valid badge and scan it at the payment machine upon arrival.</p>
 
-                    <h4 style="margin-top: 15px; margin-bottom: 6px;">RingGo Cashless Mobile Parking & Street Parking:</h4>
-                    <p style="margin: 0 0 8px 0; font-size: 0.92rem; color: #334155;">On-street Pay & Display parking on St Michael's Hill and the nearby Montague Hill car park use <strong>RingGo</strong>.</p>
+                    <h4 style="margin-top: 15px; margin-bottom: 6px;">RingGo Cashless Mobile Parking &amp; Street Parking:</h4>
+                    <p style="margin: 0 0 8px 0; font-size: 0.92rem; color: #334155;">On-street Pay &amp; Display parking on St Michael's Hill and the nearby Montague Hill car park use <strong>RingGo</strong>.</p>
                     <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; color: #334155;">
                         <li><strong>RingGo Telephone Pay / Registration:</strong> Call <a href="tel:01173419000" style="color: #d97706; font-weight: bold;">0117 341 9000</a></li>
                         <li><strong>Location Code:</strong> Check physical street signs adjacent to your parking spot for the 4- or 5-digit RingGo zone code.</li>
@@ -546,15 +656,15 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 4: Southmead Hospital Guide -->
+            <!-- ACCORDION 6: Southmead Hospital Guide -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">explore</span> 4. Southmead Hospital (Brunel Building): Gate 36 & Parking</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">explore</span> 6. Southmead Hospital (Brunel Building): Gate 36 &amp; Parking</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <p><strong>Address:</strong> Gate 36, Level 1, Brunel Building, Southmead Hospital, Southmead Road, Bristol, BS10 5NB</p>
-                    <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-green">Level 1 - Lime / Green Zone (Gate 36)</span></p>
+                    <p><strong>Colored Zone &amp; Floor:</strong> <span class="zone-tag zone-green">Level 1 - Lime / Green Zone (Gate 36)</span></p>
 
                     <h4 style="margin-top: 15px; margin-bottom: 6px;">🚶 Estimated Walking Distances:</h4>
                     <div class="distance-pills">
@@ -568,19 +678,19 @@
                         <ol>
                             <li><strong>Enter Main Atrium:</strong> Enter through the main entrance of the Brunel Building into the Level 1 central indoor street (Atrium).</li>
                             <li><strong>Walk Along Central Street:</strong> Walk straight ahead along the central glass-roof atrium. Gates are numbered sequentially on overhead banners.</li>
-                            <li><strong>Locate Gate 36 Landmark:</strong> Continue past Costa Coffee and M&S. Look for <strong>Gate 36</strong> on your right, situated directly opposite the <em>League of Friends Coffee Shop</em>.</li>
+                            <li><strong>Locate Gate 36 Landmark:</strong> Continue past Costa Coffee and M&amp;S. Look for <strong>Gate 36</strong> on your right, situated directly opposite the <em>League of Friends Coffee Shop</em>.</li>
                             <li><strong>Check-in at Reception:</strong> Walk through Gate 36 doors to the Audiology reception desk and patient waiting area.</li>
                         </ol>
                     </div>
 
-                    <h4 style="margin-top: 20px; margin-bottom: 10px;">☕ Food & Refreshments in Brunel Building (Level 1 Atrium):</h4>
+                    <h4 style="margin-top: 20px; margin-bottom: 10px;">☕ Food &amp; Refreshments in Brunel Building (Level 1 Atrium):</h4>
                     <div class="food-grid">
                         <div class="food-card">
                             <h5><span class="material-symbols-outlined">local_cafe</span> League of Friends Coffee Shop</h5>
                             <p>Located on Level 1 directly opposite Gate 36 Audiology. Serves fresh coffee, tea, sandwiches, and homemade cakes. Proceeds support hospital equipment.</p>
                         </div>
                         <div class="food-card">
-                            <h5><span class="material-symbols-outlined">shopping_bag</span> M&S Simply Food</h5>
+                            <h5><span class="material-symbols-outlined">shopping_bag</span> M&amp;S Simply Food</h5>
                             <p>Located in the main Level 1 Brunel Atrium for sandwiches, salads, hot bakery, fruit, and cold drinks.</p>
                         </div>
                         <div class="food-card">
@@ -613,15 +723,15 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 5: Weston General Hospital Guide -->
+            <!-- ACCORDION 7: Weston General Hospital Guide -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #0284c7; margin-right: 8px;">domain</span> 5. Weston General Hospital: Photos, Directions & Shuttle</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #0284c7; margin-right: 8px;">domain</span> 7. Weston General Hospital: Photos, Directions &amp; Shuttle</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <p><strong>Address:</strong> Grange Road, Uphill, Weston-super-Mare, BS23 4TQ</p>
-                    <p><strong>Colored Zone & Floor:</strong> <span class="zone-tag zone-yellow">Ground Floor - Main Outpatients Corridor</span></p>
+                    <p><strong>Colored Zone &amp; Floor:</strong> <span class="zone-tag zone-yellow">Ground Floor - Main Outpatients Corridor</span></p>
 
                     <!-- Weston Hospital Photos Interactive Carousel -->
                     <div class="carousel-container" id="weston-carousel">
@@ -632,16 +742,16 @@
                                 <div class="carousel-caption">
                                     <span class="info-badge badge-uhbw">Step 1: Arrival</span>
                                     <h4>Main Entrance Outside</h4>
-                                    <p>Grange Road entrance & visitor drop-off zone (Uphill, Weston-super-Mare)</p>
+                                    <p>Grange Road entrance &amp; visitor drop-off zone (Uphill, Weston-super-Mare)</p>
                                 </div>
                             </div>
 
                             <!-- Slide 2 -->
                             <div class="carousel-slide">
-                                <img src="Contents/Venues/Weston General Hospital/Photos-1-001/Main recpetion.jpg" alt="Weston General Main Reception & Foyer" class="carousel-img" loading="lazy">
+                                <img src="Contents/Venues/Weston General Hospital/Photos-1-001/Main recpetion.jpg" alt="Weston General Main Reception &amp; Foyer" class="carousel-img" loading="lazy">
                                 <div class="carousel-caption">
                                     <span class="info-badge badge-uhbw">Step 2: Foyer</span>
-                                    <h4>Main Reception & Visitor Foyer</h4>
+                                    <h4>Main Reception &amp; Visitor Foyer</h4>
                                     <p>Ground floor entrance area next to Costa Coffee seating</p>
                                 </div>
                             </div>
@@ -661,7 +771,7 @@
                                 <img src="Contents/Venues/Weston General Hospital/Photos-1-001/Audiology reception.jpg" alt="Audiology Reception" class="carousel-img" loading="lazy">
                                 <div class="carousel-caption">
                                     <span class="info-badge badge-uhbw">Step 4: Reception</span>
-                                    <h4>Audiology Reception & Waiting Area</h4>
+                                    <h4>Audiology Reception &amp; Waiting Area</h4>
                                     <p>Ground floor clinic reception desk and comfortable patient waiting area</p>
                                 </div>
                             </div>
@@ -685,23 +795,23 @@
                         <ol>
                             <li><strong>Enter Main Entrance:</strong> Enter through the main hospital building entrance off Grange Road onto the ground floor corridor.</li>
                             <li><strong>Pass Costa Coffee:</strong> Walk past the Costa Coffee seating area on your right towards the main Outpatients reception.</li>
-                            <li><strong>Follow Outpatients Signs:</strong> Continue straight down the main Outpatients corridor. Overhead directional signs point clearly to <em>"Audiology & Hearing Aids"</em> at the end of the clinical wing.</li>
+                            <li><strong>Follow Outpatients Signs:</strong> Continue straight down the main Outpatients corridor. Overhead directional signs point clearly to <em>"Audiology &amp; Hearing Aids"</em> at the end of the clinical wing.</li>
                             <li><strong>Check-in at Reception:</strong> Audiology reception desk and waiting room are situated on the ground floor at the end of the Outpatients corridor.</li>
                         </ol>
                     </div>
 
-                    <div class="info-box" style="border-left: 4px solid #0284c7;">
-                        <h4 style="margin: 0 0 6px 0; color: #0284c7; font-size: 1.05rem;">🚌 Free Station Shuttle Bus & Parking:</h4>
+                    <div class="info-box" style="border-left: 4px solid #0284c7; background: #f8fafc; padding: 18px; border-radius: 12px;">
+                        <h4 style="margin: 0 0 6px 0; color: #0284c7; font-size: 1.05rem;">🚌 Free Station Shuttle Bus &amp; Parking:</h4>
                         <p style="margin: 0 0 6px 0; font-size: 0.92rem; color: #334155;">A free circular shuttle bus operates Monday to Friday linking Weston General Hospital directly with Weston-super-Mare railway station.</p>
                         <p style="margin: 0; font-size: 0.92rem; color: #334155;"><strong>📞 Direct Clinic Line:</strong> <a href="tel:01934647047" style="color: #0284c7; font-weight: bold;">01934 647 047</a></p>
                     </div>
                 </div>
             </div>
 
-            <!-- ACCORDION 6: Community Satellite Clinics -->
+            <!-- ACCORDION 8: Community Satellite Clinics -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">location_city</span> 6. Community NHS Audiology Satellite Sites & Home Visits</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">location_city</span> 8. Community NHS Audiology Satellite Sites &amp; Home Visits</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -709,28 +819,13 @@
                         To reduce travel for patients across Bristol, South Gloucestershire, and North Somerset, NHS Audiology conducts outpatient hearing tests, hearing aid fittings, and device maintenance at community satellite clinics:
                     </p>
 
-                    <!-- Postal Alternative Callout Banner -->
-                    <div style="background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); border: 1.5px solid #005EB8; padding: 16px 20px; border-radius: 12px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                        <div>
-                            <h4 style="margin: 0 0 4px 0; color: #005EB8; font-size: 1.05rem; font-weight: 800; display: flex; align-items: center; gap: 6px;">
-                                <span class="material-symbols-outlined" style="font-size: 1.2rem;">local_shipping</span> Order Free Batteries &amp; Consumables by Post
-                            </h4>
-                            <p style="margin: 0; font-size: 0.9rem; color: #334155; line-height: 1.4;">
-                                Avoid unnecessary travel! Registered UHBW Adult Audiology patients can order batteries (13, 312, 675), mould tubing, and slim tubes/domes online for delivery within 2 weeks via Royal Mail.
-                            </p>
-                        </div>
-                        <a href="https://www.uhbw.nhs.uk/form/68E8B983DF9F63200F5B027275EE9611" target="_blank" rel="noopener noreferrer" style="background: #005EB8; color: white; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;">
-                            <span class="material-symbols-outlined" style="font-size: 1rem;">open_in_new</span> UHBW Postal Order Form &rarr;
-                        </a>
-                    </div>
-
                     <div class="satellite-grid">
                         <!-- Site 1: Cossham Hospital -->
                         <div class="satellite-card">
                             <h4>Cossham Hospital (Kingswood)</h4>
                             <div class="sat-detail"><strong>📍 Address:</strong> Lodge Road, Kingswood, Bristol, BS15 1LF</div>
-                            <div class="sat-detail"><strong>🚗 Parking:</strong> 54 Pay & Display spaces + 11 Blue Badge bays. Free for badge holders.</div>
-                            <div class="sat-detail"><strong>🩺 Services:</strong> Adult hearing assessments, fittings, retubing & maintenance.</div>
+                            <div class="sat-detail"><strong>🚗 Parking:</strong> 54 Pay &amp; Display spaces + 11 Blue Badge bays. Free for badge holders.</div>
+                            <div class="sat-detail"><strong>🩺 Services:</strong> Adult hearing assessments, fittings, retubing &amp; maintenance.</div>
                             <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
                         </div>
 
@@ -748,7 +843,7 @@
                             <h4>Clevedon Hospital</h4>
                             <div class="sat-detail"><strong>📍 Address:</strong> Old Street, Clevedon, North Somerset, BS21 6BH</div>
                             <div class="sat-detail"><strong>🚗 Parking:</strong> Free patient car park on site.</div>
-                            <div class="sat-detail"><strong>🩺 Services:</strong> Satellite outpatient hearing aid clinics & battery exchange.</div>
+                            <div class="sat-detail"><strong>🩺 Services:</strong> Satellite outpatient hearing aid clinics &amp; battery exchange.</div>
                             <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
                         </div>
 
@@ -766,7 +861,7 @@
                             <h4>Portishead Medical Centre</h4>
                             <div class="sat-detail"><strong>📍 Address:</strong> 1 Stock Way North, Portishead, Bristol, BS20 6NJ</div>
                             <div class="sat-detail"><strong>🚗 Parking:</strong> On-site patient parking with disabled bays.</div>
-                            <div class="sat-detail"><strong>🩺 Services:</strong> Audiology satellite consultations & mould fittings.</div>
+                            <div class="sat-detail"><strong>🩺 Services:</strong> Audiology satellite consultations &amp; mould fittings.</div>
                             <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
                         </div>
 
@@ -775,14 +870,14 @@
                             <h4>Stockwood Medical Centre</h4>
                             <div class="sat-detail"><strong>📍 Address:</strong> Kolynos Close, Stockwood, Bristol, BS14 8JL</div>
                             <div class="sat-detail"><strong>🚗 Parking:</strong> Free on-site medical centre car park.</div>
-                            <div class="sat-detail"><strong>🩺 Services:</strong> Local community hearing aid repairs & battery replacement.</div>
+                            <div class="sat-detail"><strong>🩺 Services:</strong> Local community hearing aid repairs &amp; battery replacement.</div>
                             <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
                         </div>
 
                         <!-- Site 7: Domiciliary Home Visit Service -->
                         <div class="satellite-card" style="grid-column: span 2;">
                             <h4>NHS Domiciliary (Home Visit) Service</h4>
-                            <div class="sat-detail"><strong>📍 Coverage:</strong> Full coverage across Bristol, South Gloucestershire & North Somerset.</div>
+                            <div class="sat-detail"><strong>📍 Coverage:</strong> Full coverage across Bristol, South Gloucestershire &amp; North Somerset.</div>
                             <div class="sat-detail"><strong>🩺 Eligibility:</strong> Available for housebound or frail patients unable to attend hospital.</div>
                             <div class="sat-detail"><strong>📝 Referral:</strong> Arranged via GP referral or contacting central booking.</div>
                             <div class="sat-detail"><strong>📞 Contact:</strong> <a href="tel:01173425854">0117 342 5854</a></div>
@@ -791,31 +886,31 @@
                 </div>
             </div>
 
-            <!-- ACCORDION 7: Referrals & Official Portals -->
+            <!-- ACCORDION 9: Referrals & Official Portals -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #16a34a; margin-right: 8px;">link</span> 7. Referrals & Official NHS Travel Portals</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #16a34a; margin-right: 8px;">link</span> 9. Referrals &amp; Official NHS Travel Portals</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
                     <div class="good-box">
-                        <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">How to Get an NHS Referral:</h4>
-                        <p style="margin: 0; font-size: 0.95rem; color: #15803d; line-height: 1.6;">
+                        <h4 style="margin: 0 0 8px 0; color: #1B5E20; font-size: 1.05rem;">How to Get an NHS Referral:</h4>
+                        <p style="margin: 0; font-size: 0.95rem; color: #1B5E20; line-height: 1.6;">
                             Your local GP will inspect your ear canals for wax blockages, review symptoms, and submit a direct electronic referral to UHBW (St Michael's / Weston General) or North Bristol NHS Trust (Southmead Hospital).
                         </p>
                     </div>
 
                     <div class="external-btn-group" style="margin-top: 20px;">
-                        <a href="https://www.uhbw.nhs.uk/p/patients-and-visitors/travelling-to-our-hospitals" target="_blank" rel="noopener" class="ext-btn btn-uhbw">
-                            <span class="material-symbols-outlined">open_in_new</span> UHBW Travel & Parking Guide
+                        <a href="https://www.uhbw.nhs.uk/p/patients-and-visitors/travelling-to-our-hospitals" target="_blank" rel="noopener noreferrer" class="ext-btn btn-uhbw">
+                            <span class="material-symbols-outlined">open_in_new</span> UHBW Travel &amp; Parking Guide
                         </a>
-                        <a href="https://www.nbt.nhs.uk/our-hospitals/southmead-hospital/travel-parking-southmead-hospital" target="_blank" rel="noopener" class="ext-btn btn-nbt">
+                        <a href="https://www.nbt.nhs.uk/our-hospitals/southmead-hospital/travel-parking-southmead-hospital" target="_blank" rel="noopener noreferrer" class="ext-btn btn-nbt">
                             <span class="material-symbols-outlined">open_in_new</span> Southmead Parking Guide
                         </a>
-                        <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener" class="ext-btn btn-ringgo">
+                        <a href="https://www.myringgo.co.uk" target="_blank" rel="noopener noreferrer" class="ext-btn btn-ringgo">
                             <span class="material-symbols-outlined">open_in_new</span> RingGo Official Portal
                         </a>
-                        <a href="https://www.bristol.gov.uk/residents/streets-travel-zoning/bristol-clean-air-zone" target="_blank" rel="noopener" class="ext-btn btn-caz">
+                        <a href="https://www.bristol.gov.uk/residents/streets-travel-zoning/bristol-clean-air-zone" target="_blank" rel="noopener noreferrer" class="ext-btn btn-caz">
                             <span class="material-symbols-outlined">open_in_new</span> Bristol Clean Air Zone Tool
                         </a>
                     </div>
@@ -826,10 +921,6 @@
 
         <!-- Navigation Footer -->
         <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
-            <a href="path-audiology.html" class="back-to-journey-btn" style="background: #0284c7; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
-                <span class="material-symbols-outlined">medical_information</span>
-                Audiology Clinical Guidance
-            </a>
             <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
                 <span class="material-symbols-outlined">arrow_back</span>
                 Return to Journey Hub
@@ -839,6 +930,10 @@
                 Visit Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <p class="hli-medical-note"><strong>Medical Note:</strong> Educational guidance only — not a clinical diagnosis. Consult a qualified GP or Audiologist for personal advice.</p>
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <!-- INTERACTIVE CAROUSEL SCRIPT -->
@@ -890,6 +985,6 @@
             }, { passive: true });
         });
     </script>
-    <script src="script.js?v=8.0"></script>
+    <script src="script.js?v=9.0"></script>
 </body>
 </html>

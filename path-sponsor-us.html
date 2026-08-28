@@ -28,6 +28,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Sponsor Our Initiative - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Partner with the Bristol Hearing Loss Initiative to fund venue accessibility, staff training, and community support for adults living with hearing loss.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-sponsor-us.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sponsor Our Initiative - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Partner with the Bristol Hearing Loss Initiative to fund venue accessibility, staff training, and community support for adults living with hearing loss.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -50,7 +63,7 @@
             
             <!-- ACCORDION 1: Overview -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">handshake</span> 1. Partner with the Bristol Hearing Loss Initiative</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -66,7 +79,7 @@
 
             <!-- ACCORDION 2: What Funding Makes Possible -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">volunteer_activism</span> 2. What Your Funding Makes Possible</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -82,7 +95,7 @@
 
             <!-- ACCORDION 3: Sponsorship Packages -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d97706; margin-right: 8px;">workspace_premium</span> 3. Sponsorship Packages</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -110,7 +123,7 @@
 
             <!-- ACCORDION 4: Sponsorship Submission Form -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">send</span> 4. Sponsorship Application Form</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -164,7 +177,7 @@
                     </form>
 
                     <!-- Instant Feedback Confirmation Message -->
-                    <div id="sponsor-success-msg" style="display: none; background: #dcfce7; border: 1px solid #86efac; color: #166534; padding: 20px; border-radius: 14px; font-weight: 700; margin-top: 20px; text-align: center;">
+                    <div id="sponsor-success-msg" style="display: none; background: #dcfce7; border: 1px solid #86efac; color: #1B5E20; padding: 20px; border-radius: 14px; font-weight: 700; margin-top: 20px; text-align: center;">
                         <span class="material-symbols-outlined" style="font-size: 2.2rem; display: block; margin-bottom: 6px;">check_circle</span>
                         Thank you for your submission! Jason and our team have received your sponsorship request and will respond within 24 hours.
                     </div>
@@ -184,6 +197,9 @@
                 Back to Journey Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script>
@@ -192,9 +208,34 @@
             const successMsg = document.getElementById('sponsor-success-msg');
 
             if (form && successMsg) {
-                form.addEventListener('submit', (e) => {
+                form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<span class="material-symbols-outlined" style="animation: spin 1s infinite linear;">sync</span> Submitting...';
+                    submitBtn.disabled = true;
+
+                    const formData = new FormData();
+                    formData.append('access_key', '5e8c0ecb-4814-4029-9117-7bcfce550aea');
+                    formData.append('subject', 'New Sponsorship Application - Bristol Hearing Loss Initiative');
+                    formData.append('from_name', 'Bristol HLI Website');
+                    formData.append('Organisation', document.getElementById('org-name').value);
+                    formData.append('Contact_Name', document.getElementById('contact-name').value);
+                    formData.append('Email', document.getElementById('contact-email').value);
+                    formData.append('Phone', document.getElementById('contact-phone').value || 'Not provided');
+                    formData.append('Package', document.getElementById('tier-select').value);
+                    formData.append('Notes', document.getElementById('sponsor-notes').value || 'None');
+
+                    try {
+                        await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        });
+                    } catch(err) {
+                        console.error('Web3Forms submit error:', err);
+                    }
+
                     const submission = {
                         org: document.getElementById('org-name').value,
                         name: document.getElementById('contact-name').value,

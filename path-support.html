@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Support and practical advice directory for hearing aid maintenance, communication strategies, and emotional wellbeing.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access specialized support, workplace adjustments, family guides, and community networks for hearing loss in Bristol.">
     <meta charset="UTF-8">
-    <title>Support the initiative</title>
+    <title>Support Hub - Hearing Loss Initiative</title>
     <link rel="stylesheet" href="styles.css?v=12.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -18,17 +18,21 @@
             animation: seamlessFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .hub-grid .metro-btn {
+        .metro-grid .metro-btn {
             opacity: 0;
             animation: seamlessFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .hub-grid .metro-btn:nth-child(1) { animation-delay: 0.08s; }
-        .hub-grid .metro-btn:nth-child(2) { animation-delay: 0.12s; }
-        .hub-grid .metro-btn:nth-child(3) { animation-delay: 0.16s; }
-        .hub-grid .metro-btn:nth-child(4) { animation-delay: 0.20s; }
-        
-        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+        .metro-grid .metro-btn:nth-child(1) { animation-delay: 0.08s; }
+        .metro-grid .metro-btn:nth-child(2) { animation-delay: 0.12s; }
+        .metro-grid .metro-btn:nth-child(3) { animation-delay: 0.16s; }
+        .metro-grid .metro-btn:nth-child(4) { animation-delay: 0.20s; }
+        .metro-grid .metro-btn:nth-child(5) { animation-delay: 0.24s; }
+        .metro-grid .metro-btn:nth-child(6) { animation-delay: 0.28s; }
+        .metro-grid .metro-btn:nth-child(7) { animation-delay: 0.32s; }
+        .metro-grid .metro-btn:nth-child(8) { animation-delay: 0.36s; }
+        .metro-grid .metro-btn:nth-child(9) { animation-delay: 0.40s; }
+        .metro-grid .metro-btn:nth-child(10) { animation-delay: 0.44s; }
 
         /* Floating Rollover Tooltip - Guaranteed Visibility */
         #hli-tile-tooltip {
@@ -80,17 +84,30 @@
         }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Support Hub - Hearing Loss Initiative">
+    <meta property="og:description" content="Access specialized support, workplace adjustments, family guides, and community networks for hearing loss in Bristol.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-support.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support Hub - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Access specialized support, workplace adjustments, family guides, and community networks for hearing loss in Bristol.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme">
     <a href="#main-grid" class="skip-link">Skip to main content</a>
-    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     
     <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
     
     <header class="top-nav" style="padding: 1.5rem 1rem 1rem 1rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
-        <img src="Contents/Branding Images/HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
-        <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Support the initiative</h1>
-        <p style="color: #666; font-size: 1.05rem; max-width: 600px; text-align: center; margin-top: 8px;">Resources for friends, families, and businesses wanting to empower the initiative.</p>
+        <img loading="lazy" src="Contents/Branding Images/HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
+        <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Bristol Support &amp; Resource Hub</h1>
+        <p class="hub-subtitle">Specialized pathways, workplace adjustments,<br class="mobile-break"> and community resources across Bristol.</p>
         
         <!-- Centered Branded Hub Search Bar -->
         <div class="hub-search-container">
@@ -101,14 +118,14 @@
                     <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span>
                 </button>
             </div>
-            <div id="search-feedback"></div>
+            <div id="search-feedback" aria-live="polite" aria-atomic="true"></div>
         </div>
     </header>
     
     <div class="category-hubs-container" id="main-grid">
         <!-- HUB 1: FAMILY, WORKPLACE & EMPLOYMENT SUPPORT -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">1</span> Family, Workplace & Employment</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">1</span> Family, Workplace &amp; Employment</h2>
             <div class="hub-grid">
                 <a href="path-family-guide.html" class="metro-btn" style="background-color: #D32F2F;" data-tooltip="Tips for family &amp; friends"><span class="material-symbols-outlined metro-icon">family_restroom</span><span class="metro-text">Family Guide</span></a>
                 <a href="path-workplace-tips.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="Deaf-aware workplace tips"><span class="material-symbols-outlined metro-icon">work</span><span class="metro-text">Workplace Tips</span></a>
@@ -119,37 +136,32 @@
 
         <!-- HUB 2: CLINICAL CARE, TESTS & EAR SAFETY -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #00897B;">2</span> Clinical Care, Tests & Ear Safety</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #00897B;">2</span> Clinical Care, Tests &amp; Ear Safety</h2>
             <div class="hub-grid">
-                <!-- SAVED FOR LATER: Audiology Guidance Tile
-                <a href="path-audiology.html" class="metro-btn" style="background-color: #005EB8;"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
-                -->
+                <a href="path-nhs.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="NHS clinics &amp; referrals"><span class="material-symbols-outlined metro-icon">local_hospital</span><span class="metro-text">Bristol NHS Foundation Trust</span></a>
                 <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;" data-tooltip="Audiograms &amp; tests guide"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
                 <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;" data-tooltip="Earwax &amp; ear safety"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
-                <!-- SAVED FOR LATER: Hearing Expo Tile
-                <a href="path-support-reel.html" class="metro-btn" style="background-color: #0284c7;"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Hearing Expo</span></a>
-                -->
                 <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;" data-tooltip="Audio loss simulator"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
-                <a href="path-awareness.html" class="metro-btn" style="background-color: #F57C00;" data-tooltip="Deaf awareness advice"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
+                <a href="path-awareness.html" class="metro-btn" style="background-color: #D97706;" data-tooltip="Deaf awareness advice"><span class="material-symbols-outlined metro-icon">campaign</span><span class="metro-text">Awareness</span></a>
             </div>
         </section>
 
         <!-- HUB 3: VOLUNTEER, OUTREACH & SPONSORSHIP -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #7B1FA2;">3</span> Volunteer, Outreach & Sponsorship</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #7B1FA2;">3</span> Volunteer, Outreach &amp; Sponsorship</h2>
             <div class="hub-grid">
-                <a href="path-training.html" class="metro-btn" style="background-color: #C2185B;" data-tooltip="Staff awareness training"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Training</span></a>
+                <a href="path-training.html" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Workplace training &amp; e-learning"><span class="material-symbols-outlined metro-icon">school</span><span class="metro-text">Workplace Training</span></a>
                 <a href="path-join-outreach.html" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Volunteer in Bristol"><span class="material-symbols-outlined metro-icon">group_add</span><span class="metro-text">Join Outreach</span></a>
-                <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0097A7;" data-tooltip="Partner &amp; sponsor us"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
+                <a href="path-sponsor-us.html" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Partner &amp; sponsor us"><span class="material-symbols-outlined metro-icon">corporate_fare</span><span class="metro-text">Sponsor Us</span></a>
                 <a href="path-join-us.html" class="metro-btn" style="background-color: #1b5e20;" data-tooltip="Patreon supporter tiers"><span class="material-symbols-outlined metro-icon">volunteer_activism</span><span class="metro-text">Join Us</span></a>
             </div>
         </section>
 
         <!-- HUB 4: COMMUNITY & DISCUSSION HUBS -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #E91E63;">4</span> Community & Discussion Hubs</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #FF0F5B;">4</span> Community &amp; Discussion Hubs</h2>
             <div class="hub-grid">
-                <a href="path-bear-pit.html" class="metro-btn" style="background-color: #E91E63;" data-tooltip="Bristol community forum"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
+                <a href="path-bear-pit.html" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Bristol community forum"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
                 <a href="path-yes.html" class="metro-btn" style="background-color: #1e293b;" data-tooltip="Full journey &amp; NHS hub"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiate Main Hub</span></a>
             </div>
         </section>
@@ -165,7 +177,7 @@
         <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;">
     </div>
 
-    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop></audio>
+    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop preload="none"></audio>
 
     <div class="page-transition-overlay"></div>
 
@@ -220,24 +232,17 @@
                         }
                     }
                 });
+            }
 
-                function playAudio() {
-                    audio.play().catch(err => {
-                        console.log("Audio autoplay prevented.");
-                    });
-                }
-
-                const triggerPlay = () => {
-                    playAudio();
-                    document.removeEventListener('click', triggerPlay);
-                    document.removeEventListener('touchstart', triggerPlay);
-                };
-
-                playAudio();
-                document.addEventListener('click', triggerPlay);
-                document.addEventListener('touchstart', triggerPlay);
+            function playAudio() {
+                audio.play().catch(e => {
+                    console.log("Audio play blocked by browser policy until interaction:", e);
+                });
             }
         });
     </script>
+        <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
 </body>
 </html>

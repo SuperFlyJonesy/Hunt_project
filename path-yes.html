@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Begin your personalized hearing journey to discover tailored resources, hospital maps, and community support in Bristol.">
     <meta charset="UTF-8">
     <title>Your Journey</title>
@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
-        
         @keyframes seamlessFadeIn {
             0% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
             100% { opacity: 1; transform: translateY(0); filter: blur(0); }
@@ -85,6 +84,19 @@
         }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Your Journey">
+    <meta property="og:description" content="Begin your personalized hearing journey to discover tailored resources, hospital maps, and community support in Bristol.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-yes.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Journey">
+    <meta name="twitter:description" content="Begin your personalized hearing journey to discover tailored resources, hospital maps, and community support in Bristol.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme">
     <a href="#main-grid" class="skip-link">Skip to main content</a>
@@ -93,7 +105,7 @@
     <a href="path-about.html" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
     
     <header class="top-nav" style="padding: 1.5rem 1rem 1rem 1rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
-        <img src="Contents/Branding Images/HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
+        <img loading="lazy" src="Contents/Branding Images/HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
         <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Everyone's Loss is different</h1>
         <p class="hub-subtitle">Explore pathways for understanding,<br class="mobile-break"> support, and managing hearing loss.</p>
         
@@ -106,18 +118,18 @@
                     <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span>
                 </button>
             </div>
-            <div id="search-feedback"></div>
+            <div id="search-feedback" aria-live="polite" aria-atomic="true"></div>
         </div>
     </header>
     
     <div class="category-hubs-container" id="main-grid">
         <!-- HUB 1: FIRST STEPS & ASSESSMENT -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #F57C00;">1</span> First Steps & Self-Assessment</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #D97706;">1</span> First Steps &amp; Self-Assessment</h2>
             <div class="hub-grid">
-                <a href="path-my-journey.html" class="metro-btn" style="background-color: #F57C00;" data-tooltip="Founder lived experience"><span class="material-symbols-outlined metro-icon">route</span><span class="metro-text">My Journey</span></a>
+                <a href="path-my-journey.html" class="metro-btn" style="background-color: #D97706;" data-tooltip="Founder lived experience"><span class="material-symbols-outlined metro-icon">route</span><span class="metro-text">My Journey</span></a>
                 <a href="path-hearing-quiz.html" class="metro-btn" style="background-color: #00843D;" data-tooltip="Check your hearing signs"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
-                <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #00ACC1;" data-tooltip="Ear science &amp; biology"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
+                <a href="path-how-we-hear.html" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Ear science &amp; biology"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
                 <a href="path-experience.html" class="metro-btn" style="background-color: #ff0f5b;" data-tooltip="Audio loss simulator"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
                 <a href="path-it-goes-to-11.html" class="metro-btn" style="background-color: #6a1b9a;" data-tooltip="Hearing clips &amp; humour"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">It Goes to 11</span></a>
             </div>
@@ -125,12 +137,9 @@
 
         <!-- HUB 2: NHS PATHWAYS & CLINICAL CARE -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #005EB8;">2</span> NHS Pathways & Clinical Care</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #005EB8;">2</span> NHS Pathways &amp; Clinical Care</h2>
             <div class="hub-grid">
                 <a href="path-nhs.html" class="metro-btn" style="background-color: #005EB8;" data-tooltip="NHS clinics &amp; referrals"><span class="material-symbols-outlined metro-icon">local_hospital</span><span class="metro-text">Bristol NHS Foundation Trust</span></a>
-                <!-- SAVED FOR LATER: Audiology Guidance Tile
-                <a href="path-audiology.html" class="metro-btn" style="background-color: #1976D2;"><span class="material-symbols-outlined metro-icon">medical_information</span><span class="metro-text">Audiology Guidance</span></a>
-                -->
                 <a href="path-hearing-tests.html" class="metro-btn" style="background-color: #00897B;" data-tooltip="Audiograms &amp; tests guide"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
                 <a href="path-hearing-therapists.html" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Rehab &amp; coping therapy"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
                 <a href="path-ear-care.html" class="metro-btn" style="background-color: #B71C1C;" data-tooltip="Earwax &amp; ear safety"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
@@ -139,23 +148,23 @@
 
         <!-- HUB 3: TECHNOLOGY & EQUIPMENT -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">3</span> Technology & Equipment</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">3</span> Technology &amp; Equipment</h2>
             <div class="hub-grid">
                 <a href="path-hearing-aids-access.html" class="metro-btn" style="background-color: #D32F2F;" data-tooltip="Aid types &amp; maintenance"><span class="material-symbols-outlined metro-icon">hearing</span><span class="metro-text">Hearing Aids</span></a>
-                <a href="path-assistive-technology.html" class="metro-btn" style="background-color: #00ACC1;" data-tooltip="Streamers, mics &amp; alerts"><span class="material-symbols-outlined metro-icon">devices</span><span class="metro-text">Assistive Tech</span></a>
+                <a href="path-assistive-technology.html" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Streamers, mics &amp; alerts"><span class="material-symbols-outlined metro-icon">devices</span><span class="metro-text">Assistive Tech</span></a>
                 <a href="path-government-help.html" class="metro-btn" style="background-color: #d97706;" data-tooltip="Grants, PIP &amp; Council kit"><span class="material-symbols-outlined metro-icon">account_balance</span><span class="metro-text">Government Help</span></a>
-                <a href="path-tech.html" class="metro-btn" style="background-color: #C2185B;" data-tooltip="Auracast &amp; new tech"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
+                <a href="path-tech.html" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Auracast &amp; new tech"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
             </div>
         </section>
 
         <!-- HUB 4: DAILY LIVING, WORK & COMMUNITY -->
         <section class="hub-section">
-            <h2 class="hub-title"><span class="hub-badge" style="background: #E91E63;">4</span> Daily Living, Work & Community</h2>
+            <h2 class="hub-title"><span class="hub-badge" style="background: #FF0F5B;">4</span> Daily Living, Work &amp; Community</h2>
             <div class="hub-grid">
-                <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="Work adjustments &amp; rights"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Work & Interviews</span></a>
-                <a href="path-mental-health.html" class="metro-btn" style="background-color: #E91E63;" data-tooltip="Fatigue &amp; wellbeing"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
-                <a href="path-tinnitus.html" class="metro-btn" style="background-color: #F57C00;" data-tooltip="Tinnitus relief tools"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
-                <a href="path-accessible-venues.html" class="metro-btn" style="background-color: #0097A7;" data-tooltip="Venues with hearing loops"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
+                <a href="path-job-interviews.html" class="metro-btn" style="background-color: #1976D2;" data-tooltip="Work adjustments &amp; rights"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Work &amp; Interviews</span></a>
+                <a href="path-mental-health.html" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Fatigue &amp; wellbeing"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
+                <a href="path-tinnitus.html" class="metro-btn" style="background-color: #D97706;" data-tooltip="Tinnitus relief tools"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
+                <a href="path-accessible-venues.html" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Venues with hearing loops"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
                 <!-- SAVED FOR LATER: Community Reel Tile
                 <a href="path-community-reel.html" class="metro-btn" style="background-color: #0284c7;"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Community Reel</span></a>
                 -->
@@ -178,7 +187,7 @@
         <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;">
     </div>
 
-    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop></audio>
+    <audio id="bg-noise" src="Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop preload="none"></audio>
 
     <div class="page-transition-overlay"></div>
 
@@ -233,40 +242,22 @@
                         volumeIcon.textContent = 'volume_off';
                     } else {
                         volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+                        if (audio.paused) {
+                            playAudio();
+                        }
                     }
                 });
             }
 
-            // Function to play audio
             function playAudio() {
-                audio.play().catch(err => {
-                    console.log("White noise autoplay prevented. Waiting for user interaction...");
+                audio.play().catch(e => {
+                    console.log("Audio play blocked by browser policy until interaction:", e);
                 });
-            }
-
-            // Trigger play on any click on the page or hover/interaction with tiles
-            const triggerPlay = () => {
-                playAudio();
-                // Remove listeners once successfully started
-                document.removeEventListener('click', triggerPlay);
-                document.removeEventListener('touchstart', triggerPlay);
-                const metroGrid = document.querySelector('.metro-grid');
-                if (metroGrid) {
-                    metroGrid.removeEventListener('mouseenter', triggerPlay);
-                }
-            };
-
-            // Hook into common user gestures and tile interactions
-            document.addEventListener('click', triggerPlay);
-            document.addEventListener('touchstart', triggerPlay);
-            
-            const metroGrid = document.querySelector('.metro-grid');
-            if (metroGrid) {
-                metroGrid.addEventListener('mouseenter', triggerPlay);
             }
         });
     </script>
+        <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
 </body>
 </html>
-
-

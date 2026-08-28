@@ -30,7 +30,7 @@ const venues = [
     lng: -2.59815,
     postcode: "BS1",
     type: "induction",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Trenchard Street, Bristol BS1 5AR",
     categoryText: "Entertainment & Concert Centre",
     rating: "4.8",
@@ -96,7 +96,7 @@ const venues = [
     lng: -2.59260,
     postcode: "BS1",
     type: "quiet",
-    accentColor: "#f39c12", // Amber
+    accentColor: "#D97706", // Amber
     address: "St James Barton Roundabout, Bristol BS1 3LY",
     categoryText: "Community & Forum Hub",
     rating: "4.9",
@@ -144,7 +144,7 @@ const venues = [
     lng: -2.60155,
     postcode: "BS1",
     type: "induction",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Great George Street, Off Park St, Bristol BS1 5RR",
     categoryText: "Acoustic Music Hall",
     rating: "4.8",
@@ -232,7 +232,7 @@ const venues = [
     lng: -2.59600,
     postcode: "BS34",
     type: "induction",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Lysander Road, Patchway, Bristol BS34 7GG",
     categoryText: "Regional Shopping Destination",
     rating: "4.6",
@@ -320,7 +320,7 @@ const venues = [
     lng: -2.62050,
     postcode: "BS3",
     type: "induction",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Ashton Road, Southville, Bristol BS3 2EJ",
     categoryText: "Sports Stadium & Concert Venue",
     rating: "4.6",
@@ -342,7 +342,7 @@ const venues = [
     lng: -2.61350,
     postcode: "BS3",
     type: "induction",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Raleigh Road, Southville, Bristol BS3 1TF",
     categoryText: "Pub, Brewery & Theatre",
     rating: "4.6",
@@ -408,7 +408,7 @@ const venues = [
     lng: -2.57650,
     postcode: "BS2",
     type: "quiet",
-    accentColor: "#f39c12", // Amber
+    accentColor: "#D97706", // Amber
     address: "Trinity Road, Old Market, Bristol BS2 8HA",
     categoryText: "Community Event Space",
     rating: "4.6",
@@ -542,7 +542,7 @@ const venues = [
     lng: -2.59350,
     postcode: "BS1",
     type: "quiet",
-    accentColor: "#f39c12", // Amber
+    accentColor: "#D97706", // Amber
     address: "The Exchange, Corn Street, Bristol BS1 1JQ",
     categoryText: "Historic Market",
     rating: "4.6",
@@ -586,7 +586,7 @@ const venues = [
     lng: -2.58110,
     postcode: "BS1",
     type: "auracast",
-    accentColor: "#0097A7", // Teal
+    accentColor: "#0891B2", // Teal
     address: "Station Approach, Bristol BS1 6QF",
     categoryText: "Transit Station",
     rating: "4.5",
@@ -721,7 +721,7 @@ const postcodeDistricts = [
   },
   {
     code: "BS11",
-    color: "#0097a7", // Teal
+    color: "#0891B2", // Teal
     center: { lat: 51.5010, lng: -2.6850 },
     coords: [
       { lat: 51.5300, lng: -2.7300 },
@@ -732,7 +732,7 @@ const postcodeDistricts = [
   },
   {
     code: "BS13",
-    color: "#e91e63", // Crimson Pink
+    color: "#FF0F5B", // Crimson Pink
     center: { lat: 51.4100, lng: -2.6040 },
     coords: [
       { lat: 51.4300, lng: -2.6300 },
@@ -1000,7 +1000,7 @@ function renderSidebarItems(query = "") {
   }
 
   filtered.forEach((v) => {
-    const borderCol = v.accentColor || "#0097A7";
+    const borderCol = v.accentColor || "#0891B2";
     const item = document.createElement("div");
     item.className = "sidebar-item";
     item.style.borderLeftColor = borderCol;
@@ -1147,7 +1147,7 @@ function renderMarkers() {
     if (v.type === "quiet"     && !showQuiet)     return;
     if (selectedPostcode !== "ALL" && selectedPostcode !== "NONE" && v.postcode !== selectedPostcode) return;
 
-    const pinBorderColor = v.accentColor || (v.type === "auracast" ? "#ff0f5b" : (v.type === "quiet" ? "#1b5e20" : "#0097A7"));
+    const pinBorderColor = v.accentColor || (v.type === "auracast" ? "#ff0f5b" : (v.type === "quiet" ? "#1b5e20" : "#0891B2"));
 
     const pinElement = document.createElement("div");
     pinElement.className = "round-icon-marker";

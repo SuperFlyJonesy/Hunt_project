@@ -13,9 +13,9 @@
         .info-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px; }
         .badge-pink { background: #fce7f3; color: #be185d; }
         .badge-blue { background: #e0f2fe; color: #0369a1; }
-        .badge-green { background: #dcfce7; color: #15803d; }
+        .badge-green { background: #dcfce7; color: #1B5E20; }
         .badge-amber { background: #fef3c7; color: #b45309; }
-        .quote-box { background: #fff5f8; border-left: 4px solid #E91E63; padding: 14px 18px; border-radius: 8px; font-style: italic; color: #831843; margin: 14px 0; font-size: 1rem; }
+        .quote-box { background: #fff5f8; border-left: 4px solid #FF0F5B; padding: 14px 18px; border-radius: 8px; font-style: italic; color: #831843; margin: 14px 0; font-size: 1rem; }
         .chart-container { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; margin: 15px 0; }
         .chart-title { font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
         .stage-chart { display: flex; flex-direction: column; gap: 14px; }
@@ -26,17 +26,30 @@
         .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 15px; }
         @media (max-width: 640px) { .metric-grid { grid-template-columns: 1fr; } }
         .metric-card { background: #ffffff; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
-        .metric-value { font-size: 1.8rem; font-weight: 900; color: #E91E63; margin-bottom: 2px; }
+        .metric-value { font-size: 1.8rem; font-weight: 900; color: #FF0F5B; margin-bottom: 2px; }
         .ext-btn-group { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
         .ext-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; text-decoration: none; color: white; transition: all 0.2s ease; }
         .ext-btn:hover { opacity: 0.92; transform: translateY(-2px); }
-        .btn-pink { background: #E91E63; }
+        .btn-pink { background: #FF0F5B; }
         .btn-blue { background: #005EB8; }
         .btn-green { background: #059669; }
         .btn-amber { background: #d97706; }
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Grieving the Silence: Mental Health &amp; Hearing Loss Guide - Hearing Loss Initiative">
+    <meta property="og:description" content="A clinical hearing therapy and psychological guide to navigating the 5 stages of hearing loss grief, emotional adaptation, and mental health support in Bristol.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-mental-health.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grieving the Silence: Mental Health &amp; Hearing Loss Guide - Hearing Loss Initiative">
+    <meta name="twitter:description" content="A clinical hearing therapy and psychological guide to navigating the 5 stages of hearing loss grief, emotional adaptation, and mental health support in Bristol.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -46,7 +59,7 @@
     <main id="main-content" class="container">
         <div class="header-section" style="text-align: center; margin-bottom: 40px;">
             <span class="info-badge badge-pink">Clinical Psychology &amp; Hearing Therapy</span>
-            <h1 style="font-size: 2.5rem; margin-bottom: 10px; color: #E91E63; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px; color: #FF0F5B; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
                 <span class="material-symbols-outlined" style="font-size: 3rem;">psychology</span>
                 Grieving the Silence: Navigating the Emotional Journey
             </h1>
@@ -60,8 +73,8 @@
             
             <!-- ACCORDION 1: Hearing Loss is a Form of Acoustic Grief -->
             <div class="accordion-item active">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #E91E63; margin-right: 8px;">psychology</span> 1. Hearing Loss is a Form of Acoustic Grief</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #FF0F5B; margin-right: 8px;">psychology</span> 1. Hearing Loss is a Form of Acoustic Grief</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -76,7 +89,7 @@
 
             <!-- ACCORDION 2: The 5 Stages of Grief Trajectory Chart -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">analytics</span> 2. Chart: The 5 Stages of Hearing Loss Grief Trajectory</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -148,7 +161,7 @@
 
             <!-- ACCORDION 3: Psychological & Listening Effort Breakdown -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">bar_chart</span> 3. Chart: Psychological &amp; Listening Effort Breakdown</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -187,8 +200,8 @@
 
             <!-- ACCORDION 4: Detailed Stage Breakdown & Clinical Strategies -->
             <div class="accordion-item">
-                <button class="accordion-header">
-                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #E91E63; margin-right: 8px;">auto_stories</span> 4. Detailed Stage Breakdown &amp; Clinical Strategies</span>
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #FF0F5B; margin-right: 8px;">auto_stories</span> 4. Detailed Stage Breakdown &amp; Clinical Strategies</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
                 <div class="accordion-body">
@@ -264,7 +277,7 @@
 
             <!-- ACCORDION 5: Bristol Mental Health & Therapy Support Links -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">health_and_safety</span> 5. Bristol Mental Health &amp; Therapy Support Links</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -285,7 +298,7 @@
 
                         <!-- Bristol Mind -->
                         <div style="background: #f8fafc; border-radius: 12px; padding: 20px; border: 1px solid #e2e8f0;">
-                            <h4 style="margin: 0 0 6px 0; color: #E91E63; font-size: 1.1rem;">🧠 Bristol Mind &amp; Listening Services</h4>
+                            <h4 style="margin: 0 0 6px 0; color: #FF0F5B; font-size: 1.1rem;">🧠 Bristol Mind &amp; Listening Services</h4>
                             <p style="margin: 0 0 12px 0; font-size: 0.95rem; color: #475569;">Local mental health charity offering confidential listening, emotional support, and advocacy across Bristol.</p>
                             <a href="https://bristolmind.org.uk/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
                                 <span class="material-symbols-outlined">open_in_new</span> Visit Bristol Mind &rarr;
@@ -325,7 +338,7 @@
 
             <!-- ACCORDION 6: Verified References -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #059669; margin-right: 8px;">verified</span> 6. Verified Page References &amp; Clinical Validation</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -363,6 +376,10 @@
                 Back to Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <p class="hli-medical-note"><strong>Medical Note:</strong> Educational guidance only — not a clinical diagnosis. Consult a qualified GP or Audiologist for personal advice.</p>
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=3.0"></script>

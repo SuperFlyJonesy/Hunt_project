@@ -3243,3 +3243,74 @@ body:not(.premium-white-theme) .accordion-header {
     background: rgba(255, 255, 255, 0.15);
     color: #ffffff;
 }
+
+/* ==========================================================================
+   MINIMAL NON-INTRUSIVE GLOBAL FOOTER
+   ========================================================================== */
+.hli-minimal-footer {
+    margin-top: 45px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+.hli-medical-note {
+    margin: 0 0 6px 0;
+    font-size: 0.82rem;
+    color: #64748b;
+}
+.hli-medical-note strong {
+    color: #475569;
+}
+
+/* ==========================================================================
+   FLOATING BACK TO TOP BUTTON
+   ========================================================================== */
+.hli-back-to-top-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #005EB8;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 20px rgba(0, 94, 184, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.9);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease, background 0.2s ease;
+}
+
+.hli-back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.hli-back-to-top-btn:hover {
+    background: #004b93;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 8px 24px rgba(0, 94, 184, 0.45);
+}
+
+.hli-back-to-top-btn:active {
+    transform: translateY(0) scale(0.96);
+}
+
+@media (max-width: 600px) {
+    .hli-back-to-top-btn {
+        bottom: 18px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+    }
+}

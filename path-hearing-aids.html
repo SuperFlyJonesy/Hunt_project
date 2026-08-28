@@ -13,6 +13,19 @@
         #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
     </style>
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Hearing Aids Guide - Hearing Loss Initiative">
+    <meta property="og:description" content="Explore different hearing aid styles (BTE, RIC, ITE, CIC) to find the right fit for your hearing loss and lifestyle.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-hearing-aids.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hearing Aids Guide - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Explore different hearing aid styles (BTE, RIC, ITE, CIC) to find the right fit for your hearing loss and lifestyle.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -35,7 +48,7 @@
             
             <!-- ACCORDION 1: Types of Hearing Aids -->
             <div class="accordion-item active">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #d32f2f; margin-right: 8px;">category</span> 1. Types of Modern Hearing Aids</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -69,7 +82,7 @@
 
             <!-- ACCORDION 2: Device Care & Maintenance -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">build</span> 2. Caring for Your Device & Maintenance</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -88,8 +101,8 @@
                         </div>
                     </div>
                     <div class="good-box">
-                        <h4 style="margin: 0 0 8px 0; color: #166534; font-size: 1.05rem;">Daily Care Checklist:</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: #15803d; font-size: 0.95rem; line-height: 1.6;">
+                        <h4 style="margin: 0 0 8px 0; color: #1B5E20; font-size: 1.05rem;">Daily Care Checklist:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: #1B5E20; font-size: 0.95rem; line-height: 1.6;">
                             <li><strong>Daily Wipe:</strong> Wipe moulds and domes with a dry microfiber cloth; never use boiling water or harsh chemicals.</li>
                             <li><strong>Battery Hygiene:</strong> Open battery doors overnight to let moisture evaporate and extend battery life.</li>
                             <li><strong>T-Loop Programme:</strong> Use your telecoil ('T') setting in banks, theatres, and churches equipped with hearing loop systems.</li>
@@ -125,7 +138,7 @@
 
             <!-- ACCORDION 3: TEDx Video Talk -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #e11d48; margin-right: 8px;">play_circle</span> 3. TEDx Talk: What You Don't Know About Hearing Aids</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -143,7 +156,7 @@
 
             <!-- ACCORDION 4: Bristol NHS & Access Guide -->
             <div class="accordion-item">
-                <button class="accordion-header">
+                <button class="accordion-header" aria-expanded="false">
                     <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7b1fa2; margin-right: 8px;">explore</span> 4. Bristol NHS vs Private Device Roadmap</span>
                     <span class="material-symbols-outlined accordion-icon">expand_more</span>
                 </button>
@@ -173,6 +186,10 @@
                 Visit Support Hub
             </a>
         </nav>
+            <footer class="hli-minimal-footer">
+            <p class="hli-medical-note"><strong>Medical Note:</strong> Educational guidance only — not a clinical diagnosis. Consult a qualified GP or Audiologist for personal advice.</p>
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
     </main>
 
     <script src="script.js?v=8.0"></script>
