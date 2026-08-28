@@ -75,7 +75,7 @@
             <div class="live-status-pill">
                 <span class="pulse-dot"></span> LIVE UPDATES • TODAY
             </div>
-            <input type="text" id="feed-search" class="feed-search-input" placeholder="🔍 Search by keyword (e.g. Auracast, gene therapy, AI)..." onkeyup="filterFeedItems()">
+            <input type="search" id="feed-search" name="hli_tech_feed_search" class="feed-search-input" placeholder="🔍 Search by keyword (e.g. Auracast, gene therapy, AI)..." onkeyup="filterFeedItems()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other">
             <div class="category-pills" id="category-pills">
                 <div class="cat-pill active" onclick="setCategory('all', this)">🌟 All Updates</div>
                 <div class="cat-pill" onclick="setCategory('auracast', this)">📶 Auracast &amp; LE Audio</div>

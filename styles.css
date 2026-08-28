@@ -2638,6 +2638,16 @@ body:not(.premium-white-theme) .accordion-header {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: all 0.2s ease;
     box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.hub-search-input::-webkit-search-decoration,
+.hub-search-input::-webkit-search-cancel-button,
+.hub-search-input::-webkit-search-results-button,
+.hub-search-input::-webkit-search-results-decoration {
+    display: none;
+    -webkit-appearance: none;
 }
 
 .hub-search-input::placeholder {

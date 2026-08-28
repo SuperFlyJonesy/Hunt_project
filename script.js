@@ -792,6 +792,9 @@ function initHubSearch() {
     const searchInput = document.getElementById('hub-tile-search');
     if (!searchInput) return;
 
+    // Prevent aggressive browser/credential manager autofill from inserting saved logins (e.g. Guest)
+    searchInput.value = '';
+
     const clearBtn = document.getElementById('clear-search-btn');
     const feedback = document.getElementById('search-feedback');
     const hubSections = document.querySelectorAll('.hub-section');
