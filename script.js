@@ -382,7 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const continueBtn = document.getElementById('btn-continue-hub');
                 if (continueBtn) {
                     continueBtn.addEventListener('click', () => {
-                        transitionToPage('path-yes.html');
+                        transitionToPage('path-community-reel.html');
                     });
                 }
             }, 950);
@@ -834,11 +834,18 @@ function initHubSearch() {
         'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
         'path-bear-pit.html': 'the bear pit community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
         'path-support.html': 'support branch support hub resources for friends families businesses',
-        'path-yes.html': 'initiate main hub main journey pathways directory'
+        'path-yes.html': 'initiate main hub main journey pathways'
     };
 
     function performSearch() {
-        const query = searchInput.value.trim().toLowerCase();
+        let query = (searchInput.value || '').trim().toLowerCase();
+
+        // BROWSER CREDENTIAL AUTOFILL SHIELD
+        // If Chrome or a password manager silently injects 'guest' or saved credentials on load, clear it and show all tiles
+        if (query === 'guest' || query === 'guest:' || query.startsWith('guest ')) {
+            searchInput.value = '';
+            query = '';
+        }
 
         if (clearBtn) {
             clearBtn.style.display = query.length > 0 ? 'inline-flex' : 'none';
@@ -866,10 +873,9 @@ function initHubSearch() {
             tiles.forEach(tile => {
                 const text = (tile.textContent || '').toLowerCase();
                 const rawHref = tile.getAttribute('href') || '';
-                const baseHref = rawHref.split('#')[0].split('?')[0].toLowerCase();
+                const baseHref = rawHref.split(/[?#]/)[0].toLowerCase();
                 const aria = (tile.getAttribute('aria-label') || '').toLowerCase();
                 const indexedKeywords = (PAGE_SEARCH_INDEX[baseHref] || '').toLowerCase();
-
                 const combinedSearchCorpus = `${text} ${baseHref} ${aria} ${indexedKeywords}`;
 
                 // Check if all query terms match the tile or its full page topic keywords
@@ -910,6 +916,22 @@ function initHubSearch() {
     function escapeHtml(str) {
         return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
+
+    // Active polling and event listeners to defeat delayed Chrome password manager injections
+    const clearAutofillJunk = () => {
+        if (searchInput.value.toLowerCase().includes('guest') || (searchInput.hasAttribute('readonly') && searchInput.value.length > 0)) {
+            searchInput.value = '';
+            performSearch();
+        }
+    };
+
+    [40, 100, 250, 500, 1000, 1800].forEach(ms => setTimeout(clearAutofillJunk, ms));
+    searchInput.addEventListener('change', clearAutofillJunk);
+    searchInput.addEventListener('animationstart', (e) => {
+        if (e.animationName && e.animationName.includes('autofill')) {
+            clearAutofillJunk();
+        }
+    });
 
     searchInput.addEventListener('input', performSearch);
     searchInput.addEventListener('keyup', (e) => {

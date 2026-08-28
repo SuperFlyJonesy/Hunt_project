@@ -99,6 +99,12 @@
     <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme">
+    <!-- Chrome Autofill Deflector (Absorbs Chrome saved credentials like Guest) -->
+    <form style="position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; opacity: 0; pointer-events: none;" aria-hidden="true" autocomplete="off">
+        <input type="text" name="username_decoy" autocomplete="username" tabindex="-1">
+        <input type="password" name="password_decoy" autocomplete="current-password" tabindex="-1">
+    </form>
+
     <a href="#main-grid" class="skip-link">Skip to main content</a>
     <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
     
@@ -112,7 +118,7 @@
         <!-- Centered Branded Hub Search Bar -->
         <div class="hub-search-container">
             <div class="hub-search-input-wrapper">
-                <input type="search" id="hub-tile-search" name="hli_hub_search_query" class="hub-search-input" placeholder="Search support pathways, guides, or training (e.g. Workplace, Family, Training)..." aria-label="Search support resources" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other">
+                <input type="search" id="hub-tile-search" name="hli_hub_search_query" class="hub-search-input" placeholder="Search support pathways, guides, or training (e.g. Workplace, Family, Training)..." aria-label="Search support resources" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" readonly onfocus="this.removeAttribute('readonly');" onpointerdown="this.removeAttribute('readonly');" ontouchstart="this.removeAttribute('readonly');">
                 <span class="material-symbols-outlined hub-search-icon">search</span>
                 <button type="button" id="clear-search-btn" class="hub-search-clear" aria-label="Clear search">
                     <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span>
@@ -162,7 +168,7 @@
             <h2 class="hub-title"><span class="hub-badge" style="background: #FF0F5B;">4</span> Community &amp; Discussion Hubs</h2>
             <div class="hub-grid">
                 <a href="path-bear-pit.html" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Bristol community forum"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">The Bear Pit</span></a>
-                <a href="path-yes.html" class="metro-btn" style="background-color: #1e293b;" data-tooltip="Full journey &amp; NHS hub"><span class="material-symbols-outlined metro-icon">flag</span><span class="metro-text">Initiate Main Hub</span></a>
+                
             </div>
         </section>
         
