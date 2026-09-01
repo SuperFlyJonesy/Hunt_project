@@ -832,7 +832,8 @@ function initHubSearch() {
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
         'path-sponsor-us.html': 'sponsor us corporate sponsor funding corporate partnership community sponsor training sponsor access loop sponsor esg csr 250 500 1500 donation grant',
         'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
-        'path-bear-pit.html': 'the bear pit community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
+        'path-stay-connected.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
+        'path-bear-pit.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
         'path-support.html': 'support branch support hub resources for friends families businesses',
         'path-yes.html': 'initiate main hub main journey pathways'
     };

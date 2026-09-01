@@ -867,7 +867,8 @@ a[href*="path-support"]:hover .metro-icon {
     100% { transform: scale(1.15) rotate(-6deg); }
 }
 
-/* 22. The Bear Pit - Chat Talk */
+/* 22. Stay Connected - Chat Talk */
+a[href*="path-stay-connected"]:hover .metro-icon,
 a[href*="path-bear-pit"]:hover .metro-icon {
     animation: chatTalk 0.4s ease-in-out infinite alternate;
 }

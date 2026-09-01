@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay connected with Bristol Hearing Loss Initiative through our official Instagram feed, provisional community events calendar, and LinkedIn network.">
+    <meta charset="UTF-8">
+    <title>Stay Connected - Bristol Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 3-Column Layout: Left (Instagram), Center (Calendar), Right (LinkedIn) */
+        .stay-connected-wrapper {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 40px 20px 80px 20px;
+        }
+
+        .page-header-banner {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .page-header-banner h1 {
+            font-size: 2.3rem;
+            color: #FF0F5B;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 900;
+        }
+        .page-header-banner p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.55;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: 330px 1fr 350px;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 1160px) {
+            .three-column-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .center-calendar-col {
+                grid-column: span 2;
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .three-column-grid {
+                grid-template-columns: 1fr;
+            }
+            .center-calendar-col {
+                grid-column: span 1;
+                order: 0;
+            }
+        }
+
+        .column-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+
+        .col-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .col-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* Calendar Styling */
+        .calendar-month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .calendar-month-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .calendar-nav-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .calendar-nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .calendar-table-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            text-align: center;
+            margin-bottom: 24px;
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .cal-day-header {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+            padding: 4px 0;
+        }
+        .cal-day-cell {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            min-height: 46px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #334155;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cal-day-cell:hover {
+            border-color: #005EB8;
+            background: #f0f7ff;
+        }
+        .cal-day-cell.other-month {
+            color: #cbd5e1;
+            background: #fafafa;
+        }
+        
+        /* Highlight TODAY */
+        .cal-day-cell.today {
+            border: 2px solid #005EB8;
+            background: #eff6ff;
+            font-weight: 900;
+            color: #005EB8;
+            box-shadow: 0 0 0 2px rgba(0, 94, 184, 0.15);
+        }
+        .cal-day-cell.today::before {
+            content: 'TODAY';
+            position: absolute;
+            top: 2px;
+            font-size: 0.52rem;
+            font-weight: 900;
+            color: #005EB8;
+            letter-spacing: 0.4px;
+        }
+
+        /* Event Indicator Dot */
+        .cal-day-cell.has-event {
+            font-weight: 800;
+            color: #0f172a;
+        }
+        .cal-day-cell.has-event::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #d97706;
+            border-radius: 50%;
+            margin-top: 2px;
+        }
+        .cal-day-cell.selected {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+        .cal-day-cell.selected::after {
+            background: #f59e0b;
+        }
+
+        /* TBC Notice Box */
+        .tbc-banner-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #d97706;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 0.86rem;
+            color: #92400e;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.45;
+        }
+
+        /* Event Cards */
+        .event-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #d97706;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+        .event-date-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .event-date {
+            color: #d97706;
+            font-weight: 800;
+            font-size: 0.88rem;
+        }
+        .event-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .badge-tbc { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .badge-blue { background: #e0f2fe; color: #0369a1; }
+        .badge-pink { background: #fce7f3; color: #db2777; }
+        .badge-purple { background: #f3e8ff; color: #7e22ce; }
+        .event-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 4px 0 6px 0;
+        }
+        .event-desc {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .cal-btns {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .btn-cal {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+        .btn-cal:hover { opacity: 0.9; text-decoration: none; }
+        .btn-google { background: #4285F4; color: white; }
+        .btn-apple { background: #0f172a; color: white; }
+
+        /* Left Column: Instagram */
+        .instagram-header-badge {
+            background: #fdf2f8;
+            color: #db2777;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            border: 1px solid #fbcfe8;
+        }
+        .instagram-profile-card {
+            background: #ffffff;
+            border: 1px solid #fbcfe8;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 10px rgba(225, 48, 108, 0.04);
+        }
+        .instagram-post-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 14px 0;
+        }
+        .insta-thumb {
+            background: #fff5f8;
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid #fce7f3;
+            font-size: 0.8rem;
+            color: #334155;
+            line-height: 1.35;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 85px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .insta-thumb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(225, 48, 108, 0.1);
+        }
+
+        /* Right Column: LinkedIn */
+        .linkedin-profile-card {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .linkedin-header-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .linkedin-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 3px;
+        }
+        .linkedin-company-name {
+            font-size: 1.02rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .linkedin-company-tagline {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin: 2px 0 0 0;
+        }
+        .linkedin-company-desc {
+            font-size: 0.85rem;
+            color: #334155;
+            line-height: 1.45;
+            margin: 10px 0;
+            background: #ffffff;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .linkedin-post-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .linkedin-post-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .post-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+        .post-time {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .post-body {
+            font-size: 0.84rem;
+            color: #334155;
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+        .post-tag {
+            font-size: 0.72rem;
+            color: #0077B5;
+            font-weight: 600;
+            background: #f0f9ff;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+        .post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            padding-top: 6px;
+            border-top: 1px solid #f8fafc;
+        }
+
+        .social-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            box-sizing: border-box;
+        }
+        .social-action-btn:hover { opacity: 0.9; text-decoration: none; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+        .btn-linkedin { background: #0077B5; color: white; }
+
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Stay Connected - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Stay connected with Bristol Hearing Loss Initiative through our official Instagram feed, provisional community events calendar, and LinkedIn network.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-stay-connected.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stay Connected - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Stay connected with Bristol Hearing Loss Initiative through our official Instagram feed, provisional community events calendar, and LinkedIn network.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+
+    <main id="main-content" class="stay-connected-wrapper">
+        <div class="page-header-banner">
+            <h1>
+                <span class="material-symbols-outlined" style="font-size: 2.6rem;">share</span>
+                Stay Connected
+            </h1>
+            <p>
+                Follow our official social feeds, discover provisional Bristol community meetups on our interactive calendar, and connect with our professional LinkedIn network.
+            </p>
+        </div>
+
+        <div class="three-column-grid">
+            
+            <!-- LEFT COLUMN: Instagram Feed (@hearinglossinitiative ONLY) -->
+            <aside class="column-card" aria-label="Instagram Feed">
+                <div class="col-header">
+                    <h2 class="col-title" style="color: #E1306C;">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                        Instagram Feed
+                    </h2>
+                    <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="instagram-header-badge" style="text-decoration: none;">@hearinglossinitiative</a>
+                </div>
+
+                <!-- Verified Instagram Card -->
+                <div class="instagram-profile-card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <img src="Contents/Branding Images/Favicon.png" alt="HLI Logo" style="width: 40px; height: 40px; border-radius: 50%; object-fit: contain; background: #fff; padding: 2px; border: 2px solid #fbcfe8;">
+                        <div>
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #0f172a;">Hearing Loss Initiative</div>
+                            <div style="font-size: 0.78rem; color: #db2777; font-weight: 600;">@hearinglossinitiative &bull; Official</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #475569; margin: 8px 0 12px 0; line-height: 1.45;">
+                        Follow our official Instagram channel for Bristol venue loop walk-throughs, deaf awareness shorts, audio simulator demos, and community updates.
+                    </p>
+                    <div class="instagram-post-grid">
+                        <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="insta-thumb">
+                            <strong style="color: #db2777;">🎧 Audio Demos</strong>
+                            <span style="font-size: 0.74rem;">Real hearing loss clips</span>
+                        </a>
+                        <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="insta-thumb">
+                            <strong style="color: #db2777;">🏛️ Venue Loops</strong>
+                            <span style="font-size: 0.74rem;">Bristol accessibility checks</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="social-action-btn btn-insta">
+                    Follow @hearinglossinitiative &rarr;
+                </a>
+            </aside>
+
+            <!-- CENTER COLUMN: Interactive Events Calendar (Dates TBC) -->
+            <section class="column-card center-calendar-col" aria-label="Community Events Calendar">
+                <div class="col-header">
+                    <h2 class="col-title" style="color: #0f172a;">
+                        <span class="material-symbols-outlined" style="color: #ff0f5b;">calendar_month</span>
+                        Bristol Events Calendar
+                    </h2>
+                    <span style="background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid #fde68a;">Dates To Be Confirmed (TBC)</span>
+                </div>
+
+                <!-- Prominent TBC Notice -->
+                <div class="tbc-banner-box">
+                    <span class="material-symbols-outlined" style="font-size: 1.3rem; color: #d97706; flex-shrink: 0; margin-top: 1px;">info</span>
+                    <div>
+                        <strong>All Dates Are To Be Confirmed (TBC):</strong> None of these event dates are live at the moment. The listings below represent upcoming planned activities and meetups; confirmed dates will be announced in the future.
+                    </div>
+                </div>
+
+                <!-- Monthly Calendar Grid Navigation -->
+                <div class="calendar-month-header">
+                    <div class="calendar-month-title">
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem;">event</span>
+                        <span id="cal-current-month">Calendar</span>
+                    </div>
+                    <div style="display: flex; gap: 6px;">
+                        <button class="calendar-nav-btn" id="cal-prev-btn" aria-label="Previous month">&larr;</button>
+                        <button class="calendar-nav-btn" id="cal-today-btn" aria-label="Go to Today" style="font-size: 0.75rem;">Today</button>
+                        <button class="calendar-nav-btn" id="cal-next-btn" aria-label="Next month">&rarr;</button>
+                    </div>
+                </div>
+
+                <!-- Full Rendered Dates of the Month -->
+                <div class="calendar-table-grid" id="calendar-days-container">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin: 0;">Planned Community Activities (Provisional)</h3>
+                    <span style="font-size: 0.78rem; color: #d97706; font-weight: 700;">Status: TBC</span>
+                </div>
+
+                <!-- Event Cards Container -->
+                <div id="events-container">
+                    <!-- Events rendered by JS -->
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: LinkedIn Company Feed (Exclusive Hearing Loss Initiative - Zero Third-Party Ads) -->
+            <aside class="column-card" aria-label="LinkedIn Professional Network">
+                <div class="col-header">
+                    <h2 class="col-title" style="color: #0077B5;">
+                        <span class="material-symbols-outlined">business</span>
+                        LinkedIn Network
+                    </h2>
+                    <span style="background: #f0f9ff; color: #0077B5; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid #bae6fd;">Official Page</span>
+                </div>
+
+                <!-- Verified LinkedIn Company Profile Card (Hearing Loss Initiative ONLY) -->
+                <div class="linkedin-profile-card">
+                    <div class="linkedin-header-top">
+                        <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" class="linkedin-avatar">
+                        <div style="flex: 1;">
+                            <div style="display: flex; align-items: center; gap: 5px;">
+                                <h3 class="linkedin-company-name">Hearing Loss Initiative</h3>
+                                <span class="material-symbols-outlined" style="font-size: 1rem; color: #0077B5;" title="Verified Organisation">verified</span>
+                            </div>
+                            <p class="linkedin-company-tagline">Bristol hearing-loss support &amp; signposting</p>
+                            <div style="font-size: 0.74rem; color: #64748b; margin-top: 2px;">Community Services &bull; Bristol, GB</div>
+                        </div>
+                    </div>
+
+                    <div class="linkedin-company-desc">
+                        "We provide clear, accessible information and practical support for people exploring hearing health, audiology, hearing aids and related services. Our website helps visitors understand their options and connect with relevant resources."
+                    </div>
+
+                    <!-- Initiative Feed Posts (No Generic Ads / No Microsoft) -->
+                    <div style="margin-top: 12px;">
+                        <div style="font-size: 0.78rem; font-weight: 800; color: #0077B5; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 5px;">
+                            <span class="material-symbols-outlined" style="font-size: 0.95rem;">feed</span>
+                            Latest Initiative Posts
+                        </div>
+
+                        <div class="linkedin-post-item">
+                            <div class="post-author">
+                                <span>Hearing Loss Initiative</span>
+                                <span class="post-time">&bull; Update</span>
+                            </div>
+                            <div class="post-body">
+                                Launch of our comprehensive Bristol NHS Audiology guidance, accessible venue loop assessments, and deaf awareness toolkits.
+                            </div>
+                            <div class="post-tags">
+                                <span class="post-tag">#HearingLoss</span>
+                                <span class="post-tag">#Bristol</span>
+                                <span class="post-tag">#Accessibility</span>
+                            </div>
+                            <div class="post-footer">
+                                <span>Official Announcement</span>
+                                <a href="https://www.linkedin.com/company/hearing-loss-initiative/" target="_blank" rel="noopener noreferrer" style="color: #0077B5; font-weight: 700;">View on LinkedIn &rarr;</a>
+                            </div>
+                        </div>
+
+                        <div class="linkedin-post-item">
+                            <div class="post-author">
+                                <span>Hearing Loss Initiative</span>
+                                <span class="post-time">&bull; Auracast™ Trial</span>
+                            </div>
+                            <div class="post-body">
+                                Auracast™ broadcast audio is transforming public travel at Bristol Temple Meads. Real-time announcements directly to compatible hearing aids.
+                            </div>
+                            <div class="post-tags">
+                                <span class="post-tag">#Auracast</span>
+                                <span class="post-tag">#TempleMeads</span>
+                            </div>
+                            <div class="post-footer">
+                                <span>Tech Update</span>
+                                <a href="https://www.linkedin.com/company/hearing-loss-initiative/" target="_blank" rel="noopener noreferrer" style="color: #0077B5; font-weight: 700;">View on LinkedIn &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://www.linkedin.com/company/hearing-loss-initiative/" target="_blank" rel="noopener noreferrer" class="social-action-btn btn-linkedin">
+                    Connect &amp; Follow on LinkedIn &rarr;
+                </a>
+            </aside>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px; justify-content: center;">
+            <a href="path-support.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+        </nav>
+
+        <footer class="hli-minimal-footer" style="text-align: center; margin-top: 30px; color: #64748b; font-size: 0.85rem;">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <!-- Calendar Script & Event Handlers -->
+    <script>
+        // Community Events Dataset (All Dates To Be Confirmed / TBC)
+        const events = [
+            {
+                title: "[TBC] Bristol Hearing Loss Initiate Meetup",
+                date: "2026-09-19",
+                startTime: "14:00",
+                endTime: "16:30",
+                badge: "Date TBC (Provisional)",
+                badgeClass: "badge-tbc",
+                desc: "Planned regular informal gathering for Bristol's hearing loss initiates. Share experiences, discuss assistive tech, and connect with peers in a relaxed setting. (Date to be confirmed).",
+                location: "The Watershed, Canons Road, Bristol BS1 5TX"
+            },
+            {
+                title: "[TBC] Auracast™ Broadcast Demo at Temple Meads",
+                date: "2026-10-10",
+                startTime: "11:00",
+                endTime: "13:00",
+                badge: "Date TBC (Provisional)",
+                badgeClass: "badge-tbc",
+                desc: "Planned live walkthrough and demonstration of public Auracast broadcast audio for hearing aid and cochlear implant users at Bristol Temple Meads. (Date to be confirmed).",
+                location: "Bristol Temple Meads Rail Station"
+            },
+            {
+                title: "[TBC] Deaf Awareness & Workplace Communication Workshop",
+                date: "2026-11-04",
+                startTime: "18:30",
+                endTime: "20:00",
+                badge: "Date TBC (Provisional)",
+                badgeClass: "badge-tbc",
+                desc: "Planned introductory workshop on communication tactics, lipreading ease, PACE principles, and practical hearing loss tips. (Date to be confirmed).",
+                location: "Elmgrove Centre, Cotham, Bristol / Online Hybrid"
+            },
+            {
+                title: "[TBC] Bristol Hard-of-Hearing Coffee Morning",
+                date: "2026-11-21",
+                startTime: "10:30",
+                endTime: "12:30",
+                badge: "Date TBC (Provisional)",
+                badgeClass: "badge-tbc",
+                desc: "Planned relaxed peer support coffee morning in an acoustically friendly setting with portable assistive loop support. (Date to be confirmed).",
+                location: "Central Bristol Community Space"
+            }
+        ];
+
+        // Format Date Helper for iCal
+        function formatICSDate(dateStr, timeStr) {
+            const d = new Date(`${dateStr}T${timeStr}:00Z`);
+            return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+        }
+
+        // Generate Google Calendar Link
+        function getGoogleCalLink(event) {
+            const start = formatICSDate(event.date, event.startTime);
+            const end = formatICSDate(event.date, event.endTime);
+            const url = new URL('https://calendar.google.com/calendar/render');
+            url.searchParams.append('action', 'TEMPLATE');
+            url.searchParams.append('text', event.title);
+            url.searchParams.append('dates', `${start}/${end}`);
+            url.searchParams.append('details', `[PROVISIONAL / DATE TBC] ${event.desc}`);
+            url.searchParams.append('location', event.location);
+            return url.toString();
+        }
+
+        // Generate and Download ICS File (Apple Calendar / Outlook)
+        function downloadICS(event) {
+            const start = formatICSDate(event.date, event.startTime);
+            const end = formatICSDate(event.date, event.endTime);
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Hearing Loss Initiative Bristol//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:${Date.now()}@hearinglossinitiative.org.uk
+DTSTAMP:${start}
+DTSTART:${start}
+DTEND:${end}
+SUMMARY:${event.title}
+DESCRIPTION:[PROVISIONAL / DATE TBC] ${event.desc}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${event.title.replace(/[^a-zA-Z0-9]/g, '_')}.ics`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Render Event Cards
+        function renderEvents(filterDate = null) {
+            const container = document.getElementById('events-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const list = filterDate 
+                ? events.filter(e => e.date === filterDate) 
+                : events;
+
+            if (list.length === 0) {
+                container.innerHTML = `
+                    <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 20px; text-align: center; color: #64748b;">
+                        <p style="margin: 0 0 8px 0; font-weight: 600;">No scheduled activities on this specific date.</p>
+                        <button onclick="renderEvents(null); highlightSelectedDate(null);" style="background: #005EB8; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.85rem;">View All Planned Activities (TBC)</button>
+                    </div>
+                `;
+                return;
+            }
+
+            list.forEach((ev, idx) => {
+                const d = new Date(`${ev.date}T${ev.startTime}`);
+                const dateStr = d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
+                
+                const card = document.createElement('div');
+                card.className = 'event-card';
+                card.innerHTML = `
+                    <div class="event-date-row">
+                        <span class="event-date">Target Date: ${dateStr} &bull; ${ev.startTime} - ${ev.endTime} (TBC)</span>
+                        <span class="event-badge ${ev.badgeClass}">${ev.badge}</span>
+                    </div>
+                    <div class="event-title">${ev.title}</div>
+                    <div class="event-desc">${ev.desc}<br><strong style="color: #0f172a;">📍 Location:</strong> ${ev.location}</div>
+                    <div class="cal-btns">
+                        <a href="${getGoogleCalLink(ev)}" target="_blank" rel="noopener noreferrer" class="btn-cal btn-google">
+                            <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> Google Calendar
+                        </a>
+                        <button class="btn-cal btn-apple" id="apple-btn-${idx}">
+                            <span class="material-symbols-outlined" style="font-size: 1rem;">download</span> Apple Calendar (.ics)
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+
+                document.getElementById(`apple-btn-${idx}`).addEventListener('click', () => {
+                    downloadICS(ev);
+                });
+            });
+        }
+
+        // Calendar State (Initialized to Today)
+        const realToday = new Date();
+        let currentYear = realToday.getFullYear();
+        let currentMonth = realToday.getMonth();
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const dayHeaders = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+        function renderCalendarGrid() {
+            const container = document.getElementById('calendar-days-container');
+            const monthTitle = document.getElementById('cal-current-month');
+            if (!container || !monthTitle) return;
+
+            monthTitle.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            container.innerHTML = '';
+
+            // Weekday headers
+            dayHeaders.forEach(day => {
+                const header = document.createElement('div');
+                header.className = 'cal-day-header';
+                header.textContent = day;
+                container.appendChild(header);
+            });
+
+            const firstDayIndex = new Date(currentYear, currentMonth, 1).getDay();
+            // Adjust Sunday (0) to 6, Monday (1) to 0
+            const startOffset = (firstDayIndex + 6) % 7;
+
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+
+            // Previous month buffer days
+            for (let i = startOffset - 1; i >= 0; i--) {
+                const cell = document.createElement('div');
+                cell.className = 'cal-day-cell other-month';
+                cell.textContent = daysInPrevMonth - i;
+                container.appendChild(cell);
+            }
+
+            // Current month days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const cell = document.createElement('div');
+                cell.className = 'cal-day-cell';
+                cell.textContent = day;
+
+                const monthStr = String(currentMonth + 1).padStart(2, '0');
+                const dayStr = String(day).padStart(2, '0');
+                const dateKey = `${currentYear}-${monthStr}-${dayStr}`;
+
+                // Check if this date is TODAY
+                const isToday = (
+                    currentYear === realToday.getFullYear() &&
+                    currentMonth === realToday.getMonth() &&
+                    day === realToday.getDate()
+                );
+
+                if (isToday) {
+                    cell.classList.add('today');
+                    cell.title = "Today";
+                }
+
+                // Check if this date has a planned event
+                const hasEvent = events.some(e => e.date === dateKey);
+                if (hasEvent) {
+                    cell.classList.add('has-event');
+                    cell.title = isToday ? "Today (Planned activity on this date - TBC)" : "Planned activity on this date (TBC)";
+                }
+
+                cell.setAttribute('data-date', dateKey);
+                cell.addEventListener('click', () => {
+                    highlightSelectedDate(dateKey);
+                    renderEvents(hasEvent ? dateKey : null);
+                });
+
+                container.appendChild(cell);
+            }
+
+            // Next month trailing days to complete grid
+            const totalCells = startOffset + daysInMonth;
+            const remaining = (7 - (totalCells % 7)) % 7;
+            for (let j = 1; j <= remaining; j++) {
+                const cell = document.createElement('div');
+                cell.className = 'cal-day-cell other-month';
+                cell.textContent = j;
+                container.appendChild(cell);
+            }
+        }
+
+        function highlightSelectedDate(dateKey) {
+            document.querySelectorAll('.cal-day-cell').forEach(c => {
+                if (dateKey && c.getAttribute('data-date') === dateKey) {
+                    c.classList.add('selected');
+                } else {
+                    c.classList.remove('selected');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendarGrid();
+            renderEvents();
+
+            const prevBtn = document.getElementById('cal-prev-btn');
+            const nextBtn = document.getElementById('cal-next-btn');
+            const todayBtn = document.getElementById('cal-today-btn');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentMonth--;
+                    if (currentMonth < 0) {
+                        currentMonth = 11;
+                        currentYear--;
+                    }
+                    renderCalendarGrid();
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentMonth++;
+                    if (currentMonth > 11) {
+                        currentMonth = 0;
+                        currentYear++;
+                    }
+                    renderCalendarGrid();
+                });
+            }
+
+            if (todayBtn) {
+                todayBtn.addEventListener('click', () => {
+                    currentYear = realToday.getFullYear();
+                    currentMonth = realToday.getMonth();
+                    renderCalendarGrid();
+                    renderEvents(null);
+                    highlightSelectedDate(null);
+                });
+            }
+        });
+    </script>
+    <script src="script.js?v=3.0"></script>
+</body>
+</html>

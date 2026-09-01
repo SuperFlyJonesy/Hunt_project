@@ -191,7 +191,7 @@
   },
   {
     "id": "bearpit",
-    "venue_name": "The Bear Pit Community Hub",
+    "venue_name": "Stay Connected Community Hub",
     "category": "Community & Forum Hub",
     "lat": 51.4589,
     "lng": -2.5926,
@@ -214,7 +214,7 @@
       "last_tested_date": "January 2026",
       "auracast_details": {
         "is_available": false,
-        "broadcast_name": "The Bear Pit Community Hub Audio Broadcast",
+        "broadcast_name": "Stay Connected Community Hub Audio Broadcast",
         "requirements": "Hearing aids with LE Audio / Auracast receiver or telecoil lanyard"
       }
     },
