@@ -212,12 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (hasVisited === 'true' && prologue) {
         prologue.style.display = 'none';
-        const curtainTop = document.getElementById('curtain-top');
-        const curtainBottom = document.getElementById('curtain-bottom');
-        if(curtainTop && curtainBottom) {
-            curtainTop.style.display = 'none';
-            curtainBottom.style.display = 'none';
-        }
+        document.body.classList.remove('prologue-active');
     } else {
         initPrologue();
     }
@@ -240,6 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameValMsg = document.getElementById('name-validation-msg');
     const bypassGuestBtn = document.getElementById('btn-bypass-guest');
     const stencilCount = document.getElementById('stencil-count');
+    const svgStencilText = document.getElementById('stencil-svg-text');
+    if (stencilCount && svgStencilText) {
+        svgStencilText.textContent = stencilCount.textContent.trim() || '62220';
+        const stencilObserver = new MutationObserver(() => {
+            svgStencilText.textContent = stencilCount.textContent.trim();
+        });
+        stencilObserver.observe(stencilCount, { childList: true, characterData: true, subtree: true });
+    }
     const bgVideo = document.getElementById('bg-video');
     const videoToggle = document.getElementById('video-toggle');
 
@@ -258,10 +261,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Initialize Bristol Count from persistent analytics for landing page stencil
+    // Initialize Bristol Count from persistent analytics for landing page stencil with live server sync
     if (stencilCount) {
         const stats = getBristolAnalytics();
         stencilCount.innerHTML = stats.remainingCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+        stencilCount.setAttribute('aria-label', `Estimated ${stats.remainingCount.toLocaleString()} Bristol adults still to reach`);
+
+        // Fetch server-backed counter asynchronously
+        fetch('/api/counter')
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (data && typeof data.remaining === 'number') {
+                    const serverRem = Math.max(0, data.remaining);
+                    localStorage.setItem('hli_server_remaining', serverRem.toString());
+                    stencilCount.innerHTML = serverRem.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                    stencilCount.setAttribute('aria-label', `Estimated ${serverRem.toLocaleString()} Bristol adults still to reach`);
+                }
+            })
+            .catch(err => {
+                // Graceful fallback to cached analytics if server offline
+                console.log('[HLI Counter] Running in offline / local cache mode.');
+            });
     }
 
     // Modal & Pathway Handling
@@ -470,133 +490,419 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 function initPrologue() {
     const prologue = document.getElementById('prologue-lockdown');
-    const modal = document.getElementById('registration-modal');
     if (!prologue) return; // Failsafe
-    
-    const stats = prologue.querySelectorAll('.stat');
-    let isPrologueActive = true;
-    let currentStatIndex = 0;
-    let loopTimeout;
-    let shuffledDeck = [];
-    const highlightColors = ['#f39c12', '#ff0f5b', '#2b6df2', '#00ffcc', '#9b59b6'];
-    
-    function playPrologueLoop() {
-        if (!isPrologueActive || stats.length === 0) return;
 
-        // 1. Reset all stats to hidden
-        stats.forEach(stat => {
-            stat.style.opacity = '0';
-            stat.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
-            stat.querySelectorAll('.highlight').forEach(h => {
-                h.style.opacity = '0';
-            });
+    // Load data from global PROLOGUE_MOMENTS or fallback
+    const moments = (typeof window !== 'undefined' && window.PROLOGUE_MOMENTS) ? window.PROLOGUE_MOMENTS : [
+        {
+            id: "moment-1",
+            index: 1,
+            html: '<span class="base-text">By 2035, an estimated </span><strong class="highlight number-cyan">14.2 million</strong><span class="base-text"> UK adults will live with hearing loss.</span>',
+            source: "RNID 2035 Projections",
+            position: { desktop: { x: 38, y: 38 }, mobile: { x: 50, y: 36 } },
+            stencil: { targetProgress: 0.0, scale: 18.0, translateYVh: -120, opacity: 0.0 },
+            duration: 6200
+        },
+        {
+            id: "moment-2",
+            index: 2,
+            html: '<span class="base-text">In Bristol, </span><strong class="highlight number-cyan">62,220</strong><span class="base-text"> adults are estimated to be affected today.</span>',
+            source: "Bristol City Council JSNA",
+            position: { desktop: { x: 62, y: 58 }, mobile: { x: 50, y: 56 } },
+            stencil: { targetProgress: 0.20, scale: 6.5, translateYVh: -75, opacity: 0.10 },
+            duration: 6500
+        },
+        {
+            id: "moment-3",
+            index: 3,
+            html: '<span class="base-text">Projected to rise to </span><strong class="highlight number-amber">67,555</strong><span class="base-text"> over the next decade.</span>',
+            source: "Bristol City Council JSNA",
+            position: { desktop: { x: 64, y: 36 }, mobile: { x: 50, y: 38 } },
+            stencil: { targetProgress: 0.40, scale: 3.8, translateYVh: -48, opacity: 0.32 },
+            duration: 6000
+        },
+        {
+            id: "moment-4",
+            index: 4,
+            html: '<span class="base-text">Severe hearing loss is an </span><strong class="highlight text-amber">invisible barrier</strong><span class="base-text">.</span>',
+            source: "Bristol JSNA Estimates",
+            position: { desktop: { x: 36, y: 62 }, mobile: { x: 50, y: 60 } },
+            stencil: { targetProgress: 0.60, scale: 2.3, translateYVh: -30, opacity: 0.58 },
+            duration: 6000
+        },
+        {
+            id: "moment-5",
+            index: 5,
+            html: '<span class="base-text">Connecting NHS audiology, specialist technology, and </span><strong class="highlight text-cyan">welcoming local venues</strong><span class="base-text">.</span>',
+            source: "Hearing Loss Initiative",
+            position: { desktop: { x: 50, y: 44 }, mobile: { x: 50, y: 44 } },
+            stencil: { targetProgress: 0.80, scale: 1.45, translateYVh: -18, opacity: 0.82 },
+            duration: 6200
+        },
+        {
+            id: "moment-6",
+            index: 6,
+            html: '<strong class="highlight-action">Step inside</strong><span class="base-text"> to explore Bristol\'s hearing loss network.</span>',
+            source: "Hearing Loss Initiative",
+            position: { desktop: { x: 50, y: 50 }, mobile: { x: 50, y: 50 } },
+            stencil: { targetProgress: 1.0, scale: 1.0, translateYVh: -12, opacity: 1.0 },
+            duration: 0
+        }
+    ];
+
+    let currentMomentIndex = 0;
+    let isPrologueActive = true;
+    let loopTimeout = null;
+    let animFrameId = null;
+
+    // Continuous Automatic Camera Zoom Timeline
+    const prologueStartTime = performance.now();
+    const TOTAL_PROLOGUE_TIME = 32000; // 32s continuous total duration
+    let continuousProgress = 0.0;
+    let targetMomentProgress = 0.0;
+
+    // DOM Elements
+    const canvas = document.getElementById('prologue-canvas') || document.getElementById('ambient-canvas');
+    const stage = document.getElementById('prologue-floating-stage');
+    const skipBtn = document.getElementById('prologue-skip-btn');
+    const clickPrompt = document.getElementById('prologue-click-prompt');
+    const sourceWhisper = document.getElementById('prologue-source-whisper');
+    const stencilMask = document.getElementById('prologue-stencil-mask');
+    const stencilNumber = document.getElementById('prologue-stencil-number');
+
+    // Sync live landing page number into prologue stencil
+    const landingStencil = document.getElementById('stencil-count');
+    if (landingStencil && stencilNumber) {
+        stencilNumber.textContent = landingStencil.textContent.trim() || '62220';
+    }
+
+    // Set initial invisible, zoomed-out off-screen state
+    if (stencilMask) {
+        stencilMask.style.transform = 'translateY(-120vh) scale(18.0)';
+        stencilMask.style.opacity = '0';
+    }
+
+    // Focal target coordinates for ambient glow
+    let targetGlowX = window.innerWidth * 0.5;
+    let targetGlowY = window.innerHeight * 0.5;
+    let currentGlowX = targetGlowX;
+    let currentGlowY = targetGlowY;
+
+    // 1. Build Moment Elements
+    if (stage) {
+        stage.innerHTML = '';
+        moments.forEach((m, idx) => {
+            const p = document.createElement('p');
+            p.id = `prologue-moment-${idx}`;
+            p.className = 'prologue-moment';
+            p.innerHTML = m.html;
+            stage.appendChild(p);
+        });
+    }
+
+    const momentElements = stage ? stage.querySelectorAll('.prologue-moment') : [];
+
+    // 2. Play Moment
+    function showMoment(index) {
+        if (!isPrologueActive || !momentElements[index]) return;
+        currentMomentIndex = index;
+        const m = moments[index];
+        const isMobile = window.innerWidth <= 600;
+        const pos = (isMobile && m.position.mobile) ? m.position.mobile : m.position.desktop;
+
+        // Clear any running timers
+        if (loopTimeout) clearTimeout(loopTimeout);
+
+        // Update target progress for continuous camera zoom
+        if (m.stencil && typeof m.stencil.targetProgress === 'number') {
+            targetMomentProgress = m.stencil.targetProgress;
+        }
+
+        // Hide other moments
+        momentElements.forEach((el, idx) => {
+            if (idx !== index) {
+                el.classList.remove('visible');
+                el.style.opacity = '0';
+                el.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
+                el.querySelectorAll('.highlight, .highlight-action').forEach(h => h.style.opacity = '0');
+            }
         });
 
-        // 2. Select current stat and set new brand color
-        const currentStat = stats[currentStatIndex];
-        prologue.style.setProperty('--highlight-color', highlightColors[currentStatIndex % highlightColors.length]);
+        const activeEl = momentElements[index];
 
-        // 3. Position Logic: Bounded random positioning across screen without edge clipping or prompt overlap
-        const statW = currentStat.offsetWidth || 300;
-        const statH = currentStat.offsetHeight || 80;
+        // Apply spatial text positioning
+        activeEl.style.left = `${pos.x}%`;
+        activeEl.style.top = `${pos.y}%`;
 
-        const isMobile = window.innerWidth <= 600;
-        const minMarginX = isMobile ? 15 : 40;
-        const minMarginTop = isMobile ? 60 : 90;
-        const minMarginBottom = isMobile ? 100 : 140;
+        // Update ambient glow coordinates
+        targetGlowX = (pos.x / 100) * window.innerWidth;
+        targetGlowY = (pos.y / 100) * window.innerHeight;
 
-        const minCenterX = minMarginX + (statW / 2);
-        const maxCenterX = window.innerWidth - minMarginX - (statW / 2);
-
-        const minCenterY = minMarginTop + (statH / 2);
-        const maxCenterY = window.innerHeight - minMarginBottom - (statH / 2);
-
-        let targetX, targetY;
-
-        if (currentStatIndex === 0) {
-            targetX = window.innerWidth / 2;
-            targetY = window.innerHeight / 2;
-        } else {
-            targetX = (maxCenterX > minCenterX) 
-                ? minCenterX + Math.random() * (maxCenterX - minCenterX)
-                : window.innerWidth / 2;
-
-            targetY = (maxCenterY > minCenterY)
-                ? minCenterY + Math.random() * (maxCenterY - minCenterY)
-                : window.innerHeight / 2;
+        // Update footer prompt and source
+        if (sourceWhisper) {
+            sourceWhisper.textContent = `Source: ${m.source}`;
+        }
+        if (clickPrompt) {
+            if (index === moments.length - 1) {
+                clickPrompt.innerHTML = '[ Click or press Enter to enter site &rarr; ]';
+                clickPrompt.style.opacity = '0.85';
+            } else {
+                clickPrompt.innerHTML = '[ Click anywhere to continue ]';
+                clickPrompt.style.opacity = '0.5';
+            }
         }
 
-        currentStat.style.left = `${targetX}px`;
-        currentStat.style.top = `${targetY}px`;
-        currentStat.style.transform = 'translate(-50%, -50%)';
+        // Fade in active moment
+        activeEl.classList.add('visible');
+        activeEl.style.opacity = '1';
+        activeEl.querySelectorAll('.base-text').forEach(t => t.style.opacity = '1');
+        activeEl.querySelectorAll('.highlight, .highlight-action').forEach(h => h.style.opacity = '1');
 
-        // 4. Fade in entire current stat
-        currentStat.style.opacity = '1';
-        currentStat.querySelectorAll('.base-text').forEach(t => t.style.opacity = '1');
-        currentStat.querySelectorAll('.highlight').forEach(h => h.style.opacity = '1');
+        // Auto-advance loop: Base text dissolves, number lingers longer
+        if (m.duration > 0) {
+            const dissolveDelay = Math.max(1000, m.duration - 2000);
+            loopTimeout = setTimeout(() => {
+                // Phase A: Base text dissolves first
+                activeEl.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
 
-        // 5. Sequence timings
-        loopTimeout = setTimeout(() => {
-            // Phase A: Base text starts fading
-            currentStat.querySelectorAll('.base-text').forEach(t => t.style.opacity = '0');
-            
-            // Trigger Phase B almost immediately so they overlap smoothly
-            setTimeout(() => {
-                // Phase B: Pure, smooth, slow dissolve
-                currentStat.querySelectorAll('.highlight').forEach(h => {
-                    h.style.opacity = '0'; 
-                });
-
-                // Phase C: Next Slide Logic (No Repeats)
+                // Phase B: Number stays illuminated and lingers for 1500ms
                 setTimeout(() => {
-                    // If the deck is empty, refill it with all available indexes and shuffle
-                    if (shuffledDeck.length === 0) {
-                        for (let i = 0; i < stats.length; i++) {
-                            shuffledDeck.push(i);
+                    activeEl.querySelectorAll('.highlight, .highlight-action').forEach(h => h.style.opacity = '0');
+
+                    // Phase C: Transition to next moment
+                    setTimeout(() => {
+                        activeEl.classList.remove('visible');
+                        if (currentMomentIndex < moments.length - 1) {
+                            showMoment(currentMomentIndex + 1);
                         }
-                        // Fisher-Yates Shuffle
-                        for (let i = shuffledDeck.length - 1; i > 0; i--) {
-                            const j = Math.floor(Math.random() * (i + 1));
-                            [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-                        }
-                    }
-                    
-                    // Draw the next random, unplayed stat from the deck
-                    currentStatIndex = shuffledDeck.pop();
-                    playPrologueLoop();
-                }, 2000); 
-            }, 300); // Reduced from 1000ms down to 300ms for the early trigger
-        }, 5000); // Keeps the initial reading time the same
-    }
-    
-    // Wire up the click-to-continue event to hide the lockdown wrapper
-    const dismissPrologue = () => {
-        isPrologueActive = false;
-        clearTimeout(loopTimeout);
-        prologue.style.display = 'none';
-        
-        // Curtain Animation
-        const curtainTop = document.getElementById('curtain-top');
-        const curtainBottom = document.getElementById('curtain-bottom');
-        if(curtainTop && curtainBottom) {
-            curtainTop.style.transform = "translateY(-100%)";
-            curtainBottom.style.transform = "translateY(100%)";
+                    }, 450);
+                }, 1500);
+            }, dissolveDelay);
         }
+    }
+
+    function nextMoment() {
+        if (loopTimeout) clearTimeout(loopTimeout);
+        if (currentMomentIndex < moments.length - 1) {
+            showMoment(currentMomentIndex + 1);
+        } else {
+            dismissPrologue();
+        }
+    }
+
+        function prevMoment() {
+        if (loopTimeout) clearTimeout(loopTimeout);
+        if (currentMomentIndex > 0) {
+            showMoment(currentMomentIndex - 1);
+        }
+    }
+
+    // Mark prologue active on body to stage landing page text fade-in
+    document.body.classList.add('prologue-active');
+
+    // 3. Dismiss Prologue and Reveal Homepage with Eye-Blink Awakening
+    const dismissPrologue = () => {
+        if (!isPrologueActive) return;
+        isPrologueActive = false;
+
+        if (loopTimeout) clearTimeout(loopTimeout);
+        if (animFrameId) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+        }
+
+        // Trigger graceful text fade-in on landing page
+        document.body.classList.remove('prologue-active');
+
+        // Ensure stencil matches landing page exact state
+        if (stencilMask) {
+            const isMobile = window.innerWidth <= 768;
+            stencilMask.style.transform = `translateY(${isMobile ? -24 : -12}vh) scale(1)`;
+            stencilMask.style.opacity = '1';
+        }
+
+        // Ensure background video plays seamlessly
+        const bgVideo = document.getElementById('bg-video');
+        if (bgVideo && bgVideo.paused) {
+            bgVideo.play().catch(() => {});
+        }
+
+        // Softly fade out prologue lockdown container as numbers awake
+        prologue.style.transition = 'opacity 0.45s ease';
+        prologue.style.opacity = '0';
+        setTimeout(() => {
+            prologue.style.display = 'none';
+        }, 500);
     };
 
-    prologue.addEventListener('click', dismissPrologue);
-    prologue.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+    // 4. Interactive Event Listeners
+    if (skipBtn) {
+        skipBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dismissPrologue();
+        });
+    }
+
+    // Backdrop click advances
+    prologue.addEventListener('click', (e) => {
+        if (e.target.closest('button') || e.target.closest('a')) {
+            return;
+        }
+        nextMoment();
+    });
+
+    // Keyboard Navigation (Space, Enter, Arrows, Escape)
+    const handleKeyNav = (e) => {
+        if (!isPrologueActive) return;
+
+        if (document.activeElement && document.activeElement.tagName === 'BUTTON' && (e.key === 'Enter' || e.key === ' ')) {
+            return;
+        }
+
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+            e.preventDefault();
+            nextMoment();
+        } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevMoment();
+        } else if (e.key === 'Escape') {
             e.preventDefault();
             dismissPrologue();
         }
-    });
-    
-    // Start the loop
-    playPrologueLoop();
+    };
+
+    document.addEventListener('keydown', handleKeyNav);
+
+    // Touch Swipe Gestures
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    prologue.addEventListener('touchstart', (e) => {
+        if (!e.touches || e.touches.length === 0) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    prologue.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+
+        if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (deltaX < 0) {
+                nextMoment();
+            } else {
+                prevMoment();
+            }
+        }
+    }, { passive: true });
+
+    // 5. Continuous Visual Canvas Layer & Constant-Speed Logarithmic Camera Zoom Engine
+    function initCanvasAnimation() {
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) return;
+
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        window.addEventListener('resize', () => {
+            if (!isPrologueActive) return;
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        let step = 0;
+
+        function draw() {
+            if (!isPrologueActive) return;
+
+            ctx.clearRect(0, 0, width, height);
+            step += 0.015;
+
+            // --- A. Steady Logarithmic Camera Dolly Zoom (Zero Jerking, Constant Perceptual Speed) ---
+            const elapsed = performance.now() - prologueStartTime;
+            const timeBasedProgress = Math.min(1.0, elapsed / TOTAL_PROLOGUE_TIME);
+            const activeTarget = (currentMomentIndex === moments.length - 1)
+                ? 1.0
+                : Math.max(timeBasedProgress, targetMomentProgress);
+
+            // Silky critically damped easing
+            continuousProgress += (activeTarget - continuousProgress) * 0.022;
+
+            // Smoothstep normalized factor
+            const smoothP = continuousProgress * continuousProgress * (3 - 2 * continuousProgress);
+
+            // Logarithmic zoom scale (constant physical speed across whole journey)
+            const scale = Math.exp(Math.log(14.0) * (1 - smoothP) + Math.log(1.0) * smoothP);
+
+            // Smooth vertical descent
+            const isMobile = window.innerWidth <= 768;
+            const targetY = isMobile ? -24 : -12;
+            const startY = isMobile ? -100 : -95;
+            const translateY = startY + (targetY - startY) * smoothP;
+
+            // Opacity curve: 0% at start, gently rising into subtle dark shadow
+            let opacity = 0.0;
+            if (smoothP > 0.12) {
+                opacity = Math.min(1.0, (smoothP - 0.12) / 0.88);
+            }
+
+            if (stencilMask) {
+                stencilMask.style.transform = `translateY(${translateY.toFixed(2)}vh) scale(${scale.toFixed(3)})`;
+                stencilMask.style.opacity = opacity.toFixed(4);
+            }
+
+            // --- B. Ambient Radial Glow (Tracks text focus) ---
+            currentGlowX += (targetGlowX - currentGlowX) * 0.04;
+            currentGlowY += (targetGlowY - currentGlowY) * 0.04;
+
+            const glowGrad = ctx.createRadialGradient(currentGlowX, currentGlowY, 10, currentGlowX, currentGlowY, 260);
+            glowGrad.addColorStop(0, 'rgba(56, 189, 248, 0.09)');
+            glowGrad.addColorStop(0.5, 'rgba(15, 23, 42, 0.04)');
+            glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = glowGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // --- C. Faint Flowing Acoustic Wave Filaments ---
+            ctx.lineWidth = 1.1;
+            for (let i = 0; i < 3; i++) {
+                ctx.beginPath();
+                const waveOffset = i * 0.9;
+                const alpha = (0.08 - i * 0.022);
+                ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+
+                const centerY = height * 0.48 + Math.sin(step * 0.5 + i) * 20;
+
+                for (let x = 0; x < width; x += 10) {
+                    const distanceFactor = Math.sin((x / width) * Math.PI);
+                    const y = centerY + Math.sin(x * 0.004 + step + waveOffset) * (28 * distanceFactor)
+                                     + Math.cos(x * 0.0025 - step * 0.6) * (16 * distanceFactor);
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            animFrameId = requestAnimationFrame(draw);
+        }
+
+        animFrameId = requestAnimationFrame(draw);
+    }
+
+    // Initialize
+    showMoment(0);
+    initCanvasAnimation();
 }
 
 // 5. FLOATING SCROLL CONTROLS

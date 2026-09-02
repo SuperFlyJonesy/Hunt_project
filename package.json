@@ -1,0 +1,20 @@
+{
+  "name": "hearing-loss-initiative",
+  "version": "1.0.0",
+  "description": "Hearing Loss Initiative Bristol - Community & Support Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "start": "python -m http.server 3000"
+  },
+  "keywords": [
+    "accessibility",
+    "hearing-loss",
+    "bristol",
+    "patreon",
+    "webhooks"
+  ],
+  "author": "Hearing Loss Initiative",
+  "license": "UNLICENSED"
+}

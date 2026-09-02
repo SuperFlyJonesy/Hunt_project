@@ -9,7 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>Hearing Loss Initiative - Bristol</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=12.0">
+    <link rel="stylesheet" href="styles.css?v=31.0">
     <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
 </head>
 <body>
@@ -17,35 +17,33 @@
     <!-- DEV TOOLS -->
     <button id="dev-reset" aria-label="Reset Application State" style="position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: white; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 6px; opacity: 0.7; cursor: pointer; z-index: 99999999; padding: 8px 12px; font-weight: bold; font-family: sans-serif; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">R</button>
     
-    <div class="page-transition-overlay"></div>
-    
-    <!-- LOCKED PROLOGUE ANIMATION (STABLE VERSION) -->
-    <div id="prologue-lockdown" class="prologue" style="display: flex; flex-direction: column; align-items: center; justify-content: center;" tabindex="0" role="button" aria-label="Introductory statistics. Click or press Enter or Space to continue.">
-        <div class="prologue-text">
-            <p class="stat"><span class="highlight">1</span><span class="base-text"> in </span><span class="highlight">3</span><span class="base-text"> adults in the UK have hearing loss.</span></p>
-            <p class="stat"><span class="base-text">By </span><span class="highlight">2035</span><span class="base-text">, an estimated </span><span class="highlight">14.2</span><span class="base-text"> million people will be affected.</span></p>
-            <p class="stat"><span class="base-text">Hearing loss often leads to </span><span class="highlight">social isolation</span><span class="base-text"> and depression.</span></p>
-            <p class="stat"><span class="highlight">Timely intervention</span><span class="base-text"> dramatically improves quality of life.</span></p>
-            <p class="stat"><span class="base-text">Yet, many suffer in </span><span class="highlight">silence</span><span class="base-text"> for years.</span></p>
-            <p class="stat"><span class="base-text">Around </span><span class="highlight">62,220</span><span class="base-text"> Bristol adults were predicted to live with hearing loss in 2025.</span></p>
-            <p class="stat"><span class="base-text">Roughly </span><span class="highlight">1 in 6</span><span class="base-text"> of Bristol’s adult population has some degree of hearing loss.</span></p>
-            <p class="stat"><span class="base-text">Bristol’s adult hearing-loss population is forecast to rise to </span><span class="highlight">67,555</span><span class="base-text"> by 2035.</span></p>
-            <p class="stat"><span class="base-text">This represents an additional </span><span class="highlight">5,300</span><span class="base-text"> adults over just ten years.</span></p>
-            <p class="stat"><span class="base-text">Around </span><span class="highlight">6,655</span><span class="base-text"> Bristol adults were predicted to have severe hearing loss in 2025.</span></p>
-            <p class="stat"><span class="base-text">Severe hearing loss affects approximately </span><span class="highlight">1 in every 60</span><span class="base-text"> people in Bristol.</span></p>
-            <p class="stat"><span class="base-text">Bristol City Council funds a </span><span class="highlight">specialist equipment</span><span class="base-text"> service for hard-of-hearing residents.</span></p>
-            <p class="stat"><span class="base-text">Locals can access tech including </span><span class="highlight">flashing doorbells</span><span class="base-text"> and amplified telephones.</span></p>
-            <p class="stat"><span class="base-text">Many hard-of-hearing residents also qualify for free </span><span class="highlight">fire-safety equipment</span><span class="base-text">.</span></p>
-            <p class="stat"><span class="base-text">Locals have reported missing healthcare because of </span><span class="highlight">communication barriers</span><span class="base-text">.</span></p>
-            <p class="stat"><span class="base-text">An amplified alert system restored one Bristol man's </span><span class="highlight">independence</span><span class="base-text">.</span></p>
-            <p class="stat"><span class="highlight">Bristol Beacon</span><span class="base-text"> offers captioned performances and an induction hearing loop.</span></p>
-            <p class="stat"><span class="base-text">Bristol Temple Meads is pioneering an </span><span class="highlight">Auracast</span><span class="base-text">-based system for announcements.</span></p>
-            <p class="click-prompt">[ Click to continue ]</p>
+    <!-- KINETIC FLOATING CINEMATIC PROLOGUE -->
+    <div id="prologue-lockdown" class="prologue" role="region" aria-label="Introductory prologue on Bristol hearing loss" tabindex="0">
+        <canvas id="prologue-canvas" class="prologue-canvas" aria-hidden="true"></canvas>
+
+        <!-- Stencil Mask Zooming Background Layer -->
+        <div id="prologue-stencil-container" class="prologue-stencil-container" aria-hidden="true">
+            <div id="prologue-stencil-mask" class="prologue-stencil-mask">
+                <span id="prologue-stencil-number" class="prologue-stencil-number">62220</span>
+            </div>
+        </div>
+
+        <button type="button" id="prologue-skip-btn" class="prologue-skip-whisper" aria-label="Skip intro">
+            [ Skip intro ]
+        </button>
+
+        <div id="prologue-floating-stage" class="prologue-floating-stage" aria-live="polite">
+            <!-- Floating kinetic text generated dynamically from PROLOGUE_MOMENTS -->
+        </div>
+
+        <div id="prologue-click-prompt" class="prologue-click-prompt">
+            [ Click anywhere to continue ]
+        </div>
+
+        <div id="prologue-source-whisper" class="prologue-source-whisper">
+            Source: Bristol City Council JSNA &amp; RNID Projections
         </div>
     </div>
-    
-    <div id="curtain-top" class="curtain"></div>
-    <div id="curtain-bottom" class="curtain"></div>
     
     <div class="main-container">
         <header class="top-nav">
@@ -80,7 +78,7 @@
             <a href="path-about.html" id="btn-support" class="nav-btn-small top-support-btn">About Us</a>
         </header>
 
-        <!-- STENCIL LANDING PAGE -->
+        <!-- STENCIL LANDING PAGE (Bristol Video Masked Inside The Numbers 62,220) -->
         <a href="https://visitbristol.co.uk/" target="_blank" rel="noopener" aria-label="Visit Bristol website (Video courtesy of Visit Bristol)" style="cursor: pointer;">
             <div class="video-mask-container" title="Click to visit Visit Bristol website">
                 <video id="bg-video" autoplay loop muted playsinline preload="metadata" poster="Contents/Videos/bristol-bg-poster.jpg">
@@ -98,13 +96,36 @@
             Video courtesy of Visit Bristol &#8599;
         </a>
 
-        <div id="main-content" class="mask-overlay">
-            <h1 class="stencil-layer" id="stencil-count">62220</h1>
+        <!-- SVG STENCIL MASK OVERLAY (Exact Prologue Deep Blue Radial Gradient With Bristol Video Playing Inside Numbers 62,220) -->
+        <svg id="stencil-mask-svg" class="mask-overlay-svg" width="100%" height="100%" aria-hidden="true">
+            <defs>
+                <radialGradient id="prologue-mask-grad" cx="50%" cy="50%" r="75%">
+                    <stop offset="0%" stop-color="#0d213a" />
+                    <stop offset="40%" stop-color="#081220" />
+                    <stop offset="75%" stop-color="#040810" />
+                    <stop offset="100%" stop-color="#000000" />
+                </radialGradient>
+                <mask id="stencil-cutout-mask">
+                    <rect width="100%" height="100%" fill="white" />
+                    <text id="stencil-svg-text" class="stencil-svg-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">62220</text>
+                </mask>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#prologue-mask-grad)" mask="url(#stencil-cutout-mask)" />
+        </svg>
+
+        <div id="main-content" class="mask-overlay-accessible" role="region" aria-label="Bristol Outreach Goal Countdown">
+            <h1 class="stencil-layer visually-hidden" id="stencil-count" aria-live="polite" aria-atomic="true" aria-label="Estimated 62,220 Bristol adults still to reach">62220</h1>
         </div>
         <div class="content-layer" id="content-layer">
             <div id="bottom-action-panel">
                 <div id="intro-block">
                     <p class="official-text"><em>Estimates from the <a href="https://www.bristol.gov.uk/jsna" target="_blank" class="citation-link">Bristol City Council JSNA Report &#8599;</a> and <a href="https://rnid.org.uk/about-us/research-and-policy/facts-and-figures/" target="_blank" class="citation-link">National RNID Statistics &#8599;</a> indicate&nbsp;that<br><strong class="stat-num">62<span class="small-comma">,</span>220</strong> adults in <strong style="font-weight: 900; color: #ffffff;">Bristol</strong> currently live with some form of <strong style="font-weight: 900; color: #ffffff;">hearing loss</strong>.</em></p>
+
+                    <noscript>
+                        <p style="text-align: center; color: #ffffff; background: rgba(0,0,0,0.85); padding: 8px 12px; border-radius: 6px; font-size: 0.85rem; margin: 10px auto; max-width: 600px;">
+                            JavaScript is disabled. The estimated Bristol outreach target is 62,220 individuals.
+                        </p>
+                    </noscript>
                     
                     <div class='pathways-container'>
                       <div class='pathway'>
@@ -143,7 +164,8 @@
             </form>
         </div>
     </div>
-    <script src="script.js?v=12.0"></script>
+    <script src="data/prologue-data.js?v=10.0"></script>
+    <script src="script.js?v=36.0"></script>
 </body>
 </html>
 

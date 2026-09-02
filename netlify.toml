@@ -1,3 +1,26 @@
+[build]
+  functions = "netlify/functions"
+
 [[edge_functions]]
   path = "/*"
   function = "auth"
+
+[[redirects]]
+  from = "/api/patreon-webhook"
+  to = "/.netlify/functions/patreon-webhook"
+  status = 200
+
+[[redirects]]
+  from = "/api/counter"
+  to = "/.netlify/functions/counter"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin"
+  to = "/.netlify/functions/admin-counter"
+  status = 200
+
+[[redirects]]
+  from = "/api/admin/*"
+  to = "/.netlify/functions/admin-counter"
+  status = 200
