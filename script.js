@@ -246,40 +246,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const bgVideo = document.getElementById('bg-video');
     const videoToggle = document.getElementById('video-toggle');
 
-    // Dynamic Video-to-Mask Sizing & Safety Overhang Engine
-    // Optimizes video rendering size while guaranteeing 100% full coverage of the number mask during any move or zoom
-    function syncVideoToMask() {
-        if (!bgVideo || !svgStencilText) return;
-        const rect = svgStencilText.getBoundingClientRect();
-        if (!rect || rect.width === 0 || rect.height === 0) return;
-
-        // Generous safety overhang margin: 25% extra width and 35% extra height (min 80px pad)
-        // Ensures that if mask pulses, scales, or moves, the video covers all of the mask without gaps
-        const padX = Math.max(80, rect.width * 0.25);
-        const padY = Math.max(80, rect.height * 0.35);
-
-        const targetW = rect.width + (padX * 2);
-        const targetH = rect.height + (padY * 2);
-        const centerX = rect.left + (rect.width / 2);
-        const centerY = rect.top + (rect.height / 2);
-
-        bgVideo.style.position = 'fixed';
-        bgVideo.style.left = `${Math.round(centerX)}px`;
-        bgVideo.style.top = `${Math.round(centerY)}px`;
-        bgVideo.style.transform = 'translate(-50%, -50%)';
-        bgVideo.style.width = `${Math.round(targetW)}px`;
-        bgVideo.style.height = `${Math.round(targetH)}px`;
-        bgVideo.style.maxWidth = 'none';
-        bgVideo.style.maxHeight = 'none';
-        bgVideo.style.objectFit = 'cover';
-    }
-
-    if (bgVideo && svgStencilText) {
-        syncVideoToMask();
-        window.addEventListener('resize', syncVideoToMask, { passive: true });
-        window.addEventListener('orientationchange', syncVideoToMask, { passive: true });
-        // Expose globally for prologue transition sync
-        window.__hliSyncVideoToMask = syncVideoToMask;
+    // Video Play/Pause Logic
+    if (bgVideo && videoToggle) {
+        videoToggle.addEventListener('click', () => {
+            if (bgVideo.paused) {
+                bgVideo.play();
+                videoToggle.innerHTML = '<span class="icon">⏸</span>';
+                videoToggle.setAttribute('aria-label', 'Pause Background Video');
+            } else {
+                bgVideo.pause();
+                videoToggle.innerHTML = '<span class="icon">▶</span>';
+                videoToggle.setAttribute('aria-label', 'Play Background Video');
+            }
+        });
     }
 
     // Initialize Bristol Count from persistent analytics for landing page stencil with live server sync
@@ -744,13 +723,10 @@ function initPrologue() {
             stencilMask.style.opacity = '1';
         }
 
-        // Ensure background video plays seamlessly and aligns to mask
+        // Ensure background video plays seamlessly
         const bgVideo = document.getElementById('bg-video');
         if (bgVideo && bgVideo.paused) {
             bgVideo.play().catch(() => {});
-        }
-        if (typeof window.__hliSyncVideoToMask === 'function') {
-            window.__hliSyncVideoToMask();
         }
 
         // Softly fade out prologue lockdown container as numbers awake

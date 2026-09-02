@@ -298,16 +298,11 @@ html:has(body.prologue-active)::-webkit-scrollbar {
 }
 
 .video-mask-container video {
-    position: fixed;
-    left: 50%;
-    top: 38vh;
-    transform: translate(-50%, -50%);
-    width: 90vw;
-    max-width: 1350px;
-    height: 48vh;
-    min-height: 280px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    will-change: transform, width, height;
+    object-position: center center;
+    filter: contrast(1.04) saturate(1.08) brightness(1.02);
 }
 
 .mask-overlay-svg {
@@ -381,12 +376,6 @@ html:has(body.prologue-active)::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
-    .video-mask-container video {
-        top: 26vh;
-        width: 96vw;
-        height: 38vh;
-        min-height: 200px;
-    }
     .stencil-layer,
     .stencil-svg-text {
         font-size: 22vw !important;
