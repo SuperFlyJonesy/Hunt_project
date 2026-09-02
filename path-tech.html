@@ -5,7 +5,7 @@
     <meta name="description" content="Live updated video and text feed covering breakthroughs in Auracast Bluetooth LE Audio, gene therapy, AI sound reduction, and neural hearing technology.">
     <meta charset="UTF-8">
     <title>Future Tech &amp; Live Hearing Advancements Feed - Hearing Loss Initiative</title>
-    <link rel="stylesheet" href="styles.css?v=8.0">
+    <link rel="stylesheet" href="styles.css?v=31.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -111,9 +111,17 @@
                         <img src="Contents/Venues/templemeads.jpg" alt="Bristol Temple Meads Station Auracast Test Site" style="width: 100%; height: 210px; object-fit: cover; display: block;" loading="lazy">
                     </div>
 
-                    <!-- DIRECT RESPONSIVE UNCLIPPED VIDEO EMBED -->
-                    <div class="responsive-video-container">
-                        <iframe src="https://www.youtube-nocookie.com/embed/Y32bQGHATe4" title="Auracast Broadcast Audio Station Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <div class="hli-video-showcase-card">
+                        <div class="video-link-item" data-video-id="Y32bQGHATe4" data-video-title="Auracast Broadcast Audio Station Demo">
+                            <a href="https://www.youtube.com/watch?v=Y32bQGHATe4" class="hli-video-launch-btn">
+                                <span class="material-symbols-outlined">play_circle</span>
+                                <span>Watch Auracast Station Demo (Watch On-Site)</span>
+                            </a>
+                            <div class="video-preview-card">
+                                <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/Y32bQGHATe4/hqdefault.jpg')"></div>
+                                <div class="preview-title">Auracast Broadcast Audio Station Demo (Watch On-Site)</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="ext-btn-group" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
@@ -152,8 +160,8 @@
                                 <span class="material-symbols-outlined">play_circle</span> Watch Gene Therapy Video On-Site &rarr;
                             </button>
                             <div class="video-preview-card">
-                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/XGq3MXQlRJs/0.jpg') center/cover no-repeat;"></div>
-                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Cochlear Gene Therapy Research (Click to Play)</div>
+                                <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/XGq3MXQlRJs/hqdefault.jpg');"></div>
+                                <div class="preview-title">Cochlear Gene Therapy Research (Watch On-Site)</div>
                             </div>
                         </div>
 
@@ -189,8 +197,8 @@
                                 <span class="material-symbols-outlined">play_circle</span> Watch AI Voice Isolation On-Site &rarr;
                             </button>
                             <div class="video-preview-card">
-                                <div style="width: 100%; height: 145px; background: url('https://img.youtube.com/vi/JKY-hohg8wM/0.jpg') center/cover no-repeat;"></div>
-                                <div style="padding: 12px; font-size: 0.85rem; color: #eee; font-weight: 600; text-align: center; background: #18181b;">Deep Neural Network Speech In Noise Demo (Click to Play)</div>
+                                <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/JKY-hohg8wM/hqdefault.jpg');"></div>
+                                <div class="preview-title">Deep Neural Network Speech Isolation (Watch On-Site)</div>
                             </div>
                         </div>
 
@@ -293,6 +301,6 @@
             });
         }
     </script>
-    <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=36.0"></script>
 </body>
 </html>

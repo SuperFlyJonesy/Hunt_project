@@ -293,13 +293,21 @@ html:has(body.prologue-active)::-webkit-scrollbar {
     height: 100vh;
     z-index: -2;
     pointer-events: none;
-    background: #000;
+    background: #000000;
+    overflow: hidden;
 }
 
 .video-mask-container video {
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    left: 50%;
+    top: 38vh;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 1350px;
+    height: 48vh;
+    min-height: 280px;
     object-fit: cover;
+    will-change: transform, width, height;
 }
 
 .mask-overlay-svg {
@@ -373,6 +381,12 @@ html:has(body.prologue-active)::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+    .video-mask-container video {
+        top: 26vh;
+        width: 96vw;
+        height: 38vh;
+        min-height: 200px;
+    }
     .stencil-layer,
     .stencil-svg-text {
         font-size: 22vw !important;
@@ -1862,6 +1876,63 @@ color: white;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 15px 40px rgba(0,0,0,0.8);
     border: 1px solid #333;
+    z-index: 9999;
+}
+
+.preview-thumb {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+}
+
+.preview-title {
+    padding: 12px;
+    font-size: 0.85rem;
+    color: #eee;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.4;
+}
+
+.hli-video-showcase-card {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.hli-video-launch-btn {
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.hli-video-launch-btn:hover {
+    background: #ff0f5b;
+    border-color: #ff0f5b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 15, 91, 0.35);
+}
+
+.hli-video-launch-btn .material-symbols-outlined {
+    font-size: 1.6rem;
+    color: #ff0f5b;
+    transition: color 0.2s;
+}
+
+.hli-video-launch-btn:hover .material-symbols-outlined {
+    color: #ffffff;
 }
 
 /* SCROLL REVEAL ANIMATIONS SITE-WIDE */

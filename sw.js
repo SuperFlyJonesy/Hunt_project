@@ -1,6 +1,6 @@
 // Service Worker for Bristol Hearing Loss Initiative
-// Offline-first caching for emergency pathways and core UI assets
-const CACHE_NAME = 'hli-cache-v1';
+// Offline-first caching for essential pathways and core UI assets
+const CACHE_NAME = 'hli-cache-v2';
 
 const CORE_ASSETS = [
   './',
@@ -8,12 +8,11 @@ const CORE_ASSETS = [
   './path-yes.html',
   './path-support.html',
   './path-about.html',
-  './path-emergency.html',
   './path-hearing-aids-access.html',
   './path-hearing-tests.html',
   './path-tinnitus.html',
-  './styles.css?v=9.0',
-  './script.js',
+  './styles.css?v=31.0',
+  './script.js?v=36.0',
   './manifest.json',
   './Contents/Pictures/Favicon.png',
   './Contents/Branding%20Images/HLI%20logo%20Black.png',

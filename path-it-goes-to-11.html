@@ -5,7 +5,7 @@
     <meta name="description" content="An interactive Spinal Tap inspired volume dial exploring decibel thresholds, hearing ranges, and deaf humour.">
     <meta charset="UTF-8">
     <title>It Goes To 11 | Spinal Tap Mode</title>
-    <link rel="stylesheet" href="styles.css?v=1.4">
+    <link rel="stylesheet" href="styles.css?v=31.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <style>
@@ -243,6 +243,9 @@
             top: 40px;
             left: 40px;
             z-index: 200;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .back-link-fixed a {
@@ -348,9 +351,9 @@
                 <span class="material-symbols-outlined" style="margin-right: 8px;">arrow_back</span>
                 EXIT TO JOURNEY
             </a>
-            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
-                <span class="material-symbols-outlined">diversity_3</span>
-                Visit Support Hub
+            <a href="path-support.html">
+                <span class="material-symbols-outlined" style="margin-right: 8px;">diversity_3</span>
+                VISIT SUPPORT HUB
             </a>
         </div>
 
@@ -422,7 +425,7 @@
 
     </main>
 
-    <script src="script.js?v=9.0"></script>
+    <script src="script.js?v=36.0"></script>
     <script>
 
         const levels = [
