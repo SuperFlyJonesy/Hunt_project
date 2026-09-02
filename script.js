@@ -149,8 +149,10 @@ function escapeHtml(str) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Floating Scroll Nav Controls
+    // Floating Scroll Controls (Right Side Middle)
     initFloatingScrollControls();
+    // Floating Back to Top Button (Left Side Top - Appears on Long Pages)
+    initBackToTopButton();
     initScrollAnimations();
     initWhoWeAreDropdown();
     initAccordions();
@@ -905,94 +907,7 @@ function initPrologue() {
     initCanvasAnimation();
 }
 
-// 5. FLOATING SCROLL CONTROLS
-function initFloatingScrollControls() {
-    const path = (window.location.pathname || '').toLowerCase();
-    if (path.endsWith('/index.html') || path.endsWith('index.html') || path.endsWith('/path-experience.html') || path.endsWith('path-experience.html') || path === '/' || path === '') {
-        return;
-    }
 
-    if (document.getElementById('floating-scroll-controls')) return;
-
-    const container = document.createElement('div');
-    container.className = 'floating-scroll-controls';
-    container.id = 'floating-scroll-controls';
-    container.setAttribute('aria-label', 'Page scroll controls');
-
-    const upBtn = document.createElement('button');
-    upBtn.type = 'button';
-    upBtn.className = 'scroll-btn scroll-up';
-    upBtn.id = 'scroll-up-btn';
-    upBtn.setAttribute('aria-label', 'Scroll Up');
-    upBtn.setAttribute('title', 'Scroll Up');
-    upBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
-
-    const downBtn = document.createElement('button');
-    downBtn.type = 'button';
-    downBtn.className = 'scroll-btn scroll-down';
-    downBtn.id = 'scroll-down-btn';
-    downBtn.setAttribute('aria-label', 'Scroll Down');
-    downBtn.setAttribute('title', 'Scroll Down');
-    downBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
-
-    container.appendChild(upBtn);
-    container.appendChild(downBtn);
-
-    const mount = () => {
-        if (document.body && !document.getElementById('floating-scroll-controls')) {
-            document.body.appendChild(container);
-        }
-    };
-
-    if (document.body) {
-        mount();
-    } else {
-        document.addEventListener('DOMContentLoaded', mount);
-    }
-
-    function smoothScrollBy(distance) {
-        const startY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        
-        // 1. Try native smooth scrollBy
-        window.scrollBy({ top: distance, behavior: 'smooth' });
-
-        // 2. Fail-safe animation fallback if native scroll didn't move
-        setTimeout(() => {
-            const currentY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-            if (Math.abs(currentY - startY) < 2) {
-                const targetY = Math.max(0, startY + distance);
-                const duration = 300;
-                const startTime = performance.now();
-
-                function step(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const easeProgress = progress * (2 - progress);
-                    const newY = startY + (distance * easeProgress);
-
-                    window.scrollTo(0, newY);
-                    if (document.documentElement) document.documentElement.scrollTop = newY;
-                    if (document.body) document.body.scrollTop = newY;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(step);
-                    }
-                }
-                requestAnimationFrame(step);
-            }
-        }, 50);
-    }
-
-    upBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        smoothScrollBy(-Math.round(window.innerHeight * 0.7));
-    });
-
-    downBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        smoothScrollBy(Math.round(window.innerHeight * 0.7));
-    });
-}
 
 function initVolumeControlAndTooltip() {
     const audio = document.getElementById('bg-noise');
@@ -1731,41 +1646,270 @@ function initFounderAdminControls() {
 }
 
 // ==========================================================================
-// FLOATING "BACK TO TOP" BUTTON COMPONENT
+// SCROLL UTILITIES (ROBUST ACROSS ALL BROWSERS & WINDOWS WEBVIEWS)
 // ==========================================================================
-function initBackToTopButton() {
-    if (document.getElementById("hli-back-to-top")) return;
-    const path = window.location.pathname.toLowerCase();
-    if (path.endsWith("index.html") || path === "/" || path.endsWith("venue-map.html")) return;
+function robustScrollBy(distance) {
+    const startY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+    // 1. Native smooth scroll attempt
+    try {
+        window.scrollBy({ top: distance, behavior: 'smooth' });
+    } catch (e) {}
 
-    const btn = document.createElement("button");
-    btn.id = "hli-back-to-top";
-    btn.className = "hli-back-to-top-btn";
-    btn.setAttribute("aria-label", "Back to top of page");
-    btn.setAttribute("title", "Back to top");
-    btn.innerHTML = '<span class="material-symbols-outlined" style="font-size: 1.4rem; line-height: 1;">arrow_upward</span>';
+    // 2. Fail-safe animation fallback if native scroll didn't move
+    setTimeout(() => {
+        const currentY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (Math.abs(currentY - startY) < 3) {
+            const targetY = Math.max(0, startY + distance);
+            const duration = 280;
+            const startTime = performance.now();
 
-    btn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+            function step(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = progress * (2 - progress);
+                const newY = Math.round(startY + (distance * ease));
 
-    document.body.appendChild(btn);
+                window.scrollTo(0, newY);
+                if (document.documentElement) document.documentElement.scrollTop = newY;
+                if (document.body) document.body.scrollTop = newY;
 
-    const toggleBtnVisibility = () => {
-        if (window.scrollY > 380) {
-            btn.classList.add("visible");
-        } else {
-            btn.classList.remove("visible");
+                if (progress < 1) {
+                    const rAF = (typeof window !== 'undefined' && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16));
+                    rAF(step);
+                }
+            }
+            const rAF = (typeof window !== 'undefined' && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16));
+            rAF(step);
+        }
+    }, 40);
+}
+
+function robustScrollToTop() {
+    try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (e) {}
+
+    setTimeout(() => {
+        const currentY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        if (currentY > 5) {
+            const startY = currentY;
+            const duration = 300;
+            const startTime = performance.now();
+
+            function step(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = progress * (2 - progress);
+                const newY = Math.round(startY * (1 - ease));
+
+                window.scrollTo(0, newY);
+                if (document.documentElement) document.documentElement.scrollTop = newY;
+                if (document.body) document.body.scrollTop = newY;
+
+                if (progress < 1) {
+                    const rAF = (typeof window !== 'undefined' && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16));
+                    rAF(step);
+                }
+            }
+            const rAF = (typeof window !== 'undefined' && window.requestAnimationFrame) || ((cb) => setTimeout(cb, 16));
+            rAF(step);
+        }
+    }, 40);
+}
+
+// ==========================================================================
+// 1. FLOATING SCROLL CONTROLS (RIGHT SIDE MIDDLE - ALL DISPLAYS)
+// ==========================================================================
+function initFloatingScrollControls() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const isLanding = path.endsWith('/index.html') || path.endsWith('index.html') || path === '/' || path === '' || (document.body && document.body.classList.contains('landing-page'));
+    if (isLanding || path.endsWith('/path-experience.html') || path.endsWith('path-experience.html') || path.includes('path-it-goes-to-11')) {
+        return;
+    }
+    if (document.body && (document.body.classList.contains('spinal-tap-theme') || document.body.classList.contains('landing-page'))) {
+        return;
+    }
+
+    if (document.getElementById('floating-scroll-controls')) return;
+
+    const container = document.createElement('div');
+    container.className = 'floating-scroll-controls';
+    container.id = 'floating-scroll-controls';
+    container.setAttribute('aria-label', 'Page scroll controls');
+
+    const upBtn = document.createElement('button');
+    upBtn.type = 'button';
+    upBtn.className = 'scroll-btn scroll-up';
+    upBtn.id = 'scroll-up-btn';
+    upBtn.setAttribute('aria-label', 'Scroll Up');
+    upBtn.setAttribute('title', 'Scroll Up');
+    upBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>`;
+
+    const downBtn = document.createElement('button');
+    downBtn.type = 'button';
+    downBtn.className = 'scroll-btn scroll-down';
+    downBtn.id = 'scroll-down-btn';
+    downBtn.setAttribute('aria-label', 'Scroll Down');
+    downBtn.setAttribute('title', 'Scroll Down');
+    downBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+
+    container.appendChild(upBtn);
+    container.appendChild(downBtn);
+
+    const mount = () => {
+        if (document.body && !document.getElementById('floating-scroll-controls')) {
+            document.body.appendChild(container);
         }
     };
 
-    window.addEventListener("scroll", toggleBtnVisibility, { passive: true });
-    toggleBtnVisibility();
+    if (document.body) {
+        mount();
+    } else {
+        document.addEventListener('DOMContentLoaded', mount);
+    }
+
+    upBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        robustScrollBy(-Math.round(window.innerHeight * 0.75));
+    });
+
+    downBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        robustScrollBy(Math.round(window.innerHeight * 0.75));
+    });
 }
 
-// Auto-initialize Back to Top
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initBackToTopButton);
+// ==========================================================================
+// 2. FLOATING BACK TO TOP BUTTON (LEFT HAND SIDE TOP - APPEARS ON LONG PAGES)
+// ==========================================================================
+function initBackToTopButton() {
+    const path = (window.location.pathname || '').toLowerCase();
+    if (path.endsWith('/path-experience.html') || path.endsWith('path-experience.html')) {
+        return;
+    }
+
+    if (document.getElementById('hli-back-to-top')) return;
+
+    const btn = document.createElement('button');
+    btn.id = 'hli-back-to-top';
+    btn.type = 'button';
+    btn.className = 'hli-back-to-top-btn';
+    btn.setAttribute('aria-label', 'Back to top of page');
+    btn.setAttribute('title', 'Back to top');
+    btn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+        <span>Top</span>
+    `;
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        robustScrollToTop();
+    });
+
+    const mount = () => {
+        if (document.body && !document.getElementById('hli-back-to-top')) {
+            document.body.appendChild(btn);
+            checkPageLength();
+        }
+    };
+
+    if (document.body) {
+        mount();
+    } else {
+        document.addEventListener('DOMContentLoaded', mount);
+    }
+
+    function checkPageLength() {
+        const totalHeight = Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight || 0,
+            document.documentElement.offsetHeight || 0
+        );
+        const viewportHeight = window.innerHeight || 800;
+        const isLongPage = totalHeight > (viewportHeight + 150);
+
+        if (isLongPage) {
+            btn.style.display = 'inline-flex';
+            btn.classList.add('visible');
+        } else {
+            btn.style.display = 'none';
+            btn.classList.remove('visible');
+        }
+    }
+
+    window.addEventListener('resize', checkPageLength, { passive: true });
+    window.addEventListener('scroll', checkPageLength, { passive: true });
+    checkPageLength();
+    setTimeout(checkPageLength, 350);
+}
+
+// ==========================================================================
+// 3. GLOBAL SUBTLE SOCIAL CONNECT LINKS (INSTAGRAM, PATREON, LINKEDIN)
+// ==========================================================================
+function initGlobalSocialLinks() {
+    const path = (window.location.pathname || '').toLowerCase();
+    // Exclude path-it-goes-to-11 to preserve full-screen dial positioning
+    if (path.includes('path-it-goes-to-11')) {
+        return;
+    }
+
+    const footers = document.querySelectorAll('.hli-minimal-footer');
+    if (!footers || footers.length === 0) return;
+
+    footers.forEach(footer => {
+        if (footer.querySelector('.hli-social-connect-bar')) return;
+
+        const socialBar = document.createElement('div');
+        socialBar.className = 'hli-social-connect-bar';
+        socialBar.setAttribute('aria-label', 'Official Social and Community Links');
+        socialBar.innerHTML = `
+            <span class="hli-social-connect-label">Connect &amp; Support:</span>
+            <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="hli-social-pill pill-instagram" title="Follow us on Instagram @hearinglossinitiative" aria-label="Follow us on Instagram @hearinglossinitiative">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.patreon.com/cw/hearinglossinitiative" target="_blank" rel="noopener noreferrer" class="hli-social-pill pill-patreon" title="Support our mission on Patreon" aria-label="Support our mission on Patreon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.386.524c-4.764 0-8.64 3.876-8.64 8.64 0 4.75 3.876 8.613 8.64 8.613 4.75 0 8.614-3.864 8.614-8.613C24 4.4 20.136.524 15.386.524M.001 23.476h4.89V.524H.001z"/></svg>
+                <span>Patreon</span>
+            </a>
+            <a href="https://www.linkedin.com/company/hearing-loss-initiative/" target="_blank" rel="noopener noreferrer" class="hli-social-pill pill-linkedin" title="Connect with us on LinkedIn" aria-label="Connect with us on LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v7.6h2.8v-7.6h-2.8M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.62-1.63-1.62Z"/></svg>
+                <span>LinkedIn</span>
+            </a>
+        `;
+        footer.insertBefore(socialBar, footer.firstChild);
+    });
+}
+
+// ==========================================================================
+// 4. MAIN PATHWAY THEMES (YES PATH & SUPPORT PATH DISTINCTION)
+// ==========================================================================
+function initMainPathwayThemes() {
+    const path = (window.location.pathname || '').toLowerCase();
+    const isYesPath = path.endsWith('/path-yes.html') || path.endsWith('path-yes.html');
+    const isSupportPath = path.endsWith('/path-support.html') || path.endsWith('path-support.html');
+
+    if (isYesPath) {
+        document.body.classList.add('path-yes-page');
+    } else if (isSupportPath) {
+        document.body.classList.add('path-support-page');
+    }
+}
+
+// Auto-initialize components
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initFloatingScrollControls();
+        initBackToTopButton();
+        initGlobalSocialLinks();
+        initMainPathwayThemes();
+    });
 } else {
+    initFloatingScrollControls();
     initBackToTopButton();
+    initGlobalSocialLinks();
+    initMainPathwayThemes();
 }

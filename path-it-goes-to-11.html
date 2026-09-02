@@ -120,7 +120,7 @@
             right: 40px;
             top: 40px;
             bottom: 40px;
-            width: 400px;
+            width: 500px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -167,6 +167,57 @@
             line-height: 1.7;
             color: rgba(255,255,255,0.9);
             margin-bottom: 40px;
+        }
+
+        /* Side Panel Dial Interaction Prompt */
+        .panel-dial-prompt {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 15, 91, 0.15);
+            border: 1px solid rgba(255, 15, 91, 0.35);
+            color: #ff6b8b;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .panel-dial-prompt .prompt-icon {
+            font-size: 0.95rem;
+            display: inline-block;
+            animation: spinDialPrompt 6s linear infinite;
+        }
+
+        @keyframes spinDialPrompt {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Discreet Video Disclaimer Notice (Bottom-Left above videos, away from dial) */
+        .video-discreet-notice {
+            position: absolute;
+            bottom: 95px;
+            left: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.78);
+            letter-spacing: 0.2px;
+            z-index: 50;
+            pointer-events: none;
+            white-space: nowrap;
         }
 
         /* 4. VIDEO LINKS & HOVER POP-UPS */
@@ -259,16 +310,6 @@
 
         .back-link-fixed a:hover { color: #fff; }
 
-        .summary-table-mini {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .summary-table-mini tr.active { color: #ff0f5b; font-weight: bold; }
-        .summary-table-mini td { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-
         @media (max-width: 900px) {
             html, body {
                 height: auto !important;
@@ -311,10 +352,22 @@
                 top: auto !important;
                 bottom: auto !important;
                 width: 100% !important;
-                max-width: 500px !important;
+                max-width: 580px !important;
                 padding: 24px !important;
                 margin: 20px auto !important;
                 box-sizing: border-box;
+            }
+
+            .video-discreet-notice {
+                position: relative !important;
+                bottom: auto !important;
+                left: auto !important;
+                margin-top: 24px !important;
+                margin-bottom: 8px !important;
+                font-size: 0.72rem !important;
+                text-align: center !important;
+                white-space: normal !important;
+                padding: 4px 10px !important;
             }
 
             .video-links-container {
@@ -325,7 +378,7 @@
                 flex-wrap: wrap !important;
                 justify-content: center !important;
                 gap: 10px !important;
-                margin-top: 24px !important;
+                margin-top: 8px !important;
                 width: 100% !important;
             }
 
@@ -369,19 +422,20 @@
         <div class="glass-side-panel">
             <div class="panel-scroller" id="panel-scroller">
                 <h1 class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">It Goes To 11 - Spinal Tap Mode Hearing Spectrum</h1>
+                <div class="panel-dial-prompt" aria-label="Turn the dial to see different types of hearing loss">
+                    <span class="prompt-icon" aria-hidden="true">↺</span> Turn dial to see different types of hearing loss
+                </div>
                 <div class="level-badge" id="level-badge">LEVEL 1</div>
                 <h2 class="level-name-large" id="level-name">Profoundly Deaf</h2>
                 <div class="level-desc" id="level-desc">
                     <!-- Dynamic content -->
                 </div>
-
-                <div style="margin-top: 40px;">
-                    <h4 style="color: #fff; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px;">Hearing Spectrum</h4>
-                    <table class="summary-table-mini">
-                        <tbody id="table-body"></tbody>
-                    </table>
-                </div>
             </div>
+        </div>
+
+        <div class="video-discreet-notice" role="note">
+            <span aria-hidden="true">⚠️</span>
+            <span>Some clinical &amp; extraction videos are not for the squeamish</span>
         </div>
 
         <div class="video-links-container">
@@ -448,19 +502,11 @@
         const levelName = document.getElementById('level-name');
         const levelBadge = document.getElementById('level-badge');
         const levelDesc = document.getElementById('level-desc');
-        const tableBody = document.getElementById('table-body');
         const panelScroller = document.getElementById('panel-scroller');
 
         const startAngle = -150;
         const endAngle = 180;
         const step = 30; // 360 / 12 = 30 degrees per level
-
-        levels.forEach((lvl) => {
-            const row = document.createElement('tr');
-            row.id = `row-${lvl.id}`;
-            row.innerHTML = `<td>${lvl.id}</td><td>${lvl.name}</td>`;
-            tableBody.appendChild(row);
-        });
 
         let currentLevel = 0;
         updateDial(0);
@@ -486,10 +532,6 @@
             const y = 175 + (Math.sin(angleRad) * r);
             tooltip.style.left = `${x}px`;
             tooltip.style.top = `${y}px`;
-
-            // Update Table
-            document.querySelectorAll('.summary-table-mini tr').forEach(r => r.classList.remove('active'));
-            document.getElementById(`row-${level}`).classList.add('active');
 
             panelScroller.scrollTop = 0;
         }

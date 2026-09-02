@@ -598,7 +598,7 @@ const venues = [
     features: ["Customer Info Counter Loop", "High-Contrast Visual Boards", "Auracast Transit Trial"],
     icon: "🚆",
     photos: {
-      main:  "Contents/Venues/templemeads.jpg"
+      main:  "Contents/Venues/templemeads.png"
     }
   }
 ];
