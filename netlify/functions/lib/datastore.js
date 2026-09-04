@@ -18,7 +18,7 @@ export function getQualifyingMinCents() {
 }
 
 /**
- * Hash a Patreon Member ID for privacy preservation in audit logs and datastore
+ * Hash a community Member ID for privacy preservation in audit logs and datastore
  * Follows UK GDPR data minimisation principles
  */
 export function hashMemberId(memberId) {
@@ -240,13 +240,13 @@ export class Datastore {
   }
 
   /**
-   * Process a qualifying Patreon membership event with full transactional idempotency
+   * Process a qualifying community membership event with full transactional idempotency
    */
-  async processPatreonEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName }) {
+  async processcommunityEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName }) {
     // Acquire mutex lock to ensure atomic concurrent execution in single-process or local environment
     const release = await this._acquireMutex();
     try {
-      return await this._executeProcessPatreonEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName });
+      return await this._executeProcesscommunityEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName });
     } finally {
       release();
     }
@@ -260,7 +260,7 @@ export class Datastore {
     return currentPromise.then(() => release);
   }
 
-  async _executeProcessPatreonEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName }) {
+  async _executeProcesscommunityEvent({ eventId, memberId, eventType, pledgeAmountCents, rawTierName }) {
     const timestamp = new Date().toISOString();
     const minCents = getQualifyingMinCents();
     const memberHash = hashMemberId(memberId);
@@ -419,7 +419,7 @@ export class Datastore {
         audit: auditRecord
       };
     } catch (err) {
-      console.error('[Datastore] Redis processPatreonEvent error:', err);
+      console.error('[Datastore] Redis processcommunityEvent error:', err);
       throw err;
     }
   }
@@ -494,10 +494,10 @@ export class Datastore {
   }
 
   /**
-   * Compare a list of active Patreon members from the Patreon API against stored records
+   * Compare a list of active community members from the community API against stored records
    * Read-only reconciliation tool: does NOT automatically change the public counter
    */
-  async reconcileMembers(patreonMembersList = []) {
+  async reconcileMembers(communityMembersList = []) {
     const state = await this.getCounterState();
     const countedSet = new Set();
 
@@ -514,13 +514,13 @@ export class Datastore {
     }
 
     const minCents = getQualifyingMinCents();
-    let qualifyingPatreonCount = 0;
+    let qualifyingcommunityCount = 0;
     const uncountedQualifying = [];
 
-    patreonMembersList.forEach(m => {
+    communityMembersList.forEach(m => {
       const isQualifying = (m.currently_entitled_amount_cents || 0) >= minCents;
       if (isQualifying) {
-        qualifyingPatreonCount++;
+        qualifyingcommunityCount++;
         const hash = hashMemberId(m.id);
         if (!countedSet.has(hash)) {
           uncountedQualifying.push({
@@ -536,8 +536,8 @@ export class Datastore {
       currentRemainingCount: state.remaining,
       startingTarget: state.starting,
       databaseCountedMembers: countedSet.size,
-      patreonTotalMembersReceived: patreonMembersList.length,
-      patreonQualifyingPaidMembers: qualifyingPatreonCount,
+      communityTotalMembersReceived: communityMembersList.length,
+      communityQualifyingPaidMembers: qualifyingcommunityCount,
       uncountedInDatabaseCount: uncountedQualifying.length,
       uncountedMembersList: uncountedQualifying,
       requiresManualConfirmation: true
@@ -579,3 +579,4 @@ export class Datastore {
 }
 
 export const datastore = new Datastore();
+

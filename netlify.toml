@@ -6,8 +6,8 @@
   function = "auth"
 
 [[redirects]]
-  from = "/api/patreon-webhook"
-  to = "/.netlify/functions/patreon-webhook"
+  from = "/api/community-webhook"
+  to = "/.netlify/functions/community-webhook"
   status = 200
 
 [[redirects]]
@@ -24,3 +24,4 @@
   from = "/api/admin/*"
   to = "/.netlify/functions/admin-counter"
   status = 200
+

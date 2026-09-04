@@ -1038,7 +1038,7 @@ function initHubSearch() {
         'path-support-group.html': 'support groups bristol support group meetups peer support coffee morning elmgrove centre cotham social gathering community meetings talk chat friendship',
         'path-community-stories.html': 'community stories initiate stories lived experience jason member initiate simon personal stories testimonials real experiences overcoming hearing loss journeys hope',
         'path-testimonials.html': 'testimonials reviews feedback what people say community feedback initiate reviews quotes praise',
-        'path-resources.html': 'resources downloads pdf guides checklists patreon signup guide printable cards communication card links leaflets forms',
+        'path-resources.html': 'resources downloads pdf guides checklists community signup guide printable cards communication card links leaflets forms',
         'path-contacts.html': 'useful contacts directory telephone phone numbers emails cfd centre for deaf rnid sensory support nhs audiology bristol contact list emergency helplines chss',
         'path-tech.html': 'future tech auracast bluetooth le audio gene therapy ai noise reduction smart tech research advancements temple meads station trial innovations regenerative medicine',
         'path-it-goes-to-11.html': 'it goes to 11 decibels sound safety loudness loud music concerts earplugs hearing protection db chart noise damage prevention volume 85db safe exposure',
@@ -1048,7 +1048,7 @@ function initHubSearch() {
         'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
         'path-awareness.html': 'awareness pace framework patience attention clarity eye contact communication tactics communication tips rules understanding hard of hearing elearning demo',
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
-        'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
+        'path-join-us.html': 'join us community community initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
         'path-stay-connected.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
         'path-bear-pit.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
         'path-support.html': 'support branch support hub resources for friends families businesses',
@@ -1843,7 +1843,7 @@ function initBackToTopButton() {
 }
 
 // ==========================================================================
-// 3. GLOBAL SUBTLE SOCIAL CONNECT LINKS (INSTAGRAM, PATREON, LINKEDIN)
+// 3. GLOBAL SUBTLE SOCIAL CONNECT LINKS (INSTAGRAM, community, LINKEDIN)
 // ==========================================================================
 function initGlobalSocialLinks() {
     const path = (window.location.pathname || '').toLowerCase();
@@ -1906,5 +1906,6 @@ if (document.readyState === 'loading') {
     initGlobalSocialLinks();
     initMainPathwayThemes();
 }
+
 
 

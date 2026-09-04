@@ -3366,7 +3366,7 @@ body:not(.premium-white-theme) .accordion-header {
 }
 
 /* ==========================================================================
-   Patreon Page Locking & Coming Soon Badges
+   community Page Locking & Coming Soon Badges
    ========================================================================== */
 
 .metro-corner-badge {
@@ -3400,7 +3400,7 @@ body:not(.premium-white-theme) .accordion-header {
     }
 }
 
-.patreon-lock-card {
+.community-lock-card {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
     padding: 34px 26px;
@@ -3413,7 +3413,7 @@ body:not(.premium-white-theme) .accordion-header {
     overflow: hidden;
 }
 
-.patreon-lock-card::before {
+.community-lock-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -3423,7 +3423,7 @@ body:not(.premium-white-theme) .accordion-header {
     background: linear-gradient(90deg, #ff0f5b, #ff424d, #f59e0b);
 }
 
-.patreon-lock-icon {
+.community-lock-icon {
     font-size: 2.8rem;
     color: #ff424d;
     margin-bottom: 10px;
@@ -3443,7 +3443,7 @@ body:not(.premium-white-theme) .accordion-header {
     }
 }
 
-.patreon-lock-title {
+.community-lock-title {
     color: #ffffff;
     font-size: 1.5rem;
     font-weight: 800;
@@ -3451,7 +3451,7 @@ body:not(.premium-white-theme) .accordion-header {
     letter-spacing: -0.5px;
 }
 
-.patreon-lock-desc {
+.community-lock-desc {
     color: #cbd5e1;
     font-size: 0.98rem;
     max-width: 640px;
@@ -3459,7 +3459,7 @@ body:not(.premium-white-theme) .accordion-header {
     line-height: 1.6;
 }
 
-.patreon-lock-btn {
+.community-lock-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -3475,13 +3475,13 @@ body:not(.premium-white-theme) .accordion-header {
     transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.patreon-lock-btn:hover {
+.community-lock-btn:hover {
     transform: translateY(-2px);
     background: #ff2a38;
     box-shadow: 0 8px 24px rgba(255, 66, 77, 0.55);
 }
 
-.patreon-lock-sublink {
+.community-lock-sublink {
     display: block;
     margin-top: 14px;
     color: #94a3b8;
@@ -3491,7 +3491,7 @@ body:not(.premium-white-theme) .accordion-header {
     transition: color 0.2s;
 }
 
-.patreon-lock-sublink:hover {
+.community-lock-sublink:hover {
     color: #ffffff;
 }
 
@@ -3947,7 +3947,7 @@ body:not(.premium-white-theme) .accordion-header {
 }
 
 /* ==========================================================================
-   PREMIUM SUBTLE SOCIAL LINKS (INSTAGRAM, PATREON, LINKEDIN)
+   PREMIUM SUBTLE SOCIAL LINKS (INSTAGRAM, community, LINKEDIN)
    ========================================================================== */
 .hli-social-connect-bar {
     display: flex;
@@ -4018,7 +4018,7 @@ body:not(.premium-white-theme) .hli-social-pill:hover {
     color: #ffffff !important;
 }
 
-.hli-social-pill.pill-patreon:hover {
+.hli-social-pill.pill-community:hover {
     background: #FF424D !important;
     border-color: #FF424D !important;
     color: #ffffff !important;

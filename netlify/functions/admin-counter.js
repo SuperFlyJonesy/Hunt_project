@@ -82,7 +82,7 @@ export const handler = async (event, context) => {
 
       // Action: Reconciliation (Read-Only Comparison Tool)
       if (action === 'reconcile' || body.action === 'reconcile') {
-        const membersList = Array.isArray(body.patreonMembers) ? body.patreonMembers : [];
+        const membersList = Array.isArray(body.communityMembers) ? body.communityMembers : [];
         const result = await datastore.reconcileMembers(membersList);
         return {
           statusCode: 200,
@@ -134,3 +134,4 @@ export const handler = async (event, context) => {
     };
   }
 };
+

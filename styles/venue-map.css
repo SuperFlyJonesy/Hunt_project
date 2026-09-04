@@ -64,11 +64,11 @@ html, body {
   background: #0891B2;
 }
 
-.compact-btn.patreon {
+.compact-btn.community {
   background: #e53935;
 }
 
-.compact-btn.patreon:hover {
+.compact-btn.community:hover {
   background: #c62828;
 }
 
@@ -156,7 +156,7 @@ html, body {
   transform: translateY(-1px);
 }
 
-.patreon-pill-btn {
+.community-pill-btn {
   background: #ff0f5b;
   color: #ffffff !important;
   padding: 8px 18px;
@@ -167,7 +167,7 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.patreon-pill-btn:hover {
+.community-pill-btn:hover {
   background: #d90429;
   transform: translateY(-1px);
 }
