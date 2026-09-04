@@ -1044,14 +1044,10 @@ function initHubSearch() {
         'path-it-goes-to-11.html': 'it goes to 11 decibels sound safety loudness loud music concerts earplugs hearing protection db chart noise damage prevention volume 85db safe exposure',
         'path-experience.html': 'hearing experience simulation what hearing loss sounds like simulator listening effort audio demo muffled sounds audio player whitenoise high frequency loss simulation',
         'path-hearing-quiz.html': 'hearing quiz self assessment am i hard of hearing questionnaire questions score checklist symptoms signs test',
-        'path-my-journey.html': 'my journey first steps roadmap where to begin starting out path guide steps navigation advice',
         'path-nhs.html': 'bristol nhs foundation trust hospital gp referral southmead hospital bri bristol royal infirmary audiology clinic ent ear nose throat appointments st michaels hospital uhbw nbt',
         'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
         'path-awareness.html': 'awareness pace framework patience attention clarity eye contact communication tactics communication tips rules understanding hard of hearing elearning demo',
-        'path-training.html': 'training workplace workshops staff training customer service business awareness workshops online in-person bristol jason member initiate cpd inclusion elearning packages interactive modules pace patience attention clarity eye contact',
-        'path-elearning.html': 'elearning e-learning demo interactive training module course presentation slides pace patience attention clarity eye contact staff training frontline awareness digital learning genially',
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
-        'path-sponsor-us.html': 'sponsor us corporate sponsor funding corporate partnership community sponsor training sponsor access loop sponsor esg csr 250 500 1500 donation grant',
         'path-join-us.html': 'join us patreon patreon initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
         'path-stay-connected.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
         'path-bear-pit.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',
@@ -1913,3 +1909,4 @@ if (document.readyState === 'loading') {
     initGlobalSocialLinks();
     initMainPathwayThemes();
 }
+
