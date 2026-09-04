@@ -101,43 +101,39 @@
             }
         }
 
-        /* Top-Left Clickable Logo */
+        /* Centered Header Logo & Admin Reset */
+        .about-logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px auto 10px auto;
+            position: relative;
+            z-index: 100;
+        }
         #hli-logo.about-logo-top {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            height: 48px;
+            height: 52px;
             width: auto;
-            z-index: 9999999;
             cursor: pointer;
             filter: contrast(1.1);
             transition: transform 0.2s ease;
         }
         #hli-logo.about-logo-top:hover {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
-
-        /* Center-Left Dev Reset Button */
-        #dev-reset { 
-            position: fixed; 
-            top: 50%; 
-            left: 12px; 
-            transform: translateY(-50%); 
-            color: #000000; 
-            background: transparent; 
-            border: none; 
-            opacity: 0.18; 
-            cursor: pointer; 
-            z-index: 99999999; 
-            padding: 8px 10px; 
-            font-weight: 800; 
-            font-family: sans-serif;
-            font-size: 1rem;
-            transition: opacity 0.2s ease, transform 0.2s ease;
+        #dev-reset {
+            color: #000000;
+            background: transparent;
+            border: none;
+            opacity: 0.2;
+            cursor: pointer;
+            padding: 6px 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease;
         }
         #dev-reset:hover {
             opacity: 0.85;
-            transform: translateY(-50%) scale(1.2);
         }
 
         @media (max-width: 768px) {
@@ -171,12 +167,11 @@
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <!-- Top-Left Clickable Logo -->
-    <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative (Founder Admin)">
-    
-    <!-- Center-Left Developer Reset -->
-    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}" title="Dev Reset">R</button>
-    
+    <div class="about-logo-wrapper">
+        <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative (Founder Admin)">
+        <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}" title="Dev Reset">R</button>
+    </div>
+
     <!-- Top-Right Support Us Button -->
     <a href="path-sponsor-us.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">Support Us</a>
 
@@ -272,60 +267,23 @@
             </div>
         </section>
 
-        <!-- 3. TEAM & COMMUNITY WORKING GROUP SHOWCASE -->
+        <!-- 3. FOUNDER & VOLUNTEER COMMUNITY -->
         <section style="margin-bottom: 35px;">
             <div style="text-align: center; margin-bottom: 24px;">
-                <span class="info-badge badge-blue">Team Structure</span>
-                <h2 style="font-size: 1.8rem; color: #0f172a; margin: 0 0 8px 0;">Our Team &amp; Working Groups</h2>
+                <span class="info-badge badge-blue">Community Growth</span>
+                <h2 style="font-size: 1.8rem; color: #0f172a; margin: 0 0 8px 0;">Grassroots Initiative</h2>
                 <p style="color: #64748b; font-size: 1rem; max-width: 700px; margin: 0 auto; line-height: 1.5;">
-                    A multidisciplinary grassroots team uniting product leadership, acoustic auditing, community facilitation, and clinical advisory.
+                    Founded by Jason to build an active peer group and accessible spaces across Greater Bristol.
                 </p>
             </div>
 
-            <div class="team-grid">
-                <!-- Jason - Founder -->
-                <div class="team-card">
-                    <img src="Contents/Profile Pictures/jason-photo.jpg" alt="Jason - Founder" class="team-avatar avatar-founder" loading="lazy">
-                    <span class="role-tag" style="background: #e0f2fe; color: #005EB8;">Founder &amp; Product Lead</span>
-                    <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Jason</h3>
-                    <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
-                        Digital accessibility communicator, former CfD specialist, and founder. Directing product strategy, interactive pathway architecture, and community advocacy across Bristol.
-                    </p>
-                </div>
-
-                <!-- Acoustic & Venue Audit Working Group -->
-                <div class="team-card">
-                    <div style="width: 100px; height: 100px; border-radius: 50%; background: #e0f7fa; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #0891B2; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <span class="material-symbols-outlined" style="font-size: 3rem; color: #0891B2;">volume_up</span>
-                    </div>
-                    <span class="role-tag" style="background: #e0f7fa; color: #0891B2;">Acoustic &amp; Venue Team</span>
-                    <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Venue Assessment Team</h3>
-                    <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
-                        Volunteer acoustic assessors, hearing loop technicians, and sound testers conducting on-site decibel reviews and loop verifications for Bristol venues.
-                    </p>
-                </div>
-
-                <!-- Community & Peer Support Facilitators -->
-                <div class="team-card">
-                    <div style="width: 100px; height: 100px; border-radius: 50%; background: #f3e8ff; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #7B1FA2; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <span class="material-symbols-outlined" style="font-size: 3rem; color: #7B1FA2;">diversity_3</span>
-                    </div>
-                    <span class="role-tag" style="background: #f3e8ff; color: #7B1FA2;">Community &amp; Peer Circles</span>
-                    <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Peer Support Facilitators</h3>
-                    <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
-                        Grassroots initiate leads coordinating informal coffee meetups, BSL social circles, and family communication support groups across Bristol neighborhoods.
-                    </p>
-                </div>
-
-                <!-- Clinical & Advisory Network -->
-                <div class="team-card">
-                    <div style="width: 100px; height: 100px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; border: 3px solid #059669; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                        <span class="material-symbols-outlined" style="font-size: 3rem; color: #059669;">verified_user</span>
-                    </div>
-                    <span class="role-tag" style="background: #dcfce7; color: #1B5E20;">Clinical &amp; Advisory</span>
-                    <h3 style="margin: 0 0 6px 0; color: #0f172a; font-size: 1.25rem;">Advisory &amp; Clinical Network</h3>
-                    <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.55;">
-                        NHS audiology liaisons, speech-to-text advocates, and accessibility specialists ensuring all medical guidance, PACE standards, and references remain clinically sound.
+            <div style="max-width: 720px; margin: 0 auto;">
+                <div class="team-card" style="text-align: center; padding: 28px;">
+                    <img src="Contents/Profile Pictures/jason-photo.jpg" alt="Jason - Founder" class="team-avatar avatar-founder" style="margin: 0 auto 14px auto;" loading="lazy">
+                    <span class="role-tag" style="background: #e0f2fe; color: #005EB8;">Founder</span>
+                    <h3 style="margin: 0 0 8px 0; color: #0f172a; font-size: 1.3rem;">Jason</h3>
+                    <p style="margin: 0; font-size: 0.96rem; color: #475569; line-height: 1.6;">
+                        Digital accessibility communicator, former CfD specialist, and lifelong hearing aid user. Running this initiative as an independent grassroots project to establish regular evening peer meetups in Bristol.
                     </p>
                 </div>
             </div>
@@ -378,28 +336,26 @@
             </div>
         </section>
 
-        <!-- 5. GRASSROOTS IMPACT & SPONSORSHIP SECTION -->
+        <!-- 5. COMMUNITY FOCUS & FUTURE ROADMAP -->
         <section style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 18px; padding: 28px; margin-bottom: 35px;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                <span class="material-symbols-outlined" style="color: #1B5E20; font-size: 1.8rem;">volunteer_activism</span>
-                <h3 style="margin: 0; color: #1B5E20; font-size: 1.25rem;">How Funding Empowers Bristol</h3>
+                <span class="material-symbols-outlined" style="color: #1B5E20; font-size: 1.8rem;">event_available</span>
+                <h3 style="margin: 0; color: #1B5E20; font-size: 1.25rem;">Our Immediate Priority: Evening Support Meetups</h3>
             </div>
-            
+
             <p style="font-size: 1.02rem; color: #1B5E20; line-height: 1.6; margin-bottom: 14px;">
-                Every sponsorship and community contribution directly unlocks real-world accessibility across our community:
+                We are testing local demand for a free, regular Bristol evening support group. We want to bring adults with hearing loss together in quiet, accessible spaces with working loop systems to share experiences and practical coping strategies.
             </p>
-            <ul style="margin: 0 0 20px 0; padding-left: 22px; color: #1B5E20; font-size: 0.95rem; line-height: 1.7;">
-                <li><strong>Accessible Venue Hires:</strong> Securing spaces with verified induction loops and low reverberation.</li>
-                <li><strong>Free Hot Refreshments:</strong> Ensuring a warm, inclusive welcome at our social support groups (coming soon).</li>
-                <li><strong>Workplace Training:</strong> Delivering accredited hearing loss communication training for local Bristol teams (coming soon).</li>
-            </ul>
+            <p style="font-size: 0.95rem; color: #1B5E20; line-height: 1.6; margin-bottom: 20px;">
+                Once our active membership grows, we intend to register as a Community Interest Company (CIC) to open doors for formal funding, community grants, and broader accessibility training programmes across Bristol.
+            </p>
 
             <div class="action-btns">
-                <a href="path-sponsor-us.html" class="btn-action btn-green">
-                    <span class="material-symbols-outlined">corporate_fare</span> Sponsor &amp; Fund Accessibility &rarr;
+                <a href="path-join-us.html" class="btn-action btn-green">
+                    <span class="material-symbols-outlined">forum</span> Join Our Discord Community &rarr;
                 </a>
-                <a href="path-join-us.html" class="btn-action btn-amber">
-                    <span class="material-symbols-outlined">favorite</span> Support Our Community &rarr;
+                <a href="path-support.html" class="btn-action btn-blue">
+                    <span class="material-symbols-outlined">groups</span> Explore Support Hub &rarr;
                 </a>
             </div>
         </section>
