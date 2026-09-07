@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Chat - Bristol Hearing Loss Initiative</title>
+    <meta name="description" content="Join real-time peer discussions on assistive technology, Bristol meetups, lip-reading, and acoustic venue reviews in a quiet, accessible space.">
+    <link rel="stylesheet" href="styles.css?v=31.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 100px 20px; }
+        
+        .chat-room-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 24px;
+        }
+
+        .topic-filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .topic-filter-btn {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .topic-filter-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .topic-filter-btn.active {
+            background: #005EB8;
+            color: #ffffff;
+            border-color: #005EB8;
+        }
+
+        #chat-box {
+            height: 380px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 16px;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 16px;
+            scrollbar-width: thin;
+        }
+
+        .msg {
+            background: #ffffff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.1s ease;
+        }
+
+        .msg:hover {
+            border-color: #cbd5e1;
+        }
+
+        .msg-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            gap: 8px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #005EB8;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-name {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: #0f172a;
+        }
+
+        .msg .text {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .topic-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .badge-general { background: #e0f2fe; color: #005EB8; }
+        .badge-tech { background: #f3e8ff; color: #7e22ce; }
+        .badge-meetups { background: #dcfce7; color: #166534; }
+        .badge-lipreading { background: #ffedd5; color: #c2410c; }
+
+        .chat-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chat-form select {
+            padding: 10px 14px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-family: inherit;
+            background: #ffffff;
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chat-form select:focus,
+        .chat-form input:focus {
+            outline: none;
+            border-color: #005EB8;
+        }
+
+        .chat-form input {
+            flex: 1;
+            min-width: 220px;
+            padding: 10px 16px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .chat-form button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 22px;
+            background: #005EB8;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .chat-form button:hover {
+            background: #004b93;
+            transform: translateY(-1px);
+        }
+
+        .auth-gate-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1.5px solid #86efac;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .btn-portal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #059669;
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 0.98rem;
+            text-decoration: none;
+            margin-top: 14px;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .btn-portal-link:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+
+        .hidden { display: none !important; }
+
+        /* Centered Header Logo & Admin Reset */
+        .about-logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px auto 10px auto;
+            position: relative;
+            z-index: 100;
+        }
+        #hli-logo.about-logo-top {
+            height: 52px;
+            width: auto;
+            cursor: pointer;
+            filter: contrast(1.1);
+            transition: transform 0.2s ease;
+        }
+        #hli-logo.about-logo-top:hover {
+            transform: scale(1.05);
+        }
+        #dev-reset {
+            color: #000000;
+            background: transparent;
+            border: none;
+            opacity: 0.2;
+            cursor: pointer;
+            padding: 6px 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease;
+        }
+        #dev-reset:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            #hli-logo.about-logo-top {
+                height: 36px;
+                top: 12px;
+                left: 12px;
+            }
+            #dev-reset {
+                left: 6px;
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+            .chat-form {
+                flex-direction: column;
+            }
+            .chat-form button {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Community Chat - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Real-time peer discussions on assistive tech, Bristol meetups, and venue accessibility in an acoustic-friendly space.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/chat.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Community Chat - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Real-time peer discussions on assistive tech, Bristol meetups, and venue accessibility in an acoustic-friendly space.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="about-logo-wrapper">
+        <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative">
+        <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}" title="Dev Reset">R</button>
+    </div>
+
+    <!-- Top-Right Actions -->
+    <div style="position: fixed; top: 15px; right: 15px; z-index: 9999999; display: flex; gap: 8px;">
+        <a href="portal.html" style="background: #005EB8; color: white; padding: 10px 18px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s ease;">Portal</a>
+        <a href="path-about.html" id="btn-support" style="background: #1e293b; color: white; padding: 10px 18px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s ease;">About Us</a>
+    </div>
+
+    <main id="main-content" class="container">
+        <!-- Header -->
+        <div class="header-section" style="text-align: center; margin-bottom: 28px; margin-top: 15px;">
+            <h1 style="font-size: 2.3rem; margin-bottom: 12px; color: #059669; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2.8rem;">forum</span>
+                Community Discussion Room
+            </h1>
+            <p style="font-size: 1.12rem; color: #475569; text-align: center; max-width: 720px; margin: 0 auto; line-height: 1.6;">
+                A calm, noise-free space to connect with other adults navigating hearing loss across Bristol.
+            </p>
+        </div>
+
+        <!-- Auth Status Box -->
+        <div id="auth-check" class="auth-gate-box">
+            <span class="material-symbols-outlined" style="font-size: 2.8rem; color: #059669; margin-bottom: 8px;">lock_open</span>
+            <h2 style="margin: 0 0 8px 0; font-size: 1.35rem; color: #0f172a;">Sign in via Member Portal</h2>
+            <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.5; max-width: 540px; margin: 0 auto;">
+                To participate in live community conversations and post messages, please sign in with your Google account.
+            </p>
+            <a href="portal.html" class="btn-portal-link">
+                <span class="material-symbols-outlined">badge</span>
+                Go to Member Portal &rarr;
+            </a>
+        </div>
+
+        <!-- Chat Room UI Container -->
+        <div id="chat-ui" class="chat-room-card hidden">
+            <!-- Topic Filter Tabs -->
+            <div class="topic-filter-bar">
+                <button class="topic-filter-btn active" data-filter="All">All Topics</button>
+                <button class="topic-filter-btn" data-filter="General">General</button>
+                <button class="topic-filter-btn" data-filter="Assistive Tech">Assistive Tech</button>
+                <button class="topic-filter-btn" data-filter="Bristol Meetups">Bristol Meetups</button>
+                <button class="topic-filter-btn" data-filter="Lip-reading">Lip-reading</button>
+            </div>
+
+            <!-- Messages Stream -->
+            <div id="chat-box">
+                <div style="text-align: center; color: #94a3b8; font-size: 0.9rem; padding: 20px;">
+                    Loading recent community messages...
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <form id="msg-form" class="chat-form">
+                <select id="msg-topic" aria-label="Select Topic">
+                    <option value="General">General</option>
+                    <option value="Assistive Tech">Assistive Tech</option>
+                    <option value="Bristol Meetups">Bristol Meetups</option>
+                    <option value="Lip-reading">Lip-reading</option>
+                </select>
+                <input id="msg-input" type="text" placeholder="Share your experience, question, or tip..." required autocomplete="off" aria-label="Message text">
+                <button type="submit">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">send</span>
+                    <span>Send</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Etiquette Box -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; margin-top: 24px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span class="material-symbols-outlined" style="color: #005EB8; font-size: 1.3rem;">verified_user</span>
+                <strong style="color: #0f172a; font-size: 0.95rem;">Community Guidelines</strong>
+            </div>
+            <p style="margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.5;">
+                Please be kind, supportive, and respectful. Our community exists to share practical lived experience with hearing loss, loop systems, and Bristol venue accessibility.
+            </p>
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="portal.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">badge</span>
+                Back to Member Portal
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #334155; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+        </nav>
+
+        <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <script src="script.js?v=36.0"></script>
+    <script type="module">
+        import { 
+            auth, 
+            db, 
+            onAuthStateChanged, 
+            collection, 
+            addDoc, 
+            query, 
+            orderBy, 
+            onSnapshot, 
+            serverTimestamp 
+        } from "./firebase-config.js";
+
+        const authCheck = document.getElementById("auth-check");
+        const chatUi = document.getElementById("chat-ui");
+        const chatBox = document.getElementById("chat-box");
+        const msgForm = document.getElementById("msg-form");
+        const msgTopic = document.getElementById("msg-topic");
+        const msgInput = document.getElementById("msg-input");
+        const filterBtns = document.querySelectorAll(".topic-filter-btn");
+
+        let currentUser = null;
+        let allMessages = [];
+        let activeFilter = "All";
+
+        function getTopicClass(topic) {
+            switch(topic) {
+                case "Assistive Tech": return "badge-tech";
+                case "Bristol Meetups": return "badge-meetups";
+                case "Lip-reading": return "badge-lipreading";
+                default: return "badge-general";
+            }
+        }
+
+        function renderMessages() {
+            chatBox.innerHTML = "";
+            const filtered = activeFilter === "All" 
+                ? allMessages 
+                : allMessages.filter(m => m.topic === activeFilter);
+
+            if (filtered.length === 0) {
+                chatBox.innerHTML = `<div style="text-align: center; color: #94a3b8; padding: 40px 20px;">No messages found in "${activeFilter}". Be the first to share!</div>`;
+                return;
+            }
+
+            filtered.forEach((msg) => {
+                const row = document.createElement("div");
+                row.className = "msg";
+                const topic = msg.topic || "General";
+                const author = msg.userName || "Anonymous";
+                const initial = author.charAt(0).toUpperCase();
+                const topicClass = getTopicClass(topic);
+
+                row.innerHTML = `
+                    <div class="msg-header">
+                        <div class="author-info">
+                            <div class="author-avatar">${initial}</div>
+                            <span class="author-name">${author}</span>
+                        </div>
+                        <span class="topic-badge ${topicClass}">${topic}</span>
+                    </div>
+                    <div class="text">${escapeHtml(msg.text || "")}</div>
+                `;
+                chatBox.appendChild(row);
+            });
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement("div");
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+                activeFilter = btn.getAttribute("data-filter");
+                renderMessages();
+            });
+        });
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                currentUser = user;
+                authCheck.classList.add("hidden");
+                chatUi.classList.remove("hidden");
+                listenForMessages();
+            } else {
+                authCheck.classList.remove("hidden");
+                chatUi.classList.add("hidden");
+            }
+        });
+
+        function listenForMessages() {
+            try {
+                const q = query(collection(db, "chat_messages"), orderBy("timestamp", "asc"));
+                onSnapshot(q, (snapshot) => {
+                    allMessages = [];
+                    snapshot.forEach((docSnap) => {
+                        allMessages.push(docSnap.data());
+                    });
+                    renderMessages();
+                }, (error) => {
+                    console.warn("Firestore onSnapshot error:", error);
+                    chatBox.innerHTML = `<div style="text-align: center; color: #64748b; padding: 20px;">Connected in local mode. Start a conversation below!</div>`;
+                });
+            } catch (err) {
+                console.error("Error setting up chat stream:", err);
+            }
+        }
+
+        msgForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const text = msgInput.value.trim();
+            const topic = msgTopic.value;
+            if (!text || !currentUser) return;
+
+            try {
+                await addDoc(collection(db, "chat_messages"), {
+                    uid: currentUser.uid,
+                    userName: currentUser.displayName || "Member",
+                    text: text,
+                    topic: topic,
+                    timestamp: serverTimestamp()
+                });
+                msgInput.value = "";
+                msgInput.focus();
+            } catch (err) {
+                console.error("Error posting message:", err);
+                alert("Message could not be sent: " + (err.message || err));
+            }
+        });
+    </script>
+</body>
+</html>
