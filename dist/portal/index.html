@@ -212,7 +212,6 @@
                   }
               });
           }
-  
           if (btnLogout) {
               btnLogout.addEventListener("click", async () => {
                   sessionStorage.removeItem("hli_initiate_session");
@@ -221,17 +220,17 @@
                   } catch (err) {
                       console.error("Sign-out error:", err);
                   }
-                  if (loggedOutView) loggedOutView.classList.add("hidden");
+                  if (loggedOutView) loggedOutView.classList.remove("hidden");
                   if (loggedInView) loggedInView.classList.add("hidden");
                   if (dbStatus) dbStatus.textContent = "";
               });
           }
-  
+
           onAuthStateChanged(auth, async (user) => {
               if (user) {
                   sessionStorage.removeItem("hli_initiate_session");
                   updateUIForLoggedIn(user, false);
-  
+
                   try {
                       const userRef = doc(db, "users", user.uid);
                       await setDoc(userRef, {
@@ -249,7 +248,7 @@
               } else {
                   const hasGuest = checkGuestSession();
                   if (!hasGuest) {
-                      if (loggedOutView) loggedOutView.classList.add("hidden");
+                      if (loggedOutView) loggedOutView.classList.remove("hidden");
                       if (loggedInView) loggedInView.classList.add("hidden");
                       if (dbStatus) dbStatus.textContent = "";
                   }
