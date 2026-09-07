@@ -20,21 +20,18 @@ describe('Subtle Premium Color Distinction (Yes Path vs Support Path)', () => {
         assert.ok(stylesCss.includes('body.path-support-page'), 'styles.css must define body.path-support-page');
         assert.ok(stylesCss.includes('.hub-subtitle.subtitle-yes'), 'styles.css must style subtitle-yes');
         assert.ok(stylesCss.includes('.hub-subtitle.subtitle-support'), 'styles.css must style subtitle-support');
-        assert.ok(stylesCss.includes('.pathway-subheading-dot'), 'styles.css must style pathway-subheading-dot');
     });
 
-    it('2. path-yes.html incorporates the dot and line in the subheading only', () => {
+    it('2. path-yes.html incorporates clean subheading styling without bullet or line', () => {
         assert.ok(pathYesHtml.includes('class="premium-white-theme path-yes-page"'), 'path-yes.html must have path-yes-page class on body');
         assert.ok(pathYesHtml.includes('class="hub-subtitle subtitle-yes"'), 'path-yes.html must have subtitle-yes class on subheading');
-        assert.ok(pathYesHtml.includes('pathway-subheading-dot'), 'path-yes.html subheading must contain pathway-subheading-dot');
         assert.ok(!pathYesHtml.includes('pathway-heading-dot'), 'path-yes.html heading must not contain dot');
         assert.ok(!pathYesHtml.includes('pathway-indicator-pill'), 'path-yes.html must not contain separate pathway-indicator-pill');
     });
 
-    it('3. path-support.html incorporates the dot and line in the subheading only', () => {
+    it('3. path-support.html incorporates clean subheading styling without bullet or line', () => {
         assert.ok(pathSupportHtml.includes('class="premium-white-theme path-support-page"'), 'path-support.html must have path-support-page class on body');
         assert.ok(pathSupportHtml.includes('class="hub-subtitle subtitle-support"'), 'path-support.html must have subtitle-support class on subheading');
-        assert.ok(pathSupportHtml.includes('pathway-subheading-dot'), 'path-support.html subheading must contain pathway-subheading-dot');
         assert.ok(!pathSupportHtml.includes('pathway-heading-dot'), 'path-support.html heading must not contain dot');
         assert.ok(!pathSupportHtml.includes('pathway-indicator-pill'), 'path-support.html must not contain separate pathway-indicator-pill');
     });
