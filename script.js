@@ -385,10 +385,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
             setTimeout(() => {
                 actionPanel.innerHTML = `
-                    <div id="welcome-confirmation" style="margin-top: 6vh; text-align: center; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.45s ease;">
-                        <h2 style="color: #ffffff; font-size: clamp(1.8rem, 4.5vw, 3rem); margin: 0 0 14px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
-                        <p style="color: #cbd5e1; font-size: clamp(1.1rem, 2.2vw, 1.4rem); margin-bottom: 36px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
-                        <button id="btn-continue-hub" style="background: #005EB8; color: white; border: none; padding: 22px 70px; font-size: 1.5rem; border-radius: 16px; cursor: pointer; font-weight: 800; text-transform: uppercase; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: transform 0.2s, background-color 0.2s; pointer-events: auto;">Continue &rarr;</button>
+                    <div id="welcome-confirmation" style="margin-top: 3vh; text-align: center; opacity: 0; transform: translateY(16px); transition: opacity 0.45s ease, transform 0.45s ease; max-width: 620px; margin-left: auto; margin-right: auto; padding: 0 16px;">
+                        <h2 style="color: #ffffff; font-size: clamp(1.6rem, 4vw, 2.5rem); margin: 0 0 10px 0; font-weight: 900; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.9);">One more person joined the initiative.</h2>
+                        <p style="color: #cbd5e1; font-size: clamp(1rem, 2vw, 1.25rem); margin-bottom: 22px; text-shadow: 0 2px 10px rgba(0,0,0,0.9); font-weight: 500;">Welcome to the Bristol network${nameGreeting}.</p>
+                        
+                        <!-- Member Portal Notice Box -->
+                        <div style="background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(14px); border: 1.5px solid rgba(0, 164, 239, 0.45); border-radius: 18px; padding: 22px 24px; margin-bottom: 24px; text-align: center; box-shadow: 0 10px 35px rgba(0,0,0,0.6);">
+                            <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 94, 184, 0.35); border: 1px solid rgba(0, 164, 239, 0.6); padding: 4px 14px; border-radius: 20px; color: #38bdf8; font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                                <span class="material-symbols-outlined" style="font-size: 1.15rem; vertical-align: middle;">badge</span> Member Portal Open
+                            </div>
+                            <h3 style="color: #ffffff; font-size: 1.25rem; font-weight: 800; margin: 0 0 8px 0;">You can now join the Member Portal</h3>
+                            <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.5; margin: 0 0 20px 0;">
+                                Connect directly with Bristol peers, access the real-time community chat room, browse venue accessibility notes, and download member guides.
+                            </p>
+                            
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                <a href="/portal" id="btn-join-portal" style="background: linear-gradient(135deg, #00A4EF 0%, #005EB8 100%); color: white; text-decoration: none; padding: 14px 26px; font-size: 1.02rem; border-radius: 12px; font-weight: 800; box-shadow: 0 6px 20px rgba(0,164,239,0.4); display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; pointer-events: auto;">
+                                    <span class="material-symbols-outlined" style="font-size: 1.2rem;">login</span> Join Member Portal &rarr;
+                                </a>
+                                <button id="btn-continue-hub" style="background: rgba(255,255,255,0.08); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.22); padding: 14px 24px; font-size: 1.02rem; border-radius: 12px; cursor: pointer; font-weight: 700; transition: background 0.2s; pointer-events: auto;">
+                                    Explore Bristol Guide &rarr;
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 `;
                 actionPanel.style.pointerEvents = 'auto';
@@ -404,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const continueBtn = document.getElementById('btn-continue-hub');
                 if (continueBtn) {
                     continueBtn.addEventListener('click', () => {
-                        transitionToPage('path-community-reel.html');
+                        transitionToPage('path-yes.html');
                     });
                 }
             }, 950);
@@ -1870,14 +1889,14 @@ function initGlobalSocialLinks() {
 
         const socialBar = document.createElement('div');
         socialBar.className = 'hli-social-connect-bar';
-        socialBar.setAttribute('aria-label', 'Official Social and Community Links');
+        socialBar.setAttribute('aria-label', 'Official Social and Initiative Links');
         socialBar.innerHTML = `
             <span class="hli-social-connect-label">Connect &amp; Support:</span>
             <a href="https://www.instagram.com/hearinglossinitiative/" target="_blank" rel="noopener noreferrer" class="hli-social-pill pill-instagram" title="Follow us on Instagram @hearinglossinitiative" aria-label="Follow us on Instagram @hearinglossinitiative">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 <span>Instagram</span>
             </a>
-            <a href="/path-join-us" class="hli-social-pill pill-community" title="Join our Members Community" aria-label="Join our Members Community"><span class="material-symbols-outlined" style="font-size:16px;">favorite</span><span>Members</span></a>
+            <a href="/path-join-us" class="hli-social-pill pill-community" title="Join the Initiative" aria-label="Join the Initiative"><span class="material-symbols-outlined" style="font-size:16px;">volunteer_activism</span><span>Join Us</span></a>
             <a href="https://www.linkedin.com/company/hearing-loss-initiative/" target="_blank" rel="noopener noreferrer" class="hli-social-pill pill-linkedin" title="Connect with us on LinkedIn" aria-label="Connect with us on LinkedIn">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v7.6h2.8v-7.6h-2.8M7.86 6.5a1.63 1.63 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63a1.63 1.63 0 0 0 1.63-1.63c0-.9-.73-1.62-1.63-1.62Z"/></svg>
                 <span>LinkedIn</span>

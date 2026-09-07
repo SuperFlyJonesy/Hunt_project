@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Portal - Bristol Hearing Loss Initiative</title>
-    <meta name="description" content="Sign in to the Bristol Hearing Loss Initiative Member Portal to access peer discussions, live community chat, verified Bristol venue accessibility notes, and member resources.">
+    <title>Initiate Portal - Bristol Hearing Loss Initiative</title>
+    <meta name="description" content="Sign in to the Bristol Hearing Loss Initiative Initiate Portal to access peer discussions, live initiative chat, verified Bristol venue accessibility notes, and initiate resources.">
     <link rel="stylesheet" href="styles.css?v=31.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
@@ -80,6 +80,28 @@
             border-color: #9ca3af;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-guest-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #f8fafc;
+            color: #334155;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 30px;
+            padding: 11px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-guest-login:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+            border-color: #94a3af;
         }
 
         .google-icon-svg {
@@ -339,13 +361,13 @@
     <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
-    <meta property="og:title" content="Member Portal - Bristol Hearing Loss Initiative">
-    <meta property="og:description" content="Sign in to access community resources, Bristol peer discussions, and live chat.">
+    <meta property="og:title" content="Initiate Portal - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Sign in to access initiative resources, Bristol peer discussions, and live chat.">
     <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
     <meta property="og:url" content="https://hearinglossinitiative.org.uk/portal.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Member Portal - Bristol Hearing Loss Initiative">
-    <meta name="twitter:description" content="Sign in to access community resources, Bristol peer discussions, and live chat.">
+    <meta name="twitter:title" content="Initiate Portal - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Sign in to access initiative resources, Bristol peer discussions, and live chat.">
     <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
 </head>
 <body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
@@ -364,16 +386,16 @@
         <div class="header-section" style="text-align: center; margin-bottom: 30px; margin-top: 15px;">
             <h1 style="font-size: 2.3rem; margin-bottom: 12px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
                 <span class="material-symbols-outlined" style="font-size: 2.8rem;">badge</span>
-                Member Portal
+                Initiate Portal
             </h1>
             <p style="font-size: 1.12rem; color: #475569; text-align: center; max-width: 720px; margin: 0 auto; line-height: 1.6;">
-                Sign in to connect with Bristol peers, access verified accessibility guides, and participate in community discussions.
+                Sign in to connect with Bristol peers, access verified accessibility guides, and participate in initiative discussions.
             </p>
         </div>
 
         <!-- Logged Out View -->
         <div id="auth-logged-out" class="auth-hero-box">
-            <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 10px 0;">Sign in to Join Our Bristol Community</h2>
+            <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 10px 0;">Sign in to Join Our Bristol Network</h2>
             <p style="font-size: 0.98rem; color: #475569; max-width: 620px; margin: 0 auto; line-height: 1.5;">
                 One-click verification with your Google account gives you immediate entry. Zero passwords, free forever, and spam-free.
             </p>
@@ -381,7 +403,7 @@
             <div class="perks-grid">
                 <div class="perk-item">
                     <span class="material-symbols-outlined">forum</span>
-                    <span>Live Community Chat Room</span>
+                    <span>Live Initiative Chat Room</span>
                 </div>
                 <div class="perk-item">
                     <span class="material-symbols-outlined">map</span>
@@ -397,15 +419,21 @@
                 </div>
             </div>
 
-            <button id="btn-login" class="btn-google-login">
-                <svg class="google-icon-svg" viewBox="0 0 24 24">
-                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-                </svg>
-                Sign in with Google
-            </button>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0 auto; max-width: 320px;">
+                <button id="btn-login" class="btn-google-login" style="width: 100%;">
+                    <svg class="google-icon-svg" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                    </svg>
+                    Sign in with Google
+                </button>
+                <button id="btn-guest-login" class="btn-guest-login" type="button" style="width: 100%;">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">person</span>
+                    Continue as Guest Initiate
+                </button>
+            </div>
 
             <!-- Diagnostic/Error Display -->
             <div id="auth-error-box" class="hidden" style="margin-top: 20px; background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 12px; padding: 16px; text-align: left; max-width: 580px; margin-left: auto; margin-right: auto;">
@@ -429,8 +457,8 @@
                     </div>
                     <div class="profile-meta">
                         <h3>
-                            <span id="user-display-name">Member</span>
-                            <span class="member-badge">Verified Member</span>
+                            <span id="user-display-name">Initiate</span>
+                            <span class="member-badge">Verified Initiate</span>
                         </h3>
                         <p id="user-email-display">user@example.com</p>
                         <p id="db-status" style="font-size: 0.8rem; color: #16a34a; margin-top: 4px; font-weight: 600;"></p>
@@ -447,30 +475,30 @@
                 <div>
                     <h3>
                         <span class="material-symbols-outlined" style="font-size: 1.6rem;">forum</span>
-                        Live Community Chat Room
+                        Live Initiative Chat Room
                     </h3>
                     <p>
                         Join ongoing peer discussions covering assistive gadgets, Bristol pub meetups, lip-reading techniques, and acoustic audits.
                     </p>
                 </div>
                 <a href="chat.html" class="btn-chat-action">
-                    <span>Open Community Chat</span>
+                    <span>Open Initiative Chat</span>
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </a>
             </div>
 
-            <!-- Member Resources Section -->
+            <!-- Initiate Resources Section -->
             <div class="portal-card">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span class="material-symbols-outlined" style="color: #005EB8; font-size: 1.6rem;">folder_special</span>
-                        <h2 style="font-size: 1.3rem; color: #0f172a; margin: 0;">Bristol Member Resources</h2>
+                        <h2 style="font-size: 1.3rem; color: #0f172a; margin: 0;">Bristol Initiate Resources</h2>
                     </div>
                     <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Updated Weekly</span>
                 </div>
 
                 <div id="resource-list" class="resources-grid">
-                    <p id="loading-text" style="color: #64748b; font-size: 0.95rem;">Loading member resources from database...</p>
+                    <p id="loading-text" style="color: #64748b; font-size: 0.95rem;">Loading initiate resources from database...</p>
                 </div>
             </div>
         </div>
@@ -481,7 +509,7 @@
                 <span class="material-symbols-outlined" style="color: #1b5e20; font-size: 1.8rem;">volunteer_activism</span>
                 <div>
                     <strong style="color: #0f172a; font-size: 0.95rem; display: block;">Join Us Overview</strong>
-                    <span style="color: #64748b; font-size: 0.82rem;">How the community works</span>
+                    <span style="color: #64748b; font-size: 0.82rem;">How the initiative works</span>
                 </div>
             </a>
             <a href="path-discord-help.html" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: transform 0.2s ease;">
@@ -531,7 +559,7 @@
             collection, 
             getDocs, 
             serverTimestamp 
-        } from "./firebase-config.js";
+        } from "/firebase-config.js";
 
         const loggedOutView = document.getElementById("auth-logged-out");
         const loggedInView = document.getElementById("auth-logged-in");
@@ -540,6 +568,7 @@
         const userAvatarContainer = document.getElementById("user-avatar-container");
         const dbStatus = document.getElementById("db-status");
         const btnLogin = document.getElementById("btn-login");
+        const btnGuestLogin = document.getElementById("btn-guest-login");
         const btnLogout = document.getElementById("btn-logout");
         const resourceList = document.getElementById("resource-list");
 
@@ -563,6 +592,7 @@
         ];
 
         function renderResourceCards(items) {
+            if (!resourceList) return;
             resourceList.innerHTML = "";
             items.forEach((item) => {
                 const card = document.createElement("div");
@@ -617,11 +647,65 @@
             }
         }
 
+        function updateUIForLoggedIn(userData, isGuest = false) {
+            if (userDisplayName) userDisplayName.textContent = userData.displayName || "Initiate";
+            if (userEmailDisplay) userEmailDisplay.textContent = userData.email || "";
+            
+            if (userAvatarContainer) {
+                if (userData.photoURL) {
+                    const avatarImg = document.createElement("img");
+                    avatarImg.src = userData.photoURL;
+                    avatarImg.alt = userData.displayName || "Avatar";
+                    userAvatarContainer.innerHTML = "";
+                    userAvatarContainer.appendChild(avatarImg);
+                } else {
+                    const initial = (userData.displayName || userData.email || "I").charAt(0).toUpperCase();
+                    userAvatarContainer.innerHTML = `<span id="user-initial">${initial}</span>`;
+                }
+            }
+
+            if (loggedOutView) loggedOutView.classList.add("hidden");
+            if (loggedInView) loggedInView.classList.remove("hidden");
+
+            if (dbStatus) {
+                dbStatus.textContent = isGuest ? "● Guest initiate session active" : "● Profile synchronised with database";
+            }
+
+            loadResources();
+        }
+
+        function checkGuestSession() {
+            try {
+                const saved = sessionStorage.getItem("hli_initiate_session");
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    updateUIForLoggedIn(parsed, true);
+                    return true;
+                }
+            } catch (e) {
+                console.warn("Guest session read error:", e);
+            }
+            return false;
+        }
+
+        if (btnGuestLogin) {
+            btnGuestLogin.addEventListener("click", () => {
+                hideAuthError();
+                const guestData = {
+                    uid: "guest-" + Date.now(),
+                    displayName: "Guest Initiate",
+                    email: "guest@hearinglossinitiative.org.uk"
+                };
+                sessionStorage.setItem("hli_initiate_session", JSON.stringify(guestData));
+                updateUIForLoggedIn(guestData, true);
+            });
+        }
+
         // Check if running on file:// protocol
         if (window.location.protocol === "file:") {
             showAuthError(
                 "Local File Protocol Detected (file://)",
-                "Google Sign-In requires an HTTP/HTTPS environment to open popups securely. Please run a local web server (e.g. VS Code Live Server, <code>npx serve</code>, or host on Netlify/Firebase) rather than double-clicking the file."
+                "Google Sign-In requires an HTTP/HTTPS environment to open popups securely. You can click <strong>Continue as Guest Initiate</strong> above to test immediately, or run a local web server (e.g. <code>npm run dev</code>, Live Server, or Netlify)."
             );
         }
 
@@ -631,8 +715,8 @@
                 
                 if (window.location.protocol === "file:") {
                     showAuthError(
-                        "Cannot Sign In from file://",
-                        "OAuth popups cannot verify origins from <code>file:///</code> URLs. Please serve this site using a local web server (e.g. <code>http://localhost:3000</code> or Live Server) or visit your deployed domain."
+                        "Cannot Open OAuth Popup from file://",
+                        "OAuth popups cannot verify origins from <code>file:///</code> URLs.<br><br><strong>Quick Option:</strong> Click <strong>Continue as Guest Initiate</strong> to access the portal right now, or view through a local web server (e.g. <code>http://localhost:4321</code>)."
                     );
                     return;
                 }
@@ -649,27 +733,27 @@
                     btnLogin.style.opacity = "1";
                     btnLogin.style.cursor = "pointer";
 
-                    let errorTitle = "Google Sign-In Error";
+                    let errorTitle = "Google Sign-In Notice";
                     let errorMessage = err.message || "An unexpected error occurred during sign-in.";
 
                     if (err.code === "auth/unauthorized-domain") {
-                        errorTitle = "Domain Not Authorized in Firebase";
-                        errorMessage = `The current domain (<strong>${window.location.hostname || 'this domain'}</strong>) is not listed in your Firebase Authorized Domains.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Authorized domains</strong> &rarr; Add <code>${window.location.hostname}</code>.`;
+                        errorTitle = "Domain Authorization Required";
+                        errorMessage = `The current domain (<strong>${window.location.hostname || 'this domain'}</strong>) is not yet in your Firebase Authorized Domains.<br><br><strong>Option 1:</strong> Click <strong>Continue as Guest Initiate</strong> above to access all features immediately.<br><strong>Option 2:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Authorized domains</strong> &rarr; Add <code>${window.location.hostname}</code>.`;
                     } else if (err.code === "auth/operation-not-allowed") {
-                        errorTitle = "Google Provider Not Enabled";
-                        errorMessage = `Google Sign-In is disabled in your Firebase project.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Sign-in method</strong> &rarr; Enable <strong>Google</strong>.`;
+                        errorTitle = "Google Provider Configuration";
+                        errorMessage = `Google Sign-In is not enabled in Firebase Authentication.<br><br><strong>Option 1:</strong> Click <strong>Continue as Guest Initiate</strong> to access now.<br><strong>Option 2:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Sign-in method</strong> &rarr; Enable <strong>Google</strong>.`;
                     } else if (err.code === "auth/popup-blocked") {
                         errorTitle = "Popup Blocked by Browser";
-                        errorMessage = "Your browser blocked the Google Sign-In popup window. Please click the popup icon in your address bar, allow popups for this site, and try again.";
+                        errorMessage = "Your browser blocked the Google Sign-In popup. Please enable popups for this site or click <strong>Continue as Guest Initiate</strong>.";
                     } else if (err.code === "auth/popup-closed-by-user") {
                         errorTitle = "Sign-In Cancelled";
-                        errorMessage = "The Google Sign-In popup was closed before completing verification. Please try again.";
+                        errorMessage = "The Google Sign-In popup was closed before completing verification. Please try again or continue as Guest.";
                     } else if (err.code === "auth/cancelled-popup-request") {
                         errorTitle = "Request Cancelled";
                         errorMessage = "Another sign-in window was opened. Please use the open popup.";
                     } else if (err.code === "auth/network-request-failed") {
                         errorTitle = "Network Connection Issue";
-                        errorMessage = "Could not reach Firebase authentication servers. Please check your internet connection.";
+                        errorMessage = "Could not reach authentication servers. Please check your internet connection or use Guest Initiate.";
                     }
 
                     showAuthError(errorTitle, errorMessage);
@@ -679,32 +763,22 @@
 
         if (btnLogout) {
             btnLogout.addEventListener("click", async () => {
+                sessionStorage.removeItem("hli_initiate_session");
                 try {
                     await signOut(auth);
                 } catch (err) {
                     console.error("Sign-out error:", err);
                 }
+                if (loggedOutView) loggedOutView.classList.remove("hidden");
+                if (loggedInView) loggedInView.classList.add("hidden");
+                if (dbStatus) dbStatus.textContent = "";
             });
         }
 
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                userDisplayName.textContent = user.displayName || "Initiate Member";
-                userEmailDisplay.textContent = user.email || "";
-                
-                if (user.photoURL) {
-                    const avatarImg = document.createElement("img");
-                    avatarImg.src = user.photoURL;
-                    avatarImg.alt = user.displayName || "Avatar";
-                    userAvatarContainer.innerHTML = "";
-                    userAvatarContainer.appendChild(avatarImg);
-                } else {
-                    const initial = (user.displayName || user.email || "M").charAt(0).toUpperCase();
-                    userAvatarContainer.innerHTML = `<span id="user-initial">${initial}</span>`;
-                }
-
-                loggedOutView.classList.add("hidden");
-                loggedInView.classList.remove("hidden");
+                sessionStorage.removeItem("hli_initiate_session");
+                updateUIForLoggedIn(user, false);
 
                 try {
                     const userRef = doc(db, "users", user.uid);
@@ -715,17 +789,18 @@
                         photoURL: user.photoURL,
                         lastLogin: serverTimestamp()
                     }, { merge: true });
-                    dbStatus.textContent = "● Profile synchronised with database";
+                    if (dbStatus) dbStatus.textContent = "● Profile synchronised with database";
                 } catch (err) {
                     console.error("Database write error:", err);
-                    dbStatus.textContent = "● Offline session active";
+                    if (dbStatus) dbStatus.textContent = "● Offline session active";
                 }
-
-                loadResources();
             } else {
-                loggedOutView.classList.remove("hidden");
-                loggedInView.classList.add("hidden");
-                dbStatus.textContent = "";
+                const hasGuest = checkGuestSession();
+                if (!hasGuest) {
+                    if (loggedOutView) loggedOutView.classList.remove("hidden");
+                    if (loggedInView) loggedInView.classList.add("hidden");
+                    if (dbStatus) dbStatus.textContent = "";
+                }
             }
         });
     </script>
