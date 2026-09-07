@@ -418,6 +418,13 @@ document.addEventListener("DOMContentLoaded", () => {
         transitionToPage('path-yes.html');
     };
 
+    if (bypassGuestBtn) {
+        bypassGuestBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.handleBypassRegistration();
+        });
+    }
+
     function transitionToPage(targetUrl) {
         const actionPanel = document.getElementById('bottom-action-panel');
         const stencil = document.getElementById('stencil-count');

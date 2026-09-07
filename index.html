@@ -227,6 +227,7 @@
                     Log Name &amp; Join Initiative &rarr;
                 </button>
                 <button type="button" id="btn-bypass-guest"
+                    onclick="if(window.handleBypassRegistration){window.handleBypassRegistration();}else{localStorage.setItem('hasVisitedHub','true');window.location.href='/path-yes';}"
                     style="width: 100%; background: transparent; color: #94a3b8; border: 1px solid rgba(255,255,255,0.18); padding: 12px; font-size: 0.95rem; font-weight: 600; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
                     Browse as Guest (Skip) &rarr;
                 </button>
