@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hearing Expo — Bristol Hearing Loss Initiative Support Pathway">
+  <meta charset="UTF-8">
+  <title>Hearing Expo | Bristol Hearing Loss Initiative</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: pointer;
+    }
+
+    /* Pure Full-Screen Video Background */
+    .video-stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #expo-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Fade Transition Screen: Black on entry, White on exit */
+    #fade-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000000;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 100;
+      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
+    }
+
+    /* Minimalist Unobtrusive Controls (Top Right) */
+    .top-controls {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .glass-btn {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 10px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      opacity: 0.45;
+      transition: all 0.3s ease;
+    }
+
+    .glass-btn:hover {
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.65);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .audio-btn {
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    /* Click to Continue Bottom Prompt */
+    @keyframes pulsePrompt {
+      0%, 100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.95; transform: translateX(-50%) scale(1.03); }
+    }
+
+    @keyframes pulsePromptEnd {
+      0%, 100% { 
+        opacity: 0.85; 
+        transform: translateX(-50%) scale(1); 
+        box-shadow: 0 0 20px rgba(0, 164, 239, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6); 
+      }
+      50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.06); 
+        box-shadow: 0 0 35px rgba(0, 164, 239, 0.8), 0 4px 30px rgba(0, 0, 0, 0.8); 
+      }
+    }
+
+    .click-continue-prompt {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      color: #ffffff;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      animation: pulsePrompt 2.5s infinite ease-in-out;
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .click-continue-prompt.active-end {
+      font-size: 14px;
+      padding: 14px 28px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      border-radius: 35px;
+      backdrop-filter: blur(12px);
+      animation: pulsePromptEnd 1.8s infinite ease-in-out;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    /* Subtle bottom progress bar */
+    .bottom-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 50;
+    }
+
+    .bottom-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: rgba(255, 255, 255, 0.6);
+      transition: width 0.1s linear;
+    }
+
+    /* Mobile Landscape Auto-Orientation */
+    @media (max-width: 900px) and (orientation: portrait) {
+      .video-stage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vh;
+        height: 100vw;
+        transform: translate(-50%, -50%) rotate(90deg);
+        transform-origin: center center;
+      }
+    }
+  </style>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Hearing Expo | Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Hearing Expo — Bristol Hearing Loss Initiative Support Pathway">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-support-reel.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hearing Expo | Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Hearing Expo — Bristol Hearing Loss Initiative Support Pathway">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body>
+  <a href="#main-content" class="skip-link" style="position: absolute; top: -100px; left: 15px; background: #ff0f5b; color: #ffffff; padding: 10px 20px; border-radius: 8px; font-weight: 800; z-index: 99999999; text-decoration: none; transition: top 0.2s ease;">Skip to Video Stage</a>
+  <main id="main-content">
+  <!-- Fullscreen Video Stage -->
+  <div class="video-stage">
+    <video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="Contents/Videos/expo-reel-poster.jpg" autoplay>
+      <source src="Contents/Videos/expo-reel.webm" type="video/webm">
+      <source src="Contents/Videos/expo-reel.mp4" type="video/mp4">
+    </video>
+
+    <!-- Minimalist Controls inside rotated stage -->
+    <div class="top-controls">
+      <button id="btn-audio-toggle" class="glass-btn audio-btn" aria-label="Mute or Unmute Audio" title="Toggle Sound">
+        <span id="audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
+      </button>
+      <button id="btn-skip" class="glass-btn" aria-label="Skip to Support Hub">
+        Skip &rarr;
+      </button>
+    </div>
+
+    <!-- Click to Continue Prompt inside rotated stage -->
+    <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
+
+    <!-- Subtle Minimal Bottom Progress Line inside rotated stage -->
+    <div class="bottom-progress">
+      <div id="progress-fill" class="bottom-progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Fade Overlay: In from Black -> Out into White -->
+  <div id="fade-overlay"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.getElementById("expo-video");
+      const overlay = document.getElementById("fade-overlay");
+      const skipBtn = document.getElementById("btn-skip");
+      const audioBtn = document.getElementById("btn-audio-toggle");
+      const audioIcon = document.getElementById("audio-icon");
+      const progressFill = document.getElementById("progress-fill");
+
+      let isTransitioningOut = false;
+
+      // 1. Smooth Fade In From Black on Start
+      function startFadeIn() {
+        if (overlay) {
+          overlay.style.backgroundColor = "#000000";
+          overlay.style.opacity = "1";
+          requestAnimationFrame(() => {
+            overlay.style.opacity = "0";
+          });
+        }
+      }
+
+      // 2. Smooth Fade Out Into White and Navigate to path-support.html
+      function transitionToWhite(isManual = false) {
+        if (isTransitioningOut) return;
+        isTransitioningOut = true;
+
+        if (overlay) {
+          overlay.style.transition = "opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease";
+          overlay.style.backgroundColor = "#ffffff";
+          overlay.style.opacity = "1";
+        }
+
+        // If skipped manually while playing, smoothly fade down audio
+        if (isManual && video && !video.paused) {
+          const fadeAudio = setInterval(() => {
+            if (video.volume > 0.08) {
+              video.volume -= 0.08;
+            } else {
+              video.volume = 0;
+              clearInterval(fadeAudio);
+            }
+          }, 40);
+        }
+
+        setTimeout(() => {
+          localStorage.setItem("hasVisitedSupportReel", "true");
+          window.location.href = "path-support.html";
+        }, 1000);
+      }
+
+      // Attempt Screen Orientation lock to landscape on supported mobile devices
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock("landscape").catch(() => {});
+        }
+      } catch (err) {}
+
+      if (video) {
+        video.loop = false;
+
+        // Attempt immediate playback
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            startFadeIn();
+          }).catch(() => {
+            // Autoplay blocked: mute and play, update icon
+            video.muted = true;
+            if (audioIcon) audioIcon.textContent = "volume_off";
+            video.play().then(() => {
+              startFadeIn();
+            });
+          });
+        }
+
+        function showEndClickPrompt() {
+          const prompt = document.querySelector('.click-continue-prompt');
+          if (prompt) {
+            prompt.classList.add('active-end');
+            prompt.textContent = "[ Click to continue ]";
+          }
+        }
+
+        // Progress bar tracking & trigger click prompt at completion
+        video.addEventListener("timeupdate", () => {
+          const cur = video.currentTime;
+          const dur = video.duration || 10.0;
+          const pct = Math.min(100, (cur / dur) * 100);
+          if (progressFill) progressFill.style.width = pct + "%";
+
+          // If reached the end of the video, pause and prompt click
+          if (dur > 0 && cur >= (dur - 0.08)) {
+            video.pause();
+            showEndClickPrompt();
+          }
+        });
+
+        // Trigger prompt when video ends
+        video.addEventListener("ended", () => {
+          showEndClickPrompt();
+        });
+
+        // Audio Mute/Unmute Toggle
+        if (audioBtn) {
+          audioBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            video.muted = !video.muted;
+            if (video.muted) {
+              if (audioIcon) audioIcon.textContent = "volume_off";
+            } else {
+              if (audioIcon) audioIcon.textContent = "volume_up";
+              video.volume = 1.0;
+            }
+          });
+        }
+      }
+
+      // Skip Button
+      if (skipBtn) {
+        skipBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          transitionToWhite(true);
+        });
+      }
+
+      // Click anywhere to continue
+      document.body.addEventListener("click", (e) => {
+        if (!e.target.closest("#btn-audio-toggle")) {
+          transitionToWhite(true);
+        }
+      });
+
+      // Keyboard support: Escape, Space, or Enter to continue
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+          transitionToWhite(true);
+        }
+      });
+    });
+  </script>
+  </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+Future Tech Tile: Auracast & Next-Gen Accessibility
+Here is the up-to-date breakdown for your Future Tech tile on Auracast, highlighting the world-first trial at Bristol Temple Meads, local Bristol organizations, and the wider venue rollout across the UK.
+
+1. What is Auracast?
+Auracast™ broadcast audio is a new standard built on Bluetooth® LE Audio (using the LC3 codec). Unlike traditional Bluetooth, which restricts connections to a single pair of devices, Auracast allows a single transmitter to broadcast high-quality, low-latency audio to an unlimited number of receivers simultaneously without needing to pair.
+
+Direct-to-Ear Streaming: Sound streams straight to compatible hearing aids, cochlear implants, or earbuds—bypassing background acoustic noise and reverberation.
+
+Zero Complex Equipment: Users tune in via a smartphone app (or dedicated pocket receivers for legacy devices) much like selecting a Wi-Fi network.
+
+Battery Efficient: Uses a fraction of the power of classic Bluetooth, preserving hearing aid battery life throughout the day.
+
+2. Bristol Temple Meads Deployment (World-First Trial)
+Bristol Temple Meads is at the global forefront of accessible transport technology, serving as the world's first public rail station trial of Auracast.
+
+The Technology: Installed by Ampetronic (in partnership with Listen Technologies), deploying their Auri™ system—a network of 10 weather- and pigeon-proof transmitters mounted in relay across high-traffic zones, including Platforms 9–12, the pedestrian subway, and the main Ticket Hall.
+
+The Innovation Zone: Funded through Connected Places Catapult and Network Rail as part of the Station Innovation Zone at Temple Meads to evaluate how next-gen assistive listening reduces travel anxiety and replaces outdated induction loops.
+
+Real-World Impact: Station PA announcements, delays, and safety alerts stream in real-time straight to passengers' ears with clear audio and near-zero latency (~30 ms).
+
+3. Local Bristol Organizations & Key Partners
+Centre for Deaf and Hard of Hearing People (CfD Bristol): Based at the Vassall Centre in Fishponds, Bristol. CfD actively supports local residents with hearing loss and participated in trial evaluations to ensure user needs are reflected in accessibility tech.
+
+Connected Places Catapult (Bristol Station Innovation Zone): The UK’s transport innovation hub leading trial deployments at Temple Meads alongside Innovate UK.
+
+Royal National Institute for Deaf People (RNID): Partnered with trial developers to conduct in-depth user feedback studies on-site at Temple Meads.
+
+4. UK Venue Adoption & 2030 Roadmap
+Beyond transport hubs, major cultural and public venues across the UK have committed to adopting Auracast infrastructure:
+
+Confirmed Venue Deployments & Trials: Manchester’s Contact Theatre, The National Theatre, Shakespeare’s Globe, Southbank Centre, the Bridge Theatre (London), and Birmingham Hippodrome.
+
+Industry Pledge: UK venue operators, hearing care professionals, and tech providers have publicly committed to achieving widespread Auracast integration across arts, healthcare, and retail spaces.
+
+Official Links & Citations
+Bluetooth SIG – Temple Meads Trial Case Study: Bluetooth.com - 4 Perspectives on the Impact of the Auracast Trial at Bristol Temple Meads
+
+Ampetronic Official Press Release: Ampetronic - Installation of Auri™ in Bristol Temple Meads Station
+
+Centre for Deaf and Hard of Hearing People (Bristol): CfD Bristol Official Site
+
+Aurahear – Temple Meads User Review & System Directory: Aurahear - Auracast Trial at Bristol Temple Meads
+
+Connected Places Catapult (Station Innovation Zone): Connected Places Catapult Projects

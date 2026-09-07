@@ -1,0 +1,19 @@
+{
+  "name": "Bristol Hearing Loss Initiative",
+  "short_name": "HLI Bristol",
+  "description": "Empowering hard-of-hearing adults through lived experience, clinical guides, assistive tech, and accessible venue auditing across Greater Bristol.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0F172A",
+  "theme_color": "#005EB8",
+  "icons": [
+    {
+      "src": "Contents/Pictures/Favicon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

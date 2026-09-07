@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hearing Loss Awareness (PACE Framework) - Bristol Hearing Loss Initiative"
+  description="Practical hearing loss awareness tips, communication strategies, and advice for friends, family, and colleagues in Bristol."
+  bodyClass="premium-white-theme"
+>
+  <style is:global>
+    .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+            .pace-badge-list { list-style: none; padding: 0; margin: 15px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+            @media (max-width: 600px) { .pace-badge-list { grid-template-columns: 1fr; } }
+            .pace-badge-item { background: #fff5f7; border: 1px solid #fecdd3; border-left: 4px solid #ff0f5b; padding: 12px 16px; border-radius: 10px; font-size: 1rem; color: #334155; }
+            .pace-badge-item strong { color: #ff0f5b; font-size: 1.1rem; }
+            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+  </style>
+
+  
+      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+  
+      <main id="main-content" class="container">
+          <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+              <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #ff0f5b; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                  <span class="material-symbols-outlined" style="font-size: 3rem;">campaign</span>
+                  Hearing Loss Awareness (PACE Framework)
+              </h1>
+              <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                  Practical hearing loss awareness tips, communication strategies, and advice for friends, family, and colleagues in Bristol.
+              </p>
+          </div>
+  
+          <!-- Progressive Disclosure Accordion Container -->
+          <div class="accordion-container">
+              
+              <!-- ACCORDION 1: PACE Overview -->
+              <div class="accordion-item active">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">format_quote</span> 1. PACE – A Simple Way to Support HoH People</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <div style="display: flex; gap: 20px; align-items: center; margin: 15px 0; background: #fff5f7; border: 1px solid #fecdd3; padding: 18px; border-radius: 14px; flex-wrap: wrap;">
+                          <span class="material-symbols-outlined" style="font-size: 3rem; color: #ff0f5b; background: white; padding: 12px; border-radius: 50%; border: 2px solid #fecdd3;">psychology</span>
+                          <div style="flex: 1; min-width: 240px;">
+                              <span class="info-badge" style="background: #ffe4e6; color: #ff0f5b; margin: 0 0 6px 0;">Community Framework</span>
+                              <h4 style="margin: 0 0 4px 0; color: #9f1239; font-size: 1.15rem;">Developed by Member Initiate</h4>
+                              <p style="margin: 0; font-size: 0.9rem; color: #881337; line-height: 1.5;">Bristol Hearing Loss Initiative Lived Experience Toolkit</p>
+                          </div>
+                      </div>
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                          Our member initiate created <strong>PACE</strong> as an easy, memorable framework for friends, family, colleagues, and employers to communicate effectively with hard-of-hearing (HoH) individuals:
+                      </p>
+                      <ul class="pace-badge-list">
+                          <li class="pace-badge-item"><strong>P</strong> – Patience</li>
+                          <li class="pace-badge-item"><strong>A</strong> – Attention</li>
+                          <li class="pace-badge-item"><strong>C</strong> – Clarity</li>
+                          <li class="pace-badge-item"><strong>E</strong> – Eye Contact</li>
+                      </ul>
+                      <div style="text-align: center; margin: 24px 0;">
+                          <img src="/Contents/Branding Images/HLI Flyer2.jpg" alt="PACE Framework Communication Pocket Card Flyer - Bristol Hearing Loss Initiative" style="max-width: 100%; max-height: 480px; width: auto; height: auto; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;" loading="lazy">
+                      </div>
+                      <p style="font-size: 1rem; color: #475569; line-height: 1.6; margin: 0;">
+                          These four core principles capture the key communication tactics recommended by leading UK audiology charities and accessibility standards.
+                      </p>
+                  </div>
+              </div>
+  
+              <!-- ACCORDION 2: P - Patience -->
+              <div class="accordion-item">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #D97706; margin-right: 8px;">hourglass_top</span> 2. P – Patience</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                          You may be asked to repeat yourself, possibly numerous times. Please be patient. Rephrase if necessary.
+                      </p>
+                      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                          <li>Give people time to process what you’ve said before repeating or moving on.</li>
+                          <li>Rephrase your sentence using different words if the message isn't coming through.</li>
+                          <li>Stay calm and supportive – focus on mutual understanding, never frustration.</li>
+                      </ul>
+                  </div>
+              </div>
+  
+              <!-- ACCORDION 3: A - Attention -->
+              <div class="accordion-item">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #2b6df2; margin-right: 8px;">hearing</span> 3. A – Attention</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.65; margin-bottom: 14px;">
+                          Pay close attention to the environment and the individual. Ask if you need to adjust the surroundings to reduce background noise or improve lighting. Confirm they caught key details without putting them on the spot. Keep alternative methods in mind. Options like written notes, live smartphone captions, or basic signing exist as useful backup tools when verbal communication breaks down.
+                      </p>
+                      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                          <li><strong>Surroundings &amp; Lighting:</strong> Check if background noise or poor lighting creates listening strain, and adjust accordingly.</li>
+                          <li><strong>Confirm Discreetly:</strong> Check understanding gently without causing embarrassment or putting them on the spot.</li>
+                          <li><strong>Backup Methods:</strong> Be ready with written notes, live mobile captions, or simple gestures if speech is hard to follow.</li>
+                      </ul>
+                  </div>
+              </div>
+  
+              <!-- ACCORDION 4: C - Clarity -->
+              <div class="accordion-item">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #1b5e20; margin-right: 8px;">spellcheck</span> 4. C – Clarity</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                          Clear speech is essential! Avoid shouting, speaking clearly is key.
+                      </p>
+                      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                          <li>Speak at a natural pace with clear but not exaggerated lip movements.</li>
+                          <li>Shouting distorts sound, muffles vocal tones, and alters mouth shapes needed for lipreading.</li>
+                          <li>Use plain language and concise phrasing; rephrase if a specific word is missed.</li>
+                      </ul>
+                  </div>
+              </div>
+  
+              <!-- ACCORDION 5: E - Eye Contact -->
+              <div class="accordion-item">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">visibility</span> 5. E – Eye Contact</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                          Face the person so that they can read your lips and facial expressions. Most hard-of-hearing (HoH) people do this unconsciously.
+                      </p>
+                      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0;">
+                          <li>Face the person directly so they can see your mouth and facial expressions – avoid looking away or turning your back.</li>
+                          <li>Keep your mouth and face visible (no hands, cups, pens, or documents blocking your lips).</li>
+                          <li>Position yourself in good lighting so your face is clearly illuminated without shadows.</li>
+                      </ul>
+                  </div>
+              </div>
+  
+              <!-- ACCORDION 6: How to use PACE -->
+              <div class="accordion-item">
+                  <button class="accordion-header" aria-expanded="false">
+                      <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #ff0f5b; margin-right: 8px;">tips_and_updates</span> 6. How to Use PACE in Daily Life</span>
+                      <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                  </button>
+                  <div class="accordion-body">
+                      <p style="font-size: 1.05rem; color: #334155; line-height: 1.6; margin-bottom: 12px;">
+                          You can encourage people to:
+                      </p>
+                      <ul style="color: #334155; line-height: 1.7; font-size: 0.98rem; padding-left: 20px; margin: 0 0 16px 0;">
+                          <li>Remember PACE before any important conversation – <em>“Patience, Attention, Clarity, Eye Contact.”</em></li>
+                          <li>Use PACE at home, at work, in social spaces, and in services like shops, cafés, clinics and schools.</li>
+                          <li>Share PACE with friends, colleagues and family as a simple way to become more hearing loss aware.</li>
+                      </ul>
+                      <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                          <div>
+                              <strong style="color: #1B5E20; font-size: 1rem; display: flex; align-items: center; gap: 6px;">
+                                  <span class="material-symbols-outlined">laptop_chromebook</span> Interactive PACE E-Learning Module
+                              </strong>
+                              <p style="margin: 4px 0 0 0; font-size: 0.88rem; color: #1B5E20;">Try our interactive digital demo to practice PACE communication tactics.</p>
+                          </div>
+                          <a href="/path-elearning" style="background: #1B5E20; color: white; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 6px;">
+                              <span class="material-symbols-outlined" style="font-size: 1rem;">play_circle</span> Launch Demo &rarr;
+                          </a>
+                      </div>
+                  </div>
+              </div>
+  
+          </div>
+  
+          <!-- Navigation Footer -->
+          <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+              <a href="/path-support" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                  <span class="material-symbols-outlined">arrow_back</span>
+                  Back to Support Hub
+              </a>
+              <a href="/path-yes" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                  <span class="material-symbols-outlined">arrow_back</span>
+                  Back to Journey Hub
+              </a>
+          </nav>
+              <footer class="hli-minimal-footer">
+              <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+          </footer>
+      </main>
+  
+      
+</BaseLayout>

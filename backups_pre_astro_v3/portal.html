@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Portal - Bristol Hearing Loss Initiative</title>
+    <meta name="description" content="Sign in to the Bristol Hearing Loss Initiative Member Portal to access peer discussions, live community chat, verified Bristol venue accessibility notes, and member resources.">
+    <link rel="stylesheet" href="styles.css?v=31.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 100px 20px; }
+        
+        .portal-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .auth-hero-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+            border: 1.5px solid #bfdbfe;
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin: 24px 0 28px 0;
+            text-align: left;
+        }
+
+        .perk-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.92rem;
+            color: #334155;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .perk-item .material-symbols-outlined {
+            color: #005EB8;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .btn-google-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #ffffff;
+            color: #1f2937;
+            border: 1.5px solid #d1d5db;
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: all 0.2s ease;
+        }
+
+        .btn-google-login:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .google-icon-svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .profile-user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .profile-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 2.5px solid #005EB8;
+            background: #e0f2fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #005EB8;
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-meta h3 {
+            margin: 0 0 4px 0;
+            font-size: 1.15rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .profile-meta p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #64748b;
+        }
+
+        .btn-logout {
+            background: transparent;
+            color: #dc2626;
+            border: 1.5px solid #fca5a5;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-logout:hover {
+            background: #fef2f2;
+            border-color: #ef4444;
+        }
+
+        .chat-promo-banner {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.25);
+            margin-bottom: 28px;
+        }
+
+        .chat-promo-banner h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-promo-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #e6fffa;
+            line-height: 1.5;
+            max-width: 480px;
+        }
+
+        .btn-chat-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            color: #047857;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.98rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-chat-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            background: #f0fdf4;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .resource-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-2px);
+            border-color: #005EB8;
+            box-shadow: 0 4px 16px rgba(0,94,184,0.08);
+        }
+
+        .resource-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 1.05rem;
+            color: #0f172a;
+        }
+
+        .resource-card p {
+            margin: 0 0 12px 0;
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.45;
+        }
+
+        .resource-location {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #005EB8;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hidden { display: none !important; }
+
+        /* Centered Header Logo & Admin Reset */
+        .about-logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 25px auto 10px auto;
+            position: relative;
+            z-index: 100;
+        }
+        #hli-logo.about-logo-top {
+            height: 52px;
+            width: auto;
+            cursor: pointer;
+            filter: contrast(1.1);
+            transition: transform 0.2s ease;
+        }
+        #hli-logo.about-logo-top:hover {
+            transform: scale(1.05);
+        }
+        #dev-reset {
+            color: #000000;
+            background: transparent;
+            border: none;
+            opacity: 0.2;
+            cursor: pointer;
+            padding: 6px 8px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            transition: opacity 0.2s ease;
+        }
+        #dev-reset:hover {
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            #hli-logo.about-logo-top {
+                height: 36px;
+                top: 12px;
+                left: 12px;
+            }
+            #dev-reset {
+                left: 6px;
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+            .chat-promo-banner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-chat-action {
+                width: 100%;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Member Portal - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Sign in to access community resources, Bristol peer discussions, and live chat.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/portal.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Member Portal - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Sign in to access community resources, Bristol peer discussions, and live chat.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="about-logo-wrapper">
+        <img src="Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative">
+        <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}" title="Dev Reset">R</button>
+    </div>
+
+    <!-- Top-Right About Us Button -->
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #005EB8; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem; transition: background 0.2s ease;">About Us</a>
+
+    <main id="main-content" class="container">
+        <!-- Header -->
+        <div class="header-section" style="text-align: center; margin-bottom: 30px; margin-top: 15px;">
+            <h1 style="font-size: 2.3rem; margin-bottom: 12px; color: #005EB8; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <span class="material-symbols-outlined" style="font-size: 2.8rem;">badge</span>
+                Member Portal
+            </h1>
+            <p style="font-size: 1.12rem; color: #475569; text-align: center; max-width: 720px; margin: 0 auto; line-height: 1.6;">
+                Sign in to connect with Bristol peers, access verified accessibility guides, and participate in community discussions.
+            </p>
+        </div>
+
+        <!-- Logged Out View -->
+        <div id="auth-logged-out" class="auth-hero-box">
+            <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 10px 0;">Sign in to Join Our Bristol Community</h2>
+            <p style="font-size: 0.98rem; color: #475569; max-width: 620px; margin: 0 auto; line-height: 1.5;">
+                One-click verification with your Google account gives you immediate entry. Zero passwords, free forever, and spam-free.
+            </p>
+
+            <div class="perks-grid">
+                <div class="perk-item">
+                    <span class="material-symbols-outlined">forum</span>
+                    <span>Live Community Chat Room</span>
+                </div>
+                <div class="perk-item">
+                    <span class="material-symbols-outlined">map</span>
+                    <span>Bristol Venue Reviews</span>
+                </div>
+                <div class="perk-item">
+                    <span class="material-symbols-outlined">hearing</span>
+                    <span>Assistive Tech &amp; Gadget Tips</span>
+                </div>
+                <div class="perk-item">
+                    <span class="material-symbols-outlined">diversity_3</span>
+                    <span>Evening Group Notifications</span>
+                </div>
+            </div>
+
+            <button id="btn-login" class="btn-google-login">
+                <svg class="google-icon-svg" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+                Sign in with Google
+            </button>
+
+            <!-- Diagnostic/Error Display -->
+            <div id="auth-error-box" class="hidden" style="margin-top: 20px; background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 12px; padding: 16px; text-align: left; max-width: 580px; margin-left: auto; margin-right: auto;">
+                <div style="display: flex; align-items: flex-start; gap: 10px;">
+                    <span class="material-symbols-outlined" style="color: #dc2626; font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;">error</span>
+                    <div>
+                        <strong id="auth-error-title" style="color: #991b1b; font-size: 0.95rem; display: block; margin-bottom: 4px;">Sign-In Notice</strong>
+                        <p id="auth-error-msg" style="margin: 0; font-size: 0.88rem; color: #7f1d1d; line-height: 1.45;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logged In View -->
+        <div id="auth-logged-in" class="hidden">
+            <!-- User Profile Strip -->
+            <div class="profile-card">
+                <div class="profile-user-info">
+                    <div class="profile-avatar" id="user-avatar-container">
+                        <span id="user-initial">U</span>
+                    </div>
+                    <div class="profile-meta">
+                        <h3>
+                            <span id="user-display-name">Member</span>
+                            <span class="member-badge">Verified Member</span>
+                        </h3>
+                        <p id="user-email-display">user@example.com</p>
+                        <p id="db-status" style="font-size: 0.8rem; color: #16a34a; margin-top: 4px; font-weight: 600;"></p>
+                    </div>
+                </div>
+                <button id="btn-logout" class="btn-logout">
+                    <span class="material-symbols-outlined" style="font-size: 1.1rem;">logout</span>
+                    Sign out
+                </button>
+            </div>
+
+            <!-- Live Chat Promo Banner -->
+            <div class="chat-promo-banner">
+                <div>
+                    <h3>
+                        <span class="material-symbols-outlined" style="font-size: 1.6rem;">forum</span>
+                        Live Community Chat Room
+                    </h3>
+                    <p>
+                        Join ongoing peer discussions covering assistive gadgets, Bristol pub meetups, lip-reading techniques, and acoustic audits.
+                    </p>
+                </div>
+                <a href="chat.html" class="btn-chat-action">
+                    <span>Open Community Chat</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- Member Resources Section -->
+            <div class="portal-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="color: #005EB8; font-size: 1.6rem;">folder_special</span>
+                        <h2 style="font-size: 1.3rem; color: #0f172a; margin: 0;">Bristol Member Resources</h2>
+                    </div>
+                    <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;">Updated Weekly</span>
+                </div>
+
+                <div id="resource-list" class="resources-grid">
+                    <p id="loading-text" style="color: #64748b; font-size: 0.95rem;">Loading member resources from database...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 24px;">
+            <a href="path-join-us.html" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: transform 0.2s ease;">
+                <span class="material-symbols-outlined" style="color: #1b5e20; font-size: 1.8rem;">volunteer_activism</span>
+                <div>
+                    <strong style="color: #0f172a; font-size: 0.95rem; display: block;">Join Us Overview</strong>
+                    <span style="color: #64748b; font-size: 0.82rem;">How the community works</span>
+                </div>
+            </a>
+            <a href="path-discord-help.html" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: transform 0.2s ease;">
+                <span class="material-symbols-outlined" style="color: #5865F2; font-size: 1.8rem;">forum</span>
+                <div>
+                    <strong style="color: #0f172a; font-size: 0.95rem; display: block;">Archived Discord Guide</strong>
+                    <span style="color: #64748b; font-size: 0.82rem;">Setup help &amp; channels</span>
+                </div>
+            </a>
+            <a href="path-accessible-venues.html" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: transform 0.2s ease;">
+                <span class="material-symbols-outlined" style="color: #005EB8; font-size: 1.8rem;">map</span>
+                <div>
+                    <strong style="color: #0f172a; font-size: 0.95rem; display: block;">Accessible Venues</strong>
+                    <span style="color: #64748b; font-size: 0.82rem;">Bristol venue map &amp; audits</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+        </nav>
+
+        <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <script src="script.js?v=36.0"></script>
+    <script type="module">
+        import { 
+            auth, 
+            db, 
+            provider, 
+            signInWithPopup, 
+            signOut, 
+            onAuthStateChanged, 
+            doc, 
+            setDoc, 
+            collection, 
+            getDocs, 
+            serverTimestamp 
+        } from "./firebase-config.js";
+
+        const loggedOutView = document.getElementById("auth-logged-out");
+        const loggedInView = document.getElementById("auth-logged-in");
+        const userDisplayName = document.getElementById("user-display-name");
+        const userEmailDisplay = document.getElementById("user-email-display");
+        const userAvatarContainer = document.getElementById("user-avatar-container");
+        const dbStatus = document.getElementById("db-status");
+        const btnLogin = document.getElementById("btn-login");
+        const btnLogout = document.getElementById("btn-logout");
+        const resourceList = document.getElementById("resource-list");
+
+        // Curated default resources if Firestore collection is newly created
+        const defaultResources = [
+            {
+                title: "Central Bristol Loop Audit Checklist",
+                description: "Step-by-step checklist to test audio clarity, induction loops, and counter staff awareness.",
+                location: "Central Bristol"
+            },
+            {
+                title: "Assistive TV & Streamer Pairing Guide",
+                description: "Bluetooth Auracast & Roger transmitter setup instructions for phonak, Oticon, and NHS aids.",
+                location: "Online / Digital"
+            },
+            {
+                title: "Bristol Evening Support Meetup Plan",
+                description: "Monthly peer support gathering in accessible quiet rooms across Harbourside & Clifton.",
+                location: "Bristol City Centre"
+            }
+        ];
+
+        function renderResourceCards(items) {
+            resourceList.innerHTML = "";
+            items.forEach((item) => {
+                const card = document.createElement("div");
+                card.className = "resource-card";
+                card.innerHTML = `
+                    <div>
+                        <h4>${item.title || "Untitled Resource"}</h4>
+                        <p>${item.description || ""}</p>
+                    </div>
+                    <div class="resource-location">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">location_on</span>
+                        <span>${item.location || "Bristol"}</span>
+                    </div>
+                `;
+                resourceList.appendChild(card);
+            });
+        }
+
+        async function loadResources() {
+            try {
+                const querySnapshot = await getDocs(collection(db, "resources"));
+                if (querySnapshot.empty) {
+                    renderResourceCards(defaultResources);
+                    return;
+                }
+                const items = [];
+                querySnapshot.forEach((docSnap) => {
+                    items.push(docSnap.data());
+                });
+                renderResourceCards(items);
+            } catch (err) {
+                console.warn("Could not load from Firestore, using local defaults:", err);
+                renderResourceCards(defaultResources);
+            }
+        }
+
+        const authErrorBox = document.getElementById("auth-error-box");
+        const authErrorTitle = document.getElementById("auth-error-title");
+        const authErrorMsg = document.getElementById("auth-error-msg");
+
+        function showAuthError(title, message) {
+            if (authErrorBox && authErrorTitle && authErrorMsg) {
+                authErrorTitle.textContent = title;
+                authErrorMsg.innerHTML = message;
+                authErrorBox.classList.remove("hidden");
+            }
+        }
+
+        function hideAuthError() {
+            if (authErrorBox) {
+                authErrorBox.classList.add("hidden");
+            }
+        }
+
+        // Check if running on file:// protocol
+        if (window.location.protocol === "file:") {
+            showAuthError(
+                "Local File Protocol Detected (file://)",
+                "Google Sign-In requires an HTTP/HTTPS environment to open popups securely. Please run a local web server (e.g. VS Code Live Server, <code>npx serve</code>, or host on Netlify/Firebase) rather than double-clicking the file."
+            );
+        }
+
+        if (btnLogin) {
+            btnLogin.addEventListener("click", async () => {
+                hideAuthError();
+                
+                if (window.location.protocol === "file:") {
+                    showAuthError(
+                        "Cannot Sign In from file://",
+                        "OAuth popups cannot verify origins from <code>file:///</code> URLs. Please serve this site using a local web server (e.g. <code>http://localhost:3000</code> or Live Server) or visit your deployed domain."
+                    );
+                    return;
+                }
+
+                btnLogin.disabled = true;
+                btnLogin.style.opacity = "0.7";
+                btnLogin.style.cursor = "wait";
+
+                try {
+                    await signInWithPopup(auth, provider);
+                } catch (err) {
+                    console.error("Sign-in error details:", err);
+                    btnLogin.disabled = false;
+                    btnLogin.style.opacity = "1";
+                    btnLogin.style.cursor = "pointer";
+
+                    let errorTitle = "Google Sign-In Error";
+                    let errorMessage = err.message || "An unexpected error occurred during sign-in.";
+
+                    if (err.code === "auth/unauthorized-domain") {
+                        errorTitle = "Domain Not Authorized in Firebase";
+                        errorMessage = `The current domain (<strong>${window.location.hostname || 'this domain'}</strong>) is not listed in your Firebase Authorized Domains.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Authorized domains</strong> &rarr; Add <code>${window.location.hostname}</code>.`;
+                    } else if (err.code === "auth/operation-not-allowed") {
+                        errorTitle = "Google Provider Not Enabled";
+                        errorMessage = `Google Sign-In is disabled in your Firebase project.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Sign-in method</strong> &rarr; Enable <strong>Google</strong>.`;
+                    } else if (err.code === "auth/popup-blocked") {
+                        errorTitle = "Popup Blocked by Browser";
+                        errorMessage = "Your browser blocked the Google Sign-In popup window. Please click the popup icon in your address bar, allow popups for this site, and try again.";
+                    } else if (err.code === "auth/popup-closed-by-user") {
+                        errorTitle = "Sign-In Cancelled";
+                        errorMessage = "The Google Sign-In popup was closed before completing verification. Please try again.";
+                    } else if (err.code === "auth/cancelled-popup-request") {
+                        errorTitle = "Request Cancelled";
+                        errorMessage = "Another sign-in window was opened. Please use the open popup.";
+                    } else if (err.code === "auth/network-request-failed") {
+                        errorTitle = "Network Connection Issue";
+                        errorMessage = "Could not reach Firebase authentication servers. Please check your internet connection.";
+                    }
+
+                    showAuthError(errorTitle, errorMessage);
+                }
+            });
+        }
+
+        if (btnLogout) {
+            btnLogout.addEventListener("click", async () => {
+                try {
+                    await signOut(auth);
+                } catch (err) {
+                    console.error("Sign-out error:", err);
+                }
+            });
+        }
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userDisplayName.textContent = user.displayName || "Initiate Member";
+                userEmailDisplay.textContent = user.email || "";
+                
+                if (user.photoURL) {
+                    const avatarImg = document.createElement("img");
+                    avatarImg.src = user.photoURL;
+                    avatarImg.alt = user.displayName || "Avatar";
+                    userAvatarContainer.innerHTML = "";
+                    userAvatarContainer.appendChild(avatarImg);
+                } else {
+                    const initial = (user.displayName || user.email || "M").charAt(0).toUpperCase();
+                    userAvatarContainer.innerHTML = `<span id="user-initial">${initial}</span>`;
+                }
+
+                loggedOutView.classList.add("hidden");
+                loggedInView.classList.remove("hidden");
+
+                try {
+                    const userRef = doc(db, "users", user.uid);
+                    await setDoc(userRef, {
+                        uid: user.uid,
+                        displayName: user.displayName,
+                        email: user.email,
+                        photoURL: user.photoURL,
+                        lastLogin: serverTimestamp()
+                    }, { merge: true });
+                    dbStatus.textContent = "● Profile synchronised with database";
+                } catch (err) {
+                    console.error("Database write error:", err);
+                    dbStatus.textContent = "● Offline session active";
+                }
+
+                loadResources();
+            } else {
+                loggedOutView.classList.remove("hidden");
+                loggedInView.classList.add("hidden");
+                dbStatus.textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>

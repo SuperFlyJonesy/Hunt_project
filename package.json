@@ -1,22 +1,26 @@
 {
   "name": "hearing-loss-initiative",
-  "version": "1.0.0",
-  "description": "Hearing Loss Initiative Bristol - Community & Support Platform",
+  "version": "3.0.0",
+  "description": "Hearing Loss Initiative Bristol Astro site",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/**/*.test.js",
-    "start": "node dev-server.js",
-    "dev": "node dev-server.js"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/**/*.test.js"
   },
   "keywords": [
     "accessibility",
     "hearing-loss",
     "bristol",
     "community",
-    "webhooks"
+    "astro"
   ],
   "author": "Hearing Loss Initiative",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@astrojs/netlify": "^8.2.5",
+    "astro": "^7.3.1"
+  }
 }
-

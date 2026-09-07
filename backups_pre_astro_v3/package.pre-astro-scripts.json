@@ -1,0 +1,31 @@
+{
+  "name": "hearing-loss-initiative",
+  "version": "1.0.0",
+  "description": "Hearing Loss Initiative Bristol - Community & Support Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js",
+    "start": "node dev-server.js",
+    "dev": "node dev-server.js"
+  },
+  "keywords": [
+    "accessibility",
+    "hearing-loss",
+    "bristol",
+    "community",
+    "webhooks"
+  ],
+  "author": "Hearing Loss Initiative",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@astrojs/netlify": "^8.2.5",
+    "astro": "^7.3.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "esbuild@0.28.2": true,
+    "sharp@0.34.5": true,
+    "sharp@0.35.4": true
+  }
+}

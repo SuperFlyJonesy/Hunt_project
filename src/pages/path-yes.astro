@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Your Journey"
+  description="Begin your personalized hearing journey to discover tailored resources, hospital maps, and community support in Bristol."
+  bodyClass="premium-white-theme path-yes-page"
+>
+  <style is:global>
+    @keyframes seamlessFadeIn {
+                0% { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+                100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+            }
+    
+            .top-nav {
+                animation: seamlessFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+    
+            .metro-grid .metro-btn {
+                opacity: 0;
+                animation: seamlessFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+    
+            .metro-grid .metro-btn:nth-child(1) { animation-delay: 0.08s; }
+            .metro-grid .metro-btn:nth-child(2) { animation-delay: 0.12s; }
+            .metro-grid .metro-btn:nth-child(3) { animation-delay: 0.16s; }
+            .metro-grid .metro-btn:nth-child(4) { animation-delay: 0.20s; }
+            .metro-grid .metro-btn:nth-child(5) { animation-delay: 0.24s; }
+            .metro-grid .metro-btn:nth-child(6) { animation-delay: 0.28s; }
+            .metro-grid .metro-btn:nth-child(7) { animation-delay: 0.32s; }
+            .metro-grid .metro-btn:nth-child(8) { animation-delay: 0.36s; }
+            .metro-grid .metro-btn:nth-child(9) { animation-delay: 0.40s; }
+            .metro-grid .metro-btn:nth-child(10) { animation-delay: 0.44s; }
+    
+            /* Floating Rollover Tooltip - Guaranteed Visibility */
+            #hli-tile-tooltip {
+                position: fixed;
+                z-index: 99999999;
+                pointer-events: none;
+                background: #005EB8;
+                color: #ffffff;
+                font-size: 0.68rem;
+                font-weight: 700;
+                line-height: 1.25;
+                letter-spacing: 0.15px;
+                padding: 4px 8px;
+                border-radius: 6px;
+                box-shadow: 0 6px 16px rgba(0, 94, 184, 0.35), 0 2px 5px rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                max-width: 160px;
+                text-align: center;
+                white-space: normal;
+                word-break: normal;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(3px);
+                transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+            }
+    
+            #hli-tile-tooltip.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+    
+            #hli-tile-tooltip::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 4px 4px 0 4px;
+                border-style: solid;
+                border-color: #005EB8 transparent transparent transparent;
+            }
+    
+            #hli-tile-tooltip.flip-bottom::after {
+                top: auto;
+                bottom: 100%;
+                border-width: 0 4px 4px 4px;
+                border-color: transparent transparent #005EB8 transparent;
+            }
+  </style>
+
+  <!-- Chrome Autofill Deflector (Absorbs Chrome saved credentials like Guest) -->
+      <form style="position: absolute; left: -9999px; top: -9999px; width: 0; height: 0; opacity: 0; pointer-events: none;" aria-hidden="true" autocomplete="off">
+          <input type="text" name="username_decoy" autocomplete="username" tabindex="-1">
+          <input type="password" name="password_decoy" autocomplete="current-password" tabindex="-1">
+      </form>
+  
+      <a href="#main-grid" class="skip-link">Skip to main content</a>
+      <button id="dev-reset" style="position: absolute; top: 15px; left: 15px; color: black; background: transparent; border: none; box-shadow: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; font-family: sans-serif;">R</button>
+      
+      <a href="/path-about" id="btn-support" class="nav-btn-small" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 12px 24px; text-decoration: none; font-weight: 800; border-radius: 10px; font-size: 0.95rem; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255,15,91,0.3); transition: transform 0.2s;">About Us</a>
+      
+      <header class="top-nav" style="padding: 1.5rem 1rem 1rem 1rem; display: flex; align-items: center; justify-content: center; flex-direction: column; position: relative;">
+          <img loading="lazy" src="/Contents/Branding Images/HLI logo Black.png" alt="HLI Logo" style="height: 55px; filter: contrast(1.1); transform: scale(1.35); transform-origin: center; margin: 20px auto 22px auto; display: block;">
+          <h1 style="color: #222; font-size: 2.2rem; font-weight: 900; margin: 0; letter-spacing: -1px;">Everyone's Loss is different</h1>
+          <p class="hub-subtitle subtitle-yes"><span class="pathway-subheading-dot" aria-hidden="true"></span>Explore pathways for understanding,<br class="mobile-break"> support, and managing hearing loss.</p>
+          
+          <!-- Centered Branded Hub Search Bar -->
+          <div class="hub-search-container">
+              <div class="hub-search-input-wrapper">
+                  <input type="search" id="hub-tile-search" name="hli_hub_search_query" class="hub-search-input" placeholder="Search pathways, topics, or services (e.g. NHS, Tinnitus, Venues)..." aria-label="Search pathways and resources" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" data-lpignore="true" data-1p-ignore="true" data-form-type="other" readonly onfocus="this.removeAttribute('readonly');" onpointerdown="this.removeAttribute('readonly');" ontouchstart="this.removeAttribute('readonly');">
+                  <span class="material-symbols-outlined hub-search-icon">search</span>
+                  <button type="button" id="clear-search-btn" class="hub-search-clear" aria-label="Clear search">
+                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">close</span>
+                  </button>
+              </div>
+              <div id="search-feedback" aria-live="polite" aria-atomic="true"></div>
+          </div>
+      </header>
+      
+      <div class="category-hubs-container" id="main-grid">
+          <!-- HUB 1: FIRST STEPS & ASSESSMENT -->
+          <section class="hub-section">
+              <h2 class="hub-title"><span class="hub-badge" style="background: #D97706;">1</span> First Steps &amp; Self-Assessment</h2>
+              <div class="hub-grid">
+                  <a href="/path-hearing-quiz" class="metro-btn" style="background-color: #00843D;" data-tooltip="Check your hearing signs"><span class="material-symbols-outlined metro-icon">quiz</span><span class="metro-text">Hearing Quiz</span></a>
+                  <a href="/path-how-we-hear" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Ear science &amp; biology"><span class="material-symbols-outlined metro-icon">volume_up</span><span class="metro-text">How We Hear</span></a>
+                  <a href="/path-experience" class="metro-btn" style="background-color: #ff0f5b;" data-tooltip="Audio loss simulator"><span class="material-symbols-outlined metro-icon">headphones</span><span class="metro-text">Hearing Experience</span></a>
+                  <a href="/path-it-goes-to-11" class="metro-btn" style="background-color: #6a1b9a;" data-tooltip="Hearing clips &amp; humour"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">It Goes to 11</span></a>
+              </div>
+          </section>
+  
+          <!-- HUB 2: NHS PATHWAYS & CLINICAL CARE -->
+          <section class="hub-section">
+              <h2 class="hub-title"><span class="hub-badge" style="background: #005EB8;">2</span> NHS Pathways &amp; Clinical Care</h2>
+              <div class="hub-grid">
+                  <a href="/path-nhs" class="metro-btn" style="background-color: #005EB8;" data-tooltip="NHS clinics &amp; referrals"><span class="material-symbols-outlined metro-icon">local_hospital</span><span class="metro-text">Bristol NHS Foundation Trust</span></a>
+                  <a href="/path-hearing-tests" class="metro-btn" style="background-color: #00897B;" data-tooltip="Audiograms &amp; tests guide"><span class="material-symbols-outlined metro-icon">clinical_notes</span><span class="metro-text">Hearing Tests</span></a>
+                  <a href="/path-hearing-therapists" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Rehab &amp; coping therapy"><span class="material-symbols-outlined metro-icon">person_search</span><span class="metro-text">Hearing Therapists</span></a>
+                  <a href="/path-ear-care" class="metro-btn" style="background-color: #B71C1C;" data-tooltip="Earwax &amp; ear safety"><span class="material-symbols-outlined metro-icon">do_not_disturb_on</span><span class="metro-text">Ear Care Safety</span></a>
+              </div>
+          </section>
+  
+          <!-- HUB 3: TECHNOLOGY & EQUIPMENT -->
+          <section class="hub-section">
+              <h2 class="hub-title"><span class="hub-badge" style="background: #D32F2F;">3</span> Technology &amp; Equipment</h2>
+              <div class="hub-grid">
+                  <a href="/path-hearing-aids" class="metro-btn" style="background-color: #D32F2F;" data-tooltip="Aid types &amp; maintenance"><span class="material-symbols-outlined metro-icon">hearing</span><span class="metro-text">Hearing Aids</span></a>
+                  <a href="/path-assistive-technology" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Streamers, mics &amp; alerts"><span class="material-symbols-outlined metro-icon">devices</span><span class="metro-text">Assistive Tech</span></a>
+                  <a href="/path-government-help" class="metro-btn" style="background-color: #d97706;" data-tooltip="Grants, PIP &amp; Council kit"><span class="material-symbols-outlined metro-icon">account_balance</span><span class="metro-text">Government Help</span></a>
+                  <a href="/path-tech" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Auracast &amp; new tech"><span class="material-symbols-outlined metro-icon">science</span><span class="metro-text">Future Tech</span></a>
+              </div>
+          </section>
+  
+          <!-- HUB 4: DAILY LIVING, WORK & COMMUNITY -->
+          <section class="hub-section">
+              <h2 class="hub-title"><span class="hub-badge" style="background: #FF0F5B;">4</span> Daily Living, Work &amp; Community</h2>
+              <div class="hub-grid">
+                  <a href="/path-job-interviews" class="metro-btn" style="background-color: #1976D2;" data-tooltip="Work adjustments &amp; rights"><span class="material-symbols-outlined metro-icon">badge</span><span class="metro-text">Work &amp; Interviews</span></a>
+                  <a href="/path-mental-health" class="metro-btn" style="background-color: #FF0F5B;" data-tooltip="Fatigue &amp; wellbeing"><span class="material-symbols-outlined metro-icon">psychology</span><span class="metro-text">Mental Health</span></a>
+                  <a href="/path-tinnitus" class="metro-btn" style="background-color: #D97706;" data-tooltip="Tinnitus relief tools"><span class="material-symbols-outlined metro-icon">graphic_eq</span><span class="metro-text">Tinnitus</span></a>
+                  <a href="/path-accessible-venues" class="metro-btn" style="background-color: #0891B2;" data-tooltip="Venues with hearing loops"><span class="material-symbols-outlined metro-icon">stadium</span><span class="metro-text">Bristol Venues</span></a>
+                  <!-- SAVED FOR LATER: Community Reel Tile
+                  <a href="/path-community-reel" class="metro-btn" style="background-color: #0284c7;"><span class="material-symbols-outlined metro-icon">smart_display</span><span class="metro-text">Community Reel</span></a>
+                  -->
+                  <a href="/portal" class="metro-btn" style="background-color: #2563eb;" data-tooltip="Member login & live chat"><span class="material-symbols-outlined metro-icon">forum</span><span class="metro-text">Member Portal</span></a>
+                  <a href="/path-support-group" class="metro-btn" style="background-color: #7B1FA2;" data-tooltip="Local peer meetups"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">diversity_3</span><span class="metro-text">Support Groups</span></a>
+                  <a href="/path-community-stories" class="metro-btn" style="background-color: #1b5e20;" data-tooltip="Member stories"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">diversity_1</span><span class="metro-text">Initiate Stories</span></a>
+                  <a href="/path-testimonials" class="metro-btn" style="background-color: #388E3C;" data-tooltip="Community feedback"><span class="metro-corner-badge">🔒 Coming Soon</span><span class="material-symbols-outlined metro-icon">reviews</span><span class="metro-text">Testimonials</span></a>
+                  <a href="/path-resources" class="metro-btn" style="background-color: #d97706;" data-tooltip="Guides &amp; checklists"><span class="material-symbols-outlined metro-icon">menu_book</span><span class="metro-text">Resources</span></a>
+                  <a href="/path-contacts" class="metro-btn" style="background-color: #00897B;" data-tooltip="Helplines &amp; contacts"><span class="material-symbols-outlined metro-icon">contacts</span><span class="metro-text">Useful Contacts</span></a>
+              </div>
+          </section>
+          
+          <div style="text-align: center; margin-top: 20px;">
+              <a href="/path-support" class="metro-btn" style="background-color: #005EB8; display: inline-flex; width: 280px; text-decoration: none;" data-tooltip="Switch to Supporter, Family &amp; Workplace Hub"><span class="material-symbols-outlined metro-icon">diversity_3</span><span class="metro-text">Switch Path</span></a>
+          </div>
+      </div>
+      
+      <!-- Persistent Premium Volume Control Widget (White noise - Stationary on screen) -->
+      <div id="volume-control-container" style="position: fixed !important; bottom: 20px !important; right: 20px !important; z-index: 9999999 !important; transform: none !important; filter: none !important; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.85); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(0,0,0,0.08); color: #222; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: opacity 0.3s;">
+          <span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span>
+          <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #005EB8;">
+      </div>
+  
+      <audio id="bg-noise" src="/Contents/Audio/dragon-studio-whitenoise-372485.mp3" loop preload="none"></audio>
+  
+      <div class="page-transition-overlay"></div>
+  
+      
+      <script is:inline>
+          document.addEventListener("DOMContentLoaded", () => {
+              const audio = document.getElementById('bg-noise');
+              const volumeSlider = document.getElementById('volume-slider');
+              const volumeIcon = document.getElementById('volume-icon');
+  
+              // Default sound to MUTE upon arrival
+              audio.volume = 0.15;
+              audio.muted = true;
+              if (volumeSlider) volumeSlider.value = 0.15;
+  
+              // Set initial icon
+              if (volumeIcon) {
+                  volumeIcon.textContent = 'volume_off';
+              }
+  
+              // Volume slider event listener
+              if (volumeSlider && volumeIcon) {
+                  volumeSlider.addEventListener('input', (e) => {
+                      const val = e.target.value;
+                      audio.volume = val;
+                      localStorage.setItem('bgVolume', val);
+                      
+                      // Unmute if they adjust the volume
+                      if (audio.muted) {
+                          audio.muted = false;
+                          localStorage.setItem('bgMuted', 'false');
+                      }
+  
+                      if (val == 0) {
+                          volumeIcon.textContent = 'volume_off';
+                      } else if (val < 0.3) {
+                          volumeIcon.textContent = 'volume_down';
+                      } else {
+                          volumeIcon.textContent = 'volume_up';
+                      }
+                      
+                      if (audio.paused) {
+                          playAudio();
+                      }
+                  });
+  
+                  volumeIcon.addEventListener('click', () => {
+                      audio.muted = !audio.muted;
+                      localStorage.setItem('bgMuted', audio.muted);
+                      
+                      if (audio.muted) {
+                          volumeIcon.textContent = 'volume_off';
+                      } else {
+                          volumeIcon.textContent = volumeSlider.value < 0.3 ? 'volume_down' : 'volume_up';
+                          if (audio.paused) {
+                              playAudio();
+                          }
+                      }
+                  });
+              }
+  
+              function playAudio() {
+                  audio.play().catch(e => {
+                      console.log("Audio play blocked by browser policy until interaction:", e);
+                  });
+              }
+          });
+      </script>
+          <footer class="hli-minimal-footer">
+              <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+          </footer>
+</BaseLayout>

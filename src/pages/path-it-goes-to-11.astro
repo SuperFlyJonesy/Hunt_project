@@ -1,0 +1,570 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="It Goes To 11 | Spinal Tap Mode"
+  description="An interactive Spinal Tap inspired volume dial exploring decibel thresholds, hearing ranges, and deaf humour."
+  bodyClass="spinal-tap-theme"
+>
+  <style is:global>
+    /* 1. LOCK VIEWPORT - ZERO PAGE SCROLLING */
+            html, body {
+                height: 100vh;
+                width: 100vw;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #000;
+                font-family: 'Inter', sans-serif;
+            }
+    
+            body.spinal-tap-theme {
+                background: url('/Contents/Pictures/1-11 picture.png') no-repeat center center fixed;
+                background-size: cover;
+            }
+    
+            .page-overlay {
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                position: relative;
+            }
+    
+            /* 3. KNOB ALIGNMENT & TRANSPARENCY */
+            .dial-section {
+                position: absolute;
+                /* Adjust these values to align with wallpaper knob */
+                bottom: 29vh;
+                left: 36.7vw;
+                width: 350px;
+                height: 350px;
+                z-index: 40;
+            }
+    
+            .dial-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+    
+            .dial-knob {
+                width: 180px;
+                height: 180px;
+                background: transparent;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(0deg);
+                transform-origin: center center;
+                border: none;
+                box-shadow: none;
+                transition: transform 0.1s ease-out;
+            }
+    
+            .dial-pointer {
+                width: 6px;
+                height: 50%;
+                background: #d4b69c; /* Updated indicator color */
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                border-radius: 0;
+                opacity: 1;
+                transform-origin: center calc(100% - 40px);
+            }
+    
+            /* 1. FLOATING TOOLTIP (WHITE BUBBLE) */
+            .floating-tooltip {
+                position: absolute;
+                background: #fff;
+                color: #000;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-family: 'Inter', sans-serif; /* Brand font */
+                font-size: 12pt;
+                font-weight: 700;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+                pointer-events: none;
+                opacity: 0;
+                transform: translate(-50%, -100%) translateY(-20px);
+                transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 100;
+                white-space: nowrap;
+            }
+    
+            .floating-tooltip.active {
+                opacity: 1;
+                transform: translate(-50%, -100%) translateY(-40px);
+            }
+    
+            .floating-tooltip::after {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid #fff;
+            }
+    
+            /* 2. GLASSMORPHIC SIDE PANEL */
+            .glass-side-panel {
+                position: absolute;
+                right: 40px;
+                top: 40px;
+                bottom: 40px;
+                width: 500px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 30px;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                z-index: 100;
+                box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            }
+    
+            .panel-scroller {
+                flex: 1;
+                overflow-y: auto;
+                padding-right: 15px;
+            }
+    
+            .panel-scroller::-webkit-scrollbar { width: 5px; }
+            .panel-scroller::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+    
+            .level-name-large {
+                font-family: 'Oswald', sans-serif;
+                font-size: 2.8rem;
+                color: #fff;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                line-height: 1.1;
+            }
+    
+            .level-badge {
+                background: #ff0f5b;
+                color: #fff;
+                display: inline-block;
+                padding: 5px 15px;
+                border-radius: 10px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+            }
+    
+            .level-desc {
+                font-size: 1.2rem;
+                line-height: 1.7;
+                color: rgba(255,255,255,0.9);
+                margin-bottom: 40px;
+            }
+    
+            /* Side Panel Dial Interaction Prompt */
+            .panel-dial-prompt {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(255, 15, 91, 0.15);
+                border: 1px solid rgba(255, 15, 91, 0.35);
+                color: #ff6b8b;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 0.78rem;
+                font-weight: 700;
+                letter-spacing: 0.4px;
+                text-transform: uppercase;
+                margin-bottom: 16px;
+            }
+    
+            .panel-dial-prompt .prompt-icon {
+                font-size: 0.95rem;
+                display: inline-block;
+                animation: spinDialPrompt 6s linear infinite;
+            }
+    
+            @keyframes spinDialPrompt {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+    
+            /* Discreet Video Disclaimer Notice (Bottom-Left above videos, away from dial) */
+            .video-discreet-notice {
+                position: absolute;
+                bottom: 95px;
+                left: 40px;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 5px 12px;
+                background: rgba(0, 0, 0, 0.75);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 16px;
+                font-size: 0.75rem;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.78);
+                letter-spacing: 0.2px;
+                z-index: 50;
+                pointer-events: none;
+                white-space: nowrap;
+            }
+    
+            /* 4. VIDEO LINKS & HOVER POP-UPS */
+            .video-links-container {
+                position: absolute;
+                bottom: 40px;
+                left: 40px;
+                display: flex;
+                gap: 20px;
+                z-index: 50;
+            }
+    
+            .video-link-item {
+                position: relative;
+            }
+    
+            .video-link-anchor {
+                color: #fff;
+                text-decoration: none;
+                font-weight: 800;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                background: rgba(0,0,0,0.6);
+                padding: 12px 25px;
+                border-radius: 50px;
+                border: 1px solid rgba(255,255,255,0.2);
+                transition: all 0.3s;
+            }
+    
+            .video-link-anchor:hover {
+                background: #ff0f5b;
+                border-color: #ff0f5b;
+            }
+    
+            /* Hover Pop-up Preview */
+            .video-preview-card {
+                position: absolute;
+                bottom: 60px;
+                left: 50%;
+                transform: translateX(-50%) translateY(20px);
+                width: 250px;
+                background: #111;
+                border-radius: 15px;
+                overflow: hidden;
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+                border: 1px solid #333;
+            }
+    
+            .video-link-item:hover .video-preview-card {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+    
+            .preview-thumb {
+                width: 100%;
+                height: 140px;
+                background-size: cover;
+                background-position: center;
+            }
+    
+            .preview-title {
+                padding: 12px;
+                font-size: 0.85rem;
+                color: #eee;
+                font-weight: 600;
+            }
+    
+            .back-link-fixed {
+                position: absolute;
+                top: 40px;
+                left: 40px;
+                z-index: 200;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+    
+            .back-link-fixed a {
+                color: rgba(255,255,255,0.5);
+                text-decoration: none;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                transition: color 0.2s;
+            }
+    
+            .back-link-fixed a:hover { color: #fff; }
+    
+            @media (max-width: 900px) {
+                html, body {
+                    height: auto !important;
+                    overflow-y: auto !important;
+                    overflow-x: hidden !important;
+                }
+    
+                .page-overlay {
+                    height: auto !important;
+                    min-height: 100vh;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    padding: 70px 16px 40px 16px !important;
+                    box-sizing: border-box;
+                }
+    
+                .back-link-fixed {
+                    top: 20px;
+                    left: 20px;
+                }
+    
+                .dial-section {
+                    position: relative !important;
+                    bottom: auto !important;
+                    left: auto !important;
+                    width: 280px !important;
+                    height: 280px !important;
+                    margin: 20px auto !important;
+                }
+    
+                .dial-knob {
+                    width: 140px !important;
+                    height: 140px !important;
+                }
+    
+                .glass-side-panel {
+                    position: relative !important;
+                    right: auto !important;
+                    top: auto !important;
+                    bottom: auto !important;
+                    width: 100% !important;
+                    max-width: 580px !important;
+                    padding: 24px !important;
+                    margin: 20px auto !important;
+                    box-sizing: border-box;
+                }
+    
+                .video-discreet-notice {
+                    position: relative !important;
+                    bottom: auto !important;
+                    left: auto !important;
+                    margin-top: 24px !important;
+                    margin-bottom: 8px !important;
+                    font-size: 0.72rem !important;
+                    text-align: center !important;
+                    white-space: normal !important;
+                    padding: 4px 10px !important;
+                }
+    
+                .video-links-container {
+                    position: relative !important;
+                    bottom: auto !important;
+                    left: auto !important;
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    justify-content: center !important;
+                    gap: 10px !important;
+                    margin-top: 8px !important;
+                    width: 100% !important;
+                }
+    
+                .video-link-anchor {
+                    padding: 10px 18px !important;
+                    font-size: 0.8rem !important;
+                }
+    
+                .video-preview-card {
+                    left: 50% !important;
+                    width: 220px !important;
+                }
+            }
+  </style>
+
+  
+      <main id="main-content" class="page-overlay">
+          
+          <div class="back-link-fixed">
+              <a href="/path-yes">
+                  <span class="material-symbols-outlined" style="margin-right: 8px;">arrow_back</span>
+                  EXIT TO JOURNEY
+              </a>
+              <a href="/path-support">
+                  <span class="material-symbols-outlined" style="margin-right: 8px;">diversity_3</span>
+                  VISIT SUPPORT HUB
+              </a>
+          </div>
+  
+          <div class="dial-section">
+              <div id="tooltip-bubble" class="floating-tooltip">1</div>
+              <div class="dial-wrapper" id="dial-wrapper">
+                  <div class="dial-knob" id="dial-knob">
+                      <div class="dial-pointer"></div>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="glass-side-panel">
+              <div class="panel-scroller" id="panel-scroller">
+                  <h1 class="sr-only" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">It Goes To 11 - Spinal Tap Mode Hearing Spectrum</h1>
+                  <div class="panel-dial-prompt" aria-label="Turn the dial to see different types of hearing loss">
+                      <span class="prompt-icon" aria-hidden="true">↺</span> Turn dial to see different types of hearing loss
+                  </div>
+                  <div class="level-badge" id="level-badge">LEVEL 1</div>
+                  <h2 class="level-name-large" id="level-name">Profoundly Deaf</h2>
+                  <div class="level-desc" id="level-desc">
+                      <!-- Dynamic content -->
+                  </div>
+              </div>
+          </div>
+  
+          <div class="video-discreet-notice" role="note">
+              <span aria-hidden="true">⚠️</span>
+              <span>Some clinical &amp; extraction videos are not for the squeamish</span>
+          </div>
+  
+          <div class="video-links-container">
+              <div class="video-link-item" data-video-id="KOO5S4vxi0o" data-video-title="Spinal Tap: It Goes To 11">
+                  <a href="https://www.youtube.com/watch?v=KOO5S4vxi0o" class="video-link-anchor">One Louder!</a>
+                  <div class="video-preview-card">
+                      <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/KOO5S4vxi0o/0.jpg')"></div>
+                      <div class="preview-title">Spinal Tap: It Goes To 11 (Watch On-Site)</div>
+                  </div>
+              </div>
+              <div class="video-link-item" data-video-id="OAhTI4AltXE" data-video-title="Funny Ear Wax Extractions">
+                  <a href="https://www.youtube.com/watch?v=OAhTI4AltXE" class="video-link-anchor">Extractions</a>
+                  <div class="video-preview-card">
+                      <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/OAhTI4AltXE/0.jpg')"></div>
+                      <div class="preview-title">Funny Ear Wax Extractions (Watch On-Site)</div>
+                  </div>
+              </div>
+              <div class="video-link-item" data-video-id="i-mwl_K-pFA" data-video-title="Hearing Aid Humor">
+                  <a href="https://www.youtube.com/watch?v=i-mwl_K-pFA" class="video-link-anchor">Humor</a>
+                  <div class="video-preview-card">
+                      <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/i-mwl_K-pFA/0.jpg')"></div>
+                      <div class="preview-title">Hearing Aid Humor (Watch On-Site)</div>
+                  </div>
+              </div>
+              <!-- Second row -->
+              <div class="video-link-item" data-video-id="7my5baoCVv8" data-video-title="Peter Kay: Misheard Lyrics">
+                  <a href="https://www.youtube.com/watch?v=7my5baoCVv8" class="video-link-anchor">Misheard Lyrics</a>
+                  <div class="video-preview-card">
+                      <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/7my5baoCVv8/0.jpg')"></div>
+                      <div class="preview-title">Peter Kay: Misheard Lyrics (Watch On-Site)</div>
+                  </div>
+              </div>
+              <div class="video-link-item" data-video-id="mKrWFkAuvOA" data-video-title="Extreme Ear Extraction">
+                  <a href="https://www.youtube.com/watch?v=mKrWFkAuvOA" class="video-link-anchor">Lost &amp; Found</a>
+                  <div class="video-preview-card">
+                      <div class="preview-thumb" style="background-image: url('https://img.youtube.com/vi/mKrWFkAuvOA/0.jpg')"></div>
+                      <div class="preview-title">Extreme Ear Extraction (Watch On-Site)</div>
+                  </div>
+              </div>
+          </div>
+  
+      </main>
+  
+      
+      <script is:inline>
+  
+          const levels = [
+              { id: 0, name: "Silence / Base", desc: "The silent foundation. Total absence of sound perception, providing the baseline for the hearing spectrum." },
+              { id: 1, name: "Profoundly Deaf", desc: "Total or near-total absence of sound perception (hearing threshold exceeding 90–120 dB). No usable residual hearing for speech or environmental cues without heavy assistive intervention." },
+              { id: 2, name: "Deaf BSL", desc: "Being part of the Deaf community with British Sign Language (BSL) as a first or native language. Identity-focused rather than medical." },
+              { id: 3, name: "Deaf Oral", desc: "Raised to communicate primarily using spoken language, lip-reading, and technology rather than sign language." },
+              { id: 4, name: "Late-Deafened", desc: "Losing hearing in adulthood after growing up as a fully hearing person. Often experienced as a distinct grieving process." },
+              { id: 5, name: "Medical / Surgical", desc: "Hearing loss caused by physical ear disease, anatomical changes, or surgical interventions like mastoidectomies." },
+              { id: 6, name: "Severe Sensorineural", desc: "Permanent inner ear damage where conversational speech is completely unreadable without high-powered amplification." },
+              { id: 7, name: "Single-Sided (SSD)", desc: "Profound hearing loss in one ear, while the other retains normal hearing. Severe loss of sound localization." },
+              { id: 8, name: "Noise-Induced", desc: "Permanent damage caused by exposure to high-decibel environments. Almost universally accompanied by chronic tinnitus." },
+              { id: 9, name: "Age-Related", desc: "Gradual, natural wear of sensory hair cells over time, typically starting with high-pitched sounds." },
+              { id: 10, name: "Mild-to-Moderate", desc: "Struggling in background noise, needing subtitles, or missing soft consonants. Benefit massively from modern aids." },
+              { id: 11, name: "Full / Normal", desc: "Unimpaired acoustic perception across all frequencies. The ability to hear soft whispers and pick out voices easily." }
+          ];
+  
+          const dialKnob = document.getElementById('dial-knob');
+          const tooltip = document.getElementById('tooltip-bubble');
+          const levelName = document.getElementById('level-name');
+          const levelBadge = document.getElementById('level-badge');
+          const levelDesc = document.getElementById('level-desc');
+          const panelScroller = document.getElementById('panel-scroller');
+  
+          const startAngle = -150;
+          const endAngle = 180;
+          const step = 30; // 360 / 12 = 30 degrees per level
+  
+          let currentLevel = 0;
+          updateDial(0);
+  
+          function updateDial(level) {
+              currentLevel = level;
+              const angle = startAngle + (level * step);
+              dialKnob.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+              
+              const data = levels[level];
+              levelName.innerText = data.name;
+              levelBadge.innerText = `LEVEL ${data.id}`;
+              levelDesc.innerText = data.desc;
+  
+              // Update Tooltip
+              tooltip.innerText = `Level ${level}: ${data.name}`;
+              tooltip.classList.add('active');
+              
+              // Position tooltip relative to knob center
+              const angleRad = (angle - 90) * (Math.PI / 180);
+              const r = 140; // distance from center
+              const x = 175 + (Math.cos(angleRad) * r);
+              const y = 175 + (Math.sin(angleRad) * r);
+              tooltip.style.left = `${x}px`;
+              tooltip.style.top = `${y}px`;
+  
+              panelScroller.scrollTop = 0;
+          }
+  
+          // Interactive Dial Logic
+          let isDragging = false;
+          const wrapper = document.getElementById('dial-wrapper');
+  
+          const handleMove = (e) => {
+              if (!isDragging) return;
+              const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+              const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+              
+              const rect = wrapper.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+              
+              let angle = Math.atan2(clientY - centerY, clientX - centerX) * (180 / Math.PI);
+              angle += 90;
+              if (angle < 0) angle += 360;
+              if (angle > 180) angle -= 360;
+  
+              let level = Math.round((angle - startAngle) / step);
+              level = Math.max(0, Math.min(11, level));
+              
+              if (level !== currentLevel) {
+                  updateDial(level);
+              }
+          };
+  
+          wrapper.addEventListener('mousedown', () => isDragging = true);
+          window.addEventListener('mouseup', () => isDragging = false);
+          window.addEventListener('mousemove', handleMove);
+  
+          wrapper.addEventListener('touchstart', (e) => { isDragging = true; handleMove(e); });
+          window.addEventListener('touchend', () => isDragging = false);
+          window.addEventListener('touchmove', handleMove);
+      </script>
+</BaseLayout>

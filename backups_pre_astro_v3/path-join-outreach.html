@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volunteer with the Hearing Loss Initiative in Bristol to support local group sessions, audit venue accessibility, and connect with peers.">
+    <meta charset="UTF-8">
+    <title>Volunteer &amp; Outreach Programme - Bristol Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=31.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 15px; }
+        .role-card { background: #ffffff; border-radius: 16px; padding: 20px; border: 1px solid #e2e8f0; border-top: 5px solid #ff0f5b; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+        .role-card.border-blue { border-top-color: #005EB8; }
+        .role-card.border-amber { border-top-color: #d97706; }
+        .role-card.border-purple { border-top-color: #7B1FA2; }
+        .role-icon { font-size: 2rem; margin-bottom: 8px; }
+        .role-card h3 { font-size: 1.15rem; font-weight: 800; color: #0f172a; margin: 0 0 6px 0; }
+        .role-card p { font-size: 0.92rem; color: #475569; line-height: 1.5; margin: 0; }
+        .email-apply-card { background: #f8fafc; border-radius: 16px; padding: 28px; border: 1px solid #e2e8f0; text-align: center; margin-top: 15px; }
+        #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Volunteer &amp; Outreach Programme - Bristol Hearing Loss Initiative">
+    <meta property="og:description" content="Volunteer with the Hearing Loss Initiative in Bristol to support local group sessions, audit venue accessibility, and connect with peers.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-join-outreach.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Volunteer &amp; Outreach Programme - Bristol Hearing Loss Initiative">
+    <meta name="twitter:description" content="Volunteer with the Hearing Loss Initiative in Bristol to support local group sessions, audit venue accessibility, and connect with peers.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='index.html';}">R</button>
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 40px;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #7B1FA2; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">group_add</span>
+                Volunteer &amp; Outreach Programme
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Help us support local Bristol group sessions, audit community venue accessibility, and ensure no one in our community feels isolated.
+            </p>
+        </div>
+
+        <!-- Progressive Disclosure Accordion Container -->
+        <div class="accordion-container">
+            
+            <!-- ACCORDION 1: Volunteer Roles -->
+            <div class="accordion-item active">
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #7B1FA2; margin-right: 8px;">volunteer_activism</span> 1. Ways You Can Support Our Programme</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="roles-grid">
+                        <div class="role-card">
+                            <div class="role-icon">☕</div>
+                            <h3>Group Session Host &amp; Greeter</h3>
+                            <p>Help welcome attendees to our Bristol meetups, serve free tea and coffee, and ensure every newcomer receives a friendly, supportive reception.</p>
+                        </div>
+
+                        <div class="role-card border-blue">
+                            <div class="role-icon">🎙️</div>
+                            <h3>Hearing Loop &amp; Tech Facilitator</h3>
+                            <p>Assist with setting up portable hearing loops, testing wireless microphones, and optimizing venue acoustics for smooth communication.</p>
+                        </div>
+
+                        <div class="role-card border-amber">
+                            <div class="role-icon">🤝</div>
+                            <h3>Peer Supporter &amp; Listener</h3>
+                            <p>Share your lived experience, offer a friendly ear to those navigating hearing loss, and help connect members with local Bristol services.</p>
+                        </div>
+
+                        <div class="role-card border-purple">
+                            <div class="role-icon">📍</div>
+                            <h3>Outreach &amp; Event Ambassador</h3>
+                            <p>Represent the initiative at Bristol community fairs, libraries, and venue pop up events to raise awareness and distribute resources.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCORDION 2: Apply via Direct Email -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                    <span><span class="material-symbols-outlined" style="vertical-align: middle; color: #005EB8; margin-right: 8px;">mail</span> 2. Apply via Direct Email (Privacy First)</span>
+                    <span class="material-symbols-outlined accordion-icon">expand_more</span>
+                </button>
+                <div class="accordion-body">
+                    <div class="email-apply-card">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">✉️</div>
+                        <h3 style="margin: 0 0 10px 0; color: #0f172a; font-size: 1.25rem;">We respect your privacy.</h3>
+                        <p style="max-width: 640px; margin: 0 auto 24px auto; font-size: 1.02rem; color: #475569; line-height: 1.6;">
+                            We do not collect or store any personal contact information on this website. To volunteer or join our Bristol outreach team, simply click below to send us a direct email from your preferred app.
+                        </p>
+
+                        <a href="mailto:info@hearinglossinitiative.org.uk?subject=Volunteer%20Application%20-%20Bristol%20Hearing%20Loss%20Initiative&amp;body=Hi%20Jason%2C%0A%0AI%20would%20love%20to%20help%20out%20with%20the%20Bristol%20Hearing%20Loss%20Initiative.%0A%0AMy%20Name%3A%20%5BType%20your%20name%20here%5D%0A%0AThe%20role%20I%20am%20most%20interested%20in%3A%0A%5B%20%5D%20Group%20Session%20Host%0A%5B%20%5D%20Tech%20Facilitator%0A%5B%20%5D%20Peer%20Supporter%0A%5B%20%5D%20Outreach%20Ambassador%0A%0AA%20little%20bit%20about%20me%3A%0A%5BTell%20me%20briefly%20why%20you%20want%20to%20join%20the%20team%5D%0A%0ASpeak%20soon!" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #005EB8; color: #ffffff; padding: 14px 28px; font-size: 1rem; font-weight: 700; border-radius: 10px; text-decoration: none;">
+                            <span class="material-symbols-outlined">send</span> Open Email Template &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-support.html" class="back-to-journey-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #005EB8; color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Support Hub
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: #ffffff; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Back to Journey Hub
+            </a>
+        </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <script src="script.js?v=36.0"></script>
+</body>
+</html>
