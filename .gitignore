@@ -1,8 +1,14 @@
+node_modules/
 .gemini/
 gha-creds-*.json
 .data/
-node_modules/
+.netlify/
+.astro/
+dist/
+build/
+backups/
 
-
-# Local Netlify folder
-.netlify
+# Archives and raw video files
+*.zip
+*.tar.gz
+**/Photos-1-001/Video/
