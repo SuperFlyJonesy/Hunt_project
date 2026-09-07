@@ -8,7 +8,7 @@ const CORE_ASSETS = [
   './path-yes.html',
   './path-support.html',
   './path-about.html',
-  './path-hearing-aids-access.html',
+  './path-hearing-aids.html',
   './path-hearing-tests.html',
   './path-tinnitus.html',
   './styles.css?v=31.0',

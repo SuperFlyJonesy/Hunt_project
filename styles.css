@@ -1037,7 +1037,7 @@ a[href*="path-hearing-tests"]:hover .metro-icon {
 }
 
 /* 5. Hearing Aids - Ear Amplification Pulse */
-a[href*="path-hearing-aids-access"]:hover .metro-icon {
+a[href*="path-hearing-aids"]:hover .metro-icon {
     animation: earAmplify 0.5s ease-in-out infinite alternate;
 }
 
