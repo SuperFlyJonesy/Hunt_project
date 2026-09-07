@@ -13,17 +13,39 @@ export default async (request, context) => {
 
   const authHeader = request.headers.get("authorization");
 
-  // Site preview password protection
-  const expectedCredentials = btoa("Guest:1608");
-
-  if (authHeader !== `Basic ${expectedCredentials}`) {
-    return new Response("Unauthorized", {
+  if (!authHeader || !authHeader.startsWith("Basic ")) {
+    return new Response("Unauthorized - Access Restricted", {
       status: 401,
       headers: {
-        "WWW-Authenticate": 'Basic realm="Private Site"',
+        "WWW-Authenticate": 'Basic realm="Bristol Hearing Loss Initiative Preview"',
       },
     });
   }
 
-  return context.next();
+  try {
+    const base64Credentials = authHeader.replace(/^Basic\s+/i, "");
+    const decoded = atob(base64Credentials);
+    const [user, pass] = decoded.split(":");
+
+    const validUsers = ["guest", "admin", "jo", "jason"];
+    const validPasswords = ["1608", "2203"];
+
+    if (
+      user &&
+      pass &&
+      validUsers.includes(user.trim().toLowerCase()) &&
+      validPasswords.includes(pass.trim())
+    ) {
+      return context.next();
+    }
+  } catch (err) {
+    console.error("Auth decoding error:", err);
+  }
+
+  return new Response("Unauthorized - Invalid Credentials", {
+    status: 401,
+    headers: {
+      "WWW-Authenticate": 'Basic realm="Bristol Hearing Loss Initiative Preview"',
+    },
+  });
 };
