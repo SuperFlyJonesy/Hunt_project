@@ -1386,7 +1386,7 @@ function initFounderAdminControls() {
 
                     <div class="founder-actions-bar" style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                         <button type="button" id="admin-btn-reset-session" class="founder-btn-secondary">🔄 Reset Session Flow</button>
-                        <a href="path-branding.html" class="founder-btn-primary" style="background: #7B1FA2; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 10px; font-weight: 700; color: white;">
+                        <a href="/path-branding" class="founder-btn-primary" style="background: #7B1FA2; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 10px; font-weight: 700; color: white;">
                             <span class="material-symbols-outlined" style="font-size: 1.1rem;">palette</span> 🎨 Brand &amp; Hex Palette Portal &rarr;
                         </a>
                         <button type="button" id="admin-btn-close" class="founder-btn-primary">Done</button>
