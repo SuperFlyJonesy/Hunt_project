@@ -1639,15 +1639,27 @@ body.premium-white-theme {
     display: none !important;
 }
 
-/* UNIVERSAL FIXED VOLUME WIDGET (STATIONARY ON VIEWPORT) */
+/* UNIVERSAL FIXED VOLUME WIDGET (STATIONARY ON VIEWPORT - COMPACT) */
 #volume-control-container {
     position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
+    bottom: 14px !important;
+    right: 14px !important;
     z-index: 9999999 !important;
     transform: none !important;
     -webkit-transform: none !important;
     filter: none !important;
+    padding: 5px 10px !important;
+    border-radius: 14px !important;
+    gap: 6px !important;
+}
+
+#volume-control-container #volume-icon {
+    font-size: 1.15rem !important;
+}
+
+#volume-control-container #volume-slider {
+    width: 52px !important;
+    height: 3px !important;
 }
 
 @keyframes scroll-left-animation {
@@ -1666,6 +1678,138 @@ body.premium-white-theme {
     /* Base typography adjustments */
     body {
         font-size: 1rem;
+        text-align: center;
+    }
+
+    /* Universal Mobile Text Centering (All Pages, Sections & Components) */
+    main,
+    header,
+    footer,
+    section,
+    article,
+    aside,
+    nav,
+    .container,
+    .content-container,
+    .info-box,
+    .collaborate-card,
+    .collaborate-pill,
+    .direct-contact-card,
+    .team-card,
+    .stat-card-top,
+    .testimonials-info-section,
+    .testimonials-header,
+    .ticker-card,
+    .card,
+    .resource-card,
+    .venue-card,
+    .faq-item,
+    .faq-question,
+    .faq-answer,
+    .step-card,
+    .guide-card,
+    .metro-btn,
+    .metro-text,
+    .event-photo-card,
+    .under-consideration-banner,
+    .portal-support-contact-strip,
+    .hli-minimal-footer,
+    .hub-header,
+    .page-header,
+    .section-header,
+    .hero-section {
+        text-align: center !important;
+    }
+
+    /* All Headings, Paragraphs & Text Elements Centered on Mobile */
+    h1, h2, h3, h4, h5, h6,
+    p, span, em, strong, small, label, blockquote, figcaption,
+    td, th, li {
+        text-align: center;
+    }
+
+    /* Centered Lists */
+    ul, ol, .feature-list, .bullet-points {
+        list-style-position: inside !important;
+        text-align: center !important;
+        padding-left: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    li {
+        text-align: center !important;
+    }
+
+    /* Flex Containers Centered */
+    .action-btns,
+    .hero-actions,
+    .back-to-journey-container,
+    .dropdown-social-links,
+    .social-links,
+    .footer-links,
+    .portal-support-contact-strip,
+    .direct-contact-card {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .direct-contact-card,
+    .portal-support-contact-strip,
+    .under-consideration-banner {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .contact-email-text {
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .action-btns .btn-action,
+    .back-to-journey-btn {
+        width: 100% !important;
+        max-width: 320px !important;
+        justify-content: center !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Universal Footers Centered on Mobile */
+    footer,
+    .hli-minimal-footer,
+    .site-footer {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        padding: 24px 12px !important;
+        box-sizing: border-box !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    footer p,
+    footer span,
+    footer a,
+    .hli-minimal-footer span,
+    .hli-minimal-footer a {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     /* Landing page mobile non-overlapping rules */
@@ -1674,12 +1818,20 @@ body.premium-white-theme {
         font-size: min(25vw, 115px) !important;
         transform: translateY(-16vh) !important;
         letter-spacing: -0.04em !important;
+        text-align: center !important;
     }
 
     .content-layer {
         padding: 10px 14px 44px 14px !important;
         min-height: auto !important;
         background: linear-gradient(to top, rgba(2, 6, 12, 0.95) 0%, rgba(4, 10, 20, 0.74) 60%, rgba(6, 14, 26, 0.25) 88%, transparent 100%) !important;
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    #intro-block {
+        text-align: center !important;
+        width: 100% !important;
     }
 
     .official-text {
@@ -1687,14 +1839,18 @@ body.premium-white-theme {
         line-height: 1.45 !important;
         max-width: 540px !important;
         margin-bottom: 12px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         padding: 0 4px !important;
         color: #f1f5f9 !important;
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85) !important;
+        text-align: center !important;
     }
 
     .stat-num {
         font-size: 1.12em !important;
         font-weight: 900 !important;
+        text-align: center !important;
     }
 
     /* Pathway columns side-by-side compact on mobile */
@@ -1705,6 +1861,8 @@ body.premium-white-theme {
         max-width: 480px !important;
         margin: 0 auto 4px auto !important;
         width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
     }
 
     .pathway {
@@ -1725,6 +1883,8 @@ body.premium-white-theme {
         color: #cbd5e1 !important;
         font-weight: 600 !important;
         text-transform: uppercase !important;
+        text-align: center !important;
+        width: 100% !important;
     }
 
     .cta-button {
@@ -1735,6 +1895,7 @@ body.premium-white-theme {
         font-weight: 800 !important;
         border-radius: 8px !important;
         letter-spacing: 0.3px !important;
+        text-align: center !important;
     }
 
     /* Modals */
@@ -1742,6 +1903,7 @@ body.premium-white-theme {
         padding: 30px 20px !important;
         width: 92% !important;
         max-width: 440px !important;
+        text-align: center !important;
     }
 
     /* Prologue on Mobile */
@@ -1750,17 +1912,20 @@ body.premium-white-theme {
         width: 88vw !important;
         max-width: 480px !important;
         line-height: 1.45 !important;
+        text-align: center !important;
     }
 
     .prologue-click-prompt {
         bottom: 30px !important;
         font-size: 0.72rem !important;
         letter-spacing: 1px !important;
+        text-align: center !important;
     }
 
     .prologue-source-whisper {
         bottom: 12px !important;
         font-size: 0.65rem !important;
+        text-align: center !important;
     }
 
     .prologue-skip-whisper {
@@ -1772,7 +1937,6 @@ body.premium-white-theme {
     /* Fix the metro grid buttons overflowing */
     .metro-grid {
         grid-template-columns: 1fr;
-        /* Stack vertically */
         padding: 20px 10px;
         gap: 15px;
     }
@@ -1782,7 +1946,9 @@ body.premium-white-theme {
         aspect-ratio: auto;
         min-height: 120px;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         gap: 20px;
     }
 
@@ -1793,32 +1959,41 @@ body.premium-white-theme {
 
     .metro-text {
         font-size: 1.2rem;
-        text-align: left;
+        text-align: center !important;
     }
 
     /* Testimonials layout */
     .testimonials-header {
         padding: 0 15px;
         margin-bottom: 30px;
+        text-align: center !important;
     }
 
     .testimonials-title {
         font-size: 2.2rem;
+        text-align: center !important;
     }
 
     .ticker-card {
         width: 85vw;
-        /* shrink from 450px to fit screen */
         padding: 20px;
+        text-align: center !important;
     }
 
     .card-text {
         font-size: 1rem;
+        text-align: center !important;
     }
 
     .testimonials-info-section {
         width: 90%;
         padding: 25px;
+        text-align: center !important;
+    }
+
+    .testimonials-info-title,
+    .testimonials-info-text {
+        text-align: center !important;
     }
 
     /* Tables scrolling horizontally instead of breaking the layout */
@@ -1826,12 +2001,14 @@ body.premium-white-theme {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        text-align: center !important;
     }
 
     table th,
     table td {
         padding: 12px 15px;
         font-size: 0.95rem;
+        text-align: center !important;
     }
 }
 
@@ -1873,264 +2050,32 @@ body.premium-white-theme {
         overflow-y: auto;
     }
 
-    /* Centered larger logo underneath floating buttons on mobile */
+    /* Centered larger logo completely clear of floating corner buttons on mobile */
     .hli-logo-top {
         left: 50% !important;
-        transform: translateX(-50%) scale(1.4) !important;
+        transform: translateX(-50%) scale(1.55) !important;
         transform-origin: center top !important;
-        height: 48px !important;
-        top: 14px !important;
+        height: 52px !important;
+        top: 48px !important;
     }
 
+    /* Reduced compact size for About Us button on mobile */
     .top-support-btn {
-        padding: 7px 12px !important;
-        font-size: 0.78rem !important;
-        top: 14px !important;
-        right: 12px !important;
+        padding: 5px 9px !important;
+        font-size: 0.70rem !important;
+        font-weight: 700 !important;
+        border-radius: 6px !important;
+        top: 10px !important;
+        right: 10px !important;
     }
 
+    /* Matching compact size for Who We Are button on mobile */
     .who-we-are-dropdown-btn {
-        font-size: 0.78rem !important;
-        padding: 7px 10px !important;
-        top: 14px !important;
-        left: 12px !important;
-    }
-}
-
-/* Standardized Back to Journey Button across all pages */
-.back-to-journey-container {
-    text-align: center;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 40px;
-}
-
-.back-to-journey-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: #222222;
-    background: #ffffff;
-    border: 2px solid #cbd5e1;
-    padding: 12px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.25s ease;
-}
-
-.back-to-journey-btn:hover {
-    background: #005EB8;
-    color: #ffffff;
-    border-color: #005EB8;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 94, 184, 0.25);
-}
-
-/* Movie End Credits Scroll & Wall of Honor System */
-.credits-roll-box {
-    position: relative;
-    height: 380px;
-    background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-    border-radius: 20px;
-    overflow: hidden;
-    border: 2px solid #005EB8;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9), 0 12px 35px rgba(0, 0, 0, 0.25);
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
-
-/* Cinematic Vignette Fade Overlay at Top & Bottom */
-.credits-roll-box::before,
-.credits-roll-box::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.credits-roll-box::before {
-    top: 0;
-    background: linear-gradient(to bottom, #020617 0%, rgba(2, 6, 23, 0) 100%);
-}
-
-.credits-roll-box::after {
-    bottom: 0;
-    background: linear-gradient(to top, #020617 0%, rgba(2, 6, 23, 0) 100%);
-}
-
-.credits-scroll-content {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    padding: 35px 0;
-    animation: credits-scroll-anim 24s linear infinite;
-    font-family: 'Georgia', serif;
-    font-style: italic;
-}
-
-.credits-roll-box:hover .credits-scroll-content {
-    animation-play-state: paused;
-}
-
-@keyframes credits-scroll-anim {
-    0% {
-        transform: translateY(100%);
-    }
-
-    100% {
-        transform: translateY(-160%);
-    }
-}
-
-.credits-title {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    color: #fbbf24;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-shadow: 0 0 15px rgba(251, 191, 36, 0.4), 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.credits-subtitle {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    color: #ff0f5b;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-top: 18px;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 15, 91, 0.3);
-}
-
-.credits-name-item {
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    color: #f8fafc;
-    font-size: 0.625rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-.credits-name-item.star-first10 {
-    color: #fbbf24;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
-}
-
-.credits-star-icon {
-    color: #fbbf24;
-    font-size: 0.7rem;
-    filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.8));
-}
-
-/* Staggered Horizontal Wall Positioning */
-.credits-name-item.pos-left {
-    justify-content: flex-start;
-    padding-left: 8%;
-}
-
-.credits-name-item.pos-right {
-    justify-content: flex-end;
-    padding-right: 8%;
-}
-
-.credits-name-item.pos-center {
-    justify-content: center;
-}
-
-.credits-name-item.pos-mid-left {
-    justify-content: flex-start;
-    padding-left: 24%;
-}
-
-.credits-name-item.pos-mid-right {
-    justify-content: flex-end;
-    padding-right: 24%;
-}
-
-.event-photos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 20px;
-}
-
-.event-photo-card {
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.25s ease;
-}
-
-.event-photo-card:hover {
-    transform: translateY(-4px);
-}
-
-.event-photo-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    display: block;
-}
-
-.event-photo-card p {
-    margin: 0;
-    padding: 12px;
-    font-size: 0.875rem;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-}
-
-@media (max-width: 768px) {
-
-    /* Modal scrolling fix */
-    .modal {
-        padding: 20px;
-    }
-
-    .modal-content {
-        max-height: 85vh;
-        overflow-y: auto;
-    }
-
-    /* Header overlap fixes */
-    .hli-logo-top {
-        left: 15px;
-        transform: scale(1);
-        transform-origin: left top;
-        height: 40px;
-    }
-
-    .top-support-btn {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-        top: 15px;
-        right: 10px;
+        font-size: 0.70rem !important;
+        padding: 5px 8px !important;
+        border-radius: 6px !important;
+        top: 10px !important;
+        left: 10px !important;
     }
 }
 
@@ -4192,6 +4137,12 @@ body.prologue-active .floating-scroll-controls,
 body.prologue-active .hli-back-to-top-btn,
 body:has(#prologue-lockdown:not([style*="display: none"])) .floating-scroll-controls,
 body:has(#prologue-lockdown:not([style*="display: none"])) .hli-back-to-top-btn,
+body:has(#state-intro) .floating-scroll-controls,
+body:has(#state-prologue) .floating-scroll-controls,
+body:has(#state-expo-video) .floating-scroll-controls,
+body:has(#state-intro) .hli-back-to-top-btn,
+body:has(#state-prologue) .hli-back-to-top-btn,
+body:has(#state-expo-video) .hli-back-to-top-btn,
 body.spinal-tap-theme .floating-scroll-controls,
 body.landing-page .floating-scroll-controls {
     display: none !important;

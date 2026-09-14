@@ -1687,10 +1687,10 @@ function robustScrollToTop() {
 function initFloatingScrollControls() {
     const path = (window.location.pathname || '').toLowerCase();
     const isLanding = path.endsWith('/index.html') || path.endsWith('index.html') || path === '/' || path === '' || (document.body && document.body.classList.contains('landing-page'));
-    if (isLanding || path.endsWith('/path-experience.html') || path.endsWith('path-experience.html') || path.includes('path-it-goes-to-11')) {
+    if (isLanding || path.includes('path-experience') || path.includes('path-it-goes-to-11')) {
         return;
     }
-    if (document.body && (document.body.classList.contains('spinal-tap-theme') || document.body.classList.contains('landing-page'))) {
+    if (document.body && (document.body.classList.contains('spinal-tap-theme') || document.body.classList.contains('landing-page') || document.getElementById('state-intro') || document.getElementById('state-prologue') || document.getElementById('state-expo-video'))) {
         return;
     }
 
@@ -1748,7 +1748,7 @@ function initFloatingScrollControls() {
 // ==========================================================================
 function initBackToTopButton() {
     const path = (window.location.pathname || '').toLowerCase();
-    if (path.endsWith('/path-experience.html') || path.endsWith('path-experience.html')) {
+    if (path.includes('path-experience') || (document.body && (document.getElementById('state-intro') || document.getElementById('state-prologue') || document.getElementById('state-expo-video')))) {
         return;
     }
 
