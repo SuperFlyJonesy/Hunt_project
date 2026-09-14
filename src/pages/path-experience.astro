@@ -239,96 +239,32 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       transition: opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s ease;
     }
 
-    /* Minimalist Unobtrusive Controls (Top Right) */
-    .top-controls {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .glass-btn {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      color: rgba(255, 255, 255, 0.85);
-      padding: 10px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      opacity: 0.45;
-      transition: all 0.3s ease;
-    }
-
-    .glass-btn:hover {
-      opacity: 1;
-      background: rgba(0, 0, 0, 0.65);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-1px);
-    }
-
-    .audio-btn {
-      width: 42px;
-      height: 42px;
-      padding: 0;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    @keyframes pulsePrompt {
-      0%, 100% { opacity: 0.35; transform: translateX(-50%) scale(1); }
-      50% { opacity: 0.95; transform: translateX(-50%) scale(1.03); }
-    }
-
-    @keyframes pulsePromptEnd {
-      0%, 100% { 
-        opacity: 0.85; 
-        transform: translateX(-50%) scale(1); 
-        box-shadow: 0 0 20px rgba(0, 164, 239, 0.4), 0 4px 20px rgba(0, 0, 0, 0.6); 
-      }
-      50% { 
-        opacity: 1; 
-        transform: translateX(-50%) scale(1.06); 
-        box-shadow: 0 0 35px rgba(0, 164, 239, 0.8), 0 4px 30px rgba(0, 0, 0, 0.8); 
-      }
-    }
-
     .click-continue-prompt {
       position: absolute;
-      bottom: 36px;
+      bottom: 42px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
-      color: #ffffff;
-      font-size: 13px;
-      letter-spacing: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      font-weight: 700;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
-      animation: pulsePrompt 2.5s infinite ease-in-out;
+      color: rgba(255, 255, 255, 0.5);
       pointer-events: none;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: 'Inter', sans-serif;
+      user-select: none;
       white-space: nowrap;
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
     .click-continue-prompt.active-end {
-      font-size: 14px;
-      padding: 14px 28px;
-      background: rgba(0, 0, 0, 0.7);
-      border: 1.5px solid rgba(255, 255, 255, 0.6);
-      border-radius: 35px;
-      backdrop-filter: blur(12px);
-      animation: pulsePromptEnd 1.8s infinite ease-in-out;
-      pointer-events: auto;
       cursor: pointer;
+      pointer-events: auto;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    .click-continue-prompt.active-end:hover {
+      color: #ffffff;
+      opacity: 0.9;
     }
 
     /* Subtle bottom progress bar */
@@ -385,16 +321,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <source src="/Contents/Videos/expo-reel.webm" type="video/webm">
         <source src="/Contents/Videos/expo-reel.mp4" type="video/mp4">
       </video>
-
-      <!-- Video Controls inside rotated stage -->
-      <div class="top-controls">
-        <button id="btn-video-audio" class="glass-btn audio-btn" aria-label="Mute or Unmute Video Audio" title="Toggle Sound">
-          <span id="video-audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span>
-        </button>
-        <button id="btn-video-skip" class="glass-btn" aria-label="Skip to Support Hub">
-          Skip &rarr;
-        </button>
-      </div>
 
       <!-- Click to continue prompt inside rotated stage -->
       <div class="click-continue-prompt">[ Click anywhere to continue ]</div>
@@ -494,9 +420,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       const stateExpoVideo = document.getElementById('state-expo-video');
       const expoVideo = document.getElementById('expo-video');
       const videoFadeOverlay = document.getElementById('video-fade-overlay');
-      const btnVideoSkip = document.getElementById('btn-video-skip');
-      const btnVideoAudio = document.getElementById('btn-video-audio');
-      const videoAudioIcon = document.getElementById('video-audio-icon');
       const videoProgressFill = document.getElementById('video-progress-fill');
 
       localStorage.setItem('hasVisitedSupport', 'true');
@@ -640,7 +563,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             if (playPromise !== undefined) {
               playPromise.then(() => {}).catch(() => {
                 expoVideo.muted = true;
-                if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
                 expoVideo.play();
               });
             }
@@ -677,33 +599,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         }, 1000);
       });
 
-      // Video Controls & Click to Continue for Stage 3
-      if (btnVideoAudio) {
-        btnVideoAudio.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (!expoVideo) return;
-          expoVideo.muted = !expoVideo.muted;
-          if (expoVideo.muted) {
-            if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
-          } else {
-            if (videoAudioIcon) videoAudioIcon.textContent = "volume_up";
-            expoVideo.volume = 1.0;
-          }
-        });
-      }
-
-      if (btnVideoSkip) {
-        btnVideoSkip.addEventListener("click", (e) => {
-          e.stopPropagation();
-          transitionToSupportHub(true);
-        });
-      }
-
       // Tap/click anywhere during video to fade to white & continue
-      stateExpoVideo.addEventListener("click", (e) => {
-        if (!e.target.closest("#btn-video-audio")) {
-          transitionToSupportHub(true);
-        }
+      stateExpoVideo.addEventListener("click", () => {
+        transitionToSupportHub(true);
       });
 
       document.addEventListener("keydown", (e) => {

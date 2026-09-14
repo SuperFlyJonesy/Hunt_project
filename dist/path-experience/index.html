@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hearing Experience | Bristol Hearing Loss Initiative</title><meta name="description" content="An interactive sensory simulator demonstrating the lived experience of frequency loss, tinnitus, and background noise."><meta name="theme-color" content="#005EB8"><link rel="icon" type="image/png" href="/Contents/Branding Images/favicon.png"><link rel="apple-touch-icon" href="/Contents/Pictures/Favicon.png"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/_astro/path-experience.d1tdQi1x.css"></head><body class="premium-white-theme"><a class="skip-link" href="#main-content">Skip to main content</a><a href="/path-support" id="btn-support" aria-label="Support Hub">[ Support Hub &rarr; ]</a><div id="state-intro" style="cursor: pointer;"><h1 id="intro-text" class="cinematic-headline">Experience the reality<br>of <span class="accent-glow">hearing loss</span>.</h1><div id="begin-btn">[ Click to begin ]</div></div><div id="state-prologue"><div id="continue-btn">[ Click to continue ]</div></div><div id="state-expo-video"><div class="video-stage"><video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="/Contents/Videos/expo-reel-poster.jpg"><source src="/Contents/Videos/expo-reel.webm" type="video/webm"><source src="/Contents/Videos/expo-reel.mp4" type="video/mp4"></video><!-- Video Controls inside rotated stage --><div class="top-controls"><button id="btn-video-audio" class="glass-btn audio-btn" aria-label="Mute or Unmute Video Audio" title="Toggle Sound"><span id="video-audio-icon" class="material-symbols-outlined" style="font-size: 1.25rem;">volume_up</span></button><button id="btn-video-skip" class="glass-btn" aria-label="Skip to Support Hub">Skip &rarr;</button></div><!-- Click to continue prompt inside rotated stage --><div class="click-continue-prompt">[ Click anywhere to continue ]</div><!-- Bottom progress line inside rotated stage --><div class="bottom-progress"><div id="video-progress-fill" class="bottom-progress-fill"></div></div></div><!-- Fade Overlay for Video --><div id="video-fade-overlay"></div></div><audio id="bg-noise" src="/Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop preload="none"></audio><div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;"><span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span><input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;"></div><script>
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Hearing Experience | Bristol Hearing Loss Initiative</title><meta name="description" content="An interactive sensory simulator demonstrating the lived experience of frequency loss, tinnitus, and background noise."><meta name="theme-color" content="#005EB8"><link rel="icon" type="image/png" href="/Contents/Branding Images/favicon.png"><link rel="apple-touch-icon" href="/Contents/Pictures/Favicon.png"><link rel="manifest" href="/manifest.json"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/_astro/path-experience.d85ZxUVD.css"></head><body class="premium-white-theme"><a class="skip-link" href="#main-content">Skip to main content</a><a href="/path-support" id="btn-support" aria-label="Support Hub">[ Support Hub &rarr; ]</a><div id="state-intro" style="cursor: pointer;"><h1 id="intro-text" class="cinematic-headline">Experience the reality<br>of <span class="accent-glow">hearing loss</span>.</h1><div id="begin-btn">[ Click to begin ]</div></div><div id="state-prologue"><div id="continue-btn">[ Click to continue ]</div></div><div id="state-expo-video"><div class="video-stage"><video id="expo-video" playsinline webkit-playsinline x5-playsinline preload="auto" poster="/Contents/Videos/expo-reel-poster.jpg"><source src="/Contents/Videos/expo-reel.webm" type="video/webm"><source src="/Contents/Videos/expo-reel.mp4" type="video/mp4"></video><!-- Click to continue prompt inside rotated stage --><div class="click-continue-prompt">[ Click anywhere to continue ]</div><!-- Bottom progress line inside rotated stage --><div class="bottom-progress"><div id="video-progress-fill" class="bottom-progress-fill"></div></div></div><!-- Fade Overlay for Video --><div id="video-fade-overlay"></div></div><audio id="bg-noise" src="/Contents/Audio/freesound_community-restaurant-ambiance-23613.mp3" loop preload="none"></audio><div id="volume-control-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 999999; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); color: #fff;"><span class="material-symbols-outlined" id="volume-icon" style="cursor: pointer; font-size: 1.5rem; user-select: none;">volume_up</span><input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.15" style="width: 80px; cursor: pointer; accent-color: #ff0f5b;"></div><script>
     const rawPhrases = [
       "People making “pardon?” jokes or pretending they cannot hear, which can feel belittling rather than funny.",
       "Struggling to follow conversations around the dinner table when several family members speak at once.",
@@ -74,9 +74,6 @@
       const stateExpoVideo = document.getElementById('state-expo-video');
       const expoVideo = document.getElementById('expo-video');
       const videoFadeOverlay = document.getElementById('video-fade-overlay');
-      const btnVideoSkip = document.getElementById('btn-video-skip');
-      const btnVideoAudio = document.getElementById('btn-video-audio');
-      const videoAudioIcon = document.getElementById('video-audio-icon');
       const videoProgressFill = document.getElementById('video-progress-fill');
 
       localStorage.setItem('hasVisitedSupport', 'true');
@@ -220,7 +217,6 @@
             if (playPromise !== undefined) {
               playPromise.then(() => {}).catch(() => {
                 expoVideo.muted = true;
-                if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
                 expoVideo.play();
               });
             }
@@ -257,33 +253,9 @@
         }, 1000);
       });
 
-      // Video Controls & Click to Continue for Stage 3
-      if (btnVideoAudio) {
-        btnVideoAudio.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (!expoVideo) return;
-          expoVideo.muted = !expoVideo.muted;
-          if (expoVideo.muted) {
-            if (videoAudioIcon) videoAudioIcon.textContent = "volume_off";
-          } else {
-            if (videoAudioIcon) videoAudioIcon.textContent = "volume_up";
-            expoVideo.volume = 1.0;
-          }
-        });
-      }
-
-      if (btnVideoSkip) {
-        btnVideoSkip.addEventListener("click", (e) => {
-          e.stopPropagation();
-          transitionToSupportHub(true);
-        });
-      }
-
       // Tap/click anywhere during video to fade to white & continue
-      stateExpoVideo.addEventListener("click", (e) => {
-        if (!e.target.closest("#btn-video-audio")) {
-          transitionToSupportHub(true);
-        }
+      stateExpoVideo.addEventListener("click", () => {
+        transitionToSupportHub(true);
       });
 
       document.addEventListener("keydown", (e) => {
