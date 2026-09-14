@@ -28,11 +28,25 @@
       const btnLogin = document.getElementById("btn-login");
       const btnGuestLogin = document.getElementById("btn-guest-login");
       const btnLogout = document.getElementById("btn-logout");
+      const authErrorBox = document.getElementById("auth-error-box");
+      const authErrorTitle = document.getElementById("auth-error-title");
+      const authErrorMsg = document.getElementById("auth-error-msg");
       const resourceList = document.getElementById("resource-list");
       const tabButtons = document.querySelectorAll(".portal-tab-btn");
       const tabPanes = document.querySelectorAll(".tab-pane");
       const portalVenueForm = document.getElementById("portal-venue-form");
       const portalSubmitterName = document.getElementById("portal-submitter-name");
+
+      function showAuthError(title, messageHtml) {
+          if (!authErrorBox) return;
+          if (authErrorTitle) authErrorTitle.textContent = title;
+          if (authErrorMsg) authErrorMsg.innerHTML = messageHtml;
+          authErrorBox.classList.remove("hidden");
+      }
+
+      function hideAuthError() {
+          if (authErrorBox) authErrorBox.classList.add("hidden");
+      }
 
       // Phone Chat & Topic Elements
       const portalPhoneDevice = document.getElementById("portal-phone-device");
@@ -1133,6 +1147,77 @@
               console.warn("Guest session read error:", e);
           }
           return false;
+      }
+
+      async function handleGoogleLogin() {
+          hideAuthError();
+
+          if (window.location.protocol === "file:") {
+              showAuthError(
+                  "Local File Protocol Detected (file://)",
+                  "Google Sign-In requires an HTTP/HTTPS environment to open OAuth popups securely. Please run a local web server (e.g., <code>npm run dev</code> or host on a live domain) rather than double-clicking the file."
+              );
+              return;
+          }
+
+          if (btnLogin) {
+              btnLogin.disabled = true;
+              btnLogin.style.opacity = "0.7";
+              btnLogin.style.cursor = "wait";
+          }
+
+          try {
+              await signInWithPopup(auth, provider);
+          } catch (err) {
+              console.error("Sign-in error details:", err);
+
+              let errorTitle = "Google Sign-In Error";
+              let errorMessage = err.message || "An unexpected error occurred during sign-in.";
+
+              if (err.code === "auth/unauthorized-domain") {
+                  errorTitle = "Domain Not Authorized in Firebase";
+                  errorMessage = `The current domain (<strong>${window.location.hostname || "this domain"}</strong>) is not listed in your Firebase Authorized Domains.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Settings</strong> &rarr; <strong>Authorized domains</strong> &rarr; Add <code>${window.location.hostname}</code>.`;
+              } else if (err.code === "auth/operation-not-allowed") {
+                  errorTitle = "Google Provider Not Enabled";
+                  errorMessage = `Google Sign-In is disabled in your Firebase project.<br><br><strong>Fix:</strong> Go to <a href="https://console.firebase.google.com/" target="_blank" rel="noopener noreferrer" style="color:#005EB8;text-decoration:underline;">Firebase Console</a> &rarr; <strong>Authentication</strong> &rarr; <strong>Sign-in method</strong> &rarr; Enable <strong>Google</strong>.`;
+              } else if (err.code === "auth/popup-blocked") {
+                  errorTitle = "Popup Blocked by Browser";
+                  errorMessage = "Your browser blocked the Google Sign-In popup window. Please click the popup icon in your address bar, allow popups for this site, and try again.";
+              } else if (err.code === "auth/popup-closed-by-user") {
+                  errorTitle = "Sign-In Cancelled";
+                  errorMessage = "The Google Sign-In popup was closed before completing verification. Please try again.";
+              } else if (err.code === "auth/cancelled-popup-request") {
+                  errorTitle = "Request Cancelled";
+                  errorMessage = "Another sign-in window was opened. Please use the open popup.";
+              } else if (err.code === "auth/network-request-failed") {
+                  errorTitle = "Network Connection Issue";
+                  errorMessage = "Could not reach Firebase authentication servers. Please check your internet connection.";
+              }
+
+              showAuthError(errorTitle, errorMessage);
+          } finally {
+              if (btnLogin) {
+                  btnLogin.disabled = false;
+                  btnLogin.style.opacity = "1";
+                  btnLogin.style.cursor = "pointer";
+              }
+          }
+      }
+
+      if (btnLogin) {
+          btnLogin.addEventListener("click", handleGoogleLogin);
+      }
+
+      const promptSignInBtns = document.querySelectorAll(".btn-prompt-signin");
+      promptSignInBtns.forEach((btn) => {
+          btn.addEventListener("click", handleGoogleLogin);
+      });
+
+      if (window.location.protocol === "file:") {
+          showAuthError(
+              "Local File Protocol Detected (file://)",
+              "Google Sign-In requires an HTTP/HTTPS environment to open OAuth popups securely. Please serve this site using a local web server (e.g., <code>http://localhost:4321</code> or live domain)."
+          );
       }
 
       if (btnGuestLogin) {
