@@ -1,0 +1,23 @@
+{
+  "BTC-USD": {
+    "current_price": 78575.19,
+    "sma_50": 69961.23,
+    "sma_200": 69867.26,
+    "above_200": true,
+    "above_50": true
+  },
+  "VWRP.L": {
+    "current_price": 143.92,
+    "sma_50": 142.01,
+    "sma_200": 133.75,
+    "above_200": true,
+    "above_50": true
+  },
+  "VUSA.L": {
+    "current_price": 107.78,
+    "sma_50": 107.01,
+    "sma_200": 100.59,
+    "above_200": true,
+    "above_50": true
+  }
+}

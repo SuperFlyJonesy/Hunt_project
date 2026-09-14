@@ -84,6 +84,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
                 margin-bottom: 18px;
                 padding-bottom: 12px;
                 border-bottom: 1px solid #f1f5f9;
@@ -306,9 +308,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 color: #db2777;
                 font-size: 0.75rem;
                 font-weight: 700;
-                padding: 3px 8px;
+                padding: 4px 10px;
                 border-radius: 12px;
                 border: 1px solid #fbcfe8;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+                max-width: 100%;
+                display: inline-block;
+                box-sizing: border-box;
+                transition: all 0.2s ease;
+            }
+            .instagram-header-badge:hover {
+                background: #fce7f3;
+                color: #be185d;
             }
             .instagram-profile-card {
                 background: #ffffff;
@@ -463,11 +475,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
             .btn-linkedin { background: #0077B5; color: white; }
     
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
   
       <main id="main-content" class="stay-connected-wrapper">

@@ -35,11 +35,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .btn-dark { background: #1e293b; }
             .video-preview-card { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%) translateY(20px); width: 260px; background: #111; border-radius: 15px; overflow: hidden; opacity: 0; pointer-events: none; transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0,0,0,0.8); border: 1px solid #333; z-index: 999; }
             .video-link-item:hover .video-preview-card { opacity: 1; transform: translateX(-50%) translateY(0); }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
   
       <main id="main-content" class="container">
@@ -149,7 +149,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                               </div>
                           </div>
   
-                          <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
+                          <a href="https://rnid.org.uk/about-us/research-and-policy/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-dark">
                               <span class="material-symbols-outlined">open_in_new</span> RNID Research Guide &rarr;
                           </a>
                       </div>
@@ -228,7 +228,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                           <a href="https://www.bluetooth.com/auracast/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-pink">
                               <span class="material-symbols-outlined">verified</span> Bluetooth SIG Auracast Page &rarr;
                           </a>
-                          <a href="https://rnid.org.uk/information-and-support/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
+                          <a href="https://rnid.org.uk/about-us/research-and-policy/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-green">
                               <span class="material-symbols-outlined">verified</span> RNID Research Portal &rarr;
                           </a>
                           <a href="https://www.nhs.uk/conditions/hearing-loss/" target="_blank" rel="noopener noreferrer" class="ext-btn btn-blue">

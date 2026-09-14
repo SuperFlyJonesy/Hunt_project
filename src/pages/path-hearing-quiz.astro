@@ -21,11 +21,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .quiz-btn.selected-yes { background: #dcfce7; border-color: #16a34a; color: #1B5E20; }
             .quiz-btn.selected-no { background: #f1f5f9; border-color: #64748b; color: #475569; }
             .result-card { display: none; background: #eff6ff; border: 2px solid #3b82f6; border-radius: 16px; padding: 24px; margin-top: 25px; }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
       
       <main id="main-content" class="container">

@@ -9,21 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <style is:global>
     .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
-            .discrete-disclaimer {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 6px;
-                font-size: 0.85rem;
-                color: #64748b;
-                background: #f8fafc;
-                border: 1px solid #e2e8f0;
-                padding: 6px 16px;
-                border-radius: 20px;
-                max-width: 780px;
-                margin: 10px auto 0 auto;
-                line-height: 1.4;
-            }
             .card-top-split {
                 display: grid;
                 grid-template-columns: 300px 1fr;
@@ -113,45 +98,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 line-height: 1.55;
                 margin-bottom: 12px;
             }
-            .affiliate-link-wrapper {
-                position: relative;
-                display: inline-block;
-            }
-            .affiliate-tooltip {
-                position: absolute;
-                bottom: calc(100% + 8px);
-                left: 50%;
-                transform: translateX(-50%) translateY(4px);
-                width: 220px;
-                background: #0f172a;
-                color: #ffffff;
-                padding: 6px 10px;
-                border-radius: 8px;
-                font-size: 0.75rem;
-                font-weight: 500;
-                line-height: 1.35;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.2s ease, transform 0.2s ease;
-                z-index: 1000;
-                text-align: center;
-            }
-            .affiliate-tooltip::after {
-                content: "";
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                border-width: 5px;
-                border-style: solid;
-                border-color: #0f172a transparent transparent transparent;
-            }
-            .affiliate-link-wrapper:hover .affiliate-tooltip,
-            .affiliate-link-wrapper:focus-within .affiliate-tooltip {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
             .affiliate-btn {
                 display: inline-flex;
                 align-items: center;
@@ -220,11 +166,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 border-radius: 20px;
                 backdrop-filter: blur(4px);
             }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
   
       <main class="container" id="main-content">
@@ -236,11 +182,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto 15px auto; line-height: 1.6;">
                   Empowering independence and communication through modern speech-to-text apps, smart note-taking, Phonak Roger systems, TV audio streamers, Ring doorbells, and smartwatch notifications.
               </p>
-  
-              <div class="discrete-disclaimer">
-                  <span class="material-symbols-outlined" style="font-size: 1.05rem; color: #005EB8; vertical-align: middle;">info</span>
-                  <span><em>Affiliate Disclosure: Some links below are affiliate links. Purchases made via these links may earn a small referral commission for Hearing Loss Initiative at no extra cost to you, directly funding our community services.</em></span>
-              </div>
           </div>
   
           <!-- Progressive Disclosure Accordion Container -->
@@ -269,36 +210,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <div class="item-block" style="border-left: 4px solid #0891B2;">
                           <h3><span class="material-symbols-outlined">android</span> Google Live Transcribe (Android)</h3>
                           <p><strong>What it does:</strong> Google's free real-time speech-to-text app for Android. It listens to surrounding speech and displays high-contrast captions on your phone screen in real time. It also detects sound events like doorbells and sirens.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative's free community services.</div>
-                              <a href="https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe&referrer=utm_source%3Dhuntproject" target="_blank" rel="noopener sponsor noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Get Google Live Transcribe (Free on Google Play)
-                              </a>
-                          </div>
+                          <a href="https://play.google.com/store/apps/details?id=com.google.audio.hearing.visualization.accessibility.scribe" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">download</span> Get Google Live Transcribe (Free on Google Play)
+                          </a>
                       </div>
   
                       <!-- Item 2: Olli Transcribe -->
                       <div class="item-block" style="border-left: 4px solid #0891B2;">
                           <h3><span class="material-symbols-outlined">phone_iphone</span> Olli Transcribe (for iPhone)</h3>
                           <p><strong>What it does:</strong> Tailored specifically for iPhone iOS users, Olli Transcribe uses AI speech recognition to convert fast conversations into crystal-clear live text so you never miss a word.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's community programmes.</div>
-                              <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_bag</span> Get Olli Transcribe on App Store (Affiliate Link)
-                              </a>
-                          </div>
+                          <a href="https://apps.apple.com/gb/app/olli-transcribe-voice-to-text/id1600000000" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">phone_iphone</span> Get Olli Transcribe on App Store
+                          </a>
                       </div>
   
                       <!-- Item 3: Google Translate -->
                       <div class="item-block" style="border-left: 4px solid #0891B2;">
                           <h3><span class="material-symbols-outlined">g_translate</span> Google Translate (iOS &amp; Android)</h3>
                           <p><strong>What it does:</strong> Translates spoken words instantly into text across over 100 languages. Ideal for travel, medical appointments, or bilingual community events.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Free app link. Supports Hearing Loss Initiative community outreach.</div>
-                              <a href="https://translate.google.com/" target="_blank" rel="noopener sponsor noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Google Translate App (Free)
-                              </a>
-                          </div>
+                          <a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">open_in_new</span> Try Google Translate App (Free)
+                          </a>
                       </div>
   
                       <!-- Item 4: Smartwatch Haptic Alerts -->
@@ -306,18 +238,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                           <h3><span class="material-symbols-outlined">watch</span> iPhone (Apple Watch) &amp; Android (Wear OS) Smartwatches</h3>
                           <p><strong>What it does:</strong> Pairs with your phone to deliver discreet, silent wrist vibrations whenever live captions trigger, calls arrive, or sound alerts occur.</p>
                           <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
-                              <div class="affiliate-link-wrapper">
-                                  <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
-                                  <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
-                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Apple Watch (Affiliate Link)
-                                  </a> (paid link)
-                              </div>
-                              <div class="affiliate-link-wrapper">
-                                  <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative's free services.</div>
-                                  <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
-                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> Shop Wear OS (Affiliate Link)
-                                  </a> (paid link)
-                              </div>
+                              <a href="https://www.amazon.co.uk/s?k=apple+watch" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
+                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> View Apple Watch on Amazon
+                              </a>
+                              <a href="https://www.amazon.co.uk/s?k=wear+os+smartwatch" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #0891B2;">
+                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">watch</span> View Wear OS on Amazon
+                              </a>
                           </div>
                       </div>
                   </div>
@@ -355,12 +281,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <div class="item-block" style="border-left: 4px solid #1b5e20;">
                           <h3><span class="material-symbols-outlined">description</span> Olli Transcribe iOS Audio Notes</h3>
                           <p><strong>What it does:</strong> Allows iPhone users to capture mobile audio notes during live talks or community sessions and instantly convert them into clean, organised text files.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative's free programmes.</div>
-                              <a href="https://apps.apple.com/app/olli-transcribe/id1600000000?tag=huntproject-21" target="_blank" rel="noopener sponsor noopener noreferrer" class="affiliate-btn" style="background: #1b5e20;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">phone_iphone</span> Get Olli Transcribe iOS (Affiliate Link)
-                              </a>
-                          </div>
+                          <a href="https://apps.apple.com/gb/app/olli-transcribe-voice-to-text/id1600000000" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #1b5e20;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">phone_iphone</span> Get Olli Transcribe iOS
+                          </a>
                       </div>
                   </div>
               </div>
@@ -388,12 +311,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <div class="item-block" style="border-left: 4px solid #ff0f5b;">
                           <h3><span class="material-symbols-outlined">mic</span> Phonak Roger On, Roger Select &amp; Roger Pen Systems</h3>
                           <p><strong>What it does:</strong> Versatile wireless microphones equipped with MultiBeam Technology. Worn neatly on a lapel, clipped to clothing, or placed on a dining/conference table (including disc-shaped Roger Select and pen-style Roger Pen transmitters), they automatically select active speakers and stream crystal-clear audio directly into hearing devices.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Commissions help fund Hearing Loss Initiative community support.</div>
-                              <a href="https://link.amazon/B0bzdVAGG" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #ff0f5b;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Phonak Roger Systems (Affiliate Link)
-                              </a> (paid link)
-                          </div>
+                          <a href="https://www.amazon.co.uk/s?k=phonak+roger" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #ff0f5b;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> View Phonak Roger on Amazon
+                          </a>
                       </div>
                   </div>
               </div>
@@ -460,12 +380,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       <div class="item-block" style="border-left: 4px solid #D97706;">
                           <h3><span class="material-symbols-outlined">doorbell</span> Ring Video Doorbell &amp; Flashing LED Chime</h3>
                           <p><strong>What it does:</strong> Smart video doorbell that pairs with flashing indoor LED chimes and smart light bulbs. When a visitor presses the doorbell, bright visual lights flash around your house to alert you instantly.</p>
-                          <div class="affiliate-link-wrapper">
-                              <div class="affiliate-tooltip">Purchases support Hearing Loss Initiative at no extra cost.</div>
-                              <a href="https://link.amazon/B0aQawQNg" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
-                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Ring Doorbell &amp; Flashing Chime (Affiliate Link)
-                              </a> (paid link)
-                          </div>
+                          <a href="https://www.amazon.co.uk/s?k=ring+video+doorbell" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
+                              <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> View Ring Doorbell on Amazon
+                          </a>
                       </div>
   
                       <!-- Item 2: Single Smartwatch Wrist Vibrations -->
@@ -473,18 +390,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                           <h3><span class="material-symbols-outlined">watch</span> Smartwatch Wrist Alerts (Apple Watch &amp; Wear OS)</h3>
                           <p><strong>What it does:</strong> A single sleek smartwatch worn on your wrist receives instant haptic vibrations when a British postal worker or visitor rings your Ring Doorbell, when an alarm triggers, or when you receive a message while outdoors in the garden.</p>
                           <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px;">
-                              <div class="affiliate-link-wrapper">
-                                  <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
-                                  <a href="https://link.amazon/B0dhkKRqO" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
-                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Apple Watch (Affiliate Link)
-                                  </a> (paid link)
-                              </div>
-                              <div class="affiliate-link-wrapper">
-                                  <div class="affiliate-tooltip">Referral fees support Hearing Loss Initiative.</div>
-                                  <a href="https://link.amazon/B00Tz2nUK" target="_blank" rel="nofollow sponsored noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
-                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> Shop Wear OS (Affiliate Link)
-                                  </a> (paid link)
-                              </div>
+                              <a href="https://www.amazon.co.uk/s?k=apple+watch" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
+                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> View Apple Watch on Amazon
+                              </a>
+                              <a href="https://www.amazon.co.uk/s?k=wear+os+smartwatch" target="_blank" rel="noopener noreferrer" class="affiliate-btn" style="background: #D97706;">
+                                  <span class="material-symbols-outlined" style="font-size: 1.1rem;">shopping_cart</span> View Wear OS on Amazon
+                              </a>
                           </div>
                       </div>
   
@@ -518,7 +429,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </a>
           </nav>
   
-          <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 30px;">As an Amazon Associate, I earn from qualifying purchases.</p>
               <footer class="hli-minimal-footer">
               <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
           </footer>

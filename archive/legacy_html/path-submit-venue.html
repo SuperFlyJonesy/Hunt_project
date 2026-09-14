@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contribute to our Bristol accessible venue directory by submitting hearing loop and acoustic reviews for local venues.">
+    <meta charset="UTF-8">
+    <title>Submit a Venue - Venue Assessment (Coming Soon) - Hearing Loss Initiative</title>
+    <link rel="stylesheet" href="styles.css?v=31.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <style>
+        .container { max-width: 960px; margin: 0 auto; padding: 50px 20px 100px 20px; }
+        #story-form { background: #f8fafc; border: 1px solid #e2e8f0; padding: 35px; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); }
+        input[type="text"], input[type="email"], textarea { width: 100%; padding: 14px 18px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-bottom: 15px; font-family: inherit; box-sizing: border-box; font-size: 1rem; background: #ffffff; color: #1e293b; outline: none; }
+        input[type="text"]:focus, textarea:focus { border-color: #005EB8; }
+        .form-hint { font-size: 0.88rem; color: #64748b; margin-top: -8px; margin-bottom: 15px; display: block; }
+        .checkbox-group { margin-bottom: 20px; background: #ffffff; padding: 18px; border-radius: 12px; border: 1.5px solid #e2e8f0; }
+        .checkbox-group label { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; cursor: pointer; font-size: 1rem; color: #334155; }
+        .checkbox-group input { width: 18px; height: 18px; accent-color: #005EB8; }
+        
+    </style>
+    <link rel="icon" type="image/png" href="Contents/Pictures/Favicon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#005EB8">
+    <link rel="apple-touch-icon" href="Contents/Pictures/Favicon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Bristol Hearing Loss Initiative">
+    <meta property="og:title" content="Submit a Venue - Venue Assessment (Coming Soon) - Hearing Loss Initiative">
+    <meta property="og:description" content="Contribute to our Bristol accessible venue directory by submitting hearing loop and acoustic reviews for local venues.">
+    <meta property="og:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+    <meta property="og:url" content="https://hearinglossinitiative.org.uk/path-submit-venue.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Submit a Venue - Venue Assessment (Coming Soon) - Hearing Loss Initiative">
+    <meta name="twitter:description" content="Contribute to our Bristol accessible venue directory by submitting hearing loop and acoustic reviews for local venues.">
+    <meta name="twitter:image" content="https://hearinglossinitiative.org.uk/Contents/Branding%20Images/HLI%20logo%20Black.png">
+</head>
+<body class="premium-white-theme" style="margin: 0; padding: 0; font-family: 'Inter', sans-serif;">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <a href="path-about.html" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
+    
+    <main id="main-content" class="container">
+        <div class="header-section" style="text-align: center; margin-bottom: 25px;">
+            <div style="margin-bottom: 12px;">
+                <span class="coming-soon-badge amber"><span class="material-symbols-outlined" style="font-size: 1rem;">schedule</span> Venue Assessment (Coming Soon)</span>
+            </div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: #0891B2; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px;">
+                <span class="material-symbols-outlined" style="font-size: 3rem;">add_location_alt</span>
+                Submit a Bristol Venue
+            </h1>
+            <p style="font-size: 1.15rem; color: #475569; text-align: center; max-width: 780px; margin: 0 auto; line-height: 1.6;">
+                Help us expand the Bristol Accessible Venue Map! Share local cafes, theatres, pubs, or halls with working induction loops, Auracast broadcasts, or dedicated quiet zones.
+            </p>
+        </div>
+        
+        <div style="margin-bottom: 25px; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+            <img src="Contents/Venues/watershed.jpg" alt="Bristol Accessible Venues" style="width: 100%; height: 200px; object-fit: cover; display: block;" loading="lazy">
+        </div>
+
+        
+        
+        <div id="story-form-container">
+            <div id="story-form">
+                <h2 style="margin-top: 0; color: #0f172a; font-size: 1.35rem; display: flex; align-items: center; gap: 8px;">
+                    <span class="material-symbols-outlined" style="color: #005EB8;">edit_document</span> Venue Details
+                </h2>
+                <p style="margin-bottom: 20px; color: #64748b; font-size: 0.95rem; line-height: 1.5;">
+                    Submissions are verified by our moderation team before appearing on the public interactive map.
+                </p>
+                
+                <form id="venue-submit-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="5e8c0ecb-4814-4029-9117-7bcfce550aea">
+                    <input type="hidden" name="subject" value="New Venue Submission - Bristol Hearing Loss Initiative">
+                    <input type="hidden" name="from_name" value="Bristol HLI Website">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    
+                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Venue Name *</label>
+                    <input type="text" name="venue-name" placeholder="e.g., Watershed, The Canteen, Bristol Beacon" required>
+                    
+                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Address or Neighbourhood *</label>
+                    <input type="text" name="location" placeholder="e.g., Harbourside, Stokes Croft, Clifton" required>
+                    
+                    <div class="checkbox-group">
+                        <strong style="display:block; margin-bottom: 12px; color: #0f172a;">Accessibility Features Tested:</strong>
+                        <label><input type="checkbox" name="has-induction-loop" value="yes"> Working T-Loop / Hearing Loop</label>
+                        <label><input type="checkbox" name="has-auracast" value="yes"> Auracast™ LE Audio Broadcast</label>
+                        <label><input type="checkbox" name="has-quiet-zone" value="yes"> Designated Low-Noise / Quiet Zone</label>
+                    </div>
+
+                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Personal Experience / Acoustic Notes</label>
+                    <textarea name="notes" rows="4" placeholder="How was the acoustic clarity? Was the staff helpful with setting up the hearing loop?"></textarea>
+                    
+                    <label style="display: block; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Your Name (Optional)</label>
+                    <input type="text" name="submitter-name" placeholder="e.g., Sarah S.">
+                    <span class="form-hint">Optional: so we can credit you on the venues directory!</span>
+                    
+                    <button type="submit" id="venue-submit-btn" style="background: #005EB8; color: white; border: none; padding: 14px 28px; font-size: 1.05rem; font-weight: 800; border-radius: 10px; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(0, 94, 184, 0.3); display: inline-flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined">send</span> Submit Venue for Review
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Navigation Footer -->
+        <nav class="back-to-journey-container" aria-label="Back Navigation" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 40px;">
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return to Journey Hub
+            </a>
+            <a href="path-support.html" class="back-to-journey-btn" style="background: #005EB8; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">diversity_3</span>
+                Visit Support Hub
+            </a>
+            <a href="path-accessible-venues.html" class="back-to-journey-btn" style="background: #0891B2; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">stadium</span>
+                View Bristol Venues Directory
+            </a>
+            <a href="venue-map.html" class="back-to-journey-btn" style="background: #005EB8; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">map</span>
+                Open Interactive Map
+            </a>
+            <a href="path-yes.html" class="back-to-journey-btn" style="background: #1e293b; color: white; display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 700;">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return to Journey Hub
+            </a>
+        </nav>
+            <footer class="hli-minimal-footer">
+            <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+        </footer>
+    </main>
+
+    <script>
+        const venueForm = document.getElementById('venue-submit-form');
+        if (venueForm) {
+            venueForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('venue-submit-btn');
+                if (btn) { btn.innerText = 'Sending...'; btn.disabled = true; }
+
+                const formData = new FormData(venueForm);
+                try {
+                    const response = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        const formDiv = document.getElementById('story-form-container');
+                        if (formDiv) {
+                            formDiv.innerHTML = `
+                                <div style="background: #e8f5e9; color: #2e7d32; padding: 30px; border-radius: 15px; border: 1px solid #c8e6c9; text-align: center; margin-bottom: 40px; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.1);">
+                                    <div style="font-size: 3rem; margin-bottom: 10px;">✓</div>
+                                    <h3 style="margin-top: 0; color: #2e7d32;">Thank You!</h3>
+                                    <p style="font-size: 1.1rem; line-height: 1.5;">Your venue submission has been received. Our team will review the accessibility details and add it to the Bristol map!</p>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        alert('Something went wrong submitting the form. Please try again.');
+                        if (btn) { btn.innerText = 'Submit Venue for Review'; btn.disabled = false; }
+                    }
+                } catch (err) {
+                    alert('Network error. Please check your connection and try again.');
+                    if (btn) { btn.innerText = 'Submit Venue for Review'; btn.disabled = false; }
+                }
+            });
+        }
+    </script>
+    <script src="script.js?v=36.0"></script>
+</body>
+</html>
+

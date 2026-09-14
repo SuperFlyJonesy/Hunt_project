@@ -14,11 +14,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .step-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 16px; border-radius: 14px; }
             .symbol-badge { display: inline-block; padding: 4px 10px; border-radius: 8px; font-weight: 800; font-size: 0.85rem; }
             .info-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 18px; border-radius: 14px; margin-top: 15px; }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
       
       <main id="main-content" class="container">

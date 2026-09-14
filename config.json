@@ -1,0 +1,15 @@
+{
+  "account": {
+    "total_balance_gbp": 3000,
+    "max_risk_per_trade_percent": 1.0
+  },
+  "watchlist": [
+    "BTC-USD",
+    "VWRP.L",
+    "VUSA.L"
+  ],
+  "technical_rules": {
+    "trend_sma": 200,
+    "pullback_sma": 50
+  }
+}

@@ -2,12 +2,18 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const projectRoot = path.resolve('c:/Users/BettyBoo/Projects/Hunt_project');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, '..');
 
 test('Landing Page Video Sizing & Dynamic Mask Coverage (Zero Black Borders)', async (t) => {
     const css = fs.readFileSync(path.join(projectRoot, 'styles.css'), 'utf8');
-    const indexHtml = fs.readFileSync(path.join(projectRoot, 'index.html'), 'utf8');
+    const indexPath = fs.existsSync(path.join(projectRoot, 'dist', 'index.html'))
+        ? path.join(projectRoot, 'dist', 'index.html')
+        : path.join(projectRoot, 'src', 'pages', 'index.astro');
+    const indexHtml = fs.readFileSync(indexPath, 'utf8');
 
     await t.test('1. index.html contains bg-video and stencil-svg-text in proper structure', () => {
         assert.ok(indexHtml.includes('id="bg-video"'), 'index.html must have #bg-video');

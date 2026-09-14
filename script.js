@@ -1073,7 +1073,7 @@ function initHubSearch() {
         'path-hearing-quiz.html': 'hearing quiz self assessment am i hard of hearing questionnaire questions score checklist symptoms signs test',
         'path-nhs.html': 'bristol nhs foundation trust hospital gp referral southmead hospital bri bristol royal infirmary audiology clinic ent ear nose throat appointments st michaels hospital uhbw nbt',
         'path-family-guide.html': 'family guide supporting family relatives partners children home communication dinner table syndrome habits face to face speaking clearly living with hard of hearing',
-        'path-awareness.html': 'awareness pace framework patience attention clarity eye contact communication tactics communication tips rules understanding hard of hearing elearning demo',
+        'path-awareness.html': 'awareness pace framework patience attention clarity eye contact communication tactics communication tips rules understanding hard of hearing bookmark',
         'path-join-outreach.html': 'join outreach volunteer volunteers greeter session host hearing loop helper peer supporter listener ambassador application email helping community charity',
         'path-join-us.html': 'join us community community initiative membership subscription a pardon an initiate a hunter gold standard wall of honour credits roll 3 6 12 support initiative',
         'path-stay-connected.html': 'stay connected community hub events upcoming meetups calendar auracast temple meads social media feeds instagram linkedin social group discussions',

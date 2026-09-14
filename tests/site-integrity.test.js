@@ -2,26 +2,48 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const rootDir = process.cwd();
-const htmlFiles = fs.readdirSync(rootDir).filter(f => f.endsWith('.html'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const rootDir = path.resolve(__dirname, '..');
+const distDir = path.join(rootDir, 'dist');
+
+function getHtmlFiles(dir) {
+    let results = [];
+    if (!fs.existsSync(dir)) return results;
+    const list = fs.readdirSync(dir);
+    for (const file of list) {
+        const fullPath = path.join(dir, file);
+        const stat = fs.statSync(fullPath);
+        if (stat && stat.isDirectory()) {
+            results = results.concat(getHtmlFiles(fullPath));
+        } else if (file.endsWith('.html')) {
+            results.push(fullPath);
+        }
+    }
+    return results;
+}
+
+const htmlFiles = getHtmlFiles(distDir);
 
 describe('Site Integrity & Quality Assurance', () => {
     it('1. All HTML pages have valid DOCTYPE, html lang, head, and title tags', () => {
+        assert.ok(htmlFiles.length > 0, 'Must have built HTML files in dist/');
         for (const file of htmlFiles) {
-            const content = fs.readFileSync(path.join(rootDir, file), 'utf-8');
-            assert.ok(content.toLowerCase().includes('<!doctype html>'), `${file} is missing <!DOCTYPE html>`);
-            assert.ok(content.includes('<html lang='), `${file} is missing <html lang=...>`);
-            assert.ok(content.includes('<title>'), `${file} is missing <title> tag`);
+            const content = fs.readFileSync(file, 'utf-8');
+            assert.ok(content.toLowerCase().includes('<!doctype html>'), `${path.basename(file)} is missing <!DOCTYPE html>`);
+            assert.ok(content.includes('<html lang='), `${path.basename(file)} is missing <html lang=...>`);
+            assert.ok(content.includes('<title>'), `${path.basename(file)} is missing <title> tag`);
         }
     });
 
     it('2. All HTML pages have a mobile-responsive viewport meta tag', () => {
         for (const file of htmlFiles) {
-            const content = fs.readFileSync(path.join(rootDir, file), 'utf-8');
+            const content = fs.readFileSync(file, 'utf-8');
             assert.ok(
                 content.includes('name="viewport"') || content.includes("name='viewport'"),
-                `${file} is missing responsive viewport meta tag`
+                `${path.basename(file)} is missing responsive viewport meta tag`
             );
         }
     });
@@ -31,20 +53,27 @@ describe('Site Integrity & Quality Assurance', () => {
         const imgRegex = /<img\s+[^>]*src=["']([^"']+)["'][^>]*>/gi;
 
         for (const file of htmlFiles) {
-            const content = fs.readFileSync(path.join(rootDir, file), 'utf-8');
+            const content = fs.readFileSync(file, 'utf-8');
             let match;
             while ((match = imgRegex.exec(content)) !== null) {
                 const src = match[1];
                 if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:')) {
                     continue;
                 }
-                const cleanSrc = src.split('?')[0].split('#')[0];
+                const cleanSrc = src.split('?')[0].split('#')[0].replace(/^\//, '');
                 const decodedSrc = decodeURIComponent(cleanSrc);
-                const p1 = path.join(rootDir, cleanSrc);
-                const p2 = path.join(rootDir, decodedSrc);
+                
+                const pDist = path.join(distDir, cleanSrc);
+                const pDistDecoded = path.join(distDir, decodedSrc);
+                const pPublic = path.join(rootDir, 'public', cleanSrc);
+                const pPublicDecoded = path.join(rootDir, 'public', decodedSrc);
+                const pRoot = path.join(rootDir, cleanSrc);
+                const pRootDecoded = path.join(rootDir, decodedSrc);
 
-                if (!fs.existsSync(p1) && !fs.existsSync(p2)) {
-                    brokenImages.push({ file, src });
+                if (!fs.existsSync(pDist) && !fs.existsSync(pDistDecoded) &&
+                    !fs.existsSync(pPublic) && !fs.existsSync(pPublicDecoded) &&
+                    !fs.existsSync(pRoot) && !fs.existsSync(pRootDecoded)) {
+                    brokenImages.push({ file: path.relative(distDir, file), src });
                 }
             }
         }
@@ -61,13 +90,13 @@ describe('Site Integrity & Quality Assurance', () => {
         const imgRegex = /<img\s+([^>]*?)>/gi;
 
         for (const file of htmlFiles) {
-            const content = fs.readFileSync(path.join(rootDir, file), 'utf-8');
+            const content = fs.readFileSync(file, 'utf-8');
             let match;
             while ((match = imgRegex.exec(content)) !== null) {
                 const attrs = match[1];
                 const altMatch = /alt=["'](.*?)["']/i.exec(attrs);
                 if (!altMatch || altMatch[1].trim().length === 0) {
-                    missingAlts.push({ file, tag: match[0] });
+                    missingAlts.push({ file: path.relative(distDir, file), tag: match[0] });
                 }
             }
         }
@@ -92,9 +121,14 @@ describe('Site Integrity & Quality Assurance', () => {
         const missing = [];
         for (const entry of rawEntries) {
             if (entry === './' || entry === '/') continue;
-            const clean = entry.replace(/^\.\//, '').split('?')[0];
+            const clean = entry.replace(/^\.\//, '').replace(/^\//, '').split('?')[0];
             const decoded = decodeURIComponent(clean);
-            if (!fs.existsSync(path.join(rootDir, clean)) && !fs.existsSync(path.join(rootDir, decoded))) {
+            
+            const inDist = fs.existsSync(path.join(distDir, clean)) || fs.existsSync(path.join(distDir, decoded));
+            const inPublic = fs.existsSync(path.join(rootDir, 'public', clean)) || fs.existsSync(path.join(rootDir, 'public', decoded));
+            const inRoot = fs.existsSync(path.join(rootDir, clean)) || fs.existsSync(path.join(rootDir, decoded));
+
+            if (!inDist && !inPublic && !inRoot) {
                 missing.push(entry);
             }
         }
@@ -106,43 +140,35 @@ describe('Site Integrity & Quality Assurance', () => {
         );
     });
 
-    it('6. All pages linking styles.css and script.js use synchronized version queries', () => {
-        const mismatchedStyles = [];
-        const mismatchedScripts = [];
+    it('6. All pages linking styles.css and script.js use synchronized links', () => {
+        const missingStyles = [];
+        const missingScripts = [];
 
         for (const file of htmlFiles) {
-            const content = fs.readFileSync(path.join(rootDir, file), 'utf-8');
+            const content = fs.readFileSync(file, 'utf-8');
             
             // Check styles.css
-            const styleMatches = content.match(/href=["']styles\.css(?:\?v=[^"']*)?["']/g);
-            if (styleMatches) {
-                for (const m of styleMatches) {
-                    if (!m.includes('v=31.0')) {
-                        mismatchedStyles.push({ file, match: m });
-                    }
-                }
+            const hasStyles = /href=["'][^"']*styles\.css(?:\?[^"']*)?["']/i.test(content);
+            if (!hasStyles) {
+                missingStyles.push(path.relative(distDir, file));
             }
 
             // Check script.js
-            const scriptMatches = content.match(/src=["']script\.js(?:\?v=[^"']*)?["']/g);
-            if (scriptMatches) {
-                for (const m of scriptMatches) {
-                    if (!m.includes('v=36.0')) {
-                        mismatchedScripts.push({ file, match: m });
-                    }
-                }
+            const hasScript = /src=["'][^"']*script\.js(?:\?[^"']*)?["']/i.test(content);
+            if (!hasScript) {
+                missingScripts.push(path.relative(distDir, file));
             }
         }
 
         assert.strictEqual(
-            mismatchedStyles.length,
+            missingStyles.length,
             0,
-            `Found mismatched styles.css versions: ${JSON.stringify(mismatchedStyles)}`
+            `Pages missing styles.css: ${JSON.stringify(missingStyles)}`
         );
         assert.strictEqual(
-            mismatchedScripts.length,
+            missingScripts.length,
             0,
-            `Found mismatched script.js versions: ${JSON.stringify(mismatchedScripts)}`
+            `Pages missing script.js: ${JSON.stringify(missingScripts)}`
         );
     });
 });

@@ -2,13 +2,30 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const projectRoot = path.resolve('c:/Users/BettyBoo/Projects/Hunt_project');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, '..');
+
+function getHtmlFiles(dir) {
+    let results = [];
+    const list = fs.readdirSync(dir);
+    for (const file of list) {
+        const fullPath = path.join(dir, file);
+        const stat = fs.statSync(fullPath);
+        if (stat && stat.isDirectory()) {
+            results = results.concat(getHtmlFiles(fullPath));
+        } else if (file.endsWith('.html')) {
+            results.push(fullPath);
+        }
+    }
+    return results;
+}
 
 test('Global "It Goes To 11" Video Player Standard', async (t) => {
-    const htmlFiles = fs.readdirSync(projectRoot)
-        .filter(f => f.endsWith('.html'))
-        .map(f => path.join(projectRoot, f));
+    const distDir = path.join(projectRoot, 'dist');
+    const htmlFiles = fs.existsSync(distDir) ? getHtmlFiles(distDir) : [];
 
     await t.test('1. Zero raw inline <iframe> embeds remain across the site', () => {
         const filesWithRawIframes = [];
@@ -58,11 +75,14 @@ test('Global "It Goes To 11" Video Player Standard', async (t) => {
         assert.ok(scriptContent.includes('youtube-nocookie.com/embed/'), 'script.js must use youtube-nocookie.com');
     });
 
-    await t.test('4. path-it-goes-to-11.html maintains its 5 signature videos', () => {
-        const content = fs.readFileSync(path.join(projectRoot, 'path-it-goes-to-11.html'), 'utf8');
+    await t.test('4. path-it-goes-to-11 maintains its 5 signature videos', () => {
+        const filePath = fs.existsSync(path.join(distDir, 'path-it-goes-to-11', 'index.html'))
+            ? path.join(distDir, 'path-it-goes-to-11', 'index.html')
+            : path.join(projectRoot, 'src', 'pages', 'path-it-goes-to-11.astro');
+        const content = fs.readFileSync(filePath, 'utf8');
         const expectedIds = ['KOO5S4vxi0o', 'OAhTI4AltXE', 'i-mwl_K-pFA', '7my5baoCVv8', 'mKrWFkAuvOA'];
         for (const id of expectedIds) {
-            assert.ok(content.includes(id), `path-it-goes-to-11.html must retain video ${id}`);
+            assert.ok(content.includes(id), `path-it-goes-to-11 must retain video ${id}`);
         }
     });
 

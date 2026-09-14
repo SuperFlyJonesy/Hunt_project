@@ -36,11 +36,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .dl-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 8px 14px; border-radius: 16px; font-size: 0.82rem; font-weight: 700; text-decoration: none; color: white; background: #005EB8; flex: 1; text-align: center; }
             .dl-btn.green-btn { background: #1b5e20; }
             .dl-btn.pink-btn { background: #ff0f5b; }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
   
       <main class="container" id="main-content">
@@ -238,33 +238,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                               </div>
                           </div>
   
-                          <!-- Resource 6: Interactive PACE E-Learning Demo -->
-                          <div class="download-card-item" style="border-left: 4px solid #1B5E20; background: #f0fdf4;">
-                              <div style="text-align: center; margin: 10px 0 10px 0; color: #1B5E20;">
-                                  <span class="material-symbols-outlined" style="font-size: 3.5rem;">laptop_chromebook</span>
-                              </div>
-                              <h4 style="color: #1B5E20;">Interactive PACE E-Learning Demo</h4>
-                              <p>Interactive digital learning module covering hearing loss awareness, lived experience, and the 4 PACE principles.</p>
-                              <div class="dl-actions">
-                                  <a href="/path-elearning" class="dl-btn green-btn" style="width: 100%; text-align: center;">▶ Launch Interactive Demo</a>
-                              </div>
-                          </div>
-  
-                          <!-- Resource 7: Printable "I Lipread" Communication Wallet Card -->
+                          <!-- Resource: Printable PACE Bookmark -->
                           <div class="download-card-item" style="border-left: 4px solid #005EB8; background: #f8fafc;">
-                              <div style="border: 2px dashed #005EB8; border-radius: 12px; padding: 14px; background: #ffffff; text-align: center; margin-bottom: 12px;">
-                                  <span style="background: #005EB8; color: white; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Bristol Assistance Card</span>
-                                  <h4 style="margin: 8px 0 4px 0; color: #0f172a; font-size: 1.05rem; font-weight: 900;">I Am Hard of Hearing / Deaf</h4>
-                                  <p style="margin: 0; font-size: 0.88rem; color: #475569; line-height: 1.4;">
-                                      Please face me when speaking.<br>
-                                      Speak clearly &bull; Don't shout &bull; Be patient.
-                                  </p>
+                              <div style="border: 2px dashed #005EB8; border-radius: 12px; padding: 14px 16px; background: #ffffff; text-align: center; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                                  <span style="background: #005EB8; color: white; font-size: 0.72rem; font-weight: 900; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;">PACE Bookmark</span>
+                                  <h4 style="margin: 8px 0 6px 0; color: #0f172a; font-size: 1.05rem; font-weight: 900;">PACE Communication Reminder</h4>
+                                  <div style="font-size: 0.84rem; color: #334155; line-height: 1.55; text-align: left; display: inline-block; margin: 4px auto 0 auto;">
+                                      <div><strong>P</strong> &ndash; <strong>Patience:</strong> Allow time to respond</div>
+                                      <div><strong>A</strong> &ndash; <strong>Attention:</strong> Face me before speaking</div>
+                                      <div><strong>C</strong> &ndash; <strong>Clarity:</strong> Speak clearly, don't shout</div>
+                                      <div><strong>E</strong> &ndash; <strong>Eye Contact:</strong> Good lighting &amp; sightline</div>
+                                  </div>
                               </div>
-                              <h4 style="color: #005EB8;">Printable Communication Wallet Card</h4>
-                              <p>Show staff on First Bus routes, shop counters, and GP reception desks to prompt face-to-face communication.</p>
+                              <h4 style="color: #005EB8;">Printable PACE Bookmark</h4>
+                              <p>Print and cut out this handy PACE reminder bookmark for books, work planners, or to share with family and colleagues.</p>
                               <div class="dl-actions">
                                   <button type="button" onclick="window.print()" class="dl-btn" style="background: #005EB8; color: white; width: 100%; cursor: pointer; border: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">print</span> Print Wallet Card
+                                      <span class="material-symbols-outlined" style="font-size: 1.1rem;">print</span> Print PACE Bookmark
                                   </button>
                               </div>
                           </div>

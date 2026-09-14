@@ -43,7 +43,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     
             .cta-button { background: #005EB8; color: white; padding: 10px 16px; text-decoration: none; border-radius: 8px; display: block; margin: 6px 0; font-weight: 700; text-align: center; font-size: 0.88rem; }
             .cta-button:hover { opacity: 0.92; }
-            #dev-reset { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); color: black; background: transparent; border: none; opacity: 0.15; cursor: pointer; z-index: 99999999; padding: 10px; font-weight: bold; }
+            
 
             /* Lightbox Modal & Zoom */
             .lightbox-modal {
@@ -136,7 +136,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </style>
 
   
-      <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}">R</button>
+      
       <a href="/path-about" id="btn-support" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #ff0f5b; color: white; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 8px; font-size: 0.9rem;">About Us</a>
       
       <main id="main-content" class="container">

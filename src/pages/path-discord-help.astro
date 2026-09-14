@@ -47,20 +47,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             #hli-logo.about-logo-top:hover {
                 transform: scale(1.05);
             }
-            #dev-reset {
-                color: #000000;
-                background: transparent;
-                border: none;
-                opacity: 0.2;
-                cursor: pointer;
-                padding: 6px 8px;
-                font-weight: 800;
-                font-size: 0.95rem;
-                transition: opacity 0.2s ease;
-            }
-            #dev-reset:hover {
-                opacity: 0.85;
-            }
+            
+            
     
             @media (max-width: 768px) {
                 #hli-logo.about-logo-top {
@@ -68,11 +56,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     top: 12px;
                     left: 12px;
                 }
-                #dev-reset {
-                    left: 6px;
-                    font-size: 0.85rem;
-                    padding: 6px;
-                }
+                
             }
   </style>
 
@@ -80,7 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       
       <div class="about-logo-wrapper">
           <img src="/Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative">
-          <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}" title="Dev Reset">R</button>
+          
       </div>
   
       <!-- Top-Right About Us Button -->

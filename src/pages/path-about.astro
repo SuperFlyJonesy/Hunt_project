@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="About Us - Bristol Hearing Loss Initiative"
-  description="Learn about the Bristol Hearing Loss Initiative, founded by Jason to empower hard-of-hearing adults through lived experience, advocacy, initiate peer support, and accessible venues."
+  description="Learn about the Bristol Hearing Loss Initiative, founded by JP to empower hard of hearing adults through lived experience, advocacy, peer support, and accessible venues."
   bodyClass="premium-white-theme"
 >
   <style is:global>
@@ -120,20 +120,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             #hli-logo.about-logo-top:hover {
                 transform: scale(1.05);
             }
-            #dev-reset {
-                color: #000000;
-                background: transparent;
-                border: none;
-                opacity: 0.2;
-                cursor: pointer;
-                padding: 6px 8px;
-                font-weight: 800;
-                font-size: 0.95rem;
-                transition: opacity 0.2s ease;
-            }
-            #dev-reset:hover {
-                opacity: 0.85;
-            }
+            
+            
     
             @media (max-width: 768px) {
                 #hli-logo.about-logo-top {
@@ -141,11 +129,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                     top: 12px;
                     left: 12px;
                 }
-                #dev-reset {
-                    left: 6px;
-                    font-size: 0.85rem;
-                    padding: 6px;
-                }
+                
             }
   </style>
 
@@ -153,7 +137,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       
       <div class="about-logo-wrapper">
           <img src="/Contents/Branding Images/HLI logo Black.png" alt="Hearing Loss Initiative Logo" id="hli-logo" class="about-logo-top" title="Bristol Hearing Loss Initiative (Founder Admin)">
-          <button id="dev-reset" onclick="if(window.resetAppSession){window.resetAppSession();}else{localStorage.removeItem('hasVisitedHub');window.location.href='/';}" title="Dev Reset">R</button>
+          
       </div>
   
       <!-- Top-Right Support Us Button -->
@@ -184,7 +168,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </div>
                   <div class="stat-card-top">
                       <div class="stat-num-big" style="color: #059669;">100% Free</div>
-                      <div class="stat-label-big">Grassroots, initiative-led, and open-access guides for all Bristol residents</div>
+                      <div class="stat-label-big">Grassroots initiative and open access guides for all Bristol residents</div>
                   </div>
               </div>
           </section>
@@ -193,32 +177,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <section style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 18px; padding: 30px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
                   <span class="material-symbols-outlined" style="color: #005EB8; font-size: 2rem;">flag</span>
-                  <h2 style="margin: 0; color: #0f172a; font-size: 1.4rem;">Our Mission &amp; Lived Experience</h2>
+                  <h2 style="margin: 0; color: #0f172a; font-size: 1.4rem;">Our Mission and Lived Experience</h2>
               </div>
               
-              <p style="font-size: 1.05rem; color: #334155; line-height: 1.65; margin-bottom: 14px;">
-                  Hi, I am <strong>Jason</strong>. As a former Centre for Deaf and Hard of Hearing People (CfD) specialist and lifelong hearing loss initiate, I understand firsthand the barriers, communication fatigue, frustration, and isolation that can accompany hearing loss in daily life.
+              <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 14px;">
+                  Hi, my name is <strong>JP</strong>. As a former Centre for Deaf and Hard of Hearing People (CfD) Specialist Communications and Engagement Officer, and someone who has lived with hearing loss for over 25 years, I understand firsthand the daily communication fatigue, frustration, isolation, and unspoken emotional challenges that come with losing one of your senses.
               </p>
-              <p style="font-size: 1.05rem; color: #334155; line-height: 1.65; margin-bottom: 20px;">
-                  I founded the <strong>Hearing Loss Initiative</strong> to build the bridge that was missing in Bristol: connecting NHS clinical care with practical real-world support, verified assistive listening technology (including Bluetooth Auracast), acoustic venue auditing, and welcoming peer connection.
+              <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 14px;">
+                  I founded the <strong>Bristol Hearing Loss Initiative</strong> to build a bridge within our community with a clear mission: <strong>to make wearing hearing aids as normalised and widely accepted as wearing eyeglasses, with zero stigma attached.</strong>
+              </p>
+              <p style="font-size: 1.05rem; color: #334155; line-height: 1.7; margin-bottom: 20px;">
+                  Hearing loss does not only affect older generations. Our mission supports all types of hearing challenges, including young people, working adults, sudden loss, and tinnitus. Coming to terms with changes in your hearing can be tough. I want to use my 25 years of lived experience to give back, guiding people across Bristol and the UK to free NHS audiology care, supporting families with practical understanding, helping local venues become truly accessible, and welcoming new audio technology like Bluetooth Auracast and AI speech clarity so that nobody has to feel isolated.
               </p>
   
               <div class="grid-2col">
                   <div class="info-box">
-                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">👂 Lived Experience First</h4>
-                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Every guide, checklist, and roadmap is shaped by authentic lived experience with digital hearing aids, lipreading, and listening strain.</p>
+                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">👓 Zero Stigma Normalisation</h4>
+                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Treating hearing aids with the same effortless acceptance as eyeglasses, removing shame and celebrating clarity.</p>
                   </div>
                   <div class="info-box">
-                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🏛️ Bristol-Wide Access</h4>
-                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Auditing local venues &amp; assessments (coming soon), verifying hearing loops, and championing quiet acoustics across the city.</p>
+                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">👂 All Ages and Hearing Journeys</h4>
+                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Supporting young people, adults, families, and anyone living with tinnitus through every stage of hearing change.</p>
                   </div>
                   <div class="info-box">
-                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🤝 Peer Connection &amp; Support</h4>
-                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Providing peer support, meetups (coming soon), and warm spaces where nobody has to struggle or nod along in silence.</p>
+                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🏛️ Accessible Venues and Workplaces</h4>
+                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Working with Bristol venues and employers on clear acoustics, hearing loops, and confident workplace communication.</p>
                   </div>
                   <div class="info-box">
-                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">💡 Practical Education</h4>
-                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Equipping employers, families, and venues with the practical <strong>PACE</strong> communication framework and awareness workshops (coming soon).</p>
+                      <h4 style="margin: 0 0 6px 0; color: #0f172a; font-weight: 800;">🚀 Next Generation Audio Tech</h4>
+                      <p style="margin: 0; font-size: 0.92rem; color: #334155; line-height: 1.5;">Sharing updates on Bluetooth Auracast broadcasts, AI noise reduction, and modern NHS hearing aids.</p>
                   </div>
               </div>
           </section>
@@ -229,17 +216,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <span class="info-badge badge-blue">Initiative Growth</span>
                   <h2 style="font-size: 1.8rem; color: #0f172a; margin: 0 0 8px 0;">Grassroots Initiative</h2>
                   <p style="color: #64748b; font-size: 1rem; max-width: 700px; margin: 0 auto; line-height: 1.5;">
-                      Founded by Jason to build an active peer group and accessible spaces across Greater Bristol.
+                      Founded by JP to build an active peer group and accessible spaces across Greater Bristol.
                   </p>
               </div>
   
               <div style="max-width: 720px; margin: 0 auto;">
                   <div class="team-card" style="text-align: center; padding: 28px;">
-                      <img src="/Contents/Profile Pictures/jason-photo.jpg" alt="Jason - Founder" class="team-avatar avatar-founder" style="margin: 0 auto 14px auto;" loading="lazy">
+                      <img src="/Contents/Profile Pictures/jason-photo.jpg" alt="JP, Founder" class="team-avatar avatar-founder" style="margin: 0 auto 14px auto;" loading="lazy">
                       <span class="role-tag" style="background: #e0f2fe; color: #005EB8;">Founder</span>
-                      <h3 style="margin: 0 0 8px 0; color: #0f172a; font-size: 1.3rem;">Jason</h3>
+                      <h3 style="margin: 0 0 8px 0; color: #0f172a; font-size: 1.3rem;">JP</h3>
                       <p style="margin: 0; font-size: 0.96rem; color: #475569; line-height: 1.6;">
-                          Digital accessibility communicator, former CfD specialist, and lifelong hearing aid user. Running this initiative as an independent grassroots project to establish regular evening peer meetups in Bristol.
+                          Former Centre for Deaf and Hard of Hearing People (CfD) Specialist Communications and Engagement Officer with 25 years of lived experience with hearing loss and hearing aids. Running this grassroots initiative to normalise hearing health, eliminate stigma, and establish regular evening peer meetups in Bristol.
                       </p>
                   </div>
               </div>
@@ -253,26 +240,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </span>
               </div>
               
-              <h2 style="font-size: 1.7rem; color: #ffffff; margin: 8px 0 14px 0;">Looking for Collaborators &amp; Co-Founders</h2>
+              <h2 style="font-size: 1.7rem; color: #ffffff; margin: 8px 0 14px 0;">Looking for Collaborators and Co-Founders</h2>
               <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.6; max-width: 820px; margin-bottom: 22px;">
-                  The Bristol Hearing Loss Initiative is evolving from an initial grassroots prototype into a comprehensive city-wide platform. As we scale into in-person workshops, venue accreditations, and funding partnerships, Founder <strong>Jason</strong> is actively looking for passionate people to join and help shape the next stage:
+                  The Bristol Hearing Loss Initiative is evolving from an initial grassroots prototype into a comprehensive citywide platform. As we scale into in-person workshops, venue accreditations, and funding partnerships, Founder <strong>JP</strong> is actively looking for passionate people to join and help shape the next stage:
               </p>
   
               <div class="grid-2col" style="margin-bottom: 25px;">
                   <div class="collaborate-pill">
-                      <strong style="color: #38bdf8; display: block; margin-bottom: 4px;">🤝 Co-Founders &amp; Operations</strong>
-                      Partners passionate about non-profit scaling, grant funding, and network partnerships.
+                      <strong style="color: #38bdf8; display: block; margin-bottom: 4px;">🤝 Co-Founders and Operations</strong>
+                      Partners passionate about community scaling, grant funding, and network partnerships.
                   </div>
                   <div class="collaborate-pill">
-                      <strong style="color: #4ade80; display: block; margin-bottom: 4px;">💻 Technical &amp; Design Leads</strong>
-                      Developers, UI/UX designers, and audio tech testers eager to build innovative accessibility tools.
+                      <strong style="color: #4ade80; display: block; margin-bottom: 4px;">💻 Technical and Design Leads</strong>
+                      Developers, UI designers, and audio tech testers eager to build innovative accessibility tools.
                   </div>
                   <div class="collaborate-pill">
-                      <strong style="color: #fbbf24; display: block; margin-bottom: 4px;">☕ Peer &amp; Event Hosts</strong>
-                      Hard-of-hearing advocates to facilitate local peer groups and coffee meetups across Bristol.
+                      <strong style="color: #fbbf24; display: block; margin-bottom: 4px;">☕ Peer and Event Hosts</strong>
+                      Hard of hearing advocates to facilitate local peer groups and coffee meetups across Bristol.
                   </div>
                   <div class="collaborate-pill">
-                      <strong style="color: #f472b6; display: block; margin-bottom: 4px;">🏛️ Venue &amp; Business Liaisons</strong>
+                      <strong style="color: #f472b6; display: block; margin-bottom: 4px;">🏛️ Venue and Business Liaisons</strong>
                       Ambassadors to connect with Bristol venues, employers, and NHS clinics for accessibility audits.
                   </div>
               </div>
@@ -310,9 +297,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   <a href="/path-join-us" class="btn-action btn-green">
                       <span class="material-symbols-outlined">forum</span> Join the Initiate Portal &rarr;
                   </a>
-                  <a href="/path-support" class="btn-action btn-blue">
-                      <span class="material-symbols-outlined">groups</span> Explore Support Hub &rarr;
-                  </a>
               </div>
           </section>
   
@@ -327,11 +311,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   Back to Support Hub
               </a>
           </nav>
-              <footer class="hli-minimal-footer">
-              <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Unincorporated Non-Profit</span>
+          <footer class="hli-minimal-footer">
+              <span>&copy; 2026 Bristol Hearing Loss Initiative &bull; Community Initiative</span>
           </footer>
       </main>
-  
-      
-      
 </BaseLayout>

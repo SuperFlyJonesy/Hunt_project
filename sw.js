@@ -1,22 +1,16 @@
 // Service Worker for Bristol Hearing Loss Initiative
 // Offline-first caching for essential pathways and core UI assets
-const CACHE_NAME = 'hli-cache-v2';
+const CACHE_NAME = 'hli-cache-v3';
 
 const CORE_ASSETS = [
-  './',
-  './index.html',
-  './path-yes.html',
-  './path-support.html',
-  './path-about.html',
-  './path-hearing-aids.html',
-  './path-hearing-tests.html',
-  './path-tinnitus.html',
-  './styles.css?v=31.0',
-  './script.js?v=36.0',
-  './manifest.json',
-  './Contents/Pictures/Favicon.png',
-  './Contents/Branding%20Images/HLI%20logo%20Black.png',
-  './Contents/Branding%20Images/HLI%20Logo%20White.png'
+  '/',
+  '/index.html',
+  '/styles.css?v=31.0',
+  '/script.js?v=36.0',
+  '/manifest.json',
+  '/Contents/Pictures/Favicon.png',
+  '/Contents/Branding%20Images/HLI%20logo%20Black.png',
+  '/Contents/Branding%20Images/HLI%20Logo%20White.png'
 ];
 
 // Install Event
@@ -71,7 +65,7 @@ self.addEventListener('fetch', (event) => {
           }
           // If HTML navigation fails offline, fallback to index
           if (event.request.headers.get('accept')?.includes('text/html')) {
-            return caches.match('./path-yes.html') || caches.match('./index.html');
+            return caches.match('/') || caches.match('/index.html');
           }
         });
       })
