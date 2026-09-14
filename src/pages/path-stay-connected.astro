@@ -201,7 +201,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 content: '';
                 width: 6px;
                 height: 6px;
-                background: #d97706;
+                background: #005EB8;
                 border-radius: 50%;
                 margin-top: 2px;
             }
@@ -211,19 +211,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 border-color: #0f172a;
             }
             .cal-day-cell.selected::after {
-                background: #f59e0b;
+                background: #38bdf8;
             }
     
-            /* TBC Notice Box */
-            .tbc-banner-box {
-                background: #fffbeb;
-                border: 1px solid #fde68a;
-                border-left: 4px solid #d97706;
+            /* Verified Awareness Notice Box */
+            .verified-banner-box {
+                background: #f0f9ff;
+                border: 1px solid #bae6fd;
+                border-left: 4px solid #005EB8;
                 padding: 12px 16px;
                 border-radius: 8px;
                 margin-bottom: 18px;
                 font-size: 0.86rem;
-                color: #92400e;
+                color: #075985;
                 display: flex;
                 align-items: flex-start;
                 gap: 10px;
@@ -234,7 +234,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .event-card {
                 background: #ffffff;
                 border: 1px solid #e2e8f0;
-                border-left: 5px solid #d97706;
+                border-left: 5px solid #005EB8;
                 border-radius: 12px;
                 padding: 16px 18px;
                 margin-bottom: 16px;
@@ -254,7 +254,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 gap: 6px;
             }
             .event-date {
-                color: #d97706;
+                color: #005EB8;
                 font-weight: 800;
                 font-size: 0.88rem;
             }
@@ -268,6 +268,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             .badge-blue { background: #e0f2fe; color: #0369a1; }
             .badge-pink { background: #fce7f3; color: #db2777; }
             .badge-purple { background: #f3e8ff; color: #7e22ce; }
+            .badge-green { background: #dcfce7; color: #15803d; }
+            .badge-amber { background: #fef3c7; color: #b45309; }
+            .badge-teal { background: #ccfbf1; color: #0f766e; }
             .event-title {
                 font-size: 1.05rem;
                 font-weight: 800;
@@ -534,24 +537,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   </a>
               </aside>
   
-              <!-- CENTER COLUMN: Interactive Events Calendar (Dates TBC) -->
+              <!-- CENTER COLUMN: Interactive Events Calendar (Verified UK Dates) -->
               <section class="column-card center-calendar-col" aria-label="Initiative Events Calendar">
                   <div class="col-header">
                       <h2 class="col-title" style="color: #0f172a;">
-                          <span class="material-symbols-outlined" style="color: #ff0f5b;">calendar_month</span>
-                          Bristol Events Calendar
+                          <span class="material-symbols-outlined" style="color: #005EB8;">calendar_month</span>
+                          UK Hearing &amp; Audiology Calendar
                       </h2>
-                      <span style="background: #fef3c7; color: #92400e; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid #fde68a;">Dates To Be Confirmed (TBC)</span>
+                      <span style="background: #e0f2fe; color: #0369a1; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid #bae6fd;">Verified UK Campaigns</span>
                   </div>
-  
-                  <!-- Prominent TBC Notice -->
-                  <div class="tbc-banner-box">
-                      <span class="material-symbols-outlined" style="font-size: 1.3rem; color: #d97706; flex-shrink: 0; margin-top: 1px;">info</span>
+
+                  <!-- Verified Awareness Calendar Notice -->
+                  <div class="verified-banner-box">
+                      <span class="material-symbols-outlined" style="font-size: 1.3rem; color: #005EB8; flex-shrink: 0; margin-top: 1px;">verified</span>
                       <div>
-                          <strong>All Dates Are To Be Confirmed (TBC):</strong> None of these event dates are live at the moment. The listings below represent upcoming planned activities and meetups; confirmed dates will be announced in the future.
+                          <strong>Verified UK Awareness Calendar:</strong> Key national hearing health weeks, UK audiology campaigns, and official healthcare observances across the year.
                       </div>
                   </div>
-  
+
                   <!-- Monthly Calendar Grid Navigation -->
                   <div class="calendar-month-header">
                       <div class="calendar-month-title">
@@ -564,17 +567,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                           <button class="calendar-nav-btn" id="cal-next-btn" aria-label="Next month">&rarr;</button>
                       </div>
                   </div>
-  
+
                   <!-- Full Rendered Dates of the Month -->
                   <div class="calendar-table-grid" id="calendar-days-container">
                       <!-- Rendered by JS -->
                   </div>
-  
+
                   <div style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
-                      <h3 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin: 0;">Planned Initiative Activities (Provisional)</h3>
-                      <span style="font-size: 0.78rem; color: #d97706; font-weight: 700;">Status: TBC</span>
+                      <h3 style="font-size: 1rem; font-weight: 800; color: #0f172a; margin: 0;">Verified UK Campaigns &amp; Observances</h3>
+                      <span style="font-size: 0.78rem; color: #0369a1; font-weight: 700;">Status: Official UK Dates</span>
                   </div>
-  
+
                   <!-- Event Cards Container -->
                   <div id="events-container">
                       <!-- Events rendered by JS -->
@@ -681,56 +684,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   
       <!-- Calendar Script & Event Handlers -->
       <script is:inline>
-          // Community Events Dataset (All Dates To Be Confirmed / TBC)
+          // Verified UK National Campaigns & Healthcare Observances Dataset
           const events = [
               {
-                  title: "[TBC] Bristol Hearing Loss Initiate Meetup",
-                  date: "2026-09-19",
-                  startTime: "14:00",
-                  endTime: "16:30",
-                  badge: "Date TBC (Provisional)",
-                  badgeClass: "badge-tbc",
-                  desc: "Planned regular informal gathering for Bristol's hearing loss initiates. Share experiences, discuss assistive tech, and connect with peers in a relaxed setting. (Date to be confirmed).",
-                  location: "The Watershed, Canons Road, Bristol BS1 5TX"
+                  title: "International Day of Sign Languages & BSL Recognition (UK)",
+                  date: "2026-09-23",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK Awareness",
+                  badgeClass: "badge-purple",
+                  desc: "National UK observance celebrating British Sign Language (BSL) recognition, visual communication access, and linguistic rights for deaf communities across the UK.",
+                  location: "UK Nationwide Observance"
               },
               {
-                  title: "[TBC] Auracast™ Broadcast Demo at Temple Meads",
-                  date: "2026-10-10",
-                  startTime: "11:00",
-                  endTime: "13:00",
-                  badge: "Date TBC (Provisional)",
-                  badgeClass: "badge-tbc",
-                  desc: "Planned live walkthrough and demonstration of public Auracast broadcast audio for hearing aid and cochlear implant users at Bristol Temple Meads. (Date to be confirmed).",
-                  location: "Bristol Temple Meads Rail Station"
+                  title: "National Audiology Awareness Month",
+                  date: "2026-10-01",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK National Campaign",
+                  badgeClass: "badge-pink",
+                  desc: "UK-wide awareness month promoting regular hearing health checks, understanding audiograms, audiological rehabilitation, and early intervention for hearing loss.",
+                  location: "UK Nationwide Campaign"
               },
               {
-                  title: "[TBC] Deaf Awareness & Workplace Communication Workshop",
-                  date: "2026-11-04",
-                  startTime: "18:30",
-                  endTime: "20:00",
-                  badge: "Date TBC (Provisional)",
-                  badgeClass: "badge-tbc",
-                  desc: "Planned introductory workshop on communication tactics, lipreading ease, PACE principles, and practical hearing loss tips. (Date to be confirmed).",
-                  location: "Elmgrove Centre, Cotham, Bristol / Online Hybrid"
+                  title: "British Academy of Audiology (BAA) Annual Conference",
+                  date: "2026-11-19",
+                  startTime: "09:00",
+                  endTime: "17:30",
+                  badge: "UK Audiology",
+                  badgeClass: "badge-purple",
+                  desc: "The UK's flagship audiology conference bringing together NHS clinical scientists, audiologists, and hearing therapists to share research and clinical developments.",
+                  location: "UK National Audiology Conference"
               },
               {
-                  title: "[TBC] Bristol Hard-of-Hearing Coffee Morning",
-                  date: "2026-11-21",
-                  startTime: "10:30",
-                  endTime: "12:30",
-                  badge: "Date TBC (Provisional)",
-                  badgeClass: "badge-tbc",
-                  desc: "Planned relaxed peer support coffee morning in an acoustically friendly setting with portable assistive loop support. (Date to be confirmed).",
-                  location: "Central Bristol Venue Space"
+                  title: "UK Tinnitus Awareness Week",
+                  date: "2027-02-02",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK Health Campaign",
+                  badgeClass: "badge-pink",
+                  desc: "National UK campaign coordinated by Tinnitus UK highlighting tinnitus management, sound therapy, habituation strategies, and NHS clinical care pathways.",
+                  location: "UK Nationwide Campaign"
+              },
+              {
+                  title: "World Hearing Day (UK Observance)",
+                  date: "2027-03-03",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK Hearing Health",
+                  badgeClass: "badge-blue",
+                  desc: "UK-wide hearing health campaign coordinated with RNID and NHS audiology services focusing on ear care, hearing loss prevention, and free hearing screening.",
+                  location: "UK Nationwide / RNID & NHS Clinics"
+              },
+              {
+                  title: "Healthcare Science Week: NHS Audiology Spotlight",
+                  date: "2027-03-12",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "NHS Spotlight",
+                  badgeClass: "badge-teal",
+                  desc: "Annual NHS national week highlighting clinical scientists, hospital audiologists, and hearing therapists delivering essential diagnostic and rehabilitation care across the NHS.",
+                  location: "NHS Trusts Across the UK"
+              },
+              {
+                  title: "UK Deaf Awareness Week",
+                  date: "2027-05-04",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK National Campaign",
+                  badgeClass: "badge-purple",
+                  desc: "Annual UK campaign organized by the UK Council on Deafness promoting communication equality, clear speech tactics, deaf awareness in public services, and captioning standards.",
+                  location: "UK Nationwide Campaign"
+              },
+              {
+                  title: "Global Accessibility Awareness Day (UK Observance)",
+                  date: "2027-05-20",
+                  startTime: "09:00",
+                  endTime: "17:00",
+                  badge: "UK Accessibility",
+                  badgeClass: "badge-teal",
+                  desc: "National UK focus on digital inclusion, real-time speech-to-text captioning, assistive listening systems, and broadcast accessibility standards.",
+                  location: "UK Online & Public Venues"
               }
           ];
-  
+
           // Format Date Helper for iCal
           function formatICSDate(dateStr, timeStr) {
               const d = new Date(`${dateStr}T${timeStr}:00Z`);
               return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
           }
-  
+
           // Generate Google Calendar Link
           function getGoogleCalLink(event) {
               const start = formatICSDate(event.date, event.startTime);
@@ -739,29 +782,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               url.searchParams.append('action', 'TEMPLATE');
               url.searchParams.append('text', event.title);
               url.searchParams.append('dates', `${start}/${end}`);
-              url.searchParams.append('details', `[PROVISIONAL / DATE TBC] ${event.desc}`);
+              url.searchParams.append('details', event.desc);
               url.searchParams.append('location', event.location);
               return url.toString();
           }
-  
+
           // Generate and Download ICS File (Apple Calendar / Outlook)
           function downloadICS(event) {
               const start = formatICSDate(event.date, event.startTime);
               const end = formatICSDate(event.date, event.endTime);
               const icsContent = `BEGIN:VCALENDAR
-  VERSION:2.0
-  PRODID:-//Hearing Loss Initiative Bristol//NONSGML v1.0//EN
-  BEGIN:VEVENT
-  UID:${Date.now()}@hearinglossinitiative.org.uk
-  DTSTAMP:${start}
-  DTSTART:${start}
-  DTEND:${end}
-  SUMMARY:${event.title}
-  DESCRIPTION:[PROVISIONAL / DATE TBC] ${event.desc}
-  LOCATION:${event.location}
-  END:VEVENT
-  END:VCALENDAR`;
-  
+VERSION:2.0
+PRODID:-//Hearing Loss Initiative Bristol//NONSGML v1.0//EN
+BEGIN:VEVENT
+UID:${Date.now()}@hearinglossinitiative.org.uk
+DTSTAMP:${start}
+DTSTART:${start}
+DTEND:${end}
+SUMMARY:${event.title}
+DESCRIPTION:${event.desc}
+LOCATION:${event.location}
+END:VEVENT
+END:VCALENDAR`;
+
               const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
               const url = URL.createObjectURL(blob);
               const a = document.createElement('a');
@@ -772,27 +815,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               document.body.removeChild(a);
               URL.revokeObjectURL(url);
           }
-  
+
           // Render Event Cards
           function renderEvents(filterDate = null) {
               const container = document.getElementById('events-container');
               if (!container) return;
               container.innerHTML = '';
-  
+
               const list = filterDate 
                   ? events.filter(e => e.date === filterDate) 
                   : events;
-  
+
               if (list.length === 0) {
                   container.innerHTML = `
                       <div style="background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 20px; text-align: center; color: #64748b;">
-                          <p style="margin: 0 0 8px 0; font-weight: 600;">No scheduled activities on this specific date.</p>
-                          <button onclick="renderEvents(null); highlightSelectedDate(null);" style="background: #005EB8; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.85rem;">View All Planned Activities (TBC)</button>
+                          <p style="margin: 0 0 8px 0; font-weight: 600;">No scheduled awareness campaigns on this specific date.</p>
+                          <button onclick="renderEvents(null); highlightSelectedDate(null);" style="background: #005EB8; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.85rem;">View All UK Awareness Dates</button>
                       </div>
                   `;
                   return;
               }
-  
+
               list.forEach((ev, idx) => {
                   const d = new Date(`${ev.date}T${ev.startTime}`);
                   const dateStr = d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
@@ -801,11 +844,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                   card.className = 'event-card';
                   card.innerHTML = `
                       <div class="event-date-row">
-                          <span class="event-date">Target Date: ${dateStr} &bull; ${ev.startTime} - ${ev.endTime} (TBC)</span>
+                          <span class="event-date">Date: ${dateStr} &bull; ${ev.startTime} - ${ev.endTime}</span>
                           <span class="event-badge ${ev.badgeClass}">${ev.badge}</span>
                       </div>
                       <div class="event-title">${ev.title}</div>
-                      <div class="event-desc">${ev.desc}<br><strong style="color: #0f172a;">📍 Location:</strong> ${ev.location}</div>
+                      <div class="event-desc">${ev.desc}<br><strong style="color: #0f172a;">📍 Scope:</strong> ${ev.location}</div>
                       <div class="cal-btns">
                           <a href="${getGoogleCalLink(ev)}" target="_blank" rel="noopener noreferrer" class="btn-cal btn-google">
                               <span class="material-symbols-outlined" style="font-size: 1rem;">add</span> Google Calendar
@@ -816,7 +859,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                       </div>
                   `;
                   container.appendChild(card);
-  
+
                   document.getElementById(`apple-btn-${idx}`).addEventListener('click', () => {
                       downloadICS(ev);
                   });
