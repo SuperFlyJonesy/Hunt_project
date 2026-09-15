@@ -1914,6 +1914,11 @@ Back to Support Hub
               const author = formatUserName(msg.userName, false);
               const initial = msg.isRory ? "🛡️" : (msg.isBroadcast ? "📢" : author.charAt(0).toUpperCase());
               
+              let deleteBtn = "";
+              if (adminDashboardView && !adminDashboardView.classList.contains("hidden") && msg.id) {
+                  deleteBtn = `<button class="btn-admin-action btn-ban" style="margin-left: 6px; padding: 2px 6px; font-size: 0.7rem;" onclick="window.deleteChatMessage('${msg.id}')">🗑️</button>`;
+              }
+
               let timeStr = "";
               if (msg.timestamp) {
                   try {
@@ -1940,16 +1945,17 @@ Back to Support Hub
                   return;
               }
 
-              // Broadcast Card
+              // Broadcast Announcement (Compact centered notice)
               if (msg.isBroadcast) {
                   const bcastCard = document.createElement("div");
-                  bcastCard.style.cssText = "background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1.5px solid #f59e0b; border-radius: 14px; padding: 10px 14px; color: #92400e; font-size: 0.9rem; width: 100%; box-sizing: border-box; word-break: break-word;";
+                  bcastCard.className = "phone-bubble-announcement";
                   bcastCard.innerHTML = `
-                      <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.82rem; margin-bottom: 4px;">
+                      <div class="announcement-header">
                           <span>📢 Official Announcement &bull; ${escapeHtml(author)}</span>
+                          ${deleteBtn}
                       </div>
-                      <div>${escapeHtml(msg.text || "")}</div>
-                      <div style="font-size: 0.68rem; color: #b45309; text-align: right; margin-top: 4px;">${timeStr}</div>
+                      <div class="announcement-text">${escapeHtml(msg.text || "")}</div>
+                      <div class="announcement-time">${timeStr}</div>
                   `;
                   portalChatStream.appendChild(bcastCard);
                   return;
@@ -1962,11 +1968,6 @@ Back to Support Hub
               const authorPostCount = getUserMessageCount(msg.uid);
               const isGuestAuthor = msg.uid ? String(msg.uid).startsWith("guest-") : false;
               const authorMoniker = getUserMoniker(msg.uid, msg.userName, isGuestAuthor, authorPostCount);
-
-              let deleteBtn = "";
-              if (adminDashboardView && !adminDashboardView.classList.contains("hidden") && msg.id) {
-                  deleteBtn = `<button class="btn-admin-action btn-ban" style="margin-left: 6px; padding: 2px 6px; font-size: 0.7rem;" onclick="window.deleteChatMessage('${msg.id}')">🗑️</button>`;
-              }
 
               if (!isSelf) {
                   row.innerHTML = `
@@ -2001,10 +2002,6 @@ Back to Support Hub
           requestAnimationFrame(() => {
               if (portalChatStream) {
                   portalChatStream.scrollTop = portalChatStream.scrollHeight;
-                  const lastBubble = portalChatStream.lastElementChild;
-                  if (lastBubble) {
-                      lastBubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                  }
               }
           });
       }
@@ -2014,12 +2011,8 @@ Back to Support Hub
               setTimeout(() => {
                   if (portalChatStream) {
                       portalChatStream.scrollTop = portalChatStream.scrollHeight;
-                      const lastBubble = portalChatStream.lastElementChild;
-                      if (lastBubble) {
-                          lastBubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                      }
                   }
-              }, 250);
+              }, 150);
           });
       }
 
@@ -2036,16 +2029,12 @@ Back to Support Hub
           }
       };
 
-      // Leisure Pacing Cadence Cooldown on Send
+      // Leisure Pacing Cadence Cooldown on Send (2.5s relaxed pacing)
       function triggerLeisureCooldown() {
           isLeisureBreatherActive = true;
           if (btnPortalSend) btnPortalSend.disabled = true;
-          if (portalMsgInput) {
-              portalMsgInput.disabled = true;
-              portalMsgInput.placeholder = "Message posted! Take a leisurely breather...";
-          }
           if (leisureStatusText) {
-              leisureStatusText.textContent = "⏳ 5s Breather Pace...";
+              leisureStatusText.textContent = "⏳ 2.5s Breather Pace...";
               leisureStatusText.style.color = "#d97706";
           }
           if (leisureTimerContainer && leisureTimerFill) {
@@ -2054,7 +2043,7 @@ Back to Support Hub
               leisureTimerFill.style.width = "100%";
               
               requestAnimationFrame(() => {
-                  leisureTimerFill.style.transition = "width 5s linear";
+                  leisureTimerFill.style.transition = "width 2.5s linear";
                   leisureTimerFill.style.width = "0%";
               });
           }
@@ -2068,7 +2057,6 @@ Back to Support Hub
                       portalMsgInput.placeholder = isGuestSessionActive 
                           ? "Post a message in General chat..." 
                           : "Type a message at your own pace...";
-                      portalMsgInput.focus();
                   }
               }
               if (leisureStatusText) {
@@ -2076,7 +2064,7 @@ Back to Support Hub
                   leisureStatusText.style.color = "#059669";
               }
               if (leisureTimerContainer) leisureTimerContainer.style.display = "none";
-          }, 5000);
+          }, 2500);
       }
 
       // Chat Message Submission with Rory Bodyguard Inspection
@@ -2085,9 +2073,23 @@ Back to Support Hub
               e.preventDefault();
               if (isLeisureBreatherActive) return;
 
-              const text = portalMsgInput.value.trim();
+              const text = portalMsgInput ? portalMsgInput.value.trim() : "";
               const topic = currentTopic || "General";
-              if (!text || !currentActiveUser) return;
+              if (!text) return;
+
+              // Ensure an active session (guest fallback if unauthenticated)
+              if (!currentActiveUser) {
+                  currentActiveUser = {
+                      uid: "guest-" + Date.now(),
+                      displayName: "Guest Initiate",
+                      email: "guest@hearinglossinitiative.org.uk"
+                  };
+                  isGuestSessionActive = true;
+                  try {
+                      sessionStorage.setItem("hli_initiate_session", JSON.stringify(currentActiveUser));
+                  } catch (err) {}
+                  updateUIForLoggedIn(currentActiveUser, true);
+              }
 
               const uid = currentActiveUser.uid || "guest";
               const userName = formatUserName(currentActiveUser.displayName, isGuestSessionActive);
@@ -2141,7 +2143,7 @@ Back to Support Hub
                   };
                   portalMessages.push(roryMsg);
                   renderPortalChat();
-                  portalMsgInput.value = "";
+                  if (portalMsgInput) portalMsgInput.value = "";
                   return;
               }
 
@@ -2166,7 +2168,7 @@ Back to Support Hub
               portalMessages.push(localMsg);
               renderPortalChat();
 
-              portalMsgInput.value = "";
+              if (portalMsgInput) portalMsgInput.value = "";
               triggerLeisureCooldown();
 
               // Smoothly scroll the new message into view within the screen
@@ -2788,5 +2790,11 @@ Back to Support Hub
               }
           }
       });
+
+      // Always initialize chat listener and initial render immediately on load
+      checkGuestSession();
+      listenForChat();
+      renderPortalChat();
+      loadResources();
   </script>
 </BaseLayout>
