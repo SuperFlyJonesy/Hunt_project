@@ -137,10 +137,89 @@ function validateInitiateName(rawName) {
 
 function getBristolAnalytics() {
     const totalVisits = parseInt(localStorage.getItem('hli_total_visits') || '1', 10);
-    const registeredCount = parseInt(localStorage.getItem('hli_registered_count') || localStorage.getItem('totalHelped') || '0', 10);
+    let registeredMembers = [];
+    try {
+        registeredMembers = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
+    } catch (e) {
+        registeredMembers = [];
+    }
+    const storedCount = parseInt(localStorage.getItem('hli_registered_count') || localStorage.getItem('totalHelped') || '0', 10);
+    const registeredCount = Math.max(storedCount, registeredMembers.length);
     const founderOffset = parseInt(localStorage.getItem('hli_founder_offset') || '0', 10);
-    const remainingCount = Math.max(0, 62220 - registeredCount - founderOffset);
-    return { totalVisits, registeredCount, founderOffset, remainingCount };
+    const effectiveReached = Math.max(5, registeredCount + founderOffset);
+    const remainingCount = Math.max(0, 62220 - effectiveReached);
+    return { totalVisits, registeredCount, founderOffset, effectiveReached, remainingCount, registeredMembers };
+}
+
+function updateLiveBristolCounter() {
+    const stencilCount = document.getElementById('stencil-count');
+    const svgStencilText = document.getElementById('stencil-svg-text');
+
+    const stats = getBristolAnalytics();
+    const formattedWithSpan = stats.remainingCount.toLocaleString('en-GB').replace(/,/g, '<span class="small-comma">,</span>');
+    const formattedCommaStr = stats.remainingCount.toLocaleString('en-GB');
+
+    if (stencilCount) {
+        stencilCount.innerHTML = formattedWithSpan;
+        stencilCount.setAttribute('aria-label', `Estimated ${formattedCommaStr} Bristol adults still to reach`);
+    }
+    if (svgStencilText) {
+        svgStencilText.textContent = formattedCommaStr;
+    }
+}
+
+function animateCounterDownward(startVal, endVal, durationMs = 1500) {
+    const stencilCount = document.getElementById('stencil-count');
+    const svgStencilText = document.getElementById('stencil-svg-text');
+    const awaitingNumElem = document.getElementById('progress-awaiting-num');
+    if (!stencilCount && !svgStencilText) return;
+
+    // Set initial frame at startVal formatted with standard comma
+    const startSpan = startVal.toLocaleString('en-GB').replace(/,/g, '<span class="small-comma">,</span>');
+    const startComma = startVal.toLocaleString('en-GB');
+    if (stencilCount) stencilCount.innerHTML = startSpan;
+    if (svgStencilText) svgStencilText.textContent = startComma;
+    if (awaitingNumElem) awaitingNumElem.textContent = startComma;
+
+    let startTime = null;
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(1, elapsed / durationMs);
+
+        // Ease-out cubic: 1 - (1 - t)^3
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentVal = Math.round(startVal - (startVal - endVal) * easeOut);
+
+        const formattedSpan = currentVal.toLocaleString('en-GB').replace(/,/g, '<span class="small-comma">,</span>');
+        const formattedComma = currentVal.toLocaleString('en-GB');
+
+        if (stencilCount) {
+            stencilCount.innerHTML = formattedSpan;
+            stencilCount.setAttribute('aria-label', `Estimated ${formattedComma} Bristol adults still to reach`);
+        }
+        if (svgStencilText) {
+            svgStencilText.textContent = formattedComma;
+        }
+        if (awaitingNumElem) {
+            awaitingNumElem.textContent = formattedComma;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            const finalSpan = endVal.toLocaleString('en-GB').replace(/,/g, '<span class="small-comma">,</span>');
+            const finalComma = endVal.toLocaleString('en-GB');
+            if (stencilCount) stencilCount.innerHTML = finalSpan;
+            if (svgStencilText) svgStencilText.textContent = finalComma;
+            if (awaitingNumElem) awaitingNumElem.textContent = finalComma;
+        }
+    }
+
+    setTimeout(() => {
+        requestAnimationFrame(step);
+    }, 100);
 }
 
 function escapeHtml(str) {
@@ -208,13 +287,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 2. RETURNING USER BYPASS
-    const hasVisited = localStorage.getItem('hasVisitedHub');
+    const savedName = localStorage.getItem('hli_user_name') || localStorage.getItem('hli_remembered_name') || '';
+    const hasVisited = localStorage.getItem('hasVisitedHub') === 'true' || localStorage.getItem('hli_user_registered') === 'true' || Boolean(savedName);
     const prologue = document.getElementById('prologue-lockdown');
     
-    if (hasVisited === 'true' && prologue) {
+    if (hasVisited && prologue) {
         prologue.style.display = 'none';
         document.body.classList.remove('prologue-active');
-    } else {
+    } else if (prologue) {
         initPrologue();
     }
 
@@ -238,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const stencilCount = document.getElementById('stencil-count');
     const svgStencilText = document.getElementById('stencil-svg-text');
     if (stencilCount && svgStencilText) {
-        svgStencilText.textContent = stencilCount.textContent.trim() || '62220';
+        svgStencilText.textContent = stencilCount.textContent.trim() || '62,220';
         const stencilObserver = new MutationObserver(() => {
             svgStencilText.textContent = stencilCount.textContent.trim();
         });
@@ -263,27 +343,92 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Initialize Bristol Count from persistent analytics for landing page stencil with live server sync
-    if (stencilCount) {
-        const stats = getBristolAnalytics();
-        stencilCount.innerHTML = stats.remainingCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
-        stencilCount.setAttribute('aria-label', `Estimated ${stats.remainingCount.toLocaleString()} Bristol adults still to reach`);
+    updateLiveBristolCounter();
 
-        // Fetch server-backed counter asynchronously
-        fetch('/api/counter')
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && typeof data.remaining === 'number') {
-                    const serverRem = Math.max(0, data.remaining);
-                    localStorage.setItem('hli_server_remaining', serverRem.toString());
-                    stencilCount.innerHTML = serverRem.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
-                    stencilCount.setAttribute('aria-label', `Estimated ${serverRem.toLocaleString()} Bristol adults still to reach`);
-                }
-            })
-            .catch(err => {
-                // Graceful fallback to cached analytics if server offline
-                console.log('[HLI Counter] Running in offline / local cache mode.');
-            });
+    // Fetch server-backed counter asynchronously if available
+    fetch('/api/counter')
+        .then(res => res.ok ? res.json() : null)
+        .then(data => {
+            if (data && typeof data.remaining === 'number') {
+                const serverRem = Math.max(0, data.remaining);
+                localStorage.setItem('hli_server_remaining', serverRem.toString());
+                updateLiveBristolCounter();
+            }
+        })
+        .catch(() => {
+            // Offline / local cache fallback
+        });
+
+    // 5. RETURNING USER DIRECT PATHWAYS ON LANDING PAGE
+    function initLandingPageReturningUser() {
+        const storedName = localStorage.getItem('hli_user_name') || localStorage.getItem('hli_remembered_name') || '';
+        const isUserRegistered = localStorage.getItem('hli_user_registered') === 'true' || localStorage.getItem('hasVisitedHub') === 'true' || Boolean(storedName);
+        const pathwaysContainer = document.getElementById('pathways-container');
+        const introBlock = document.getElementById('intro-block');
+
+        // Pre-fill remembered sign-in name only into login/registration inputs
+        if (userNameInput && storedName) {
+            userNameInput.value = storedName;
+        }
+
+        // If user has visited/logged in once, provide direct access to Your Journey, Initiate Portal (middle), and Support
+        if (isUserRegistered && pathwaysContainer) {
+            const stats = getBristolAnalytics();
+            const targetCount = stats.remainingCount; // 62,215
+            const reachedCount = (62220 - targetCount).toLocaleString('en-GB');
+            const awaitingFormatted = targetCount.toLocaleString('en-GB');
+
+            // Remove any legacy separate welcome bar so text never covers the stencil numbers
+            const existingBar = document.getElementById('welcome-back-bar');
+            if (existingBar) {
+                existingBar.remove();
+            }
+
+            // Animate primary counter downward on page load from baseline 62,220 to 62,215 using ease-out
+            animateCounterDownward(62220, targetCount, 1500);
+
+            const displayName = storedName ? escapeHtml(storedName) : 'Initiate Supporter';
+
+            // Replace text with unified single-line progress copy and user welcome
+            const officialText = introBlock ? introBlock.querySelector('.official-text') : null;
+            if (officialText) {
+                officialText.classList.add('returning-official-text');
+                officialText.innerHTML = `
+                    <div class="signed-in-progress-block signed-in-single-line-block">
+                        <p class="signed-in-single-line">
+                            <span class="welcome-segment"><span class="welcome-wave" aria-hidden="true">👋</span> Welcome back, <strong class="welcome-name">${displayName}</strong></span>
+                            <span class="inline-bullet" aria-hidden="true">&bull;</span>
+                            <span class="awaiting-segment">Bristol adults awaiting support: <strong class="progress-number" id="progress-awaiting-num">${awaitingFormatted}</strong></span>
+                            <span class="inline-bullet" aria-hidden="true">&bull;</span>
+                            <span class="reached-segment"><strong class="progress-number">${reachedCount}</strong> people reached so far from the <strong class="progress-total">62,220</strong> total.</span>
+                        </p>
+                    </div>
+                `;
+            }
+
+            // Direct access buttons in order: Your Journey (left), Initiate Portal (middle), Support (right)
+            pathwaysContainer.classList.add('returning-user-pathways');
+            pathwaysContainer.innerHTML = `
+                <div class="pathway pathway-yes">
+                    <a href="/path-yes" class="cta-button btn-yes" id="cta-journey-direct">
+                        Your Journey
+                    </a>
+                </div>
+                <div class="pathway pathway-portal">
+                    <a href="/portal" class="cta-button btn-portal-direct" id="cta-portal-direct">
+                        Initiate Portal
+                    </a>
+                </div>
+                <div class="pathway pathway-support">
+                    <a href="/path-support" class="cta-button btn-support" id="cta-support-direct">
+                        Support
+                    </a>
+                </div>
+            `;
+        }
     }
+
+    initLandingPageReturningUser();
 
     // Modal & Pathway Handling
     if(ctaYes) {
@@ -292,6 +437,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 modal.classList.add('active');
                 if (nameValMsg) { nameValMsg.style.display = 'none'; nameValMsg.textContent = ''; }
                 if (userNameInput) {
+                    const remembered = localStorage.getItem('hli_user_name') || localStorage.getItem('hli_remembered_name') || '';
+                    if (remembered) userNameInput.value = remembered;
                     userNameInput.classList.remove('input-error');
                     setTimeout(() => userNameInput.focus(), 150);
                 }
@@ -317,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // REGISTRATION SUBMISSION LOGIC (Only decrements on valid name submission)
+    // REGISTRATION SUBMISSION LOGIC (Decrements on valid name submission and remembers sign-in name)
     window.handleRegistrationSubmission = function(submittedName) {
         const mainNumber = document.getElementById('stencil-count');
         const actionPanel = document.getElementById('bottom-action-panel');
@@ -339,6 +486,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 introBlock.style.transform = 'translateY(10px)';
             }
 
+            const enteredName = submittedName || 'Initiate Member';
+
+            // Remember sign-in name only and mark as registered
+            localStorage.setItem('hli_user_name', enteredName);
+            localStorage.setItem('hli_remembered_name', enteredName);
+            localStorage.setItem('hli_user_registered', 'true');
+            localStorage.setItem('hasVisitedHub', 'true');
+
             // Increment registered count only now that a name is successfully logged
             let stats = getBristolAnalytics();
             let newRegistered = stats.registeredCount + 1;
@@ -358,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         mainNumber.innerHTML = formattedJumble;
                     } else {
                         clearInterval(jumbleInterval);
-                        mainNumber.innerHTML = finalCount.toLocaleString().replace(/,/g, '<span class="small-comma">,</span>');
+                        updateLiveBristolCounter();
                         mainNumber.classList.remove('soft-pulse');
                         void mainNumber.offsetWidth; // Force reflow
                         mainNumber.classList.add('soft-pulse');
@@ -366,7 +521,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 45);
             }
 
-            const enteredName = submittedName || 'Initiate Member';
             let registeredMembers = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
             const isFirst10 = registeredMembers.length < 10;
             registeredMembers.push({
@@ -378,7 +532,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             localStorage.setItem('hli_registered_members', JSON.stringify(registeredMembers));
             localStorage.setItem('registeredMembers', JSON.stringify(registeredMembers));
-            localStorage.setItem('hasVisitedHub', 'true');
 
             const nameGreeting = enteredName ? `, ${enteredName}` : '';
 

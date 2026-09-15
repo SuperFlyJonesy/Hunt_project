@@ -127,10 +127,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </svg>
         <span>Instagram</span>
       </a>
-      <a href="/path-join-us" class="hli-social-pill pill-community" title="Join the Initiative" aria-label="Join the Initiative">
-        <span class="material-symbols-outlined" style="font-size:16px;">volunteer_activism</span>
-        <span>Join Us</span>
-      </a>
       <a
         href="https://www.linkedin.com/company/hearing-loss-initiative/"
         target="_blank"
@@ -159,14 +155,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </radialGradient>
         <mask id="stencil-cutout-mask">
           <rect width="100%" height="100%" fill="white" />
-          <text id="stencil-svg-text" class="stencil-svg-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">62220</text>
+          <text id="stencil-svg-text" class="stencil-svg-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">62,220</text>
         </mask>
       </defs>
       <rect width="100%" height="100%" fill="url(#prologue-mask-grad)" mask="url(#stencil-cutout-mask)" />
     </svg>
 
     <div id="main-content" class="mask-overlay-accessible" role="region" aria-label="Bristol Outreach Goal Countdown">
-      <h1 class="stencil-layer visually-hidden" id="stencil-count" aria-live="polite" aria-atomic="true" aria-label="Estimated 62,220 Bristol adults still to reach">62220</h1>
+      <h1 class="stencil-layer visually-hidden" id="stencil-count" aria-live="polite" aria-atomic="true" aria-label="Estimated 62,220 Bristol adults still to reach">62,220</h1>
     </div>
 
     <div class="content-layer" id="content-layer">
@@ -179,9 +175,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               and
               <a href="https://rnid.org.uk/about-us/research-and-policy/facts-and-figures/" target="_blank" rel="noopener noreferrer" class="citation-link">National RNID Statistics &#8599;</a>
               indicate&nbsp;that<br />
-              <strong class="stat-num">62<span class="small-comma">,</span>220</strong> adults in
-              <strong style="font-weight: 900; color: #ffffff;">Bristol</strong> currently live with some form of
-              <strong style="font-weight: 900; color: #ffffff;">hearing loss</strong>.
+              <strong class="stat-num" id="stat-num-text">62<span class="small-comma">,</span>220</strong> adults in
+              <strong style="font-weight: 900; color: #ffffff;">Bristol</strong> currently live with some form of&nbsp;<strong style="font-weight: 900; color: #ffffff;">hearing loss</strong>.
             </em>
           </p>
 
@@ -191,7 +186,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </p>
           </noscript>
 
-          <div class="pathways-container">
+          <div class="pathways-container" id="pathways-container">
             <div class="pathway pathway-yes">
               <h3>Are you one of the 62,220?</h3>
               <button class="cta-button btn-yes" id="cta-yes">Yes</button>
@@ -219,17 +214,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <h2 id="modal-title" style="color: white; font-size: 2rem; margin-top: 0; margin-bottom: 8px; text-align: center;">
         Join the Initiative
       </h2>
-      <p style="color: #cbd5e1; text-align: center; margin-bottom: 16px; font-size: 1rem; line-height: 1.45;">
-        Connect with the Bristol network &amp; unlock access to the <strong style="color: #38bdf8;">Initiate Portal</strong> and peer network.
+      <p style="color: #cbd5e1; text-align: center; margin-bottom: 22px; font-size: 1rem; line-height: 1.45;">
+        Connect with the Bristol network &amp; unlock access to the <strong style="color: #38bdf8;">Initiate Portal</strong>, live chat, and peer meetups.
       </p>
-
-      <!-- Initiate Portal Perk Tag -->
-      <div style="background: rgba(0, 94, 184, 0.2); border: 1px solid rgba(0, 164, 239, 0.35); border-radius: 12px; padding: 10px 14px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; text-align: left;">
-        <span class="material-symbols-outlined" style="color: #38bdf8; font-size: 1.35rem; flex-shrink: 0;">badge</span>
-        <div style="font-size: 0.84rem; color: #cbd5e1; line-height: 1.35;">
-          <strong style="color: #ffffff;">Initiate Portal Included:</strong> Signing in lets you access live chat, venue reviews, and peer meetups.
-        </div>
-      </div>
 
       <form id="registration-form" novalidate>
         <div style="margin-bottom: 4px; text-align: left;">

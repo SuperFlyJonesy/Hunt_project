@@ -1131,6 +1131,33 @@
           if (loggedOutView) loggedOutView.classList.add("hidden");
           if (loggedInView) loggedInView.classList.remove("hidden");
 
+          // Remember sign-in name only and synchronize registered member analytics
+          if (userData && userData.displayName) {
+              const cleanName = formatUserName(userData.displayName, isGuest);
+              if (cleanName && cleanName !== "Guest Initiate") {
+                  try {
+                      localStorage.setItem('hli_user_name', cleanName);
+                      localStorage.setItem('hli_remembered_name', cleanName);
+                      localStorage.setItem('hli_user_registered', 'true');
+                      localStorage.setItem('hasVisitedHub', 'true');
+
+                      let regMembers = JSON.parse(localStorage.getItem('hli_registered_members') || localStorage.getItem('registeredMembers') || '[]');
+                      if (!regMembers.some(m => m.name === cleanName)) {
+                          regMembers.push({
+                              name: cleanName,
+                              tier: 'Portal Member',
+                              date: new Date().toLocaleDateString('en-GB'),
+                              time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                          });
+                          localStorage.setItem('hli_registered_members', JSON.stringify(regMembers));
+                          localStorage.setItem('registeredMembers', JSON.stringify(regMembers));
+                          const currentCount = parseInt(localStorage.getItem('hli_registered_count') || '0', 10);
+                          localStorage.setItem('hli_registered_count', Math.max(currentCount, regMembers.length).toString());
+                      }
+                  } catch (e) {}
+              }
+          }
+
           if (dbStatus) {
               dbStatus.textContent = isGuest ? "● Guest session: General Access Only" : "● Profile synchronised with database";
           }
@@ -1197,8 +1224,18 @@
                   updateUIForLoggedIn(parsed, true);
                   return true;
               }
+              const rememberedName = localStorage.getItem("hli_user_name") || localStorage.getItem("hli_remembered_name");
+              if (rememberedName) {
+                  const autoSession = {
+                      uid: "user-" + rememberedName.toLowerCase().replace(/[^a-z0-9]/g, ""),
+                      displayName: rememberedName,
+                      email: ""
+                  };
+                  updateUIForLoggedIn(autoSession, false);
+                  return true;
+              }
           } catch (e) {
-              console.warn("Guest session read error:", e);
+              console.warn("Guest/remembered session read error:", e);
           }
           return false;
       }
