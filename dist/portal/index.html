@@ -1132,8 +1132,9 @@
           if (loggedInView) loggedInView.classList.remove("hidden");
 
           // Remember sign-in name only and synchronize registered member analytics
-          if (userData && userData.displayName) {
-              const cleanName = formatUserName(userData.displayName, isGuest);
+          if (userData) {
+              const rawDisplayName = userData.displayName || (userData.email ? userData.email.split('@')[0] : '') || '';
+              const cleanName = formatUserName(rawDisplayName, isGuest);
               if (cleanName && cleanName !== "Guest Initiate") {
                   try {
                       localStorage.setItem('hli_user_name', cleanName);
