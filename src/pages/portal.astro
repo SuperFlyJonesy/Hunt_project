@@ -631,18 +631,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
 
     @media (max-width: 768px) {
-        #hli-logo.about-logo-top {
-            height: 36px;
-            top: 12px;
-            left: 12px;
+        .container {
+            padding: 20px 12px 60px 12px;
         }
-        
+        #hli-logo.about-logo-top {
+            height: 40px;
+        }
+        .portal-card {
+            padding: 18px 14px;
+        }
+        .auth-hero-box {
+            padding: 24px 16px;
+        }
         .portal-tabs-nav {
             padding: 4px;
+            gap: 6px;
         }
         .portal-tab-btn {
             padding: 8px 12px;
             font-size: 0.85rem;
+            touch-action: manipulation;
         }
     }
   </style>
@@ -1763,11 +1771,7 @@ Back to Support Hub
 
       // Switch Topic Function
       function switchTopic(topicName) {
-          if (isGuestSessionActive && topicName !== "General") {
-              alert("Guest initiates can only participate in General chat. Sign in with Google to access specialized channels.");
-              return;
-          }
-
+          if (!topicName) return;
           currentTopic = topicName;
           if (portalTopicSelect) portalTopicSelect.value = topicName;
 
@@ -1775,6 +1779,8 @@ Back to Support Hub
           topicChannelBtns.forEach(b => {
               if (b.getAttribute("data-topic") === topicName) {
                   b.classList.add("active");
+                  // Smoothly center the active topic pill in the mobile scrollbar
+                  b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
               } else {
                   b.classList.remove("active");
               }
@@ -1796,11 +1802,18 @@ Back to Support Hub
 
       // Side Topic Buttons Click Listeners
       topicChannelBtns.forEach(btn => {
-          btn.addEventListener("click", () => {
+          btn.addEventListener("click", (e) => {
+              e.preventDefault();
               const topic = btn.getAttribute("data-topic");
               if (topic) switchTopic(topic);
           });
       });
+
+      if (portalTopicSelect) {
+          portalTopicSelect.addEventListener("change", (e) => {
+              switchTopic(e.target.value);
+          });
+      }
 
       // Quick Emoji Picker Buttons
       emojiBtns.forEach(btn => {
@@ -1875,16 +1888,18 @@ Back to Support Hub
           portalChatStream.innerHTML = "";
 
           const currentUid = currentActiveUser ? (currentActiveUser.uid || "guest") : "guest";
+          const normalizedCurrent = (currentTopic || "General").toLowerCase().trim();
 
           // Filter messages for the active topic or global announcements / interventions
           const filteredMessages = portalMessages.filter(msg => {
               if (msg.isRory || msg.isBroadcast) return true;
-              return (msg.topic || "General") === currentTopic;
+              const msgTopic = (msg.topic || "General").toLowerCase().trim();
+              return msgTopic === normalizedCurrent;
           });
 
           if (filteredMessages.length === 0) {
               const emptyCard = document.createElement("div");
-              emptyCard.style.cssText = "text-align: center; color: #94a3b8; font-size: 0.88rem; padding: 40px 14px; line-height: 1.5;";
+              emptyCard.style.cssText = "text-align: center; color: #94a3b8; font-size: 0.88rem; padding: 40px 14px; line-height: 1.5; width: 100%; box-sizing: border-box;";
               emptyCard.innerHTML = `
                   <div style="font-size: 2rem; margin-bottom: 8px;">☕</div>
                   <strong>Welcome to #${escapeHtml(currentTopic)}</strong><br>
@@ -1928,7 +1943,7 @@ Back to Support Hub
               // Broadcast Card
               if (msg.isBroadcast) {
                   const bcastCard = document.createElement("div");
-                  bcastCard.style.cssText = "background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1.5px solid #f59e0b; border-radius: 14px; padding: 10px 14px; color: #92400e; font-size: 0.9rem;";
+                  bcastCard.style.cssText = "background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1.5px solid #f59e0b; border-radius: 14px; padding: 10px 14px; color: #92400e; font-size: 0.9rem; width: 100%; box-sizing: border-box; word-break: break-word;";
                   bcastCard.innerHTML = `
                       <div style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.82rem; margin-bottom: 4px;">
                           <span>📢 Official Announcement &bull; ${escapeHtml(author)}</span>
@@ -1983,7 +1998,29 @@ Back to Support Hub
               portalChatStream.appendChild(row);
           });
 
-          portalChatStream.scrollTop = portalChatStream.scrollHeight;
+          requestAnimationFrame(() => {
+              if (portalChatStream) {
+                  portalChatStream.scrollTop = portalChatStream.scrollHeight;
+                  const lastBubble = portalChatStream.lastElementChild;
+                  if (lastBubble) {
+                      lastBubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                  }
+              }
+          });
+      }
+
+      if (portalMsgInput) {
+          portalMsgInput.addEventListener("focus", () => {
+              setTimeout(() => {
+                  if (portalChatStream) {
+                      portalChatStream.scrollTop = portalChatStream.scrollHeight;
+                      const lastBubble = portalChatStream.lastElementChild;
+                      if (lastBubble) {
+                          lastBubble.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }
+                  }
+              }, 250);
+          });
       }
 
       window.deleteChatMessage = async function(msgId) {
@@ -2061,12 +2098,6 @@ Back to Support Hub
                   return;
               }
 
-              // Check guest restriction
-              if (isGuestSessionActive && topic !== "General") {
-                  alert("Guest initiates are limited to posting in General chat.");
-                  return;
-              }
-
               // Rory Guardian Bodyguard Profanity & Hate Speech Check
               const hasProfanity = evaluateMessageProfanity(text);
               if (hasProfanity) {
@@ -2123,12 +2154,34 @@ Back to Support Hub
               });
               renderAdminUsers();
 
-              // Post Valid Message
+              // Optimistically post message locally immediately so reply is 100% visible on screen
+              const localMsg = {
+                  id: "msg-" + Date.now(),
+                  uid: uid,
+                  userName: userName,
+                  text: text,
+                  topic: topic,
+                  timestamp: new Date()
+              };
+              portalMessages.push(localMsg);
+              renderPortalChat();
+
               portalMsgInput.value = "";
               triggerLeisureCooldown();
 
+              // Smoothly scroll the new message into view within the screen
+              setTimeout(() => {
+                  if (portalChatStream) {
+                      portalChatStream.scrollTop = portalChatStream.scrollHeight;
+                      const lastRow = portalChatStream.lastElementChild;
+                      if (lastRow) {
+                          lastRow.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                      }
+                  }
+              }, 40);
+
               try {
-                  const docRef = await addDoc(collection(db, "chat_messages"), {
+                  await addDoc(collection(db, "chat_messages"), {
                       uid: uid,
                       userName: userName,
                       text: text,
@@ -2136,16 +2189,7 @@ Back to Support Hub
                       timestamp: serverTimestamp()
                   });
               } catch (err) {
-                  console.warn("Firestore fallback to local stream:", err);
-                  portalMessages.push({
-                      id: "local-" + Date.now(),
-                      uid: uid,
-                      userName: userName,
-                      text: text,
-                      topic: topic,
-                      timestamp: new Date()
-                  });
-                  renderPortalChat();
+                  console.warn("Firestore background sync note (message already visible locally):", err);
               }
           });
       }
@@ -2154,22 +2198,37 @@ Back to Support Hub
           try {
               const q = query(collection(db, "chat_messages"), orderBy("timestamp", "asc"));
               onSnapshot(q, (snapshot) => {
-                  portalMessages = [];
-                  snapshot.forEach((docSnap) => {
-                      const data = docSnap.data();
-                      portalMessages.push({
-                          id: docSnap.id,
-                          ...data
-                      });
-                      if (data.uid) {
-                          knownUsers.set(data.uid, {
-                              uid: data.uid,
-                              displayName: formatUserName(data.userName, data.uid.startsWith("guest-")),
-                              email: data.email || "",
-                              isGuest: data.uid.startsWith("guest-")
+                  if (!snapshot.empty) {
+                      const remoteMsgs = [];
+                      snapshot.forEach((docSnap) => {
+                          const data = docSnap.data();
+                          remoteMsgs.push({
+                              id: docSnap.id,
+                              ...data
                           });
-                      }
-                  });
+                          if (data.uid) {
+                              knownUsers.set(data.uid, {
+                                  uid: data.uid,
+                                  displayName: formatUserName(data.userName, data.uid.startsWith("guest-")),
+                                  email: data.email || "",
+                                  isGuest: data.uid.startsWith("guest-")
+                              });
+                          }
+                      });
+                      // Preserve any local unconfirmed messages
+                      const pendingLocal = portalMessages.filter(m => m.id && m.id.startsWith("msg-") && !remoteMsgs.some(r => r.text === m.text && r.uid === m.uid));
+                      portalMessages = [...remoteMsgs, ...pendingLocal];
+                  } else if (portalMessages.length === 0) {
+                      portalMessages = [
+                          {
+                              id: "init-1",
+                              userName: "Bristol Initiate Team",
+                              topic: "General",
+                              text: "Welcome to the Bristol Initiate Portal chat! Share venue findings and acoustic reviews freely.",
+                              timestamp: new Date()
+                          }
+                      ];
+                  }
                   renderPortalChat();
                   renderAdminUsers();
               }, (error) => {
@@ -2180,7 +2239,8 @@ Back to Support Hub
                               id: "init-1",
                               userName: "Bristol Initiate Team",
                               topic: "General",
-                              text: "Welcome to the Bristol Initiate Portal chat! Share venue findings and acoustic reviews freely."
+                              text: "Welcome to the Bristol Initiate Portal chat! Share venue findings and acoustic reviews freely.",
+                              timestamp: new Date()
                           }
                       ];
                       renderPortalChat();
